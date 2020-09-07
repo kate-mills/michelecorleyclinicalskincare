@@ -22,7 +22,7 @@ const Video = ({ src, title, ...props }) => {
 
 const IframeVideoWrapper = styled.div`
   width: 50vw;
-  max-width: 700px;
+  max-width: 500px;
 
   .video {
     overflow: hidden;
