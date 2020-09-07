@@ -11,7 +11,7 @@ const Serums = ({ data }) => {
   return (
     <PageModel
       title="Serums & Specialty"
-      defaultTitle
+      centeredTitle
       description={`Sometimes skin needs an extra dose of nourishment. Our serums, facial oils and specialty products provide just that; a correcting, protecting and evening out unbalanced skin. They give the skin a strong foundation to be its most beautiful, healthy self. Any type of issue, from sun-damage, aging or acne-prone conditions don't have a chance against these powerhouse treatments.`}
     >
       <SerumsWrapper>
@@ -36,7 +36,7 @@ const Serums = ({ data }) => {
 }
 const SerumsWrapper = styled.div`
   & {
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

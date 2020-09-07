@@ -11,7 +11,7 @@ const Exfoliants = ({ data }) => {
   return (
     <PageModel
       title="Exfoliants"
-      defaultTitle
+      centeredTitle
       description={`Michele Corley Clinical Skincare exfoliants help clear away all traces of debris and build up on the skin that can lead to fine lines and wrinkles, uneven skin tone and clogged pores.`}>
       <ExfoliantsWrapper>
         <p className="description">
@@ -29,7 +29,7 @@ const Exfoliants = ({ data }) => {
 }
 const ExfoliantsWrapper = styled.div`
   & {
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

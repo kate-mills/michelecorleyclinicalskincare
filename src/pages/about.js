@@ -15,7 +15,7 @@ const About = ({data}) => {
         <div className="flexItem col" style={{margin: "0 auto" }}>
           <div className="innerFlexContainer">
             <h1>My Philosophy</h1>
-            <div className="flexItem innerFlexItem">
+            <div className="innerFlexItem">
               <p className="text">
                 is simple, to provide healthy, effective skincare with exemplary
                 customer service. I believe in treating my clients' success as
@@ -48,11 +48,11 @@ const About = ({data}) => {
           </div>
         </div>
 
-        <div className="flexItem col" style={{margin: "0 auto" }}>
+        <div className="col" style={{margin: "0 auto" }}>
           <div className="innerFlexContainer">
             <h2 >Meet Michele Corley</h2>
             <Image fluid={data.allFile.nodes[0].childImageSharp.fluid} alt="Portrait of Michele Corley in a red floral blouse."/>
-            <div className="flexItem">
+            <div className="">
               <p className="text tiny" style={{ margin: "0 auto", fontSize: "12px", lineHeight: "27px", paddingBlockStart: "10px", paddingBlockEnd: "10px", paddingInlineStart: "15px", paddingInlineEnd: "unset"  }}>
                 Michele is a licensed esthetician and creative visionary behind
                 every Michele Corley Clinical Skincare product. She is deeply
@@ -89,17 +89,22 @@ const AboutWrapper = styled.section`
   & .flexItem { box-sizing: border-box; white-space:initial;  }
   & h1 {
     text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   & h2 { 
    font-style: normal;
+   font-size: 20px;
    text-align: center;
    margin-top: unset;
    white-space: break-spaces;
+   margin-top: 40px;
   }
   & h2.italic{
     font-style: italic;
     text-align: left;
     padding-left: 10%;
+    margin-top: unset;
   }
   & p {padding-left: 5px; white-space: initial;}
   & p.text{
@@ -109,10 +114,14 @@ const AboutWrapper = styled.section`
     margin: 0 auto;
     text-align: left;
     font-weight: 300;
-    color: #5c5c5c; 
+    color: var(--mainBlack); 
     font-size: 16px;
     line-height: 27px;
     white-space: pre-line;
+  }
+  & p.text:last-of-type{padding-bottom: 0;}
+  & .flexItem .col{
+    background: red;
   }
   ${screen.minmax.narrow` & { flex-wrap: wrap; } & img {height: auto;}`}
   ${screen.minmax.wide`
@@ -122,6 +131,7 @@ const AboutWrapper = styled.section`
       align-items: flex-start;
       justify-content: space-evenly;
     }
+    & h1{color: var(--mainBlack);}
     & .col:nth-child(1) { padding-right: 30px;}
     & .col:nth-child(2) { padding-left: 30px;}
   `}

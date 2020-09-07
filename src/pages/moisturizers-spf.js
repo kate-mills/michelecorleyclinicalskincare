@@ -11,7 +11,7 @@ const Moisturizers = ({ data }) => {
   return (
     <PageModel
       title="Moisturizers & SPF"
-      defaultTitle
+      centeredTitle
       description={`Whether concerned about slowing the look of aging, keeping skin properly hydrated or protecting it from UV exposure, we have a moisturizer for every skin type - and every season.`}>
       <MoisturizersWrapper>
         <p className="description">
@@ -28,7 +28,7 @@ const Moisturizers = ({ data }) => {
 }
 const MoisturizersWrapper = styled.div`
   & {
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

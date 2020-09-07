@@ -11,7 +11,7 @@ const Cleansers = ({ data }) => {
   return (
     <PageModel
       title={`Cleansers`}
-      defaultTitle
+      centeredTitle
       description={`Whether skin is dry, normal, oily or in between, Michele Corley Clinical Skin Care has a cleanser for every type. Our cleansers are gentle enough for the most sensitive or Rosacea prone skin, and relieve congestion by keeping skin flawlessly clean.`}
     >
       <CleansersWrapper>
@@ -39,7 +39,8 @@ const CleansersWrapper = styled.div`
     text-align: left;
     box-sizing: border-box;
   }
-  & p.description{ margin-bottom: 0; padding-bottom: 0; }
+
+  & p.description{ margin-bottom: 0; padding-bottom: 0;text-align: center; color: var(--mainBlack); }
 `
 
 export const query = graphql`

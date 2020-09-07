@@ -11,7 +11,7 @@ const Masks = ({ data }) => {
   return (
     <PageModel
       title="Masks"
-      defaultTitle
+      centeredTitle
       description={`Michele Corley Clinical Skincare masks help clarify and balance the skin, while offering a unique way to customize and tailor treatments to the specific needs of your clients.`}>
       <MasksWrapper>
         <p className="description">
@@ -29,7 +29,7 @@ const Masks = ({ data }) => {
 }
 const MasksWrapper = styled.div`
   & {
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

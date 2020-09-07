@@ -11,7 +11,7 @@ const Toners = ({ data }) => {
   return (
     <PageModel
       title="Toners"
-      defaultTitle
+      centeredTitle
       description={`Michele Corley Clinical Skincare toners provide a super-boost to the cleansing process to help clear away congestion and debris while giving the skin a nice drink of replenishing hydration.`}
     >
       <PageWrapper>
@@ -19,7 +19,7 @@ const Toners = ({ data }) => {
           Our toners provide a{" "}
           <span className="bold">super-boost to the cleansing process</span> to
           help clear away congestion and debris while giving the skin a nice
-          drink of <span className="bold">replenishing hydration</span>.
+          drink of replenishing hydration.
         </p>
         <ProductList products={data.products} />
       </PageWrapper>
@@ -37,7 +37,7 @@ const PageWrapper = styled.div`
     text-align: left;
     box-sizing: border-box;
   }
-  & p.description{ margin-bottom: 0; padding-bottom: 0; }
+  & p.description{ text-align: center; color: var(--mainBlack); margin-bottom: 0; padding-bottom: 0; }
 `
 
 export const query = graphql`

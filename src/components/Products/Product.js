@@ -20,7 +20,6 @@ const Product = ({ product }) => {
         })}
       </p>
       <p className="product-description">{description.description}</p>
-
       <div className="product-media">
         <div className="fifty"><Image fixed={product.imgRetail.fixed}/></div>
         {

@@ -11,7 +11,7 @@ const Moisturizers = ({ data }) => {
   return (
     <PageModel
       title="Eyes & Lips"
-      defaultTitle
+      centeredTitle
       description={`Accentuate your best features with this trio of results-driven eye and lip treatments that target specific concerns. Skin is resculpted while youthful looking contours and firmness are revived.`}
     >
       <CleansersWrapper>
@@ -29,7 +29,7 @@ const Moisturizers = ({ data }) => {
 
 const CleansersWrapper = styled.div`
   & {
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

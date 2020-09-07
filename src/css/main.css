@@ -1,7 +1,7 @@
 /*@import url("https://use.typekit.net/hwt7dfz.css");*/
 
 :root {
-  --poppy: #fc3c3a;
+  --poppy: #f24b3d;
   --mccAltPink: #e55b54;
   --primaryColor: #ff665e;
   --mainMcc: #dcdcdc;
@@ -75,7 +75,7 @@ h1 {
     letter-spacing: var(--mainSpacing);
     display: block;
     /*margin: 1em 0 .3em;*/
-    margin: 0 .3em;
+    margin: 20px .3em;
     line-height: 54px;
     white-space: break-spaces;
 }
@@ -86,11 +86,12 @@ h1.pink-h1{
   font-size: 35px;
   line-height: 44px;
   color: var(--poppy);
+  margin: 20px auto;
 }
 h1.with-padding{
     font-color: var(--mainBlack);
   font-family: var(--mainFont);
-  margin: 10px auto 20px auto;
+  margin: 20px auto 20px auto;
   border-radius: 10px;
   padding: 1rem 1rem 1rem;
   color: var(--poppy);
@@ -98,7 +99,7 @@ h1.with-padding{
 h2, h3, h4, h5, h6 {
     margin: .5em 0 .3em;
     font-weight: 200;
-    color: var(--mainBlack) !important;
+    color: var(--mainBlack);
 }
 h2, h3{
   color: var(--poppy);
@@ -151,7 +152,10 @@ p {
   padding: 0 0 1.8em;
   white-space: pre-wrap;
   font-family: var(--mainFont);
-  color: var(--textColor);
+  color: var(--mainBlack);
+}
+p.description{
+  text-align: center;
 }
 .bold {font-weight: 600;}
 .btn {
