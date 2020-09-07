@@ -2,8 +2,9 @@ import React from "react"
 import styled from "styled-components"
 
 const Title = ({ className, title, center }) => {
-  let heading = (<h1 className={className}>{title}</h1>)
-  let centeredHeading = (<h1 style={{margin:"0 auto", textAlign: "center"}}className={className}>{title}</h1>)
+  console.log('title', title)
+  let heading = (<h1 style={{marginTop: "0"}}className={className}>{title}</h1>)
+  let centeredHeading = (<h1 style={{margin:"20px auto", textAlign: "center"}}className={className}>{title}</h1>)
   return (
     (center===true) ? centeredHeading : heading
   )

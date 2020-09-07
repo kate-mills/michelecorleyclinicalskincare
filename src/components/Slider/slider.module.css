@@ -7,7 +7,6 @@
 }
 .fade__in__out{
   opacity: 1;
-  border-radius: 750px;
 	animation-name: fadeInOutOpacity;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in-out;

@@ -7,7 +7,7 @@ const YesNo = ({ className }) => {
     <section className={className}>
       <div className="flex-row">
         <div className="flex-col">
-          <h3 className="list-title">YES</h3>
+          <h3 className="list-title">We say YES to</h3>
         <ul data-bullet-list>
           <li><p>Powerful Peptides</p></li>
           <li><p>Potent Antioxidants</p></li>
@@ -20,7 +20,7 @@ const YesNo = ({ className }) => {
         </ul>
         </div>
         <div className="flex-col">
-          <h3 className="list-title">NO</h3>
+          <h3 className="list-title">We say NO to</h3>
         <ul data-bullet-list>
           <li><p>Parabens</p></li>
           <li><p>Synthetic Colorants</p></li>
@@ -50,7 +50,7 @@ const Wrapper = styled(YesNo)`
   & .flex-row {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
   }
   & .flex-col {
@@ -61,22 +61,23 @@ const Wrapper = styled(YesNo)`
   }
   & h3.list-title{
     margin-bottom: 0;
-    color: var(--poppy);
+    text-align: left;
+    color: var(--mainBlack);
   }
   & .flex-column h2.yn {
     text-align: center;
     padding: 0px;
-    margin: 0 auto;
+    margin: 11px auto;
+    color: var(--mainBlack);
   }
   & .flex-column h3.yn {
     font-size: 21px;
-    color: #524c4c;
+    color: var(--mainBlack);
     font-style: italic;
     font-weight: 400;
     text-align: center;
   }
   & [data-bullet-list] {
-    color: rgb(92,92,92);
     display: block;
     font-style: normal;
     font-size: 15px;

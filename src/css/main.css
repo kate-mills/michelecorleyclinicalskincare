@@ -8,7 +8,7 @@
   --mccPink: #ff665e;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
-  --mainBlack: #222;
+  --mainBlack: #757172;
   --lightGrey:#dcd9d9;
   --mainGrey: #d3d3d3;
   --darkGrey: #cfcfcf;
@@ -53,7 +53,8 @@ main{
   padding: 0;
 }
 #page{ background: var(--mainWhite); width: 95%; border: 0; font-size: 16px; }
-h1 {
+/*h1 {
+    font-color: var(--mainBlack);
     font-family: var(--mainFont);
     font-weight: normal;
     text-transform: capitalize;
@@ -65,11 +66,13 @@ h1 {
     text-transform: none;
     text-decoration: none;
     letter-spacing: 1px;
-}
+}*/
+
 h1 {
-    color: #222222;
-    font-size: 45px;
+    font-color: var(--mainBlack);
+    font-size: 40px;
     font-weight: 300;
+    letter-spacing: var(--mainSpacing);
     display: block;
     /*margin: 1em 0 .3em;*/
     margin: 0 .3em;
@@ -85,6 +88,7 @@ h1.pink-h1{
   color: var(--poppy);
 }
 h1.with-padding{
+    font-color: var(--mainBlack);
   font-family: var(--mainFont);
   margin: 10px auto 20px auto;
   border-radius: 10px;
@@ -93,6 +97,8 @@ h1.with-padding{
 }
 h2, h3, h4, h5, h6 {
     margin: .5em 0 .3em;
+    font-weight: 200;
+    color: var(--mainBlack) !important;
 }
 h2, h3{
   color: var(--poppy);
@@ -102,7 +108,7 @@ h2, h3{
   line-height: 42px;
 }
 h3{
-  color: var(--mainText);
+  color: var(--mainBlack);
 }
 a {
   color: var(--mainBlack);
@@ -123,7 +129,7 @@ hr {
   margin: 0 auto;
 }
 img{
-  border-radius: 10px;
+  border-radius: 0px;
 }
 nav li {
   list-style: none;
@@ -134,9 +140,9 @@ nav span.professionals{
     font-family:var(--mainFont);
     font-size: 16px;
     line-height:32px;
-    color: #111;
+    color: var(--mainBlack);
     font-style: normal;
-    font-weight: 600;
+    font-weight: 300;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: .5px;
@@ -228,7 +234,7 @@ ul[data-bullet-list] li:first-child p{
 }
 ul[data-bullet-list] li>*:first-child::before{
   box-sizing: border-box;
-  color: var(--mainText);
+  color: var(--mainBlack);
   content: "\2022";
   display: inline-block;
   margin-left: -40px;

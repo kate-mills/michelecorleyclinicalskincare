@@ -10,7 +10,7 @@ const Home = ({data}) => {
   return (
     <PageModel title="Home">
       <Wrapper>
-        <h1 style={{textAlign: "center"}}>Beautifully Healthy Skin Starts Here</h1>
+        <h1 style={{color: "var(--mainBlack)", marginTop: "20px", textAlign: "center"}}>Beautifully Healthy Skin Starts Here</h1>
         <Slider interval={10000}
           images={data.allFile.nodes}/>
       <YesNo />
@@ -34,7 +34,7 @@ export const query = graphql`
 `
 const Wrapper = styled.section`
 & picture img{
-  border-radius: 20px;
+  margin-top: 20px;
 }
 `
 export default Home

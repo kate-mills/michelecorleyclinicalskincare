@@ -21,7 +21,6 @@ const Layout = ({ children }) => {
         <ProductSearch/>
         <DesktopNavbar />
           {children}
-          <CallToActionBtn/>
           <Footer />
         </main>
       </div>
