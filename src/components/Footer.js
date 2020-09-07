@@ -8,11 +8,12 @@ import { setFlexContainer } from "../css/js/helper-styles"
 const Footer = ({ className }) => {
   return (
     <footer className={className}>
+      <hr/>
       <div className="clear"/>
       <div className="column">
         <div className="lg-text"><h3 style={{
           textTransform: "capitalize",
-        color: "#524c4c", fontWeight:"400", lineHeight: "32px", fontSize: "21px", fontFamily: "proxima-nova", textAlign: "center"}}>Follow us on</h3></div>
+        color: "var(--mainBlack)", fontWeight:"400", lineHeight: "32px", fontSize: "21px", fontFamily: "proxima-nova", textAlign: "center"}}>Follow us on</h3></div>
         <div className="row footer-icons">
           {socialLinks.map((item, index) => {
             return (
@@ -43,9 +44,7 @@ const Footer = ({ className }) => {
             94558
           </p>
         </div>
-        <div className="row sm-text">
-          <p>All rights reserved. &copy;{new Date().getFullYear()}</p>
-        </div>
+        <div className="row sm-text"> <p className="sm-text">All rights reserved. &copy;{new Date().getFullYear()}</p> </div>
       </div>
     </footer>
   )
@@ -59,13 +58,19 @@ const FooterWrapper = styled(Footer)`
     letter-spacing: 1px;
     white-space: initial;
   }
+  & hr{
+    background: var(--mainBlack);
+    width: 80%;
+    margin: 20px auto;
+
+  }
 
   & div.row { width: 100%; ${setFlexContainer({})} }
 
   & div.column, & div.row {
     font-size: 16px;
     line-height: 19px;
-    color: #5c5c5c;
+    color: var(--mainBlack);
     font-weight: 400;
   }
 
@@ -75,10 +80,16 @@ const FooterWrapper = styled(Footer)`
   a.instagram-logo img{height: 40px; width: 40px;}
 
   div.row.sm-text p { padding: 5px; }
-  div.row.sm-text p.address {font-weight: 400;}
+  div.row.sm-text p.address {
+    font-weight: 400;
+    font-size: 13px;
+  }
+  & .sm-text{
+    font-size: 13px;
+  }
 
   div.phone-email{
-    color: #524c4c; 
+    color: var(--mainBlack);
     font-size: 20px;
     margin-top: 10px;
     line-height: 22px; 
@@ -93,9 +104,6 @@ const FooterWrapper = styled(Footer)`
   a.email{ font-size: 19px; }
   a.email span{display:inline;}
   div.row.sm-text{font-weight: 300;}
-
-
-
   ${screen.phone.phone`
     div.row.footer-icons{flex-direction: column;} .icon{margin: 20px;}
     span.phone{ 

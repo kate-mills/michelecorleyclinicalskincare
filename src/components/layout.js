@@ -5,7 +5,6 @@ import { OptLogo } from "./LogoImg"
 import Announcement from "./Announcement"
 import MobileNavbar from "./globals/MobileNavbar"
 import DesktopNavbar from "./globals/DesktopNavbar"
-import CallToActionBtn from "./CallToActionBtn"
 import ProductSearch  from "./ProductSearch"
 
 import Footer from "./Footer"

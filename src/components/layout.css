@@ -16,7 +16,6 @@
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
   --mainFont: 'proxima-nova', 'sans-serif';
-  --textColor: '#5c5c5c';
 }
 *, ::before, ::after{ margin: 0; padding: 0; box-sizing: border-box;}
 * + * { margin: 0; padding: 0; box-sizing: border-box;}
@@ -143,7 +142,7 @@ p {
   padding: 0 0 1.8em;
   white-space: pre-wrap;
   font-family: var(--mainFont);
-  color: var(--textColor);
+  color: var(--mainBlack);
 }
 .bold {font-weight: 600;}
 .btn {
