@@ -48,8 +48,8 @@ module.exports = {
         name: `michele corley clinical skincare`,
         short_name: `mcc`,
         start_url: `/`,
-        background_color: `#ff645c`,
-        theme_color: `#ff665e`,
+        background_color: `#dcdcdc`,
+        theme_color: `#dcdcdc`,
         display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
         icons: [
