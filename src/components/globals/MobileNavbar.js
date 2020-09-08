@@ -95,7 +95,7 @@ class MobileNavbar extends Component {
     return (
       <div className={`${this.props.className}`}>
         <div>
-          <button className={`${this.state.css} navbar-toggler`} onClick={this.navbarHandler}style={{ height: "32px",  width: "50px", }} >MENU</button>
+          <button className={`${this.state.css} navbar-toggler`} onClick={this.navbarHandler}style={{ height: "32px",  width: "fit-content", }} >MENU</button>
           <div className={`${this.state.css} full-nav`}>
             {links.map((item, id) => {
               if (item.id === "professional"){ 
@@ -139,14 +139,10 @@ export default styled(MobileNavbar)`
   & button.navbar-toggler {
     background:var(--mainWhite);
     border: none; 
-    font-size: 17px;
-    line-height: 17px;
     cursor: pointer;
     display: block;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 8px;
+    font-size: 18px;
+    margin: 4px auto;
   } 
   & ul { margin 0px; }
   & div.full-nav.hide {display: none;}
