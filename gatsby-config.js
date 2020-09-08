@@ -7,7 +7,7 @@ module.exports = {
     title: `Michele Corley Clinical Skincare`,
     description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
     author: `MCC`,
-    siteUrl: `https://websiteforsoreeyes.io`
+    siteUrl: `https://mcc-on-netlify.netlify.app`
   },
   plugins: [
     `gatsby-plugin-transition-link`,
