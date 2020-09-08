@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { screen } from "../css/js/media-functions"
 
 const YesNo = ({ className }) => {
   return (
