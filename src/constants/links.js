@@ -3,7 +3,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const createParentLink = (name, pth) => {
   let link= ( 
-    <AniLink to={`/${pth}`} fade
+    <AniLink to={`/${pth}/`} fade
       style={{ 
         lineHeight: "32px",
         position: "initial"
@@ -17,7 +17,7 @@ const createParentLink = (name, pth) => {
 const createChildLink = (name, pthStr="") => {
   let pth = pthStr || name.replace(' & ', ' ').split(' ').join('-')
   let obj = {
-      path: `/${pth}`,
+      path: `/${pth}/`,
       text: (<span>{name}</span>),
   }
   return obj
@@ -25,7 +25,7 @@ const createChildLink = (name, pthStr="") => {
 
 export default [
   { path: "/", text: "home", menu: [] },
-  { path: "/about", text: "about", menu: [] },
+  { path: "/about/", text: "about", menu: [] },
   {
     text: createParentLink("products", "cleansers"),
     title: "PRODUCTS",
@@ -49,8 +49,8 @@ export default [
       createChildLink("press"),
     ]
   },
-  { path: "/contact", text: "contact", menu: [] },
-  { path: "/pro-orders", text: "pro orders", menu: [] },
+  { path: "/contact/", text: "contact", menu: [] },
+  { path: "/pro-orders/", text: "pro orders", menu: [] },
   { id: "professional", menu:[] },
   { text: createParentLink("education", "articles"), title: "EDUCATION", menu: [ createChildLink("upcoming classes"), createChildLink("articles"), ] },
 ]
