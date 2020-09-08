@@ -13,7 +13,8 @@ const Footer = ({ className }) => {
       <div className="column">
         <div className="lg-text"><h3 style={{
           textTransform: "capitalize",
-        color: "var(--mainBlack)", fontWeight:"400", lineHeight: "32px", fontSize: "21px", fontFamily: "proxima-nova", textAlign: "center"}}>Follow us on</h3></div>
+          color: "var(--mainBlack)", fontWeight:"400", lineHeight: "32px", fontSize: "21px", 
+        textAlign: "center"}}>Follow us on</h3></div>
         <div className="row footer-icons">
           {socialLinks.map((item, index) => {
             return (

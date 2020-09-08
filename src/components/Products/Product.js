@@ -55,6 +55,10 @@ const ProductWrapper = styled.article`
     margin: 0 auto;
     font-weight: 300;
   }
+
+  & p{
+    font-weight: 400;
+  }
   & .product-name {
     font-size: 30px;
     line-height: 42px;
@@ -77,9 +81,7 @@ const ProductWrapper = styled.article`
   & .product-skintypes .skintype:last-child::after {
     content: "";
   }
-  & .product-description{
-    padding-bottom: 0;
-  }
+  & .product-description{}
   & .product-media{
     display: flex;
     align-items:center;
@@ -87,6 +89,7 @@ const ProductWrapper = styled.article`
     flex-wrap:nowrap;
     justify-content: space-evenly;
     width: 100%;
+    padding-bottom: 20px;
   }
   & .product-ingredients p.bold {
     font-weight: 600;
@@ -97,10 +100,12 @@ const ProductWrapper = styled.article`
     width: 90%;
     margin: 0 auto;
   }
-  & .product-ingredients .name-formatted {
+  span.name-formatted{}
+  & li.key-ingredient p{
     font-weight: 400;
   }
-  & .product-ingredients .benefit {
+  & li.key-ingredient .benefit {
+    font-weight: 300;
     padding-left: 5px;
   }
   @media(max-width: 600px){

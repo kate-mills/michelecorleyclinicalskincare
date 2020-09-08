@@ -8,9 +8,11 @@ import styled from "styled-components"
 
 const Home = ({data}) => {
   return (
-    <PageModel title="Home">
+    <PageModel
+      title="Home"
+      homePage
+      >
       <Wrapper>
-        <h1 style={{color: "var(--mainBlack)", marginTop: "20px", textAlign: "center"}}>Beautifully Healthy Skin Starts Here</h1>
         <Slider interval={10000}
           images={data.allFile.nodes}/>
       <YesNo />
@@ -35,6 +37,9 @@ export const query = graphql`
 const Wrapper = styled.section`
 & picture img{
   margin-top: 20px;
+}
+@media(max-width: 785px){
+  width: 100%;
 }
 `
 export default Home

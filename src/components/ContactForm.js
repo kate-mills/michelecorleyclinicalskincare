@@ -10,7 +10,6 @@ const Contact = () => {
           textAlign: "center",
           fontFamily: "var(--mainFont)",
           fontStyle: "normal",
-          fontWeight: "700",
           fontSize: "43px",
           lineHeight: "34px",
           color: "var(--mainBlack)",

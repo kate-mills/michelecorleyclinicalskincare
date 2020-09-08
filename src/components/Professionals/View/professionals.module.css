@@ -47,7 +47,7 @@
 }
 .orders__col [data-bullet-list]{
   margin: 0 auto;
-  color: rgb(92,92,92);
+  color: var(--mainBlack);
   font-style: normal;
   font-size: 16px;
   font-weight: 300;
@@ -70,15 +70,14 @@
   margin-top: 40px;
 }
 .facials h3{
-  color: #524c4c;
+  color: var(--mainBlack);
   font-size: 21px;
   font-weight: 400;
   font-style: normal;
-  font-family: proxima-nova;
   padding-bottom: 20px;
   white-space: pre-line;
   text-decoration-style: solid;
-  letter-spacing: 1px;
+  letter-spacing: var(--mainSpacing);
 }
 .facial__header{
   text-align: center;
@@ -127,8 +126,6 @@
   margin-top: unset;
   padding: 0.6rem 0;
 }
-
-
 @media screen and (max-width: 767px){
   .manuals__row{
     display: flex;

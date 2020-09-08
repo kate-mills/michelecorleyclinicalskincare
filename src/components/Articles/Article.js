@@ -36,8 +36,6 @@ const ArticleWrapper = styled.article`
   white-space: pre-wrap;
 }
 & .article-name{
-  color: #444444;
-  font-family: 'proxima-nova';
   font-weight: 300;
   font-style: normal;
   font-size: 30px;

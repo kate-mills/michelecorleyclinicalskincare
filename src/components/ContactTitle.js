@@ -16,7 +16,6 @@ export default styled(Title)`
     font-size: 2.3rem;
     margin-bottom: 2rem;
     line-height: 34px;
-    font-family: 'proxima-nova';
   }
   & h3 {
     text-align: center;

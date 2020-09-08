@@ -61,20 +61,34 @@ const WhyWrapper = styled.div`
     flex-wrap:wrap;
     width: 100%;
   }
+  & p.p1{padding-bottom: 15px}
+  & p.p2{padding-bottom: 0;}
+
   & ul[data-bullet-list] {
     margin: 0 0 15px 60px;
   }
-  & p.p1{padding-bottom: 15px}
-  & p.p2{padding-bottom: 0;}
   @media (max-width: 767px){
-    & .col-right{display:none;}
-    & .col-left{ width: 100%; }
-    & div.mobile-img{ width: 85%; margin: 0 auto;}
-    & ul[data-bullet-list] {margin-left: 40px;}
+    & .col-right{
+      display:none;
+    }
+    & .col-left{
+      width: 100%;
+    }
+    & div.mobile-img{
+      width: 85%;
+      margin: 0 auto;
+    }
+    & ul[data-bullet-list]{
+      margin-left: 40px;
+    }
   }
   @media (min-width: 768px){
-    & div.mobile-img {display: none;}
-    & .col-left, & .col-right{width: 50%;}
+    & div.mobile-img {
+      display: none;
+    }
+    & .col-left, & .col-right{
+      width: 50%;
+    }
   }
 `
 export default Whymc;

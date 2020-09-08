@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 
-const Email = ({subject, color, fontWeight, className})=> {
+const Email = ({fontFamily, subject, color, fontWeight, className})=> {
   let fmtSubject = ""
   if (subject.length > 0)
     fmtSubject = subject.split(' ').join("%20")
@@ -23,7 +23,12 @@ export default styled(Email)`
 & {
  color: ${props => props.color ? props.color : "inherit"};
  font-weight: ${props => props.fontWeight || "inherit"};
+ font-family: ${props => props.fontFamily || "inherit"};
  text-decoration: none;
+}
+& span {
+ font-family: ${props => props.fontFamily || "inherit"};
+ color: ${props => props.color ? props.color : "inherit"};
 }
 @media (max-width: 360px){
   & {

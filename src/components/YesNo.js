@@ -4,10 +4,10 @@ import { screen } from "../css/js/media-functions"
 
 const YesNo = ({ className }) => {
   return (
-    <section className={className}>
+    <div className={className}>
       <div className="flex-row">
-        <div className="flex-col">
-          <h3 className="list-title">We say YES to</h3>
+        <div className="list">
+          <h3 className="list-title poppy">We say YES to</h3>
         <ul data-bullet-list>
           <li><p>Powerful Peptides</p></li>
           <li><p>Potent Antioxidants</p></li>
@@ -19,8 +19,8 @@ const YesNo = ({ className }) => {
           <li><p>Gentle Preservatives</p></li>
         </ul>
         </div>
-        <div className="flex-col">
-          <h3 className="list-title">We say NO to</h3>
+        <div className="list">
+          <h3 className="list-title poppy">We say NO to</h3>
         <ul data-bullet-list>
           <li><p>Parabens</p></li>
           <li><p>Synthetic Colorants</p></li>
@@ -34,77 +34,55 @@ const YesNo = ({ className }) => {
         </ul>
         </div>
       </div>
-      <div className="flex-column">
-        <h2 className="yn">
+        <h2 className="yn-header poppy">
           Professional skincare that delivers. Clean, safe, efficacious
           formulas.
         </h2>
-        <h3 className="yn">
+        <h3 className="yn-header italic">
           Only available through your licensed skincare professional.
         </h3>
-      </div>
-    </section>
+    </div>
   )
 }
 const Wrapper = styled(YesNo)`
+
   & .flex-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-  }
-  & .flex-col {
-    display: flex;
-    flex-direction: column;
-    margin: 0 60px;
+    flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
   }
-  & h3.list-title{
+  & .list{
+    display: inline-block;
+    width: fit-content; 
+    margin: 0 auto;
+  }
+  & .list-title{
     margin-bottom: 0;
     text-align: left;
-    color: var(--mainBlack);
+    position: relative;
+    right: 15px;
   }
-  & .flex-column h2.yn {
+  & .yn-header {
     text-align: center;
-    padding: 0px;
-    margin: 11px auto;
-    color: var(--mainBlack);
   }
-  & .flex-column h3.yn {
+  & .yn-header.italic {
     font-size: 21px;
-    color: var(--mainBlack);
     font-style: italic;
     font-weight: 400;
-    text-align: center;
   }
-  & [data-bullet-list] {
-    display: block;
-    font-style: normal;
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 27px;
-    list-style:none;
-    margin: 0 20px;
-  }
-  & ul[data-bullet-list] li p{
-    padding: 0;
-    margin: 7.5px auto;
-  }
-  & ul[data-bullet-list] li:first-child p{
-    margin-top: 0;
-  }
-  & ul[data-bullet-list] li>*:first-child::before{
-    display: inline-block;
-    margin-left: -40px;
-    min-width: 40px;
-    text-align: right;
-    box-sizing: border-box;
-  }
-  ${screen.phone.phone`
-    & .flex-container{
-      flex-flow: column wrap;
-      justify-content:center;
-    }`
+  @media(max-width: 672px){
+    & .flex-row{
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    & .list-title{
+      right: 10px;
+    }
   }
 `
 export default Wrapper

@@ -27,7 +27,7 @@
 .ba__notes{
   line-height: 22px;
   margin: 0 auto;
-  font-family: 'proxima-nova';
+  font-family: var(--mainFont);
   text-align: justify;
   width: 90%;
 }
@@ -39,10 +39,10 @@
   font-weight: 700;
   font-size: 15px;
   line-height: 20px;
-  color: #333;
+  color: var(--mainBlack);
 }
 .product_list{
-  color: rgb(92,92,92);
+  color: var(--mainBlack);
   display: block;
   font-style: normal;
   font-size: 15px;
@@ -54,14 +54,7 @@
   margin-top: 0px;
   text-align: left;
 }
-ul[data-bullet-list] li p{ white-space: pre-wrap; padding: 0; margin: 3px auto; }
-ul[data-bullet-list] li>*:first-child::before{
-  display: inline-block;
-  margin-left: -40px;
-  min-width: 40px;
-  text-align: right;
-  box-sizing: border-box;
-}
+
 .product_list{ margin: 0 auto; white-space: pre-line; padding-left: 7%;}
 
 .ba__col > h4{margin-bottom: 0;line-height: 20px;}

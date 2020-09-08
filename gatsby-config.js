@@ -7,7 +7,7 @@ module.exports = {
     title: `Michele Corley Clinical Skincare`,
     description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
     author: `MCC`,
-    siteUrl: `https://websiteforsoreeyes.io`,
+    siteUrl: `https://websiteforsoreeyes.io`
   },
   plugins: [
     `gatsby-plugin-transition-link`,
@@ -15,8 +15,8 @@ module.exports = {
     {
       resolve:'gatsby-plugin-robots-txt',
       options:{
-        host: `https://websiteforsoreeyes.io`,
-        sitemap:`https://websiteforsoreeyes.io/sitemap.xml`,
+        host: `https://mcc-on-netlify.netlify.app`,
+        sitemap:`https://mcc-on-netlify.netlify.app/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }]
       },
     },
@@ -127,13 +127,9 @@ module.exports = {
             baseId: process.env.GATSBY_AIRTABLE_PROFESSIONALS_BASE_ID,
             tableName: `Manuals`,
             mapping: {pdf: `fileNode`}
-          },
+          }
         ]
       }
-    },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {typekit:{ id:`wua6cxq`, },}
     },
     {
       resolve: "gatsby-plugin-netlify-cache",
@@ -147,14 +143,10 @@ module.exports = {
        fonts: [
           {
             family: `Montserrat`,
-            variants:[`300`, `400`, `500`, `700`],
-          },
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`]
-          },
-        ],
-      },
-    }
+            variants:[`200`, `300`, `400`, `500`,  `600`, `700`],
+          }
+        ]
+      }
+   }
   ]
 }
