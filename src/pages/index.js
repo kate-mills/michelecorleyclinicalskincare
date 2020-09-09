@@ -35,11 +35,8 @@ export const query = graphql`
   }
 `
 const Wrapper = styled.section`
-& picture img{
-  margin-top: 20px;
-}
-@media(max-width: 785px){
-  width: 100%;
-}
+  width: 85%;
+  margin: 0 auto;
+  @media(max-width: 672px){ width: 100%; }
 `
 export default Home
