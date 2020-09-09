@@ -44,7 +44,7 @@ const About = ({data}) => {
           <h2 className="italic poppy">Michele</h2>
         </div>
         <div className="col-2" style={{margin: "0 auto"}}>
-          <h2 className="poppy">Meet<br/>Michele Corley</h2>
+          <h2>Meet<br/>Michele Corley</h2>
           <Image fluid={data.allFile.nodes[0].childImageSharp.fluid} alt="Portrait of Michele Corley in a red floral blouse."/>
           <p className="tiny">
               Michele is a licensed esthetician and creative visionary behind
