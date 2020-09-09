@@ -1,15 +1,10 @@
 :root {
   /*--poppy: #f24b3d; not passing text*/
   --poppy: #a5655f;
-  --mccAltPink: #e55b54;
-  --primaryColor: #ff665e;
   --mainMcc: #dcdcdc;
   --mccPink: #ff665e;
-  --mainWhite: #fff;
-  --offWhite: #f7f7f7;
-  /*--mainBlack: #757172; not passing test*/
-  --mainBlack: #5a584e;
-  --darkBlack:#5f5d5e;
+  --mainWhite: #F6E8EA; /*#fff*/
+  --mainBlack: #4e4949; /* #6f6767;*/
   --lightGrey:#dcd9d9;
   --mainGrey: #d3d3d3;
   --darkGrey: #cfcfcf;
