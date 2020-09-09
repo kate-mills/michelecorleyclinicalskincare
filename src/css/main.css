@@ -3,8 +3,9 @@
   --poppy: #a5655f;
   --mainMcc: #dcdcdc;
   --mccPink: #ff665e;
-  --mainWhite: #F6E8EA; /*#fff*/
-  --mainBlack: #4e4949; /* #6f6767;*/
+  --mainWhite: #fff;
+  --mainBlack: #676767;
+  --mainBlack: #5a584e;
   --lightGrey:#dcd9d9;
   --mainGrey: #d3d3d3;
   --darkGrey: #cfcfcf;
@@ -55,15 +56,16 @@ body {
 }
 main{
   background: var(--mainWhite);
-  padding: 0;
-}
-#page{
-  background: var(--mainWhite);
-  width: 95%;
+  background-color: var(--mainWhite);
   border: 0;
+  border-radius: 25px;
+  color: var(--mainBlack);
+  font-family: var(--mainFont);
   font-size: 16px;
   font-weight: 300;
-  font-family: var(--mainFont);
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--mainFont);
@@ -75,14 +77,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--poppy);
 }
 h1 {
-  display: block;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
   letter-spacing: var(--mainSpacing);
   margin: 0 auto;
-  text-decoration: none;
-  text-transform: none;
 }
 h2, h3{
   font-size: 30px;
@@ -137,7 +136,6 @@ p {
 p.description{
   text-align: center;
 }
-.bold {font-weight: 600;}
 .btn {
   cursor: pointer;
   display: inline-block;
@@ -225,6 +223,9 @@ div#content {
 }
 
 /* Start Utility classes */
+.bold {
+  font-weight: 600;
+}
 .poppy{
   color: var(--poppy);
 }
