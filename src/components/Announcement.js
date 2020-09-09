@@ -13,8 +13,7 @@ class Announcement extends React.Component{
           <div className="grid-item"></div>
           <div className="grid-item">
             <p style={{padding: "0", paddingTop: "0px", lineHeight: "17px", textAlign: "center", color: "var(--mainBlack)", fontFamily: "Times, serif"}}>
-              707.637.4996 ~ 
-            <Email color={`var(--mainBlack)`} fontFamily="Times, serif" subject={`General Information`}/></p>
+              707.637.4996<span className={`tilda`}>~</span><Email color={`var(--mainBlack)`} fontFamily="Times, serif" subject={`General Information`}/></p>
           </div>
           <div className="grid-item">
             <button onClick={ () => { this.handleClick() }} style={{color: 'var(--mainBlack)'}}>X</button>
@@ -51,6 +50,7 @@ const WrappedAnnouncement = styled(Announcement)`
   }
   & .grid-item {
     font-family: Times, serif;
+    font-size: 16px;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -59,6 +59,11 @@ const WrappedAnnouncement = styled(Announcement)`
   & .grid-item:last-child {
     align-items: center;
   }
+  & .grid-item .tilda {
+    margin: 0 2px 0;
+    font-family: Times, serif;
+  }
+
   & button {
     line-height: 17px;
     background: inherit;

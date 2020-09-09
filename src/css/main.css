@@ -5,6 +5,7 @@
   --mccPink: #ff665e;
   --mainWhite: #fff;
   --mainBlack: #676767;
+  --lightBlack: #757369;
   --mainBlack: #5a584e;
   --lightGrey:#dcd9d9;
   --mainGrey: #d3d3d3;
@@ -35,14 +36,14 @@ html {
   padding: 0;
 }
 body {
-    color: var(--mainBlack);
-    display: block;
+    background: var(--mainMcc);
     background-attachment: scroll;
+    background-color: var(--mainMcc);
     background-image: none;
     background-size: auto;
-    background: var(--mainMcc);
-    background-color: var(--mainMcc);
     background-repeat: repeat;
+    color: var(--mainBlack);
+    display: block;
     font-family:var(--mainFont);
     font-style: normal;
     font-size: 16px;
@@ -69,23 +70,21 @@ main{
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--mainFont);
+  font-weight: 300;
   line-height: var(--headingLineHeight);
   margin: .5em 0 .3em;
-  font-weight: 400;
-}
-.poppy{
-    color: var(--poppy);
+  color: var(--mainBlack);
 }
 h1 {
-  font-size: 40px;
+  font-size: 43px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: var(--mainSpacing);
-  margin: 0 auto;
+  margin: 20px auto;
 }
 h2, h3{
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 300;
 }
 a {
   color: var(--mainBlack);

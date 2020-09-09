@@ -6,7 +6,7 @@ const YesNo = ({ className }) => {
     <div className={className}>
       <div className="flex-row">
         <div className="list">
-          <h3 className="list-title poppy">We say YES to</h3>
+          <h2 className="list-title poppy">We say YES to</h2>
         <ul data-bullet-list>
           <li><p>Powerful Peptides</p></li>
           <li><p>Potent Antioxidants</p></li>
@@ -19,7 +19,7 @@ const YesNo = ({ className }) => {
         </ul>
         </div>
         <div className="list">
-          <h3 className="list-title poppy">We say NO to</h3>
+          <h2 className="list-title poppy">We say NO to</h2>
         <ul data-bullet-list>
           <li><p>Parabens</p></li>
           <li><p>Synthetic Colorants</p></li>
@@ -33,10 +33,10 @@ const YesNo = ({ className }) => {
         </ul>
         </div>
       </div>
-        <h2 className="yn-header poppy">
+        <h3 className="yn-header poppy">
           Professional skincare that delivers. Clean, safe, efficacious
           formulas.
-        </h2>
+        </h3>
         <h3 className="yn-header italic">
           Only available through your licensed skincare professional.
         </h3>
