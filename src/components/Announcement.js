@@ -12,9 +12,9 @@ class Announcement extends React.Component{
       visibleDetails: ( <div id="x" className={`${this.props.className} grid-container`}>
           <div className="grid-item"></div>
           <div className="grid-item">
-            <p style={{padding: "0", paddingTop: "0px", lineHeight: "17px", textAlign: "center", color: "var(--darkBlack)", fontFamily: "Times, serif"}}>
+            <p style={{padding: "0", paddingTop: "0px", lineHeight: "17px", textAlign: "center", color: "var(--mainBlack)", fontFamily: "Times, serif"}}>
               707.637.4996 ~ 
-            <Email color={`var(--darkBlack)`} fontFamily="Times, serif" subject={`General Information`}/></p>
+            <Email color={`var(--mainBlack)`} fontFamily="Times, serif" subject={`General Information`}/></p>
           </div>
           <div className="grid-item">
             <button onClick={ () => { this.handleClick() }} style={{color: 'var(--mainBlack)'}}>X</button>
