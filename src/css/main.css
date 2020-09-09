@@ -1,5 +1,6 @@
 :root {
-  --poppy: #f24b3d;
+  /*--poppy: #f24b3d; not passing text*/
+  --poppy: #a5655f;
   --mccAltPink: #e55b54;
   --primaryColor: #ff665e;
   --mainMcc: #dcdcdc;
@@ -151,7 +152,7 @@ p.description{
   text-decoration: none;
   transition: var(--mainTransition);
   border: 2px solid var(--mainWhite);
-  border-radius: 15px;
+  border-radius: 10px;
   color: var(--mainWhite);
   outline: none;
   box-shadow: unset;
@@ -159,7 +160,6 @@ p.description{
 .btn:hover,
 .btn:active,
 .btn:focus {
-  filter:brightness(125%);
   background: var(--mainWhite);
   color: var(--mainBlack);
   border: 2px solid var(--mainBlack);
@@ -228,6 +228,19 @@ div#content {
   padding: 0 50px 0;
   outline: none;
 }
+
+/* Start Utility classes */
+.poppy{
+  color: var(--poppy);
+}
+.txt-center{
+  text-align: center;
+}
+.w-100{
+  width: 100%;
+}
+/* End Utility classes */
+
 @media screen and (max-width: 1239px){
   div#content{
     border-radius: 25px; padding: 0 50px 0;

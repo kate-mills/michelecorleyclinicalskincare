@@ -16,7 +16,7 @@ const Contact = () => {
           margin: ".5em 0 .3em",
       }}>CONTACT US</h1>
       <div className={styles.center}>
-        <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact" className={styles.form} >
+        <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact" className={styles.form} action="/success">
           <input type="hidden" name="bot-field"/>
           <input type="hidden" name="form-name" value="contact" />
           <div>
