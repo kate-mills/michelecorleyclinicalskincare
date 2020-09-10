@@ -19,7 +19,7 @@ const ContactPage = ({data}) => {
               <h1 className="poppy"
               >Have a question about Michele Corley Clinical Skin Care products?</h1>
               <p>Please contact us via the submission form or give us a call at (707) 637-4997 and we'll get back to you as soon as we can. If you are a licensed professional, please include your license number.</p>
-              <p>Thank you!</p>
+              <p className="indent-p">Thank you!</p>
             </div>
             <div className="contact-img-container">
               <Image fluid={data.file.childImageSharp.fluid}/>
@@ -43,7 +43,11 @@ const PageWrapper = styled.section`
     justify-content: space-around;
     margin: 0 auto;
   }
-  & .flex-col .flex-item-1 .contact-p {
+  & .flex-col .flex-item-1 p{
+    padding: 0 0 1.2em;
+  }
+  & .flex-col .flex-item-1 .indent-p {
+    margin: 0 auto;
     width: 95%;
   }
   & .contact-img-container{
@@ -62,13 +66,6 @@ const PageWrapper = styled.section`
   @media (max-width: 767px) {
     & .flex-col .flex-item-1{ 
       width: 100%;
-    }
-    & .flex-col .flex-item-1 h2{
-      text-align: center;
-    }
-    & .flex-col .flex-item-1 .contact-p {
-      margin: 0 auto;
-      width: 90%;
     }
     & .flex-col .flex-item-1 .contact-img-container{
       margin: 0 auto;

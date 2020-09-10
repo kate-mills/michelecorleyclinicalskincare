@@ -36,7 +36,7 @@ const ContactInfo = (props) => {
   return (
     <Wrapper>
       <div class="flex-container" style={{textAlign: "center"}}>
-        <h3>Get in touch </h3>
+        <h2>Get in touch</h2>
         <div className="flex-item">
           <span className="day">Monday</span>
           <span className="space-lr">{`-`}</span>
@@ -78,7 +78,7 @@ const ContactInfo = (props) => {
 const Wrapper = styled.aside`
   & {
     background: var(--mainMcc);
-    border: 10px solid var(--mainMcc);
+    border: 1px solid var(--mainMcc);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@ const Wrapper = styled.aside`
     flex-wrap: wrap;
     justify-content: center;
     padding: 1em 0 1.9em;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
   & > .flex-container > *{
     display: inline-block;
@@ -141,10 +141,7 @@ const Wrapper = styled.aside`
   }
 
   @media (max-width: 500px){
-    & {
-      border 5px solid var(--mainMcc);
-    }
-    & > * :not(h3){
+    & > * :not(h2){
       font-size: 14px;
     }
   }
