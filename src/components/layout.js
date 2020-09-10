@@ -17,8 +17,8 @@ const Layout = ({ children }) => {
         <main>
         <MobileNavbar />
         <Logo/>
-        <ProductSearch/>
-        <DesktopNavbar />
+        <ProductSearch tabIndex={0}/>
+        <DesktopNavbar tabIndex={0}/>
           {children}
           <Footer />
         </main>

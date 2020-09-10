@@ -52,7 +52,13 @@
   padding: 5px;
   border: 1px solid var(--mainWhite);
 }
-.search__td > a{text-decoration: none;}
+.search__td > a{
+  text-decoration: none;
+}
+.search__td > a:focus{
+  background:var(--pinkHilight);
+}
+
 .search__flex{
   margin: 0 auto;
   display: flex;
