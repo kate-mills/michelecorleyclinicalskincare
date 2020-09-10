@@ -1,104 +1,152 @@
 import React from 'react'
 import styled from "styled-components"
-import Email from './Email'
+
+export const UnformattedEmail = (props)=>{
+  let fmtSubject =props.subject.split(' ').join("%20")
+  return (
+    <a className="full-email"href={`mailto:customerservice@michelecorley.com?subject=${fmtSubject}`}>
+      <span className="email-prefix" style={{}}>{props.prefix}</span>
+      <span className="email-suffix" style={{}}>{props.suffix}</span>
+      <span className="email-ext"    style={{}}>{props.ext}</span>
+    </a>
+  )
+}
+
+UnformattedEmail.defaultProps = {
+  subject: 'Contact Info',
+  prefix: 'customerservice',
+  suffix: '@michelecorley',
+  ext: '.com'
+}
+
+export const Phone = ({areaCode, prefix, suffix})=>{
+  return(
+      <a href={`tel:+${areaCode}${prefix}${suffix}`} rel="nofollow">
+        {`(${areaCode}) ${prefix} - ${suffix}`}
+    </a>
+  )
+}
+Phone.defaultProps = {
+  areaCode: "707",
+  prefix: "637",
+  suffix: "4997"
+}
 
 const ContactInfo = (props) => {
   return (
     <Wrapper>
-    <div className="contact">
-      <h3>Get in touch </h3>
-      <div>
-        <h4>Phone:</h4>
-        <p><a style={{textDecoration: "none"}}
-            href="tel:1-707-637-4996">(707) 637-4996</a>
-        </p>
-      </div>
-      <div>
-        <h4>Email:</h4>
-        <p><Email/></p>
-      </div>
-      <div>
-        <h4>Address:</h4>
-        <address style={{textAlign: "right"}}>
-          <p>3055 Jefferson St. Suite 3</p>
-          <p>Napa, CA 94558</p>
-        </address>
-      </div>
-    </div>
-    <div className="hours">
-      <h3>Our Hours</h3>
-      <div>
-        <h4>Monday - Friday:</h4>
+      <div class="flex-container" style={{textAlign: "center"}}>
+        <h3>Get in touch </h3>
+        <div className="flex-item">
+          <span className="day">Monday</span>
+          <span className="space-lr">{`-`}</span>
+          <span className="day">Friday</span>
+          <span className="space-r">{`: `}</span>
           <time dateTime="10:00">10 AM</time>
-          {` - `}
+          <span className="space-lr">{`-`}</span>
           <time dateTime="16:00">4 PM</time>
+       </div>
       </div>
-    </div>
+
+      <div class="grid-container">
+        <div class="grid-item key">Phone:</div>
+        <div class="grid-item phone value">
+          <Phone/>
+        </div>
+        <div class="grid-item key">Email:</div>
+        <div class="grid-item value">
+          <div>
+            <UnformattedEmail/>
+          </div>
+        </div>
+        <div class="grid-item key">Address:</div>
+        <div class="grid-item value">
+          <address style={{whiteSpace: "pre-line"}}>
+            <span className="street-address" style={{ paddingLeft: "5px", display: "inline-block"}}>3055 Jefferson St.</span>
+            <span className="suite" style={{ paddingLeft: "5px", display: "inline-block"}}>Suite 3</span>
+            <br/>
+            <span className="city" style={{ paddingLeft: "5px", display: "inline-block"}}>Napa</span>
+            <span className="state" style={{ paddingLeft: "5px", display: "inline-block"}}>Ca.</span>
+            <span className="zip" style={{paddingLeft: "5px", display: "inline-block"}}>94558</span>
+          </address>
+        </div>
+     </div>
   </Wrapper>
     )
 }
 
 const Wrapper = styled.aside`
-  & > div.contact,
-  & > div.hours {
-    margin: 15px auto;
-  }
-  & > div.contact h3,
-  & > div.hours h3 {
+  & {
     background: var(--mainMcc);
-    margin: 10px auto;
-    text-align: center;
-    white-space: pre-line;
-  }
-  & > div.contact > div,
-  & > div.hours > div{
+    border: 10px solid var(--mainMcc);
+    border-radius: 10px;
     display: flex;
-    flex-direction: row;
-  }
-  & > div.contact > div{justify-content:start;}
-  & > div.hours >   div{justify-content:center;}
-  & > div.contact > div h4{
-    color: var(--poppy);
-    line-height: 29px;
-    margin: 0;
-    margin-left: 30px;
-    padding: 0 0 0.2rem;
-    min-width: 75px;
-    white-space: pre-line;
-    text-align: left;
-  }
-  & > div.contact > div p{
-    padding: 0 0 0.2rem;
-    margin: 0 5px 0;
+    flex-direction: column;
+    padding: 5px 0;
     white-space: pre-line;
   }
-  & > div.contact > div address{
-    padding: 0 0 0.2rem;
-    white-space: pre-line;
+  & > *, & > * > *{
+    background: var(--mainWhite);
+    color: var(--mainBlack);
   }
-  & > div.hours > div h4,
-  & > div.hours > div time{
-    line-height: 29px;
-    margin: 0 5px; 
-    width: fit-content;
-  } 
-  & > div.contact > div  span.email-suffix{
+  & > .flex-container{
+    align-items: center;
+    background: var(--mainWhite);
+    border: 1px solid var(--mainWhite);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1em 0 1.9em;
+    margin-bottom: 10px;
+  }
+  & > .flex-container > *{
     display: inline-block;
+    width: 100%;
+  }
+  & > div.grid-container{
+    border-radius: 10px;
+    border: 1px solid var(--mainMcc);
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    padding: 1em 0 1em 1em;
+  }
+  & .grid-item {
+    padding: 5px;
+  }
+  & > .grid-container{
+    width: 100%;
+  }  
+  & .grid-item.key,
+  & .grid-item.value{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+  & .grid-item.value .full-email > *,
+  & .grid-item.value > * {
+    display: inline-block;
+    padding-right: 0;
+  }
+  &  .grid-item.value{
+    letter-spacing: 1px;
+  }
+  &  span.space-r{
+    padding-right: 6px !important;
+  }
+  &  span.space-lr{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
   }
 
-  @media (max-width: 567px) {
-    & > div.contact{
-      width: 90vw;
-      margin: 0 auto;
+  @media (max-width: 500px){
+    & {
+      border 5px solid var(--mainMcc);
     }
-    & > div.contact > div{
-      flex-wrap: wrap;
-      margin: 0 auto;
-      width: 100%;
+    & > * :not(h3){
+      font-size: 14px;
     }
-  }
-  @media(max-width: 900px){
-
   }
 `
 
