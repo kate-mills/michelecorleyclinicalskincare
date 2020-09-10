@@ -4,79 +4,101 @@ import Email from './Email'
 
 const ContactInfo = (props) => {
   return (
-    <Wrapper style={{ width: (props.wrapperWidth || "80%") }}>
-    <div className="phone-email">
+    <Wrapper>
+    <div className="contact">
       <h3>Get in touch </h3>
       <div>
-        <h4 style={{marginRight: "2px"}}>Phone:</h4>
-        <p><a
-            style={{textDecoration: "none"}}
-            href="tel:1-707-637-4996">(707) 637-4996
-           </a>
+        <h4>Phone:</h4>
+        <p><a style={{textDecoration: "none"}}
+            href="tel:1-707-637-4996">(707) 637-4996</a>
         </p>
       </div>
       <div>
-        <h4 style={{marginRight: "4px"}}>Email:</h4>
+        <h4>Email:</h4>
         <p><Email/></p>
       </div>
-      <div style={{flexDirection: "row", flexWrap: "wrap"}}>
-        <h4 style={{}}>Address:</h4>
-        <address>
-        <p style={{marginLeft: "15px"}}>3055 Jefferson St. Suite 3</p>
-        <p style={{marginLeft: "70px"}}>Napa, CA 94558</p>
+      <div>
+        <h4>Address:</h4>
+        <address style={{textAlign: "right"}}>
+          <p>3055 Jefferson St. Suite 3</p>
+          <p>Napa, CA 94558</p>
         </address>
       </div>
     </div>
     <div className="hours">
       <h3>Our Hours</h3>
-      <p style={{padding: "0"}}>Monday - Friday:{` `}
-        <time dateTime="10:00">10 AM</time> - <time dateTime="16:00">4 PM</time></p>
+      <div>
+        <h4>Monday - Friday:</h4>
+          <time dateTime="10:00">10 AM</time>
+          {` - `}
+          <time dateTime="16:00">4 PM</time>
+      </div>
     </div>
   </Wrapper>
     )
 }
 
 const Wrapper = styled.aside`
-  & div.phone-email, & div.hours{
-    text-align: center;
-    margin: 5px auto;
-    white-space: pre-line;
+  & > div.contact,
+  & > div.hours {
+    margin: 15px auto;
   }
-  & > div h3{
+  & > div.contact h3,
+  & > div.hours h3 {
     background: var(--mainMcc);
-    width: 75%;
-    text-align: center;
     margin: 10px auto;
+    text-align: center;
     white-space: pre-line;
   }
-  & > div p, & > div h4{
-    margin: 0 0 0;
-    padding: 0 0 0.1rem;
-    white-space: pre-wrap;
-  }
-  & > div.phone-email div{
-    margin: 0 auto;
-    width: 300px;
+  & > div.contact > div,
+  & > div.hours > div{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+  }
+  & > div.contact > div{justify-content:start;}
+  & > div.hours >   div{justify-content:center;}
+  & > div.contact > div h4{
+    color: var(--poppy);
+    line-height: 29px;
+    margin: 0;
+    margin-left: 30px;
+    padding: 0 0 0.2rem;
+    min-width: 75px;
+    white-space: pre-line;
     text-align: left;
   }
-  & > div.phone-email div h4{
-      text-align: justify;
-      width: 55px;
+  & > div.contact > div p{
+    padding: 0 0 0.2rem;
+    margin: 0 5px 0;
+    white-space: pre-line;
   }
-  @media (max-width: 467px) {
-  & > div.phone-email div{
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: center;
+  & > div.contact > div address{
+    padding: 0 0 0.2rem;
+    white-space: pre-line;
+  }
+  & > div.hours > div h4,
+  & > div.hours > div time{
+    line-height: 29px;
+    margin: 0 5px; 
+    width: fit-content;
+  } 
+  & > div.contact > div  span.email-suffix{
+    display: inline-block;
+  }
+
+  @media (max-width: 567px) {
+    & > div.contact{
+      width: 90vw;
       margin: 0 auto;
-      text-align: center;
+    }
+    & > div.contact > div{
+      flex-wrap: wrap;
+      margin: 0 auto;
       width: 100%;
     }
-    & > div.phone-email div > h4{ text-align: center; margin: 0 auto; }
-    & > div.phone-email div p{width:100%;}
+  }
+  @media(max-width: 900px){
+
   }
 `
 

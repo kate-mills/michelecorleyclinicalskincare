@@ -5,16 +5,7 @@ const Contact = () => {
   const asterisk = <span style={{color: "var(--poppy)", paddingRight: "2px"}}>&lowast;</span>
   return (
     <section className={styles.contact}>
-      <h1
-        style={{
-          textAlign: "center",
-          fontFamily: "var(--mainFont)",
-          fontStyle: "normal",
-          fontSize: "43px",
-          lineHeight: "34px",
-          color: "var(--mainBlack)",
-          margin: ".5em 0 .3em",
-      }}>CONTACT US</h1>
+      <h2 style={{fontSize: "43px"}}className="poppy txt-center">CONTACT US</h2>
       <div className={styles.center}>
         <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact" className={styles.form} action="/success">
           <input type="hidden" name="bot-field"/>

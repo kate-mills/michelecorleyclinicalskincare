@@ -16,17 +16,18 @@ const ContactPage = ({data}) => {
         <div className="flex-col">
           <div className="flex-item-1">
             <div className="contact-text-container">
-              <h2 style={{textAlign: "center"}}
-              >Have a question about Michele Corley Clinical Skin Care products?</h2>
-              <p>Please contact us via the submission form or give us a call at 707.637.4996 and we'll get back to you as soon as we can. If you are a licensed professional, please include your license number.</p>
+              <h1 className="poppy"
+              >Have a question about Michele Corley Clinical Skin Care products?</h1>
+              <p>Please contact us via the submission form or give us a call at (707) 637-4997 and we'll get back to you as soon as we can. If you are a licensed professional, please include your license number.</p>
               <p>Thank you!</p>
             </div>
             <div className="contact-img-container">
               <Image fluid={data.file.childImageSharp.fluid}/>
-              <ContactInfo wrapperWidth="100%"/>
+              <ContactInfo wrapperMaxWidth="100%"/>
             </div>
           </div>
-          <div className="flex-item-2"><ContactForm/>
+          <div className="flex-item-2">
+            <ContactForm tabIndex={0}/>
           </div>
         </div>
       </PageWrapper>
