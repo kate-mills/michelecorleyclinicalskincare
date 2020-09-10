@@ -10,7 +10,7 @@ const RaveReviews = ({data}) => {
   return (
     <PageModel title="Rave Reviews">
       <RaveReviewsWrapper>
-        <h1 className="pink-h1">Rave Reviews!</h1>
+        <h1 className="poppy txt-center">Rave Reviews!</h1>
         <RaveReviewList reviews={data.allAirtable.reviews}/>
       </RaveReviewsWrapper>
     </PageModel>
@@ -32,14 +32,13 @@ export const query = graphql`
 `
 const RaveReviewsWrapper = styled.section`
   & {
-    max-width: 98%;
     margin: 5px auto;
     box-sizing: border-box;
   }
-  & .pink-h1{
-    text-align: center;
+  & div{ 
+    margin-top: 15px;
+    text-align: justify;
+    padding: 0 3px 0;
   }
-  & div{ margin-block-start: 20px; }
-  & div:first-child{ margin-block-start: 0; }
 `
 export default RaveReviews
