@@ -4,20 +4,32 @@ import Layout from "../components/layout"
 import PageTitle from "../components/Title"
 import SEO from "../components/seo"
 
-const PageModel = ({ title, centeredTitle, defaultTitle, description, homePage, children }) => {
+const PageModel = ({ title, description, color, centeredTitle, defaultTitle, homePage, children }) => {
   return (
     <Layout>
       <SEO title={title} description={description}/>
 
-      { centeredTitle && <PageTitle title={title} center/> }
+      { centeredTitle && <PageTitle
+        title={title}
+        color={color || ""}
+        center />
+      }
 
-      { defaultTitle && <PageTitle title={title} /> }
+      { defaultTitle && <PageTitle
+          title={title}
+          color={color || ""} />
+      }
 
-      { homePage && <PageTitle title="Beautifully Healthy Skin Starts Here" color="var(--mainBlack)" center/> }
+      { homePage && <PageTitle
+        title="Beautifully Healthy Skin Starts Here"
+        color="var(--mainBlack)" center/>
+      }
 
       {children}
 
     </Layout>
   )
+}
+PageModel.defaultProps ={
 }
 export default PageModel
