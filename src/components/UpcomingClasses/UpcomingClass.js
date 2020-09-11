@@ -7,7 +7,7 @@ const SingleClass = ({className, id, data:{data}}) => {
   return (
     <>
       <div className={`${className} upcoming-class`}>
-        <h2 className="class__name poppy">{data.name}</h2>
+        <h2 className="class__name poppy-dark txt-center">{data.name}</h2>
 
         <div className="left__column">
           <h4 className="left__heading">{data.heading}</h4>

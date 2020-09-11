@@ -63,5 +63,19 @@ export default styled(UpcomingClasses)`
   }
   & hr.single-class{ background: var(--poppy); width: 75%; }
   & hr.single-class:last-of-type{background: transparent;}
-
+  & .upcoming-class > h2.poppy-dark{
+    max-width: 75%;
+    margin: 0 auto;
+  }
+  & div:first-of-type  h2:first-of-type{
+    margin-top: 0;
+  }
+  @media(max-width: 767px){
+    & .upcoming-class > h2.poppy-dark{
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+    }
+  & hr.single-class{ width: 100%; }
+  }
 `

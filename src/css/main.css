@@ -1,6 +1,7 @@
 :root {
   /*--poppy: #f24b3d; not passing text*/
   --poppy: #a5655f;
+  --poppyDark: #844D49;
   --pinkHilight:#E9DBD8;
   --mainMcc: #dcdcdc;
   --mccPink: #ff665e;
@@ -135,6 +136,7 @@ p {
 }
 p.description{
   text-align: justify;
+  margin-bottom: 0 !important;
 }
 .btn {
   cursor: pointer;
@@ -229,6 +231,11 @@ div#content {
 }
 .poppy{
   color: var(--poppy);
+}
+.poppy-dark{
+  color: var(--poppyDark);
+  background: var(--mainMcc);
+  border-radius: 5px;
 }
 .txt-center{
   text-align: center;
