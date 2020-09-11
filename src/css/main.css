@@ -128,6 +128,7 @@ nav span.professionals{
 }
 p {
   color: var(--mainBlack);
+  padding: 0 0 1.8em;
   font-family: var(--mainFont);
   font-weight: 400;
   line-height: var(--bodyLineHeight);
