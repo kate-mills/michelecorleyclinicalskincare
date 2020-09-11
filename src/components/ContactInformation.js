@@ -90,7 +90,7 @@ const Wrapper = styled.aside`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1em 0 1.9em;
+    padding: 1em 0 0.1em;
     margin-bottom: 5px;
   }
   & > .flex-container > *{
@@ -101,7 +101,6 @@ const Wrapper = styled.aside`
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
-    padding: 1em 0 1em 1em;
   }
   & .grid-item {
     padding: 5px;
