@@ -21,13 +21,9 @@ const Product = ({ product }) => {
       </p>
       <p className="product-description">{description.description}</p>
       <div className="product-media">
-        <div className="twenty"><Image fixed={product.imgRetail.fixed}/></div>
+        <Image fixed={product.imgRetail.fixed}/>
         {
-          product.video &&
-            <div className="thirty">
-              <VideoPlayer
-                 src={`https://player.vimeo.com/video/${product.video}`}/>
-            </div>
+          product.video && <VideoPlayer src={`https://player.vimeo.com/video/${product.video}`}/>
         }
       </div>
       <div className="product-ingredients">
@@ -55,7 +51,6 @@ const ProductWrapper = styled.article`
     margin: 0 auto;
     font-weight: 300;
   }
-
   & p{
     font-weight: 400;
   }
@@ -83,13 +78,11 @@ const ProductWrapper = styled.article`
   }
   & .product-description{ padding-bottom: unset;}
   & .product-media{
-    height: 100%;
     display: flex;
     align-items:center;
     flex-direction:row;
     flex-wrap:nowrap;
-    justify-content: space-evenly;
-    width: 100%;
+    justify-content: space-around;
   }
   & .product-ingredients p.bold {
     font-weight: 600;
@@ -108,25 +101,13 @@ const ProductWrapper = styled.article`
     font-weight: 300;
     padding-left: 5px;
   }
-  & .twenty{
-    max-width: 20%;
-  }
-  & .thirty{
-    min-width: 30%;
-  }
-  & .twenty, & .thirty{ 
-    display:flex;
-    justify-content: center;
-    margin: 0 auto;
-  }
-  @media(max-width: 600px){
+  @media(max-width: 800px){
     & .product-media{
-      flex-direction:column;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
     }
-    & .thirty, & .twenty{
-      max-width: 100%;
+    & .product-media  div{
+      margin: 10px;
     }
   }
 `
