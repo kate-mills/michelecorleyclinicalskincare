@@ -5,25 +5,24 @@ import ClassMap from './ClassMap'
 
 const SingleClass = ({className, id, data:{data}}) => {
   return (
-      <div className={className}>
+      <div className={`${className} upcoming-class`}>
         <h2 className="class__name">{data.name}</h2>
+
         <div className="left__column">
           <h4 className="left__heading">{data.heading}</h4>
           <div className="left__image__container"> 
             <Img fluid={data.image.localFiles[0].childImageSharp.fluid} />
           </div>
           {
-            data.heading_details ? 
-              <p className="left__heading__details">{data.heading_details}<br/>{data.datestr}</p>:
-              false
-          } 
+            data.heading_details && (<p className="left__heading__details">{data.heading_details}<br/>{data.datestr}</p>)
+          }
           <h4 className="class__location">Located at {data.location}</h4>
           <h4 className="class__address">{data.address}<br/>{data.city_state}</h4>
 
         </div>
         <div className="right__column">
           <div className="class__description__container">
-            <p className="class__description">{data.description}</p>
+            <p className="class__description description">{data.description}</p>
           </div>
           <div className="map-container">
             <ClassMap />
@@ -34,43 +33,46 @@ const SingleClass = ({className, id, data:{data}}) => {
 }
 const Wrapper = styled(SingleClass)`
 & {
+  border: 5px solid var(--mainMcc);
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: fit-content;
   width: 100%;
 }
 & .class__name{
   width: 100%;
   text-align: center;
-}
-& p{
-    padding-bottom: 0;
+  margin-top: 0;
 }
 & .left__column, & .right__column{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 50%;
   text-align: center;
-  white-space: pre-line;
+  white-space: pre-wrap;
   margin: 0 auto;
   text-align: center;
-  white-space: pre-line;
+  padding: 0.2em 0.5em 0.1em;
 }
 & h4 {
-  color: #524c4c;
+  color: var(--mainBlack);
   font-style: normal;
   font-size: 21px;
+  font-weight: 300;
   letter-spacing: 1px;
   line-height: 32px;
   text-align: center;
-  font-weight: 400;
 }
 & .left__heading{
   font-weight: 700;
   margin-top: 0px;
 }
 & .left__image__container .gatsby-image-wrapper{
-  width: 50%;
+  width: 60%;
+  margin-bottom: 1em;
 }
 & .class__description__container, & .left__image__container{
   display: flex;
@@ -88,17 +90,16 @@ const Wrapper = styled(SingleClass)`
 }
 & .class__description{
   text-align: justify;
-}
-& div.google-map{
-  min-height: 100%;
-  max-width: 100%;
+  padding-bottom: 0.2em;
 }
 & .map-container{
-  width: 100%;;
-  height: 100%;
+  width: 100%;
+  height: 300px;
+  maxHeight: fit-content!important;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 & .left__heading__details{
   text-align: center;
@@ -107,26 +108,19 @@ const Wrapper = styled(SingleClass)`
 @media (max-width: 767px){
   & {
     flex-direction: column;
-    margin: 0 auto;
   }
-  & .left__column, & .right__column{
-    width: 100%;
-  }
-  & .right__column{
-    margin-top: 20px;
-    margin-bottom: 60px;
-  }
-  & .class__address, & .left__heading__details{
-    width: 100%;
+  & .left__column, & .right__column{ 
+    width: 100%; 
+    margin: 0 auto !important;
+    justify-content: center !important;
   }
   & .class__location, & .class__description{
     margin: 0 auto;
   }
-}
-@media (max-width: 540px){
-  & .left__image__container{width: 100%;}
-  & .class_rdescription{
-    margin-top: 20px;
+  & .map-container .googl-map{
+    width: 100%;
+    height:300px;
+    margin: 0 auto;
   }
 }
 `

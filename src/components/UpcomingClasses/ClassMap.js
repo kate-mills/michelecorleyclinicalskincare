@@ -24,7 +24,7 @@ class SimpleMap extends React.Component {
  
 render() {
     return (
-      <div style={{ height: '200px', width: '400px', margin: "0 auto" }} className="google-map">
+      <div style={{ height: '100%', minHeight: '300px', width: '700px',minWidth: "100%", margin: "0 auto" }} className="google-map">
         <GoogleMapReact
           yesIWantToUseGoogleMapApiInternals
           bootstrapURLKeys={{ key: this.props.key }}

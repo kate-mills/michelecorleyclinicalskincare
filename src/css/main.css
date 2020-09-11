@@ -51,6 +51,7 @@ body {
     font-weight: 300;
     line-height: var(--bodyLineHeight);
     overflow: scroll;
+    text-align: justify;
     text-transform: none;
     text-decoration: none;
     margin: 0;
@@ -73,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--mainFont);
   font-weight: 300;
   line-height: var(--headingLineHeight);
-  margin: .5em 0 .3em;
+  margin: 0.5em 0 0.3em;
   color: var(--mainBlack);
 }
 h1 {
@@ -130,11 +131,10 @@ p {
   font-family: var(--mainFont);
   font-weight: 400;
   line-height: var(--bodyLineHeight);
-  padding: 0 0 1.8em;
   white-space: pre-wrap;
 }
 p.description{
-  text-align: center;
+  text-align: justify;
 }
 .btn {
   cursor: pointer;

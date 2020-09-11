@@ -52,5 +52,5 @@ export default [
   { path: "/contact/", text: "contact", menu: [] },
   { path: "/pro-orders/", text: "pro orders", menu: [] },
   { id: "professional", menu:[] },
-  { text: createParentLink("education", "articles"), title: "EDUCATION", menu: [ createChildLink("upcoming classes"), createChildLink("articles"), ] },
+  { text: createParentLink("education", "upcoming-classes"), title: "EDUCATION", menu: [ createChildLink("upcoming classes"), createChildLink("articles"), ] },
 ]
