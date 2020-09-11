@@ -80,9 +80,9 @@ const Profile = () => {
   const bowl = media.nodes.filter(({data}) => data.name==="bowl")
 
   return (
-    <section>
+    <>
     <SEO title="Professionals"/>
-    <h1 style={{textAlign: "center"}}>Professionals</h1>
+    <h1 className="poppy txt-center">Professionals</h1>
       {/* Top Row - Manuals */}
       <article className={styles.manuals__row}>
         {/* Left column  - esty image */}
@@ -93,7 +93,7 @@ const Profile = () => {
           { manuals.nodes.map(({id, data}) => {
             return(
               <div key={id} className={styles.manual__item}>
-                <h2>{data.name}</h2>
+                <h2 className="poppy">{data.name}</h2>
                 <p className={styles.manual__notes}>{data.notes}</p>
                 <a className="btn btn-white" href={data.pdf.localFiles[0].publicURL} target="_blank" rel="noreferrer" download>Download {data.name}</a>
               </div>
@@ -104,7 +104,7 @@ const Profile = () => {
       </article>
         {/* Under image of esty */}
         <article className={`${styles.orders__col}`}>
-        <h2>Order Specifics</h2>
+        <h2 className={`${styles.heading__h2} poppy`}>Order Specifics</h2>
           <ul data-bullet-list>
             <li><p>$100 minimum order  (Exception - Best Sellers Travel Size Kit)</p></li>
             <li><p> Orders shipped via UPS within 1-3 business days</p></li>
@@ -115,7 +115,7 @@ const Profile = () => {
         {/* Row -  Facials */}
         <article className={`${styles.facials}`}>
           <div className={styles.facial__header}>
-            <h2>Facial Protocols</h2>
+            <h2 className="poppy">Facial Protocols</h2>
             </div>
           <div className={styles.facial__top__container}>
             { facialsA.nodes.map(({id, data}) => {
@@ -144,11 +144,9 @@ const Profile = () => {
               })
             } 
             </div>
-
           </div>
-
         </article>
-    </section>
+    </>
   )
 }
 
