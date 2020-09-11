@@ -18,7 +18,7 @@ const SingleArticle = ({data}) => {
         <a href={link} target="_blank" rel="noreferrer">
           <Img fluid={image.localFiles[0].childImageSharp.fluid} alt={`Shows a preview of the article titled '${name}' in the ${date} Dermascope magazine.`}/>
         </a>
-        <p clrssName="article-preview">{preview}<a href={link} target="_blank" rel="noreferrer"><span className="article-readmore"><span className="article-dots">{`...`}</span>Read more <Arrow top={3}/></span></a></p>
+        <p className="article-preview">{preview}<a href={link} target="_blank" rel="noreferrer"><span className="article-readmore"><span className="article-dots">{`...`}</span>Read more <Arrow top={3}/></span></a></p>
       </div>
     </ArticleWrapper>
   )
