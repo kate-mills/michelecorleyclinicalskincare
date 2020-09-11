@@ -23,7 +23,6 @@ const query = graphql`
 
 const Footer = ({ className }) => {
   const {infinity} = useStaticQuery(query);
-  console.log('data', infinity);
   return (
     <footer className={className}>
       <div className="column">
