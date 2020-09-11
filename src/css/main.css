@@ -210,7 +210,8 @@ input:active, textarea:active, select:active{
 }
 #gatsby-focus-wrapper > div.tl-edges{
   /*1px border at the very top & bottom */
-  border: 1px solid var(--mainMcc);
+  border-left: 1px solid var(--mainMcc);
+  border-right: 1px solid var(--mainMcc);
 }
 div#content {
   background:var(--mainWhite);
