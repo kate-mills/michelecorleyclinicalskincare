@@ -64,6 +64,10 @@ const PageWrapper = styled.section`
   & .flex-col .flex-item-2  { margin: 0 auto; width: 40%; }
 
   @media (max-width: 767px) {
+    & h1{
+        width: 100%;
+        padding-left: 10px;
+    }
     & .flex-col .flex-item-1{ 
       width: 100%;
     }
