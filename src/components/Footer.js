@@ -1,16 +1,33 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import Image from 'gatsby-image'
+
 import styled from "styled-components"
 import socialLinks from "../constants/social"
 
 import { screen } from "../css/js/media-functions"
 import { setFlexContainer } from "../css/js/helper-styles"
 
+
+const query = graphql`
+  {
+    infinity:file(relativePath: {eq: "infinity.png"}) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
 const Footer = ({ className }) => {
+  const {infinity} = useStaticQuery(query);
+  console.log('data', infinity);
   return (
     <footer className={className}>
-      <hr/>
-      <div className="clear"/>
       <div className="column">
+      <Image fluid={infinity.childImageSharp.fluid}/>
         <div className="lg-text"><h3 style={{
           textTransform: "capitalize",
           color: "var(--mainBlack)", fontWeight:"400", lineHeight: "32px", fontSize: "21px", 
@@ -53,20 +70,19 @@ const Footer = ({ className }) => {
 
 const FooterWrapper = styled(Footer)`
   & {
-    padding-top: 0px;
-    padding-bottom: 20px;
+    padding: 0.1em  0 1.8em;
     text-align: center;
     letter-spacing: 1px;
     white-space: initial;
   }
-  & hr{
-    background: var(--mainBlack);
+  & .gatsby-image-wrapper{
     width: 80%;
-    margin: 20px auto;
-
+    max-height: 50px;
+    margin: 20px auto !important;
+    text-align: justify;
   }
 
-  & div.row { width: 100%; ${setFlexContainer({})} }
+  & div.row {width: 100%; ${setFlexContainer({})}}
 
   & div.column, & div.row {
     font-size: 16px;
@@ -74,9 +90,11 @@ const FooterWrapper = styled(Footer)`
     color: var(--mainBlack);
     font-weight: 400;
   }
-
-  & div.row.footer-icons {  font-size: 28px; justify-content: space-around;line-height: unset; }
-}
+  & div.row.footer-icons {
+    font-size: 28px;
+    justify-content: space-around;
+    line-height: unset;
+    }
   a.instagram-logo{font-size: 0px;}
   a.instagram-logo img{height: 40px; width: 40px;}
 
@@ -88,7 +106,6 @@ const FooterWrapper = styled(Footer)`
   & .sm-text{
     font-size: 13px;
   }
-
   div.phone-email{
     color: var(--mainBlack);
     font-size: 20px;
@@ -106,7 +123,12 @@ const FooterWrapper = styled(Footer)`
   a.email span{display:inline;}
   div.row.sm-text{font-weight: 300;}
   ${screen.phone.phone`
-    div.row.footer-icons{flex-direction: column;} .icon{margin: 20px;}
+    div.row.footer-icons{
+      flex-direction: column;
+    }
+    .icon{
+      margin: 20px;
+    }
     span.phone{ 
       display:block;
       font-size: 18px; 
@@ -119,9 +141,25 @@ const FooterWrapper = styled(Footer)`
       font-size: 17px;
       text-align: center;
     }
+    & .gatsby-image-wrapper{
+      width: 100%;
+      max-height: unset;
+      margin: 20px auto;
+    }
   `}
-  ${screen.tablet.tablet` div.row.footer-icons{flex-direction: column;} .icon{margin: 20px;} `}
-
+  ${screen.tablet.tablet` 
+    div.row.footer-icons{
+      flex-direction: column;
+    }
+    .icon{
+      margin: 20px;
+    } 
+    & .gatsby-image-wrapper{
+      width: 90%;
+      max-height: unset;
+      margin: 20px auto;
+    }
+  `}
   @media (max-width: 700px){
     .middot{
       display:none;
