@@ -35,7 +35,7 @@ Phone.defaultProps = {
 const ContactInfo = (props) => {
   return (
     <Wrapper>
-      <div class="flex-container" style={{textAlign: "center"}}>
+      <div className="flex-container" style={{textAlign: "center"}}>
         <h2 style={{fontSize: "35px"}}>Get in touch</h2>
         <div className="flex-item">
           <span className="day">Monday</span>
