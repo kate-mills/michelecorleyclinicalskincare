@@ -61,4 +61,7 @@ export default styled(UpcomingClasses)`
   & .upcoming-class:last-child{
     margin-bottom: 0!important;
   }
+  & hr.single-class{ background: var(--poppy); width: 75%; }
+  & hr.single-class:last-of-type{background: transparent;}
+
 `

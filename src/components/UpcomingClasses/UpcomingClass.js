@@ -5,8 +5,9 @@ import ClassMap from './ClassMap'
 
 const SingleClass = ({className, id, data:{data}}) => {
   return (
+    <>
       <div className={`${className} upcoming-class`}>
-        <h2 className="class__name">{data.name}</h2>
+        <h2 className="class__name poppy">{data.name}</h2>
 
         <div className="left__column">
           <h4 className="left__heading">{data.heading}</h4>
@@ -29,12 +30,12 @@ const SingleClass = ({className, id, data:{data}}) => {
           </div>
         </div>
       </div>
+      <hr className="single-class"/>
+    </>
   )
 }
 const Wrapper = styled(SingleClass)`
 & {
-  border: 5px solid var(--mainMcc);
-  border-radius: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -44,7 +45,7 @@ const Wrapper = styled(SingleClass)`
 & .class__name{
   width: 100%;
   text-align: center;
-  margin-top: 0;
+  font-weight: 400;
 }
 & .left__column, & .right__column{
   display: flex;
