@@ -23,7 +23,7 @@ const ContactPage = ({data}) => {
             </div>
             <div className="contact-img-container">
               <Image fluid={data.file.childImageSharp.fluid}/>
-              <ContactInfo wrapperMaxWidth="100%"/>
+              <ContactInfo  className="desktop" wrapperMaxWidth="100%"/>
             </div>
           </div>
           <div className="flex-item-2">
@@ -66,6 +66,10 @@ const PageWrapper = styled.section`
   @media (max-width: 767px) {
     & .flex-col .flex-item-1{ 
       width: 100%;
+    }
+    & .contact-img-container  aside{
+      background: red;
+      display: none !important;
     }
     & .flex-col .flex-item-1 .contact-img-container{
       margin: 0 auto;

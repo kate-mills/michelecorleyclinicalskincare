@@ -78,6 +78,7 @@ const ContactInfo = (props) => {
 const Wrapper = styled.aside`
   & {
     display: flex;
+    margin: 0 auto;
     flex-direction: column;
     padding: 5px 0;
     white-space: pre-line;
@@ -98,16 +99,19 @@ const Wrapper = styled.aside`
     width: 100%;
   }
   & > div.grid-container{
+    max-width: 85%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
+    margin-right: unset;
   }
   & .grid-item {
     padding: 5px;
   }
   & > .grid-container{
     width: 100%;
-  }  
+  }
   & .grid-item.key,
   & .grid-item.value{
     display: flex;
