@@ -48,19 +48,19 @@ const ContactInfo = (props) => {
        </div>
       </div>
 
-      <div class="grid-container">
-        <div class="grid-item key">Phone:</div>
-        <div class="grid-item phone value">
+      <div className="grid-container">
+        <div className="grid-item key">Phone:</div>
+        <div className="grid-item phone value">
           <Phone/>
         </div>
-        <div class="grid-item key">Email:</div>
-        <div class="grid-item value">
+        <div className="grid-item key">Email:</div>
+        <div className="grid-item value">
           <div>
             <UnformattedEmail/>
           </div>
         </div>
-        <div class="grid-item key">Address:</div>
-        <div class="grid-item value">
+        <div className="grid-item key">Address:</div>
+        <div className="grid-item value">
           <address style={{whiteSpace: "pre-line"}}>
             <span className="street-address" style={{ paddingLeft: "5px", display: "inline-block"}}>3055 Jefferson St.</span>
             <span className="suite" style={{ paddingLeft: "5px", display: "inline-block"}}>Suite 3</span>
