@@ -51,7 +51,6 @@ body {
     font-weight: 300;
     line-height: var(--bodyLineHeight);
     overflow: scroll;
-    text-align: justify;
     text-transform: none;
     text-decoration: none;
     margin: 0;
