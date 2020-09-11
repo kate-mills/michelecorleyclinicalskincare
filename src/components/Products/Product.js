@@ -21,10 +21,10 @@ const Product = ({ product }) => {
       </p>
       <p className="product-description">{description.description}</p>
       <div className="product-media">
-        <div className="fifty"><Image fixed={product.imgRetail.fixed}/></div>
+        <div className="twenty"><Image fixed={product.imgRetail.fixed}/></div>
         {
           product.video &&
-            <div className="fifty">
+            <div className="thirty">
               <VideoPlayer
                  src={`https://player.vimeo.com/video/${product.video}`}/>
             </div>
@@ -81,15 +81,15 @@ const ProductWrapper = styled.article`
   & .product-skintypes .skintype:last-child::after {
     content: "";
   }
-  & .product-description{}
+  & .product-description{ padding-bottom: unset;}
   & .product-media{
+    height: 100%;
     display: flex;
     align-items:center;
     flex-direction:row;
     flex-wrap:nowrap;
     justify-content: space-evenly;
     width: 100%;
-    padding-bottom: 20px;
   }
   & .product-ingredients p.bold {
     font-weight: 600;
@@ -108,13 +108,25 @@ const ProductWrapper = styled.article`
     font-weight: 300;
     padding-left: 5px;
   }
+  & .twenty{
+    max-width: 20%;
+  }
+  & .thirty{
+    min-width: 30%;
+  }
+  & .twenty, & .thirty{ 
+    display:flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
   @media(max-width: 600px){
     & .product-media{
       flex-direction:column;
       align-items: center;
       justify-content: center;
     }
-    & .product-media .fifty{
+    & .thirty, & .twenty{
+      max-width: 100%;
     }
   }
 `
