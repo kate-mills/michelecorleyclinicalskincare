@@ -45,7 +45,7 @@ export default ({ handleSubmit, handleUpdate }) => (
           onChange={handleUpdate}
         />
       </label>
-      <button className={styles[`form__button`]} type="submit">
+      <button className={`btn btn-form`} type="submit">
         Log in
       </button>
     </form>

@@ -191,10 +191,6 @@ div#content {
   transition: var(--mainTransition);
   outline: none;
 }
-.btn-black{
-  border: 2px solid var(--mainBlack);
-  color: var(--mainBlack);
-}
 .btn:hover,
 .btn:active,
 .btn:focus {
@@ -202,6 +198,19 @@ div#content {
   color: var(--poppyHigh);
   border: 2px solid var(--poppyHigh);
   box-shadow: var(--dark-shadow);
+}
+.btn-black{
+  border: 2px solid var(--mainBlack);
+  color: var(--mainBlack);
+}
+.btn-form{
+  border: 2px solid var(--poppy);
+  border-radius: 5px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  padding: 0.95rem 2.05rem;
+  transition: background-color 100ms linear;
 }
 
 /*

@@ -16,30 +16,8 @@
   display: block;
   border: 1px solid #ccc;
   font-size: 1rem;
-  padding: 0.25rem;
+  padding: 0.45rem;
   border-radius: 5px;
-}
-.form__button {
-  background-color: var(--poppy);
-  border: 1px solid var(--poppy);
-  border-radius: 5px;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 0.75rem;
-  padding: 0.95rem 2.05rem;
-  transition: background-color 100ms linear;
-}
-.form__button:hover {
-  cursor: pointer;
-  color: var(--poppy);
-  border: 1px solid var(--poppy);
-}
-.form__button:hover,
-.form__button:active,
-.form__button:focus {
-  background-color: var(--mainWhite);
-  color: var(--poppy)
 }
 .form__instructions{
   text-align: center;
