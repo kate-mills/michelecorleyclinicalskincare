@@ -1,6 +1,7 @@
 import React from "react"
 import Img from 'gatsby-image'
 import styled from "styled-components"
+import {screen} from "../../css/js/media-functions"
 
 import {RiArrowRightLine} from "react-icons/ri";
 
@@ -27,7 +28,7 @@ const ArticleWrapper = styled.article`
 & {margin-top: 40px;}
 &:first-of-type {margin-top: 10px;}
 
-& .article-image-container{ max-width: 90%; margin: 0 auto; }
+& .article-image-container{ margin: 0 auto; }
 
 & a {text-decoration: none; display:  block;}
 & a:last-child {display: inline;}
@@ -74,6 +75,23 @@ const ArticleWrapper = styled.article`
   top: 3px;
   left: 2px;
 }
-`
-export default SingleArticle
+
+${screen.phone.phone`
+  & .article-image-container{
+    max-width: 100%;
+  }
+`};
+${screen.tablet.tablet`
+  & .article-image-container{
+    max-width: 75%;
+  }
+`};
+${screen.desktop.desktop`
+  & .article-image-container{
+    max-width: 50%;
+  }
+`};
+`;
+
+export default SingleArticle;
 
