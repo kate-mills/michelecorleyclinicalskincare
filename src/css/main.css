@@ -1,31 +1,12 @@
-html {
-  display: block;
-  font-family:var(--mainFont);
-  font-size: 100%;
-  margin: 0;
-  padding: 0;
+root{
+  --clr-primary-5: hsl(21, 62%, 45%);
+  --btn-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 button {
   outline: none;
   background-color: var(--mainWhite);
-}
-img{
-  border-radius: 0px;
-}
-nav li {
-  list-style: none;
-}
-nav  li  a,
-nav button.plus-btn,
-nav span.professionals{
-    color: var(--mainBlack);
-    font-family:var(--mainFont);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: var(--mainSpacing);
-    line-height: var(--bodyLineHeight);
-    text-transform: uppercase;
 }
 p {
   color: var(--mainBlack);
@@ -39,41 +20,20 @@ p.description{
   text-align: justify;
   margin-bottom: 0 !important;
 }
-.btn {
-  cursor: pointer;
-  display: inline-block;
-  letter-spacing: var(--mainSpacing);
-  padding: 0.8rem 1.6rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: var(--mainTransition);
-  border: 2px solid var(--mainWhite);
-  border-radius: 10px;
-  color: var(--mainWhite);
-  outline: none;
-  box-shadow: unset;
-}
-.btn:hover,
-.btn:active,
-.btn:focus {
-  background: var(--mainWhite);
-  color: var(--mainBlack);
-  border: 2px solid var(--mainBlack);
-}
 .btn-white {
   background: var(--mainBlack);
   border: 2px solid var(--mainBlack);
   color: var(--mainWhite);
 }
 .btn-primary {
-  background: var(--primaryColor);
+  background: var(--poppy);
   color: var(--mainWhite);
-  border: 2px solid var(--primaryColor);
+  border: 2px solid var(--poppy);
 }
 .btn-primary:hover {
   background: transparent;
-  color: var(--primaryColor);
-  border: 2px solid var(--primaryColor);
+  color: var(--poppy);
+  border: 2px solid var(--poppy);
 }
 ul[data-bullet-list] {
   color: var(--mainBlack);
