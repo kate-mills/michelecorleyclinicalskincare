@@ -12,21 +12,21 @@ const ProOrders = () => {
     </span>
   )
   return (
-    <PageModel color="" title="Pro Orders" centeredTitle>
+    <PageModel title="Pro Orders" centeredTitle>
       <ProOrdersWrapper>
         <div className="txt-center w-100">
           <p>
-            If you <span className="needs-login">need a login</span> to place online orders contact us{` - `}
+            If you <em className="needs-login">need a login</em> to place online orders contact us{` - `}
             <Email className="email" subject="Pro Orders Login" />
           </p>
           <p>
-            If you already <span className="has-login">have a login</span>
+            If you already <em className="has-login">have a login</em>
           <a
             href="https://portal.nowcommerce.com/custsignin.aspx?ID=99867"
             target="_blank"
             rel="noreferrer"
             className="btn"
-          ><span className="hilight">CLICK HERE</span>
+          >click here
           </a> to place an online order.
           </p>
           <p> {star}Please note we have a $100 minimum order (Exception - Best Sellers Travel Size Kit).  </p>
@@ -44,9 +44,9 @@ const ProOrdersWrapper = styled.section`
   }
   & .needs-login,
   & .has-login{
-    text-decoration: underline;
+    font-style: italic;
   }
-  & .email {
+  & > .email {
     text-decoration: none;
   }
   & .btn{
