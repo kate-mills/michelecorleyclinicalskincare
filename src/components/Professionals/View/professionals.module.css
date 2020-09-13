@@ -87,7 +87,7 @@
   flex-wrap: wrap;
 }
 div .facial__name{
-  color: var(--poppy);
+  color: var(--mainBlack);
 }
 .facial__top__container .facialA__item{
   width: 45%;

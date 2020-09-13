@@ -134,9 +134,10 @@ hr {
 }
 .btn {
   border: 2px solid var(--poppyLow);
+  background: var(--mainWhite);
   border-radius: 10px;
   box-shadow: var(--light-shadow);
-  color: var(--mainBlack);
+  color: var(--poppyLow);
   cursor: pointer;
   display: inline-block;
   letter-spacing: var(--mainSpacing);
@@ -153,6 +154,11 @@ hr {
   color: var(--poppyHigh);
   border: 2px solid var(--poppyHigh);
   box-shadow: var(--dark-shadow);
+}
+.btn-black{
+  background: var(--mainWhite);
+  border: 2px solid var(--poppyLow);
+  color: var(--mainBlack);
 }
 
 `

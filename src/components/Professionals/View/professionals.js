@@ -105,7 +105,7 @@ const Profile = () => {
                 <h2 className="poppy">{data.name}</h2>
                 <p className={styles.manual__notes}>{data.notes}</p>
                 <a
-                  className="btn btn-white"
+                  className="btn"
                   href={data.pdf.localFiles[0].publicURL}
                   target="_blank"
                   rel="noreferrer"
@@ -120,7 +120,7 @@ const Profile = () => {
       </article>
       {/* Under image of esty */}
       <article className={`${styles.orders__col}`}>
-        <h2 className={`${styles.heading__h2} poppy`}>Order Specifics</h2>
+        <h2 className={`${styles.heading__h2} poppy `}>Order Specifics</h2>
         <ul data-bullet-list>
           <li>
             <p>$100 minimum order (Exception - Best Sellers Travel Size Kit)</p>
@@ -145,7 +145,7 @@ const Profile = () => {
               <div key={id} className={styles.facialA__item}>
                 <h3 className={styles.facial__name}>{data.name}</h3>
                 <a
-                  className="btn btn-white"
+                  className="btn"
                   href={data.pdf.localFiles[0].publicURL}
                   target="_blank"
                   rel="noreferrer"
@@ -174,7 +174,7 @@ const Profile = () => {
                 <div key={id} className={styles.facialB__item}>
                   <h3 className={styles.facial__name}>{data.name}</h3>
                   <a
-                    className="btn btn-white"
+                    className="btn"
                     href={data.pdf.localFiles[0].publicURL}
                     target="_blank"
                     rel="noreferrer"
