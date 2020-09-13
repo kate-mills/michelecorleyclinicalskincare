@@ -2,7 +2,6 @@ import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { screen } from '../../css/js/media-functions'
-
 import { RiArrowRightLine } from 'react-icons/ri'
 
 const Arrow = ({ top }) => {

@@ -1,29 +1,6 @@
 :root {
   /*--poppy: #f24b3d; not passing text*/
-  --poppy: #a5655f;
-  --poppyDark: #844D49;
-  --pinkHilight:#E9DBD8;
-  --mainMcc: #dcdcdc;
-  --mccPink: #ff665e;
-  --mainWhite: #fff;
-  --mainBlack: #676767;
-  --lightBlack: #757369;
-  --mainBlack: #5a584e;
-  --lightGrey:#dcd9d9;
-  --mainGrey: #d3d3d3;
-  --darkGrey: #cfcfcf;
-  --mainTransition: all .1s linear;
-  --bgTransition: background-color 100ms linear;
-  --mainSpacing: 0.0625rem;
-  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
-  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
-  --mainFont: Montserrat, sans-serif;
-  --headingLineHeight: 1.4em;
-  --bodyLineHeight: 1.8em;
 }
-*,
-::before,
-::after,
 * + * {
   margin: 0;
   padding: 0;

@@ -7,22 +7,22 @@
   font-family: var(--mainFont);
   outline: none;
   text-decoration: none; 
-  transition: var(--btnTransition);
+  transition: var(--bgTransition);
   line-height: 32px;
   margin-left: 0;
   padding-right: 12px;
   padding-left: 10px;
 } 
 .professional__logout__link {
-  color: var(--mainGrey);
+  color: var(--mainMcc);
   font-size: 10px;
-  padding-left: 0px;
+  padding-left: inherit;
+  margin-left: 1px;
   position:relative;
   right: 20px;
 }
 .professional__link {
-  letter-spacing: .5px;
-  /*padding: 0.4rem 1.4rem;*/
+  letter-spacing: var(--mainSpacing);
 }
 .professional__link:hover, 
 .professional__logout__link:hover {
