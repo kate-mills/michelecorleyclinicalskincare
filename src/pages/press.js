@@ -1,15 +1,15 @@
-import React from "react"
+import React from 'react'
 
-import {graphql} from 'gatsby'
-import PageModel from "../components/PageModel"
+import { graphql } from 'gatsby'
+import PageModel from '../components/PageModel'
 import PressList from '../components/Press/PressList'
-import styled from "styled-components"
+import styled from 'styled-components'
 
-const Press = ({data}) => {
+const Press = ({ data }) => {
   return (
     <PageModel title="Press" centeredTitle>
       <PressWrapper>
-        <PressList pressList={data.allAirtable.pressList}/>
+        <PressList pressList={data.allAirtable.pressList} />
       </PressWrapper>
     </PageModel>
   )
@@ -17,7 +17,10 @@ const Press = ({data}) => {
 
 export const query = graphql`
   {
-    allAirtable(filter: {table: {eq: "Press"}}, sort: {fields: data___mcc_id, order: ASC}) {
+    allAirtable(
+      filter: { table: { eq: "Press" } }
+      sort: { fields: data___mcc_id, order: ASC }
+    ) {
       pressList: nodes {
         id
         data {
@@ -27,7 +30,7 @@ export const query = graphql`
             localFiles {
               childImageSharp {
                 fluid {
-                ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -43,7 +46,7 @@ const PressWrapper = styled.section`
   & {
     margin: 0 auto;
   }
-  & > section{
+  & > section {
     margin: 0 auto;
   }
 `

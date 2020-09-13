@@ -1,4 +1,4 @@
-import { useLocation } from "@reach/router"
+import { useLocation } from '@reach/router'
 
 const isBrowser = typeof window !== `undefined`
 

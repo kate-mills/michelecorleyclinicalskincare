@@ -1,11 +1,11 @@
-import React from "react"
-import { Router } from "@reach/router"
+import React from 'react'
+import { Router } from '@reach/router'
 
-import Professionals from "../components/Professionals/View/professionals"
+import Professionals from '../components/Professionals/View/professionals'
 
-import Layout from "../components/layout"
-import Login from "../components/Professionals/Login"
-import PrivateRoute from "../components/Professionals/PrivateRoute"
+import Layout from '../components/layout'
+import Login from '../components/Professionals/Login'
+import PrivateRoute from '../components/Professionals/PrivateRoute'
 
 const App = () => {
   return (

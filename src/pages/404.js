@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react'
 
-import PageModel from "../components/PageModel"
+import PageModel from '../components/PageModel'
 
-import styled from "styled-components"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import styled from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-import { setFont, setFlexContainer } from "../css/js/helper-styles"
+import { setFont, setFlexContainer } from '../css/js/helper-styles'
 
 const ErrorPage = () => {
   return (
@@ -25,8 +25,8 @@ const ErrorPage = () => {
             <li>The page you are looking for has been moved or deleted.</li>
           </ul>
           <p>
-            {" "}
-            You can return to our homepage by clicking{" "}
+            {' '}
+            You can return to our homepage by clicking{' '}
             <AniLink fade to="/">
               here
             </AniLink>
@@ -42,25 +42,25 @@ const ErrorWrapper = styled.section`
     margin-left: 5px;
   }
   & div {
-    ${setFlexContainer({ direction: "column", y: "left" })};
+    ${setFlexContainer({ direction: 'column', y: 'left' })};
     margin: 10px auto;
     width: 80%;
   }
   & div p {
     ${setFont({
-      size: "15px",
-      height: "27px",
-      color: "#5c5c5c",
-      weight: "300",
+      size: '15px',
+      height: '27px',
+      color: '#5c5c5c',
+      weight: '300',
     })};
   }
 
   & div h1.oops {
     ${setFont({
-      size: "45px",
-      height: "1.2em",
-      color: "#222222",
-      weight: "300",
+      size: '45px',
+      height: '1.2em',
+      color: '#222222',
+      weight: '300',
     })};
   }
   & div li {

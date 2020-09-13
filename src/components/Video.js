@@ -41,14 +41,14 @@ const IframeVideoWrapper = styled.div`
     width: 100%;
   }
 
-  @media(max-width:600px){
+  @media (max-width: 600px) {
     width: 90vw;
   }
 `
 
- Video.defaultProps = {
+Video.defaultProps = {
   src: 'https://player.vimeo.com/video/360311714',
   title: 'Peptide Rich & Radiant Eye Cream',
 }
 
-export default Video;
+export default Video

@@ -1,6 +1,6 @@
-import React from "react"
-import { screen } from "../css/js/media-functions"
-import styled from "styled-components"
+import React from 'react'
+import { screen } from '../css/js/media-functions'
+import styled from 'styled-components'
 
 const HeadingOneOrTwo = ({ children, text, num, className }) => {
   return (
@@ -11,7 +11,7 @@ const HeadingOneOrTwo = ({ children, text, num, className }) => {
 }
 export default styled(HeadingOneOrTwo)`
   & {
-    background-color: ${props => props.backgroundColor || "white"};
+    background-color: ${props => props.backgroundColor || 'white'};
     margin: 0 auto;
     text-align: center;
   }

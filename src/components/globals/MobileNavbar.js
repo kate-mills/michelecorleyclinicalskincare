@@ -1,21 +1,21 @@
-import React, { Component, useState } from "react"
+import React, { Component, useState } from 'react'
 
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import links from "../../constants/links"
-import { screen } from "../../css/js/media-functions"
-import ProfessionalStatus from "../Professionals/Status" 
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import links from '../../constants/links'
+import { screen } from '../../css/js/media-functions'
+import ProfessionalStatus from '../Professionals/Status'
 
 const MoreItems = props => {
   const [isOpen, setIsOpen] = useState(false)
-  const [css, setCss] = useState("hide")
+  const [css, setCss] = useState('hide')
 
   const clickHandler = () => {
     if (!isOpen) {
-      setCss("show")
+      setCss('show')
     } else {
-      setCss("hide")
+      setCss('hide')
     }
     setIsOpen(!isOpen)
   }
@@ -29,7 +29,10 @@ const MoreItems = props => {
           {props.menu.map((item, id) => {
             return (
               <li key={id} className={`${css} child`}>
-                <AniLink fade to={item.path}> {item.text}</AniLink>
+                <AniLink fade to={item.path}>
+                  {' '}
+                  {item.text}
+                </AniLink>
               </li>
             )
           })}
@@ -40,7 +43,9 @@ const MoreItems = props => {
 }
 
 const MoreItemsWrapper = styled.div`
-  & *{font-family: var(--mainFont);}
+  & * {
+    font-family: var(--mainFont);
+  }
   & button.plus-btn {
     border: none;
     position: sticky;
@@ -48,18 +53,18 @@ const MoreItemsWrapper = styled.div`
     cursor: pointer;
     margin: 6px auto;
   }
-  & button.plus-btn.hide::after { 
+  & button.plus-btn.hide::after {
     position: relative;
     left: 5px;
-    content: "+"; 
+    content: '+';
   }
-  & button.plus-btn.show::after { 
+  & button.plus-btn.show::after {
     position: relative;
     left: 5px;
-    content: "--"; 
-    letter-spacing: -1px; 
+    content: '--';
+    letter-spacing: -1px;
   }
-  & nav{
+  & nav {
     background: #f2f2f2;
     background-image: initial;
     background-position-x: initial;
@@ -80,14 +85,14 @@ const MoreItemsWrapper = styled.div`
 class MobileNavbar extends Component {
   state = {
     navbarOpen: false,
-    css: "hide",
+    css: 'hide',
   }
 
   navbarHandler = () => {
     if (!this.state.navbarOpen) {
-      this.setState({ css: "show" })
+      this.setState({ css: 'show' })
     } else {
-      this.setState({ css: "hide" })
+      this.setState({ css: 'hide' })
     }
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
@@ -95,19 +100,26 @@ class MobileNavbar extends Component {
     return (
       <div className={`${this.props.className}`}>
         <div>
-          <button className={`${this.state.css} navbar-toggler`} onClick={this.navbarHandler}style={{ height: "32px",  width: "fit-content", }} >MENU</button>
+          <button
+            className={`${this.state.css} navbar-toggler`}
+            onClick={this.navbarHandler}
+            style={{ height: '32px', width: 'fit-content' }}
+          >
+            MENU
+          </button>
           <div className={`${this.state.css} full-nav`}>
             {links.map((item, id) => {
-              if (item.id === "professional"){ 
-                return <ProfessionalStatus key={id} className="li" /> 
+              if (item.id === 'professional') {
+                return <ProfessionalStatus key={id} className="li" />
+              } else {
+                return item.menu.length > 0 ? (
+                  <MoreItems key={id} name={item.title} menu={item.menu} />
+                ) : (
+                  <AniLink key={id} className="li" fade to={item.path}>
+                    {item.text}
+                  </AniLink>
+                )
               }
-              else{
-                return item.menu.length > 0 ? 
-                  (
-                    <MoreItems key={id} name={item.title} menu={item.menu} />):(
-                    <AniLink key={id} className="li" fade to={item.path}>{item.text}</AniLink>
-                  )
-                }
             })}
           </div>
         </div>

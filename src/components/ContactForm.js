@@ -2,16 +2,28 @@ import React from 'react'
 import styles from '../css/contact.module.css'
 
 const Contact = () => {
-  const asterisk = <span style={{color: "var(--poppy)", paddingRight: "2px"}}>&lowast;</span>
+  const asterisk = (
+    <span style={{ color: 'var(--poppy)', paddingRight: '2px' }}>&lowast;</span>
+  )
   return (
     <section className={styles.contact}>
-      <h3 style={{fontSize: "43px"}}className="poppy txt-center">CONTACT US</h3>
+      <h3 style={{ fontSize: '43px' }} className="poppy txt-center">
+        CONTACT US
+      </h3>
       <div className={styles.center}>
-        <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact" className={styles.form} action="/success">
-          <input type="hidden" name="bot-field"/>
+        <form
+          method="post"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          name="contact"
+          className={styles.form}
+          action="/success"
+        >
+          <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="contact" />
           <div>
-            <label htmlFor="name">{asterisk}Name:
+            <label htmlFor="name">
+              {asterisk}Name:
               <input
                 type="text"
                 name="name"
@@ -23,8 +35,10 @@ const Contact = () => {
             </label>
           </div>
           <div>
-            <label htmlFor="email">{asterisk}Email:
-              <input type="email"
+            <label htmlFor="email">
+              {asterisk}Email:
+              <input
+                type="email"
                 name="email"
                 id="email"
                 className={styles.formControl}
@@ -33,8 +47,10 @@ const Contact = () => {
             </label>
           </div>
           <div>
-            <label htmlFor="phone">{asterisk}Phone:
-              <input type="tel"
+            <label htmlFor="phone">
+              {asterisk}Phone:
+              <input
+                type="tel"
                 name="phone"
                 id="phone"
                 className={styles.formControl}
@@ -43,17 +59,31 @@ const Contact = () => {
             </label>
           </div>
           <div>
-            <label htmlFor="subject">{asterisk}Subject:
-              <input type="text" name="subject" id="subject" className={styles.formControl} required/>
+            <label htmlFor="subject">
+              {asterisk}Subject:
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                className={styles.formControl}
+                required
+              />
             </label>
           </div>
           <div>
-            <label htmlFor="license">Professional License Number:
-              <input type="text" name="license" id="license" className={styles.formControl} />
+            <label htmlFor="license">
+              Professional License Number:
+              <input
+                type="text"
+                name="license"
+                id="license"
+                className={styles.formControl}
+              />
             </label>
           </div>
           <div>
-            <label htmlFor="message">{asterisk}Message:
+            <label htmlFor="message">
+              {asterisk}Message:
               <textarea
                 name="message"
                 id="message"
@@ -65,9 +95,18 @@ const Contact = () => {
             </label>
           </div>
           <div>
-            <label htmlFor="reference">{asterisk}How Did You Hear About Us?:
-              <select type="text" name="reference" id="reference" className={styles.formControl} required>
-                <option value="Licensed Professional">Licensed Professional</option>
+            <label htmlFor="reference">
+              {asterisk}How Did You Hear About Us?:
+              <select
+                type="text"
+                name="reference"
+                id="reference"
+                className={styles.formControl}
+                required
+              >
+                <option value="Licensed Professional">
+                  Licensed Professional
+                </option>
                 <option value="Internet Search">Internet Search</option>
                 <option value="Friend">Friend</option>
                 <option value="Trade Show">Trade Show</option>
@@ -76,8 +115,13 @@ const Contact = () => {
             </label>
           </div>
           <div>
-            <label htmlFor="website">Website:
-              <input type="url" name="website" id="website" className={styles.formControl}
+            <label htmlFor="website">
+              Website:
+              <input
+                type="url"
+                name="website"
+                id="website"
+                className={styles.formControl}
               />
             </label>
           </div>

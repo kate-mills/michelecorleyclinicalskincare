@@ -1,17 +1,17 @@
-import React from "react"
+import React from 'react'
 
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 
-import PageModel from "../components/PageModel"
+import PageModel from '../components/PageModel'
 
-import ArticleList from "../components/Articles/ArticleList"
-import styled from "styled-components"
+import ArticleList from '../components/Articles/ArticleList'
+import styled from 'styled-components'
 
-const Articles = ({data}) => {
+const Articles = ({ data }) => {
   return (
     <PageModel name="Articles" title="Articles" centeredTitle>
       <ArticlesWrapper>
-        <ArticleList articles={data.allAirtable.articles}/>
+        <ArticleList articles={data.allAirtable.articles} />
       </ArticlesWrapper>
     </PageModel>
   )
@@ -20,12 +20,13 @@ const ArticlesWrapper = styled.section``
 
 export const query = graphql`
   {
-    allAirtable(filter: {
-      table: {eq: "Articles"}}, 
-      sort: { order: [DESC, ASC], fields: [data___date, data___name]}) {
+    allAirtable(
+      filter: { table: { eq: "Articles" } }
+      sort: { order: [DESC, ASC], fields: [data___date, data___name] }
+    ) {
       articles: nodes {
         id
-        article:data {
+        article: data {
           name
           link
           date(formatString: "MMMM DD, YYYY")

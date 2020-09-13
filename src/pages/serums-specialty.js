@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react'
 
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 
-import PageModel from "../components/PageModel"
-import ProductList from "../components/Products/ProductList"
+import PageModel from '../components/PageModel'
+import ProductList from '../components/Products/ProductList'
 
 const Serums = ({ data }) => {
   return (
@@ -17,16 +17,16 @@ const Serums = ({ data }) => {
       <SerumsWrapper>
         <p className="description">
           Sometimes skin needs an extra dose of nourishment. Our serums, facial
-          oils and specialty products provide just that;{" "}
+          oils and specialty products provide just that;{' '}
           <span className="bold">
             a correcting, protecting and evening out unbalanced skin.
-          </span>{" "}
+          </span>{' '}
           They give the skin a strong foundation to be its most beautiful,
-          healthy self. Any type of issue,{" "}
+          healthy self. Any type of issue,{' '}
           <span className="bold">
             from sun-damage, aging or acne-prone conditions
-          </span>{" "}
-          don't have a chance against these{" "}
+          </span>{' '}
+          don't have a chance against these{' '}
           <span className="bold">powerhouse treatments</span>.
         </p>
         <ProductList products={data.products} />
@@ -44,7 +44,10 @@ const SerumsWrapper = styled.div`
     text-align: left;
     box-sizing: border-box;
   }
-  & p.description{ margin-bottom: 0; padding-bottom: 0; }
+  & p.description {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 `
 
 export const query = graphql`

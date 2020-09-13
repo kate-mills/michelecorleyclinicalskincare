@@ -1,26 +1,23 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import links from "../../constants/links"
-import { screen } from "../../css/js/media-functions"
-import ProfessionalStatus from "../Professionals/Status" 
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import links from '../../constants/links'
+import { screen } from '../../css/js/media-functions'
+import ProfessionalStatus from '../Professionals/Status'
 
 const MoreItems = props => {
   return (
-      <MoreItemsWrapper>
-        {props.menu.map((item, id) => {
-          return (
-            <li key={id} className={`child-li`}>
-              <AniLink
-                fade
-                to={item.path}
-              >
-                {item.text}
-              </AniLink>
-            </li>
-          )
-        })}
-      </MoreItemsWrapper>
+    <MoreItemsWrapper>
+      {props.menu.map((item, id) => {
+        return (
+          <li key={id} className={`child-li`}>
+            <AniLink fade to={item.path}>
+              {item.text}
+            </AniLink>
+          </li>
+        )
+      })}
+    </MoreItemsWrapper>
   )
 }
 const MoreItemsWrapper = styled.ul`
@@ -48,20 +45,30 @@ class DesktopNavbar extends Component {
         <nav>
           <ul className="main-nav">
             {links.map((item, id) => {
-              if(item.id === "professional"){ return <li key={id}><ProfessionalStatus/></li> }
-              else{
-                return item.menu.length > 0 ? (
-                  <li className="parent-li parent-plus" key={id} style={{opacity: "1"}} >
-                  <MoreItems label={item.label} menu={item.menu} />
-                  {item.text}
-                </li>
-              ) : (
-                <li key={id} className="parent-li"
-                >
-                  <AniLink fade to={item.path}>{item.text}</AniLink>
-                </li>
+              if (item.id === 'professional') {
+                return (
+                  <li key={id}>
+                    <ProfessionalStatus />
+                  </li>
                 )
-                }
+              } else {
+                return item.menu.length > 0 ? (
+                  <li
+                    className="parent-li parent-plus"
+                    key={id}
+                    style={{ opacity: '1' }}
+                  >
+                    <MoreItems label={item.label} menu={item.menu} />
+                    {item.text}
+                  </li>
+                ) : (
+                  <li key={id} className="parent-li">
+                    <AniLink fade to={item.path}>
+                      {item.text}
+                    </AniLink>
+                  </li>
+                )
+              }
             })}
           </ul>
         </nav>
@@ -76,13 +83,14 @@ export default styled(DesktopNavbar)`
     z-index: 1;
   }
   & .parent-plus {
-    position:relative; left: 0;
+    position: relative;
+    left: 0;
   }
-  & li.parent-li  a{
+  & li.parent-li a {
     padding-left: 15px;
     padding-right: 15px;
   }
-  & ul{
+  & ul {
     margin: unset;
   }
   & nav ul.main-nav {
@@ -97,7 +105,7 @@ export default styled(DesktopNavbar)`
     margin: 0;
     white-space: nowrap;
     letter-spacing: 0.5px;
-    padding: 2px; 
+    padding: 2px;
     padding-left: 0;
   }
   & nav ul.main-nav li.parent-plus:hover li.child-li {

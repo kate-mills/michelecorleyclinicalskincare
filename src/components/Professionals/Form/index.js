@@ -1,17 +1,18 @@
-import React from "react"
-import styles from "./form.module.css"
-import { navigate } from "@reach/router"
-import SEO from "../../seo"
-import Email from "../../Email"
+import React from 'react'
+import styles from './form.module.css'
+import { navigate } from '@reach/router'
+import SEO from '../../seo'
+import Email from '../../Email'
 
 export default ({ handleSubmit, handleUpdate }) => (
   <>
-    <SEO title={`Professionals Login`}/>
+    <SEO title={`Professionals Login`} />
     <p className={styles[`form__instructions`]}>
-      Professionals, please contact us at{" "}
+      Professionals, please contact us at{' '}
       <span className={styles[`phone`]}>
         707{`.`}637{`.`}4996
-      </span>{" "}or{" "}<Email subject="Professional login and password" fontWeight="600"/>{" "}
+      </span>{' '}
+      or <Email subject="Professional login and password" fontWeight="600" />{' '}
       for access to our exclusive information.
     </p>
     <form
@@ -44,7 +45,9 @@ export default ({ handleSubmit, handleUpdate }) => (
           onChange={handleUpdate}
         />
       </label>
-      <button className={styles[`form__button`]} type="submit">Log in</button>
+      <button className={styles[`form__button`]} type="submit">
+        Log in
+      </button>
     </form>
   </>
 )

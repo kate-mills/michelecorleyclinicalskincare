@@ -1,7 +1,7 @@
-import React from "react"
-import { navigate } from "gatsby"
-import Form from "./Form"
-import { handleLogin, isLoggedIn } from "../../utils/auth"
+import React from 'react'
+import { navigate } from 'gatsby'
+import Form from './Form'
+import { handleLogin, isLoggedIn } from '../../utils/auth'
 
 class Login extends React.Component {
   state = {
@@ -15,8 +15,8 @@ class Login extends React.Component {
     })
   }
   componentDidMount() {
-    var el = document.getElementsByTagName("input")[1]; // input[0] is search
-    el.focus();
+    var el = document.getElementsByTagName('input')[1] // input[0] is search
+    el.focus()
   }
 
   handleSubmit(event) {
@@ -30,10 +30,10 @@ class Login extends React.Component {
     }
 
     return (
-        <Form
-          handleUpdate={e => this.handleUpdate(e)}
-          handleSubmit={e => this.handleSubmit(e)}
-        />
+      <Form
+        handleUpdate={e => this.handleUpdate(e)}
+        handleSubmit={e => this.handleSubmit(e)}
+      />
     )
   }
 }

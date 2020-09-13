@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react'
 
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 
-import PageModel from "../components/PageModel"
-import ProductList from "../components/Products/ProductList"
+import PageModel from '../components/PageModel'
+import ProductList from '../components/Products/ProductList'
 
 const Cleansers = ({ data }) => {
   return (
@@ -16,10 +16,10 @@ const Cleansers = ({ data }) => {
     >
       <CleansersWrapper>
         <p className="description">
-          Whether skin is dry, normal, oily or in between,{" "}
+          Whether skin is dry, normal, oily or in between,{' '}
           <span className="bold">
-            Michele Corley Clinical Skin Care has a cleanser for{" "}
-            <em className="bold">every</em> type.{" "}
+            Michele Corley Clinical Skin Care has a cleanser for{' '}
+            <em className="bold">every</em> type.{' '}
           </span>
           Our cleansers are gentle enough for the most sensitive or Rosacea
           prone skin, and relieve congestion by keeping skin flawlessly clean.
@@ -40,7 +40,12 @@ const CleansersWrapper = styled.div`
     box-sizing: border-box;
   }
 
-  & p.description{ margin-bottom: 0; padding-bottom: 0;text-align: center; color: var(--mainBlack); }
+  & p.description {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+    color: var(--mainBlack);
+  }
 `
 
 export const query = graphql`

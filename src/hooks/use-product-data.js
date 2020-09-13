@@ -1,13 +1,13 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 
 export const useProductData = () => {
   const data = useStaticQuery(
     graphql`
       query {
         allContentfulMccProduct(
-          sort: {order: [ASC, ASC], fields: [category, name]}
-        ){
-          products:nodes{
+          sort: { order: [ASC, ASC], fields: [category, name] }
+        ) {
+          products: nodes {
             name
             slug
             category
@@ -19,4 +19,3 @@ export const useProductData = () => {
   )
   return data.allContentfulMccProduct.products
 }
-

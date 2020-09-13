@@ -1,21 +1,22 @@
-import React from "react"
+import React from 'react'
 
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 
-import PageModel from "../components/PageModel"
-import ProductList from "../components/Products/ProductList"
+import PageModel from '../components/PageModel'
+import ProductList from '../components/Products/ProductList'
 
 const Masks = ({ data }) => {
   return (
     <PageModel
       title="Masks"
       centeredTitle
-      description={`Michele Corley Clinical Skincare masks help clarify and balance the skin, while offering a unique way to customize and tailor treatments to the specific needs of your clients.`}>
+      description={`Michele Corley Clinical Skincare masks help clarify and balance the skin, while offering a unique way to customize and tailor treatments to the specific needs of your clients.`}
+    >
       <MasksWrapper>
         <p className="description">
-          Our masks help clarify and balance the skin, while offering a{" "}
+          Our masks help clarify and balance the skin, while offering a{' '}
           <span className="bold">
             unique way to customize and tailor treatments to the specific needs
             of your clients
@@ -37,7 +38,10 @@ const MasksWrapper = styled.div`
     text-align: left;
     box-sizing: border-box;
   }
-  & p.description{ margin-bottom: 0; padding-bottom: 0; }
+  & p.description {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 `
 
 export const query = graphql`

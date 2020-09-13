@@ -1,13 +1,15 @@
 import React from 'react'
-import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react'
 
-
-import {getGoogleApi} from "../../utils/mapper"
+import { getGoogleApi } from '../../utils/mapper'
 
 const mapApi = getGoogleApi()
 
-const AnyReactComponent = ({ text }) => <div style={{color: "#fb6594", fontSize: "12px"}}className="map-marker">{text}
-  </div>;
+const AnyReactComponent = ({ text }) => (
+  <div style={{ color: '#fb6594', fontSize: '12px' }} className="map-marker">
+    {text}
+  </div>
+)
 
 class SimpleMap extends React.Component {
   static defaultProps = {
@@ -16,15 +18,18 @@ class SimpleMap extends React.Component {
       lng: parseFloat(mapApi.lng),
       isBrowser: mapApi.isBrowser,
       address: mapApi.address,
-      language: "en"
+      language: 'en',
     },
     zoom: 11,
     key: mapApi.api_key,
-  };
- 
-render() {
+  }
+
+  render() {
     return (
-      <div style={{ height: '100%', width: '100%', margin: "0 auto" }} className="google-map">
+      <div
+        style={{ height: '100%', width: '100%', margin: '0 auto' }}
+        className="google-map"
+      >
         <GoogleMapReact
           yesIWantToUseGoogleMapApiInternals
           bootstrapURLKeys={{ key: this.props.key }}
@@ -39,7 +44,7 @@ render() {
           />
         </GoogleMapReact>
       </div>
-    );
+    )
   }
 }
-export default SimpleMap;
+export default SimpleMap

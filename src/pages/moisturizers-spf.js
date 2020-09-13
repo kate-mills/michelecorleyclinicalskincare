@@ -1,18 +1,19 @@
-import React from "react"
+import React from 'react'
 
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 
-import PageModel from "../components/PageModel"
-import ProductList from "../components/Products/ProductList"
+import PageModel from '../components/PageModel'
+import ProductList from '../components/Products/ProductList'
 
 const Moisturizers = ({ data }) => {
   return (
     <PageModel
       title="Moisturizers & SPF"
       centeredTitle
-      description={`Whether concerned about slowing the look of aging, keeping skin properly hydrated or protecting it from UV exposure, we have a moisturizer for every skin type - and every season.`}>
+      description={`Whether concerned about slowing the look of aging, keeping skin properly hydrated or protecting it from UV exposure, we have a moisturizer for every skin type - and every season.`}
+    >
       <MoisturizersWrapper>
         <p className="description">
           Whether concerned about slowing the look of aging, keeping skin
@@ -36,7 +37,10 @@ const MoisturizersWrapper = styled.div`
     text-align: left;
     box-sizing: border-box;
   }
-  & p.description{ margin-bottom: 0; padding-bottom: 0; }
+  & p.description {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 `
 
 export const query = graphql`

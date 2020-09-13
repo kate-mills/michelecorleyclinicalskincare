@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 const YesNo = ({ className }) => {
   return (
@@ -7,44 +7,82 @@ const YesNo = ({ className }) => {
       <div className="flex-row">
         <div className="list">
           <h2 className="list-title poppy">We say YES to</h2>
-        <ul data-bullet-list>
-          <li><p>Powerful Peptides</p></li>
-          <li><p>Potent Antioxidants</p></li>
-          <li><p>Stable Vitamin C</p></li>
-          <li><p>Active Enzymes</p></li>
-          <li><p>Nutritious Plant Oils</p></li>
-          <li><p>Balancing Essential Oils</p></li>
-          <li><p>Vegetarian Formulas</p></li>
-          <li><p>Gentle Preservatives</p></li>
-        </ul>
+          <ul data-bullet-list>
+            <li>
+              <p>Powerful Peptides</p>
+            </li>
+            <li>
+              <p>Potent Antioxidants</p>
+            </li>
+            <li>
+              <p>Stable Vitamin C</p>
+            </li>
+            <li>
+              <p>Active Enzymes</p>
+            </li>
+            <li>
+              <p>Nutritious Plant Oils</p>
+            </li>
+            <li>
+              <p>Balancing Essential Oils</p>
+            </li>
+            <li>
+              <p>Vegetarian Formulas</p>
+            </li>
+            <li>
+              <p>Gentle Preservatives</p>
+            </li>
+          </ul>
         </div>
         <div className="list">
           <h2 className="list-title poppy">We say NO to</h2>
-        <ul data-bullet-list>
-          <li><p>Parabens</p></li>
-          <li><p>Synthetic Colorants</p></li>
-          <li><p>Synthetic Fragrance</p></li>
-          <li><p>Phthalates</p></li>
-          <li><p>
-            Formaldehyde Releasing<span style={{margin: "7.5px auto",display:"block",position: "relative", bottom: "5px"}}>Preservatives</span>
-          </p></li>
-          <li><p>Sodium Lauryl Sulfate</p></li>
-          <li><p>Sodium Laureth Sulfate</p></li>
-        </ul>
+          <ul data-bullet-list>
+            <li>
+              <p>Parabens</p>
+            </li>
+            <li>
+              <p>Synthetic Colorants</p>
+            </li>
+            <li>
+              <p>Synthetic Fragrance</p>
+            </li>
+            <li>
+              <p>Phthalates</p>
+            </li>
+            <li>
+              <p>
+                Formaldehyde Releasing
+                <span
+                  style={{
+                    margin: '7.5px auto',
+                    display: 'block',
+                    position: 'relative',
+                    bottom: '5px',
+                  }}
+                >
+                  Preservatives
+                </span>
+              </p>
+            </li>
+            <li>
+              <p>Sodium Lauryl Sulfate</p>
+            </li>
+            <li>
+              <p>Sodium Laureth Sulfate</p>
+            </li>
+          </ul>
         </div>
       </div>
-        <h3 className="yn-header poppy">
-          Professional skincare that delivers. Clean, safe, efficacious
-          formulas.
-        </h3>
-        <h3 className="yn-header italic">
-          Only available through your licensed skincare professional.
-        </h3>
+      <h3 className="yn-header poppy">
+        Professional skincare that delivers. Clean, safe, efficacious formulas.
+      </h3>
+      <h3 className="yn-header italic">
+        Only available through your licensed skincare professional.
+      </h3>
     </div>
   )
 }
 const Wrapper = styled(YesNo)`
-
   & .flex-row {
     display: flex;
     flex-direction: row;
@@ -53,12 +91,12 @@ const Wrapper = styled(YesNo)`
     justify-content: space-evenly;
     width: 100%;
   }
-  & .list{
+  & .list {
     display: inline-block;
-    width: fit-content; 
+    width: fit-content;
     margin: 0 auto;
   }
-  & .list-title{
+  & .list-title {
     margin-bottom: 0;
     text-align: left;
     position: relative;
@@ -72,14 +110,14 @@ const Wrapper = styled(YesNo)`
     font-style: italic;
     font-weight: 400;
   }
-  @media(max-width: 672px){
-    & .flex-row{
+  @media (max-width: 672px) {
+    & .flex-row {
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: center;
       margin: 0 auto;
     }
-    & .list-title{
+    & .list-title {
       right: 10px;
     }
   }

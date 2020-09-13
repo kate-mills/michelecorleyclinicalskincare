@@ -1,17 +1,16 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import styled from "styled-components"
-import socialLinks from "../constants/social"
+import styled from 'styled-components'
+import socialLinks from '../constants/social'
 
-import { screen } from "../css/js/media-functions"
-import { setFlexContainer } from "../css/js/helper-styles"
-
+import { screen } from '../css/js/media-functions'
+import { setFlexContainer } from '../css/js/helper-styles'
 
 const query = graphql`
   {
-    infinity:file(relativePath: {eq: "infinity.png"}) {
+    infinity: file(relativePath: { eq: "infinity.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -22,15 +21,25 @@ const query = graphql`
 `
 
 const Footer = ({ className }) => {
-  const {infinity} = useStaticQuery(query);
+  const { infinity } = useStaticQuery(query)
   return (
     <footer className={className}>
       <div className="column">
-      <Image fluid={infinity.childImageSharp.fluid}/>
-        <div className="lg-text"><h3 style={{
-          textTransform: "capitalize",
-          color: "var(--mainBlack)", fontWeight:"400", lineHeight: "32px", fontSize: "21px", 
-        textAlign: "center"}}>Follow us on</h3></div>
+        <Image fluid={infinity.childImageSharp.fluid} />
+        <div className="lg-text">
+          <h3
+            style={{
+              textTransform: 'capitalize',
+              color: 'var(--mainBlack)',
+              fontWeight: '400',
+              lineHeight: '32px',
+              fontSize: '21px',
+              textAlign: 'center',
+            }}
+          >
+            Follow us on
+          </h3>
+        </div>
         <div className="row footer-icons">
           {socialLinks.map((item, index) => {
             return (
@@ -41,7 +50,8 @@ const Footer = ({ className }) => {
                   className={item.class}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={item.style}>
+                  style={item.style}
+                >
                   {item.icon}
                 </a>
               </div>
@@ -49,10 +59,19 @@ const Footer = ({ className }) => {
           })}
         </div>
         <div className="row lg-text phone-email">
-          <p style={{margin: "0", padding: "0 0 1.0em"}}>
-            <span className="phone">707.637.4996</span>{` `}<span className="middot">&middot;</span>{` `}
-              <a href="mailto:customerservice@michelecorley.com?Subject=Hello%20Michele!" target="_top" className="email"> 
-              <span className="span1">customerservice</span><span className="email span2">@michelecorley.com </span></a>
+          <p style={{ margin: '0', padding: '0 0 1.0em' }}>
+            <span className="phone">707.637.4996</span>
+            {` `}
+            <span className="middot">&middot;</span>
+            {` `}
+            <a
+              href="mailto:customerservice@michelecorley.com?Subject=Hello%20Michele!"
+              target="_top"
+              className="email"
+            >
+              <span className="span1">customerservice</span>
+              <span className="email span2">@michelecorley.com </span>
+            </a>
           </p>
         </div>
         <div className="row sm-text">
@@ -61,7 +80,12 @@ const Footer = ({ className }) => {
             94558
           </p>
         </div>
-        <div className="row sm-text"> <p className="sm-text">All rights reserved. &copy;{new Date().getFullYear()}</p> </div>
+        <div className="row sm-text">
+          {' '}
+          <p className="sm-text">
+            All rights reserved. &copy;{new Date().getFullYear()}
+          </p>{' '}
+        </div>
       </div>
     </footer>
   )
@@ -69,21 +93,25 @@ const Footer = ({ className }) => {
 
 const FooterWrapper = styled(Footer)`
   & {
-    padding: 0.1em  0 1.8em;
+    padding: 0.1em 0 1.8em;
     text-align: center;
     letter-spacing: 1px;
     white-space: initial;
   }
-  & .gatsby-image-wrapper{
+  & .gatsby-image-wrapper {
     width: 80%;
     max-height: 50px;
     margin: 20px auto !important;
     text-align: justify;
   }
 
-  & div.row {width: 100%; ${setFlexContainer({})}}
+  & div.row {
+    width: 100%;
+    ${setFlexContainer({})}
+  }
 
-  & div.column, & div.row {
+  & div.column,
+  & div.row {
     font-size: 16px;
     line-height: 19px;
     color: var(--mainBlack);
@@ -93,34 +121,48 @@ const FooterWrapper = styled(Footer)`
     font-size: 28px;
     justify-content: space-around;
     line-height: unset;
-    }
-  a.instagram-logo{font-size: 0px;}
-  a.instagram-logo img{height: 40px; width: 40px;}
+  }
+  a.instagram-logo {
+    font-size: 0px;
+  }
+  a.instagram-logo img {
+    height: 40px;
+    width: 40px;
+  }
 
-  div.row.sm-text p { padding: 5px; }
+  div.row.sm-text p {
+    padding: 5px;
+  }
   div.row.sm-text p.address {
     font-weight: 400;
     font-size: 13px;
   }
-  & .sm-text{
+  & .sm-text {
     font-size: 13px;
   }
-  div.phone-email{
+  div.phone-email {
     color: var(--mainBlack);
     font-size: 20px;
     margin-top: 10px;
-    line-height: 22px; 
+    line-height: 22px;
   }
   div.phone-email p {
     white-space: initial;
   }
-  span.phone, a.email{
+  span.phone,
+  a.email {
     text-decoration: none;
     font-weight: 400;
   }
-  a.email{ font-size: 19px; }
-  a.email span{display:inline;}
-  div.row.sm-text{font-weight: 300;}
+  a.email {
+    font-size: 19px;
+  }
+  a.email span {
+    display: inline;
+  }
+  div.row.sm-text {
+    font-weight: 300;
+  }
   ${screen.phone.phone`
     div.row.footer-icons{
       flex-direction: column;
@@ -159,21 +201,23 @@ const FooterWrapper = styled(Footer)`
       margin: 20px auto;
     }
   `}
-  @media (max-width: 700px){
-    .middot{
-      display:none;
+  @media (max-width: 700px) {
+    .middot {
+      display: none;
     }
-    .div-row{
+    .div-row {
       flex-direction: column;
       flex-wrap: wrap;
     }
-    span.phone{
-      display:block;
-      line-height: 35px;}
+    span.phone {
+      display: block;
+      line-height: 35px;
+    }
   }
   @media (max-width: 325px) {
-    a.email{font-size: 15px;}
+    a.email {
+      font-size: 15px;
+    }
   }
-
 `
 export default FooterWrapper

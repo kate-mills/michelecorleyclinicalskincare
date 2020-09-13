@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react'
 
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 
-import PageModel from "../components/PageModel"
-import ProductList from "../components/Products/ProductList"
+import PageModel from '../components/PageModel'
+import ProductList from '../components/Products/ProductList'
 
 const Moisturizers = ({ data }) => {
   return (
@@ -15,11 +15,14 @@ const Moisturizers = ({ data }) => {
       description={`Accentuate your best features with this trio of results-driven eye and lip treatments that target specific concerns. Skin is resculpted while youthful looking contours and firmness are revived.`}
     >
       <CleansersWrapper>
-        <p className="description">Accentuate your best features with this trio of results-driven eye and
+        <p className="description">
+          Accentuate your best features with this trio of results-driven eye and
           lip treatments that target specific concerns.{` `}
           <span className="bold">
             Skin is resculpted while youthful looking contours and firmness are
-            revived</span>.
+            revived
+          </span>
+          .
         </p>
         <ProductList products={data.products} />
       </CleansersWrapper>
@@ -37,7 +40,10 @@ const CleansersWrapper = styled.div`
     text-align: left;
     box-sizing: border-box;
   }
-  & p.description{ margin-bottom: 0; padding-bottom: 0; }
+  & p.description {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 `
 
 export const query = graphql`

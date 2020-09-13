@@ -13,23 +13,24 @@ exports.onCreatePage = async ({ page, actions }) => {
   }
 }
 
-exports.createPages = async({ graphql, actions  }) => {
-  const {createPage} = actions
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
 
   const result = await graphql(`
-  query GetProducts{
-    products:allContentfulMccProduct{
-      nodes{
-        slug
+    query GetProducts {
+      products: allContentfulMccProduct {
+        nodes {
+          slug
+        }
       }
     }
-  }`)
+  `)
 
-  result.data.products.nodes.forEach((product) => {
+  result.data.products.nodes.forEach(product => {
     createPage({
       path: `/products/${product.slug}`,
       component: path.resolve(`src/templates/product-template.js`),
-      context: {slug: product.slug}
+      context: { slug: product.slug },
     })
   })
 }

@@ -1,4 +1,4 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -7,24 +7,24 @@ module.exports = {
     title: `Michele Corley Clinical Skincare`,
     description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
     author: `MCC`,
-    siteUrl: `https://mcc-on-netlify.netlify.app`
+    siteUrl: `https://mcc-on-netlify.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
     {
-      resolve:'gatsby-plugin-robots-txt',
-      options:{
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
         host: `https://mcc-on-netlify.netlify.app`,
-        sitemap:`https://mcc-on-netlify.netlify.app/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }]
+        sitemap: `https://mcc-on-netlify.netlify.app/sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/sitemap.xml`
-      }
+        output: `/sitemap.xml`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -78,31 +78,31 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-preconnect",
+      resolve: 'gatsby-plugin-preconnect',
       options: {
-        domains: ["https://foo.com", "https://bar.com"],
+        domains: ['https://foo.com', 'https://bar.com'],
       },
     },
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: process.env.GATSBY_AIRTABLE_API, 
+        apiKey: process.env.GATSBY_AIRTABLE_API,
         concurrency: 5,
         tables: [
           {
             baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,
             tableName: `Articles`,
-            mapping: {image: `fileNode`, pdf: `fileNode`}
+            mapping: { image: `fileNode`, pdf: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,
             tableName: `BeforeAfter`,
-            mapping: {media: `fileNode`}
+            mapping: { media: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,
             tableName: `Classes`,
-            mapping: {image: `fileNode`}
+            mapping: { image: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_MARKETING_BASE_ID,
@@ -111,42 +111,41 @@ module.exports = {
           {
             baseId: process.env.GATSBY_AIRTABLE_MARKETING_BASE_ID,
             tableName: `Press`,
-            mapping: {image: `fileNode`}
+            mapping: { image: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_PROFESSIONALS_BASE_ID,
             tableName: `Facials`,
-            mapping: {pdf: `fileNode`}
+            mapping: { pdf: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_PROFESSIONALS_BASE_ID,
             tableName: `Media`,
-            mapping: {image: `fileNode`}
+            mapping: { image: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_PROFESSIONALS_BASE_ID,
             tableName: `Manuals`,
-            mapping: {pdf: `fileNode`}
-          }
-        ]
-      }
+            mapping: { pdf: `fileNode` },
+          },
+        ],
+      },
     },
     {
-      resolve: "gatsby-plugin-netlify-cache",
+      resolve: 'gatsby-plugin-netlify-cache',
       options: {
-        cachePublic: false
-      }
-   },
-   {
-     resolve: `gatsby-plugin-prefetch-google-fonts`,
-     options: {
-       fonts: [
+        cachePublic: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
           {
             family: `Montserrat`,
-            variants:[`200`, `300`, `400`, `500`,  `600`, `700`],
-          }
-        ]
-      }
-   }
-  ]
+          },
+        ],
+      },
+    },
+  ],
 }

@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 import Image from 'gatsby-image'
-import VideoPlayer from "../Video"
+import VideoPlayer from '../Video'
 
 const Product = ({ product }) => {
   const { name, skinType, description, keyIngredients } = product
@@ -21,10 +21,12 @@ const Product = ({ product }) => {
       </p>
       <p className="product-description">{description.description}</p>
       <div className="product-media">
-        <Image fixed={product.imgRetail.fixed}/>
-        {
-          product.video && <VideoPlayer src={`https://player.vimeo.com/video/${product.video}`}/>
-        }
+        <Image fixed={product.imgRetail.fixed} />
+        {product.video && (
+          <VideoPlayer
+            src={`https://player.vimeo.com/video/${product.video}`}
+          />
+        )}
       </div>
       <div className="product-ingredients">
         <p className="bold">A FEW KEY Ingredients & Benefits:</p>
@@ -33,7 +35,7 @@ const Product = ({ product }) => {
             return (
               <li className="key-ingredient" key={ing.id}>
                 <p>
-                  <span className="name-formatted">{ing.name.formatted}:</span>{" "}
+                  <span className="name-formatted">{ing.name.formatted}:</span>{' '}
                   <span className="benefit">{ing.benefit}</span>
                 </p>
               </li>
@@ -51,7 +53,7 @@ const ProductWrapper = styled.article`
     margin: 0 auto;
     font-weight: 300;
   }
-  & p{
+  & p {
     font-weight: 400;
   }
   & .product-name {
@@ -71,17 +73,19 @@ const ProductWrapper = styled.article`
     font-weight: 300;
   }
   & .product-skintypes .skintype::after {
-    content: ", ";
+    content: ', ';
   }
   & .product-skintypes .skintype:last-child::after {
-    content: "";
+    content: '';
   }
-  & .product-description{ padding-bottom: unset;}
-  & .product-media{
+  & .product-description {
+    padding-bottom: unset;
+  }
+  & .product-media {
     display: flex;
-    align-items:center;
-    flex-direction:row;
-    flex-wrap:nowrap;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-around;
   }
   & .product-ingredients p.bold {
@@ -93,20 +97,21 @@ const ProductWrapper = styled.article`
     width: 90%;
     margin: 0 auto;
   }
-  span.name-formatted{}
-  & li.key-ingredient p{
+  span.name-formatted {
+  }
+  & li.key-ingredient p {
     font-weight: 400;
   }
   & li.key-ingredient .benefit {
     font-weight: 300;
     padding-left: 5px;
   }
-  @media(max-width: 800px){
-    & .product-media{
+  @media (max-width: 800px) {
+    & .product-media {
       flex-wrap: wrap;
       justify-content: center;
     }
-    & .product-media  div{
+    & .product-media div {
       margin: 10px;
     }
   }

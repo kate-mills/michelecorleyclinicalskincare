@@ -1,18 +1,23 @@
-import React from "react"
+import React from 'react'
 
-const RaveReview = ({id, data:{data}}) => {
+const RaveReview = ({ id, data: { data } }) => {
   return (
     <div>
-      <p style={{
-        fontStyle: "italic",
-        fontWeight: "300",
-        margin: "0",
-        padding: "0 0 .5rem",
-      }}>{`"${data.review}"`}
+      <p
+        style={{
+          fontStyle: 'italic',
+          fontWeight: '300',
+          margin: '0',
+          padding: '0 0 .5rem',
+        }}
+      >
+        {`"${data.review}"`}
       </p>
-      <p style={{
-        fontWeight: "600",
-        }}>
+      <p
+        style={{
+          fontWeight: '600',
+        }}
+      >
         &#126;{` `}
         {data.signature}
       </p>

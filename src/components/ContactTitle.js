@@ -12,7 +12,8 @@ const Title = ({ title, className }) => {
 }
 
 export default styled(Title)`
-  & {text-transform: uppercase;
+  & {
+    text-transform: uppercase;
     font-size: 2.3rem;
     margin-bottom: 2rem;
     line-height: 34px;
@@ -20,7 +21,7 @@ export default styled(Title)`
   & h3 {
     text-align: center;
     letter-spacing: 7px;
-    color: rgba(179, 0,0, 0.8);
+    color: rgba(179, 0, 0, 0.8);
   }
   .title {
     color: var(--mainBlack);
