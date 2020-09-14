@@ -28,7 +28,6 @@
   box-sizing: border-box;
   font-family: var(--mainFont);
   font-size: 100%;
-  color: var(--mainBlack);
   text-decoration: none;
 }
 
@@ -234,6 +233,9 @@ Utility classes
 }
 .w-100{
   width: 100%;
+}
+.facebook{
+  color: blue !important;
 }
 /* End Utility classes */
 
