@@ -55,9 +55,8 @@ const YesNo = ({ className }) => {
                 <span
                   style={{
                     margin: '7.5px auto',
+                    marginBottom: '0',
                     display: 'block',
-                    position: 'relative',
-                    bottom: '5px',
                   }}
                 >
                   Preservatives
