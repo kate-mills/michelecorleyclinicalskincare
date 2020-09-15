@@ -6,30 +6,26 @@ import PageModel from '../components/PageModel'
 import styled from 'styled-components'
 
 const ProOrders = () => {
-  const star = (
-    <span style={{ position: "relative", top: "3px", textDecoration: 'none' }} className="star">
-      *
-    </span>
-  )
   return (
     <PageModel title="Pro Orders" centeredTitle>
       <ProOrdersWrapper>
         <div className="txt-center w-100">
           <p>
-            If you <em className="needs-login">need a login</em> to place online orders contact us{` - `}
+            If you need a login  to place online orders contact us{` - `}
             <Email className="email" subject="Pro Orders Login" />
           </p>
           <p>
-            If you already <em className="has-login">have a login</em>
+            If you already have a login click the button below to place online orders.<br/>
           <a
             href="https://portal.nowcommerce.com/custsignin.aspx?ID=99867"
             target="_blank"
             rel="noreferrer"
             className="btn"
-          >click here
-          </a> to place an online order.
+          >Online orders
+          </a>
           </p>
-          <p> {star}Please note we have a $100 minimum order (Exception - Best Sellers Travel Size Kit).  </p>
+
+          <p>Please note we have a $100 minimum order (Exception - Best Sellers Travel Size Kit).</p>
         </div>
       </ProOrdersWrapper>
     </PageModel>
