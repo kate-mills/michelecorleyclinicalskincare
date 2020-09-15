@@ -65,8 +65,6 @@ const ProductWrapper = styled.article`
   }
   & .product-heading .award-winner{
     min-width: 120px;
-    position: relative;
-    top: 10px;
   }
   & .product-heading img{
     object-fit: contain !important;
@@ -128,8 +126,11 @@ const ProductWrapper = styled.article`
   }
   @media (max-width: 800px) {
     & .product-media {
-      flex-wrap: wrap-reverse;
-      justify-content: center;
+      flex-wrap: wrap;
+    }
+    & .product-media .gatsby-image-wrapper{
+      margin-top: 0;
+      margin-bottom: 15px;
     }
   }
 `
