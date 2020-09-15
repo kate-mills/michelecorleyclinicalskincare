@@ -80,11 +80,11 @@ export default styled(UpcomingClasses)`
     margin-bottom: 0 !important;
   }
   & hr.single-class {
-    background: var(--poppy);
-    width: 75%;
+    background: transparent;
+    margin-bottom: 20px;
   }
   & hr.single-class:last-of-type {
-    background: transparent;
+    margin-bottom: unset;
   }
   & .upcoming-class > h2.poppy-dark {
     max-width: 75%;

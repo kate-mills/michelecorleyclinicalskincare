@@ -7,8 +7,7 @@ const SingleClass = ({ className, id, data: { data } }) => {
   return (
     <>
       <div className={`${className} upcoming-class`}>
-        <h2 className="class__name poppy-dark txt-center">{data.name}</h2>
-
+        <h2 className="class__name txt-center">{data.name}</h2>
         <div className="left__column">
           <h4 className="left__heading">{data.heading}</h4>
           <div className="left__image__container">
@@ -44,12 +43,13 @@ const SingleClass = ({ className, id, data: { data } }) => {
 const Wrapper = styled(SingleClass)`
   & {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    height: fit-content;
     width: 100%;
+    margin: 40px auto;
   }
   & .class__name {
+    color: var(--poppyDark);
+    font-size:35px; 
     width: 100%;
     text-align: center;
     font-weight: 400;

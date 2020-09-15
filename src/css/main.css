@@ -219,11 +219,6 @@ Utility classes
 .poppy{
   color: var(--poppy);
 }
-.poppy-dark{
-  color: var(--poppyDark);
-  background: var(--mainMcc);
-  border-radius: 5px;
-}
 .txt-center{
   text-align: center;
 }
