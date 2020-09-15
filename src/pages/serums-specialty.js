@@ -73,7 +73,6 @@ export const query = graphql`
             }
           }
           video
-          vimeoUrl
           keyIngredients {
             id
             name {
