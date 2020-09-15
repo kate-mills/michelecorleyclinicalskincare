@@ -126,7 +126,7 @@ const ProductWrapper = styled.article`
   }
   @media (max-width: 800px) {
     & .product-media {
-      flex-wrap: wrap;
+      flex-wrap: wrap-reverse;
     }
     & .product-media .gatsby-image-wrapper{
       margin-top: 0;
