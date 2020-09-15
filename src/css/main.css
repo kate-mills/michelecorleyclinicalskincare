@@ -213,6 +213,9 @@ Utility classes
 .bold {
   font-weight: 600;
 }
+.flex{
+  display: flex;
+}
 .poppy{
   color: var(--poppy);
 }

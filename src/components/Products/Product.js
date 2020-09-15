@@ -6,10 +6,12 @@ import VideoPlayer from '../Video'
 
 const Product = ({ product }) => {
   const { name, skinType, description, keyIngredients } = product
-
   return (
     <ProductWrapper className="single-product page-article">
-      <h2 className="product-name">{name}</h2>
+      <div className="product-heading flex">
+        <h2 className="product-name">{name}</h2>
+        { product.award && <Image className="award-winner"fixed={product.awardImage.fixed}/> }
+      </div>
       <p className="product-skintypes">
         {skinType.map((item, index) => {
           return (
@@ -50,11 +52,24 @@ const ProductWrapper = styled.article`
   & {
     display: flex;
     flex-flow: column nowrap;
-    margin: 0 auto;
+    margin: 15x auto;
     font-weight: 300;
+    width: 100%;
   }
   & p {
     font-weight: 400;
+  }
+  & .product-heading{
+    align-items: center;
+    width: 100%;
+  }
+  & .product-heading .award-winner{
+    min-width: 120px;
+    position: relative;
+    top: 10px;
+  }
+  & .product-heading img{
+    object-fit: contain !important;
   }
   & .product-name {
     font-size: 30px;
@@ -65,12 +80,11 @@ const ProductWrapper = styled.article`
     margin-bottom: 0;
   }
   & .product-skintypes {
-    padding: 5px 0px;
+    padding:0 0 0.5em;
     text-align: left;
   }
   & .product-skintypes .skintype {
     font-style: italic;
-    font-weight: 300;
   }
   & .product-skintypes .skintype::after {
     content: ', ';
@@ -80,13 +94,19 @@ const ProductWrapper = styled.article`
   }
   & .product-description {
     padding-bottom: unset;
+    padding: 0 0.2rem 0;
+    margin-bottom: 5px;
   }
   & .product-media {
     display: flex;
     align-items: center;
     flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-around;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  & .product-media div.gatsby-image-wrapper{
+    object-fit: contain !important;
   }
   & .product-ingredients p.bold {
     font-weight: 600;
@@ -108,11 +128,8 @@ const ProductWrapper = styled.article`
   }
   @media (max-width: 800px) {
     & .product-media {
-      flex-wrap: wrap;
+      flex-wrap: wrap-reverse;
       justify-content: center;
-    }
-    & .product-media div {
-      margin: 10px;
     }
   }
 `
