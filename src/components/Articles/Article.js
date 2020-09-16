@@ -5,17 +5,17 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const SingleArticle  = ({ data: { data } }) => {
   return (
-    <div className={styles.pr__row}>
+    <div className={styles.single__row}>
       <Img
         fluid={data.image.localFiles[0].childImageSharp.fluid}
-        className={styles.pr__col}
+        className={styles.single__col}
       />
-      <div className={`${styles.pr__col} ${styles.pr__flexible__col}`}>
-        <p>{data.summary}</p>
+      <div className={`${styles.single__col} ${styles.single__flexible__col}`}>
+        <p className={styles.summary}>{data.summary}</p>
         {data.link &&  (
           <a
             href={data.link}
-            className={`${styles.read__more} btn btn-white`}
+            className={`${styles.read__more} btn`}
             target="_blank"
             rel="noreferrer"
           >
