@@ -23,7 +23,9 @@ const Product = ({ product }) => {
       </p>
       <p className="product-description">{description.description}</p>
       <div className="product-media">
-        <Image fixed={product.imgRetail.fixed} />
+        <div className="img-container">
+          <Image fixed={product.imgRetail.fixed}/>
+        </div>
         {product.video && (
           <VideoPlayer
             src={`https://player.vimeo.com/video/${product.video}`}
@@ -128,9 +130,9 @@ const ProductWrapper = styled.article`
     & .product-media {
       flex-wrap: wrap-reverse;
     }
-    & .product-media .gatsby-image-wrapper{
-      margin-top: 0;
-      margin-bottom: 15px;
+    & .img-container{
+      margin: 10px auto 0 auto;
+      border: 2px solid var(--mainWhite);
     }
   }
 `
