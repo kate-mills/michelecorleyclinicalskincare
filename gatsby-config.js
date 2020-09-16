@@ -91,8 +91,8 @@ module.exports = {
         tables: [
           {
             baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,
-            tableName: `Articles`,
-            mapping: { image: `fileNode`, pdf: `fileNode` },
+            tableName: `MccArticles`,
+            mapping: { image: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,

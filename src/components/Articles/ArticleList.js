@@ -1,13 +1,13 @@
 import React from 'react'
 import SingleArticle from './Article'
 
-const Articles = ({ articles }) => {
+const ArticleList = ({ articleList }) => {
   return (
     <section className="article-list">
-      {articles.map(data => {
+      {articleList.map(data => {
         return <SingleArticle key={data.id} data={data} />
       })}
     </section>
   )
 }
-export default Articles
+export default ArticleList

@@ -1,42 +1,31 @@
 import React from 'react'
 
 import { graphql } from 'gatsby'
-
 import PageModel from '../components/PageModel'
-
 import ArticleList from '../components/Articles/ArticleList'
 import styled from 'styled-components'
 
-const Articles = ({ data }) => {
+const Press2 = ({ data }) => {
   return (
-    <PageModel name="Articles" title="Articles" centeredTitle>
-      <ArticlesWrapper>
-        <ArticleList articles={data.allAirtable.articles} />
-      </ArticlesWrapper>
+    <PageModel title="Articles" centeredTitle>
+      <PressWrapper>
+        <ArticleList articleList={data.allAirtable.articleList} />
+      </PressWrapper>
     </PageModel>
   )
 }
-const ArticlesWrapper = styled.section``
 
 export const query = graphql`
   {
     allAirtable(
-      filter: { table: { eq: "Articles" } }
-      sort: { order: [DESC, ASC], fields: [data___date, data___name] }
+      filter: { table: { eq: "MccArticles" } }
+      sort: { fields: data___mcc_id, order: DESC }
     ) {
-      articles: nodes {
+      articleList: nodes {
         id
-        article: data {
-          name
-          link
-          date(formatString: "MMMM DD, YYYY")
-          preview
-          pdf {
-            id
-            localFiles {
-              publicURL
-            }
-          }
+        data {
+          mcc_id
+          summary
           image {
             localFiles {
               childImageSharp {
@@ -46,9 +35,18 @@ export const query = graphql`
               }
             }
           }
+          link
         }
       }
     }
   }
 `
-export default Articles
+const PressWrapper = styled.section`
+  & {
+    margin: 0 auto;
+  }
+  & > section {
+    margin: 0 auto;
+  }
+`
+export default Press2
