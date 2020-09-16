@@ -15,9 +15,6 @@
   width: 50%;
   margin: 0 auto;
 }
-.pr__col img{
-  border-radius: 9px; 
-}
 .pr__col p{ width: 95%; padding-bottom: 5px; }
 .pr__flexible__col{
   display: flex;
