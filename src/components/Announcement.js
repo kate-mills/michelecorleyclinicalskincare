@@ -21,7 +21,7 @@ class Announcement extends React.Component {
                 textAlign: 'center',
                 color: 'var(--mainBlack)',
                 fontFamily: 'Times, serif',
-                letterSpacing: '1px'
+                letterSpacing: '1.5px'
               }}
             >
               707.637.4996<span className={`tilda`}
@@ -73,8 +73,7 @@ const WrappedAnnouncement = styled(Announcement)`
     font-size: 18px;
     font-weight: 400;
     grid-template-columns: 1fr 20fr 1fr;
-    grid-template-rows: 36px;
-    letter-spacing: 1.5px;
+    grid-template-rows: 40px;
     width: 100%;
   }
   & .grid-item {
@@ -94,7 +93,7 @@ const WrappedAnnouncement = styled(Announcement)`
   }
 
   & button {
-    line-height: 17px;
+    line-height: 5px;
     background: inherit;
     border: 1px solid var(--mainMcc);
     border-radius: 5px;
@@ -103,12 +102,12 @@ const WrappedAnnouncement = styled(Announcement)`
     color: #5c5c5c;
     cursor: pointer;
     display: inline-block;
-    padding: 0.9rem 1.6rem;
+    padding: 1.0rem 1.6rem;
     text-decoration: none;
     transition: background 100ms linear;
   }
   & button:hover {
-    background: #ffffff;
+    background: var(--mainWhite);
     color: #5c5c5c;
     border 1px solid #ffffff;
   }
