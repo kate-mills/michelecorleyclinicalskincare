@@ -66,8 +66,7 @@ class Announcement extends React.Component {
 
 const WrappedAnnouncement = styled(Announcement)`
   & {
-    background: var(--mainMcc);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background: inherit;
     color: #ffffff;
     display: grid;
     font-size: 18px;
@@ -95,7 +94,7 @@ const WrappedAnnouncement = styled(Announcement)`
   & button {
     line-height: 5px;
     background: inherit;
-    border: 1px solid var(--mainMcc);
+    border: 1px solid transparent;
     border-radius: 5px;
     background-clip: border-box !important;
     box-sizing: border-box;
