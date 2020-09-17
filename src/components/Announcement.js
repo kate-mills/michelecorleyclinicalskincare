@@ -21,9 +21,14 @@ class Announcement extends React.Component {
                 textAlign: 'center',
                 color: 'var(--mainBlack)',
                 fontFamily: 'Times, serif',
+                letterSpacing: '1px'
               }}
             >
-              707.637.4996<span className={`tilda`}>~</span>
+              707.637.4996<span className={`tilda`}
+                style={{
+                  padding: '0 .1em 0',
+                }}>
+              ~</span>
               <Email
                 color={`var(--mainBlack)`}
                 fontFamily="Times, serif"
