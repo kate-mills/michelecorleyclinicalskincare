@@ -56,8 +56,8 @@ export default [
   { path: '/pro-orders/', text: 'pro orders', menu: [] },
   { id: 'professional', menu: [] },
   {
-    text: createParentLink('education', 'upcoming-classes'),
+    text: createParentLink('education', 'articles'),
     title: 'EDUCATION',
-    menu: [createChildLink('upcoming classes'), createChildLink('articles')],
+    menu: [createChildLink('articles')],
   },
 ]
