@@ -30,8 +30,7 @@ export const Logo = () => {
 const Wrapper = styled.div`
   & {
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
+    text-align: center;
   }
   & img{
     object-fit: contain !important;
