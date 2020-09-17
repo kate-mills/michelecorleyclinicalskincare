@@ -26,6 +26,7 @@ export const query = graphql`
         data {
           mcc_id
           summary
+          link
           image {
             localFiles {
               childImageSharp {

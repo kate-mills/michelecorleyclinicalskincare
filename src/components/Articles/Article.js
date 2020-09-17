@@ -1,7 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styles from './article.module.css'
-import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const SingleArticle  = ({ data: { data } }) => {
   return (
@@ -22,9 +21,6 @@ const SingleArticle  = ({ data: { data } }) => {
             Read More
           </a>) 
         }
-        { data.relativeLink && <AniLink fade to={data.relativeLink}
-          className="btn"
-        >Read More</AniLink> }
       </div>
     </div>
   )
