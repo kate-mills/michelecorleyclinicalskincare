@@ -75,7 +75,7 @@ const WrappedAnnouncement = styled(Announcement)`
     grid-template-columns: 1fr 20fr 1fr;
     grid-template-rows: 36px;
     letter-spacing: 1.5px;
-    width: 100vw;
+    width: 100%;
   }
   & .grid-item {
     font-family: Times, serif;
