@@ -154,11 +154,13 @@ const FooterWrapper = styled(Footer)`
     text-decoration: none;
     font-weight: 400;
   }
-  a.email {
+  & a.email {
     font-size: 19px;
+    letter-spacing: 0px;
   }
-  a.email span {
+  & a.email span {
     display: inline;
+    letter-spacing: 0px;
   }
   div.row.sm-text {
     font-weight: 300;
@@ -181,6 +183,7 @@ const FooterWrapper = styled(Footer)`
       display:block; 
       font-size: 17px;
       text-align: center;
+      letter-spacing: 0;
     }
     & .gatsby-image-wrapper{
       width: 100%;
