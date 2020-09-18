@@ -40,7 +40,7 @@
 .orders__col ul li p{
   margin-left: 25px;
   text-align: left;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 .orders__col [data-bullet-list]{
   margin: 0 auto;

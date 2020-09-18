@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  white-space: pre-wrap;
+  white-space: pre-line;
   margin: 0 auto;
   text-align: center;
   justify-content: center;

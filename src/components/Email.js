@@ -35,7 +35,7 @@ export default styled(Email)`
     & {
       display: block;
       font-size: 17px;
-      white-space: pre-wrap;
+      white-space: pre-line;
     }
   }
   @media (max-width: 395px) {
