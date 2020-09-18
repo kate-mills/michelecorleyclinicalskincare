@@ -27,15 +27,14 @@
   border-bottom-left-radius: 10px;
 }
 .single__col p{
-  width: 95%;
-  padding-bottom: inherit;
+  width: 80%;
 }
 .single__flexible__col{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  white-space: pre-wrap;
+  white-space: pre-line;
   padding-bottom: 10px;
 }
 .single__flexible__col  *{
