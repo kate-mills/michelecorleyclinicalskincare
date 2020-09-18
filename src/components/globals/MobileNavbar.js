@@ -46,23 +46,35 @@ const MoreItemsWrapper = styled.div`
   & * {
     font-family: var(--mainFont);
   }
+  & .show.child,
   & button.plus-btn {
     border: none;
     position: sticky;
     font-size: 16px;
     cursor: pointer;
-    margin: 6px auto;
+    border: 5px solid var(--mainWhite);
+    padding: 2px;
+  }
+  & .button.plus-btn{
+    display: inline-block;
+  }
+  & .show.child{
+    display: block;
   }
   & button.plus-btn.hide::after {
     position: relative;
     left: 5px;
+    display: inline-block;
     content: '+';
+    padding: 2px;
   }
   & button.plus-btn.show::after {
+    display: inline-block;
     position: relative;
     left: 5px;
     content: '--';
     letter-spacing: -2px;
+    padding: 2px;
   }
   & nav {
     background: #f2f2f2;
@@ -147,6 +159,9 @@ export default styled(MobileNavbar)`
   }
   & a.li{
     display: block;
+    border: 5px solid var(--mainWhite);
+    padding: 2px;
+
   }
   & button.navbar-toggler {
     background:var(--mainWhite);
