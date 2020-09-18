@@ -140,7 +140,7 @@ export default styled(MobileNavbar)`
     text-align: center; 
   }
   & a {
-    font-size: 15px;
+    font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 500;
