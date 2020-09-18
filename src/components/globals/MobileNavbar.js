@@ -62,7 +62,7 @@ const MoreItemsWrapper = styled.div`
     position: relative;
     left: 5px;
     content: '--';
-    letter-spacing: -1px;
+    letter-spacing: -2px;
   }
   & nav {
     background: #f2f2f2;
