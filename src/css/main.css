@@ -38,6 +38,7 @@ a {
   text-decoration: none;
   line-height: inherit;
   font-size: 100%;
+  font-weight: 400;
 }
 a:focus{
   outline: none;
@@ -56,11 +57,11 @@ body {
     font-size: 16px;
     font-weight: 300;
     line-height: var(--bodyLineHeight);
-    overflow: scroll;
-    text-transform: none;
-    text-decoration: none;
     margin: 0;
     min-height: 100vh;
+    overflow: scroll;
+    text-decoration: none;
+    text-transform: none;
 }
 h1, h2, h3, h4, h5, h6 {
   color: var(--mainBlack);
@@ -104,15 +105,17 @@ main{
   width: 100%;
 }
 nav{
+  color: var(--mainBlack);
+  font-size: 16px;
+  letter-spacing: var(--mainSpacing);
   margin-bottom: 20px;
 }
-nav  li  a,
-nav button.plus-btn,
-nav span.professionals{
-    font-size: 16px;
-    letter-spacing: var(--mainSpacing);
-    line-height: var(--bodyLineHeight);
-    text-transform: uppercase;
+nav *{
+  color: var(--mainBlack);
+  font-size: 16px;
+  letter-spacing: var(--mainSpacing);
+  line-height: var(--bodyLineHeight);
+  text-transform: uppercase;
 }
 p {
   color: var(--mainBlack);
@@ -120,7 +123,7 @@ p {
   font-family: var(--mainFont);
   font-weight: 400;
   line-height: var(--bodyLineHeight);
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 p.description{
   text-align: justify;
@@ -142,7 +145,7 @@ ul[data-bullet-list] {
 ul[data-bullet-list] > li p{
   margin: 7.5px auto;
   padding: 0 0 .2rem;
-  white-space: pre-wrap;
+  white-space: pre-line;
   font-weight: 400;
 }
 ul[data-bullet-list] > li:first-child  p{ 
@@ -159,18 +162,14 @@ ul[data-bullet-list] li>*:first-child::before{
   text-align: right;
   white-space: pre;
 }
-#gatsby-focus-wrapper > div.tl-edges{
-  /*1px border at the very top & bottom */
-  border-left: 1px solid var(--mainMcc);
-  border-right: 1px solid var(--mainMcc);
-}
 div#content {
   background: var(--mainWhite);
   border-radius: 25px;
   max-width: 1150px;
   margin: 2px auto;
-  padding: 0 50px 0;
   outline: none;
+  padding: 0.1rem 3.2rem;/*padding: 0 50px;*/
+  white-space: pre-line;
 }
 .btn {
   background: var(--mainWhite);
@@ -228,11 +227,10 @@ Utility classes
 .facebook{
   color: blue !important;
 }
-
 @media screen and (max-width: 320px){
   div#content{
     border-radius: 10px;
-    padding: 0 30px 0;
+    padding: 0.1rem .7rem;/*padding: 1.6px 11px;*/
   }
   h1{
     text-align: center;
@@ -243,21 +241,24 @@ Utility classes
 @media screen and (min-width: 321px) and (max-width: 480px){
   div#content{
     border-radius: 15px;
-    padding: 0 30px 0;
+    padding: 0.1rem 1.1rem;/*padding: 1.6px 17px;*/
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1239px){
+@media screen and (min-width: 481px) and (max-width: 719px){
   div#content{
     border-radius: 25px;
-    padding: 0 50px 0;
+    padding: 0.1rem 2.2rem;/*padding: 1.6px 35px;*/
   }
 }
-/*desktop mv 1281px 1240px */
+@media screen and (min-width: 720px) and (max-width: 1239px){
+  div#content{
+    border-radius: 25px;
+    padding: 0.1rem 2.5rem; /*padding: 1.6px 40px;*/
+  }
+}
 @media screen and (min-width: 1240px){
-  #gatsby-focus-wrapper>div>div{}
-  #gatsby-focus-wrapper{}
   div#content{
     border-radius: 30px;
-    padding: 0 20px 0;
+    padding: 0.1rem 3.2rem; /*padding: 1.6px 50px;*/
   }
 }
