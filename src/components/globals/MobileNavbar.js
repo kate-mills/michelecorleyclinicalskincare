@@ -1,15 +1,13 @@
 import React, { Component, useState } from 'react'
-
 import styled from 'styled-components'
-
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import links from '../../constants/links'
 import { screen } from '../../css/js/media-functions'
 import ProfessionalStatus from '../Professionals/Status'
 
 const MoreItems = props => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [css, setCss] = useState('hide')
+  const [isOpen, setIsOpen] = useState(false);
+  const [css, setCss] = useState('hide');
 
   const clickHandler = () => {
     if (!isOpen) {
@@ -40,26 +38,25 @@ const MoreItems = props => {
       </nav>
     </MoreItemsWrapper>
   )
-}
+};
 
 const MoreItemsWrapper = styled.div`
-  & * {
+  & > * {
     font-family: var(--mainFont);
+    color: var(--mainBlack);
   }
-  & .show.child,
-  & button.plus-btn {
+  & button.plus-btn, & li.show.child {
     border: none;
+    display: inline-block;
     position: sticky;
     font-size: 16px;
     cursor: pointer;
-    border: 5px solid var(--mainWhite);
+    border: 5px solid var(--clear);
     padding: 2px;
   }
-  & .button.plus-btn{
-    display: inline-block;
-  }
-  & .show.child{
+  & li.show.child{
     display: block;
+    background-color: rgba(242, 242, 242, 1);
   }
   & button.plus-btn.hide::after {
     position: relative;
@@ -92,14 +89,13 @@ const MoreItemsWrapper = styled.div`
   & nav.sub-nav.hide {
     display: none;
   }
-`
+`;
 
 class MobileNavbar extends Component {
   state = {
     navbarOpen: false,
     css: 'hide',
   }
-
   navbarHandler = () => {
     if (!this.state.navbarOpen) {
       this.setState({ css: 'show' })
@@ -115,7 +111,7 @@ class MobileNavbar extends Component {
           <button
             className={`${this.state.css} navbar-toggler`}
             onClick={this.navbarHandler}
-            style={{ height: '32px', width: 'fit-content' }}
+            style={{color: "var(--mainBlack)", fontWeight: "500"}}
           >
             MENU
           </button>
@@ -138,41 +134,63 @@ class MobileNavbar extends Component {
       </div>
     )
   }
-}
+};
 
 export default styled(MobileNavbar)`
-  &{ 
-    align-items: center !important; 
-    display: flex; 
+  & {
+    align-items: center !important;
+    display: flex;
     font-size: 16px;
-    justify-content: center; 
+    justify-content: center;
     letter-spacing: .5px;
     line-height: 27px;
-    margin: 6px auto; 
-    text-align: center; 
+    margin: 6px auto;
+    text-align: center;
   }
   & a {
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
+  }
+  /* PROFESSIONALS link */
+  & span.professionals a:first-child{
+    padding-right: unset;
+    margin-right: unset;
+    border-right: none;
+    position: relative;
+    left: 20px;
+  }
+  /* LOGOUT link */
+  & span.professionals a:last-child{
+    border-left: none;
+    border-right: none;
+    color: var(--mainBlack);
+    font-size: 10px;
+    left: 25px;
+    position: relative;
+    padding-left: unset;
+    padding-right: unset;
+    text-justify: right;
   }
   & a.li{
     display: block;
-    border: 5px solid var(--mainWhite);
+    border: 5px solid var(--clear);
     padding: 2px;
-
   }
   & button.navbar-toggler {
     background:var(--mainWhite);
-    border: none; 
+    border: none;
     cursor: pointer;
     display: block;
     font-size: 18px;
     margin: 4px auto;
-  } 
-  & ul { margin 0px; }
-  & div.full-nav.hide {display: none;}
-
-  ${screen.nav.wide`&{display: none;}`}
-`
+  }
+  & ul {
+    margin 0px;
+  }
+  & div.full-nav.hide {
+    display: none;
+  }
+  ${screen.nav.wide`&{display: none;}`};
+`;
