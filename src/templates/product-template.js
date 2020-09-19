@@ -8,18 +8,18 @@ import PageModel from '../components/PageModel'
 import Product from '../components/Products/Product'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
+
 const ProductTemplate = ({ data: { product } , className}) => {
+  const getLink = ({category}) => category.replace(' & ', ' ').split(' ').join('-');
   return (
     <PageModel
       title={product.name}
       description={product.description.description}
     >
     <div className={className}>
-      <p className="txt-center"><AniLink className="btn" fade to={`/${product.category}/`}>View All {product.category}</AniLink></p>
-      <div>
         <Product product={product} showFluid={true} />
-      </div>
-      </div>
+      <p className="txt-center"><AniLink className="btn" fade to={`/${getLink(product)}/`}>View All {product.category}</AniLink></p>
+    </div>
     </PageModel>
   )
 }
