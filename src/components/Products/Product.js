@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 import VideoPlayer from '../Video'
 
-const Product = ({ product }) => {
+const Product = ({ product, showFluid}) => {
+  console.log('props product',showFluid)
   const { name, skinType, description, keyIngredients } = product
   return (
     <ProductWrapper className="single-product page-article">
@@ -24,7 +25,11 @@ const Product = ({ product }) => {
       <p className="product-description">{description.description}</p>
       <div className="product-media">
         <div className="img-container">
-          <Image fixed={product.imgRetail.fixed}/>
+          {
+            showFluid?
+            <Image className="fluid-img" fluid={product.fluidImg.fluid}/>:
+            <Image className="fixed-img" fixed={product.imgRetail.fixed}/>
+          }
         </div>
         {product.video && (
           <VideoPlayer
@@ -68,6 +73,7 @@ const ProductWrapper = styled.article`
   }
   & .product-heading .award-winner{
     min-width: 120px;
+    margin-left: 15px;
   }
   & .product-heading img{
     object-fit: contain !important;
@@ -103,11 +109,14 @@ const ProductWrapper = styled.article`
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 5px;
     width: 100%;
   }
+  & .product-media{
+    object-fit: contain;
+  }
   & .product-media div.gatsby-image-wrapper{
-    object-fit: contain !important;
+    object-fit: cover;
+    max-height: 300px;
   }
   & .product-ingredients p.bold {
     font-weight: 600;
