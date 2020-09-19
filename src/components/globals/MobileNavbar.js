@@ -53,6 +53,7 @@ const MoreItemsWrapper = styled.div`
     cursor: pointer;
     border: 5px solid var(--clear);
     padding: 2px;
+    background: var(--mainWhite);
   }
   & li.show.child{
     display: block;
