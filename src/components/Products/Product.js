@@ -4,14 +4,18 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 import VideoPlayer from '../Video'
 
-const Product = ({ product, showFluid}) => {
-  console.log('props product',showFluid)
+const Product = ({ product, isTemplate}) => {
   const { name, skinType, description, keyIngredients } = product
   return (
     <ProductWrapper className="single-product page-article">
       <div className="product-heading flex">
-        <h2 className="product-name">{name}</h2>
+        {
+          isTemplate ?
+            <h1 className="product-name">{name}</h1>:
+            <h2 className="product-name">{name}</h2>
+        }
         { product.award && <Image className="award-winner"fixed={product.awardImage.fixed}/> }
+
       </div>
       <p className="product-skintypes">
         {skinType.map((item, index) => {
@@ -26,7 +30,7 @@ const Product = ({ product, showFluid}) => {
       <div className="product-media">
         <div className="img-container">
           {
-            showFluid?
+            isTemplate?
             <Image className="fluid-img" fluid={product.fluidImg.fluid}/>:
             <Image className="fixed-img" fixed={product.imgRetail.fixed}/>
           }
@@ -85,6 +89,11 @@ const ProductWrapper = styled.article`
     font-weight: 400;
     padding: 0;
     margin-bottom: 0;
+  }
+  & h1.product-name{
+    font-size: 43px;
+    font-weight: 300;
+    line-height: 54px;
   }
   & .product-skintypes {
     padding:0 0 0.5em;
