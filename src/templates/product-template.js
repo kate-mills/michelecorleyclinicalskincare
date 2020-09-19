@@ -65,18 +65,15 @@ export default styled(ProductTemplate)`
     margin: 0 auto;
 
   & div.product-heading.flex{
-    text-align: center;
     margin: 10px auto;
     width: 75%;
   }
   & .product-heading.flex h1{
     display: inline-block;
   }
-
   & .product-skintypes{
     font-size: 30px;
     line-height: 50px;
-    text-align: center;
     margin: 15px auto;
   }
   & .img-container {
@@ -93,15 +90,15 @@ export default styled(ProductTemplate)`
       width: 75%;
       box-sizing: border-box;
     }
-  }
-  @media(max-width: 400px){
-    & .img-container{
-      width: 95%;
-    }
     & div.product-heading.flex{
       text-align: left;
       margin: 0 auto;
       width: 100%;
+    }
+  }
+  @media(max-width: 400px){
+    & .img-container{
+      width: 95%;
     }
     & .product-skintypes{
       margin: 5px auto;
