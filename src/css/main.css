@@ -262,3 +262,6 @@ Utility classes
     padding: 0.1rem 3.2rem; /*padding: 1.6px 50px;*/
   }
 }
+#player > div.vp-controls-wrapper > div.vp-title > header > div.headers > h1{
+  background: var(--mainWhite) !important;
+}

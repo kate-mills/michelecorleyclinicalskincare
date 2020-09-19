@@ -28,6 +28,7 @@ const Product = ({ product }) => {
         </div>
         {product.video && (
           <VideoPlayer
+            title={product.name}
             src={`https://player.vimeo.com/video/${product.video}`}
           />
         )}

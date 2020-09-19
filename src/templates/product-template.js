@@ -29,30 +29,34 @@ const Product = ({ data: { product } }) => {
         <h3 className={styles.singlep__category} itemProp="category">
           {product.category}
         </h3>
-        <div className={styles.flex__justify}>
           <p itemProp="description" className={styles.description}>
             {product.description.description}
           </p>
-        </div>
         <div className={styles.singlep__media}>
-          <Image
-            className={styles.product__image}
-            fixed={product.imgRetail.fixed}
-            objectFit="cover"
-            objectPosition="50% 50%"
-            title={product.imgRetail.title}
-            alt={product.imgRetail.description}
-            type="media"
-          />
-
+            <Image
+              className={styles.flex__img}
+              fluid={product.imgRetail.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
+              title={product.imgRetail.title}
+              alt={product.imgRetail.description}
+              type="media"
+              style={{
+                width: '50%',
+                maxWidth: '200px',
+                objectFit: 'contain',
+              }}
+            />
           {product.videoId && (
             <VideoPlayer
               src={`https://player.vimeo.com/video/${product.videoId}`}
+              title={product.name}
             />
           )}
+
         </div>
         <h4>A FEW KEY Ingredients & Benefits:</h4>
-        <ul style={{ margin: '0 60px' }} data-bullet-list>
+        <ul style={{ margin: '0 auto', marginLeft: '25px' }} data-bullet-list>
           {product.keyIngredients.map((item, index) => {
             return (
               <li key={index}>
@@ -91,9 +95,9 @@ export const query = graphql`
         id
         title
         description
-        fixed(cropFocus: CENTER, height: 300, quality: 100) {
+        fluid(maxWidth: 200, quality: 100) {
           src
-          ...GatsbyContentfulFixed
+          ...GatsbyContentfulFluid
         }
       }
       award

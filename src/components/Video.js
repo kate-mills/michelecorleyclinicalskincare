@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Video = ({ src, title, ...props }) => {
   return (
     <IframeVideoWrapper>
+      <h4>{title}</h4>
       <div className="video">
         <iframe
           type="media"
@@ -23,7 +24,18 @@ const Video = ({ src, title, ...props }) => {
 const IframeVideoWrapper = styled.div`
   width: 50vw;
   max-width: 525px;
-
+  & h4{
+    font-weight: 300;
+    font-family: cursive;
+    color: var(--poppy);
+    position: relative;
+    top: 30px;
+    z-index: 20;
+    text-align: center;
+    height: fit-content;
+    padding: unset;
+    margin: unset;
+  }
   .video {
     overflow: hidden;
     /* // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625) */
@@ -40,15 +52,19 @@ const IframeVideoWrapper = styled.div`
     top: 0;
     width: 100%;
   }
-
   @media (max-width: 600px) {
-    width: 90vw;
+    width: 100%;
+    & h4{
+      top: 35px;
+      text-align: left;
+      margin-left: 10px;
+    }
   }
 `
 
 Video.defaultProps = {
   src: 'https://player.vimeo.com/video/360311714',
-  title: 'Peptide Rich & Radiant Eye Cream',
+  title: 'Default Title',
 }
 
 export default Video
