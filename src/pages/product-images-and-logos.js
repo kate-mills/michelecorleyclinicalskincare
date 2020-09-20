@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const Products = () => {
   return (
-    <PageModel title={`Product Images & Logos Copy`}
+    <PageModel title={`Product Images & Logos`}
       centeredTitle
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
     >

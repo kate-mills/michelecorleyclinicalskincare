@@ -50,6 +50,7 @@ export default [
       createChildLink('before and after'),
       createChildLink('rave reviews!', 'rave-reviews'),
       createChildLink('press'),
+      createChildLink('product images & logos', 'product-images-and-logos'),
     ],
   },
   { path: '/contact/', text: 'contact', menu: [] },
