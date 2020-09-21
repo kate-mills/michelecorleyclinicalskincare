@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './imagelogolist.module.css'
 
-import ImageLogo from './ImageLogo'
+import ImageLogo from './Imagelogo'
 
 const ImagelogoList = (props) => {
   console.log('props', props)
