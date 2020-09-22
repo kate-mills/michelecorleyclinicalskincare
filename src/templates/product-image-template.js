@@ -14,15 +14,15 @@ const ProductTemplate = ({ data: { product } , className}) => {
   return (
     <Layout>
     <SEO title={`Retail size ${product.name}`} description={product.description.description}/>
-      <div class={`${className} grid-container`}>
+      <div className={`${className} grid-container`}>
         <div className="grid-heading">
-          <span class="grid-name txt-center">{product.name}</span>
+          <span className="grid-name txt-center">{product.name}</span>
           <AniLink fade to="/product-images-and-logos/" className="btn grid-close">x</AniLink>
         </div>
-        <div class="grid-img">
+        <div className="grid-img">
             <Img fluid={product.fluidImg.fluid} title={product.fluidImg.title} alt={product.fluidImg.description} />
         </div>
-        <div class="grid-desc">{product.fluidImg.description}</div>
+        <div className="grid-desc">{product.fluidImg.description}</div>
       </div>
     </Layout>
   )
