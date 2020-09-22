@@ -49,6 +49,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        slug
         imgRetail {
           id
           title
@@ -70,6 +71,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        slug
         imgRetail {
           id
           title
@@ -87,6 +89,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        slug
         imgRetail {
           id
           title
@@ -108,6 +111,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        slug
         imgRetail {
           id
           title
@@ -125,6 +129,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        slug
         imgRetail {
           id
           title
@@ -145,6 +150,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        slug
         imgRetail {
           id
           title
@@ -161,6 +167,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        slug
         imgRetail {
           id
           title
