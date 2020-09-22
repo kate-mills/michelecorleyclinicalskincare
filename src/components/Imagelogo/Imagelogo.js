@@ -7,7 +7,6 @@ import Img from 'gatsby-image'
 
 
 const ImgLogo = ({imgRetail, name, slug}) => {
-  console.log('ImgLogo', imgRetail)
   return(
     <AniLink 
       className={styles.grid__item}
@@ -19,7 +18,6 @@ const ImgLogo = ({imgRetail, name, slug}) => {
       <span className={styles.product__name}>
         {name}
       </span>
-    </div>
       </AniLink>
   )
 }
