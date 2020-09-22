@@ -6,7 +6,7 @@ import ImagelogoList from '../components/Imagelogo/ImagelogoList'
 
 import styled from 'styled-components'
 
-const Products = (props) => {
+const ProductImagesLogos = (props) => {
   return (
     <PageModel title={`Product Images & Logos`}
       centeredTitle
@@ -15,17 +15,16 @@ const Products = (props) => {
       <ProductsWrapper>
         <p className="txt-center">The following resources are available for your use in representing Michele Corley Clinical Skin Care products.</p>
 
-        <h2 className="poppy">Cleansers</h2>
+        <h2 className="poppy heading-2">Cleansers</h2>
         <ImagelogoList data={props.data.cleansers}/>
 
         <h2 className="poppy">Toners</h2>
         <ImagelogoList data={props.data.toners}/>
-
         <h2 className="poppy">Moisturizers and SPF</h2>
         <ImagelogoList data={props.data.moisture}/>
 
         <h2 className="poppy">Eyes and Lips</h2>
-        <ImagelogoList data={props.data.moisture}/>
+        <ImagelogoList data={props.data.eyesLips}/>
 
         <h2 className="poppy">Serums and Specialty</h2>
         <ImagelogoList data={props.data.serums}/>
@@ -54,12 +53,7 @@ export const query = graphql`
           id
           title
           description
-          fixed(width: 175, height: 175) {
-            src
-            ...GatsbyContentfulFixed
-          }
-          fluid {
-            src
+          fluid{
             ...GatsbyContentfulFluid
           }
         }
@@ -76,9 +70,8 @@ export const query = graphql`
           id
           title
           description
-          fixed(height: 200) {
-            src
-            ...GatsbyContentfulFixed
+          fluid{
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -94,12 +87,7 @@ export const query = graphql`
           id
           title
           description
-          fixed(height: 100) {
-            src
-            ...GatsbyContentfulFixed
-          }
           fluid {
-            src
             ...GatsbyContentfulFluid
           }
         }
@@ -116,9 +104,8 @@ export const query = graphql`
           id
           title
           description
-          fixed(height: 100) {
-            src
-            ...GatsbyContentfulFixed
+          fluid{
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -134,12 +121,8 @@ export const query = graphql`
           id
           title
           description
-          fixed(width: 175, height: 175) {
-            ...GatsbyContentfulFixed
-            src
-          }
           fluid {
-            src
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -155,8 +138,8 @@ export const query = graphql`
           id
           title
           description
-          fixed(width: 155) {
-            ...GatsbyContentfulFixed
+          fluid{
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -172,10 +155,8 @@ export const query = graphql`
           id
           title
           description
-          fixed(width: 155) {
-            src
-            ...GatsbyContentfulFixed
-
+          fluid{
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -185,5 +166,16 @@ export const query = graphql`
 `
 
 
-const ProductsWrapper = styled.section``
-export default Products
+const ProductsWrapper = styled.section`
+  & h2.poppy{
+    font-size: 2.6rem;
+  }
+
+  @media (max-width: 1024px){
+    & h2.poppy{
+      text-align: center !important;
+      margin: 0 auto;
+    }
+  }
+`
+export default ProductImagesLogos

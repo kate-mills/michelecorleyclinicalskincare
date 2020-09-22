@@ -9,18 +9,18 @@ import Img from 'gatsby-image'
 const ImgLogo = ({imgRetail, name, slug}) => {
   console.log('ImgLogo', imgRetail)
   return(
-    <div className={styles.grid__item}>
-      <AniLink fade to={`/product-images-and-logos/${slug}/`}>
+    <AniLink 
+      className={styles.grid__item}
+      fade to={`/product-images-and-logos/${slug}/`}>
       <div className={styles.product__img__fluid}>
       <Img
-        fixed={imgRetail.fixed}/>
-      </div></AniLink>
-      <AniLink fade to={`/product-images-and-logos/${slug}/`}>
+        fluid={imgRetail.fluid}/>
+      </div>
       <span className={styles.product__name}>
         {name}
       </span>
-      </AniLink>
     </div>
+      </AniLink>
   )
 }
 

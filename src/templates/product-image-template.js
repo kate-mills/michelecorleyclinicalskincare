@@ -15,15 +15,13 @@ const ProductTemplate = ({ data: { product } , className}) => {
     <Layout>
     <SEO title={`Retail size ${product.name}`} description={product.description.description}/>
       <div class={`${className} grid-container`}>
-        <div className="grid-close">
-          <AniLink fade to="/product-images-and-logos/" className="btn grid-close">
-            x
-          </AniLink>
+        <div className="grid-heading">
+          <span class="grid-name txt-center">{product.name}</span>
+          <AniLink fade to="/product-images-and-logos/" className="btn grid-close">x</AniLink>
         </div>
         <div class="grid-img">
             <Img fluid={product.fluidImg.fluid} title={product.fluidImg.title} alt={product.fluidImg.description} />
         </div>
-        <div class="grid-name">{product.name}</div>
         <div class="grid-desc">{product.fluidImg.description}</div>
       </div>
     </Layout>
@@ -58,6 +56,7 @@ export const query = graphql`
 export default styled(ProductTemplate)`
   border: 4px solid var(--mainBlack);
   box-sizing: border-box;
+  color: var(--mainWhite);
   display: grid;
   margin: 0 auto;
   text-align: center;
@@ -66,12 +65,14 @@ export default styled(ProductTemplate)`
   background-color: var(--mainBlack);
   width: 100%;
 
-  & .grid-img{
-    box-shadow: var(--light-shadow);
-
+  & .grid-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  & img{
-    object-fit: cover !important;
+  & .grid-name{
+    font-size: 20px;
+    width: 100%;
   }
   & .grid-close{
     font-size: 30px;
@@ -88,8 +89,12 @@ export default styled(ProductTemplate)`
     border: 0px solid var(--mainBlack);
     box-shadow: unset;
   }
-  color: var(--mainWhite);
-
+  & .grid-img{
+    box-shadow: var(--light-shadow);
+  }
+  & img{
+    object-fit: cover !important;
+  }
   @media (max-width: 400px){
   }
   @media (min-width: 401px) and (max-width: 800px){
