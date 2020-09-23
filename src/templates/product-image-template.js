@@ -11,7 +11,6 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const ProductTemplate = props => {
   const { data: { product }, className } = props
-  console.log(props);
   return (
     <>
     <SEO title={`${product.fluidImg.title}`} description={product.description.description}/>
