@@ -54,6 +54,7 @@ export const query = graphql`
         node {
           contentful_id
           name
+          slug
           skinType
           description {
             description

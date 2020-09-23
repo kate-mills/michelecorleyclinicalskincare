@@ -3,11 +3,14 @@ import styled from 'styled-components'
 
 import Image from 'gatsby-image'
 import VideoPlayer from '../Video'
+import {Link} from "gatsby";
 
 const Product = ({ product, isTemplate}) => {
   const { name, skinType, description, keyIngredients } = product
+  const closeToHash = `${window.location.pathname}#${name}` 
+
   return (
-    <ProductWrapper className="single-product page-article">
+    <ProductWrapper id={name} className="single-product page-article">
       <div className="product-heading flex">
         {
           isTemplate ?
@@ -29,11 +32,15 @@ const Product = ({ product, isTemplate}) => {
       <p className="product-description">{description.description}</p>
       <div className="product-media">
         <div className="img-container">
+          <Link 
+            state={{modal: true, closeTo: closeToHash}}
+            to={`/product-images-and-logos/${product.slug}/`}>
           {
             isTemplate?
             <Image className="fluid-img" fluid={product.fluidImg.fluid}/>:
             <Image className="fixed-img" fixed={product.imgRetail.fixed}/>
           }
+          </Link>
         </div>
         {product.video && (
           <VideoPlayer

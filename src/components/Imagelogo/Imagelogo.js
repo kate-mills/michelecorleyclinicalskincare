@@ -5,12 +5,14 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Img from 'gatsby-image'
 
-
-const ImgLogo = ({imgRetail, name, slug}) => {
+const ImgLogo = ({imgRetail, name, slug, category}) => {
+  const closeToHash = `${window.location.pathname}#${name}` 
   return(
     <AniLink 
+      id={name}
       className={styles.grid__item}
-      fade to={`/product-images-and-logos/${slug}/`}>
+      state={{modal: true, closeTo: closeToHash}}
+      to={`/product-images-and-logos/${slug}/`}>
       <div className={styles.product__img__fluid}>
       <Img
         fluid={imgRetail.fluid}/>

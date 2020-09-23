@@ -9,17 +9,17 @@ import { graphql } from 'gatsby'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 
-const ProductTemplate = props => {
-  const { data: { product }, className } = props
+const ProductImageTemplate = props => {
+  const { data: { product }, className, location } = props
+  const closeTo = location.state.closeTo || "/";
   return (
     <>
     <SEO title={`${product.fluidImg.title}`} description={product.description.description}/>
       <div className={`${className} grid-container`}>
         <div className="grid-top w-100">
-          <AniLink fade to="/product-images-and-logos/" className="grid-close">X </AniLink>
+          <AniLink fade to={closeTo} className="grid-close">X </AniLink>
         </div>
         <div className="grid-img"><Img fluid={product.fluidImg.fluid} title={product.fluidImg.title} alt={product.fluidImg.description}/></div>
-        <div className="grid-desc">{product.fluidImg.description}</div>
       </div>
     </>
   )
@@ -42,7 +42,7 @@ export const query = graphql`
     }
   }
 `
-export default styled(ProductTemplate)`
+export default styled(ProductImageTemplate)`
   background-color: var(--mainBlack);
   border: 4px solid var(--mainBlack);
   box-sizing: border-box;
@@ -50,7 +50,7 @@ export default styled(ProductTemplate)`
   display: grid;
   height: 100vh;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 45px min-content 10%;
+  grid-template-rows: 45px 100%;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
@@ -80,7 +80,6 @@ export default styled(ProductTemplate)`
   & img {
     object-fit: contain !important;
     margin-top: 5px;
-    box-shadow: var(--dark-shadow);
     max-height: 80vh;
   }
   & .grid-desc{

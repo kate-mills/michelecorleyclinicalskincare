@@ -15,28 +15,49 @@ const ProductImagesLogos = (props) => {
       <ProductsWrapper>
         <p className="txt-center">The following resources are available for your use in representing Michele Corley Clinical Skin Care products.</p>
 
-        <h2 className="poppy heading-2">Cleansers</h2>
-        <ImagelogoList data={props.data.cleansers}/>
+        <section id="cleansers">
+          <h2 className="poppy heading-2">Cleansers</h2>
+          <ImagelogoList data={props.data.cleansers}/>
+        </section>
 
-        <h2 className="poppy">Toners</h2>
-        <ImagelogoList data={props.data.toners}/>
-        <h2 className="poppy">Moisturizers and SPF</h2>
-        <ImagelogoList data={props.data.moisture}/>
+        <section id="toners">
+          <h2 className="poppy">Toners</h2>
+          <ImagelogoList data={props.data.toners}/>
+        </section>
 
-        <h2 className="poppy">Eyes and Lips</h2>
-        <ImagelogoList data={props.data.eyesLips}/>
+        <section id="moisturizers-spf">
+          <h2 className="poppy">Moisturizers and SPF</h2>
+          <ImagelogoList data={props.data.moisture}/>
+        </section>
 
-        <h2 className="poppy">Serums and Specialty</h2>
-        <ImagelogoList data={props.data.serums}/>
+        <section id="eyes & lips">
+          <h2 className="poppy">Eyes and Lips</h2>
+          <ImagelogoList data={props.data.eyesLips}/>
+        </section>
 
-        <h2 className="poppy">Exfoliants</h2>
-        <ImagelogoList data={props.data.exfoliants}/>
+        <section id="serums & specialty">
+          <h2 className="poppy">Serums and Specialty</h2>
+          <ImagelogoList data={props.data.serums}/>
+        </section>
 
-        <h2 className="poppy">Masks</h2>
-        <ImagelogoList data={props.data.masks}/>
+        <section id="exfoliants">
+          <h2 className="poppy">Exfoliants</h2>
+          <ImagelogoList data={props.data.exfoliants}/>
+        </section>
 
-        <h2 className="poppy">Multi-Product Photos</h2>
-        <h2 className="poppy">Logos</h2>
+        <section id="masks">
+          <h2 className="poppy">Masks</h2>
+          <ImagelogoList data={props.data.masks}/>
+        </section>
+
+        <section id="multi-product-photos">
+          <h2 className="poppy">Multi-Product Photos</h2>
+        </section>
+
+        <section id="logos">
+          <h2 className="poppy">Logos</h2>
+        </section>
+
       </ProductsWrapper>
     </PageModel>
   )
@@ -48,6 +69,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        category
         slug
         imgRetail {
           id
@@ -65,6 +87,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        category
         slug
         imgRetail {
           id
@@ -82,6 +105,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        category
         slug
         imgRetail {
           id
@@ -99,6 +123,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        category
         slug
         imgRetail {
           id
@@ -116,6 +141,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        category
         slug
         imgRetail {
           id
@@ -133,6 +159,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        category
         slug
         imgRetail {
           id
@@ -150,6 +177,7 @@ export const query = graphql`
       node {
         contentful_id
         name
+        category
         slug
         imgRetail {
           id
