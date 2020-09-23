@@ -16,6 +16,7 @@ const ProductTemplate = ({ data: { product } , className}) => {
     <PageModel
       title={product.name}
       description={product.description.description}
+      id={product.name}
     >
     <div className={className}>
       <Product product={product} isTemplate={true} />
@@ -29,6 +30,7 @@ export const query = graphql`
   query GetMccProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
       name
+      slug
       contentful_id
       category
       skinType
