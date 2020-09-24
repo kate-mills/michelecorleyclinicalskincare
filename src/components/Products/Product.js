@@ -5,12 +5,15 @@ import Image from 'gatsby-image'
 import VideoPlayer from '../Video'
 import {Link} from "gatsby";
 
-import {getHashedLocation} from '../../utils/auth'
-
 
 const Product = ({ product, isTemplate}) => {
   const { name, skinType, description, keyIngredients } = product
-  const closeToHash = getHashedLocation(name);
+  let pathname = '/products'
+
+  if (typeof window !== `undefined`) {
+    pathname = `${window.location.pathname}#name`
+  }
+
   return (
     <ProductWrapper id={name} className="single-product page-article">
       <div className="product-heading flex">
@@ -36,7 +39,7 @@ const Product = ({ product, isTemplate}) => {
         <div className="img-container">
           <Link 
             to={`/product-images-and-logos/${product.slug}/`}
-            state={{modal: true, closeTo: closeToHash || "/"}} >
+            state={{modal: true, closeTo: pathname}} >
           {
             isTemplate?
             <Image className="fluid-img" fluid={product.fluidImg.fluid}/>:

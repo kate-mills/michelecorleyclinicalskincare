@@ -11,13 +11,16 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const ProductImageTemplate = props => {
   const { data: { product }, className, location } = props
-  const closeTo = location.state.closeTo || "/";
+  let closeTo = "/"
+  if (typeof window !== `undefined`) {
+    closeTo = location.state.closeTo;
+  }
   return (
     <>
     <SEO title={`${product.fluidImg.title}`} description={product.description.description}/>
       <div className={`${className} grid-container`}>
         <div className="grid-top w-100">
-          <AniLink fade to={closeTo || "/"} className="grid-close">X</AniLink>
+          <AniLink fade to={closeTo} className="grid-close">X</AniLink>
         </div>
         <div className="grid-img"><Img fluid={product.fluidImg.fluid} title={product.fluidImg.title} alt={product.fluidImg.description}/></div>
       </div>

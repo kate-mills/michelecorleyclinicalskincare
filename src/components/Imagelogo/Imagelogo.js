@@ -4,16 +4,20 @@ import styles from './imagelogo.module.css'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Img from 'gatsby-image'
-import {getHashedLocation} from '../../utils/auth'
 
+const ImgLogo = ({imgRetail, name, slug}) => {
 
-const ImgLogo = ({imgRetail, name, slug, category}) => {
-  const closeToHash = getHashedLocation(name);
+  let pathname = '/products'
+
+  if (typeof window !== `undefined`) {
+    pathname = `${window.location.pathname}#${name}`
+  }
+
   return(
     <AniLink 
       id={name}
       className={styles.grid__item}
-      state={{modal: true, closeTo: closeToHash}}
+      state={{modal: true, closeTo: pathname}}
       to={`/product-images-and-logos/${slug}/`}>
       <div className={styles.product__img__fluid}>
       <Img
