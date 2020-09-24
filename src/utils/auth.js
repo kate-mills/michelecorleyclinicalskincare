@@ -1,6 +1,7 @@
 import { useLocation } from '@reach/router'
 
 const isBrowser = typeof window !== `undefined`
+// error "window" is not available during server side rendering. - reminder to myself
 
 const getUser = () =>
   window.localStorage.mccUser ? JSON.parse(window.localStorage.mccUser) : {}
@@ -48,4 +49,12 @@ export const isAppInPath = () => {
   const location = cb(useLocation)
   let pathname = location.pathname
   return pathname.match(/app/g)
+}
+
+
+// When user closes image modal, they return back to where they clicked. Not top of page
+export const getHashedLocation = (name) => {
+  const location = cb(useLocation)
+  let pathname = location.pathname
+  return (name && `${pathname}#${name}`) || pathname;
 }

@@ -5,10 +5,12 @@ import Image from 'gatsby-image'
 import VideoPlayer from '../Video'
 import {Link} from "gatsby";
 
+import {getHashedLocation} from '../../utils/auth'
+
+
 const Product = ({ product, isTemplate}) => {
   const { name, skinType, description, keyIngredients } = product
-  const closeToHash = `${window.location.pathname}#${name}` 
-
+  const closeToHash = getHashedLocation(name);
   return (
     <ProductWrapper id={name} className="single-product page-article">
       <div className="product-heading flex">

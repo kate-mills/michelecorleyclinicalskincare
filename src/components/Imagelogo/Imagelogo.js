@@ -4,9 +4,11 @@ import styles from './imagelogo.module.css'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Img from 'gatsby-image'
+import {getHashedLocation} from '../../utils/auth'
+
 
 const ImgLogo = ({imgRetail, name, slug, category}) => {
-  const closeToHash = `${window.location.pathname}#${name}` 
+  const closeToHash = getHashedLocation(name);
   return(
     <AniLink 
       id={name}
