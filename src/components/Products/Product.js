@@ -35,8 +35,8 @@ const Product = ({ product, isTemplate}) => {
       <div className="product-media">
         <div className="img-container">
           <Link 
-            state={{modal: true, closeTo: closeToHash}}
-            to={`/product-images-and-logos/${product.slug}/`}>
+            to={`/product-images-and-logos/${product.slug}/`}
+            state={{modal: true, closeTo: closeToHash || "/"}} >
           {
             isTemplate?
             <Image className="fluid-img" fluid={product.fluidImg.fluid}/>:
