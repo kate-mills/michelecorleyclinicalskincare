@@ -8,14 +8,14 @@ import {Link} from "gatsby";
 
 const Product = ({ product, isTemplate}) => {
   const { name, skinType, description, keyIngredients } = product
-  let pathname = '/products'
+  let pathname = `/${product.category}/`
 
   if (typeof window !== `undefined`) {
-    pathname = `${window.location.pathname}#name`
+    pathname = `${window.location.pathname}#${name}`
   }
 
   return (
-    <ProductWrapper id={name} className="single-product page-article">
+    <ProductWrapper className="single-product page-article">
       <div className="product-heading flex">
         {
           isTemplate ?
@@ -35,7 +35,7 @@ const Product = ({ product, isTemplate}) => {
         })}
       </p>
       <p className="product-description">{description.description}</p>
-      <div className="product-media">
+      <div className="product-media" id={name}>
         <div className="img-container">
           <Link 
             to={`/product-images-and-logos/${product.slug}/`}

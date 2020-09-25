@@ -46,8 +46,7 @@ export const query = graphql`
   }
 `
 export default styled(ProductImageTemplate)`
-  background-color: var(--mainBlack);
-  border: 4px solid var(--mainBlack);
+  background-color: var(--mainWhite);
   box-sizing: border-box;
   color: var(--mainWhite);
   display: grid;
@@ -69,9 +68,10 @@ export default styled(ProductImageTemplate)`
     max-height: 45px;
   }
   & .grid-close{
-    background: var(--mainBlack);
-    color: var(--mainWhite);
+    background: var(--mainWhite);
+    color: rgb(187, 189, 191); /*grey*/
     font-size: 2.5em;
+    font-weight: 300;
   }
   & .grid-close:hover{
     color: var(--poppy);

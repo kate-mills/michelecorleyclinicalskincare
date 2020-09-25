@@ -7,7 +7,7 @@ import Img from 'gatsby-image'
 
 const ImgLogo = ({imgRetail, name, slug}) => {
 
-  let pathname = '/products'
+  let pathname = '/product-images-and-logos'
 
   if (typeof window !== `undefined`) {
     pathname = `${window.location.pathname}#${name}`
