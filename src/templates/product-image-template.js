@@ -8,16 +8,32 @@ import { graphql } from 'gatsby'
 
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-
 const ProductImageTemplate = props => {
   const { data: { product }, className, location } = props
-  let closeTo = "/"
+
+  var closeTo = "/product-images-and-logos/"
+
+  // so server doesnt fail build
   if (typeof window !== `undefined`) {
-    closeTo = location.state.closeTo;
+
+    // the extra window check eliminates image flash && coming from extenal url
+    if(typeof window !== `undefined` && props.location.state === null){
+      closeTo = `/product-images-and-logos/`
+    }
+
+    // coming from internal url
+    else if (typeof window !== `undefined` && location) {
+      closeTo = location.state.closeTo;
+    }
+
+    // catchall - also helps with image flash
+    else {
+      closeTo = "/product-images-and-logos"
+    }
   }
   return (
     <>
-    <SEO title={`${product.fluidImg.title}`} description={product.description.description}/>
+    <SEO title={`Retail image of ${product.name}`} description={product.description.description}/>
       <div className={`${className} grid-container`}>
         <div className="grid-top w-100">
           <AniLink fade to={closeTo} className="grid-close">X</AniLink>
@@ -31,6 +47,7 @@ const ProductImageTemplate = props => {
 export const query = graphql`
   query GetMccImage($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
+      name
       description {
         description
       }
