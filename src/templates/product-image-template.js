@@ -52,28 +52,25 @@ export default styled(ProductImageTemplate)`
   display: grid;
   height: 100vh;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 45px 100%;
+  grid-template-rows: 100px 100%;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
   width: 100%;
 
   & .grid-top{
-    text-align: right;
-    padding-top: 15px;
-    padding-right: 15px;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
   }
-  & .w-100{
-    text-align: right;
-    max-height: 45px;
-  }
-  & .grid-close{
+  & .grid-top .grid-close{
     background: var(--mainWhite);
     color: rgb(187, 189, 191); /*grey*/
     font-size: 2.5em;
     font-weight: 300;
+    padding: 100px 35px;
   }
-  & .grid-close:hover{
+  & .grid-top .grid-close:hover{
     color: var(--poppy);
     cursor: pointer;
   }
@@ -89,5 +86,12 @@ export default styled(ProductImageTemplate)`
     font-size: 1.5em;
     letter-spacing: var(--mainSpacing);
     margin-top: 15px;
+  }
+
+  @media (min-width: 320px) and (max-width: 480px){
+    & .grid-top .grid-close{
+      font-size: 1.5em;
+      padding: 50px 35px;
+    }
   }
 `
