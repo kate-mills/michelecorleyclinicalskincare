@@ -33,7 +33,7 @@ const ProductImageTemplate = props => {
   }
   return (
     <>
-    <SEO title={`Retail image of ${product.name}`} description={product.description.description}/>
+    <SEO title={`${product.name} - Image`} description={product.description.description}/>
       <div className={`${className} grid-container`}>
         <div className="grid-top w-100">
           <AniLink fade to={closeTo} className="grid-close">X</AniLink>
