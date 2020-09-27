@@ -15,8 +15,9 @@ exports.onCreatePage = async ({ page, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const results = {};
 
-  const result = await graphql(`
+  results.productData = await graphql(`
     query GetProducts {
       products: allContentfulMccProduct {
         nodes {
@@ -26,7 +27,25 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.products.nodes.forEach(product => {
+  results.mediaData = await graphql(`
+    query GetMedias {
+      medias: allContentfulMccMediaImg {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
+  results.mediaData.data.medias.nodes.forEach(media => {
+    createPage({
+      path: `/product-images-and-logos/${media.slug}`,
+      component: path.resolve(`src/templates/media-image-template.js`),
+      context: { slug: media.slug },
+    })
+  })
+
+  results.productData.data.products.nodes.forEach(product => {
     createPage({
       path: `/products/${product.slug}`,
       component: path.resolve(`src/templates/product-template.js`),
@@ -34,12 +53,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.products.nodes.forEach(product => {
+  results.productData.data.products.nodes.forEach(product => {
     createPage({
       path: `/product-images-and-logos/${product.slug}`,
       component: path.resolve(`src/templates/product-image-template.js`),
       context: { slug: product.slug },
     })
   })
+
 
 }

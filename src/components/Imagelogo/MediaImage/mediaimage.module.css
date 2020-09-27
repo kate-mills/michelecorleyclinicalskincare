@@ -1,0 +1,35 @@
+.grid__item {
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  min-width: 250px;
+  width: 250px;
+  min-height: 250px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.grid__item:hover{
+  box-shadow: var(--dark-shadow);
+}
+.grid__item img{
+  object-fit: contain;
+}
+.media__name{
+  color: var(--mainBlack);
+  display: block;
+  white-space: nowrap; 
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+.media__img__fluid{
+  width: 100%;
+  margin: 0 auto;
+  object-fit: contain !important;
+  box-sizing: border-box;
+}

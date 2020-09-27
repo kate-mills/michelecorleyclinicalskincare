@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './imagelogo.module.css'
+import styles from './productimage.module.css'
 
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Img from 'gatsby-image'
 
-const ImgLogo = ({imgRetail, name, slug}) => {
+const ProductImage = ({imgRetail, name, slug}) => {
 
   let pathname = '/product-images-and-logos'
 
@@ -30,4 +30,4 @@ const ImgLogo = ({imgRetail, name, slug}) => {
   )
 }
 
-export default ImgLogo
+export default ProductImage

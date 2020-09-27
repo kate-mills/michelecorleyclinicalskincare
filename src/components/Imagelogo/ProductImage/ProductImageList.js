@@ -1,15 +1,15 @@
 import React from 'react'
-import styles from './imagelogolist.module.css'
+import styles from './productimagelist.module.css'
 
-import ImageLogo from './Imagelogo'
+import ProductImage from './ProductImage'
 
-const ImagelogoList = (props) => {
+const ProductImageList = (props) => {
   return (
     <div className={styles.img__logo__grid__container}>
       {
         props.data.edges.map(({node}) => {
           return (
-            <ImageLogo key={node.contentful_id}
+            <ProductImage key={node.contentful_id}
               className={styles.grid__item}
               {...node}
             />
@@ -20,4 +20,4 @@ const ImagelogoList = (props) => {
   )
 }
 
-export default ImagelogoList
+export default ProductImageList 

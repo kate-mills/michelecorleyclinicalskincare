@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from "gatsby"
 
 import PageModel from '../components/PageModel'
-import ImagelogoList from '../components/Imagelogo/ImagelogoList'
-
+import ProductImageList from '../components/Imagelogo/ProductImage/ProductImageList'
+import MediaImageList from '../components/Imagelogo/MediaImage/MediaImageList'
 import styled from 'styled-components'
 
 const ProductImagesLogos = (props) => {
@@ -17,45 +17,47 @@ const ProductImagesLogos = (props) => {
 
         <section id="cleansers">
           <h2 className="poppy heading-2">Cleansers</h2>
-          <ImagelogoList data={props.data.cleansers}/>
+          <ProductImageList data={props.data.cleansers}/>
         </section>
 
         <section id="toners">
           <h2 className="poppy">Toners</h2>
-          <ImagelogoList data={props.data.toners}/>
+          <ProductImageList data={props.data.toners}/>
         </section>
 
         <section id="moisturizers-spf">
           <h2 className="poppy">Moisturizers and SPF</h2>
-          <ImagelogoList data={props.data.moisture}/>
+          <ProductImageList data={props.data.moisture}/>
         </section>
 
         <section id="eyes & lips">
           <h2 className="poppy">Eyes and Lips</h2>
-          <ImagelogoList data={props.data.eyesLips}/>
+          <ProductImageList data={props.data.eyesLips}/>
         </section>
 
         <section id="serums & specialty">
           <h2 className="poppy">Serums and Specialty</h2>
-          <ImagelogoList data={props.data.serums}/>
+          <ProductImageList data={props.data.serums}/>
         </section>
 
         <section id="exfoliants">
           <h2 className="poppy">Exfoliants</h2>
-          <ImagelogoList data={props.data.exfoliants}/>
+          <ProductImageList data={props.data.exfoliants}/>
         </section>
 
         <section id="masks">
           <h2 className="poppy">Masks</h2>
-          <ImagelogoList data={props.data.masks}/>
+          <ProductImageList data={props.data.masks}/>
         </section>
 
         <section id="multi-product-photos">
           <h2 className="poppy">Multi-Product Photos</h2>
+          <MediaImageList data={props.data.multi}/>
         </section>
 
         <section id="logos">
           <h2 className="poppy">Logos</h2>
+          <MediaImageList data={props.data.logos}/>
         </section>
 
       </ProductsWrapper>
@@ -75,7 +77,7 @@ export const query = graphql`
           id
           title
           description
-          fluid{
+          fluid {
             ...GatsbyContentfulFluid
           }
         }
@@ -172,7 +174,7 @@ export const query = graphql`
       }
     }
   }
- masks: allContentfulMccProduct(filter: {category: {eq: "masks"}}, sort: {order: [ASC], fields: [name]}) {
+  masks: allContentfulMccProduct(filter: {category: {eq: "masks"}}, sort: {order: [ASC], fields: [name]}) {
     edges {
       node {
         contentful_id
@@ -190,15 +192,53 @@ export const query = graphql`
       }
     }
   }
+  logos:allContentfulMccMediaImg(filter: {category: {eq: "Logos"}},
+    sort: {order: [ASC], fields:[name]}) {
+    totalCount
+    edges {
+      node{
+        contentful_id
+        name
+        slug
+        category
+        images {
+          title
+          description
+          contentful_id
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+  multi: allContentfulMccMediaImg(filter: {category: {eq: "Multi-Product Photos"}}, sort: {order: [DESC], fields: [name]}) {
+    totalCount
+    edges{
+      node {
+        contentful_id
+        name
+        slug
+        category
+        images {
+          contentful_id
+          title
+          description
+          contentful_id
+          fluid{
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    } 
+  }
 }
 `
-
 
 const ProductsWrapper = styled.section`
   & h2.poppy{
     font-size: 2.6rem;
   }
-
   @media (max-width: 1024px){
     & h2.poppy{
       text-align: center !important;
