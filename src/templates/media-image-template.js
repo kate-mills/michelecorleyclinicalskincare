@@ -11,14 +11,14 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 const MediaImageTemplate = props => {
   const { data: { media }, className, location } = props
 
-  var closeTo = "/media-images-and-logos/"
+  var closeTo = "/product-images-and-logos/"
 
   // so server doesnt fail build
   if (typeof window !== `undefined`) {
 
     // the extra window check eliminates image flash && coming from extenal url
     if(typeof window !== `undefined` && props.location.state === null){
-      closeTo = `/media-images-and-logos/`
+      closeTo = `/product-images-and-logos/`
     }
 
     // coming from internal url
@@ -28,7 +28,7 @@ const MediaImageTemplate = props => {
 
     // catchall - also helps with image flash
     else {
-      closeTo = "/media-images-and-logos"
+      closeTo = "/product-images-and-logos"
     }
   }
   return (
@@ -83,14 +83,15 @@ export default styled(MediaImageTemplate)`
     color: rgb(187, 189, 191); /*grey*/
     font-size: 2.5em;
     font-weight: 300;
-    padding: 100px 35px;
+    padding: 100px 35px 130px 200px;
+    margin: 0;
   }
   & .grid-top .grid-close:hover{
     color: var(--poppy);
     cursor: pointer;
   }
   & .grid-img{
-    max-height: 80vh;
+    max-height: 90vh;
   }
   & img {
     object-fit: contain !important;

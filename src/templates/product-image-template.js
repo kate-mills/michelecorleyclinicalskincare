@@ -85,7 +85,7 @@ export default styled(ProductImageTemplate)`
     color: rgb(187, 189, 191); /*grey*/
     font-size: 2.5em;
     font-weight: 300;
-    padding: 100px 35px;
+    padding: 100px 35px 130px 200px;
   }
   & .grid-top .grid-close:hover{
     color: var(--poppy);
