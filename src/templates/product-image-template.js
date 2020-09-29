@@ -92,7 +92,7 @@ export default styled(ProductImageTemplate)`
     cursor: pointer;
   }
   & .grid-img{
-    max-height: 80vh;
+    max-height: 90vh;
   }
   & img {
     object-fit: contain !important;
