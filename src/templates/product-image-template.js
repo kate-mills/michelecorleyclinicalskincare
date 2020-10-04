@@ -39,6 +39,7 @@ const ProductImageTemplate = props => {
           <AniLink fade to={closeTo} className="grid-close">X</AniLink>
         </div>
         <div className="grid-img"><Img fluid={product.fluidImg.fluid} title={product.fluidImg.title} alt={product.fluidImg.description}/></div>
+        <div className="w-100"></div>
       </div>
     </>
   )
@@ -69,7 +70,7 @@ export default styled(ProductImageTemplate)`
   display: grid;
   height: 100vh;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 100px 100%;
+  grid-template-rows: 100px 90% 10%;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
@@ -92,7 +93,7 @@ export default styled(ProductImageTemplate)`
     cursor: pointer;
   }
   & .grid-img{
-    max-height: 90vh;
+    max-height: 80vh;
   }
   & img {
     object-fit: contain !important;

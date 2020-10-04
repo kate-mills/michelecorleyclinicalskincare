@@ -132,13 +132,14 @@ const ProductWrapper = styled.article`
     justify-content: space-around;
     width: 100%;
   }
-  & .product-media{
-    object-fit: contain;
-  }
   & .product-media div.gatsby-image-wrapper{
-    object-fit: cover;
     max-height: 300px;
   }
+  & .product-media div.gatsby-image-wrapper img{
+    object-fit: contain !important;
+    max-height: 300px;
+  }
+
   & .product-ingredients p.bold {
     font-weight: 600;
     padding-bottom: 0;
@@ -161,9 +162,12 @@ const ProductWrapper = styled.article`
     & .product-media {
       flex-wrap: wrap-reverse;
     }
-    & .img-container{
-      margin: 10px auto 0 auto;
-      border: 2px solid var(--mainWhite);
+    & .product-media div.gatsby-image-wrapper{
+      max-height: 250px;
+    }
+    & .product-media div.gatsby-image-wrapper img{
+      object-fit: contain !important;
+      max-height: 250px;
     }
   }
 `
