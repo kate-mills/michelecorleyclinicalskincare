@@ -6,40 +6,21 @@ import Img from 'gatsby-image'
 
 import { graphql } from 'gatsby'
 
-import AniLink from "gatsby-plugin-transition-link/AniLink";
-
 const ProductImageTemplate = props => {
-  const { data: { product }, className, location } = props
+  const goBack = ()=>{ window.history.go(-1) }
 
-  var closeTo = "/product-images-and-logos/"
-
-  // so server doesnt fail build
-  if (typeof window !== `undefined`) {
-
-    // the extra window check eliminates image flash && coming from extenal url
-    if(typeof window !== `undefined` && props.location.state === null){
-      closeTo = `/product-images-and-logos/`
-    }
-
-    // coming from internal url
-    else if (typeof window !== `undefined` && location) {
-      closeTo = location.state.closeTo;
-    }
-
-    // catchall - also helps with image flash
-    else {
-      closeTo = "/product-images-and-logos"
-    }
-  }
+  const { data: { product }, className } = props
   return (
     <>
     <SEO title={`${product.name} - Image`} description={product.description.description}/>
       <div className={`${className} grid-container`}>
-        <div className="grid-top w-100">
-          <AniLink fade to={closeTo} className="grid-close">X</AniLink>
+        <div className="grid-top w-100" role="button"
+          tabIndex="0"
+          onClick={goBack}
+          onKeyPress={goBack}>
+          X
         </div>
         <div className="grid-img"><Img fluid={product.fluidImg.fluid} title={product.fluidImg.title} alt={product.fluidImg.description}/></div>
-        <div className="w-100"></div>
       </div>
     </>
   )
@@ -68,32 +49,35 @@ export default styled(ProductImageTemplate)`
   box-sizing: border-box;
   color: var(--mainWhite);
   display: grid;
-  height: 100vh;
+  min-height: 100vh;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 100px 90% 10%;
+  grid-template-rows: 100px 80%;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
   width: 100%;
-
   & .grid-top{
-    display:flex;
-    justify-content: flex-end;
     align-items: center;
-  }
-  & .grid-top .grid-close{
     background: var(--mainWhite);
     color: rgb(187, 189, 191); /*grey*/
+    cursor: pointer !important;
+    display:flex;
     font-size: 2.5em;
     font-weight: 300;
-    padding: 100px 35px 130px 200px;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 20px 40px;
+    width: 100vw;
   }
-  & .grid-top .grid-close:hover{
+  & .grid-top:hover{
     color: var(--poppy);
-    cursor: pointer;
+    cursor: pointer !important;
   }
   & .grid-img{
     max-height: 80vh;
+  }
+  & .gatsby-image-wrapper{
+    width: 100vw;
   }
   & img {
     object-fit: contain !important;
@@ -105,11 +89,9 @@ export default styled(ProductImageTemplate)`
     letter-spacing: var(--mainSpacing);
     margin-top: 15px;
   }
-
   @media (min-width: 320px) and (max-width: 480px){
-    & .grid-top .grid-close{
+    & .grid-top{
       font-size: 1.5em;
-      padding: 50px 35px;
     }
   }
 `
