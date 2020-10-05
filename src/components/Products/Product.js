@@ -3,17 +3,11 @@ import styled from 'styled-components'
 
 import Image from 'gatsby-image'
 import VideoPlayer from '../Video'
-import {Link} from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 
 const Product = ({ product, isTemplate}) => {
   const { name, skinType, description, keyIngredients } = product
-  let pathname = `/${product.category}/`
-
-  if (typeof window !== `undefined`) {
-    pathname = `${window.location.pathname}#${name}`
-  }
-
   return (
     <ProductWrapper className="single-product page-article">
       <div className="product-heading flex">
@@ -23,7 +17,6 @@ const Product = ({ product, isTemplate}) => {
             <h2 className="product-name">{name}</h2>
         }
         { product.award && <Image className="award-winner"fixed={product.awardImage.fixed}/> }
-
       </div>
       <p className="product-skintypes">
         {skinType.map((item, index) => {
@@ -37,15 +30,15 @@ const Product = ({ product, isTemplate}) => {
       <p className="product-description">{description.description}</p>
       <div className="product-media" id={name}>
         <div className="img-container">
-          <Link 
-            to={`/product-images-and-logos/${product.slug}/`}
-            state={{modal: true, closeTo: pathname}} >
+          <AniLink
+            fade
+            to={`/product-images-and-logos/${product.slug}/`}>
           {
             isTemplate?
             <Image className="fluid-img" fluid={product.fluidImg.fluid}/>:
             <Image className="fixed-img" fixed={product.imgRetail.fixed}/>
           }
-          </Link>
+          </AniLink>
         </div>
         {product.video && (
           <VideoPlayer
@@ -135,11 +128,13 @@ const ProductWrapper = styled.article`
   & .product-media div.gatsby-image-wrapper{
     max-height: 300px;
   }
+  & .product-media div.gatsby-image-wrapper:hover{
+    cursor: pointer;
+  }
   & .product-media div.gatsby-image-wrapper img{
     object-fit: contain !important;
     max-height: 300px;
   }
-
   & .product-ingredients p.bold {
     font-weight: 600;
     padding-bottom: 0;
