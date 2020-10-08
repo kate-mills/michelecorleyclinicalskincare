@@ -9,9 +9,20 @@ import Product from '../components/Products/Product'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 
+
 const ProductTemplate = ({ data: { product } , className}) => {
-  const replaceS = ({category, pattern=/s\b/g}) => category.replace(pattern, '')
-  const getLink = ({category}) => category.replace(' & ', ' ').split(' ').join('-');
+
+  const formatCategory = category => {
+    let CategoryMap = {}
+    let str = 'View All '
+    CategoryMap['moisturizers & spf'] = 'MOISTURIZERS & SPFS';
+    CategoryMap['eyes & lips'] = 'EYE & LIP PRODUCTS';
+    CategoryMap['serums & specialty'] = 'SERUM & SPECIALTY PRODUCTS';
+    return CategoryMap[category] ? str.concat(CategoryMap[category]): str.concat(category)
+  }
+
+  const formatLink = ({category}) => category.replace(' & ', ' ').split(' ').join('-');
+
   return (
     <PageModel
       title={product.name}
@@ -20,7 +31,7 @@ const ProductTemplate = ({ data: { product } , className}) => {
     >
     <div className={className}>
       <Product product={product} isTemplate={true} />
-      <p className="txt-center"><AniLink className="btn" fade to={`/${getLink(product)}/`}>View All {replaceS(product)} products</AniLink></p>
+      <p className="txt-center"><AniLink className="btn" fade to={`/${formatLink(product)}/`}>{formatCategory(product.category)} </AniLink></p>
     </div>
     </PageModel>
   )
