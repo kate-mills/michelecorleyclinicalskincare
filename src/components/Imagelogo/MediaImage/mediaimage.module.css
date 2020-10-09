@@ -17,7 +17,8 @@
   box-shadow: var(--dark-shadow);
 }
 .grid__item img{
-  object-fit: contain;
+  object-fit: contain !important;
+  max-height: 164px;
 }
 .media__name{
   color: var(--mainBlack);
