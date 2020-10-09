@@ -193,7 +193,7 @@ export const query = graphql`
     }
   }
   logos:allContentfulMccMediaImg(filter: {category: {eq: "Logos"}},
-    sort: {order: [ASC], fields:[name]}) {
+    sort: {order: [DESC], fields:[name]}) {
     totalCount
     edges {
       node{

@@ -15,6 +15,7 @@
 }
 .grid__item:hover{
   box-shadow: var(--dark-shadow);
+  cursor: pointer;
 }
 .grid__item img{
   object-fit: contain !important;
