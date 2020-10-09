@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import {ConstantContactInfo} from '../constants/contact-info'
 
 export const UnformattedEmail = props => {
-  let fmtSubject = props.subject.split(' ').join('%20')
+  let fmtSubject = ConstantContactInfo.Email.fmtSubject(props.subject)
   return (
     <a
       className="full-email"
-      href={`mailto:customerservice@michelecorley.com?subject=${fmtSubject}`}
+      target="_top"
+      href={`mailto:${props.full_email}?subject=${fmtSubject}`}
     >
       <span className="email-prefix" style={{}}>
         {props.prefix}
@@ -21,12 +23,7 @@ export const UnformattedEmail = props => {
   )
 }
 
-UnformattedEmail.defaultProps = {
-  subject: 'Contact Info',
-  prefix: 'customerservice',
-  suffix: '@michelecorley',
-  ext: '.com',
-}
+UnformattedEmail.defaultProps = ConstantContactInfo.Email;
 
 export const Phone = ({ areaCode, prefix, suffix }) => {
   return (
@@ -35,11 +32,7 @@ export const Phone = ({ areaCode, prefix, suffix }) => {
     </a>
   )
 }
-Phone.defaultProps = {
-  areaCode: '707',
-  prefix: '637',
-  suffix: '4997',
-}
+Phone.defaultProps = ConstantContactInfo.Telephone;
 
 const ContactInfo = props => {
   return (
@@ -75,32 +68,32 @@ const ContactInfo = props => {
               className="street-address"
               style={{ paddingLeft: '5px', display: 'inline-block' }}
             >
-              3055 Jefferson St.
+              {props.street}
             </span>
             <span
               className="suite"
               style={{ paddingLeft: '5px', display: 'inline-block' }}
             >
-              Suite 3
+              {props.suite}
             </span>
             <br />
             <span
               className="city"
               style={{ paddingLeft: '5px', display: 'inline-block' }}
             >
-              Napa
+              {props.city}
             </span>
             <span
               className="state"
               style={{ paddingLeft: '5px', display: 'inline-block' }}
             >
-              Ca.
+              {props.state}
             </span>
             <span
               className="zip"
               style={{ paddingLeft: '5px', display: 'inline-block' }}
             >
-              94558
+              {props.zip}
             </span>
           </address>
         </div>
@@ -108,6 +101,7 @@ const ContactInfo = props => {
     </Wrapper>
   )
 }
+ContactInfo.defaultProps = ConstantContactInfo.Address;
 
 const Wrapper = styled.aside`
   & {

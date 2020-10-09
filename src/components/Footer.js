@@ -7,6 +7,7 @@ import socialLinks from '../constants/social'
 
 import { screen } from '../css/js/media-functions'
 import { setFlexContainer } from '../css/js/helper-styles'
+import { ConstantContactInfo  } from '../constants/contact-info'
 
 const query = graphql`
   {
@@ -20,10 +21,10 @@ const query = graphql`
   }
 `
 
-const Footer = ({ className }) => {
+const Footer = (props) => {
   const { infinity } = useStaticQuery(query)
   return (
-    <footer className={className}>
+    <footer className={props.className}>
       <div className="column">
         <Image fluid={infinity.childImageSharp.fluid} />
         <div className="lg-text">
@@ -65,19 +66,18 @@ const Footer = ({ className }) => {
             <span className="middot">&middot;</span>
             {` `}
             <a
-              href="mailto:customerservice@michelecorley.com?Subject=Hello%20Michele!"
+              href={`mailto:${props.Email.full_email}?subject=${props.Email.subject}`}
               target="_top"
               className="email"
             >
-              <span className="span1">customerservice</span>
-              <span className="email span2">@michelecorley.com </span>
+              <span className="span1">{props.Email.prefix}</span>
+              <span className="email span2">{props.Email.suffix}{props.Email.ext}</span>
             </a>
           </p>
         </div>
         <div className="row sm-text">
           <p className="address">
-            Michele Corley Company, 3055 Jefferson Street. Suite 3, Napa, CA
-            94558
+            Michele Corley Company, {props.Address.street} {props.Address.suite} {props.Address.city} {props.Address.state} {props.Address.zip}
           </p>
         </div>
         <div className="row sm-text">
@@ -90,6 +90,7 @@ const Footer = ({ className }) => {
     </footer>
   )
 }
+Footer.defaultProps = ConstantContactInfo; 
 
 const FooterWrapper = styled(Footer)`
   & {

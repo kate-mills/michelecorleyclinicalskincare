@@ -18,7 +18,6 @@ export const handleLogin = ({ username, password }) => {
     return setUser({
       name: `Professional`,
       legalName: `Michele Corley`,
-      email: `customerservice@michelecorley.com`,
     })
   }
 
@@ -30,7 +29,7 @@ export const isLoggedIn = () => {
 
   const user = getUser()
 
-  return !!user.email
+  return !!user.name
 }
 
 export const getCurrentUser = () => isBrowser && getUser()
