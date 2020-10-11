@@ -1,24 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Email = ({ fontFamily, subject, color, fontWeight, className }) => {
-  let fmtSubject = ''
-  if (subject.length > 0) fmtSubject = subject.split(' ').join('%20')
+import {ConstantContactInfo} from '../constants/contact-info'
+
+const Email = (props) => {
 
   return (
     <a
-      className={className}
-      href={`mailto:customerservice@michelecorley.com?subject=${fmtSubject}`}
+      className={props.className}
+      href={`mailto:${props.full_email}?subject=${props.fmtSubject(props.subject)}`}
     >
-      <span className="email-prefix">customerservice</span>
-      <span className="email-suffix">@michelecorley.com</span>
+      <span className="email-prefix">{props.prefix}</span>
+      <span className="email-suffix">{props.suffix}{props.ext}</span>
     </a>
   )
 }
 
-Email.defaultProps = {
-  subject: 'General Info',
-}
+Email.defaultProps = ConstantContactInfo.Email;
 
 export default styled(Email)`
   & {

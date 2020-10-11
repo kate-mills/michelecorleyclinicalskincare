@@ -1,7 +1,10 @@
 export const ConstantContactInfo =  {
 
   Email: {
-    fmtSubject: (str) => str.split(' ').join('%20'),
+    fmtSubject: (str) => {
+      if(str && str.length > 0)
+        return str.split(' ').join('%20')
+    },
     subject: 'General%20query',
     full_email:'customerservice@michelecorley.com',
     prefix:'customerservice',
