@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import socialLinks from '../constants/social'
 
 import { screen } from '../css/js/media-functions'
-import { setFlexContainer } from '../css/js/helper-styles'
 import { ConstantContactInfo  } from '../constants/contact-info'
 
 const query = graphql`
@@ -108,7 +107,11 @@ const FooterWrapper = styled(Footer)`
 
   & div.row {
     width: 100%;
-    ${setFlexContainer({})}
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 
   & div.column,
