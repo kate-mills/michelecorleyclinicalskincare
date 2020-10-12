@@ -7,7 +7,7 @@ module.exports = {
     title: `Michele Corley Clinical Skincare`,
     description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
     author: `MCC`,
-    siteUrl: `https://mcc-on-netlify.netlify.app`,
+    siteUrl: `https://www.michelecorleyclinicalskincare.com`,
   },
   plugins: [
     `gatsby-plugin-transition-link`,
@@ -15,8 +15,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: `https://mcc-on-netlify.netlify.app`,
-        sitemap: `https://mcc-on-netlify.netlify.app/sitemap.xml`,
+        host: `https://www.michelecorleyclinicalskincare.com`,
+        sitemap: `https://www.michelecorleyclinicalskincare.com/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
