@@ -13,10 +13,10 @@ export const ConstantContactInfo =  {
   },
 
   Telephone: {
-    phone: '(707) 637 - 4997',
+    phone: '(707) 637 - 4996',
     areaCode: '707',
     prefix: '637',
-    suffix: '4997'
+    suffix: '4996'
   },
 
   Address: {
