@@ -55,6 +55,6 @@ export default [
   },
   { path: '/contact/', text: 'contact', menu: [] },
   { path: '/pro-orders/', text: 'pro orders', menu: [] },
-  { id: 'professional', menu: [] },
+  { id: 'education', menu: [] },
   { path: '/articles/', text: 'articles', menu: [] },
 ]

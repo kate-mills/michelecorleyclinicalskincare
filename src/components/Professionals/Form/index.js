@@ -20,7 +20,7 @@ export default ({ handleSubmit, handleUpdate }) => (
       method="post"
       onSubmit={event => {
         handleSubmit(event)
-        navigate(`/app/professionals`)
+        navigate(`/app/education`)
       }}
     >
       <label htmlFor="username" className={styles[`form__label`]}>

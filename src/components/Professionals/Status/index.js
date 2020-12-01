@@ -10,14 +10,14 @@ export default () => {
   if (!isLoggedIn()) {
     details = (
       <Link to="/app/login" className={styles[`professional__link`]}>
-        PROFESSIONALS
+        EDUCATION
       </Link>
     )
   } else {
     details = (
       <>
-        <Link className={styles[`professional__link`]} to="/app/professionals">
-          PROFESSIONALS
+        <Link className={styles[`professional__link`]} to="/app/education">
+          EDUCATION
         </Link>
         <Link
           className={styles[`professional__logout__link`]}

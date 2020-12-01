@@ -9,6 +9,7 @@ import PrivateRoute from '../components/Professionals/PrivateRoute'
 const App = () => {
   return (
       <Router primary={false}>
+        <PrivateRoute path="/app/education" component={Professionals} />
         <PrivateRoute path="/app/professionals" component={Professionals} />
         <Login path="/app/login" />
       </Router>

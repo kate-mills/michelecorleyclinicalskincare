@@ -45,7 +45,7 @@ class DesktopNavbar extends Component {
         <nav>
           <ul className="main-nav">
             {links.map((item, id) => {
-              if (item.id === 'professional') {
+              if (item.id === 'education') {
                 return (
                   <li key={id}>
                     <ProfessionalStatus />

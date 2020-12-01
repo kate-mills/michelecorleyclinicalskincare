@@ -88,7 +88,7 @@ const Profile = () => {
   return (
     <>
       <SEO title="Professionals" />
-      <h1 className="poppy txt-center">Professionals</h1>
+      <h1 className="poppy txt-center">Education</h1>
       {/* Top Row - Manuals */}
       <article className={styles.manuals__row}>
         {/* Left column  - esty image */}

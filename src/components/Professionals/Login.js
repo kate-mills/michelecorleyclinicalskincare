@@ -27,7 +27,7 @@ class Login extends React.Component {
 
   render() {
     if (isLoggedIn()) {
-      navigate(`/app/professionals`)
+      navigate(`/app/education`)
     }
 
     return (
