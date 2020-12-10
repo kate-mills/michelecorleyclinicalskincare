@@ -1,3 +1,9 @@
+const  fmtPhone = (a, p, s) => `(${a}) ${p} - ${s}`;
+
+export const areaCode = '707';
+export const prefix = '287';
+export const suffix = '0555';
+
 export const ConstantContactInfo =  {
 
   Email: {
@@ -13,10 +19,10 @@ export const ConstantContactInfo =  {
   },
 
   Telephone: {
-    phone: '(707) 637 - 4996',
-    areaCode: '707',
-    prefix: '637',
-    suffix: '4996'
+    phone: fmtPhone(areaCode, prefix, suffix), // used in Footer
+    areaCode: areaCode,
+    prefix: prefix,
+    suffix: suffix,
   },
 
   Address: {

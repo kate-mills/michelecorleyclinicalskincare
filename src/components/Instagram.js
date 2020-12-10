@@ -1,5 +1,5 @@
 import React from 'react'
-import icon from '../images/instagram-icon.jpg'
+import icon from '../images/footer/instagram-icon.jpg'
 
 const Instagram = () => {
   return (

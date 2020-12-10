@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-
 import styled from 'styled-components'
 import socialLinks from '../constants/social'
 
@@ -60,7 +59,7 @@ const Footer = (props) => {
         </div>
         <div className="row lg-text phone-email">
           <p style={{ margin: '0', padding: '0 0 1.0em' }}>
-            <span className="phone">707.637.4996</span>
+            <span className="phone">{props.Telephone.phone}</span>
             {` `}
             <span className="middot">&middot;</span>
             {` `}

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Email from './Email'
 import { getAnnouncementStatus, setHideStatus } from '../utils/announcement'
+import { areaCode, prefix, suffix  } from '../constants/contact-info'
 
 class Announcement extends React.Component {
   constructor(props) {
@@ -23,8 +24,7 @@ class Announcement extends React.Component {
                 fontFamily: 'Times, serif',
                 letterSpacing: '1.5px'
               }}
-            >
-              707.637.4996<span className={`tilda`}
+            >{areaCode}.{prefix}.{suffix}<span className={`tilda`}
                 style={{
                   padding: '0 .1em 0',
                 }}>
