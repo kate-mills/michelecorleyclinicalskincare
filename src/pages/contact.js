@@ -22,7 +22,7 @@ const ContactPage = ({ data }) => {
               </h1>
               <p>
                 Please contact us via the submission form or give us a call at
-                (707) 637-4997 and we'll get back to you as soon as we can. If
+                (707) 287-0555 and we'll get back to you as soon as we can. If
                 you are a licensed professional, please include your license
                 number.
               </p>
