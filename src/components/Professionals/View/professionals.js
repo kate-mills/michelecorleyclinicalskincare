@@ -9,7 +9,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const query = graphql`
   {
-    manuals: allAirtable(filter: { table: { eq: "Manuals" } }) {
+    manuals: allAirtable(
+      filter: {table: {eq: "Manuals"}},
+      sort: {fields: data___orderId, order: ASC}
+    ) {
       nodes {
         id
         data {
@@ -87,7 +90,7 @@ const Profile = () => {
 
   return (
     <>
-      <SEO title="Professionals" />
+      <SEO title="Education" />
       <h1 className="poppy txt-center">Education</h1>
       {/* Top Row - Manuals */}
       <article className={styles.manuals__row}>
