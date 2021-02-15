@@ -26,10 +26,9 @@ export const ConstantContactInfo =  {
   },
 
   Address: {
-    street: '3055 Jefferson St.',
-    suite: 'Suite 3', // '' is ok
-    city: 'Napa',
-    state: 'Ca.',
-    zip: '94558',
+    street: '1400 Lafayette St.',
+    city: 'Beaufort',
+    state: 'SC',
+    zip: '29902',
   }
 }
