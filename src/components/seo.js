@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import SchemaOrg from './SchemaOrg'
+import { useLocation } from "@reach/router"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, image}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -13,12 +14,17 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
+            defaultImage
           }
         }
       }
     `
   )
 
+  const seoImg = image || site.siteMetadata.defaultImage
+  const { pathname } = useLocation()
+  const url = `${site.siteMetadata.siteUrl}/${pathname}`
   const metaDescription = description || site.siteMetadata.description
 
   return (
@@ -64,7 +70,13 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     />
-      <SchemaOrg/>
+      <SchemaOrg
+        image={image}
+        seoImg={seoImg}
+        defaultImg={site.siteMetadata.defaultImg}
+        description={metaDescription}
+        url={url}
+      />
     </React.Fragment>
   )
 }

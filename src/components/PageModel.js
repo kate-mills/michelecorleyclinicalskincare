@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 const PageModel = ({
   title,
   description,
+  image,
   color,
   centeredTitle,
   defaultTitle,
@@ -15,7 +16,7 @@ const PageModel = ({
 }) => {
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} image={image}/>
 
       {centeredTitle && <PageTitle title={title} color={color || ''} center />}
 

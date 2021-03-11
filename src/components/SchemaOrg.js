@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-export default React.memo(() => {
+export default React.memo(({image, seoImg, defaultImg, description, url}) => {
     const openingHoursSpecification = [
       {
         "@type": "OpeningHoursSpecification",
@@ -15,10 +15,10 @@ export default React.memo(() => {
         "@context": "http://schema.org",
         "@type": "LocalBusiness",
         "@id": "https://www.michelecorleyclinicalskincare.com",
-        description: "Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.",
+        description: description,
         email: "customerservice@michelecorley.com",
-        logo: "https://images.ctfassets.net/42crzdn8wqcc/15b5rAcZVFYSCm0R6w54N8/19d143ac45e5a29acaf9e9eaefeb56be/monogram.jpg?w=800&h=800&q=100",
-        image:  "https://images.ctfassets.net/42crzdn8wqcc/1xvbz9U4f2VfdBUH29Sr9C/74044e69895398332f88569e2074b876/mcc-logo.jpg?w=800&h=587&q=100",
+        logo: defaultImg,
+        image:  seoImg,
         name: "Michele Corley Clinical Skincare",
         openingHoursSpecification: openingHoursSpecification,
         priceRange: "$$",
@@ -28,7 +28,7 @@ export default React.memo(() => {
           "https://vimeo.com/michelecorley",
         ],
         telephone: "(707) 287 - 0555",
-        url: "michelecorleyclinicalskincare.com",
+        url: url,
         paymentAccepted: [ "credit card" ],
       	address: {
 		      "@type": "PostalAddress",

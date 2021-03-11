@@ -27,6 +27,7 @@ const ProductTemplate = ({ data: { product } , className}) => {
     <PageModel
       title={product.name}
       description={product.description.description}
+      image={product.seoImg.fixed.src}
       id={product.name}
     >
     <div className={className}>
@@ -61,7 +62,13 @@ export const query = graphql`
         title
         description
         fluid(quality: 100){
+          src
           ...GatsbyContentfulFluid
+        }
+      }
+      seoImg: imgRetail {
+        fixed(width: 200, height: 200){
+          src
         }
       }
       award
