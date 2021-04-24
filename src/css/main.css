@@ -32,6 +32,10 @@
 :focus{
   outline: var(--clear);
 }
+::selection{
+  background-color: gainsboro;
+  color: var(--poppyHigh);
+}
 a {
   color: var(--mainBlack);
   cursor: pointer;
