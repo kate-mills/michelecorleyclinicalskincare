@@ -34,7 +34,7 @@ function SEO({ description, lang, meta, title, image}) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={(title.length < 31) ? `%s | ${site.siteMetadata.title}`: title}
       meta={[
         {
           name: `description`,
