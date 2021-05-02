@@ -11,9 +11,10 @@ const MediaImageTemplate = props => {
   const goBack = () => { window.history.go(-1) }
   const { data: { media }, className } = props
 
+  const seoDescription = `Drag and drop your copy of Michele Corley Clinical Skincare image for social media titled ${media.name}.`
   return (
     <>
-    <SEO title={`${media.name} - Image`} description={`Michele Corley Clinical Skincare ${media.category}`}/>
+      <SEO title={`${media.name} - Social Media Image`} description={seoDescription} image={media.fluidImgs[0].fluid.src}/>
       <div className={`${className} grid-container`}>
         <div className="grid-top w-100" role="button"
           tabIndex="0"
