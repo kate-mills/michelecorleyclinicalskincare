@@ -85,7 +85,7 @@ const Footer = (props) => {
       </div>
       <div>
         <p className="sm-text allydigitalsolutions">
-          Website built by <a href="https://allydigitalsolutions.com">allydigitalsolutions.com</a>
+          <a href="https://allydigitalsolutions.com">Website built by allydigitalsolutions.com</a>
         </p>
       </div>
     </footer>
