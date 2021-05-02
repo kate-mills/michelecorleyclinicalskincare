@@ -47,8 +47,6 @@ const Footer = (props) => {
                   href={item.href}
                   aria-label={item.label}
                   className={item.class}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   style={item.style}
                 >
                   {item.icon}
@@ -87,7 +85,7 @@ const Footer = (props) => {
       </div>
       <div>
         <p className="sm-text allydigitalsolutions">
-          Built by <a href="https://allydigitalsolutions.com" target="_blank">allydigitalsolutions.com</a>
+          Website built by <a href="https://allydigitalsolutions.com">allydigitalsolutions.com</a>
         </p>
       </div>
     </footer>
