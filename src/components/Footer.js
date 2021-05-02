@@ -85,6 +85,11 @@ const Footer = (props) => {
           </p>{' '}
         </div>
       </div>
+      <div>
+        <p className="sm-text allydigitalsolutions">
+          <a href="https://allydigitalsolutions.com" target="_blank">Built by Ally Digital Solutions</a>
+        </p>
+      </div>
     </footer>
   )
 }
@@ -142,6 +147,9 @@ const FooterWrapper = styled(Footer)`
   }
   & .sm-text {
     font-size: 13px;
+  }
+  & .allydigitalsolutions{
+    font-size: 11px;
   }
   div.phone-email {
     color: var(--mainBlack);
