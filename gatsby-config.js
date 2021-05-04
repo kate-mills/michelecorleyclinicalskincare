@@ -20,6 +20,7 @@ module.exports = {
         sitemap: `https://www.michelecorleyclinicalskincare.com/sitemap.xml`,
         policy: [
           { userAgent: '*', allow: '/' },
+          {userAgent: '*', disallow: '/new-page-3'},
           {userAgent: '*', disallow: '/app/login'},
         ],
       },
