@@ -18,7 +18,10 @@ module.exports = {
       options: {
         host: `https://www.michelecorleyclinicalskincare.com`,
         sitemap: `https://www.michelecorleyclinicalskincare.com/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }],
+        policy: [
+          { userAgent: '*', allow: '/' },
+          {userAgent: '*', disallow: '/app/login'},
+        ],
       },
     },
     {
