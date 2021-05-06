@@ -11,11 +11,9 @@ const ProductImageTemplate = props => {
 
   const { data: { product }, className } = props
 
-  const productDescription = `Get a copy of our ${product.name} image for your personal use on your website, advertising, and social media.`
-
   return (
     <>
-    <SEO title={`${product.name} - Image`} description={productDescription} image={product.fluidImg.fluid.src.slice(2)}/>
+    <SEO title={`${product.name} - Michele Corley`} description={`Michele Corley Clinical Skincare - ${product.name}`} image={product.fluidImg.fluid.src.slice(2)}/>
       <div className={`${className} grid-container`}>
         <div className="grid-top w-100" role="button"
           tabIndex="0"
