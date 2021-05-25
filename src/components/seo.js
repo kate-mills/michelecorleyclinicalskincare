@@ -37,6 +37,10 @@ function SEO({ description, lang, meta, title, image}) {
       titleTemplate={(title.length < 31) ? `%s | ${site.siteMetadata.title}`: title}
       meta={[
         {
+          name:"google-site-verification",
+          content:"__EndWSs5BPjx6w6bft3xWpgofxOEdBQBaEdh7js_M0",
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
@@ -69,6 +73,7 @@ function SEO({ description, lang, meta, title, image}) {
           content: metaDescription,
         },
       ].concat(meta)}
+
     />
       <SchemaOrg
         image={image}
