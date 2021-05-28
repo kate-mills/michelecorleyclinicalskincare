@@ -8,7 +8,7 @@ module.exports = {
     description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
     author: `MCC`,
     siteUrl: `https://www.michelecorleyclinicalskincare.com`,
-    defaultImage: ` https://www.michelecorleyclinicalskincare.com/logo.jpg`
+    defaultImage: `https://www.michelecorleyclinicalskincare.com/seoimage.jpg`
   },
   plugins: [
     `gatsby-plugin-transition-link`,
