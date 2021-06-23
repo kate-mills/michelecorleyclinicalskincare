@@ -10,6 +10,7 @@ export default React.memo(({image, seoImg, defaultImg, description, url}) => {
         closes: "16:00",
       },
     ]
+
     const baseSchema = [
       {
         "@context": "http://schema.org",
@@ -17,8 +18,8 @@ export default React.memo(({image, seoImg, defaultImg, description, url}) => {
         "@id": "https://www.michelecorleyclinicalskincare.com",
         description: description,
         email: "customerservice@michelecorley.com",
+        image,
         logo: defaultImg,
-        image:  seoImg,
         name: "Michele Corley Clinical Skincare",
         openingHoursSpecification: openingHoursSpecification,
         priceRange: "$$",
@@ -28,7 +29,7 @@ export default React.memo(({image, seoImg, defaultImg, description, url}) => {
           "https://vimeo.com/michelecorley",
         ],
         telephone: "(707) 287 - 0555",
-        url: url,
+        url,
         paymentAccepted: [ "credit card" ],
       	address: {
 		      "@type": "PostalAddress",

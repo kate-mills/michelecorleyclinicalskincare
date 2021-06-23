@@ -1,5 +1,5 @@
 import React from 'react'
-import SEO from '../../../components/seo'
+import SEO from '../../../components/FullSeo'
 
 import Img from 'gatsby-image'
 
@@ -90,7 +90,7 @@ const Profile = () => {
 
   return (
     <>
-      <SEO title="Education" />
+      <SEO title="Education" image={'https://michelecorleyclinicalskincare.com/seoimage.jpg'}/>
       <h1 className="poppy txt-center">Education</h1>
       {/* Top Row - Manuals */}
       <article className={styles.manuals__row}>

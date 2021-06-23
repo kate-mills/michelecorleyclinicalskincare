@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from '../components/layout'
 import PageTitle from '../components/Title'
-import SEO from '../components/seo'
+import SEO from '../components/FullSeo'
 
 const PageModel = ({
   title,
@@ -16,7 +16,7 @@ const PageModel = ({
 }) => {
   return (
     <Layout>
-      <SEO title={title} description={description} image={image}/>
+      <SEO title={title} description={description} image={image || 'https://michelecorleyclinicalskincare.com/seoimage.jpg'}/>
 
       {centeredTitle && <PageTitle title={title} color={color || ''} center />}
 

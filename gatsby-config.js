@@ -6,9 +6,34 @@ module.exports = {
   siteMetadata: {
     title: `Michele Corley Clinical Skincare`,
     description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
+    dateModified: `${new Date().toISOString()}`,
     author: `MCC`,
+    twitterUsername: `@katie_napa`,
+    image: `/seoimage.jpg`,
+    url: `https://www.michelecorleyclinicalskincare.com`,
+    baseUrl: `https://www.michelecorleyclinicalskincare.com`,
     siteUrl: `https://www.michelecorleyclinicalskincare.com`,
-    defaultImage: `https://www.michelecorleyclinicalskincare.com/seoimage.jpg`
+    defaultImage: `https://www.michelecorleyclinicalskincare.com/seoimage.jpg`,
+    organization: {
+      address: {
+        street: `1400 Lafayette St.`,
+        city: `Beaufort`,
+        state: `SC`,
+        zip: `29902`,
+        country: `USA`,
+      },
+      email: `customerservice@michelecorley.com`,
+      name: `Michele Corley Clinical Skincare`,
+      url: `https://www.michelecorleyclinicalskincare.com`,
+      logo: `https://www.michelecorleyclinicalskincare.com/seoimage.jpg`,
+      telephone: `707-287-0555`,
+      priceRange: `$$`,
+      sameAs: [
+        `https://vimeo.com/michelecorley`,
+        `https://www.facebook.com/michelecorleyclinicalskincare`,
+        `https://www.instagram.com/michelecorleyskincare`,
+      ]
+    },
   },
   plugins: [
     `gatsby-plugin-transition-link`,

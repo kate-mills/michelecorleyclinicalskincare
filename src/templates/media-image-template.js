@@ -1,5 +1,5 @@
 import React from 'react'
-import SEO from '../components/seo'
+import SEO from '../components/FullSeo'
 
 import styled from 'styled-components'
 import Img from 'gatsby-image'

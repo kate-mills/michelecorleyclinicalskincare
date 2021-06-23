@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './form.module.css'
 import { navigate } from '@reach/router'
-import SEO from '../../seo'
+import SEO from '../../FullSeo'
 import Email from '../../Email'
 
 export default ({ handleSubmit, handleUpdate }) => (
   <>
-    <SEO title={`Professionals Login`} />
+    <SEO title={`Professionals Login`} image={'https://michelecorleyclinicalskincare.com/seoimage.jpg'}/>
     <p className={styles[`form__instructions`]}>
       Professionals, please contact us at{' '}
       <span className={styles[`phone`]}>
