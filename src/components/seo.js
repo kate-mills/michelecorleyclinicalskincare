@@ -76,11 +76,11 @@ function SEO({ description, lang, meta, title, image}) {
 
     />
       <SchemaOrg
-        image={image}
+        image={seoImg}
         seoImg={seoImg}
         defaultImg={seoImg}
         description={metaDescription}
-        url={url}
+        url={site.siteMetadata.siteUrl}
       />
     </React.Fragment>
   )
