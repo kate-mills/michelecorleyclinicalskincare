@@ -78,7 +78,7 @@ function SEO({ description, lang, meta, title, image}) {
       <SchemaOrg
         image={image}
         seoImg={seoImg}
-        defaultImg={site.siteMetadata.defaultImg}
+        defaultImg={seoImg}
         description={metaDescription}
         url={url}
       />
