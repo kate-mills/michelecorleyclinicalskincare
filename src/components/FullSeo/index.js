@@ -50,13 +50,11 @@ const SEO = ({ title, description, image, article, snippet, noindex}) => {
   } = site.siteMetadata
   const formatTitle = ()=>{
     let plain = `${title||defaultTitle}`; 
-    let fancy = `${title||defaultTitle} | Ally Digital Solutions`;
+    let fancy = `${title||defaultTitle} | Michele Corley`;
     return (plain.length < 46)?fancy:plain;
   }
 
   let defaultSeoImage = `${baseUrl}${defaultImage}`
-
-  console.log('image', image, defaultSeoImage)
 
   const seo = {
     title: formatTitle(),

@@ -58,7 +58,6 @@ export default React.memo(
         itemListElement: linkCrumbs,
       },
     ]
-    console.log(baseSchema)
 
 
     return (
