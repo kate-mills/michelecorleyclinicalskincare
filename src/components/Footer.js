@@ -73,7 +73,7 @@ const Footer = (props) => {
         </div>
         <div className="row sm-text">
           <p className="address">
-            Michele Corley Company, {props.Address.street} {props.Address.suite} {props.Address.city} {props.Address.state} {props.Address.zip}
+            Michele Corley Company, LLC {props.Address.street} {props.Address.suite} {props.Address.city} {props.Address.state} {props.Address.zip}
           </p>
         </div>
         <div className="row sm-text">
