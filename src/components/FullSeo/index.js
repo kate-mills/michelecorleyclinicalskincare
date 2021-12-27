@@ -73,6 +73,8 @@ const SEO = ({ title, description, image, article, snippet, noindex}) => {
       {noindex && (<meta name="robots" content="noindex" />)}
       {snippet && (<script type="application/ld+json">{snippet}</script>)}
 
+      <meta name="google-site-verification" content="__EndWSs5BPjx6w6bft3xWpgofxOEdBQBaEdh7js_M0"/>
+
       {/* facebook card */}
       {seo.url && <meta property="og:url" content={seo.url} />}
       {article ? <meta property="og:type" content="article" />:<meta property="og:type" content="website" /> }
