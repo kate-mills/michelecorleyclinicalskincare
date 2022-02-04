@@ -83,11 +83,6 @@ const Footer = (props) => {
           </p>{' '}
         </div>
       </div>
-      <div>
-        <p className="sm-text allydigitalsolutions">
-          <a href="https://allydigitalsolutions.com">Website built by allydigitalsolutions.com</a>
-        </p>
-      </div>
     </footer>
   )
 }
