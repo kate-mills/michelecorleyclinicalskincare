@@ -17,7 +17,6 @@ const ProductTemplate = ({ data: { product } , className}) => {
     CategoryMap['serums & specialty'] = 'SERUM & SPECIALTY PRODUCTS';
     return CategoryMap[category] ? str.concat(CategoryMap[category]): str.concat(category)
   }
-  const hasProfileSheet = (profiles) => ((profiles !== null)? true:false)
   const formatLink = ({category}) => category.replace(' & ', ' ').split(' ').join('-');
 
 
@@ -30,18 +29,8 @@ const ProductTemplate = ({ data: { product } , className}) => {
     >
     <div className={className}>
       <Product product={product} isTemplate={true} />
-
       <div
         className="lower-btn-div">
-          {
-            (!!hasProfileSheet(product.profiles)
-              ?<p className="txt-center">
-                <a className="btn" href={product.profiles[0].file.url} target="_blank" rel="noreferrer">Download Product Profile Sheet
-                </a>
-              </p>
-              :null
-            )
-          }
         <p className="txt-center"><AniLink className="btn" fade to={`/${formatLink(product)}/`}>{formatCategory(product.category)} </AniLink></p>
       </div>
     </div>
@@ -52,11 +41,6 @@ const ProductTemplate = ({ data: { product } , className}) => {
 export const query = graphql`
   query GetMccProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
-      profiles{
-          file{
-            url
-          }
-        }
       name
       slug
       contentful_id
