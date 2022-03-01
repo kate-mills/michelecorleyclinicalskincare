@@ -53,6 +53,7 @@ export const query = graphql`
       edges {
         node {
           contentful_id
+          profiles{ file{ url } }
           name
           slug
           skinType
