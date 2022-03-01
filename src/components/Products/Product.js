@@ -7,7 +7,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 
 const Product = ({ product, isTemplate}) => {
-  const { name, skinType, description, keyIngredients } = product
+  const { name, skinType, description, keyIngredients, profiles } = product
   return (
     <ProductWrapper className="single-product page-article">
       <div className="product-heading flex">
@@ -47,6 +47,17 @@ const Product = ({ product, isTemplate}) => {
           />
         )}
       </div>
+      <div className="product-profile-section">
+        { (( !!profiles ) ?
+          <a
+            className="product-profile-sheet"
+            href={profiles[0].file.url}
+            target="_blank"
+            rel="noreferrer"
+          >FULL Ingredient List Available Here</a>
+        : null )}
+      </div>
+
       <div className="product-ingredients">
         <p className="bold">A FEW KEY Ingredients & Benefits:</p>
         <ul data-bullet-list>
