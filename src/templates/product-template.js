@@ -8,6 +8,7 @@ import PageModel from '../components/PageModel'
 import Product from '../components/Products/Product'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
+const ProductTemplate = ({ data: { product } , className}) => {
   const formatCategory = category => {
     let CategoryMap = {}
     let str = 'View All '
@@ -19,7 +20,6 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
   const hasProfileSheet = (profiles) => ((profiles !== null)? true:false)
   const formatLink = ({category}) => category.replace(' & ', ' ').split(' ').join('-');
 
-const ProductTemplate = ({ data: { product } , className}) => {
 
   return (
     <PageModel
