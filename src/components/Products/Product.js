@@ -50,7 +50,7 @@ const Product = ({ product, isTemplate}) => {
       <div className="product-profile-section">
         { (( !!profiles ) ?
           <a
-            className="product-profile-sheet"
+            className="product-profile-sheet bold"
             href={profiles[0].file.url}
             target="_blank"
             rel="noreferrer"
