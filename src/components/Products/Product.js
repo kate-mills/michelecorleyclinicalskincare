@@ -54,7 +54,7 @@ const Product = ({ product, isTemplate}) => {
             href={profiles[0].file.url}
             target="_blank"
             rel="noreferrer"
-          >FULL Ingredient List Available Here</a>
+          >View FULL Ingredient List Here.</a>
         : null )}
       </div>
 
@@ -145,6 +145,9 @@ const ProductWrapper = styled.article`
   & .product-media div.gatsby-image-wrapper img{
     object-fit: contain !important;
     max-height: 300px;
+  }
+  & .product-profile-sheet.bold{
+    color: #a5655f;
   }
   & .product-ingredients p.bold {
     font-weight: 600;
