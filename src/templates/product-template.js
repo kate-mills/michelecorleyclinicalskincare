@@ -41,6 +41,7 @@ const ProductTemplate = ({ data: { product } , className}) => {
 export const query = graphql`
   query GetMccProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
+      profiles {file{url}}
       name
       slug
       contentful_id
