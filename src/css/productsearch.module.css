@@ -56,7 +56,8 @@
   text-decoration: none;
 }
 .search__td > a:focus{
-  background:var(--pinkHilight);
+  background-color: gainsboro;
+  color: var(--poppyHigh);
 }
 
 .search__flex{
