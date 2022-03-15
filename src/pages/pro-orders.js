@@ -47,19 +47,15 @@ const ProOrdersWrapper = styled.section`
   }
   & .btn{
     margin-left: 10px;
+    margin-top: 25px;
     margin-right: 10px;
-    font-weight: 600 !important;
   }
 
   @media (max-width: 600px) {
     & .email{
       display: block;
     }
-    & .btn{
-      width: fit-content;
-      margin: 10px auto;
-      display: block;
-    }
+    & .btn{}
   }
 `
 export default ProOrders
