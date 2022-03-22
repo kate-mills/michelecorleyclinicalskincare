@@ -6,8 +6,8 @@ import VideoPlayer from '../Video'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 
-const Product = ({ product, isTemplate}) => {
-  const { name, skinType, description, keyIngredients, profiles } = product
+const Product = ({acneIcon,  product, isTemplate}) => {
+  const { acneSafe, name, skinType, description, keyIngredients, profiles } = product
   return (
     <ProductWrapper className="single-product page-article">
       <div className="product-heading flex">
@@ -16,7 +16,12 @@ const Product = ({ product, isTemplate}) => {
             <h1 className="product-name">{name}</h1>:
             <h2 className="product-name">{name}</h2>
         }
+
+        <div className="booleanWrapper">
+          {/*{ acneSafe && <div className="acneSafe"> <div className="text">acne-safe</div> </div> }*/}
         { product.award && <Image className="award-winner"fixed={product.awardImage.fixed}/> }
+        { acneSafe && <Image className="acne-icon acneSafe" fixed={acneIcon.edges[0].node.images[0].fixed}/> }
+        </div>
       </div>
       <p className="product-skintypes">
         {skinType.map((item, index) => {
@@ -92,11 +97,16 @@ const ProductWrapper = styled.article`
     width: 100%;
   }
   & .product-heading .award-winner{
-    min-width: 120px;
+    max-width: 100px;
+    max-height: 100px;
     margin-left: 15px;
   }
   & .product-heading img{
     object-fit: contain !important;
+  }
+  & .product-heading .acne-icon{
+    width: 100px;
+    height: 100px;
   }
   & .product-name {
     font-size: 30px;
@@ -110,6 +120,10 @@ const ProductWrapper = styled.article`
     font-size: 43px;
     font-weight: 300;
     line-height: 54px;
+  }
+  & .booleanWrapper{
+    display: flex;
+    align-items: center;
   }
   & .product-skintypes {
     padding:0 0 0.5em;
@@ -177,6 +191,13 @@ const ProductWrapper = styled.article`
     & .product-media div.gatsby-image-wrapper img{
       object-fit: contain !important;
       max-height: 250px;
+    }
+  }
+  @media(max-width:367px){
+    & .booleanWrapper{
+      width: 100%;
+      flex-wrap:wrap;
+      justify-content: center;
     }
   }
 `
