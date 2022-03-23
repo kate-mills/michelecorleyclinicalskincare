@@ -10,9 +10,15 @@ export const useAcneBadge = () => {
           edges {
             node {
               images {
-                fixed(width: 100, height: 100, quality: 100, toFormat: PNG) {
+                fixed(
+                  cropFocus: CENTER
+                  height:70 
+                  width: 70
+                  quality: 100
+                  background: "transparent"
+                  resizingBehavior: PAD 
+                ) {
                   ...GatsbyContentfulFixed
-                  src
                 }
               }
             }
