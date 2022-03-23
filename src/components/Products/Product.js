@@ -204,6 +204,14 @@ const ProductWrapper = styled.article`
     }
   }
   @media (max-width: 800px) {
+    & {
+      .product-heading {
+        h1.product-heading-name {
+          font-size: 30px;
+        }
+      }
+    }
+
     & .product-media {
       flex-wrap: wrap-reverse;
 
