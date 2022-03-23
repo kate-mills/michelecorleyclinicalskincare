@@ -81,7 +81,9 @@ const Product = ({ product, isTemplate }) => {
             return (
               <li className="key-ingredient" key={ing.id}>
                 <p>
-                  <span className="key-ingredient-name">{ing.name.formatted}:</span>{' '}
+                  <span className="key-ingredient-name">
+                    {ing.name.formatted}:
+                  </span>{' '}
                   <span className="key-ingredient-benefit">{ing.benefit}</span>
                 </p>
               </li>
@@ -106,7 +108,7 @@ const ProductWrapper = styled.article`
     justify-content: baseline;
     width: 100%;
 
-    h1.product-heading-name{
+    h1.product-heading-name {
       font-size: 43px;
       font-weight: 300;
     }
@@ -124,7 +126,8 @@ const ProductWrapper = styled.article`
       img {
         object-fit: contain !important;
       }
-      .acne-icon, .award-winner {
+      .acne-icon,
+      .award-winner {
         min-width: 120px;
       }
     }
@@ -162,33 +165,34 @@ const ProductWrapper = styled.article`
 
     div.gatsby-image-wrapper {
       max-height: 300px;
-      :hover{ cursor: pointer; }
-      img{
+      :hover {
+        cursor: pointer;
+      }
+      img {
         object-fit: contain !important;
         max-height: 300px;
       }
     }
   }
 
-
   & .product-profile-sheet.bold {
     color: #a5655f;
   }
 
-  & .product-ingredients{
-    .bold{
+  & .product-ingredients {
+    .bold {
       padding-bottom: 0;
     }
     ul {
       width: 90%;
       margin: 0 auto;
 
-      li.key-ingredient{
+      li.key-ingredient {
         p {
           font-weight: 400 !important;
           padding: 0 0 0 0;
 
-          .key-ingredient-name{
+          .key-ingredient-name {
             font-weight: 500;
           }
           .key-ingredient-benefit {
@@ -205,7 +209,7 @@ const ProductWrapper = styled.article`
 
       div.gatsby-image-wrapper {
         height: 1 !important;
-        object-fit: cover !important
+        object-fit: cover !important;
       }
     }
   }
