@@ -98,7 +98,7 @@ export default styled(ProductTemplate)`
 
   & div.product-heading.flex {
     margin: 10px auto;
-    width: 75%;
+    width: 100%;
   }
   & .product-heading.flex h1 {
     display: inline-block;
