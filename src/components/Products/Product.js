@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 import VideoPlayer from '../Video'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import {useAcneBadge} from '../../hooks/use-acne-badge'
 
 
-const Product = ({acneIcon,  product, isTemplate}) => {
+const Product = ({product, isTemplate}) => {
+  const acneIcon = useAcneBadge()
   const { acneSafe, name, skinType, description, keyIngredients, profiles } = product
   return (
     <ProductWrapper className="single-product page-article">
@@ -18,9 +20,8 @@ const Product = ({acneIcon,  product, isTemplate}) => {
         }
 
         <div className="booleanWrapper">
-          {/*{ acneSafe && <div className="acneSafe"> <div className="text">acne-safe</div> </div> }*/}
         { product.award && <Image className="award-winner"fixed={product.awardImage.fixed}/> }
-        { acneSafe && <Image className="acne-icon acneSafe" fixed={acneIcon.edges[0].node.images[0].fixed}/> }
+        { acneSafe && <Image className="acne-icon acneSafe" fixed={acneIcon.fixed}/> }
         </div>
       </div>
       <p className="product-skintypes">

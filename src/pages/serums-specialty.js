@@ -58,6 +58,7 @@ export const query = graphql`
     ) {
       edges {
         node {
+          acneSafe
           contentful_id
           profiles{ file{ url } }
           name

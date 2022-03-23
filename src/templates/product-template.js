@@ -44,6 +44,7 @@ export const query = graphql`
       profiles {file{url}}
       name
       slug
+      acneSafe
       contentful_id
       category
       skinType

@@ -8,9 +8,7 @@ import PageModel from '../components/PageModel'
 import ProductList from '../components/Products/ProductList'
 
 const Cleansers = ({ data }) => {
-  let {acneSafeImg} = data
 
-  console.log(acneSafeImg)
   return (
     <PageModel
       title={`Cleansers`}
@@ -27,7 +25,7 @@ const Cleansers = ({ data }) => {
           Our cleansers are gentle enough for the most sensitive or Rosacea
           prone skin, and relieve congestion by keeping skin flawlessly clean.
         </p>
-        <ProductList products={data.products} acneIcon={acneSafeImg }/>
+        <ProductList products={data.products}/>
       </CleansersWrapper>
     </PageModel>
   )
@@ -52,18 +50,7 @@ const CleansersWrapper = styled.div`
 `
 
 export const query = graphql`
-  { acneSafeImg: allContentfulMccMediaImg(filter: {category: {eq: "Icon"}, name: {eq: "acne-safe"}}) {
-    edges {
-      node {
-        images {
-          fixed(width: 100, height: 100, quality: 100, toFormat: PNG) {
-            ...GatsbyContentfulFixed
-            src
-          }
-        }
-      }
-    }
-  }
+  {
     products: allContentfulMccProduct(
       filter: { category: { eq: "cleansers" } }
       sort: { order: [ASC], fields: [name] }
