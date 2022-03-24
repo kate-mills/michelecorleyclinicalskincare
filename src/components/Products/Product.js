@@ -112,30 +112,38 @@ const ProductWrapper = styled.article`
         font-size: 30px;
         color: var(--poppy);
         font-weight: 400;
+        text-align: left;
         margin-bottom: unset;
       }
       h1.product-heading-name {
         font-size: 43px;
         font-weight: 300;
-        text-align: left;
       }
-
       .product-heading-images {
         display: flex;
         justify-content: center;
         align-items: center;
+
         img {
           object-fit: contain !important;
         }
-        .acne-icon,
-        .award-winner {
-          max-height: 75%;
-          min-width: 100px;
+        div.award-winner {
+          min-height: 80px;
+          min-width: 80px;
+          max-width: 80px;
+          max-height: 80px;
+        }
+        div.acne-icon {
+          margin-left: 20px;
+          min-height: 70px;
+          max-height: 70px;
+          max-width: 80px;
+          max-height: 80px;
         }
       }
     }
 
-    & .product-skintypes {
+    .product-skintypes {
       padding: 0 0 0.5em;
       text-align: left;
 
@@ -213,6 +221,9 @@ const ProductWrapper = styled.article`
   @media (max-width: 800px) {
     & {
       .product-heading {
+        div.gatsby-image-wrapper img {
+          height: 1 !important;
+        }
         h1.product-heading-name {
           font-size: 33px;
           font-weight: 400;
@@ -230,9 +241,25 @@ const ProductWrapper = styled.article`
   }
 
   @media (max-width: 450px) {
-    & .product-heading-images {
-      flex-wrap: wrap;
-      justify-content: baseline;
+    & {
+      .product-heading {
+        .product-heading-name {
+          margin-top: 0;
+        }
+      }
+      .product-heading-images {
+        flex-wrap: wrap;
+        div.acne-icon,
+        div.award-winner {
+          min-height: 60px;
+          min-width: 60px;
+          max-width: 60px;
+          max-height: 60px;
+        }
+        div.acne-icon.acneSafe {
+          margin-left: 0;
+        }
+      }
     }
   }
 `
