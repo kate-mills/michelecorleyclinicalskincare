@@ -129,7 +129,8 @@ const ProductWrapper = styled.article`
         }
         .acne-icon,
         .award-winner {
-          min-width: 120px;
+          max-height: 75%;
+          min-width: 100px;
         }
       }
     }
@@ -153,7 +154,7 @@ const ProductWrapper = styled.article`
 
     .product-description {
       padding-bottom: unset;
-      padding: 0 0.2rem 0;
+      padding: 0 0.2rem 0.3rem;
       margin-bottom: 5px;
     }
 
@@ -176,8 +177,11 @@ const ProductWrapper = styled.article`
       }
     }
 
-    .product-profile-sheet.bold {
-      color: #a5655f;
+    .product-profile-sheet {
+      margin-top: 1rem;
+      .bold {
+        color: #a5655f;
+      }
     }
 
     .product-ingredients {
