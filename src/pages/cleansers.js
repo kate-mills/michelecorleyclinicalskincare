@@ -8,7 +8,6 @@ import PageModel from '../components/PageModel'
 import ProductList from '../components/Products/ProductList'
 
 const Cleansers = ({ data }) => {
-
   return (
     <PageModel
       title={`Cleansers`}
@@ -25,7 +24,7 @@ const Cleansers = ({ data }) => {
           Our cleansers are gentle enough for the most sensitive or Rosacea
           prone skin, and relieve congestion by keeping skin flawlessly clean.
         </p>
-        <ProductList products={data.products}/>
+        <ProductList products={data.products} />
       </CleansersWrapper>
     </PageModel>
   )
@@ -59,7 +58,11 @@ export const query = graphql`
         node {
           acneSafe
           contentful_id
-          profiles{ file{ url } }
+          profiles {
+            file {
+              url
+            }
+          }
           name
           slug
           skinType
@@ -74,6 +77,12 @@ export const query = graphql`
               ...GatsbyContentfulFixed
             }
           }
+          fluidImg: imgRetail {
+            id
+            fluid(resizingBehavior: FILL, cropFocus: CENTER, quality: 100) {
+              ...GatsbyContentfulFluid
+            }
+          }
           video
           keyIngredients {
             id
@@ -83,8 +92,8 @@ export const query = graphql`
             benefit
           }
           award
-          awardImage{
-            fixed(width:100, height: 100){
+          awardImage {
+            fixed(width: 70, height: 70, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }

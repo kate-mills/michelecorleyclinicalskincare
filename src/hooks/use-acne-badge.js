@@ -12,8 +12,8 @@ export const useAcneBadge = () => {
               images {
                 fixed(
                   cropFocus: CENTER
-                  height:70 
-                  width: 70
+                  height:60 
+                  width: 60
                   quality: 100
                   background: "transparent"
                   resizingBehavior: PAD 

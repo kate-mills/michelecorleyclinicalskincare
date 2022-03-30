@@ -18,11 +18,11 @@ const Product = ({ product, isTemplate }) => {
   } = product
   return (
     <ProductWrapper className="single-product page-article">
-      <div className="product-heading flex">
+      <div className="product-heading">
         {isTemplate ? (
-          <h1 className="product-heading-name">{name}</h1>
+          <h2 className="product-heading-name-template">{name}</h2>
         ) : (
-          <h2 className="product-heading-name">{name}</h2>
+          <h2 className="product-heading-name-list">{name}</h2>
         )}
         <div className="product-heading-images">
           {acneSafe && (
@@ -47,7 +47,7 @@ const Product = ({ product, isTemplate }) => {
       <div className="product-media" id={name}>
         <div className="img-container">
           <AniLink fade to={`/product-images-and-logos/${product.slug}/`}>
-            {isTemplate ? (
+            {isTemplate || product.fluidImg? (
               <Image className="fluid-img" fluid={product.fluidImg.fluid} />
             ) : (
               <Image className="fixed-img" fixed={product.imgRetail.fixed} />
@@ -91,6 +91,7 @@ const Product = ({ product, isTemplate }) => {
           })}
         </ul>
       </div>
+      <hr/>
     </ProductWrapper>
   )
 }
@@ -98,25 +99,21 @@ const ProductWrapper = styled.article`
   & {
     display: flex;
     flex-flow: column nowrap;
-    margin: 15px auto;
+    margin: 25px auto;
     font-weight: 300;
-    width: 100%;
 
     .product-heading {
-      margin-top: 1rem;
+      display: flex;
+      flex-wrap:wrap;
       align-items: center;
-      justify-content: baseline;
-      width: 100%;
+      justify-content: flex-start;
 
-      .product-heading-name {
-        font-size: 30px;
-        color: var(--poppy);
+      .product-heading-name-template,
+      .product-heading-name-list{
         font-weight: 400;
-        text-align: left;
-        margin-bottom: unset;
+        color: var(--poppy);
       }
-      h1.product-heading-name {
-        font-size: 43px;
+      .product-heading-name {
         font-weight: 300;
       }
       .product-heading-images {
@@ -127,18 +124,12 @@ const ProductWrapper = styled.article`
         img {
           object-fit: contain !important;
         }
+        div.acne-icon,
         div.award-winner {
-          min-height: 80px;
-          min-width: 80px;
-          max-width: 80px;
-          max-height: 80px;
-        }
-        div.acne-icon {
-          margin-left: 20px;
           min-height: 70px;
           max-height: 70px;
-          max-width: 80px;
-          max-height: 80px;
+          max-width: 70px;
+          max-height: 70px;
         }
       }
     }
@@ -149,6 +140,7 @@ const ProductWrapper = styled.article`
 
       .skintype {
         font-style: italic;
+        font-size: 1.1rem;
 
         ::after {
           content: ', ';
@@ -161,9 +153,9 @@ const ProductWrapper = styled.article`
     }
 
     .product-description {
-      padding-bottom: unset;
-      padding: 0 0.2rem 0.3rem;
-      margin-bottom: 5px;
+      width: 90%;
+      font-size: .95rem;
+      display: block;
     }
 
     .product-media {
@@ -172,12 +164,10 @@ const ProductWrapper = styled.article`
       flex-direction: row;
       justify-content: space-around;
       width: 100%;
-
       div.gatsby-image-wrapper {
         max-height: 300px;
-        :hover {
-          cursor: pointer;
-        }
+        width: 300px;
+        :hover { cursor: pointer; }
         img {
           object-fit: contain !important;
           max-height: 300px;
@@ -186,25 +176,22 @@ const ProductWrapper = styled.article`
     }
 
     .product-profile-sheet {
+      color: #a5655f;
+      display: block;
       margin-top: 1rem;
-      .bold {
-        color: #a5655f;
-      }
     }
 
     .product-ingredients {
-      .bold {
+      display: block;
+      p.bold {
         padding-bottom: 0;
-      }
+        }
       ul {
-        width: 90%;
-        margin: 0 auto;
-
+      margin: 0 auto;
+      width: 90%;
         li.key-ingredient {
           p {
-            font-weight: 400 !important;
             padding: 0 0 0 0;
-
             .key-ingredient-name {
               font-weight: 500;
             }
@@ -220,46 +207,16 @@ const ProductWrapper = styled.article`
 
   @media (max-width: 800px) {
     & {
-      .product-heading {
-        div.gatsby-image-wrapper img {
-          height: 1 !important;
-        }
-        h1.product-heading-name {
-          font-size: 33px;
-          font-weight: 400;
-        }
-      }
       .product-media {
         flex-wrap: wrap-reverse;
-
-        div.gatsby-image-wrapper {
-          height: 1 !important;
-          object-fit: cover !important;
-        }
       }
     }
   }
 
+
   @media (max-width: 450px) {
     & {
-      .product-heading {
-        .product-heading-name {
-          margin-top: 0;
-        }
-      }
-      .product-heading-images {
-        flex-wrap: wrap;
-        div.acne-icon,
-        div.award-winner {
-          min-height: 60px;
-          min-width: 60px;
-          max-width: 60px;
-          max-height: 60px;
-        }
-        div.acne-icon.acneSafe {
-          margin-left: 0;
-        }
-      }
+      .product-heading { flex-wrap: wrap; }
     }
   }
 `
