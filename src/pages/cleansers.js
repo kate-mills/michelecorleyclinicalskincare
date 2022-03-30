@@ -57,7 +57,11 @@ export const query = graphql`
       edges {
         node {
           contentful_id
-          profiles{ file{ url } }
+          profiles {
+            file {
+              url
+            }
+          }
           name
           slug
           skinType
@@ -81,8 +85,8 @@ export const query = graphql`
             benefit
           }
           award
-          awardImage{
-            fixed(width:100, height: 100){
+          awardImage {
+            fixed(quality: 100, width: 90, height: 90) {
               ...GatsbyContentfulFixed
             }
           }
