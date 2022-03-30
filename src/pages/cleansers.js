@@ -24,7 +24,7 @@ const Cleansers = ({ data }) => {
           Our cleansers are gentle enough for the most sensitive or Rosacea
           prone skin, and relieve congestion by keeping skin flawlessly clean.
         </p>
-        <ProductList products={data.products} />
+        <ProductList products={data.products} id="product-list" />
       </CleansersWrapper>
     </PageModel>
   )
@@ -32,19 +32,11 @@ const Cleansers = ({ data }) => {
 const CleansersWrapper = styled.div`
   & {
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    margin-bottom: 1rem;
-    text-align: left;
-    box-sizing: border-box;
   }
-
-  & p.description {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    text-align: center;
-    color: var(--mainBlack);
+  & section.product-list {
+    article:nth-child(1) {
+      margin-top: unset;
+    }
   }
 `
 
