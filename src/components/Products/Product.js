@@ -67,7 +67,7 @@ const Product = ({ product, isTemplate }) => {
                     <span className="name-formatted">
                       {ing.name.formatted}:
                     </span>{' '}
-                    <p className="benefit">{ing.benefit}</p>
+                    <span className="benefit">{ing.benefit}</span>
                   </p>
                 </li>
               )
@@ -157,7 +157,6 @@ const ProductWrapper = styled.article`
     font-size: 0.9rem;
     color: #a5655f;
     span {
-      /*border-bottom: 0.5px solid #a5655f;*/
     }
   }
   & .product-ingredients p.bold {
@@ -166,31 +165,26 @@ const ProductWrapper = styled.article`
   }
 
   ul[data-bullet-list] li.profile-li > *:first-child::before {
-    content: '⬞';
-    content: ' ';
+    content: ' '; /* View Full Ingredient List Here. */
     margin-left: -25px;
     color: #a5655f;
   }
   & li.key-ingredient {
     margin-left: 1rem;
+    margin-right: 1rem;
     p {
-      margin: 0;
       padding-bottom: 0;
     }
-    .name-formatted {
+    span.name-formatted {
       font-weight: 500;
     }
-    .benefit {
-      display: inline;
+    span.benefit {
       white-space: pre-wrap;
       font-weight: 300;
-      padding-bottom: 0;
       padding-left: 5px;
     }
   }
   @media (max-width: 800px) {
-    & .product-heading {
-    }
     & .product-media {
       flex-wrap: wrap-reverse;
     }
