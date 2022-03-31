@@ -15,7 +15,26 @@ exports.onCreatePage = async ({ page, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const results = {};
+  const results = {}
+
+  results.categoryData = await graphql(`
+    query GetCategories {
+      categories: allContentfulMccCategory {
+        nodes {
+          slug
+          name
+          description {
+            description
+          }
+          categoryJson {
+            index_0
+            bold
+            index_1
+          }
+        }
+      }
+    }
+  `)
 
   results.productData = await graphql(`
     query GetProducts {
@@ -26,7 +45,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-
   results.mediaData = await graphql(`
     query GetMedias {
       medias: allContentfulMccMediaImg {
@@ -36,6 +54,14 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
+  results.categoryData.data.categories.nodes.forEach(category => {
+    createPage({
+      path: `/category/${category.slug}`,
+      component: path.resolve(`src/templates/category-template.js`),
+      context: { name: category.name.toLowerCase(), category },
+    })
+  })
 
   results.mediaData.data.medias.nodes.forEach(media => {
     createPage({
@@ -60,6 +86,4 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { slug: product.slug },
     })
   })
-
-
 }
