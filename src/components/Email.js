@@ -1,22 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {ConstantContactInfo} from '../constants/contact-info'
+import { ConstantContactInfo } from '../constants/contact-info'
 
-const Email = (props) => {
-
+const Email = props => {
   return (
     <a
       className={props.className}
-      href={`mailto:${props.full_email}?subject=${props.fmtSubject(props.subject)}`}
+      href={`mailto:${props.full_email}?subject=${props.fmtSubject(
+        props.subject
+      )}`}
     >
       <span className="email-prefix">{props.prefix}</span>
-      <span className="email-suffix">{props.suffix}{props.ext}</span>
+      <span className="email-suffix">
+        {props.suffix}
+        {props.ext}
+      </span>
     </a>
   )
 }
 
-Email.defaultProps = ConstantContactInfo.Email;
+Email.defaultProps = ConstantContactInfo.Email
 
 export default styled(Email)`
   & {

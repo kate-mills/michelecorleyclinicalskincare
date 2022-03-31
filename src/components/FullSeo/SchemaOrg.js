@@ -1,5 +1,5 @@
 import React from 'react'
-import  {seoLinks} from '../../constants/links'
+import { seoLinks } from '../../constants/links'
 
 import { Helmet } from 'react-helmet'
 
@@ -17,8 +17,7 @@ export default React.memo(
     dateModified,
     sameAs,
   }) => {
-  const linkCrumbs = seoLinks.map(link => {
-
+    const linkCrumbs = seoLinks.map(link => {
       return {
         type: 'ListItem',
         name: link.page,
@@ -29,9 +28,9 @@ export default React.memo(
     })
     const baseSchema = [
       {
-        "@context": "http://schema.org",
-        "@type": "LocalBusiness",
-        "@id": organization.url,
+        '@context': 'http://schema.org',
+        '@type': 'LocalBusiness',
+        '@id': organization.url,
         description: description,
         email: organization.email,
         image: image,
@@ -42,7 +41,7 @@ export default React.memo(
         telephone: organization.telephone,
         url: organization.url,
         address: {
-          "@type": "PostalAddress",
+          '@type': 'PostalAddress',
           addressCountry: organization.address.country,
           addressLocality: organization.address.city,
           addressRegion: organization.address.state,
@@ -59,7 +58,6 @@ export default React.memo(
       },
     ]
 
-
     return (
       <Helmet>
         {/* Schema.org tags */}
@@ -68,4 +66,3 @@ export default React.memo(
     )
   }
 )
-

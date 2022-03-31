@@ -6,8 +6,8 @@ import { screen } from '../../css/js/media-functions'
 import ProfessionalStatus from '../Professionals/Status'
 
 const MoreItems = props => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [css, setCss] = useState('hide');
+  const [isOpen, setIsOpen] = useState(false)
+  const [css, setCss] = useState('hide')
 
   const clickHandler = () => {
     if (!isOpen) {
@@ -38,14 +38,15 @@ const MoreItems = props => {
       </nav>
     </MoreItemsWrapper>
   )
-};
+}
 
 const MoreItemsWrapper = styled.div`
   & > * {
     font-family: var(--mainFont);
     color: var(--mainBlack);
   }
-  & button.plus-btn, & li.show.child {
+  & button.plus-btn,
+  & li.show.child {
     border: none;
     display: inline-block;
     position: sticky;
@@ -55,7 +56,7 @@ const MoreItemsWrapper = styled.div`
     padding: 2px;
     background: var(--mainWhite);
   }
-  & li.show.child{
+  & li.show.child {
     display: block;
     background-color: rgba(242, 242, 242, 1);
   }
@@ -90,7 +91,7 @@ const MoreItemsWrapper = styled.div`
   & nav.sub-nav.hide {
     display: none;
   }
-`;
+`
 
 class MobileNavbar extends Component {
   state = {
@@ -112,7 +113,7 @@ class MobileNavbar extends Component {
           <button
             className={`${this.state.css} navbar-toggler`}
             onClick={this.navbarHandler}
-            style={{color: "var(--mainBlack)", fontWeight: "500"}}
+            style={{ color: 'var(--mainBlack)', fontWeight: '500' }}
           >
             MENU
           </button>
@@ -135,7 +136,7 @@ class MobileNavbar extends Component {
       </div>
     )
   }
-};
+}
 
 export default styled(MobileNavbar)`
   & {
@@ -188,4 +189,4 @@ export default styled(MobileNavbar)`
     padding: unset;
   }
   ${screen.nav.wide`&{display: none;}`};
-`;
+`

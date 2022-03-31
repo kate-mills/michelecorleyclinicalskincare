@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ConstantContactInfo} from '../constants/contact-info'
+import { ConstantContactInfo } from '../constants/contact-info'
 
 export const UnformattedEmail = props => {
   let fmtSubject = ConstantContactInfo.Email.fmtSubject(props.subject)
@@ -23,7 +23,7 @@ export const UnformattedEmail = props => {
   )
 }
 
-UnformattedEmail.defaultProps = ConstantContactInfo.Email;
+UnformattedEmail.defaultProps = ConstantContactInfo.Email
 
 export const Phone = ({ areaCode, prefix, suffix }) => {
   return (
@@ -32,7 +32,7 @@ export const Phone = ({ areaCode, prefix, suffix }) => {
     </a>
   )
 }
-Phone.defaultProps = ConstantContactInfo.Telephone;
+Phone.defaultProps = ConstantContactInfo.Telephone
 
 const ContactInfo = props => {
   return (
@@ -101,7 +101,7 @@ const ContactInfo = props => {
     </Wrapper>
   )
 }
-ContactInfo.defaultProps = ConstantContactInfo.Address;
+ContactInfo.defaultProps = ConstantContactInfo.Address
 
 const Wrapper = styled.aside`
   & {

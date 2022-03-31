@@ -16,7 +16,13 @@ const PageModel = ({
 }) => {
   return (
     <Layout>
-      <SEO title={title} description={description} image={image || 'https://michelecorleyclinicalskincare.com/seoimage.jpg'}/>
+      <SEO
+        title={title}
+        description={description}
+        image={
+          image || 'https://michelecorleyclinicalskincare.com/seoimage.jpg'
+        }
+      />
 
       {centeredTitle && <PageTitle title={title} color={color || ''} center />}
 

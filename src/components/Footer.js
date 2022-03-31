@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import socialLinks from '../constants/social'
 
 import { screen } from '../css/js/media-functions'
-import { ConstantContactInfo  } from '../constants/contact-info'
+import { ConstantContactInfo } from '../constants/contact-info'
 
 const query = graphql`
   {
@@ -19,7 +19,7 @@ const query = graphql`
   }
 `
 
-const Footer = (props) => {
+const Footer = props => {
   const { infinity } = useStaticQuery(query)
   return (
     <footer className={props.className}>
@@ -67,13 +67,18 @@ const Footer = (props) => {
               className="email"
             >
               <span className="span1">{props.Email.prefix}</span>
-              <span className="email span2">{props.Email.suffix}{props.Email.ext}</span>
+              <span className="email span2">
+                {props.Email.suffix}
+                {props.Email.ext}
+              </span>
             </a>
           </p>
         </div>
         <div className="row sm-text">
           <p className="address">
-            Michele Corley Company, LLC {props.Address.street} {props.Address.suite} {props.Address.city} {props.Address.state} {props.Address.zip}
+            Michele Corley Company, LLC {props.Address.street}{' '}
+            {props.Address.suite} {props.Address.city} {props.Address.state}{' '}
+            {props.Address.zip}
           </p>
         </div>
         <div className="row sm-text">
@@ -86,7 +91,7 @@ const Footer = (props) => {
     </footer>
   )
 }
-Footer.defaultProps = ConstantContactInfo; 
+Footer.defaultProps = ConstantContactInfo
 
 const FooterWrapper = styled(Footer)`
   & {
@@ -141,7 +146,7 @@ const FooterWrapper = styled(Footer)`
   & .sm-text {
     font-size: 13px;
   }
-  & .allydigitalsolutions{
+  & .allydigitalsolutions {
     font-size: 11px;
   }
   div.phone-email {

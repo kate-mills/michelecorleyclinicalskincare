@@ -88,7 +88,12 @@ export const query = graphql`
           }
           award
           awardImage {
-          fixed(quality: 100, width:90, height: 90, background: "transparent"){
+            fixed(
+              quality: 100
+              width: 90
+              height: 90
+              background: "transparent"
+            ) {
               ...GatsbyContentfulFixed
             }
           }

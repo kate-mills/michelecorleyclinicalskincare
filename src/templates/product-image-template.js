@@ -7,21 +7,39 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 const ProductImageTemplate = props => {
-  const goBack = ()=>{ window.history.go(-1) }
+  const goBack = () => {
+    window.history.go(-1)
+  }
 
-  const { data: { product }, className } = props
+  const {
+    data: { product },
+    className,
+  } = props
 
   return (
     <>
-    <SEO title={`${product.name} - Michele Corley`} description={`Michele Corley Clinical Skincare - ${product.name}`} image={product.fluidImg.fluid.src.slice(2)}/>
+      <SEO
+        title={`${product.name} - Michele Corley`}
+        description={`Michele Corley Clinical Skincare - ${product.name}`}
+        image={product.fluidImg.fluid.src.slice(2)}
+      />
       <div className={`${className} grid-container`}>
-        <div className="grid-top w-100" role="button"
+        <div
+          className="grid-top w-100"
+          role="button"
           tabIndex="0"
           onClick={goBack}
-          onKeyPress={goBack}>
+          onKeyPress={goBack}
+        >
           X
         </div>
-        <div className="grid-img"><Img fluid={product.fluidImg.fluid} title={product.fluidImg.title} alt={product.fluidImg.description}/></div>
+        <div className="grid-img">
+          <Img
+            fluid={product.fluidImg.fluid}
+            title={product.fluidImg.title}
+            alt={product.fluidImg.description}
+          />
+        </div>
       </div>
     </>
   )
@@ -34,11 +52,11 @@ export const query = graphql`
       description {
         description
       }
-      fluidImg:imgRetail {
+      fluidImg: imgRetail {
         id
         title
         description
-        fluid(quality: 100){
+        fluid(quality: 100) {
           ...GatsbyContentfulFluid
         }
       }
@@ -57,12 +75,12 @@ export default styled(ProductImageTemplate)`
   overflow: hidden;
   text-align: center;
   width: 100%;
-  & .grid-top{
+  & .grid-top {
     align-items: center;
     background: var(--mainWhite);
     color: rgb(187, 189, 191); /*grey*/
     cursor: pointer !important;
-    display:flex;
+    display: flex;
     font-size: 2.5em;
     font-weight: 300;
     justify-content: flex-end;
@@ -70,14 +88,14 @@ export default styled(ProductImageTemplate)`
     padding: 20px 40px;
     width: 100vw;
   }
-  & .grid-top:hover{
+  & .grid-top:hover {
     color: var(--poppy);
     cursor: pointer !important;
   }
-  & .grid-img{
+  & .grid-img {
     max-height: 80vh;
   }
-  & .gatsby-image-wrapper{
+  & .gatsby-image-wrapper {
     width: 100vw;
   }
   & img {
@@ -85,13 +103,13 @@ export default styled(ProductImageTemplate)`
     margin-top: 5px;
     max-height: 80vh;
   }
-  & .grid-desc{
+  & .grid-desc {
     font-size: 1.5em;
     letter-spacing: var(--mainSpacing);
     margin-top: 15px;
   }
-  @media (min-width: 320px) and (max-width: 480px){
-    & .grid-top{
+  @media (min-width: 320px) and (max-width: 480px) {
+    & .grid-top {
       font-size: 1.5em;
     }
   }

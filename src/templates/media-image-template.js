@@ -6,39 +6,55 @@ import Img from 'gatsby-image'
 
 import { graphql } from 'gatsby'
 
-
 const MediaImageTemplate = props => {
-  const goBack = () => { window.history.go(-1) }
-  const { data: { media }, className } = props
+  const goBack = () => {
+    window.history.go(-1)
+  }
+  const {
+    data: { media },
+    className,
+  } = props
 
   const seoDescription = `Drag and drop your copy of Michele Corley Clinical Skincare image for social media titled ${media.name}.`
   return (
     <>
-      <SEO title={`${media.name} - Social Media Image`} description={seoDescription} image={media.fluidImgs[0].fluid.src}/>
+      <SEO
+        title={`${media.name} - Social Media Image`}
+        description={seoDescription}
+        image={media.fluidImgs[0].fluid.src}
+      />
       <div className={`${className} grid-container`}>
-        <div className="grid-top w-100" role="button"
+        <div
+          className="grid-top w-100"
+          role="button"
           tabIndex="0"
           onClick={goBack}
-          onKeyPress={goBack}>
-         X 
+          onKeyPress={goBack}
+        >
+          X
         </div>
-        <div className="grid-img"><Img fluid={media.fluidImgs[0].fluid} title={media.fluidImgs[0].title} alt={media.fluidImgs[0].description}/></div>
+        <div className="grid-img">
+          <Img
+            fluid={media.fluidImgs[0].fluid}
+            title={media.fluidImgs[0].title}
+            alt={media.fluidImgs[0].description}
+          />
+        </div>
       </div>
     </>
   )
 }
 
 export const query = graphql`
-
-   query GetMccMediaImage($slug: String) {
+  query GetMccMediaImage($slug: String) {
     media: contentfulMccMediaImg(slug: { eq: $slug }) {
       name
-      fluidImgs:images {
+      fluidImgs: images {
         id
         title
         description
-        fluid(quality: 100){
-         ...GatsbyContentfulFluid
+        fluid(quality: 100) {
+          ...GatsbyContentfulFluid
         }
       }
     }
@@ -57,26 +73,26 @@ export default styled(MediaImageTemplate)`
   text-align: center;
   width: 100%;
 
-  & .grid-top{
+  & .grid-top {
     align-items: center;
     background: var(--mainWhite);
     color: rgb(187, 189, 191); /*grey*/
     cursor: pointer;
-    display:flex;
+    display: flex;
     font-size: 2.5em;
     font-weight: 300;
     justify-content: flex-end;
     margin: 0;
     padding: 20px 40px;
   }
-  & .grid-top:hover{
+  & .grid-top:hover {
     color: var(--poppy);
     cursor: pointer;
   }
-  & .grid-img{
+  & .grid-img {
     max-height: 90vh;
   }
-  & .gatsby-image-wrapper{
+  & .gatsby-image-wrapper {
     width: 100vw;
   }
   & img {
@@ -84,13 +100,13 @@ export default styled(MediaImageTemplate)`
     margin-top: 5px;
     max-height: 80vh;
   }
-  & .grid-desc{
+  & .grid-desc {
     font-size: 1.5em;
     letter-spacing: var(--mainSpacing);
     margin-top: 15px;
   }
-  @media (min-width: 320px) and (max-width: 480px){
-    & .grid-top{
+  @media (min-width: 320px) and (max-width: 480px) {
+    & .grid-top {
       font-size: 1.5em;
     }
   }

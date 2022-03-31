@@ -6,7 +6,10 @@ import Email from '../../Email'
 
 export default ({ handleSubmit, handleUpdate }) => (
   <>
-    <SEO title={`Professionals Login`} image={'https://michelecorleyclinicalskincare.com/seoimage.jpg'}/>
+    <SEO
+      title={`Professionals Login`}
+      image={'https://michelecorleyclinicalskincare.com/seoimage.jpg'}
+    />
     <p className={styles[`form__instructions`]}>
       Professionals, please contact us at{' '}
       <span className={styles[`phone`]}>

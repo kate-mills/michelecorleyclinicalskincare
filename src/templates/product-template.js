@@ -4,19 +4,21 @@ import { graphql } from 'gatsby'
 
 import PageModel from '../components/PageModel'
 import Product from '../components/Products/Product'
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const ProductTemplate = ({ data: { product } , className}) => {
+const ProductTemplate = ({ data: { product }, className }) => {
   const formatCategory = category => {
     let CategoryMap = {}
     let str = 'View All '
-    CategoryMap['moisturizers & spf'] = 'MOISTURIZERS & SPFS';
-    CategoryMap['eyes & lips'] = 'EYE & LIP PRODUCTS';
-    CategoryMap['serums & specialty'] = 'SERUM & SPECIALTY PRODUCTS';
-    return CategoryMap[category] ? str.concat(CategoryMap[category]): str.concat(category)
+    CategoryMap['moisturizers & spf'] = 'MOISTURIZERS & SPFS'
+    CategoryMap['eyes & lips'] = 'EYE & LIP PRODUCTS'
+    CategoryMap['serums & specialty'] = 'SERUM & SPECIALTY PRODUCTS'
+    return CategoryMap[category]
+      ? str.concat(CategoryMap[category])
+      : str.concat(category)
   }
-  const formatLink = ({category}) => category.replace(' & ', ' ').split(' ').join('-');
-
+  const formatLink = ({ category }) =>
+    category.replace(' & ', ' ').split(' ').join('-')
 
   return (
     <PageModel
@@ -26,16 +28,26 @@ const ProductTemplate = ({ data: { product } , className}) => {
       id={product.name}
     >
       <Product product={product} isTemplate={true} />
-      <div className="lower-btn-div"> <p className="txt-center"><AniLink className="btn" fade to={`/${formatLink(product)}/`}>{formatCategory(product.category)}</AniLink></p> </div> 
+      <div className="lower-btn-div">
+        {' '}
+        <p className="txt-center">
+          <AniLink className="btn" fade to={`/${formatLink(product)}/`}>
+            {formatCategory(product.category)}
+          </AniLink>
+        </p>{' '}
+      </div>
     </PageModel>
-
   )
 }
 
 export const query = graphql`
   query GetMccProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
-      profiles {file{url}}
+      profiles {
+        file {
+          url
+        }
+      }
       acneSafe
       name
       slug
@@ -53,11 +65,11 @@ export const query = graphql`
         }
         benefit
       }
-      fluidImg:imgRetail {
+      fluidImg: imgRetail {
         id
         title
         description
-        fluid(maxWidth: 300, maxHeight: 350, quality: 100){
+        fluid(maxWidth: 300, maxHeight: 350, quality: 100) {
           src
           ...GatsbyContentfulFluid
         }
@@ -69,8 +81,8 @@ export const query = graphql`
         }
       }
       award
-      awardImage{
-        fixed(quality: 100, width:90, height: 90, background: "transparent"){
+      awardImage {
+        fixed(quality: 100, width: 90, height: 90, background: "transparent") {
           ...GatsbyContentfulFixed
         }
       }

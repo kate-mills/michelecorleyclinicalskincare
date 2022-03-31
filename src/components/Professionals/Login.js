@@ -32,10 +32,10 @@ class Login extends React.Component {
 
     return (
       <Layout>
-      <Form
-        handleUpdate={e => this.handleUpdate(e)}
-        handleSubmit={e => this.handleSubmit(e)}
-      />
+        <Form
+          handleUpdate={e => this.handleUpdate(e)}
+          handleSubmit={e => this.handleSubmit(e)}
+        />
       </Layout>
     )
   }

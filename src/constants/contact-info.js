@@ -1,19 +1,17 @@
-const  fmtPhone = (a, p, s) => `(${a}) ${p} - ${s}`;
+const fmtPhone = (a, p, s) => `(${a}) ${p} - ${s}`
 
-export const areaCode = '707';
-export const prefix = '287';
-export const suffix = '0555';
+export const areaCode = '707'
+export const prefix = '287'
+export const suffix = '0555'
 
-export const ConstantContactInfo =  {
-
+export const ConstantContactInfo = {
   Email: {
-    fmtSubject: (str) => {
-      if(str && str.length > 0)
-        return str.split(' ').join('%20')
+    fmtSubject: str => {
+      if (str && str.length > 0) return str.split(' ').join('%20')
     },
     subject: 'General%20query',
-    full_email:'customerservice@michelecorley.com',
-    prefix:'customerservice',
+    full_email: 'customerservice@michelecorley.com',
+    prefix: 'customerservice',
     suffix: '@michelecorley',
     ext: '.com',
   },
@@ -30,5 +28,5 @@ export const ConstantContactInfo =  {
     city: 'Beaufort',
     state: 'SC',
     zip: '29902',
-  }
+  },
 }

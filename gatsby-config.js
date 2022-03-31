@@ -32,7 +32,7 @@ module.exports = {
         `https://vimeo.com/michelecorley`,
         `https://www.facebook.com/michelecorleyclinicalskincare`,
         `https://www.instagram.com/michelecorleyskincare`,
-      ]
+      ],
     },
   },
   plugins: [
@@ -45,9 +45,9 @@ module.exports = {
         sitemap: `https://www.michelecorleyclinicalskincare.com/sitemap.xml`,
         policy: [
           { userAgent: '*', allow: '/' },
-          {userAgent: '*', disallow: '/new-page-3'},
-          {userAgent: '*', disallow: '/app'},
-          {userAgent: '*', disallow: '/app/login'},
+          { userAgent: '*', disallow: '/new-page-3' },
+          { userAgent: '*', disallow: '/app' },
+          { userAgent: '*', disallow: '/app/login' },
         ],
       },
     },

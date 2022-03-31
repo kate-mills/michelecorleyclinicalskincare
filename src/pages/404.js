@@ -19,14 +19,17 @@ const ErrorPage = () => {
             <li>
               <p>There is an error in the URL entered into your web browser.</p>
             </li>
-            <li><p>The page you are looking for has been moved or deleted.</p></li>
+            <li>
+              <p>The page you are looking for has been moved or deleted.</p>
+            </li>
           </ul>
           <p className=" m-top">
-            Please check the URL and try again or click below to return to our home page.
+            Please check the URL and try again or click below to return to our
+            home page.
           </p>
           <p className="txt-center m-top">
             {' '}
-            <AniLink className="btn"  fade to="/">
+            <AniLink className="btn" fade to="/">
               Return to our home page
             </AniLink>
             .

@@ -32,7 +32,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
     text-align: center;
   }
-  & img{
+  & img {
     object-fit: contain !important;
   }
 `
