@@ -21,7 +21,7 @@ const Video = ({ src, title, ...props }) => {
 }
 
 const IframeVideoWrapper = styled.div`
-  width: 50vw;
+  width: 90vw;
   max-width: 525px;
 
   .video {

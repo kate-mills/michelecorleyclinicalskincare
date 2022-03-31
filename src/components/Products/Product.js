@@ -10,17 +10,15 @@ const Product = ({ product, isTemplate }) => {
   return (
     <ProductWrapper className="single-product page-article">
       <div className="product-heading flex">
-        {isTemplate ? (
-          <h2 className="product-name template">{name}</h2>
-        ) : (
-          <h2 className="product-name">{name}</h2>
-        )}
+        <h2 className={`product-name ${isTemplate ? 'template' : ''}`}>
+          {name}
+        </h2>
         {product.award && (
           <Image className="award-winner" fixed={product.awardImage.fixed} />
         )}
       </div>
       <div className="product-details">
-        <p className="product-skintypes">
+        <p className={`product-skintypes ${isTemplate ? 'template' : ''}`}>
           {skinType.map((item, index) => {
             return (
               <span key={index} className="skintype">
@@ -47,22 +45,21 @@ const Product = ({ product, isTemplate }) => {
             />
           )}
         </div>
-        <div className="product-profile-section">
-          {!!profiles ? (
-            <a
-              className="product-profile-sheet bold"
-              href={profiles[0].file.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              View FULL Ingredient List Here.
-            </a>
-          ) : null}
-        </div>
-
         <div className="product-ingredients">
           <p className="bold">A FEW KEY Ingredients & Benefits:</p>
           <ul data-bullet-list>
+            <li className="profile-li">
+              {!!profiles ? (
+                <a
+                  className="product-profile-sheet"
+                  href={profiles[0].file.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View FULL Ingredient List <span>Here</span>.
+                </a>
+              ) : null}
+            </li>
             {keyIngredients.map(ing => {
               return (
                 <li className="key-ingredient" key={ing.id}>
@@ -70,7 +67,7 @@ const Product = ({ product, isTemplate }) => {
                     <span className="name-formatted">
                       {ing.name.formatted}:
                     </span>{' '}
-                    <span className="benefit">{ing.benefit}</span>
+                    <p className="benefit">{ing.benefit}</p>
                   </p>
                 </li>
               )
@@ -85,7 +82,9 @@ const ProductWrapper = styled.article`
   & {
     margin: 35px auto;
     font-weight: 300;
-    width: 100%;
+    max-width: 100%;
+    .template {
+    }
   }
   & p {
     font-weight: 400;
@@ -116,8 +115,10 @@ const ProductWrapper = styled.article`
     padding: 0;
     margin-bottom: 0;
   }
+
   & .product-skintypes {
-    padding: 0 0 0.5em;
+    font-size: 1.1rem;
+    padding: 0 0 0.5rem;
     text-align: left;
   }
   & .product-skintypes .skintype {
@@ -130,9 +131,9 @@ const ProductWrapper = styled.article`
     content: '';
   }
   & .product-description {
-    padding-bottom: unset;
-    padding: 0 0.2rem 0;
-    margin-bottom: 5px;
+    padding: 0 1rem 1rem;
+    margin-bottom: 0.1rem;
+    text-align: justify;
   }
   & .product-media {
     display: flex;
@@ -154,25 +155,45 @@ const ProductWrapper = styled.article`
     object-fit: contain !important;
     max-height: 300px;
   }
-  & .product-profile-sheet.bold {
+  & .product-profile-sheet {
+    font-size: 0.9rem;
     color: #a5655f;
+    span {
+      /*border-bottom: 0.5px solid #a5655f;*/
+    }
   }
   & .product-ingredients p.bold {
     font-weight: 600;
     padding-bottom: 0;
     text-align: left;
   }
+
+  ul[data-bullet-list] li.profile-li > *:first-child::before {
+    content: '⬞';
+    content: ' ';
+    margin-left: -25px;
+    color: #a5655f;
+  }
   & li.key-ingredient {
+    margin-left: 1rem;
+    p {
+      margin: 0;
+      padding-bottom: 0;
+    }
     .name-formatted {
       font-weight: 500;
     }
     .benefit {
+      display: inline;
+      white-space: pre-wrap;
       font-weight: 300;
+      padding-bottom: 0;
       padding-left: 5px;
     }
   }
   @media (max-width: 800px) {
-    & .product-heading { }
+    & .product-heading {
+    }
     & .product-media {
       flex-wrap: wrap-reverse;
     }
