@@ -171,7 +171,6 @@ const ProductWrapper = styled.article`
   }
   & li.key-ingredient {
     margin-left: 1rem;
-    margin-right: 1rem;
     p {
       padding-bottom: 0;
     }
