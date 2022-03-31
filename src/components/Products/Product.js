@@ -23,7 +23,7 @@ const Product = ({ product, isTemplate }) => {
             product.award ? 'winner' : ''
           }`}
         >
-          <span className={`${acneSafe && 'acne-safe'}`}>{name}</span>
+          <div className={`${acneSafe && 'acne-safe'}`}>{name}</div>
         </h2>
         {product.award && (
           <Image className="award-winner" fixed={product.awardImage.fixed} />
@@ -132,21 +132,22 @@ const ProductWrapper = styled.article`
   }
   & .product-heading.acne-safe {
     margin-top: 3rem;
-    span.acne-safe {
+    div.acne-safe {
       position: relative;
       white-space: pre-line;
       ::after {
-        width: fit-content;
-        position: absolute;
-        top: -30px;
-        font-size: 1rem;
         content: 'ACNE-SAFE';
-        display: block;
+        display: inline-block;
+        font-size: 0.85rem;
         line-height: 1;
-        color: var(--poppy);
-        border: 2px solid darkgray;
-        background: gainsboro;
-        padding: 0.3rem;
+        padding: 0.2rem;
+        bottom: 0.2rem;
+        position: relative;
+        margin-left: 15px;
+        margin-right: 15px;
+        background: #9d9692;
+        border: 2px solid #e3bab5;
+        color: #e3bab5;
       }
     }
   }
