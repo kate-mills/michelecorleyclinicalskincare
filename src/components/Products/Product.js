@@ -145,9 +145,9 @@ const ProductWrapper = styled.article`
         position: relative;
         margin-left: 15px;
         margin-right: 15px;
-        background: #9d9692;
+        background: #c75958;
         border: 2px solid #e3bab5;
-        color: #e3bab5;
+        color: #fefefe;
       }
     }
   }
