@@ -119,7 +119,6 @@ const ProductWrapper = styled.article`
   & .product-skintypes {
     font-size: 1.1rem;
     padding: 0 0 0.5rem;
-    text-align: left;
   }
   & .product-skintypes .skintype {
     font-style: italic;
@@ -133,7 +132,6 @@ const ProductWrapper = styled.article`
   & .product-description {
     padding: 0 1rem 1rem;
     margin-bottom: 0.1rem;
-    text-align: justify;
   }
   & .product-media {
     display: flex;
@@ -165,7 +163,6 @@ const ProductWrapper = styled.article`
   & .product-ingredients p.bold {
     font-weight: 600;
     padding-bottom: 0;
-    text-align: left;
   }
 
   ul[data-bullet-list] li.profile-li > *:first-child::before {
