@@ -63,6 +63,7 @@ export const query = graphql`
               url
             }
           }
+          acneSafe
           name
           slug
           skinType

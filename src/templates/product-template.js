@@ -36,6 +36,7 @@ export const query = graphql`
   query GetMccProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
       profiles {file{url}}
+      acneSafe
       name
       slug
       contentful_id

@@ -6,17 +6,16 @@ import VideoPlayer from '../Video'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const Product = ({ product, isTemplate }) => {
-  const { name, skinType, description, keyIngredients, profiles } = product
+  const { acneSafe, name, skinType, description, keyIngredients, profiles } = product
+  console.log('acnesafe', acneSafe)
   return (
     <ProductWrapper className="single-product page-article">
-      <div className="product-heading">
+      <div className={`product-heading ${acneSafe && 'acne-safe'}`}>
         <h2
           className={`product-name ${isTemplate ? 'template' : ''} ${
             product.award ? 'winner' : ''
           }`}
-        >
-          {name}
-        </h2>
+        ><span className={`${acneSafe && 'acne-safe'}`}>{name}</span></h2>
         {product.award && (
           <Image className="award-winner" fixed={product.awardImage.fixed} />
         )}
@@ -121,6 +120,27 @@ const ProductWrapper = styled.article`
         object-fit: contain !important;
       }
     }
+  }
+  & .product-heading.acne-safe{
+    margin-top: 3rem;
+    span.acne-safe{
+      position: relative;
+      white-space: pre-line;
+      ::after{
+        width: fit-content;
+        position: absolute;
+        top: -30px;
+        font-size: 1.0rem;
+        content: 'ACNE-SAFE';
+        display:block;
+        line-height: 1;
+        color: var(--poppy);
+        border: 2px solid darkgray;
+        background: gainsboro;
+        padding: .3rem;
+      }
+    }
+
   }
 
   & .product-skintypes {
