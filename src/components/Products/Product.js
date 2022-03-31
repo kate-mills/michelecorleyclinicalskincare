@@ -9,8 +9,12 @@ const Product = ({ product, isTemplate }) => {
   const { name, skinType, description, keyIngredients, profiles } = product
   return (
     <ProductWrapper className="single-product page-article">
-      <div className="product-heading flex">
-        <h2 className={`product-name ${isTemplate ? 'template' : ''}`}>
+      <div className="product-heading">
+        <h2
+          className={`product-name ${isTemplate ? 'template' : ''} ${
+            product.award ? 'winner' : ''
+          }`}
+        >
           {name}
         </h2>
         {product.award && (
@@ -46,12 +50,12 @@ const Product = ({ product, isTemplate }) => {
           )}
         </div>
         <div className="product-ingredients">
-          <p className="bold">A FEW KEY Ingredients & Benefits:</p>
+          <p className="bold-heading">A FEW KEY Ingredients & Benefits:</p>
           <ul data-bullet-list>
-            <li className="profile-li">
+            <li className="product-profile-sheet">
               {!!profiles ? (
                 <a
-                  className="product-profile-sheet"
+                  className="get-product-profile-sheet"
                   href={profiles[0].file.url}
                   target="_blank"
                   rel="noreferrer"
@@ -83,116 +87,122 @@ const ProductWrapper = styled.article`
     margin: 35px auto;
     font-weight: 300;
     max-width: 100%;
-    .template {
-    }
   }
   & p {
     font-weight: 400;
   }
   & .product-heading {
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
+    justify-content: flex-start;
+    min-width: 100%;
     width: 100%;
-    .award-winner {
-      min-width: 90px;
+    .product-name {
+      color: var(--poppy);
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 42px;
+      padding: 0;
+      width: fit-content;
     }
-  }
-  & .product-heading .award-winner {
-  }
-  & .product-heading img {
-    object-fit: contain !important;
-  }
-  & .product-name.template {
-    font-size: 43px;
-    font-weight: 300;
-    line-height: 54px;
-    margin-bottom: 1rem;
-  }
-  & .product-name {
-    font-size: 30px;
-    line-height: 42px;
-    color: var(--poppy);
-    font-weight: 400;
-    padding: 0;
-    margin-bottom: 0;
+    .product-name.winner {
+      min-width: min-content;
+    }
+    .product-name.template {
+      font-size: 43px;
+      font-weight: 300;
+      line-height: 54px;
+    }
+    .award-winner {
+      width: 100%;
+      min-width: 90px;
+      img {
+        object-fit: contain !important;
+      }
+    }
   }
 
   & .product-skintypes {
     font-size: 1.1rem;
     padding: 0 0 0.5rem;
+    .skintype {
+      font-style: italic;
+    }
+    .skintype::after {
+      content: ', ';
+    }
+    .skintype:last-child::after {
+      content: '';
+    }
   }
-  & .product-skintypes .skintype {
-    font-style: italic;
-  }
-  & .product-skintypes .skintype::after {
-    content: ', ';
-  }
-  & .product-skintypes .skintype:last-child::after {
-    content: '';
-  }
+
   & .product-description {
     padding: 0 1rem 1rem;
     margin-bottom: 0.1rem;
   }
+
   & .product-media {
-    display: flex;
     align-items: center;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-  }
-  & .product-media div.fluid-img {
-    min-width: 300px;
-  }
-  & .product-media div.gatsby-image-wrapper {
-    max-height: 300px;
-  }
-  & .product-media div.gatsby-image-wrapper:hover {
-    cursor: pointer;
-  }
-  & .product-media div.gatsby-image-wrapper img {
-    object-fit: contain !important;
-    max-height: 300px;
-  }
-  & .product-profile-sheet {
-    font-size: 0.9rem;
-    color: #a5655f;
-    span {
+
+    div.img-container {
+      max-width: fit-content;
+      min-width: min-content;
+      min-width: 300px;
+      img {
+        object-fit: contain !important;
+      }
+      :hover {
+        cursor: pointer;
+      }
     }
-  }
-  & .product-ingredients p.bold {
-    font-weight: 600;
-    padding-bottom: 0;
   }
 
-  ul[data-bullet-list] li.profile-li > *:first-child::before {
-    content: ' '; /* View Full Ingredient List Here. */
-    margin-left: -25px;
-    color: #a5655f;
-  }
-  & li.key-ingredient {
-    margin-left: 1rem;
-    p {
+  & .product-ingredients {
+    p.bold-heading {
+      font-weight: 600;
       padding-bottom: 0;
     }
-    span.name-formatted {
-      font-weight: 500;
+    li.product-profile-sheet {
+      a.get-product-profile-sheet {
+        font-size: 0.9rem;
+        color: #a5655f;
+      }
+      > *:first-child::before {
+        content: ' ';
+        margin-left: -25px;
+        color: #a5655f;
+      }
     }
-    span.benefit {
-      white-space: pre-wrap;
-      font-weight: 300;
-      padding-left: 5px;
+    li.key-ingredient {
+      margin-left: 1rem;
+      p {
+        padding-bottom: 0;
+      }
+      span.name-formatted {
+        font-weight: 500;
+      }
+      span.benefit {
+        white-space: pre-wrap;
+        font-weight: 300;
+        padding-left: 5px;
+      }
     }
   }
+
   @media (max-width: 800px) {
     & .product-media {
       flex-wrap: wrap-reverse;
-    }
-    & .product-media div.gatsby-image-wrapper {
-      max-height: 250px;
-    }
-    & .product-media div.gatsby-image-wrapper img {
-      object-fit: contain !important;
-      max-height: 250px;
+      div.img-container {
+        max-height: 250px;
+        img {
+          max-height: 250px;
+        }
+      }
     }
   }
 `
