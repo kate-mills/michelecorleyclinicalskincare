@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import Image from 'gatsby-image'
-import VideoPlayer from '../Video'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import VideoPlayer from '../Video'
 
 const Product = ({ product, isTemplate }) => {
   const {
@@ -14,7 +13,6 @@ const Product = ({ product, isTemplate }) => {
     keyIngredients,
     profiles,
   } = product
-  console.log('acnesafe', acneSafe)
   return (
     <ProductWrapper className="single-product page-article">
       <div className={`product-heading ${acneSafe && 'acne-safe'}`}>
@@ -151,7 +149,6 @@ const ProductWrapper = styled.article`
       }
     }
   }
-
   & .product-skintypes {
     font-size: 1.1rem;
     padding: 0 0 0.5rem;
@@ -165,12 +162,10 @@ const ProductWrapper = styled.article`
       content: '';
     }
   }
-
   & .product-description {
     padding: 0 1rem 1rem;
     margin-bottom: 0.1rem;
   }
-
   & .product-media {
     align-items: center;
     display: flex;
@@ -190,7 +185,6 @@ const ProductWrapper = styled.article`
       }
     }
   }
-
   & .product-ingredients {
     p.bold-heading {
       font-weight: 600;
@@ -222,7 +216,6 @@ const ProductWrapper = styled.article`
       }
     }
   }
-
   @media (max-width: 800px) {
     & .product-media {
       flex-wrap: wrap-reverse;
