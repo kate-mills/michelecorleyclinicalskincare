@@ -56,7 +56,7 @@ export const query = graphql`
         id
         title
         description
-        fluid(quality: 100, toFormat: WEBP) {
+        fluid(quality: 100, toFormat: WEBP, background: "white") {
           ...GatsbyContentfulFluid
         }
       }
