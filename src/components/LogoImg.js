@@ -19,6 +19,7 @@ export const Logo = () => {
   return (
     <Wrapper>
       <Img
+        loading="eager"
         fixed={data.file.childImageSharp.fixed}
         media="screen"
         alt="Michele Corley Clinical Skincare Logo"

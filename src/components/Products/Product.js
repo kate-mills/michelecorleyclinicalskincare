@@ -40,7 +40,7 @@ const Product = ({ product, isTemplate }) => {
         <p className="product-description">{description.description}</p>
         <div className="product-media" id={name}>
           <div className="img-container">
-            <AniLink fade to={`/product-images-and-logos/${product.slug}/`}>
+            <AniLink fade to={`/product-images-and-logos/${product.slug}/`} aria-label="View image">
               {isTemplate ? (
                 <Image className="fluid-img" fluid={product.fluidImg.fluid} />
               ) : (
