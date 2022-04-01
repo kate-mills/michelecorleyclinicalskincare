@@ -10,7 +10,7 @@ const checkWindow = () => {
     window.localStorage.announcement = JSON.stringify({})
     return {}
   } else {
-    return window.localStorage.announcement
+    return JSON.stringify(window.localStorage.announcement).length === 15
       ? JSON.parse(window.localStorage.announcement).close
       : {}
   }
