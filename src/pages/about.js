@@ -11,57 +11,45 @@ const About = ({ data }) => {
   return (
     <PageModel
       title="About"
-      description="Each Michele Corley Clinical Skincare product is crafted with care and consideration to the health and well being of the skin. The ingredients I choose must come from the most natural sources available, and their effectiveness proven."
+      description="Each Michele Corley Clinical Skin Care product is crafted with care and consideration to the health and well being of the skin. The ingredients I choose must come from the most natural sources available, and their effectiveness proven."
     >
       <AboutWrapper>
         <div className="col-1" style={{ margin: '0 auto' }}>
-          <h1>My Philosophy</h1>
+          <h1>Our Philosophy</h1>
           <p className="text">
-            is simple, to provide healthy, effective skincare with exemplary
-            customer service. I believe in treating my clients' success as
-            important as my own, and value a true partnership with everyone I
+            is simple: provide healthy, effective skincare with exemplary
+            customer service. We believe in treating our clients' success as
+            necessary as our own and value a true partnership with everyone we
             have the pleasure to work with.
           </p>
           <p className="text">
-            My journey in creating Michele Corley Clinical Skincare began in
-            2002 when I wanted to fulfill what I saw as a need in the
-            professional skincare industry to offer not only great products, but
-            the great service to back them up. So many times busy salon owners
-            and estheticians get lost in the shuffle of big corporate skincare
-            companies, having to place large opening orders with huge minimums,
-            and fighting for good customer service. I wanted to change all that,
-            by offering completely affordable premium professional skincare with
-            accessible customer service.
-          </p>
-          <p className="text">
-            Each Michele Corley Clinical Skincare product is crafted with care
-            and consideration to the health and well being of the skin. The
-            ingredients I choose must come from the most natural sources
-            available, and their effectiveness proven. I strongly believe that
-            you and your clients will love the results you'll see and feel from
-            using Michele Corley Clinical Skincare, and enjoy the excellence in
-            care you receive.
+            Michele Corley Clinical Skin Care is meticulously formulated with
+            care and consideration for the skin's health and well-being. The
+            ingredients used are a harmonious blend of science and nature and
+            proven effectiveness. We firmly believe that you and your clients
+            will love the results you'll see and feel from using Michele Corley
+            Clinical Skin Care and enjoy the excellence in the care you receive.
           </p>
           <p className="text">Many thanks.</p>
-          <h2 className="italic poppy">Michele</h2>
+          {/*<h2 className="italic poppy">Michele Corley</h2>*/}
         </div>
         <div className="col-2" style={{ margin: '0 auto' }}>
-          <h2>
-            Meet
+          <h3>
+            Meet Founder
             <br />
             Michele Corley
-          </h2>
+          </h3>
           <Image
             fluid={data.allFile.nodes[0].childImageSharp.fluid}
             alt="Portrait of Michele Corley in a red floral blouse."
           />
           <p className="tiny">
             Michele is a licensed esthetician and creative visionary behind
-            every Michele Corley Clinical Skincare product. She is deeply
+            every Michele Corley Clinical Skin Care product. She is deeply
             committed to educating herself first, so she can then be a resource
             to support her clients' success. Her passion and drive to create the
             best possible experience for her clients shines through each Michele
-            Corley Clinical Skincare Product and every client interaction.
+            Corley Clinical Skin Care Product and every client interaction.
           </p>
           <p className="tiny">
             Michele studied with one of the foremost cosmetic chemistry
@@ -75,7 +63,7 @@ const About = ({ data }) => {
 }
 const AboutWrapper = styled.section`
   & {
-    align-items: center;
+    align-items: baseline;
     display: flex;
     margin: 0 auto !important;
     white-space: initial;
@@ -120,6 +108,7 @@ const AboutWrapper = styled.section`
   & .col-2 {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 0 1.5em 0;
@@ -140,10 +129,9 @@ const AboutWrapper = styled.section`
       justify-content: space-evenly;
     }
     & .col-1,
-    & .col-2 { 
-      width: 50%;
-    }
-    & .col-2 .gatsby-image-wrapper{ width: 50%; }
+    & .col-2 { width: 50%; }
+    & .col-2 {width 80%;}
+    & .col-2 .gatsby-image-wrapper{ width: 30%; }
 
   `}
 `
