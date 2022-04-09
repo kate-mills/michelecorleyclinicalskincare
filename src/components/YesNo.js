@@ -27,9 +27,6 @@ const YesNo = ({ className }) => {
               <p>Balancing Essential Oils</p>
             </li>
             <li>
-              <p>Vegetarian Formulas</p>
-            </li>
-            <li>
               <p>Gentle Preservatives</p>
             </li>
           </ul>
@@ -65,9 +62,6 @@ const YesNo = ({ className }) => {
             </li>
             <li>
               <p>Sodium Lauryl Sulfate</p>
-            </li>
-            <li>
-              <p>Sodium Laureth Sulfate</p>
             </li>
           </ul>
         </div>
