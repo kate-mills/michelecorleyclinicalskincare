@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const Home = ({ data }) => {
   return (
-    <PageModel title="Home" homePage>
+    <PageModel title="Beautifully Healthy Skin Starts Here" homePage>
       <Wrapper>
         <Slider interval={10000} images={data.allFile.nodes} />
         <YesNo />

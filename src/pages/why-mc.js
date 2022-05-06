@@ -13,12 +13,12 @@ const Whymc = ({
   const facialImg = nodes[0]
   return (
     <PageModel
-      title="Why Choose Michele Corley Clinical Skincare?"
+      title="Why Choose Michele Corley Clinical Skin Care?"
       description="What makes Michele Corley Clinical Skin Care different in a sea of other brands?  Our commitment to you and your success by offering the best possible products for your clients; with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
     >
       <PageTitle
         size="37px"
-        title="Why Choose Michele Corley Clinical Skincare?"
+        title="Why Choose Michele Corley Clinical Skin Care?"
       />
       <WhyWrapper>
         <div className="row">
@@ -31,7 +31,7 @@ const Whymc = ({
             />
             <ul data-bullet-list className="why-mc">
               <li>
-                <p>Premium, natural, professional skincare</p>
+                <p>Premium, natural, professional skin care</p>
               </li>
               <li>
                 <p>Superior results</p>
@@ -49,7 +49,7 @@ const Whymc = ({
                 <p>Retail and back bar</p>
               </li>
               <li>
-                <p>Only sold through skincare professionals</p>
+                <p>Only sold through skin care professionals</p>
               </li>
             </ul>
             <p className="p1">

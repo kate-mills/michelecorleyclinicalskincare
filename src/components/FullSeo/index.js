@@ -50,8 +50,8 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
   } = site.siteMetadata
   const formatTitle = () => {
     let plain = `${title || defaultTitle}`
-    let fancy = `${title || defaultTitle} | Michele Corley`
-    return plain.length < 46 ? fancy : plain
+    let fancy = `${title || defaultTitle} | Michele Corley Skincare`
+    return plain.length < 37 ? fancy : plain
   }
 
   let defaultSeoImage = `${baseUrl}${defaultImage}`
@@ -63,11 +63,17 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
     image: `${image || defaultSeoImage}`,
     url: `${baseUrl}${pathname}`,
   }
+
+  console.log(seo)
+
   return (
     <React.Fragment>
       <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
+
+        {seo.url && <link rel="canonical" href={seo.url} />}
+
         {noindex && <meta name="robots" content="noindex" />}
         {snippet && <script type="application/ld+json">{snippet}</script>}
 

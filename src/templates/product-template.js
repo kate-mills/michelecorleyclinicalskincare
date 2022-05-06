@@ -69,13 +69,26 @@ export const query = graphql`
         id
         title
         description
-        fluid(maxWidth: 300, maxHeight: 350, quality: 100, toFormat: WEBP, background: "white" ) {
+        fluid(
+          maxWidth: 300
+          maxHeight: 350
+          quality: 100
+          toFormat: WEBP
+          background: "white"
+        ) {
           src
           ...GatsbyContentfulFluid
         }
       }
       seoImg: imgRetail {
-        fixed(resizingBehavior: PAD, width: 400, height: 200, quality: 100, toFormat: WEBP, background: "white") {
+        fixed(
+          resizingBehavior: PAD
+          width: 400
+          height: 200
+          quality: 100
+          toFormat: WEBP
+          background: "white"
+        ) {
           src
           ...GatsbyContentfulFixed
         }
