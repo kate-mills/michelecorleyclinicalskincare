@@ -31,13 +31,12 @@ const About = ({ data }) => {
             Clinical Skin Care and enjoy the excellence in the care you receive.
           </p>
           <p className="text">Many thanks.</p>
-          {/*<h2 className="italic poppy">Michele Corley</h2>*/}
+          <h2 className="italic poppy">Michele Corley Team</h2>
         </div>
         <div className="col-2" style={{ margin: '0 auto' }}>
           <h3>
-            Meet Founder
-            <br />
-            Michele Corley
+            <div>Meet Founder</div>
+            <div>Michele Corley</div>
           </h3>
           <Image
             fluid={data.allFile.nodes[0].childImageSharp.fluid}
@@ -112,6 +111,10 @@ const AboutWrapper = styled.section`
     justify-content: center;
     align-items: center;
     padding: 0 1.5em 0;
+    h3 div:nth-child(2){
+      font-size: 1.4rem;
+      text-align: center;
+    }
   }
 
   ${screen.minmax.narrow` 
