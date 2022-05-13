@@ -76,6 +76,12 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
           content="__EndWSs5BPjx6w6bft3xWpgofxOEdBQBaEdh7js_M0"
         />
 
+        {/* Pinterest domain verification */}
+        <meta
+          name="p:domain_verify"
+          content="1b2f20084653c8e1e95acbf4fd3a842c"
+        />
+
         {/* facebook card */}
         {seo.url && <meta property="og:url" content={seo.url} />}
         {article ? (
