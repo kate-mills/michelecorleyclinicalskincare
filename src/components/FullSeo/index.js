@@ -68,14 +68,17 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
       <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
-        {noindex && <meta name="robots" content="noindex" />}
+        <meta name="keywords" content="wholesale, professional, skincare, skin, care, products, estheticians"/>
+        <meta name="author" content="Michele Corley"/>
+        {seo.url &&  <link rel="canonical" href={seo.url} />}
         {snippet && <script type="application/ld+json">{snippet}</script>}
+        {noindex  ?  <meta name="robots" content="noindex nofollow"/> : <meta name="robots" content="index follow"/>}
 
+        {/* Google domain verification */}
         <meta
           name="google-site-verification"
           content="__EndWSs5BPjx6w6bft3xWpgofxOEdBQBaEdh7js_M0"
         />
-
         {/* Pinterest domain verification */}
         <meta
           name="p:domain_verify"
