@@ -10,10 +10,10 @@ module.exports = {
     author: `MCC`,
     twitterUsername: `@katie_napa`,
     image: `/seoimage.jpg`,
-    url: `https://www.michelecorleyclinicalskincare.com`,
-    baseUrl: `https://www.michelecorleyclinicalskincare.com`,
-    siteUrl: `https://www.michelecorleyclinicalskincare.com`,
-    defaultImage: `https://www.michelecorleyclinicalskincare.com/seoimage.jpg`,
+    url: `https://michelecorleyclinicalskincare.com`,
+    baseUrl: `https://michelecorleyclinicalskincare.com`,
+    siteUrl: `https://michelecorleyclinicalskincare.com`,
+    defaultImage: `https://michelecorleyclinicalskincare.com/seoimage.jpg`,
     organization: {
       address: {
         street: `1400 Lafayette St.`,
@@ -24,8 +24,8 @@ module.exports = {
       },
       email: `customerservice@michelecorley.com`,
       name: `Michele Corley Clinical Skincare`,
-      url: `https://www.michelecorleyclinicalskincare.com`,
-      logo: `https://www.michelecorleyclinicalskincare.com/seoimage.jpg`,
+      url: `https://michelecorleyclinicalskincare.com`,
+      logo: `https://michelecorleyclinicalskincare.com/seoimage.jpg`,
       telephone: `707-287-0555`,
       priceRange: `$$`,
       sameAs: [
@@ -41,8 +41,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: `https://www.michelecorleyclinicalskincare.com`,
-        sitemap: `https://www.michelecorleyclinicalskincare.com/sitemap.xml`,
+        host: `https://michelecorleyclinicalskincare.com`,
+        sitemap: `https://michelecorleyclinicalskincare.com/sitemap.xml`,
         policy: [
           { userAgent: '*', allow: '/' },
           { userAgent: '*', disallow: '/new-page-3' },
