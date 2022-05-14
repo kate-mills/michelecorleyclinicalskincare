@@ -5,6 +5,7 @@ import PageTitle from '../components/Title'
 import SEO from '../components/FullSeo'
 
 const PageModel = ({
+  seoTitle,
   title,
   description,
   image,
@@ -17,7 +18,7 @@ const PageModel = ({
   return (
     <Layout>
       <SEO
-        title={title}
+        title={seoTitle || title}
         description={description}
         image={
           image || 'https://michelecorleyclinicalskincare.com/seoimage.jpg'

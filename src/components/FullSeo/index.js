@@ -50,8 +50,8 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
   } = site.siteMetadata
   const formatTitle = () => {
     let plain = `${title || defaultTitle}`
-    let fancy = `${title || defaultTitle} | Michele Corley`
-    return plain.length < 46 ? fancy : plain
+    let fancy = `Michele Corley Clinical Skin Care ${title || defaultTitle}`
+    return plain.length < 14 ? fancy : plain
   }
 
   let defaultSeoImage = `${baseUrl}${defaultImage}`
@@ -63,6 +63,7 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
     image: `${image || defaultSeoImage}`,
     url: `${baseUrl}${pathname}`,
   }
+
   return (
     <React.Fragment>
       <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
@@ -116,8 +117,8 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
       </Helmet>
 
       <SchemaOrg
-        compoundTitle={`${seo.title} | Ally Digital Solutions`}
-        defaultTitle={'Ally Digital Solutions'}
+        compoundTitle={`${seo.title} | Michele Corley Clinical Skin Care`}
+        defaultTitle={'Michele Corley Clinical Skin Care'}
         pageTitle={seo.title}
         description={seo.description}
         baseUrl={baseUrl}
