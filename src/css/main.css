@@ -120,6 +120,7 @@ nav *{
   line-height: var(--bodyLineHeight);
   text-transform: uppercase;
 }
+h3,
 p {
   color: var(--mainBlack);
   padding: 0 0 1.8em;
@@ -127,7 +128,9 @@ p {
   font-weight: 400;
   line-height: var(--bodyLineHeight);
   white-space: pre-line;
+  font-size: 1rem;
 }
+h3,
 p.description{
   text-align: justify;
   margin-bottom: 0 !important;
@@ -264,4 +267,12 @@ Utility classes
     border-radius: 30px;
     padding: 0.1rem 3.2rem; /*padding: 1.6px 50px;*/
   }
+}
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
 }
