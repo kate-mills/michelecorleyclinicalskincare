@@ -86,6 +86,7 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
         />
 
         {/* facebook card */}
+        <meta name="facebook-domain-verification" content="eehvueakms0wtv6s1pvu24x1mudowo" />
         <meta property="fb:app_id" content={"609921403815629"}/>
 
         {seo.url && <meta property="og:url" content={seo.url} />}
