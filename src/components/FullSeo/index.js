@@ -86,6 +86,8 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
         />
 
         {/* facebook card */}
+        <meta property="fb:app_id" content={"609921403815629"}/>
+
         {seo.url && <meta property="og:url" content={seo.url} />}
         {article ? (
           <meta property="og:type" content="article" />
