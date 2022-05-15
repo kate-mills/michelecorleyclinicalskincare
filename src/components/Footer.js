@@ -4,6 +4,7 @@ import Image from 'gatsby-image'
 import styled from 'styled-components'
 import socialLinks from '../constants/social'
 
+import ScreenReaderText from './ScreenReaderText'
 import { screen } from '../css/js/media-functions'
 import { ConstantContactInfo } from '../constants/contact-info'
 
@@ -26,7 +27,7 @@ const Footer = props => {
       <div className="column">
         <Image fluid={infinity.childImageSharp.fluid} />
         <div className="lg-text">
-          <h3
+          <h4
             style={{
               textTransform: 'capitalize',
               color: 'var(--mainBlack)',
@@ -35,21 +36,20 @@ const Footer = props => {
               fontSize: '21px',
               textAlign: 'center',
             }}
-          >
-            Follow us on
-          </h3>
+          >Follow Us On <ScreenReaderText text="Facebook, Instagram, Pinterest, and Vimeo." /></h4>
+    
         </div>
         <div className="row footer-icons">
           {socialLinks.map((item, index) => {
             return (
               <div className="icon" key={index}>
                 <a
+                  title={item.label}
                   href={item.href}
                   aria-label={item.label}
                   className={item.class}
                   style={item.style}
-                >
-                  {item.icon}
+                >{item.icon}<ScreenReaderText text={item.label}/>
                 </a>
               </div>
             )
@@ -126,16 +126,12 @@ const FooterWrapper = styled(Footer)`
   & div.row.footer-icons {
     font-size: 28px;
     justify-content: space-around;
-    line-height: unset;
+    line-height: 1.5;
+    .icon {
+      background-color: var(--mainWhite) !important;
+      color: #c75958 !important;
+    }
   }
-  a.instagram-logo {
-    font-size: 0px;
-  }
-  a.instagram-logo img {
-    height: 40px;
-    width: 40px;
-  }
-
   div.row.sm-text p {
     padding: 5px;
   }
@@ -146,6 +142,7 @@ const FooterWrapper = styled(Footer)`
   & .sm-text {
     font-size: 13px;
   }
+
   & .allydigitalsolutions {
     font-size: 11px;
   }
