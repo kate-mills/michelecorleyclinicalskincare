@@ -13,6 +13,7 @@ const Whymc = ({
   const facialImg = nodes[0]
   return (
     <PageModel
+    seoTitle="Why Estheticians & Licensed Pro's retail Michele Corley Skin Care"
       title="Why Choose Michele Corley Clinical Skincare?"
       description="What makes Michele Corley Clinical Skin Care different in a sea of other brands?  Our commitment to you and your success by offering the best possible products for your clients; with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
     >
