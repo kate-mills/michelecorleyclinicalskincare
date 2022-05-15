@@ -148,12 +148,17 @@ ul[data-bullet-list] {
   list-style:none;
   margin: 0 20px;
 }
+ul[data-bullet-list] > li h3,
+ul[data-bullet-list] > li h4,
 ul[data-bullet-list] > li p{
   margin: 7.5px auto;
   padding: 0 0 .2rem;
   white-space: pre-line;
   font-weight: 400;
 }
+
+/*ul[data-bullet-list] > li:first-child  h3,
+ul[data-bullet-list] > li:first-child  h4, */
 ul[data-bullet-list] > li:first-child  p{ 
   padding: .4rem 0 .2rem;
 }

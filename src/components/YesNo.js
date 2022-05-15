@@ -1,53 +1,62 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import ScreenReaderText from '../components/ScreenReaderText'
+
+//export const srOnlySpan = <span className="sr-only">Michele Corley Clinical Skin Care is packed with </span>
+
 const YesNo = ({ className }) => {
+
   return (
     <div className={className}>
+
+        <h2 className="sr-only">We say YES to Powerful Peptides, Potent Antioxidants, Stable Vitamin C, Active Enzymes, Nutritious Plant Oils, Balancing Essential Oils, and Gentle Preservatives.</h2>
+        <h2 className="sr-only">We say NO to Parabens, Synthetic Colorants, Synthetic Fragrance, Phthalates, Formaldehyde Releasing Preservatives, and Sodium Lauryl Sulfate.</h2>
+
       <div className="flex-row">
         <div className="list">
-          <h2 className="list-title poppy">We say YES to</h2>
+          <p className="list-title poppy">We say YES to</p>
           <ul data-bullet-list>
             <li>
-              <p>Powerful Peptides</p>
+              <h3><ScreenReaderText text="Michele Corely serums and specialty products are packed with " />Powerful Peptides</h3>
             </li>
             <li>
-              <p>Potent Antioxidants</p>
+              <h3>Potent Antioxidants</h3>
             </li>
             <li>
-              <p>Stable Vitamin C</p>
+              <h3>Stable Vitamin C</h3>
             </li>
             <li>
-              <p>Active Enzymes</p>
+              <h3>Active Enzymes</h3>
             </li>
             <li>
-              <p>Nutritious Plant Oils</p>
+              <h3>Nutritious Plant Oils</h3>
             </li>
             <li>
-              <p>Balancing Essential Oils</p>
+              <h3>Balancing Essential Oils</h3>
             </li>
             <li>
-              <p>Gentle Preservatives</p>
+              <h3>Gentle Preservatives</h3>
             </li>
           </ul>
         </div>
         <div className="list">
-          <h2 className="list-title poppy">We say NO to</h2>
+          <p className="list-title poppy">We say NO to</p>
           <ul data-bullet-list>
             <li>
-              <p>Parabens</p>
+              <h3>Parabens</h3>
             </li>
             <li>
-              <p>Synthetic Colorants</p>
+              <h3>Synthetic Colorants</h3>
             </li>
             <li>
-              <p>Synthetic Fragrance</p>
+              <h3>Synthetic Fragrance</h3>
             </li>
             <li>
-              <p>Phthalates</p>
+              <h3>Phthalates</h3>
             </li>
             <li>
-              <p>
+              <h3>
                 Formaldehyde Releasing
                 <span
                   style={{
@@ -58,10 +67,10 @@ const YesNo = ({ className }) => {
                 >
                   Preservatives
                 </span>
-              </p>
+              </h3>
             </li>
             <li>
-              <p>Sodium Lauryl Sulfate</p>
+              <h3>Sodium Lauryl Sulfate</h3>
             </li>
           </ul>
         </div>
@@ -90,13 +99,19 @@ const Wrapper = styled(YesNo)`
     margin: 0 auto;
   }
   & .list-title {
-    margin-bottom: 0;
-    text-align: left;
+    margin: 0.5rem 0 0.3rem;
+    padding-bottom: 0;
+    text-align: center;
     position: relative;
     right: 15px;
+    font-size: 2rem;
   }
   & .yn-header {
     text-align: center;
+  }
+  & .yn-header.poppy {
+    font-size: 1.4rem;  
+    margin-top: 2rem;
   }
   & .yn-header.italic {
     font-size: 21px;

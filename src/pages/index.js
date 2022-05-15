@@ -8,7 +8,12 @@ import styled from 'styled-components'
 
 const Home = ({ data }) => {
   return (
-    <PageModel title="Home" homePage>
+    <PageModel
+      seoTitle="Michele Corley Clinical Skin Care"
+      title="Michele Corley Clinical Skin Care"
+      description="What makes us different in a sea of other brands? Our commitment to you and your business's success is by delivering superior products, unlimited access to our team, and keeping Michele Corley Clinical Skin Care products sold exclusively by Licensed Estheticians and Licensed Skincare Professionals."
+      homePage
+    >
       <Wrapper>
         <Slider interval={10000} images={data.allFile.nodes} />
         <YesNo />
