@@ -3,6 +3,7 @@ import SEO from '../components/FullSeo'
 
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import ScreenReaderText from '../components/ScreenReaderText'
 
 import { graphql } from 'gatsby'
 
@@ -23,6 +24,9 @@ const ProductImageTemplate = props => {
         description={`Michele Corley Clinical Skincare - ${product.name}`}
         image={product.fluidImg.fluid.src.slice(2)}
       />
+
+     <ScreenReaderText element="h1" text={`Michele Corley ${product.name}`}/>
+
       <div className={`${className} grid-container`}>
         <div
           className="grid-top w-100"

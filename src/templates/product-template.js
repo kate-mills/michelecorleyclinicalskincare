@@ -6,6 +6,9 @@ import PageModel from '../components/PageModel'
 import Product from '../components/Products/Product'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
+import ScreenReaderText from '../components/ScreenReaderText'
+
+
 const ProductTemplate = ({ data: { product }, className }) => {
   const formatCategory = category => {
     let CategoryMap = {}
@@ -27,6 +30,8 @@ const ProductTemplate = ({ data: { product }, className }) => {
       image={product.seoImg.fixed.src}
       id={product.name}
     >
+
+     <ScreenReaderText element="h1" text={`${product.name}`}/>
       <Product product={product} isTemplate={true} />
       <div className="lower-btn-div">
         {' '}
