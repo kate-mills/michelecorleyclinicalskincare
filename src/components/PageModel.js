@@ -8,6 +8,7 @@ const PageModel = ({
   seoTitle,
   title,
   description,
+  keywords,
   image,
   color,
   centeredTitle,
@@ -18,6 +19,7 @@ const PageModel = ({
   return (
     <Layout>
       <SEO
+        keywords={keywords}
         title={seoTitle || title}
         description={description}
         image={
@@ -41,5 +43,8 @@ const PageModel = ({
     </Layout>
   )
 }
-PageModel.defaultProps = {}
+
+PageModel.defaultProps = {
+  keywords:[],
+}
 export default PageModel

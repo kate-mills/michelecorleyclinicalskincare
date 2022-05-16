@@ -35,7 +35,7 @@ const query = graphql`
     }
   }
 `
-const SEO = ({ title, description, image, article, snippet, noindex }) => {
+const SEO = ({ keywords, title, description, image, article, snippet, noindex }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -56,7 +56,9 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
 
   let defaultSeoImage = `${baseUrl}${defaultImage}`
 
+  let defaultKeywords = `wholesale, professional, skincare, skin, care, products, estheticians`
   const seo = {
+    keywords: keywords.length > 0 ? `${keywords.join(', ')}, ${defaultKeywords}`: defaultKeywords,
     title: formatTitle(),
     dateModified: dateModified,
     description: description || defaultDescription,
@@ -69,7 +71,7 @@ const SEO = ({ title, description, image, article, snippet, noindex }) => {
       <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
-        <meta name="keywords" content="wholesale, professional, skincare, skin, care, products, estheticians"/>
+        <meta name="keywords" content={seo.keywords}/>
         <meta name="author" content="Michele Corley"/>
         {seo.url &&  <link rel="canonical" href={seo.url} />}
         {snippet && <script type="application/ld+json">{snippet}</script>}
@@ -138,9 +140,11 @@ SEO.propTypes = {
   image: PropTypes.string,
   article: PropTypes.bool,
   snippet: PropTypes.string,
+  keywords: PropTypes.array,
 }
 
 SEO.defaultProps = {
+  keywords: null,
   title: null,
   description: null,
   image: null,
