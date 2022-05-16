@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import VideoPlayer from '../Video'
+import ScreenReaderText from '../ScreenReaderText'
+import {getSymanticSkinTypes} from '../../utils/helpers'
 
 const Product = ({ product, isTemplate }) => {
   const {
@@ -13,6 +15,9 @@ const Product = ({ product, isTemplate }) => {
     keyIngredients,
     profiles,
   } = product
+
+  let categoryStatement = `${product.name} is formulated for ${getSymanticSkinTypes(skinType).toLowerCase()}.`
+
   return (
     <ProductWrapper className="single-product page-article">
       <div className={`product-heading ${acneSafe && 'acne-safe'}`}>
@@ -21,10 +26,26 @@ const Product = ({ product, isTemplate }) => {
             product.award ? 'winner' : ''
           }`}
         >
-          <div className={`${acneSafe && 'acne-safe'}`}>{name}</div>
+          <div className={`${acneSafe && 'acne-safe'}`}>
+            {name}
+            {acneSafe && (
+              <ScreenReaderText
+                element="span"
+                text={` (safe for use on skin prone to all types of acne)`}
+              />
+            )}
+          </div>
         </h2>
+
+        <ScreenReaderText element="h3" text={`${categoryStatement}`} />
+
         {product.award && (
-          <Image className="award-winner" fixed={product.awardImage.fixed} />
+          <Image
+            className="award-winner"
+            fixed={product.awardImage.fixed}
+            alt={`Best Product ${product.award} Award Emblem`}
+            title={`Best Product ${product.award} Award Winner`}
+          />
         )}
       </div>
       <div className="product-details">
@@ -42,15 +63,25 @@ const Product = ({ product, isTemplate }) => {
           <div className="img-container">
             <AniLink fade to={`/product-images-and-logos/${product.slug}/`} aria-label="View image">
               {isTemplate ? (
-                <Image className="fluid-img" fluid={product.fluidImg.fluid} />
+                <Image
+                  className="fluid-img"
+                  fluid={product.fluidImg.fluid}
+                  alt={product.fluidImg.description || `Retail size ${name} `}
+                  title={`Michele Corley ${name}`}
+                />
               ) : (
-                <Image className="fixed-img" fixed={product.imgRetail.fixed} />
+                <Image
+                  className="fixed-img"
+                  fixed={product.imgRetail.fixed}
+                  alt={product.imgRetail.description || product.imgRetail.title}
+                  title={`Michele Corley ${name}`}
+                />
               )}
             </AniLink>
           </div>
           {product.video && (
             <VideoPlayer
-              title={product.name}
+              title={`Michele Corley discusses ${product.name}.`}
               src={`https://player.vimeo.com/video/${product.video}`}
             />
           )}
@@ -62,6 +93,7 @@ const Product = ({ product, isTemplate }) => {
               {!!profiles ? (
                 <a
                   className="get-product-profile-sheet"
+                  title={`Download ${name} details, including full ingredient list`}
                   href={profiles[0].file.url}
                   target="_blank"
                   rel="noreferrer"
