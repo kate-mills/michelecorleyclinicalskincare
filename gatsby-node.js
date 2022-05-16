@@ -72,18 +72,18 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   results.productData.data.products.nodes.forEach(product => {
+
     createPage({
       path: `/products/${product.slug}`,
       component: path.resolve(`src/templates/product-template.js`),
       context: { slug: product.slug },
     })
-  })
 
-  results.productData.data.products.nodes.forEach(product => {
     createPage({
       path: `/product-images-and-logos/${product.slug}`,
       component: path.resolve(`src/templates/product-image-template.js`),
       context: { slug: product.slug },
     })
   })
+
 }
