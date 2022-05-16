@@ -35,7 +35,15 @@ const query = graphql`
     }
   }
 `
-const SEO = ({ keywords, title, description, image, article, snippet, noindex }) => {
+const SEO = ({
+  keywords,
+  title,
+  description,
+  image,
+  article,
+  snippet,
+  noindex,
+}) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -58,7 +66,10 @@ const SEO = ({ keywords, title, description, image, article, snippet, noindex })
 
   let defaultKeywords = `wholesale, professional, skincare, skin, care, products, estheticians`
   const seo = {
-    keywords: keywords.length > 0 ? `${keywords.join(', ')}, ${defaultKeywords}`: defaultKeywords,
+    keywords:
+      keywords.length > 0
+        ? `${keywords.join(', ')}, ${defaultKeywords}`
+        : defaultKeywords,
     title: formatTitle(),
     dateModified: dateModified,
     description: description || defaultDescription,
@@ -71,17 +82,25 @@ const SEO = ({ keywords, title, description, image, article, snippet, noindex })
       <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
-        <meta name="keywords" content={seo.keywords}/>
-        <meta name="author" content="Michele Corley"/>
-        {seo.url &&  <link rel="canonical" href={seo.url} />}
+        <meta name="keywords" content={seo.keywords} />
+        <meta name="author" content="Michele Corley" />
+        {seo.url && <link rel="canonical" href={seo.url} />}
         {snippet && <script type="application/ld+json">{snippet}</script>}
-        {noindex  ?  <meta name="robots" content="noindex nofollow"/> : <meta name="robots" content="index follow"/>}
+        {noindex ? (
+          <meta name="robots" content="noindex nofollow" />
+        ) : (
+          <meta name="robots" content="index follow" />
+        )}
 
         {/* Google domain verification */}
         <meta
           name="google-site-verification"
           content="__EndWSs5BPjx6w6bft3xWpgofxOEdBQBaEdh7js_M0"
         />
+
+        {/* Bing verification */}
+        <meta name="msvalidate.01" content="20FF3D765E811E2F83BA607B8A11B97D" />
+
         {/* Pinterest domain verification */}
         <meta
           name="p:domain_verify"
@@ -89,8 +108,11 @@ const SEO = ({ keywords, title, description, image, article, snippet, noindex })
         />
 
         {/* facebook card */}
-        <meta name="facebook-domain-verification" content="eehvueakms0wtv6s1pvu24x1mudowo" />
-        <meta property="fb:app_id" content={"609921403815629"}/>
+        <meta
+          name="facebook-domain-verification"
+          content="eehvueakms0wtv6s1pvu24x1mudowo"
+        />
+        <meta property="fb:app_id" content={'609921403815629'} />
 
         {seo.url && <meta property="og:url" content={seo.url} />}
         {article ? (
