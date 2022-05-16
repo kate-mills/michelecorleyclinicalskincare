@@ -144,7 +144,7 @@ SEO.propTypes = {
 }
 
 SEO.defaultProps = {
-  keywords: null,
+  keywords: [],
   title: null,
   description: null,
   image: null,
