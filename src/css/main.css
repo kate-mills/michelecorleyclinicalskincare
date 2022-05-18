@@ -120,7 +120,6 @@ nav *{
   line-height: var(--bodyLineHeight);
   text-transform: uppercase;
 }
-h3,
 p {
   color: var(--mainBlack);
   padding: 0 0 1.8em;
@@ -157,8 +156,8 @@ ul[data-bullet-list] > li p{
   font-weight: 400;
 }
 
-/*ul[data-bullet-list] > li:first-child  h3,
-ul[data-bullet-list] > li:first-child  h4, */
+ul[data-bullet-list] > li:first-child  h3,
+ul[data-bullet-list] > li:first-child  h4,
 ul[data-bullet-list] > li:first-child  p{ 
   padding: .4rem 0 .2rem;
 }

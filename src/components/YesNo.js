@@ -10,77 +10,74 @@ const YesNo = ({ className }) => {
   return (
     <div className={className}>
 
-        <h2 className="sr-only">We say YES to Powerful Peptides, Potent Antioxidants, Stable Vitamin C, Active Enzymes, Nutritious Plant Oils, Balancing Essential Oils, and Gentle Preservatives.</h2>
-        <h2 className="sr-only">We say NO to Parabens, Synthetic Colorants, Synthetic Fragrance, Phthalates, Formaldehyde Releasing Preservatives, and Sodium Lauryl Sulfate.</h2>
+        <ScreenReaderText element="h2" text="Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."/>
 
       <div className="flex-row">
         <div className="list">
-          <p className="list-title poppy">We say YES to</p>
+          <h3 className="list-title poppy">We say YES to <ScreenReaderText element="span" text="powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."/>
+    </h3>
           <ul data-bullet-list>
             <li>
-              <h3><ScreenReaderText text="Michele Corely serums and specialty products are packed with " />Powerful Peptides</h3>
+              <h6 className="li">Powerful Peptides</h6>
             </li>
             <li>
-              <h3>Potent Antioxidants</h3>
+              <h6 className="li">Potent Antioxidants</h6>
             </li>
             <li>
-              <h3>Stable Vitamin C</h3>
+              <h6 className="li">Stable Vitamin C</h6>
             </li>
             <li>
-              <h3>Active Enzymes</h3>
+              <h6 className="li">Active Enzymes</h6>
             </li>
             <li>
-              <h3>Nutritious Plant Oils</h3>
+              <h6 className="li">Nutritious Plant Oils</h6>
             </li>
             <li>
-              <h3>Balancing Essential Oils</h3>
+              <h6 className="li">Balancing Essential Oils</h6>
             </li>
             <li>
-              <h3>Gentle Preservatives</h3>
+              <h6 className="li">Gentle Preservatives</h6>
             </li>
           </ul>
         </div>
+
         <div className="list">
-          <p className="list-title poppy">We say NO to</p>
+          <h3 className="list-title poppy">We say NO to <ScreenReaderText element="span" text=" Parabens, Synthetic Colorants, Synthetic Fragrance, Phthalates, Formaldehyde Releasing Preservatives, and Sodium Lauryl Sulfate."/></h3>
           <ul data-bullet-list>
             <li>
-              <h3>Parabens</h3>
+              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Parabens</h6>
             </li>
             <li>
-              <h3>Synthetic Colorants</h3>
+              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Synthetic Colorants</h6>
             </li>
             <li>
-              <h3>Synthetic Fragrance</h3>
+              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Synthetic Fragrance</h6>
             </li>
             <li>
-              <h3>Phthalates</h3>
+              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Phthalates</h6>
             </li>
             <li>
-              <h3>
-                Formaldehyde Releasing
+              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Formaldehyde Releasing
                 <span
                   style={{
-                    margin: '7.5px auto',
-                    marginBottom: '0',
-                    display: 'block',
-                  }}
-                >
-                  Preservatives
+                      display: 'block',
+                      margin: '1rem 0 1rem .4rem',
+                    }}> Preservatives
                 </span>
-              </h3>
+              </h6>
             </li>
             <li>
-              <h3>Sodium Lauryl Sulfate</h3>
+              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Sodium Lauryl Sulfate</h6>
             </li>
           </ul>
         </div>
       </div>
-      <h3 className="yn-header poppy">
+      <h5 className="yn-header poppy">
         Professional skincare that delivers. Clean, safe, efficacious formulas.
-      </h3>
-      <h3 className="yn-header italic">
+      </h5>
+      <h5 className="yn-header italic">
         Only available through your licensed skincare professional.
-      </h3>
+      </h5>
     </div>
   )
 }
@@ -88,45 +85,45 @@ const Wrapper = styled(YesNo)`
   & .flex-row {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-evenly;
     width: 100%;
   }
   & .list {
-    display: inline-block;
     width: fit-content;
+    max-width: fit-content;
     margin: 0 auto;
   }
   & .list-title {
-    margin: 0.5rem 0 0.3rem;
-    padding-bottom: 0;
-    text-align: center;
-    position: relative;
-    right: 15px;
+    font-weight: 400;
+    line-height: var(--bodyLineHeight);
+    white-space: pre-wrap;
+    text-align: left;
     font-size: 2rem;
+
+  }
+
+  & .li{
+    margin-bottom: 1.26rem;
   }
   & .yn-header {
     text-align: center;
   }
   & .yn-header.poppy {
-    font-size: 1.4rem;  
+    font-weight: 400;
+    font-size: 1.6rem;  
     margin-top: 2rem;
   }
   & .yn-header.italic {
     font-size: 21px;
     font-style: italic;
-    font-weight: 400;
+    font-weight: 300;
   }
   @media (max-width: 672px) {
     & .flex-row {
-      flex-direction: column;
-      flex-wrap: wrap;
       justify-content: center;
       margin: 0 auto;
-    }
-    & .list-title {
-      right: 10px;
     }
   }
 `
