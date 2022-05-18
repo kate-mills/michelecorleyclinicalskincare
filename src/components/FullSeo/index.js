@@ -56,21 +56,21 @@ const SEO = ({
     organization,
     dateModified,
   } = site.siteMetadata
-  const formatTitle = () => {
-    let plain = `${title || defaultTitle}`
-    let fancy = `Michele Corley Clinical Skin Care ${title || defaultTitle}`
-    return plain.length < 14 ? fancy : plain
+  const formatTitle = (title) => {
+    let plain = `${title}${title.length < 47 ? ' | Michele Corley':''}`
+    let fancy = `${title} | Michele Corley Clinical Skin Care`
+    return plain.length < 29 ? fancy : plain
   }
 
   let defaultSeoImage = `${baseUrl}${defaultImage}`
 
-  let defaultKeywords = `wholesale, professional, skincare, skin, care, products, estheticians`
+  let defaultKeywords = `professional, skincare, skin, care, products, estheticians`
   const seo = {
     keywords:
       keywords.length > 0
         ? `${keywords.join(', ')}, ${defaultKeywords}`
         : defaultKeywords,
-    title: formatTitle(),
+    title: formatTitle(title || defaultTitle),
     dateModified: dateModified,
     description: description || defaultDescription,
     image: `${image || defaultSeoImage}`,
