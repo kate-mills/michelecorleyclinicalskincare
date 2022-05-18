@@ -37,7 +37,7 @@ const query = graphql`
 `
 const SEO = ({
   keywords,
-  title,
+  title:seoTitle,
   description,
   image,
   article,
@@ -56,6 +56,7 @@ const SEO = ({
     organization,
     dateModified,
   } = site.siteMetadata
+
   const formatTitle = (title) => {
     let plain = `${title}${title.length < 47 ? ' | Michele Corley':''}`
     let fancy = `${title} | Michele Corley Clinical Skin Care`
@@ -70,7 +71,7 @@ const SEO = ({
       keywords.length > 0
         ? `${keywords.join(', ')}, ${defaultKeywords}`
         : defaultKeywords,
-    title: formatTitle(title || defaultTitle),
+    title: seoTitle.length === 0 ? defaultTitle :formatTitle(seoTitle),
     dateModified: dateModified,
     description: description || defaultDescription,
     image: `${image || defaultSeoImage}`,

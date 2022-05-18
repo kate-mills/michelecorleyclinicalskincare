@@ -7,18 +7,22 @@ import SEO from '../components/FullSeo'
 const PageModel = ({
   seoTitle,
   title,
+  snippet,
   description,
   keywords,
   image,
   color,
   centeredTitle,
   defaultTitle,
+  noindex,
   homePage,
   children,
 }) => {
   return (
     <Layout>
       <SEO
+        noindex
+        snippet={snippet}
         keywords={keywords}
         title={seoTitle || title}
         description={description}

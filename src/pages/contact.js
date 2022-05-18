@@ -11,7 +11,7 @@ import styled from 'styled-components'
 
 const ContactPage = ({ data }) => {
   return (
-    <PageModel title="Contact">
+    <PageModel title="Contact" seoTitle="Contact Us">
       <PageWrapper>
         <div className="flex-col">
           <div className="flex-item-1">

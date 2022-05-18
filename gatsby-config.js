@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Michele Corley Clinical Skincare`,
+    title: `Michele Corley Clinical Skin Care`,
     description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
     dateModified: `${new Date().toISOString()}`,
     author: `MCC`,
@@ -23,7 +23,7 @@ module.exports = {
         country: `USA`,
       },
       email: `customerservice@michelecorley.com`,
-      name: `Michele Corley Clinical Skincare`,
+      name: `Michele Corley Clinical Skin Care`,
       url: `https://michelecorleyclinicalskincare.com`,
       logo: `https://michelecorleyclinicalskincare.com/seoimage.jpg`,
       telephone: `707-287-0555`,
@@ -76,7 +76,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `michele corley clinical skincare`,
+        name: `michele corley clinical skin care`,
         short_name: `mcc`,
         start_url: `/`,
         background_color: `#dcdcdc`,

@@ -10,6 +10,7 @@ import Image from 'gatsby-image'
 const About = ({ data }) => {
   return (
     <PageModel
+    seoTitle="About Us"
       title="About"
       description="Each Michele Corley Clinical Skincare product is crafted with care and consideration to the health and well being of the skin. The ingredients I choose must come from the most natural sources available, and their effectiveness proven."
     >
