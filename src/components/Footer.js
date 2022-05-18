@@ -27,8 +27,9 @@ const Footer = props => {
       <div className="column">
         <Image fluid={infinity.childImageSharp.fluid} />
         <div className="lg-text">
-          <h4
+          <h6
             style={{
+              marginBottom: '2rem',
               textTransform: 'capitalize',
               color: 'var(--mainBlack)',
               fontWeight: '400',
@@ -36,7 +37,7 @@ const Footer = props => {
               fontSize: '21px',
               textAlign: 'center',
             }}
-          >Follow Us On <ScreenReaderText text="Facebook, Instagram, Pinterest, and Vimeo." /></h4>
+          >Follow Us On <ScreenReaderText text="Facebook, Instagram, Pinterest, and Vimeo." /></h6>
     
         </div>
         <div className="row footer-icons">
@@ -101,12 +102,11 @@ const FooterWrapper = styled(Footer)`
     white-space: initial;
   }
   & .gatsby-image-wrapper {
-    width: 80%;
-    max-height: 50px;
-    margin: 20px auto !important;
+    width: 70%;
+    max-height: auto;
+    margin: 20px auto;
     text-align: justify;
   }
-
   & div.row {
     width: 100%;
     display: flex;
@@ -125,8 +125,9 @@ const FooterWrapper = styled(Footer)`
   }
   & div.row.footer-icons {
     font-size: 28px;
-    justify-content: space-around;
-    line-height: 1.5;
+    justify-content: space-evenly;
+    line-height: 1;
+    margin: 2rem auto;
     .icon {
       background-color: var(--mainWhite) !important;
       color: #c75958 !important;
@@ -141,10 +142,6 @@ const FooterWrapper = styled(Footer)`
   }
   & .sm-text {
     font-size: 13px;
-  }
-
-  & .allydigitalsolutions {
-    font-size: 11px;
   }
   div.phone-email {
     color: var(--mainBlack);
@@ -191,11 +188,6 @@ const FooterWrapper = styled(Footer)`
       text-align: center;
       letter-spacing: 0;
     }
-    & .gatsby-image-wrapper{
-      width: 100%;
-      max-height: unset;
-      margin: 20px auto;
-    }
   `}
   ${screen.tablet.tablet` 
     div.row.footer-icons{
@@ -204,11 +196,6 @@ const FooterWrapper = styled(Footer)`
     .icon{
       margin: 20px;
     } 
-    & .gatsby-image-wrapper{
-      width: 90%;
-      max-height: unset;
-      margin: 20px auto;
-    }
   `}
   @media (max-width: 700px) {
     .middot {
