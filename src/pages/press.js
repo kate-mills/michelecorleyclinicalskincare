@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const Press = ({ data }) => {
   return (
-    <PageModel seoTitle="Michele Corley Clinical Skin Care in the Press" title="in the Press" description="Award-winning professional skincare products for dry and oily skin types to sensitive, sun-damaged and acne-prone skin exclusively sold through licensed skincare professionals." centeredTitle>
+    <PageModel seoTitle="Products In The Press" title="in the Press" description="Award-winning professional skincare products for dry and oily skin types to sensitive, sun-damaged and acne-prone skin exclusively sold through licensed skincare professionals." centeredTitle>
       <PressWrapper>
         <PressList pressList={data.allAirtable.pressList} />
       </PressWrapper>
@@ -25,6 +25,7 @@ export const query = graphql`
         id
         data {
           mcc_id
+          title
           summary
           image {
             localFiles {

@@ -1,75 +1,66 @@
-.pr__row {
+.press__row {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
   margin-top: 20px;
   border: 5px solid var(--mainMcc);
   border-radius: 10px;
   box-shadow: var(--light-shadow);
 }
-.pr__row:hover {
+.press__row:hover {
   box-shadow: var(--dark-shadow);
 }
-.pr__row:first-child {
-  margin-top: 0px;
-}
-.pr__col {
+.press__col {
   width: 50%;
   margin: 0 auto;
 }
-.pr__col img {
+.press__col:nth-type(1) img {
   padding: 1px;
   border-top-left-radius: 10px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 10px;
 }
-.pr__col h3,
-.pr__col p {
-  width: 80%;
-}
-.pr__flexible__col {
+.press__col:nth-child(2) {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
+  align-content: center;
   white-space: pre-line;
   padding-bottom: 10px;
+
 }
-.pr__flexible__col * {
-  margin: 0 auto;
-}
-.pr__flexible__col h3,
-.pr__flexible__col p {
-  text-align: justify;
+.press__col:nth-child(2) h3{
+  padding: 1rem auto;
+  font-size: 1rem;
+  text-align: center;
+  width: 70%;
 }
 
-.read__more {
-  text-align: center;
+.press__col:nth-child(2) .read__more{
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 677px) {
-  .pr__row {
+  .press__row {
     flex-direction: column;
   }
-  .pr__col {
+  .press__col{
     width: 100%;
   }
-  .pr__flexible__col {
-    width: 100%;
-    align-items: baseline;
+  .press__col:nth-child(2) {
+    flex-flow: column nowrap;
   }
-  .pr__col img {
-    border-top-left-radius: 10px;
+  .press__col:nth-child(1) img {
     border-top-right-radius: 10px;
-    border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
-  .pr__col h3,
-  .pr__col p {
-    width: 95%;
-    padding-bottom: 5px;
+  .press__col:nth-child(2) h3{
+    width: 95% !important;
   }
 }
