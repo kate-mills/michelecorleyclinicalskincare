@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
   }
 
   return (
-    <Layout>
+    <Layout noindex>
       <Component {...rest} />
     </Layout>
   )

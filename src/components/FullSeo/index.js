@@ -87,11 +87,7 @@ const SEO = ({
         <meta name="author" content="Michele Corley" />
         {seo.url && <link rel="canonical" href={seo.url} />}
         {snippet && <script type="application/ld+json">{snippet}</script>}
-        {noindex ? (
-          <meta name="robots" content="noindex nofollow" />
-        ) : (
-          <meta name="robots" content="index follow" />
-        )}
+        {noindex && <meta name="robots" content="noindex nofollow" /> }
 
         {/* Google domain verification */}
         <meta

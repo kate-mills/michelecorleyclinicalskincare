@@ -31,7 +31,7 @@ class Login extends React.Component {
     }
 
     return (
-      <Layout>
+      <Layout noindex>
         <Form
           handleUpdate={e => this.handleUpdate(e)}
           handleSubmit={e => this.handleSubmit(e)}

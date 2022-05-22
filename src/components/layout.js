@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { Helmet } from 'react-helmet'
+
 import { Logo } from './LogoImg'
 import Announcement from './Announcement'
 import MobileNavbar from './globals/MobileNavbar'
@@ -9,9 +11,11 @@ import ProductSearch from './ProductSearch'
 
 import Footer from './Footer'
 
-const Layout = ({ children }) => {
+const Layout = ({noindex=false, children }) => {
   return (
     <>
+        {noindex && <Helmet><meta name="robots" content="noindex nofollow"/></Helmet>}
+
       <Announcement />
       <div id="content">
         <main>

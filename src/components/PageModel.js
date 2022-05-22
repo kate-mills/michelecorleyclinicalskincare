@@ -21,7 +21,7 @@ const PageModel = ({
   return (
     <Layout>
       <SEO
-        noindex
+        noindex={noindex}
         snippet={snippet}
         keywords={keywords}
         title={seoTitle || title}

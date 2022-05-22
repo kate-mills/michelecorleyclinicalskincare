@@ -7,8 +7,9 @@ import styled from 'styled-components'
 
 const ProOrders = () => {
   return (
-    <PageModel title="Pro Orders" centeredTitle>
+    <PageModel title="Pro Orders" centeredTitle description="Login or create a professional account, and order your Michele Corley Clinical Skin Care products online.">
       <ProOrdersWrapper>
+    <h2 className="sr-only">Login or create a professional account, and order your Michele Corley Clinical Skin Care products online.</h2>
         <div className="txt-center w-100">
           <p>
             If you need a login to place online orders contact us{` - `}
