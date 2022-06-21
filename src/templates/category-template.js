@@ -74,7 +74,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(cropFocus: CENTER, width: 300, quality: 100, toFormat: WEBP, background: "white") {
+            fixed(cropFocus: CENTER, width: 300, quality: 100, toFormat: WEBP, background: "#fff") {
               ...GatsbyContentfulFixed
             }
           }
@@ -92,7 +92,7 @@ export const query = graphql`
               quality: 100
               width: 90
               height: 90
-              background: "transparent"
+              background: "#fff"
             ) {
               ...GatsbyContentfulFixed
             }

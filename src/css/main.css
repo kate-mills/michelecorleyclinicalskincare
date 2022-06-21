@@ -1,15 +1,16 @@
 :root{
-  --clr-primary-5: hsl(21, 62%, 45%);
+  --clr-primary-5: hsl(220deg 65% 28%);
   --clear: rgba(0, 0, 0, 0);
-  --darkGrey: #cfcfcf; /* form borders */
-  --mainBlack:#1d252d;/* #5d5252;*/
-  --mainMcc: #CFCFCF;/*#dcdcdc;*/
-  --mainWhite: #FFF;/*#F4F6F6;*/
+  --darkGrey: #9D9692;
+  --mainBlack: #1d252d;
+  --mainMcc: #DCDCDC;
+  --offWhite: #F9F9F9;
+  --mainWhite: #FEFEFE;
   --mainSpacing: 0.0625rem;
-  --poppy: #1C57A5;/* #a5655f;*/
-  --poppyLow: #A49674; /*rgb(165 101 95 / .8);*/
-  --poppyHigh: #193875; /*#ab484f;*/
-  --poppyDark: #1d252d; /*#844D49;*/
+  --poppy: #1C57A5;
+  --poppyLow: #6F7CB9;
+  --poppyHigh:#3F78C2;
+  --poppyDark: #4B5198;
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
@@ -32,7 +33,7 @@
   outline: var(--clear);
 }
 ::selection{
-  background-color: gainsboro;
+  background-color: var(--mainMcc);
   color: var(--poppyHigh);
 }
 a {

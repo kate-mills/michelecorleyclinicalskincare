@@ -175,9 +175,9 @@ const ProductWrapper = styled.article`
         position: relative;
         margin-left: 15px;
         margin-right: 15px;
-        background: #c75958;
-        border: 2px solid #e3bab5;
-        color: #fefefe;
+        background:var(--poppyLow);
+        border: 2px solid var(--darkGrey);
+        color: var(--offWhite);
       }
     }
   }
@@ -225,7 +225,7 @@ const ProductWrapper = styled.article`
     li.product-profile-sheet {
       a.get-product-profile-sheet {
         font-size: 0.9rem;
-        color: #a5655f;
+        color: var(--poppy);
       }
       > *:first-child::before {
         content: ' ';

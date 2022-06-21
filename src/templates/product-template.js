@@ -74,20 +74,20 @@ export const query = graphql`
         id
         title
         description
-        fluid(maxWidth: 300, maxHeight: 350, quality: 100, toFormat: WEBP, background: "white" ) {
+        fluid(maxWidth: 300, maxHeight: 350, quality: 100, toFormat: WEBP, background: "#fff" ) {
           src
           ...GatsbyContentfulFluid
         }
       }
       seoImg: imgRetail {
-        fixed(resizingBehavior: PAD, width: 400, height: 200, quality: 100, toFormat: WEBP, background: "white") {
+        fixed(resizingBehavior: PAD, width: 400, height: 200, quality: 100, toFormat: WEBP, background: "#fff") {
           src
           ...GatsbyContentfulFixed
         }
       }
       award
       awardImage {
-        fixed(quality: 100, width: 90, height: 90, background: "transparent") {
+        fixed(quality: 100, width: 90, height: 90, background: "#fff", toFormat: WEBP) {
           ...GatsbyContentfulFixed
         }
       }

@@ -130,7 +130,7 @@ const FooterWrapper = styled(Footer)`
     margin: 2rem auto;
     .icon {
       background-color: var(--mainWhite) !important;
-      color: var(--poppy)!important;
+      color: var(--darkGrey) !important;
     }
   }
   div.row.sm-text p {

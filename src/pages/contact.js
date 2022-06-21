@@ -85,7 +85,6 @@ const PageWrapper = styled.section`
       width: 100%;
     }
     & .contact-img-container aside {
-      background: red;
       display: none !important;
     }
     & .flex-col .flex-item-1 .contact-img-container {
