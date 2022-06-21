@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const query = graphql`
   {
-    file(relativePath: { eq: "final-logo.jpg" }) {
+    file(relativePath: { eq: "michele-corley-clinical-skin-care-logo.jpg" }) {
       childImageSharp {
         fixed(width: 300, height: 220) {
           ...GatsbyImageSharpFixed
@@ -22,7 +22,9 @@ export const Logo = () => {
         loading="eager"
         fixed={data.file.childImageSharp.fixed}
         media="screen"
-        alt="Michele Corley Clinical Skincare Logo"
+        alt="Michele Corley Clinical Skin Care Logo"
+    title="Michele Corley Clinical Skin Care Logo"
+
       />
     </Wrapper>
   )

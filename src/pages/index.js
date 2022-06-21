@@ -23,7 +23,7 @@ const Home = ({ data }) => {
 
 export const query = graphql`
   query {
-    allFile(filter: { relativeDirectory: { eq: "slideshow/fixed" } }) {
+    allFile(filter: { relativeDirectory: { eq: "slideshow" } }) {
       nodes {
         childImageSharp {
           fluid(maxWidth: 1280, maxHeight: 800, fit: COVER) {

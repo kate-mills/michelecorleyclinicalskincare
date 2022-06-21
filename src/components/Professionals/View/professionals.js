@@ -92,7 +92,7 @@ const Profile = () => {
     <>
       <SEO
         title="Education"
-        image={'https://michelecorleyclinicalskincare.com/seoimage.jpg'}
+        image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
       />
       <h1 className="poppy txt-center">Education</h1>
       {/* Top Row - Manuals */}

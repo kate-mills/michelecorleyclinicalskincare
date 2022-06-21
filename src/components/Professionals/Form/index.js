@@ -8,7 +8,7 @@ export default ({ handleSubmit, handleUpdate }) => (
   <>
     <SEO
       title={`Professionals Login`}
-      image={'https://michelecorleyclinicalskincare.com/seoimage.jpg'}
+      image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
     />
     <p className={styles[`form__instructions`]}>
       Professionals, please contact us at{' '}

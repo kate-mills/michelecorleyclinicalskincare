@@ -2,14 +2,14 @@
   --clr-primary-5: hsl(21, 62%, 45%);
   --clear: rgba(0, 0, 0, 0);
   --darkGrey: #cfcfcf; /* form borders */
-  --mainBlack: #5d5252;
-  --mainMcc: #dcdcdc;
-  --mainWhite: #fff;
+  --mainBlack:#1d252d;/* #5d5252;*/
+  --mainMcc: #CFCFCF;/*#dcdcdc;*/
+  --mainWhite: #FFF;/*#F4F6F6;*/
   --mainSpacing: 0.0625rem;
-  --poppy: #a5655f;
-  --poppyLow: rgb(165 101 95 / .8);
-  --poppyHigh: #ab484f;
-  --poppyDark: #844D49;
+  --poppy: #1C57A5;/* #a5655f;*/
+  --poppyLow: #A49674; /*rgb(165 101 95 / .8);*/
+  --poppyHigh: #193875; /*#ab484f;*/
+  --poppyDark: #1d252d; /*#844D49;*/
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;

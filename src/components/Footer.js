@@ -25,7 +25,7 @@ const Footer = props => {
   return (
     <footer className={props.className}>
       <div className="column">
-        <Image fluid={infinity.childImageSharp.fluid} />
+        <Image fluid={infinity.childImageSharp.fluid} title="Infinity Symbol" alt="Infinity Symbol"/>
         <div className="lg-text">
           <h6
             style={{

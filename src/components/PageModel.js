@@ -27,7 +27,7 @@ const PageModel = ({
         title={seoTitle || title}
         description={description}
         image={
-          image || 'https://michelecorleyclinicalskincare.com/seoimage.jpg'
+          image || 'https://michelecorleyclinicalskincare.com/logo.jpg'
         }
       />
 

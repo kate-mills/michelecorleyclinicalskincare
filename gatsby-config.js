@@ -9,11 +9,11 @@ module.exports = {
     dateModified: `${new Date().toISOString()}`,
     author: `MCC`,
     twitterUsername: `@katie_napa`,
-    image: `/seoimage.jpg`,
+    image: `/logo.jpg`,
     url: `https://michelecorleyclinicalskincare.com`,
     baseUrl: `https://michelecorleyclinicalskincare.com`,
     siteUrl: `https://michelecorleyclinicalskincare.com`,
-    defaultImage: `https://michelecorleyclinicalskincare.com/seoimage.jpg`,
+    defaultImage: `https://michelecorleyclinicalskincare.com/logo.jpg`,
     organization: {
       address: {
         street: `1400 Lafayette St.`,
@@ -25,13 +25,14 @@ module.exports = {
       email: `customerservice@michelecorley.com`,
       name: `Michele Corley Clinical Skin Care`,
       url: `https://michelecorleyclinicalskincare.com`,
-      logo: `https://michelecorleyclinicalskincare.com/seoimage.jpg`,
+      logo:`https://michelecorleyclinicalskincare.com/logo.jpg`,
       telephone: `707-287-0555`,
       priceRange: `$$`,
       sameAs: [
         `https://vimeo.com/michelecorley`,
         `https://www.facebook.com/michelecorleyclinicalskincare`,
         `https://www.instagram.com/michelecorleyskincare`,
+        `https://www.pinterest.com/michelecorleyskincare`,
       ],
     },
   },
@@ -83,19 +84,6 @@ module.exports = {
         theme_color: `#dcdcdc`,
         display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
-        icons: [
-          {
-            src: `android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-            purpose: 'maskable',
-          },
-        ],
         crossOrigin: `use-credentials`,
       },
     },

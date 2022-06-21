@@ -13,7 +13,7 @@ const Whymc = ({
   const facialImg = nodes[0]
   return (
     <PageModel
-    seoTitle="Why Estheticians Choose Us"
+      seoTitle="Why Estheticians Choose Us"
       title="Why Choose Michele Corley Clinical Skincare?"
       description="What makes Michele Corley Clinical Skin Care different in a sea of other brands?  Our commitment to you and your success by offering the best possible products for your clients; with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
     >
@@ -28,7 +28,7 @@ const Whymc = ({
               className="mobile-img"
               fluid={facialImg.childImageSharp.fluid}
               alt="Woman receiving a relaxing facial."
-              style={{ maxWidth: '447px', maxHeight: '352px' }}
+              style={{ maxWidth: '400px' }}
             />
             <ul data-bullet-list className="why-mc">
               <li>
@@ -98,6 +98,7 @@ const WhyWrapper = styled.div`
     display-content: center;
     flex-direction: column;
     margin: 0 auto;
+    justify-content: space-between;
   }
   & div.row {
     display: flex;
@@ -106,7 +107,7 @@ const WhyWrapper = styled.div`
     width: 100%;
   }
   & p.p1 {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
   }
   & p.p2 {
     padding-bottom: 0;
@@ -134,7 +135,9 @@ const WhyWrapper = styled.div`
     & div.mobile-img {
       display: none;
     }
-    & .col-left,
+    & .col-left {
+      width: 49%;
+    }
     & .col-right {
       width: 50%;
     }

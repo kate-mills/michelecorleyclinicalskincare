@@ -29,7 +29,7 @@ const ContactPage = ({ data }) => {
               <p className="indent-p">Thank you!</p>
             </div>
             <div className="contact-img-container">
-              <Image fluid={data.file.childImageSharp.fluid} />
+              <Image fluid={data.file.childImageSharp.fluid} alt="Bright red flowers and spa rocks in water." title="Contact Michele Corley Clinical Skin Care"/>
               <ContactInfo className="desktop" wrapperMaxWidth="100%" />
             </div>
           </div>
@@ -100,7 +100,7 @@ const PageWrapper = styled.section`
 
 export const query = graphql`
   {
-    file(relativePath: { eq: "contact-img.png" }) {
+    file(relativePath: { eq: "red-flowers.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
