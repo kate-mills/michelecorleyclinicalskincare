@@ -4,7 +4,7 @@ import Image from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import VideoPlayer from '../Video'
 import ScreenReaderText from '../ScreenReaderText'
-import {getSymanticSkinTypes} from '../../utils/helpers'
+import { getSymanticSkinTypes } from '../../utils/helpers'
 
 const Product = ({ product, isTemplate }) => {
   const {
@@ -16,7 +16,9 @@ const Product = ({ product, isTemplate }) => {
     profiles,
   } = product
 
-  let categoryStatement = `${product.name} is formulated for ${getSymanticSkinTypes(skinType).toLowerCase()}.`
+  let categoryStatement = `${
+    product.name
+  } is formulated for ${getSymanticSkinTypes(skinType).toLowerCase()}.`
 
   return (
     <ProductWrapper className="single-product page-article">
@@ -61,7 +63,11 @@ const Product = ({ product, isTemplate }) => {
         <p className="product-description">{description.description}</p>
         <div className="product-media" id={name}>
           <div className="img-container">
-            <AniLink fade to={`/product-images-and-logos/${product.slug}/`} aria-label="View image">
+            <AniLink
+              fade
+              to={`/product-images-and-logos/${product.slug}/`}
+              aria-label="View image"
+            >
               {isTemplate ? (
                 <Image
                   className="fluid-img"
@@ -163,19 +169,18 @@ const ProductWrapper = styled.article`
   & .product-heading.acne-safe {
     margin-top: 3rem;
     div.acne-safe {
-      position: relative;
       white-space: pre-line;
       ::after {
         content: 'ACNE-SAFE';
         display: inline-block;
         font-size: 0.85rem;
         line-height: 1;
-        padding: 0.2rem;
-        bottom: 0.2rem;
+        padding: 0.4rem;
+        bottom: 0.3rem;
         position: relative;
         margin-left: 15px;
         margin-right: 15px;
-        background:var(--poppyLow);
+        background: var(--poppy);
         border: 2px solid var(--darkGrey);
         color: var(--offWhite);
       }
