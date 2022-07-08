@@ -20,7 +20,7 @@ const Layout = ({noindex=false, children }) => {
       <div id="content">
         <main>
           <MobileNavbar />
-          <Logo />
+          <Logo loading="eager"/>
           <ProductSearch tabIndex={0} />
           <DesktopNavbar tabIndex={0} />
           {children}
