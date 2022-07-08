@@ -8,9 +8,8 @@ import styled from 'styled-components'
 
 const RaveReviews = ({ data }) => {
   return (
-    <PageModel title="Rave Reviews">
+    <PageModel title="Rave Reviews" centeredTitle>
       <RaveReviewsWrapper>
-        <h1 className="poppy txt-center">Rave Reviews!</h1>
         <RaveReviewList reviews={data.allAirtable.reviews} />
       </RaveReviewsWrapper>
     </PageModel>

@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import PageModel from '../components/PageModel'
-import PageTitle from '../components/Title'
 import styled from 'styled-components'
 
 const Whymc = ({
@@ -16,11 +15,8 @@ const Whymc = ({
       seoTitle="Why Estheticians Choose Us"
       title="Why Choose Michele Corley Clinical Skincare?"
       description="What makes Michele Corley Clinical Skin Care different in a sea of other brands?  Our commitment to you and your success by offering the best possible products for your clients; with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
-    >
-      <PageTitle
-        size="37px"
-        title="Why Choose Michele Corley Clinical Skincare?"
-      />
+    centeredTitle>
+
       <WhyWrapper>
         <div className="row">
           <div className="col-left">
