@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Layout from '../components/layout'
-import PageTitle from '../components/Title'
+import Title from '../components/Title'
 import SEO from '../components/FullSeo'
 
 const PageModel = ({
@@ -11,10 +11,8 @@ const PageModel = ({
   description,
   keywords,
   image,
-  color,
-  centeredTitle,
-  defaultTitle,
   noindex,
+  centeredTitle,
   homePage,
   children,
 }) => {
@@ -26,29 +24,32 @@ const PageModel = ({
         keywords={keywords}
         title={seoTitle || title}
         description={description}
-        image={
-          image || 'https://michelecorleyclinicalskincare.com/logo.jpg'
-        }
+        image={image}
       />
 
-      {centeredTitle && <PageTitle title={title} color={color || ''} center />}
-
-      {defaultTitle && <PageTitle title={title} color={color || ''} />}
-
       {homePage && (
-        <PageTitle
-          title="Beautifully Healthy Skin Starts Here"
+        <Title
           color="var(--mainBlack)"
-          center
+          size={'2.6876rem'}
+          title="Beautifully Healthy Skin Starts Here"
         />
       )}
-
+      {centeredTitle && (
+        <Title color={'var(--poppyDark)'} size={'2.3876rem'} title={title} />
+      )}
       {children}
     </Layout>
   )
 }
 
 PageModel.defaultProps = {
-  keywords:[],
+  centeredTitle: false,
+  description: '',
+  image: 'https://michelecorleyclinicalskincare.com/logo.jpg',
+  homePage: false,
+  keywords: [],
+  noindex: false,
+  seoTitle: '',
+  title: '',
 }
 export default PageModel
