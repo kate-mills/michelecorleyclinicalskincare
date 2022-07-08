@@ -22,10 +22,10 @@ const Product = ({ product, isTemplate }) => {
 
   return (
     <ProductWrapper className="single-product page-article">
-      <div className={`product-heading ${acneSafe && 'acne-safe'}`}>
+      <div className={`product-heading${acneSafe ? ' acne-safe' : ''}`}>
         <h2
-          className={`product-name ${isTemplate ? 'template' : ''} ${
-            product.award ? 'winner' : ''
+          className={`product-name${isTemplate ? ' template' : ''}${
+            product.award ? ' winner' : ''
           }`}
         >
           <div className={`${acneSafe && 'acne-safe'}`}>
@@ -38,9 +38,7 @@ const Product = ({ product, isTemplate }) => {
             )}
           </div>
         </h2>
-
         <ScreenReaderText element="h3" text={`${categoryStatement}`} />
-
         {product.award && (
           <Image
             className="award-winner"
@@ -71,16 +69,16 @@ const Product = ({ product, isTemplate }) => {
               {isTemplate ? (
                 <Image
                   className="fluid-img"
-                  fluid={product.fluidImg.fluid}
-                  alt={product.fluidImg.description || `Retail size ${name} `}
-                  title={`Michele Corley ${name}`}
+                  fluid={product?.fluidImg?.fluid}
+                  alt={`Retail Size ${name}`}
+                  title={`Retail Size ${name}`}
                 />
               ) : (
                 <Image
                   className="fixed-img"
-                  fixed={product.imgRetail.fixed}
-                  alt={product.imgRetail.description || product.imgRetail.title}
-                  title={`Michele Corley ${name}`}
+                  fixed={product?.imgRetail?.fixed}
+                  alt={`Retail Size ${name}`}
+                  title={`Retail Size ${name}`}
                 />
               )}
             </AniLink>
