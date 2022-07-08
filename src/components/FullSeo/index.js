@@ -81,10 +81,13 @@ const SEO = ({
   return (
     <React.Fragment>
       <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
         <meta name="keywords" content={seo.keywords} />
         <meta name="author" content="Michele Corley" />
+
         {seo.url && <link rel="canonical" href={seo.url} />}
         {snippet && <script type="application/ld+json">{snippet}</script>}
         {noindex && <meta name="robots" content="noindex nofollow" /> }
