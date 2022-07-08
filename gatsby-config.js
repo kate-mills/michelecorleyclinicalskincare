@@ -46,7 +46,6 @@ module.exports = {
         sitemap: `https://michelecorleyclinicalskincare.com/sitemap.xml`,
         policy: [
           { userAgent: '*', allow: '/' },
-          { userAgent: '*', disallow: '/new-page-3' },
           { userAgent: '*', disallow: '/app' },
           { userAgent: '*', disallow: '/app/login' },
         ],
