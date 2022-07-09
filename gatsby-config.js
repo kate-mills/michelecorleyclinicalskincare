@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Michele Corley Clinical Skin Care`,
-    description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
+    description: `Achieve beautifully healthy skin. Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.`,
     dateModified: `${new Date().toISOString()}`,
     author: `MCC`,
     twitterUsername: `@katie_napa`,
@@ -76,7 +76,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `michele corley clinical skin care`,
+        name: `Michele Corley Clinical Skin Care`,
+        description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
         short_name: `mcc`,
         start_url: `/`,
         background_color: `#dcdcdc`,
