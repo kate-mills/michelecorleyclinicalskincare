@@ -16,6 +16,7 @@ export default function Slideshow({ images = [], interval = 3000 }) {
 
   return (
     <Img
+      load={'eager'}
       fluid={images[currentSlide].childImageSharp.fluid}
       title={`Michele Corley product highlight`}
       alt={`Michele Corley product highlight`}
