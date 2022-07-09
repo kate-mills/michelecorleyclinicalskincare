@@ -11,8 +11,6 @@ const Video = ({ src, title, ...props }) => {
           title={title}
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           frameBorder="0"
-          webkitallowfullscreen="true"
-          mozallowfullscreen="true"
           allowFullScreen
         />
       </div>
