@@ -4,7 +4,7 @@ import { GrFacebook, GrVimeo, GrPinterest, GrInstagram } from 'react-icons/gr'
 
 let iconStyle = {
   backgroundColor: 'var(--mainWhite)',
-  color: 'var(--clr-primary-5)'
+  color: 'var(--darkGrey)'
 }
 export default [
   {
