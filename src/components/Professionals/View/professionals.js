@@ -89,29 +89,27 @@ const Profile = () => {
   const bowl = media.nodes.filter(({ data }) => data.name === 'bowl')
 
   return (
-    <>
+    <article>
       <SEO
         title="Education"
         image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
       />
       <h1 className="poppy txt-center">Education</h1>
-      {/* Top Row - Manuals */}
-      <article className={styles.manuals__row}>
-        {/* Left column  - esty image */}
+
+      {/* Row -  Manuals */}
+      <section className={styles.manuals__row}>
         <Img
           className={`${styles.manuals__col} ${styles.left}`}
           fluid={esty[0].data.image.localFiles[0].childImageSharp.fluid}
         />
-        {/* Right column pdf's */}
         <div className={`${styles.manuals__col}  ${styles.right}`}>
-          {/* Right item */}
           {manuals.nodes.map(({ id, data }) => {
             return (
               <div key={id} className={styles.manual__item}>
-                <h2 className="poppy">{data.name}</h2>
-                <p className={styles.manual__notes}>{data.notes}</p>
+                <h3 className={styles.item__name}>{data.name}</h3>
+                <p className={styles.item__notes}>{data.notes}</p>
                 <a
-                  className="btn"
+                  className={`${styles.section__download} btn`}
                   href={data.pdf.localFiles[0].publicURL}
                   target="_blank"
                   rel="noreferrer"
@@ -123,64 +121,48 @@ const Profile = () => {
             )
           })}
         </div>
-      </article>
-      {/* Under image of esty */}
-      <article className={`${styles.orders__col}`}>
-        <h2 className={`${styles.heading__h2} poppy `}>Order Specifics</h2>
-        <ul data-bullet-list>
-          <li>
-            <p>$100 minimum order (Exception - Best Sellers Travel Size Kit)</p>
-          </li>
-          <li>
-            <p> Orders shipped via UPS within 1-3 business days</p>
-          </li>
-          <li>
-            <p>MC, Visa, American Express, and Discover are accepted</p>
-          </li>
-        </ul>
-      </article>
+      </section>
+
+      {/* Row -  Orders */}
+      <section className={`${styles.order__specifics}`}>
+        <h2 className={`${styles.section__header}`}>Order Specifics</h2>
+        <div
+          className={`${styles.order__specifics__wrapper} ${styles.section__content__wrapper}`}
+        >
+          <ul data-bullet-list className={styles.order__specifics__list}>
+            <li className={styles.order__specifics__item}>
+              <p className={styles.order__specifics__item__details}>
+                $100 minimum order (Exception - Best Sellers Travel Size Kit)
+              </p>
+            </li>
+            <li className={styles.order__specifics__item}>
+              <p className={styles.order__specifics__item__details}>
+                Orders shipped via UPS within 1-3 business days
+              </p>
+            </li>
+            <li className={styles.order__specifics__item}>
+              <p className={styles.order__specifics__item__details}>
+                MC, Visa, American Express, and Discover are accepted
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
 
       {/* Row -  Facials */}
-      <article className={`${styles.facials}`}>
-        <div className={styles.facial__header}>
-          <h2 className="poppy">Facial Protocols</h2>
-        </div>
-        <div className={styles.facial__top__container}>
-          {facialsA.nodes.map(({ id, data }) => {
-            return (
-              <div key={id} className={styles.facialA__item}>
-                <h3 className={styles.facial__name}>{data.name}</h3>
-                <a
-                  className="btn"
-                  href={data.pdf.localFiles[0].publicURL}
-                  target="_blank"
-                  rel="noreferrer"
-                  download
-                >
-                  Download
-                </a>
-              </div>
-            )
-          })}
-        </div>
-        <div className={`${styles.facial__bottom__container}`}>
-          <div className={styles.facial__col__left}>
-            <Img
-              className={styles.facial__img}
-              fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
-              alt="Show a hand holding a bowl containing a fan brush and facial product."
-            />
-          </div>
-
-          <div
-            className={`${styles.facial__col__right} ${styles.facial__item}`}
-          >
-            {facialsB.nodes.map(({ id, data }) => {
+      <section
+        title="Facials"
+        className={`${styles.section} ${styles.section__facials}`}
+      >
+        <h2 className={styles.section__header}>Facial Protocols</h2>
+        <div className={`${styles.section__content__wrapper}`}>
+          <div className={styles.facial__top__container}>
+            {facialsA.nodes.map(({ id, data }) => {
               return (
-                <div key={id} className={styles.facialB__item}>
-                  <h3 className={styles.facial__name}>{data.name}</h3>
+                <div key={id} className={styles.facialA__item}>
+                  <h3 className={styles.item__name}>{data.name}</h3>
                   <a
-                    className="btn"
+                    className={`${styles.section__download} btn`}
                     href={data.pdf.localFiles[0].publicURL}
                     target="_blank"
                     rel="noreferrer"
@@ -192,9 +174,38 @@ const Profile = () => {
               )
             })}
           </div>
+          <div className={`${styles.facial__bottom__container}`}>
+            <div className={styles.facial__col__left}>
+              <Img
+                className={styles.section__facials_img}
+                fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
+                alt="Show a hand holding a bowl containing a fan brush and facial product."
+              />
+            </div>
+            <div
+              className={`${styles.facial__col__right} ${styles.facial__item}`}
+            >
+              {facialsB.nodes.map(({ id, data }) => {
+                return (
+                  <div key={id} className={styles.facialB__item}>
+                    <h3 className={styles.item__name}>{data.name}</h3>
+                    <a
+                      className={`${styles.section__download} btn`}
+                      href={data.pdf.localFiles[0].publicURL}
+                      target="_blank"
+                      rel="noreferrer"
+                      download
+                    >
+                      Download
+                    </a>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </div>
-      </article>
-    </>
+      </section>
+    </article>
   )
 }
 

@@ -1,109 +1,72 @@
 /* Manuals */
-.manuals__row{
+.manuals__row {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-evenly;
 }
-.manual__item p{ padding-bottom: 1.4em; }
-.manuals__row .manuals__col h2{
-  letter-spacing: 1px;
-  text-decoration-style: solid;
-  margin-top: 20px;
-}
-.manuals__row .manuals__col{
-  margin: 0 auto;
-  margin-left: 27px;
-  margin-right: 27px;
+.manuals__row .manuals__col {
+  margin: 30px auto;
   text-align: center;
   width: 100%;
 }
-.manuals__row div:nth-child(1) h2{
-  margin-top: 0;
+.manual__item .item__notes {
+  padding-bottom: 0.2rem;
 }
 .manuals__col.left {
   width: 30%;
 }
-.manuals__col.right{
+.manuals__col.right {
   width: 40%;
 }
+.manuals__row .manuals__col.right {
+  margin-top: -10px;
+}
+
 /* Orders  */
-.orders__col{
+.order__specifics {
   margin: 0 auto;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: fit-content;
 }
-.orders__col ul li p{
+.order__specifics__item > .order__specifics__item__details {
   margin-left: 25px;
   text-align: left;
   white-space: pre-line;
 }
-.orders__col [data-bullet-list]{
-  margin: 0 auto;
-  color: var(--mainBlack);
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 27px;
-  list-style: none;
-  margin-right: 0px;
-  margin-top: 0px;
+.order__specifics__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.orders__col ul{
-  margin: 0 auto;
-}
+
 /* Facials  */
-.facials a{
+.section__facials {
   padding: 0.5rem 1.6rem;
-  font-weight: 600;
 }
-.facials img{
-  margin: 0 auto;
-  margin-top: 40px;
-}
-.facials h3{
-  color: var(--mainBlack);
-  font-size: 21px;
-  font-weight: 400;
-  font-style: normal;
-  padding-bottom: 20px;
-  white-space: pre-line;
-  text-decoration-style: solid;
-  letter-spacing: var(--mainSpacing);
-}
-.facial__header{
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+.section__facials_img {
+  margin: 20px auto 0;
 }
 .facial__top__container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-div .facial__name{
-  color: var(--mainBlack);
-}
-.facial__top__container .facialA__item{
+.facial__top__container .facialA__item {
   width: 45%;
   text-align: center;
   margin: 0 auto;
   padding: 0.6rem 0.5rem;
   display: inline-block;
 }
-.facial__bottom__container{
+.facial__bottom__container {
   display: flex;
   margin-top: 5px;
 }
-.facial__bottom__container .facial__col__left{
+.facial__bottom__container .facial__col__left {
   width: 50%;
 }
-.facial__bottom__container .facial__col__left{
+.facial__bottom__container .facial__col__left {
   margin: 0 auto;
   width: 40%;
 }
@@ -112,41 +75,70 @@ div .facial__name{
   flex-direction: column;
 }
 .facial__bottom__container .facial__col__right .facialA__item,
-.facial__bottom__container .facial__col__right .facialB__item{
+.facial__bottom__container .facial__col__right .facialB__item {
   display: block;
   margin: 30px auto;
   text-align: center;
   width: 100%;
 }
-.facial__col__right.facial__item{
+.facial__col__right.facial__item {
   width: 50%;
 }
 .facial__col__right.facial__item:nth-child(2) .facialB__item {
   margin-top: unset;
   padding: 0.6rem 0;
 }
-@media screen and (max-width: 767px){
-  .manuals__row{
+
+/* Globals */
+.item__name {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.09rem;
+  line-height: 2rem;
+  white-space: pre-line;
+  margin: 30px auto 10px;
+  padding-bottom: 0;
+}
+.section__header {
+  color: var(--poppy);
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+.section__download {
+  padding: 0.5rem 1.6rem;
+  margin-top: 0.5rem;
+}
+.section__content__wrapper {
+  margin-top: -1rem;
+}
+
+/* Media */
+@media screen and (max-width: 767px) {
+  .manuals__row {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .manuals__row div.manuals__col.right{
-      width: 100%;
+  .manuals__row div.manuals__col.right {
+    width: 100%;
   }
   .manuals__col.left {
     width: 60%;
   }
-  .facial__col__left{ display: none; }
-  .facial__top__container{
+  .facial__col__left {
+    display: none;
+  }
+  .facial__top__container {
     flex-direction: column;
   }
-  .facial__bottom__container{
+  .facial__bottom__container {
     justify-content: center;
   }
   .facial__top__container .facialA__item,
-  .facial__col__right.facial__item{
+  .facial__col__right.facial__item {
     width: 100%;
   }
 }
