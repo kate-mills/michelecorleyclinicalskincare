@@ -15,8 +15,8 @@
   --headingLineHeight: 1.4em;
   --bgTransition: background-color 100ms linear;
   --mainTransition: all 0.1s linear;
-  --light-shadow: 0 5px 15px rgb(220 220 220 / 40%);
-  --dark-shadow: 0 5px 15px  rgb(220 220 220 / 48%);
+  --light-shadow: 0 5px 3px rgb(0 0 0 / 10%);
+  --dark-shadow:  0 0 4px rgb(0 0 0 / 15%);
 }
 *,
 ::after,
@@ -42,6 +42,9 @@ a {
   line-height: inherit;
   font-size: 100%;
   font-weight: 400;
+}
+a:hover{
+  cursor: pointer;
 }
 a:focus{
   outline: none;
@@ -199,6 +202,7 @@ div#content {
 .btn:hover,
 .btn:active,
 .btn:focus {
+  cursor: pointer;
   background: var(--mainWhite);
   color: var(--poppyHigh);
   border: 2px solid var(--poppyHigh);
