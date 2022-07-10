@@ -1,8 +1,7 @@
 :root{
-  --clr-primary-5: hsl(220deg 65% 28%);
   --clear: rgba(0, 0, 0, 0);
   --darkGrey: #9D9692;
-  --mainBlack: #1d252d;
+  --mainBlack:#4E4E4E;/* #1d252d;*/
   --mainMcc: #CFCFCF;
   --offWhite: #F9F9F9;
   --mainWhite: #FEFEFE;
@@ -132,8 +131,8 @@ p {
 }
 h3,
 p.description{
-  text-align: justify;
-  margin-bottom: 0 !important;
+  /*text-align: left;
+  margin-bottom: 0 !important;*/
 }
 ul  {
   list-style: none;
