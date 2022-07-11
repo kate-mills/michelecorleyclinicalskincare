@@ -15,7 +15,7 @@ const SignupPage = ({ data }) => {
         <div className="flex-col">
           <div className="flex-item-1">
             <div className="signup-text-container">
-              <h1 className="poppy">Signup For Specials</h1>
+              <h1 className="poppy">Join our email list!</h1>
               <p>If you're not getting our specials please signup here.</p>
               <p>Thank you!</p>
             </div>

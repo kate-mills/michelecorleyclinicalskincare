@@ -8,7 +8,7 @@ const SignupForm  = () => {
   return (
     <section className={styles.contact}>
       <h3 style={{ fontSize: '43px' }} className="poppy txt-center">
-        SIGN-UP
+        Get Specials
       </h3>
       <div className={styles.center}>
         <form
@@ -47,7 +47,7 @@ const SignupForm  = () => {
             </label>
           </div>
           <div>
-            <input type="submit" value="send" className={styles.submit} />
+            <input type="submit" value="signup" className={styles.submit} />
           </div>
         </form>
       </div>
