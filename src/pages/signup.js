@@ -10,7 +10,7 @@ import styled from 'styled-components'
 
 const SignupPage = ({ data }) => {
   return (
-    <PageModel title="Special Signup" seoTitle="Special Signup">
+    <PageModel title="Get Specials" seoTitle="Get Specials">
       <PageWrapper>
         <div className="flex-col">
           <div className="flex-item-1">
