@@ -9,6 +9,7 @@ export const UnformattedEmail = props => {
       className="full-email"
       target="_top"
       href={`mailto:${props.full_email}?subject=${fmtSubject}`}
+      title={`Email us at ${props.full_email}`}
     >
       <span className="email-prefix" style={{}}>
         {props.prefix}
@@ -27,7 +28,11 @@ UnformattedEmail.defaultProps = ConstantContactInfo.Email
 
 export const Phone = ({ areaCode, prefix, suffix }) => {
   return (
-    <a href={`tel:+${areaCode}${prefix}${suffix}`} rel="nofollow">
+    <a
+      href={`tel:+${areaCode}${prefix}${suffix}`}
+      rel="nofollow"
+      title={`Call us at ${areaCode}-${prefix}-${suffix}`}
+    >
       {`(${areaCode}) ${prefix} - ${suffix}`}
     </a>
   )
@@ -44,9 +49,9 @@ const ContactInfo = props => {
           <span className="space-lr">{`-`}</span>
           <span className="day">Friday</span>
           <span className="space-r">{`: `}</span>
-          <time dateTime="10:00">10 AM</time>
+          <time dateTime="09:00">9AM</time>
           <span className="space-lr">{`-`}</span>
-          <time dateTime="16:00">4 PM</time>
+          <time dateTime="16:00">4PM</time> EST
         </div>
       </div>
 
@@ -110,9 +115,6 @@ const Wrapper = styled.aside`
     flex-direction: column;
     padding: 5px 0;
     white-space: pre-line;
-  }
-  & > *,
-  & > * > * {
     color: var(--mainBlack);
   }
   & > .flex-container {
@@ -162,7 +164,6 @@ const Wrapper = styled.aside`
     padding-left: 5px !important;
     padding-right: 5px !important;
   }
-
   @media (max-width: 500px) {
     & > * :not(h2) {
       font-size: 14px;
