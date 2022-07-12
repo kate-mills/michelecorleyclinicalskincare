@@ -10,80 +10,95 @@ import styled from 'styled-components'
 
 const SignupPage = ({ data }) => {
   return (
-    <PageModel title="Get Specials" seoTitle="Get Specials">
+    <PageModel title="Signup For Specials" seoTitle="Signup For Specials" image={data.seoImg.publicURL}>
       <PageWrapper>
         <div className="flex-col">
           <div className="flex-item-1">
-            <div className="signup-text-container">
-              <h1 className="poppy">Join our email list!</h1>
+            <div className="signup-info">
+              <h1 className="signup-info__title">Join our email list!</h1>
               <p>If you're not getting our specials please signup here.</p>
               <p>Thank you!</p>
             </div>
-            <div className="signup-img-container">
-              <Image fluid={data.file.childImageSharp.fluid} alt="Michele Corley retail and travel size Ultra Rich Moisture Cream sitting on stone counter." title="Ultra Rich Moisture Cream Glamour Shot"/>
-              <ContactInfo className="desktop" wrapperMaxWidth="100%" />
-            </div>
+
+            <Image
+              className="signup-info__img"
+              fluid={data.file.childImageSharp.fluid}
+              alt="Michele Corley retail and travel size Ultra Rich Moisture Cream sitting on stone counter."
+              title="Ultra Rich Moisture Cream Glamour Shot"
+            />
           </div>
           <div className="flex-item-2">
             <SignupForm tabIndex={0} />
           </div>
         </div>
+        <ContactInfo className="desktop" wrapperMaxWidth="50%" />
       </PageWrapper>
     </PageModel>
   )
 }
 const PageWrapper = styled.section`
-  & .flex-col {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0 auto;
+  & h1 {
+    width: 100%;
+    padding-left: 10px;
   }
-  & .flex-col .flex-item-1 p {
-    padding: 0 0 1.2em;
-  }
-  & .signup-img-container {
-    margin: 20px auto;
-    max-width: 500px;
-  }
-  & .flex-col .flex-item-1 .page-instructions {
-    margin: 0 auto;
-    width: 75%;
-    text-align: left;
-    padding: 0 0 0.1rem;
-  }
+
   & .flex-col .flex-item-1 {
-    margin: 0 auto;
-    width: 50%;
+    width: 100%;
   }
-  & img{
-  
+  & .signup-img-container aside {
+    display: none !important;
+  }
+  & .flex-col .flex-item-1 .signup-img-container {
+    margin: 0 auto;
   }
   & .flex-col .flex-item-2 {
     margin: 0 auto;
-    width: 40%;
+    width: 100%;
+  }
+  & aside {
+    margin-right: auto;
+    margin-left: 0;
   }
 
-  @media (max-width: 767px) {
-    & h1 {
-      width: 100%;
-      padding-left: 10px;
-    }
-
-    & .flex-col .flex-item-1 {
-      width: 100%;
-    }
-    & .signup-img-container aside {
-      display: none !important;
-    }
-    & .flex-col .flex-item-1 .signup-img-container {
+  @media (min-width: 767px) {
+    & .flex-col {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
       margin: 0 auto;
+    }
+    & .flex-col .flex-item-1 p {
+      padding: 0 0 1.2em;
+    }
+    & .signup-info__title {
+      color: var(--poppy);
+    }
+    & .signup-img-container {
+    }
+    & img {
+      margin: 20px auto;
+      max-width: 500px;
+    }
+    & .flex-col .flex-item-1 .page-instructions {
+      margin: 0 auto;
+      width: 75%;
+      text-align: left;
+      padding: 0 0 0.1rem;
+    }
+    & .flex-col .flex-item-1 {
+      margin: 0 auto;
+      width: 50%;
+    }
+    & img {
     }
     & .flex-col .flex-item-2 {
       margin: 0 auto;
-      width: 100%;
+      width: 40%;
+    }
+    & aside {
+      max-width: 50%;
     }
   }
 `
@@ -97,7 +112,10 @@ export const query = graphql`
         }
       }
     }
+    seoImg:file(relativePath: { eq: "signup.jpg" }) {
+      publicURL
+    }
   }
 `
 
-export default  SignupPage
+export default SignupPage
