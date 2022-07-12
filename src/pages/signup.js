@@ -23,8 +23,8 @@ const SignupPage = ({ data }) => {
             <Image
               className="signup-info__img"
               fluid={data.file.childImageSharp.fluid}
-              alt="Michele Corley retail and travel size Ultra Rich Moisture Cream sitting on stone counter."
-              title="Ultra Rich Moisture Cream Glamour Shot"
+              alt="Six Michele Corley retail size cleansers are displayed on a counter with a teaspoon of Ultimate Performance Exfoliating Powder."
+              title="Six Michele Corley retail Size Cleansers Displayed With Ultimate Performance Exfoliating Powder"
             />
           </div>
           <div className="flex-item-2">
@@ -105,9 +105,9 @@ const PageWrapper = styled.section`
 
 export const query = graphql`
   {
-    file(relativePath: { eq: "ultra-rich-glamour-shot.jpg" }) {
+    file(relativePath: { eq: "cleansers-with-overflowing-teaspoon-of-powder.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
+        fluid(maxWidth:1000) {
           ...GatsbyImageSharpFluid
         }
       }
