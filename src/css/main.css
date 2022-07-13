@@ -132,11 +132,6 @@ p {
   white-space: pre-line;
   font-size: 1rem;
 }
-h3,
-p.description{
-  /*text-align: left;
-  margin-bottom: 0 !important;*/
-}
 ul  {
   list-style: none;
 }
