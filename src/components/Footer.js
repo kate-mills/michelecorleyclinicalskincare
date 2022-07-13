@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 import socialLinks from '../constants/social'
+import Email from '../components/Email'
 
 import ScreenReaderText from './ScreenReaderText'
 import { screen } from '../css/js/media-functions'
@@ -25,54 +26,31 @@ const Footer = props => {
   return (
     <footer className={props.className}>
       <div className="column">
-        <Image fluid={infinity.childImageSharp.fluid} title="Infinity Symbol" alt="Infinity Symbol"/>
-        <div className="lg-text">
-          <h6
-            style={{
-              marginBottom: '2rem',
-              textTransform: 'capitalize',
-              color: 'var(--mainBlack)',
-              fontWeight: '400',
-              lineHeight: '32px',
-              fontSize: '21px',
-              textAlign: 'center',
-            }}
-          >Follow Us On <ScreenReaderText text="Facebook, Instagram, Pinterest, and Vimeo." /></h6>
-    
-        </div>
-        <div className="row footer-icons">
+          <Image fluid={infinity.childImageSharp.fluid} title="Infinity Logo" alt="Infinity Symbol" />
+          <p className="follow-us-on">Follow Us On <span className="sr-only">Social Media</span></p>
+        <ul className="row footer-icons">
           {socialLinks.map((item, index) => {
             return (
-              <div className="icon" key={index}>
+              <li className="icon" key={index}>
                 <a
                   title={item.label}
                   href={item.href}
                   aria-label={item.label}
                   className={item.class}
-                  style={item.style}
-                >{item.icon}<ScreenReaderText text={item.label}/>
+                  style={item.style}>
+                  {item.icon}{' '}
+                  <ScreenReaderText element="span" text={item.label} />
                 </a>
-              </div>
+              </li>
             )
           })}
-        </div>
+        </ul>
         <div className="row lg-text phone-email">
-          <p style={{ margin: '0', padding: '0 0 1.0em' }}>
-            <span className="phone">{props.Telephone.phone}</span>
-            {` `}
-            <span className="middot">&middot;</span>
-            {` `}
-            <a
-              href={`mailto:${props.Email.full_email}?subject=${props.Email.subject}`}
-              target="_top"
-              className="email"
-            >
-              <span className="span1">{props.Email.prefix}</span>
-              <span className="email span2">
-                {props.Email.suffix}
-                {props.Email.ext}
-              </span>
-            </a>
+          <p className="phone-email__parsed">
+            {' '}
+            <span className="phone">{props.Telephone.phone}</span> {` `}{' '}
+            <span className="middot">&middot;</span> {` `}
+            <Email className={props.className} />
           </p>
         </div>
         <div className="row sm-text">
@@ -100,12 +78,20 @@ const FooterWrapper = styled(Footer)`
     text-align: center;
     letter-spacing: 1px;
     white-space: initial;
+    .follow-us-on{
+      text-transform: capitalize;
+      color: var(--mainBlack);
+      font-weight: 500;
+      line-height: 32px;
+      font-size: 20px;
+      text-align: center;
+      padding-bottom: 0;
+    }
   }
   & .gatsby-image-wrapper {
     width: 70%;
     max-height: auto;
     margin: 20px auto;
-    text-align: justify;
   }
   & div.row {
     width: 100%;
@@ -117,18 +103,21 @@ const FooterWrapper = styled(Footer)`
   }
 
   & div.column,
+  & ul.row,
   & div.row {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     color: var(--mainBlack);
     font-weight: 400;
   }
-  & div.row.footer-icons {
+  & ul.row.footer-icons {
     font-size: 28px;
     justify-content: space-evenly;
+    align-items: center;
     line-height: 1;
     margin: 2rem auto;
     .icon {
+      margin: 1rem;
       background-color: var(--mainWhite) !important;
       color: var(--darkGrey) !important;
     }
@@ -152,6 +141,10 @@ const FooterWrapper = styled(Footer)`
   div.phone-email p {
     white-space: initial;
   }
+  .phone-email__parsed {
+    margin: 0 auto;
+    padding: 0 0 1em;
+  }
   span.phone,
   a.email {
     text-decoration: none;
@@ -169,7 +162,7 @@ const FooterWrapper = styled(Footer)`
     font-weight: 300;
   }
   ${screen.phone.phone`
-    div.row.footer-icons{
+    ul.row.footer-icons{
       flex-direction: column;
     }
     .icon{
@@ -187,10 +180,11 @@ const FooterWrapper = styled(Footer)`
       font-size: 17px;
       text-align: center;
       letter-spacing: 0;
+      max-width: 
     }
   `}
   ${screen.tablet.tablet` 
-    div.row.footer-icons{
+    ul.row.footer-icons{
       flex-direction: column;
     }
     .icon{
@@ -201,7 +195,8 @@ const FooterWrapper = styled(Footer)`
     .middot {
       display: none;
     }
-    .div-row {
+    ul.row,
+    div.row {
       flex-direction: column;
       flex-wrap: wrap;
     }
