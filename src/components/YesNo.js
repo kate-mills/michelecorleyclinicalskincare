@@ -22,25 +22,25 @@ const YesNo = ({ className }) => {
           </h2>
           <ul data-bullet-list>
             <li>
-              <p className="li">Powerful Peptides</p>
+              <p className="ingredient">Powerful Peptides</p>
             </li>
             <li>
-              <p className="li">Potent Antioxidants</p>
+              <p className="ingredient">Potent Antioxidants</p>
             </li>
             <li>
-              <p className="li">Stable Vitamin C</p>
+              <p className="ingredient">Stable Vitamin C</p>
             </li>
             <li>
-              <p className="li">Active Enzymes</p>
+              <p className="ingredient">Active Enzymes</p>
             </li>
             <li>
-              <p className="li">Nutritious Plant Oils</p>
+              <p className="ingredient">Nutritious Plant Oils</p>
             </li>
             <li>
-              <p className="li">Balancing Essential Oils</p>
+              <p className="ingredient">Balancing Essential Oils</p>
             </li>
             <li>
-              <p className="li">Gentle Preservatives</p>
+              <p className="ingredient">Gentle Preservatives</p>
             </li>
           </ul>
         </div>
@@ -55,36 +55,33 @@ const YesNo = ({ className }) => {
           </h2>
           <ul data-bullet-list>
             <li>
-              <p className="li">Parabens</p>
+              <p className="ingredient">Parabens</p>
             </li>
             <li>
-              <p className="li">Synthetic Colorants</p>
+              <p className="ingredient">Synthetic Colorants</p>
             </li>
             <li>
-              <p className="li">Synthetic Fragrance</p>
+              <p className="ingredient">Synthetic Fragrance</p>
             </li>
             <li>
-              <p className="li">Phthalates</p>
+              <p className="ingredient">Phthalates</p>
             </li>
             <li>
-              <p className="li">
+              <p className="ingredient">
                 Formaldehyde Releasing
-                <span className="long-list-item" style={{}}>
-                  {' '}
-                  Preservatives
-                </span>
+                <span className="long-ingredient-name">Preservatives</span>
               </p>
             </li>
             <li>
-              <p className="li">Sodium Lauryl Sulfate</p>
+              <p className="ingredient">Sodium Lauryl Sulfate</p>
             </li>
           </ul>
         </div>
       </div>
-      <h3 className="yn-header poppy">
+      <h3 className="michele-corley-header poppy">
         Professional skincare that delivers. Clean, safe, efficacious formulas.
       </h3>
-      <h4 className="yn-header italic">
+      <h4 className="michele-corley-header italic">
         Only available through your licensed skincare professional.
       </h4>
     </div>
@@ -111,22 +108,34 @@ const Wrapper = styled(YesNo)`
     text-align: left;
     font-size: 2rem;
   }
-  & .li {
+  & .ingredient {
+    display: block;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: var(--mainBlack);
+    font-family: var(--mainFont);
+    font-weight: 300;
+    margin: 0.5em 0 0.3em;
     margin-bottom: 1.26rem;
-    .long-list-item {
+    line-height: var(--headingLineHeight);
+    font-weight: 300;
+
+    .long-ingredient-name {
       display: block;
-      margin: 1rem 0 1rem 0.4rem;
+      margin: 1rem 0px 1rem 0.4rem;
     }
   }
-  & .yn-header {
+  & .michele-corley-header {
     text-align: center;
     font-weight: 400;
   }
-  & .yn-header.poppy {
+  & .michele-corley-header.poppy {
     font-size: 1.6rem;
     margin-top: 2rem;
   }
-  & .yn-header.italic {
+  & .michele-corley-header.italic {
     font-size: 21px;
     font-style: italic;
   }
