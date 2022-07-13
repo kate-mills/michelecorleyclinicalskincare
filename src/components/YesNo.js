@@ -47,7 +47,7 @@ const YesNo = ({ className }) => {
 
         <div className="list">
           <h2 className="list-title poppy">
-            We say NO to
+            We say NO to{` `}
             <ScreenReaderText
               element="span"
               text="parabens, synthetic colorants, synthetic fragrance, phthalates, formaldehyde releasing preservatives, and sodium lauryl sulfate."
