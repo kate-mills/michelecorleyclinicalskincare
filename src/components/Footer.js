@@ -26,8 +26,14 @@ const Footer = props => {
   return (
     <footer className={props.className}>
       <div className="column">
-          <Image fluid={infinity.childImageSharp.fluid} title="Infinity Logo" alt="Infinity Symbol" />
-          <p className="follow-us-on">Follow Us On <span className="sr-only">Social Media</span></p>
+        <Image
+          fluid={infinity.childImageSharp.fluid}
+          title="Footer Logo"
+          alt="Infinity Symbol"
+        />
+        <p className="follow-us-on">
+          Follow Us On <span className="sr-only">Social Media</span>
+        </p>
         <ul className="row footer-icons">
           {socialLinks.map((item, index) => {
             return (
@@ -37,7 +43,8 @@ const Footer = props => {
                   href={item.href}
                   aria-label={item.label}
                   className={item.class}
-                  style={item.style}>
+                  style={item.style}
+                >
                   {item.icon}{' '}
                   <ScreenReaderText element="span" text={item.label} />
                 </a>
@@ -45,8 +52,8 @@ const Footer = props => {
             )
           })}
         </ul>
-        <div className="row lg-text phone-email">
-          <p className="phone-email__parsed">
+        <div className="phone-email">
+          <p className="phone-email-details">
             {' '}
             <span className="phone">{props.Telephone.phone}</span> {` `}{' '}
             <span className="middot">&middot;</span> {` `}
@@ -74,95 +81,94 @@ Footer.defaultProps = ConstantContactInfo
 
 const FooterWrapper = styled(Footer)`
   & {
+    line-height: 19px;
+    font-weight: 400;
+    background: #ffffff;
+    font-size: 1rem;
     padding: 0.1em 0 1.8em;
     text-align: center;
     letter-spacing: 1px;
     white-space: initial;
-    .follow-us-on{
-      text-transform: capitalize;
+    .gatsby-image-wrapper {
+      width: 70%;
+      max-height: auto;
+      margin: 20px auto;
+    }
+    .follow-us-on {
       color: var(--mainBlack);
-      font-weight: 500;
+      font-weight: 400;
+      font-size: 21px;
       line-height: 32px;
-      font-size: 20px;
+      margin-bottom: 2rem;
+      padding-bottom: 0;
       text-align: center;
+      text-transform: capitalize;
+    }
+    div.row, ul.footer-icons {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      color: var(--mainBlack);
+    }
+    div.column,
+    ul.footer-icons,
+    div.row {
+    }
+    ul.footer-icons {
+      display: flex;
+      font-size: 1.8rem;
+      justify-content: space-evenly;
+      line-height: 2rem;
+      margin: 1rem auto;
+      .icon {
+        margin: 0.5rem;
+        background-color: var(--mainWhite) !important;
+        color: var(--darkGrey) !important;
+      }
+    }
+    div.row.sm-text p {
+      padding: 5px;
       padding-bottom: 0;
     }
-  }
-  & .gatsby-image-wrapper {
-    width: 70%;
-    max-height: auto;
-    margin: 20px auto;
-  }
-  & div.row {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-
-  & div.column,
-  & ul.row,
-  & div.row {
-    font-size: 1rem;
-    line-height: 19px;
-    color: var(--mainBlack);
-    font-weight: 400;
-  }
-  & ul.row.footer-icons {
-    font-size: 28px;
-    justify-content: space-evenly;
-    align-items: center;
-    line-height: 1;
-    margin: 2rem auto;
-    .icon {
-      margin: 1rem;
-      background-color: var(--mainWhite) !important;
-      color: var(--darkGrey) !important;
+    div.row.sm-text p.address {
+      font-weight: 400;
+      font-size: 13px;
+    }
+    .sm-text {
+      font-size: 13px;
+    }
+    div.phone-email {
+      color: var(--mainBlack);
+      font-size: 20px;
+      margin-top: 10px;
+      line-height: 22px;
+    }
+    .phone-email-details {
+      margin: 0px;
+      padding: 0px 0px 1em;
+      color: var(--mainBlack);
+    }
+    div.phone-email p {
+      white-space: initial;
+    }
+    .phone-email-details {
+      margin: 0 auto;
+      padding: 0 0 1em;
+    }
+    span.phone,
+    a.email {
+      text-decoration: none;
+      font-weight: 400;
+    }
+    div.row.sm-text {
+      font-weight: 300;
     }
   }
-  div.row.sm-text p {
-    padding: 5px;
-  }
-  div.row.sm-text p.address {
-    font-weight: 400;
-    font-size: 13px;
-  }
-  & .sm-text {
-    font-size: 13px;
-  }
-  div.phone-email {
-    color: var(--mainBlack);
-    font-size: 20px;
-    margin-top: 10px;
-    line-height: 22px;
-  }
-  div.phone-email p {
-    white-space: initial;
-  }
-  .phone-email__parsed {
-    margin: 0 auto;
-    padding: 0 0 1em;
-  }
-  span.phone,
-  a.email {
-    text-decoration: none;
-    font-weight: 400;
-  }
-  & a.email {
-    font-size: 19px;
-    letter-spacing: 0px;
-  }
-  & a.email span {
-    display: inline;
-    letter-spacing: 0px;
-  }
-  div.row.sm-text {
-    font-weight: 300;
-  }
   ${screen.phone.phone`
-    ul.row.footer-icons{
+    ul.footer-icons{
       flex-direction: column;
     }
     .icon{
@@ -183,19 +189,14 @@ const FooterWrapper = styled(Footer)`
       max-width: 
     }
   `}
-  ${screen.tablet.tablet` 
-    ul.row.footer-icons{
-      flex-direction: column;
-    }
-    .icon{
-      margin: 20px;
-    } 
-  `}
+  ${screen.tablet.tablet``}
   @media (max-width: 700px) {
+    .icon {
+      margin: 20px;
+    }
     .middot {
       display: none;
     }
-    ul.row,
     div.row {
       flex-direction: column;
       flex-wrap: wrap;
