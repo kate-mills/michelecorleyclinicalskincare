@@ -3,81 +3,90 @@ import styled from 'styled-components'
 
 import ScreenReaderText from '../components/ScreenReaderText'
 
-//export const srOnlySpan = <span className="sr-only">Michele Corley Clinical Skin Care is packed with </span>
-
 const YesNo = ({ className }) => {
-
   return (
     <div className={className}>
-
-        <ScreenReaderText element="h2" text="Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."/>
+      <ScreenReaderText
+        element="p"
+        text="Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."
+      />
 
       <div className="flex-row">
         <div className="list">
-          <h3 className="list-title poppy">We say YES to <ScreenReaderText element="span" text="powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."/>
-    </h3>
+          <h2 className="list-title poppy">
+            We say YES to{' '}
+            <ScreenReaderText
+              element="span"
+              text="powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."
+            />
+          </h2>
           <ul data-bullet-list>
             <li>
-              <h6 className="li">Powerful Peptides</h6>
+              <p className="li">Powerful Peptides</p>
             </li>
             <li>
-              <h6 className="li">Potent Antioxidants</h6>
+              <p className="li">Potent Antioxidants</p>
             </li>
             <li>
-              <h6 className="li">Stable Vitamin C</h6>
+              <p className="li">Stable Vitamin C</p>
             </li>
             <li>
-              <h6 className="li">Active Enzymes</h6>
+              <p className="li">Active Enzymes</p>
             </li>
             <li>
-              <h6 className="li">Nutritious Plant Oils</h6>
+              <p className="li">Nutritious Plant Oils</p>
             </li>
             <li>
-              <h6 className="li">Balancing Essential Oils</h6>
+              <p className="li">Balancing Essential Oils</p>
             </li>
             <li>
-              <h6 className="li">Gentle Preservatives</h6>
+              <p className="li">Gentle Preservatives</p>
             </li>
           </ul>
         </div>
 
         <div className="list">
-          <h3 className="list-title poppy">We say NO to <ScreenReaderText element="span" text=" Parabens, Synthetic Colorants, Synthetic Fragrance, Phthalates, Formaldehyde Releasing Preservatives, and Sodium Lauryl Sulfate."/></h3>
+          <h2 className="list-title poppy">
+            We say NO to
+            <ScreenReaderText
+              element="span"
+              text="parabens, synthetic colorants, synthetic fragrance, phthalates, formaldehyde releasing preservatives, and sodium lauryl sulfate."
+            />
+          </h2>
           <ul data-bullet-list>
             <li>
-              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Parabens</h6>
+              <p className="li">Parabens</p>
             </li>
             <li>
-              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Synthetic Colorants</h6>
+              <p className="li">Synthetic Colorants</p>
             </li>
             <li>
-              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Synthetic Fragrance</h6>
+              <p className="li">Synthetic Fragrance</p>
             </li>
             <li>
-              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Phthalates</h6>
+              <p className="li">Phthalates</p>
             </li>
             <li>
-              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Formaldehyde Releasing
-                <span
-                  style={{
-                      display: 'block',
-                      margin: '1rem 0 1rem .4rem',
-                    }}> Preservatives
+              <p className="li">
+                Formaldehyde Releasing
+                <span className="long-list-item" style={{}}>
+                  {' '}
+                  Preservatives
                 </span>
-              </h6>
+              </p>
             </li>
             <li>
-              <h6 className="li"><ScreenReaderText element="span" text="NO"/> Sodium Lauryl Sulfate</h6>
+              <p className="li">Sodium Lauryl Sulfate</p>
             </li>
           </ul>
         </div>
       </div>
-      <h5 className="yn-header poppy">
+      <h3 className="yn-header poppy">
         Professional skincare that delivers. Clean, safe, efficacious formulas.
-      </h5>
-      <h5 className="yn-header italic">
+      </h3>
+      <h4 className="yn-header italic">
         Only available through your licensed skincare professional.
-      </h5>
+      </h4>
     </div>
   )
 }
@@ -101,24 +110,25 @@ const Wrapper = styled(YesNo)`
     white-space: pre-wrap;
     text-align: left;
     font-size: 2rem;
-
   }
-
-  & .li{
+  & .li {
     margin-bottom: 1.26rem;
+    .long-list-item {
+      display: block;
+      margin: 1rem 0 1rem 0.4rem;
+    }
   }
   & .yn-header {
     text-align: center;
+    font-weight: 400;
   }
   & .yn-header.poppy {
-    font-weight: 400;
-    font-size: 1.6rem;  
+    font-size: 1.6rem;
     margin-top: 2rem;
   }
   & .yn-header.italic {
     font-size: 21px;
     font-style: italic;
-    font-weight: 300;
   }
   @media (max-width: 672px) {
     & .flex-row {
