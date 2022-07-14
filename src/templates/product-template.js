@@ -55,6 +55,7 @@ export const query = graphql`
       }
       acneSafe
       name
+      professionalOnly
       slug
       contentful_id
       category

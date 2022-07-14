@@ -48,7 +48,6 @@ const CategoryTemplateWrapper = styled.div`
     padding-bottom: 0;
   }
 `
-
 export const query = graphql`
   query GetCategory($name: String) {
     products: allContentfulMccProduct(
@@ -57,16 +56,8 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          profiles {
-            file {
-              url
-            }
-          }
           acneSafe
-          name
-          slug
-          skinType
+          contentful_id
           description {
             description
           }
@@ -74,10 +65,25 @@ export const query = graphql`
             id
             title
             description
-            fixed(cropFocus: CENTER, width: 300, quality: 100, toFormat: WEBP, background: "#fff") {
+            fixed(
+              cropFocus: CENTER
+              width: 300
+              quality: 100
+              toFormat: WEBP
+              background: "#fff"
+            ) {
               ...GatsbyContentfulFixed
             }
           }
+          name
+          professionalOnly
+          profiles {
+            file {
+              url
+            }
+          }
+          slug
+          skinType
           video
           keyIngredients {
             id
@@ -88,12 +94,7 @@ export const query = graphql`
           }
           award
           awardImage {
-            fixed(
-              quality: 100
-              width: 90
-              height: 90
-              background: "#fff"
-            ) {
+            fixed(quality: 100, width: 90, height: 90, background: "#fff") {
               ...GatsbyContentfulFixed
             }
           }
