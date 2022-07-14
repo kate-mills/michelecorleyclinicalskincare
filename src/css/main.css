@@ -7,7 +7,7 @@
   --mainWhite: #FEFEFE;
   --mainSpacing: 0.0625rem;
   --poppy: #1C57A5;
-  --poppyLow: #6F7CB9;
+  --poppyLow:#4d5580;/* #6F7CB9;*/
   --poppyHigh:#3F78C2;
   --poppyDark: #4B5198;
   --mainFont: Montserrat, sans-serif;
@@ -43,6 +43,8 @@ a {
   font-size: 100%;
   font-weight: 400;
 }
+a:focus,
+a:active,
 a:hover{
   cursor: pointer;
 }
@@ -182,10 +184,10 @@ div#content {
 .btn {
   background: var(--mainWhite);
   border: 2px solid var(--poppyLow);
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: var(--light-shadow);
   color: var(--poppyLow);
-  cursor: pointer;
+  color: #4d5580;
   display: inline-block;
   letter-spacing: var(--mainSpacing);
   padding: 0.8rem 1.6rem;
