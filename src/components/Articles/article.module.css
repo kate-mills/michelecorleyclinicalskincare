@@ -41,7 +41,7 @@
   margin: 0 auto;
 }
 .single__flexible__col p.summary {
-  text-align: justify;
+  text-align: left;
 }
 .read__more{
   text-align: center;
