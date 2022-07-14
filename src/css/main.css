@@ -1,22 +1,22 @@
-:root{
+:root {
   --clear: rgba(0, 0, 0, 0);
-  --darkGrey: #5E5755; /*#9D9692;*/
-  --mainBlack:#4E4E4E;/* #1d252d;*/
-  --mainMcc: #CFCFCF;
-  --offWhite: #F9F9F9;
-  --mainWhite: #FEFEFE;
+  --darkGrey: #5e5755; /* #9D9692;*/
+  --mainBlack: #4e4e4e; /* #1d252d;*/
+  --mainMcc: #cfcfcf;
+  --offWhite: #f9f9f9;
+  --mainWhite: #fefefe;
   --mainSpacing: 0.0625rem;
-  --poppy: #1C57A5;
-  --poppyLow:#4d5580;/* #6F7CB9;*/
-  --poppyHigh:#3F78C2;
-  --poppyDark: #4B5198;
+  --poppy: #1c57a5;
+  --poppyLow: #4d5580; /* #6F7CB9;*/
+  --poppyHigh: #3f78c2;
+  --poppyDark: #4b5198;
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
   --bgTransition: background-color 100ms linear;
   --mainTransition: all 0.1s linear;
   --light-shadow: 0 5px 3px rgb(0 0 0 / 10%);
-  --dark-shadow:  0 0 4px rgb(0 0 0 / 15%);
+  --dark-shadow: 0 0 4px rgb(0 0 0 / 15%);
 }
 *,
 ::after,
@@ -28,12 +28,12 @@
   font-size: 100%;
   text-decoration: none;
 }
-:focus{
-  outline: var(--clear);
-}
-::selection{
+::selection {
   background-color: var(--mainMcc);
   color: var(--poppyHigh);
+}
+:focus {
+  outline: var(--clear);
 }
 a {
   color: var(--mainBlack);
@@ -45,33 +45,38 @@ a {
 }
 a:focus,
 a:active,
-a:hover{
+a:hover {
   cursor: pointer;
 }
-a:focus{
+a:focus {
   outline: none;
   background: inherit;
   text-decoration: none;
 }
 body {
-    background: var(--mainMcc);
-    background-color: var(--mainMcc);
-    background-size: auto;
-    background-repeat: repeat;
-    color: var(--mainBlack);
-    display: block;
-    font-family:var(--mainFont);
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: var(--bodyLineHeight);
-    margin: 0;
-    min-height: 100vh;
-    overflow: scroll;
-    text-decoration: none;
-    text-transform: none;
+  background: var(--mainMcc);
+  background-color: var(--mainMcc);
+  background-size: auto;
+  background-repeat: repeat;
+  color: var(--mainBlack);
+  display: block;
+  font-family: var(--mainFont);
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: var(--bodyLineHeight);
+  margin: 0;
+  min-height: 100vh;
+  overflow: scroll;
+  text-decoration: none;
+  text-transform: none;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--mainBlack);
   font-family: var(--mainFont);
   font-style: normal;
@@ -84,22 +89,28 @@ h1 {
   letter-spacing: var(--mainSpacing);
   margin: 20px auto;
 }
-h2, h3{
+h2,
+h3 {
   font-size: 30px;
 }
-hr { /* upcoming classes */
+hr {
+  /* upcoming classes */
   background: rgba(0, 0, 0, 0.1);
   border: none;
   height: 1px;
   margin: 0 auto;
 }
-input:focus, textarea:focus, select:focus,
-input:active, textarea:active, select:active{
+input:focus,
+textarea:focus,
+select:focus,
+input:active,
+textarea:active,
+select:active {
   outline: none;
   outline-color: var(--poppy);
   border: 1px solid var(--poppy);
 }
-main{
+main {
   background: var(--mainWhite);
   background-color: var(--mainWhite);
   border: 0;
@@ -112,13 +123,13 @@ main{
   padding: 0;
   width: 100%;
 }
-nav{
+nav {
   color: var(--mainBlack);
   font-size: 16px;
   letter-spacing: var(--mainSpacing);
   margin-bottom: 20px;
 }
-nav *{
+nav * {
   color: var(--mainBlack);
   font-size: 16px;
   letter-spacing: var(--mainSpacing);
@@ -134,7 +145,7 @@ p {
   white-space: pre-line;
   font-size: 1rem;
 }
-ul  {
+ul {
   list-style: none;
 }
 ul[data-bullet-list] {
@@ -144,27 +155,27 @@ ul[data-bullet-list] {
   font-size: 15px;
   font-weight: 300;
   line-height: 27px;
-  list-style:none;
+  list-style: none;
   margin: 0 20px;
 }
 ul[data-bullet-list] > li h3,
 ul[data-bullet-list] > li h4,
-ul[data-bullet-list] > li p{
+ul[data-bullet-list] > li p {
   margin: 7.5px auto;
-  padding: 0 0 .2rem;
+  padding: 0 0 0.2rem;
   white-space: pre-line;
   font-weight: 400;
 }
 
-ul[data-bullet-list] > li:first-child  h3,
-ul[data-bullet-list] > li:first-child  h4,
-ul[data-bullet-list] > li:first-child  p{ 
-  padding: .4rem 0 .2rem;
+ul[data-bullet-list] > li:first-child h3,
+ul[data-bullet-list] > li:first-child h4,
+ul[data-bullet-list] > li:first-child p {
+  padding: 0.4rem 0 0.2rem;
 }
-ul[data-bullet-list] li>*:first-child::before{
+ul[data-bullet-list] li > *:first-child::before {
   box-sizing: border-box;
   color: var(--mainBlack);
-  content: "\2022";
+  content: '\2022';
   display: inline-block;
   margin-left: -40px;
   min-width: 40px;
@@ -178,7 +189,7 @@ div#content {
   max-width: 1150px;
   margin: 2px auto;
   outline: none;
-  padding: 0.1rem 3.2rem;/*padding: 0 50px;*/
+  padding: 0.1rem 3.2rem; /*padding: 0 50px;*/
   white-space: pre-line;
 }
 .btn {
@@ -205,7 +216,7 @@ div#content {
   border: 2px solid var(--poppyHigh);
   box-shadow: var(--dark-shadow);
 }
-.btn-form{
+.btn-form {
   border: 2px solid var(--poppy);
   border-radius: 5px;
   font-size: 1.25rem;
@@ -223,52 +234,52 @@ Utility classes
 .bold {
   font-weight: 600;
 }
-.flex{
+.flex {
   display: flex;
 }
-.poppy{
+.poppy {
   color: var(--poppy);
 }
-.txt-center{
+.txt-center {
   text-align: center;
 }
-.w-100{
+.w-100 {
   width: 100%;
 }
-.facebook{
+.facebook {
   color: blue !important;
 }
-@media screen and (max-width: 320px){
-  div#content{
+@media screen and (max-width: 320px) {
+  div#content {
     border-radius: 10px;
-    padding: 0.1rem .7rem;/*padding: 1.6px 11px;*/
+    padding: 0.1rem 0.7rem; /*padding: 1.6px 11px;*/
   }
-  h1{
+  h1 {
     text-align: center;
     margin: unset !important;
     padding: unset !important;
   }
 }
-@media screen and (min-width: 321px) and (max-width: 480px){
-  div#content{
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  div#content {
     border-radius: 15px;
-    padding: 0.1rem 1.1rem;/*padding: 1.6px 17px;*/
+    padding: 0.1rem 1.1rem; /*padding: 1.6px 17px;*/
   }
 }
-@media screen and (min-width: 481px) and (max-width: 719px){
-  div#content{
+@media screen and (min-width: 481px) and (max-width: 719px) {
+  div#content {
     border-radius: 25px;
-    padding: 0.1rem 2.2rem;/*padding: 1.6px 35px;*/
+    padding: 0.1rem 2.2rem; /*padding: 1.6px 35px;*/
   }
 }
-@media screen and (min-width: 720px) and (max-width: 1239px){
-  div#content{
+@media screen and (min-width: 720px) and (max-width: 1239px) {
+  div#content {
     border-radius: 25px;
     padding: 0.1rem 2.5rem; /*padding: 1.6px 40px;*/
   }
 }
-@media screen and (min-width: 1240px){
-  div#content{
+@media screen and (min-width: 1240px) {
+  div#content {
     border-radius: 30px;
     padding: 0.1rem 3.2rem; /*padding: 1.6px 50px;*/
   }
