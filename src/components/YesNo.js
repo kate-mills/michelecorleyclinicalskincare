@@ -1,29 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import ScreenReaderText from '../components/ScreenReaderText'
-
 const YesNo = ({ className }) => {
   return (
     <div className={className}>
-      <ScreenReaderText
-        element="p"
-        text="Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."
-      />
-
-      <div className="flex-row">
-        <div className="list">
-          <h2 className="list-title poppy">
-            We say YES to{' '}
-            <ScreenReaderText
-              element="span"
-              text="powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."
-            />
-          </h2>
+    <p className="sr-only">Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.</p>
+      <section className="flex-row">
+        <article className="list-of-ingredients" role="region" aria-labelledby="we-say-yes">
+          <h2 className="list-title poppy" id="we-say-yes">We say YES to</h2>
           <ul data-bullet-list>
-            <li>
-              <p className="ingredient">Powerful Peptides</p>
-            </li>
+            <li><p className="ingredient">Powerful Peptides</p></li>
             <li>
               <p className="ingredient">Potent Antioxidants</p>
             </li>
@@ -40,26 +26,18 @@ const YesNo = ({ className }) => {
               <p className="ingredient">Balancing Essential Oils</p>
             </li>
             <li>
-              <p className="ingredient">Gentle Preservatives</p>
+              <p className="ingredient"><span className="sr-only">{`and `}</span>Gentle Preservatives</p>
             </li>
           </ul>
-        </div>
+        </article>
 
-        <div className="list">
-          <h2 className="list-title poppy">
-            We say NO to{` `}
-            <ScreenReaderText
-              element="span"
-              text="parabens, synthetic colorants, synthetic fragrance, phthalates, formaldehyde releasing preservatives, and sodium lauryl sulfate."
-            />
+        <article className="list-of-ingredients" role="region" aria-labelledby="we-say-no">
+          <h2 className="list-title poppy" id="we-say-no">
+            We say NO to{` `}<span className="sr-only">parabens, synthetic colorants, synthetic fragrance, phthalates, formaldehyde releasing preservatives, and sodium lauryl sulfate.</span>
           </h2>
           <ul data-bullet-list>
-            <li>
-              <p className="ingredient">Parabens</p>
-            </li>
-            <li>
-              <p className="ingredient">Synthetic Colorants</p>
-            </li>
+            <li><p className="ingredient">Parabens</p></li>
+            <li><p className="ingredient">Synthetic Colorants</p></li>
             <li>
               <p className="ingredient">Synthetic Fragrance</p>
             </li>
@@ -76,12 +54,12 @@ const YesNo = ({ className }) => {
               <p className="ingredient">Sodium Lauryl Sulfate</p>
             </li>
           </ul>
-        </div>
-      </div>
-      <h3 className="michele-corley-header poppy">
+        </article>
+      </section>
+      <h3 className="michele-corley-promise poppy">
         Professional skincare that delivers. Clean, safe, efficacious formulas.
       </h3>
-      <h4 className="michele-corley-header italic">
+      <h4 className="michele-corley-promise italic">
         Only available through your licensed skincare professional.
       </h4>
     </div>
@@ -96,7 +74,7 @@ const Wrapper = styled(YesNo)`
     justify-content: space-evenly;
     width: 100%;
   }
-  & .list {
+  & .list-of-ingredients {
     width: fit-content;
     max-width: fit-content;
     margin: 0 auto;
@@ -109,33 +87,32 @@ const Wrapper = styled(YesNo)`
     font-size: 2rem;
   }
   & .ingredient {
+    color: var(--mainBlack);
     display: block;
+    font-family: var(--mainFont);
+    line-height: var(--headingLineHeight);
     margin-block-start: 2.33em;
     margin-block-end: 2.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    color: var(--mainBlack);
-    font-family: var(--mainFont);
-    font-weight: 300;
     margin: 0.5em 0 0.3em;
     margin-bottom: 1.26rem;
-    line-height: var(--headingLineHeight);
     font-weight: 300;
 
     .long-ingredient-name {
       display: block;
-      margin: 1rem 0px 1rem 0.4rem;
+      margin: 1rem 0px 0px 0.2rem;
     }
   }
-  & .michele-corley-header {
+  & .michele-corley-promise {
     text-align: center;
     font-weight: 400;
   }
-  & .michele-corley-header.poppy {
+  & .michele-corley-promise.poppy {
     font-size: 1.6rem;
     margin-top: 2rem;
   }
-  & .michele-corley-header.italic {
+  & .michele-corley-promise.italic {
     font-size: 21px;
     font-style: italic;
   }
