@@ -20,3 +20,7 @@ const getSymanticSkinTypes = skinType => {
 }
 
 export { getSymanticSkinTypes }
+
+
+
+//let categoryStatement = `${ product.name } is formulated for ${getSymanticSkinTypes(skinType).toLowerCase()}.`
