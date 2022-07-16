@@ -21,52 +21,46 @@ const Product = ({ product, isTemplate }) => {
         {isTemplate ? (
           <h1 id="product-name">
             <span className={`name`}>{`${name}`}</span>
-            {acneSafe && <span className={`acne-safe`} />}
-            {proOnly && <span className={`pro-only`} />}
-            {product.award && (
-              <Image
-                className="award-winner"
-                fixed={product.awardImage.fixed}
-                alt={`Best Product ${product.award} Award Emblem`}
-              />
-            )}
+            {acneSafe && <span className={`acne-safe`}/>}
+            {proOnly && <span className={`pro-only`}/>}
+            {product.award && (<Image className="award-winner" fixed={product.awardImage.fixed} alt={`Best Product ${product.award} Award Emblem`}/>)}
           </h1>
         ) : (
           <h2 id="product-name">
             <span className={`name`}>{`${name}`}</span>
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
-            {product.award && (
-              <Image
-                className="award-winner"
-                fixed={product.awardImage.fixed}
-                alt={`Best Product ${product.award} Award Emblem`}
-              />
-            )}
+            {product.award && (<Image className="award-winner" fixed={product.awardImage.fixed} alt={`Best Product ${product.award} Award Emblem`}/>)}
           </h2>
         )}
       </div>
       <div className="product-details">
         <p className={`product-skintypes`}>
           {skinType.map((item, index) => {
-            return <span key={index} className="skintype">{item}</span>
+            return (
+              <span key={index} className="skintype">
+                {item}
+              </span>
+            )
           })}
         </p>
         <p className="product-description">{description.description}</p>
         <div className="product-media" id={name}>
-          <div className="img-container">
-            <AniLink fade to={`/product-images-and-logos/${product.slug}/`}
+          <div className="product-image-wrapper">
+            <AniLink
+              fade
+              to={`/product-images-and-logos/${product.slug}/`}
               aria-label="View image"
             >
               {isTemplate ? (
                 <Image
-                  className="fluid-img"
+                  className="product-image fluid-img"
                   fluid={product?.fluidImg?.fluid}
                   alt={`Retail Size ${name}`}
                 />
               ) : (
                 <Image
-                  className="fixed-img"
+                  className="product-image fixed-img"
                   fixed={product?.imgRetail?.fixed}
                   alt={`Retail Size ${name}`}
                 />
@@ -75,22 +69,26 @@ const Product = ({ product, isTemplate }) => {
           </div>
           {product.video && (
             <VideoPlayer
+              className="product-video"
               title={`Michele Corley discusses ${product.name}.`}
               src={`https://player.vimeo.com/video/${product.video}`}
             />
           )}
         </div>
-        <div className="product-ingredients">
+        <section id="product-ingredients">
           <p className="bold">A FEW KEY Ingredients & Benefits:</p>
-          <ul data-bullet-list>
+          <ul data-bullet-list id="ingredient-list">
             <li className="key-ingredients-pdf product-profile-sheet">
-              {!!profiles ? (<a
+              {!!profiles ? (
+                <a
                   className="get-product-profile-sheet no-bullet"
                   title={`View pdf with full ingredient list for ${name}`}
                   href={profiles[0].file.url}
                   target="_blank"
                   rel="noreferrer"
-                >View FULL Ingredient List <span>(Open PDF)</span>
+                >
+                  View FULL Ingredient List -{' '}
+                  <span className="small-text">open PDF</span>
                 </a>
               ) : null}
             </li>
@@ -101,23 +99,27 @@ const Product = ({ product, isTemplate }) => {
                     <span className="key-ingredient-name-formatted">
                       {ing.name.formatted}:
                     </span>{' '}
-                    <span className="key-ingredient-benefit">{ing.benefit}</span>
+                    <span className="key-ingredient-benefit">
+                      {ing.benefit}
+                    </span>
                   </p>
                 </li>
               )
             })}
           </ul>
-        </div>
+        </section>
       </div>
     </StyledProduct>
   )
 }
 const StyledProduct = styled.article`
   & {
-    margin: 35px auto;
-    max-width: 100%;
+    margin: 20px auto;
+    width: 100%;
+    font-weight: 400;
     p {
       font-weight: 400;
+      padding-bottom: 0;
     }
   }
   & .product-heading {
@@ -131,9 +133,8 @@ const StyledProduct = styled.article`
       line-height: 2.4rem;
       justify-content: flex-start;
       text-align: left;
-      width: fit-content;
       span {
-        margin-top: .3rem;
+        margin-top: 0.3rem;
         padding-left: 0;
         padding-right: 15px;
         white-space: pre-line;
@@ -190,40 +191,43 @@ const StyledProduct = styled.article`
     }
   }
   & .product-description {
-    margin-bottom: 0.1rem;
-    padding: 0 1rem 1rem;
+    margin-bottom: 0;
+    padding: 0 2rem 1rem 1rem;
   }
   & .product-media {
+    align-content: center;
     align-items: center;
     display: flex;
+    flex-wrap: wrap-reverse;
     flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    div.img-container {
-      max-width: fit-content;
-      min-width: min-content;
-      min-width: 300px;
+    justify-content: center;
+    max-width: 90%;
+    div.product-image-wrapper {
+      width: 300px;
+      max-width: 300px;
       img {
         object-fit: contain !important;
       }
-      :hover {
-        cursor: pointer;
-      }
     }
   }
-  & .product-ingredients {
-    & >  p.bold{
+  & #product-ingredients {
+    padding-top: 1rem;
+    & > p.bold {
       font-weight: 600;
       padding-bottom: 0;
     }
     li.key-ingredients-pdf.product-profile-sheet {
+      margin-left: 15px;
       a.get-product-profile-sheet.no-bullet {
-        font-size: 1rem;
         font-weight: 500;
+        font-size: 0.9rem;
         color: var(--poppy);
-        ::before{
-          content: ' ';
-          margin-left: -25px;
+        ::before {
+          content: '';
+        }
+        .small-text {
+          font-size: 0.8rem;
+          letter-spacing: -0.051rem;
         }
       }
     }
@@ -233,23 +237,20 @@ const StyledProduct = styled.article`
         padding-bottom: 0;
       }
       span.key-ingredient-name-formatted {
-        font-weight: 500;
+        font-weight: 600;
       }
       span.key-ingredient-benefit {
-        white-space: pre-wrap;
         font-weight: 300;
-        padding-left: 5px;
+        padding-left:5px;
       }
     }
   }
   @media (max-width: 800px) {
     & .product-media {
-      flex-wrap: wrap-reverse;
-      div.img-container {
-        max-height: 250px;
-        img {
-          max-height: 250px;
-        }
+      max-width: 100%;
+      justify-content: center;
+      div.product-image-wrapper {
+        max-width: 250px;
       }
     }
   }
