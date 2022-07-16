@@ -28,7 +28,6 @@ const Footer = props => {
       <div className="column">
         <Image
           fluid={infinity.childImageSharp.fluid}
-          title="Footer Logo"
           alt="Infinity Symbol"
         />
         <p className="follow-us-on">

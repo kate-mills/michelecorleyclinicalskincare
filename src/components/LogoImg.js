@@ -23,8 +23,6 @@ export const Logo = () => {
         fixed={data.file.childImageSharp.fixed}
         media="screen"
         alt="Michele Corley Clinical Skin Care Logo"
-    title="Michele Corley Clinical Skin Care Logo"
-
       />
     </Wrapper>
   )
