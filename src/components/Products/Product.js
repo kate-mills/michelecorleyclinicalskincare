@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import VideoPlayer from '../Video'
-import ScreenReaderText from '../ScreenReaderText'
-import { getSymanticSkinTypes } from '../../utils/helpers'
 
 const Product = ({ product, isTemplate }) => {
   const {
     acneSafe,
+    professionalOnly: proOnly,
     name,
     skinType,
     description,
@@ -16,45 +15,32 @@ const Product = ({ product, isTemplate }) => {
     profiles,
   } = product
 
-  let categoryStatement = `${
-    product.name
-  } is formulated for ${getSymanticSkinTypes(skinType).toLowerCase()}.`
+  let acneClass = `${acneSafe ? 'acne-safe' : ''}`;
+  let proClass = `${proOnly ? 'pro-only' : ''}`;
+  let winnerClass  = `${product.award ? 'winner': ''}`;
+  let hasLabel = (acneClass.length>0) || (proClass.length>0) || (winnerClass.length > 0)
 
   return (
-    <ProductWrapper className="single-product page-article">
-      <div className={`product-heading${acneSafe ? ' acne-safe' : ''}`}>
-        <h2
-          className={`product-name${isTemplate ? ' template' : ''}${
-            product.award ? ' winner' : ''
-          }`}
-        >
-          <div className={`${acneSafe && 'acne-safe'}`}>
-            {name}
-            {acneSafe && (
-              <ScreenReaderText
-                element="span"
-                text={` (safe for use on skin prone to all types of acne)`}
-              />
-            )}
-          </div>
+    <ProductWrapper className="single-product">
+      <div className={`product-heading${hasLabel ? ' product-heading__with-label': ''}`}>
+        <h2 className={winnerClass} id="product-name">
+          <span>{name}</span>
+          <span className={`${acneClass}`} />
+          <span className={`${proClass}`} />
         </h2>
-        <ScreenReaderText element="h3" text={`${categoryStatement}`} />
         {product.award && (
           <Image
             className="award-winner"
             fixed={product.awardImage.fixed}
             alt={`Best Product ${product.award} Award Emblem`}
-            title={`Best Product ${product.award} Award Winner`}
           />
         )}
       </div>
       <div className="product-details">
-        <p className={`product-skintypes ${isTemplate ? 'template' : ''}`}>
+        <p className={`product-skintypes`}>
           {skinType.map((item, index) => {
             return (
-              <span key={index} className="skintype">
-                {item}
-              </span>
+              <span key={index} className="skintype">{item}</span>
             )
           })}
         </p>
@@ -64,21 +50,18 @@ const Product = ({ product, isTemplate }) => {
             <AniLink
               fade
               to={`/product-images-and-logos/${product.slug}/`}
-              aria-label="View image"
-            >
+              aria-label="View image">
               {isTemplate ? (
                 <Image
                   className="fluid-img"
                   fluid={product?.fluidImg?.fluid}
                   alt={`Retail Size ${name}`}
-                  title={`Retail Size ${name}`}
                 />
               ) : (
                 <Image
                   className="fixed-img"
                   fixed={product?.imgRetail?.fixed}
                   alt={`Retail Size ${name}`}
-                  title={`Retail Size ${name}`}
                 />
               )}
             </AniLink>
@@ -97,12 +80,12 @@ const Product = ({ product, isTemplate }) => {
               {!!profiles ? (
                 <a
                   className="get-product-profile-sheet"
-                  title={`Download ${name} details, including full ingredient list`}
+                  title={`View pdf with full ingredient list for ${name}`}
                   href={profiles[0].file.url}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  View FULL Ingredient List <span>Here</span>.
+                  View FULL Ingredient List <span>(Open PDF)</span>.
                 </a>
               ) : null}
             </li>
@@ -159,19 +142,21 @@ const ProductWrapper = styled.article`
     .award-winner {
       width: 100%;
       min-width: 90px;
+      object-fit: contain;
       img {
         object-fit: contain !important;
       }
     }
   }
-  & .product-heading.acne-safe {
+  & .product-heading.product-heading__with-label {
     margin-top: 3rem;
-    div.acne-safe {
+    .acne-safe {
       white-space: pre-line;
       ::after {
         content: 'ACNE-SAFE';
         display: inline-block;
         font-size: 0.85rem;
+        font-weight: 400;
         line-height: 1;
         padding: 0.4rem;
         bottom: 0.3rem;
@@ -182,6 +167,23 @@ const ProductWrapper = styled.article`
         border: 2px solid var(--darkGrey);
         color: var(--offWhite);
       }
+    }
+  }
+  .pro-only {
+    white-space: pre-line;
+    ::before {
+      background: var(--offWhite);
+      bottom: 0.3rem;
+      border: 2px solid var(--darkGrey);
+      color: var(--poppy);
+      content: 'PROFESSIONAL USE ONLY';
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 1;
+      margin: 0 15px 0 15px;
+      padding: 0.4rem;
+      position: relative;
     }
   }
   & .product-skintypes {

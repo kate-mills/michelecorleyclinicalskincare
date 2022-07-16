@@ -6,8 +6,6 @@ import PageModel from '../components/PageModel'
 import Product from '../components/Products/Product'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-import ScreenReaderText from '../components/ScreenReaderText'
-
 
 const ProductTemplate = ({ data: { product }, className }) => {
   const formatCategory = category => {
@@ -28,13 +26,9 @@ const ProductTemplate = ({ data: { product }, className }) => {
       title={product.name}
       description={product.description.description}
       image={product.seoImg.fixed.src}
-      id={product.name}
-    >
-
-     <ScreenReaderText element="h1" text={`${product.name}`}/>
+      id={product.name}>
       <Product product={product} isTemplate={true} />
-      <div className="lower-btn-div">
-        {' '}
+      <div className="lower-btn-div">{' '}
         <p className="txt-center">
           <AniLink className="btn" fade to={`/${formatLink(product)}/`}>
             {formatCategory(product.category)}
