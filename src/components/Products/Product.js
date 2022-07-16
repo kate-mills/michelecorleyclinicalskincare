@@ -15,42 +15,49 @@ const Product = ({ product, isTemplate }) => {
     profiles,
   } = product
 
-  let acneClass = `${acneSafe ? 'acne-safe' : ''}`;
-  let proClass = `${proOnly ? 'pro-only' : ''}`;
-  let winnerClass  = `${product.award ? 'winner': ''}`;
-  let hasLabel = (acneClass.length>0) || (proClass.length>0) || (winnerClass.length > 0)
-
   return (
-    <ProductWrapper className="single-product">
-      <div className={`product-heading${hasLabel ? ' product-heading__with-label': ''}`}>
-        <h2 className={winnerClass} id="product-name">
-          <span>{name}</span>
-          <span className={`${acneClass}`} />
-          <span className={`${proClass}`} />
-        </h2>
-        {product.award && (
-          <Image
-            className="award-winner"
-            fixed={product.awardImage.fixed}
-            alt={`Best Product ${product.award} Award Emblem`}
-          />
+    <StyledProduct>
+      <div className={`product-heading`}>
+        {isTemplate ? (
+          <h1 id="product-name">
+            <span className={`name`}>{`${name}`}</span>
+            {acneSafe && <span className={`acne-safe`} />}
+            {proOnly && <span className={`pro-only`} />}
+            {product.award && (
+              <Image
+                className="award-winner"
+                fixed={product.awardImage.fixed}
+                alt={`Best Product ${product.award} Award Emblem`}
+              />
+            )}
+          </h1>
+        ) : (
+          <h2 id="product-name">
+            <span className={`name`}>{`${name}`}</span>
+            {acneSafe && <span className={`acne-safe`} />}
+            {proOnly && <span className={`pro-only`} />}
+            {product.award && (
+              <Image
+                className="award-winner"
+                fixed={product.awardImage.fixed}
+                alt={`Best Product ${product.award} Award Emblem`}
+              />
+            )}
+          </h2>
         )}
       </div>
       <div className="product-details">
         <p className={`product-skintypes`}>
           {skinType.map((item, index) => {
-            return (
-              <span key={index} className="skintype">{item}</span>
-            )
+            return <span key={index} className="skintype">{item}</span>
           })}
         </p>
         <p className="product-description">{description.description}</p>
         <div className="product-media" id={name}>
           <div className="img-container">
-            <AniLink
-              fade
-              to={`/product-images-and-logos/${product.slug}/`}
-              aria-label="View image">
+            <AniLink fade to={`/product-images-and-logos/${product.slug}/`}
+              aria-label="View image"
+            >
               {isTemplate ? (
                 <Image
                   className="fluid-img"
@@ -74,18 +81,16 @@ const Product = ({ product, isTemplate }) => {
           )}
         </div>
         <div className="product-ingredients">
-          <p className="bold-heading">A FEW KEY Ingredients & Benefits:</p>
+          <p className="bold">A FEW KEY Ingredients & Benefits:</p>
           <ul data-bullet-list>
-            <li className="product-profile-sheet">
-              {!!profiles ? (
-                <a
-                  className="get-product-profile-sheet"
+            <li className="key-ingredients-pdf product-profile-sheet">
+              {!!profiles ? (<a
+                  className="get-product-profile-sheet no-bullet"
                   title={`View pdf with full ingredient list for ${name}`}
                   href={profiles[0].file.url}
                   target="_blank"
                   rel="noreferrer"
-                >
-                  View FULL Ingredient List <span>(Open PDF)</span>.
+                >View FULL Ingredient List <span>(Open PDF)</span>
                 </a>
               ) : null}
             </li>
@@ -93,10 +98,10 @@ const Product = ({ product, isTemplate }) => {
               return (
                 <li className="key-ingredient" key={ing.id}>
                   <p>
-                    <span className="name-formatted">
+                    <span className="key-ingredient-name-formatted">
                       {ing.name.formatted}:
                     </span>{' '}
-                    <span className="benefit">{ing.benefit}</span>
+                    <span className="key-ingredient-benefit">{ing.benefit}</span>
                   </p>
                 </li>
               )
@@ -104,86 +109,71 @@ const Product = ({ product, isTemplate }) => {
           </ul>
         </div>
       </div>
-    </ProductWrapper>
+    </StyledProduct>
   )
 }
-const ProductWrapper = styled.article`
+const StyledProduct = styled.article`
   & {
     margin: 35px auto;
-    font-weight: 300;
     max-width: 100%;
-  }
-  & p {
-    font-weight: 400;
+    p {
+      font-weight: 400;
+    }
   }
   & .product-heading {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    min-width: 100%;
-    width: 100%;
-    .product-name {
-      color: var(--poppy);
-      font-size: 30px;
-      font-weight: 400;
-      line-height: 42px;
-      padding: 0;
-      width: fit-content;
-    }
-    .product-name.winner {
-      min-width: min-content;
-    }
-    .product-name.template {
-      font-size: 43px;
+    & #product-name {
+      align-items: center;
+      color: var(--mainBlack);
+      display: flex;
+      flex-flow: row wrap;
+      font-size: 2rem;
       font-weight: 300;
-      line-height: 54px;
+      line-height: 2.4rem;
+      justify-content: flex-start;
+      text-align: left;
+      width: fit-content;
+      span {
+        margin-top: .3rem;
+        padding-left: 0;
+        padding-right: 15px;
+        white-space: pre-line;
+      }
     }
-    .award-winner {
+    & h1#product-name {
+      color: var(--poppy);
+      font-size: 2.7rem;
+      line-height: 3.24rem;
+    }
+    & .award-winner.gatsby-image-wrapper {
+      min-width: 70px;
       width: 100%;
-      min-width: 90px;
-      object-fit: contain;
       img {
         object-fit: contain !important;
       }
     }
-  }
-  & .product-heading.product-heading__with-label {
-    margin-top: 3rem;
-    .acne-safe {
-      white-space: pre-line;
+    & .acne-safe,
+    & .pro-only {
       ::after {
-        content: 'ACNE-SAFE';
+        border: 2px solid var(--darkGrey);
+        bottom: 0.3rem;
         display: inline-block;
         font-size: 0.85rem;
         font-weight: 400;
-        line-height: 1;
+        line-height: 1.02rem;
+        margin: 0 15px 0 0;
         padding: 0.4rem;
-        bottom: 0.3rem;
         position: relative;
-        margin-left: 15px;
-        margin-right: 15px;
-        background: var(--poppy);
-        border: 2px solid var(--darkGrey);
-        color: var(--offWhite);
       }
     }
-  }
-  .pro-only {
-    white-space: pre-line;
-    ::before {
+    .pro-only::after {
       background: var(--offWhite);
-      bottom: 0.3rem;
-      border: 2px solid var(--darkGrey);
       color: var(--poppy);
       content: 'PROFESSIONAL USE ONLY';
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 400;
-      line-height: 1;
-      margin: 0 15px 0 15px;
-      padding: 0.4rem;
-      position: relative;
+    }
+    .acne-safe::after {
+      background: var(--poppy);
+      color: var(--offWhite);
+      content: 'ACNE-SAFE';
     }
   }
   & .product-skintypes {
@@ -200,8 +190,8 @@ const ProductWrapper = styled.article`
     }
   }
   & .product-description {
-    padding: 0 1rem 1rem;
     margin-bottom: 0.1rem;
+    padding: 0 1rem 1rem;
   }
   & .product-media {
     align-items: center;
@@ -209,7 +199,6 @@ const ProductWrapper = styled.article`
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-
     div.img-container {
       max-width: fit-content;
       min-width: min-content;
@@ -223,19 +212,19 @@ const ProductWrapper = styled.article`
     }
   }
   & .product-ingredients {
-    p.bold-heading {
+    & >  p.bold{
       font-weight: 600;
       padding-bottom: 0;
     }
-    li.product-profile-sheet {
-      a.get-product-profile-sheet {
-        font-size: 0.9rem;
+    li.key-ingredients-pdf.product-profile-sheet {
+      a.get-product-profile-sheet.no-bullet {
+        font-size: 1rem;
+        font-weight: 500;
         color: var(--poppy);
-      }
-      > *:first-child::before {
-        content: ' ';
-        margin-left: -25px;
-        color: #a5655f;
+        ::before{
+          content: ' ';
+          margin-left: -25px;
+        }
       }
     }
     li.key-ingredient {
@@ -243,10 +232,10 @@ const ProductWrapper = styled.article`
       p {
         padding-bottom: 0;
       }
-      span.name-formatted {
+      span.key-ingredient-name-formatted {
         font-weight: 500;
       }
-      span.benefit {
+      span.key-ingredient-benefit {
         white-space: pre-wrap;
         font-weight: 300;
         padding-left: 5px;
