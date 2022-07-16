@@ -20,7 +20,7 @@ class Announcement extends React.Component {
                 paddingTop: '0px',
                 lineHeight: '17px',
                 textAlign: 'center',
-                color: 'var(--mainBlack)',
+                color: 'var(--blackText)',
                 fontFamily: 'Times, serif',
                 letterSpacing: '1.5px',
               }}
@@ -35,7 +35,7 @@ class Announcement extends React.Component {
                 ~
               </span>
               <Email
-                color={`var(--mainBlack)`}
+                color={`var(--blackText)`}
                 fontFamily="Times, serif"
                 subject={`General Information`}
               />
@@ -46,7 +46,7 @@ class Announcement extends React.Component {
               onClick={() => {
                 this.handleClick()
               }}
-              style={{ color: 'var(--mainBlack)' }}
+              style={{ color: 'var(--blackText)' }}
             >
               X
             </button>
@@ -103,7 +103,7 @@ const WrappedAnnouncement = styled(Announcement)`
     border-radius: 5px;
     background-clip: border-box !important;
     box-sizing: border-box;
-    color: #5c5c5c;
+    color: var(--mainBlack);
     cursor: pointer;
     display: inline-block;
     padding: 1.0rem 1.6rem;
@@ -112,7 +112,7 @@ const WrappedAnnouncement = styled(Announcement)`
   }
   & button:hover {
     background: var(--mainWhite);
-    color: #5c5c5c;
+    color: var(--mainBlack);
     border 1px solid #ffffff;
   }
   @media (max-width: 570px){
