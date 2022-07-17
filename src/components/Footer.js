@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import socialLinks from '../constants/social'
 import Email from '../components/Email'
 
-import ScreenReaderText from './ScreenReaderText'
 import { screen } from '../css/js/media-functions'
 import { ConstantContactInfo } from '../constants/contact-info'
 
@@ -26,10 +25,7 @@ const Footer = props => {
   return (
     <footer className={props.className}>
       <div className="column">
-        <Image
-          fluid={infinity.childImageSharp.fluid}
-          alt="Infinity Symbol"
-        />
+        <Image fluid={infinity.childImageSharp.fluid} alt="Infinity Symbol" />
         <p className="follow-us-on">
           Follow Us On <span className="sr-only">Social Media</span>
         </p>
@@ -44,8 +40,8 @@ const Footer = props => {
                   className={item.class}
                   style={item.style}
                 >
-                  {item.icon}{' '}
-                  <ScreenReaderText element="span" text={item.label} />
+                  <span>{item.icon}</span>
+                  <span className="sr-only">{` ${item.label}`}</span>
                 </a>
               </li>
             )
@@ -103,7 +99,8 @@ const FooterWrapper = styled(Footer)`
       text-align: center;
       text-transform: capitalize;
     }
-    div.row, ul.footer-icons {
+    div.row,
+    ul.footer-icons {
       align-items: center;
       display: flex;
       flex-direction: row;
