@@ -1,6 +1,5 @@
 import React from 'react'
 import SEO from '../components/FullSeo'
-import ScreenReaderText from '../components/ScreenReaderText'
 
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -25,8 +24,6 @@ const MediaImageTemplate = props => {
         image={media.fluidImgs[0].fluid.src}
       />
 
-     <ScreenReaderText element="h1" text={`${media.name}`}/>
-
       <div className={`${className} grid-container`}>
         <div
           className="grid-top w-100"
@@ -40,7 +37,6 @@ const MediaImageTemplate = props => {
         <div className="grid-img">
           <Img
             fluid={media.fluidImgs[0].fluid}
-            title={media.fluidImgs[0].title}
             alt={media.fluidImgs[0].description}
           />
         </div>
