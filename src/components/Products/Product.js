@@ -148,7 +148,7 @@ const StyledProduct = styled.article`
       line-height: 3.24rem;
     }
     & .award-winner.gatsby-image-wrapper {
-      min-width: 70px;
+      max-width: 70px;
       width: 100%;
       img {
         object-fit: contain !important;
@@ -158,14 +158,12 @@ const StyledProduct = styled.article`
     & .pro-only {
       ::after {
         border: 2px solid var(--darkGrey);
-        bottom: 0.3rem;
-        display: inline-block;
+        display: block;
         font-size: 0.85rem;
         font-weight: 400;
-        line-height: 1.02rem;
+        line-height: 1;
+        padding: 0.3rem;
         margin: 0 15px 0 0;
-        padding: 0.4rem;
-        position: relative;
       }
     }
     .pro-only::after {
