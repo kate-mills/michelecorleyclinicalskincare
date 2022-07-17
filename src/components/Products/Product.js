@@ -9,6 +9,7 @@ const Product = ({ product, isTemplate }) => {
     acneSafe,
     professionalOnly: proOnly,
     name,
+    slug,
     skinType,
     description,
     keyIngredients,
@@ -16,21 +17,33 @@ const Product = ({ product, isTemplate }) => {
   } = product
 
   return (
-    <StyledProduct>
+    <StyledProduct id={slug}>
       <div className={`product-heading`}>
         {isTemplate ? (
-          <h1 id="product-name">
-            <span className={`name`}>{`${name}`}</span>
-            {acneSafe && <span className={`acne-safe`}/>}
-            {proOnly && <span className={`pro-only`}/>}
-            {product.award && (<Image className="award-winner" fixed={product.awardImage.fixed} alt={`Best Product ${product.award} Award Emblem`}/>)}
-          </h1>
-        ) : (
-          <h2 id="product-name">
+          <h1 className="product-name">
             <span className={`name`}>{`${name}`}</span>
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
-            {product.award && (<Image className="award-winner" fixed={product.awardImage.fixed} alt={`Best Product ${product.award} Award Emblem`}/>)}
+            {product.award && (
+              <Image
+                className="award-winner"
+                fixed={product.awardImage.fixed}
+                alt={`Best Product ${product.award} Award Emblem`}
+              />
+            )}
+          </h1>
+        ) : (
+          <h2 className="product-name">
+            <span className={`name`}>{`${name}`}</span>
+            {acneSafe && <span className={`acne-safe`} />}
+            {proOnly && <span className={`pro-only`} />}
+            {product.award && (
+              <Image
+                className="award-winner"
+                fixed={product.awardImage.fixed}
+                alt={`Best Product ${product.award} Award Emblem`}
+              />
+            )}
           </h2>
         )}
       </div>
@@ -45,28 +58,17 @@ const Product = ({ product, isTemplate }) => {
           })}
         </p>
         <p className="product-description">{description.description}</p>
-        <div className="product-media" id={name}>
-          <div className="product-image-wrapper">
-            <AniLink
-              fade
-              to={`/product-images-and-logos/${product.slug}/`}
-              aria-label="View image"
-            >
-              {isTemplate ? (
-                <Image
-                  className="product-image fluid-img"
-                  fluid={product?.fluidImg?.fluid}
-                  alt={`Retail Size ${name}`}
-                />
-              ) : (
-                <Image
-                  className="product-image fixed-img"
-                  fixed={product?.imgRetail?.fixed}
-                  alt={`Retail Size ${name}`}
-                />
-              )}
-            </AniLink>
-          </div>
+        <div className="product-media" id={`${slug}-media`}>
+          <AniLink
+            fade
+            to={`/product-images-and-logos/${slug}/`}
+            aria-label="View image"
+          >
+            <Image className="product-image"
+              fixed={product?.imgRetail?.fixed}
+              alt={`Retail Size ${name}`}
+            />
+          </AniLink>
           {product.video && (
             <VideoPlayer
               className="product-video"
@@ -75,7 +77,7 @@ const Product = ({ product, isTemplate }) => {
             />
           )}
         </div>
-        <section id="product-ingredients">
+        <div className="product-ingredients">
           <p className="bold">A FEW KEY Ingredients & Benefits:</p>
           <ul data-bullet-list id="ingredient-list">
             <li className="key-ingredients-pdf product-profile-sheet">
@@ -107,7 +109,7 @@ const Product = ({ product, isTemplate }) => {
               )
             })}
           </ul>
-        </section>
+        </div>
       </div>
     </StyledProduct>
   )
@@ -115,15 +117,16 @@ const Product = ({ product, isTemplate }) => {
 const StyledProduct = styled.article`
   & {
     margin: 20px auto;
-    width: 100%;
+    max-width: 100%;
     font-weight: 400;
     p {
       font-weight: 400;
+      max-width: 100%;
       padding-bottom: 0;
     }
   }
   & .product-heading {
-    & #product-name {
+    & .product-name {
       align-items: center;
       color: var(--mainBlack);
       display: flex;
@@ -140,7 +143,7 @@ const StyledProduct = styled.article`
         white-space: pre-line;
       }
     }
-    & h1#product-name {
+    & h1.product-name {
       color: var(--poppy);
       font-size: 2.7rem;
       line-height: 3.24rem;
@@ -195,22 +198,19 @@ const StyledProduct = styled.article`
     padding: 0 2rem 1rem 1rem;
   }
   & .product-media {
-    align-content: center;
+    background: var(--mainWhite);
     align-items: center;
     display: flex;
-    flex-wrap: wrap-reverse;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 90%;
+    flex-flow: row wrap-reverse;
+    justify-content: space-around;
     div.product-image-wrapper {
       width: 300px;
-      max-width: 300px;
       img {
         object-fit: contain !important;
       }
     }
   }
-  & #product-ingredients {
+  & .product-ingredients {
     padding-top: 1rem;
     & > p.bold {
       font-weight: 600;
@@ -241,16 +241,7 @@ const StyledProduct = styled.article`
       }
       span.key-ingredient-benefit {
         font-weight: 300;
-        padding-left:5px;
-      }
-    }
-  }
-  @media (max-width: 800px) {
-    & .product-media {
-      max-width: 100%;
-      justify-content: center;
-      div.product-image-wrapper {
-        max-width: 250px;
+        padding-left: 5px;
       }
     }
   }

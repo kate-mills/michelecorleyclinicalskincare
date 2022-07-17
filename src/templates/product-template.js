@@ -6,7 +6,6 @@ import PageModel from '../components/PageModel'
 import Product from '../components/Products/Product'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-
 const ProductTemplate = ({ data: { product }, className }) => {
   const formatCategory = category => {
     let CategoryMap = {}
@@ -26,9 +25,11 @@ const ProductTemplate = ({ data: { product }, className }) => {
       title={product.name}
       description={product.description.description}
       image={product.seoImg.fixed.src}
-      id={product.name}>
+      id={product.name}
+    >
       <Product product={product} isTemplate={true} />
-      <div className="lower-btn-div">{' '}
+      <div className="lower-btn-div">
+        {' '}
         <p className="txt-center">
           <AniLink className="btn" fade to={`/${formatLink(product)}/`}>
             {formatCategory(product.category)}
@@ -65,24 +66,42 @@ export const query = graphql`
         }
         benefit
       }
-      fluidImg: imgRetail {
+      imgRetail {
         id
         title
         description
-        fluid(maxWidth: 300, maxHeight: 350, quality: 100, toFormat: WEBP, background: "#fff" ) {
-          src
-          ...GatsbyContentfulFluid
+        fixed(
+          cropFocus: CENTER
+          width: 300
+          quality: 100
+          toFormat: WEBP
+          background: "#fff"
+        ) {
+          ...GatsbyContentfulFixed
         }
       }
       seoImg: imgRetail {
-        fixed(resizingBehavior: PAD, width: 400, height: 200, quality: 100, toFormat: WEBP, background: "#fff") {
+        fixed(
+          resizingBehavior: PAD
+          width: 400
+          height: 200
+          quality: 100
+          toFormat: WEBP
+          background: "#fff"
+        ) {
           src
           ...GatsbyContentfulFixed
         }
       }
       award
       awardImage {
-        fixed(quality: 100, width: 90, height: 90, background: "#fff", toFormat: WEBP) {
+        fixed(
+          quality: 100
+          width: 90
+          height: 90
+          background: "#fff"
+          toFormat: WEBP
+        ) {
           ...GatsbyContentfulFixed
         }
       }
