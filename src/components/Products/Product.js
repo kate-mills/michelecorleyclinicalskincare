@@ -89,8 +89,7 @@ const Product = ({ product, isTemplate }) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  View FULL Ingredient List -{' '}
-                  <span className="small-text">open PDF</span>
+                  View FULL Ingredient List Here
                 </a>
               ) : null}
             </li>
@@ -224,10 +223,6 @@ const StyledProduct = styled.article`
         color: var(--poppy);
         ::before {
           content: '';
-        }
-        .small-text {
-          font-size: 0.8rem;
-          letter-spacing: -0.051rem;
         }
       }
     }
