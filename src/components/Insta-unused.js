@@ -4,7 +4,6 @@ import icon from '../images/footer/instagram-icon.jpg'
 const Instagram = () => {
   return (
     <img
-      title="Michele Corley Instagram Page"
       src={icon}
       width="58"
       height="58"

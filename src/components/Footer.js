@@ -24,7 +24,7 @@ const Footer = props => {
   return (
     <footer className={props.className}>
       <Image
-        className="infinity-image"
+        className="footer-infinity-image"
         fluid={infinity.childImageSharp.fluid}
         alt="Infinity Symbol"
       />
@@ -34,33 +34,32 @@ const Footer = props => {
       <ul id="footer-icons">
         {socialLinks.map((item, index) => {
           return (
-            <li className="icon" key={index}>
+            <li className="footer-list-item-icon" key={index}>
               <a
                 title={item.label}
                 href={item.href}
                 aria-label={item.label}
-                className={item.class}
-                style={item.style}
+                className="footer-icon"
               >
-                <span>{item.icon}</span>
+                <span aria-hidden="true">{item.icon}</span>
                 <span className="sr-only">{` ${item.label}`}</span>
               </a>
             </li>
           )
         })}
       </ul>
-      <div className="text-wrap">
-        <div className="phone-email-text">
-          <span className="phone">{props.Telephone.phone}</span> {` `}{' '}
-          <span className="middot">&middot;</span> {` `}
-          <Email className={`email ${props.className}`} />
+      <div className="footer-text-wrap">
+        <div className="footer-phone-email-text">
+          <span className="footer-phone">{props.Telephone.phone}</span> {` `}{' '}
+          <span className="footer-middot">&middot;</span> {` `}
+          <Email className={`footer-email ${props.className}`} />
         </div>
-        <p className="address sm-text">
+        <p className="footer-address footer-sm-text">
           Michele Corley Company, LLC {props.Address.street}{' '}
           {props.Address.suite} {props.Address.city} {props.Address.state}{' '}
           {props.Address.zip}
         </p>
-        <p className="copyright sm-text">
+        <p className="footer-copyright footer-sm-text">
           All rights reserved. &copy;{new Date().getFullYear()}
         </p>{' '}
       </div>
@@ -71,12 +70,14 @@ Footer.defaultProps = ConstantContactInfo
 
 const FooterWrapper = styled(Footer)`
   & {
-    padding: 40px;
+    padding: 30px;
     text-align: center;
-
-    .gatsby-image-wrapper.infinity-image {
-      margin: 20px auto;
+    .gatsby-image-wrapper.footer-infinity-image {
+      margin: 0.5rem auto;
       max-width: 500px;
+    }
+    .follow-us-on {
+      padding-bottom: 1rem;
     }
     ul#footer-icons {
       align-items: center;
@@ -84,31 +85,39 @@ const FooterWrapper = styled(Footer)`
       flex-flow: row wrap;
       font-size: 1.8rem;
       justify-content: space-around;
-      margin-bottom: 1.5rem;
-      .icon {
-        padding: 0.7rem;
+      padding-bottom: 1rem;
+
+      .footer-list-item-icon {
+        margin: 0.3125rem;
+        .footer-icon {
+          background: var(--mainWhite);
+          line-height: 2;
+          padding: 0.3125rem;
+          svg {
+            fill: var(--darkGrey);
+          }
+        }
       }
     }
-    div.text-wrap .phone-email-text {
-      .phone,
-      .email {
-        padding: 0.09rem;
+    div.footer-text-wrap {
+      .footer-phone,
+      .footer-email {
         letter-spacing: -0.07rem;
+        padding: 0.09rem;
       }
-    }
-    div.text-wrap .address,
-    div.text-wrap .copyright {
-      font-weight: 300;
-      font-size: 13px;
-    }
-    div.text-wrap .address {
-      padding: 5px;
+      .footer-address {
+        padding: 0.3125rem;
+      }
+      .footer-sm-text {
+        font-weight: 300;
+        font-size: 13px;
+      }
     }
   }
+
   @media (max-width: 700px) {
     & {
-      padding: 30px;
-      .middot {
+      .footer-middot {
         display: none;
       }
     }
