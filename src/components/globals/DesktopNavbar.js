@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import links from '../../constants/links'
-import { screen } from '../../css/js/media-functions'
 import ProfessionalStatus from '../Professionals/Status'
 
 const SubNavigation = props => {
@@ -102,18 +101,22 @@ export default styled(DesktopNavbar)`
     z-index: 1;
 
     li.sub-nav-li {
-      background: var(--offWhite);
-      border-top: 0.1px solid var(--offWhite);
-      border-bottom: 0.1px solid var(--offWhite);
+      background: var(--mainWhite);
+      border-top: 0.1px solid var(--mainWhite);
+      border-bottom: 0.1px solid var(--mainWhite);
       line-height: 2;
       margin: 0;
       padding: 0.5rem 0;
       a.sub-nav-link {
-        background: var(--offWhite);
+        background: var(--mainWhite);
         line-height: 2;
         white-space: nowrap;
       }
     }
   }
-  ${screen.nav.narrow`&{display:none;}`}
+  @media (max-width: 749px) {
+    & {
+      display: none;
+    }
+  }
 `
