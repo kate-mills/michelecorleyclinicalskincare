@@ -5,60 +5,54 @@ import links from '../../constants/links'
 import { screen } from '../../css/js/media-functions'
 import ProfessionalStatus from '../Professionals/Status'
 
-const MoreItems = props => {
+const SubNavigation = props => {
   return (
-    <MoreItemsWrapper>
+    <SubNavigationStyles className={`sub-navigation ${props.className}`}>
       {props.menu.map((item, id) => {
         return (
-          <li key={id} className={`child-li`}>
-            <AniLink fade to={item.path}>
+          <li key={id} className={`sub-nav-li`}>
+            <AniLink fade className="sub-nav-link" to={item.path}>
               {item.text}
             </AniLink>
           </li>
         )
       })}
-    </MoreItemsWrapper>
+    </SubNavigationStyles>
   )
 }
-const MoreItemsWrapper = styled.ul`
+const SubNavigationStyles = styled.ul`
   & {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
     width: -webkit-max-content;
-    display: none;
     position: absolute;
-    z-index: 1;
-    opacity: 1;
+    z-index: 0;
     background: var(--mainWhite);
-  }
-  & li.child-li {
-    visibility: visible;
-    background: var(--mainWhite);
-    padding: 15px;
+    display: none;
   }
 `
 class DesktopNavbar extends Component {
   render() {
     return (
       <div className={`${this.props.className}`}>
-        <nav>
-          <ul className="main-nav">
+        <nav id="desktop-nav">
+          <ul className="main-nav-links">
             {links.map((item, id) => {
               if (item.id === 'education') {
                 return (
-                  <li key={id}>
+                  <li key={id} className="education">
                     <ProfessionalStatus />
                   </li>
                 )
               } else {
                 return item.menu.length > 0 ? (
-                  <li
-                    className="parent-li parent-plus"
-                    key={id}
-                    style={{ opacity: '1' }}
-                  >
-                    <MoreItems label={item.label} menu={item.menu} />
+                  <li className="parent-li" key={id} style={{ opacity: '1' }}>
+                    <SubNavigation
+                      label={item.label}
+                      menu={item.menu}
+                      className={this.props.className}
+                    />
                     {item.text}
                   </li>
                 ) : (
@@ -77,49 +71,49 @@ class DesktopNavbar extends Component {
   }
 }
 export default styled(DesktopNavbar)`
-  & {
-    position: sticky;
-    opacity: 1;
-    z-index: 1;
-  }
-  & .parent-plus {
+  & nav#desktop-nav ul.main-nav-links {
     position: relative;
-    left: 0;
-  }
-  & li.parent-li a {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  & ul {
-    margin: unset;
-  }
-  & nav ul.main-nav {
+    z-index: 1;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
   }
-  & nav ul.main-nav li.parent-li {
-    border: 5px solid var(--mainWhite);
+  & nav#desktop-nav ul.main-nav-links li.education,
+  & nav#desktop-nav ul.main-nav-links li.parent-li {
+    margin: 2px;
+    align-self: center;
+    position: relative;
+    text-align: left;
+    a {
+      margin: 0.5rem;
+      padding: 0.5rem;
+    }
   }
-  & ul.main-nav li.child-li {
-    margin: 0;
-    white-space: nowrap;
-    letter-spacing: 0.5px;
-    padding: 2px;
-    padding-left: 0;
-  }
-  & nav ul.main-nav li.parent-plus:hover li.child-li {
-    visibility: visible;
-  }
-  & nav ul.main-nav li.parent-li:hover ul {
+  & nav#desktop-nav ul.main-nav-links li.parent-li:hover ul.sub-navigation {
+    background: var(--mainWhite);
     display: flex;
     position: absolute;
     top: 100%;
+    bottom: 0;
+    left: 0;
     height: 100%;
     object-fit: contain;
     object-position: center center;
-    opacity: 1;
-    transition-delay: 500ms;
+    z-index: 1;
+
+    li.sub-nav-li {
+      background: var(--offWhite);
+      border-top: 0.1px solid var(--offWhite);
+      border-bottom: 0.1px solid var(--offWhite);
+      line-height: 2;
+      margin: 0;
+      padding: 0.5rem 0;
+      a.sub-nav-link {
+        background: var(--offWhite);
+        line-height: 2;
+        white-space: nowrap;
+      }
+    }
   }
   ${screen.nav.narrow`&{display:none;}`}
 `
