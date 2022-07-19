@@ -102,6 +102,7 @@ const FooterWrapper = styled(Footer)`
     div.footer-text-wrap {
       .footer-phone,
       .footer-email {
+        color: var(--mainBlack);
         letter-spacing: -0.07rem;
         padding: 0.09rem;
       }
@@ -111,14 +112,6 @@ const FooterWrapper = styled(Footer)`
       .footer-sm-text {
         font-weight: 300;
         font-size: 13px;
-      }
-    }
-  }
-
-  @media (max-width: 700px) {
-    & {
-      .footer-middot {
-        display: none;
       }
     }
   }
