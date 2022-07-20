@@ -146,10 +146,11 @@ export default styled(MobileNavbar)`
     text-align: center;
   }
   & a {
-    font-size: 16px;
+    font-size: 1rem;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
+    color: var(--mainBlack);
   }
   & a.li{
     display: block;
