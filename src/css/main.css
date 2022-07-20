@@ -147,6 +147,9 @@ p {
 ul {
   list-style: none;
 }
+li {
+  list-style: none;
+}
 ul[data-bullet-list] {
   color: var(--mainBlack);
   display: block;

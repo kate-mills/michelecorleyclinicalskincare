@@ -56,11 +56,7 @@ class DesktopNavbar extends Component {
           <ul className="main-nav-links">
             {links.map((item, id) => {
               if (item.id === 'education') {
-                return (
-                  <li key={id} className="education">
-                    <ProfessionalStatus className="main-link" />
-                  </li>
-                )
+                return <ProfessionalStatus />
               } else {
                 return item.menu.length > 0 ? (
                   <li className="main-li" key={id}>
@@ -69,7 +65,7 @@ class DesktopNavbar extends Component {
                       menu={item.menu}
                       className={this.props.className}
                     />
-                    {item.text}
+                  {item.text}
                   </li>
                 ) : (
                   <li key={id} className="main-li">

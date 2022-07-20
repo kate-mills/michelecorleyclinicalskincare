@@ -9,17 +9,16 @@ export default () => {
 
   if (!isLoggedIn()) {
     details = (
-      <Link to="/app/login" className={styles[`professional__link`]}>
+      <Link to="/app/login">
         EDUCATION
       </Link>
     )
   } else {
     details = (
-      <>
-        <Link className={styles[`professional__link`]} to="/app/education">
-          EDUCATION
-        </Link>
+      <span className={styles[`professional__status__span`]}>
+        <Link to="/app/education">EDUCATION</Link>
         <Link
+          aria-hidden="true"
           className={styles[`professional__logout__link`]}
           to="/"
           onClick={event => {
@@ -29,8 +28,8 @@ export default () => {
         >
           Logout
         </Link>
-      </>
+      </span>
     )
   }
-  return <span className="professionals">{details}</span>
+  return <li className={`main-li pro-education ${styles['pro__education']}`}>{details}</li>
 }

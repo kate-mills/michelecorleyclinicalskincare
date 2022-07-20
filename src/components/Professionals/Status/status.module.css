@@ -1,30 +1,14 @@
-.professional__logout__link,
-.professional__link {
-  border: 5px solid var(--mainWhite);
-  color: var(--mainBlack);
-  cursor: pointer;
-  display: inline-block;
-  font-family: var(--mainFont);
-  outline: none;
-  text-decoration: none; 
-  transition: var(--bgTransition);
-  line-height: 32px;
-  margin-left: 0;
-  padding-right: 12px;
-  padding-left: 10px;
-} 
-.professional__logout__link {
+.professional__status__span{
+  position: relative;
+}
+.pro__education .professional__logout__link {
   color: var(--mainWhite);
-  font-size: 10px;
-  padding-left: inherit;
-  margin-left: 1px;
-  position:relative;
-  right: 20px;
+  font-size: .35rem;
+  position: absolute;
+  padding: 1px;
+  top: 100%;
+  left: 59%;
 }
-.professional__link {
-  letter-spacing: var(--mainSpacing);
-}
-.professional__link:hover, 
-.professional__logout__link:hover {
-  color: var(--mainBlack);
+.pro__education .professional__logout__link:hover {
+  color: var(--mainBlack) !important;
 }
