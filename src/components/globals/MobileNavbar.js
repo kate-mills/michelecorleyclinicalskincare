@@ -41,20 +41,17 @@ const MoreItems = props => {
 }
 
 const MoreItemsWrapper = styled.div`
-  & > * {
-    font-family: var(--mainFont);
-    color: var(--mainBlack);
-  }
   & button.plus-btn,
   & li.show.child {
-    border: none;
     display: inline-block;
     position: sticky;
     font-size: 16px;
-    cursor: pointer;
     border: 5px solid var(--clear);
     padding: 2px;
     background: var(--mainWhite);
+    :hover {
+      cursor: pointer;
+    }
   }
   & li.show.child {
     display: block;
@@ -111,9 +108,8 @@ class MobileNavbar extends Component {
       <div className={`${this.props.className}`}>
         <div>
           <button
-            className={`${this.state.css} navbar-toggler`}
+            className={`${this.state.css} btn navbar-toggler`}
             onClick={this.navbarHandler}
-            style={{ color: 'var(--mainBlack)', fontWeight: '500' }}
           >
             MENU
           </button>
@@ -161,12 +157,8 @@ export default styled(MobileNavbar)`
     padding: 2px;
   }
   & button.navbar-toggler {
-    background:var(--mainWhite);
-    border: none;
-    cursor: pointer;
-    display: block;
-    font-size: 18px;
-    margin: 4px auto;
+    box-shadow: none;
+    margin: .5rem auto 1rem;
   }
   & ul {
     margin 0px;
