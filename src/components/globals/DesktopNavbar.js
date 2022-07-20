@@ -6,7 +6,7 @@ import ProfessionalStatus from '../Professionals/Status'
 
 const SubNavigation = props => {
   return (
-    <SubNavigationStyles className={`sub-navigation ${props.className}`}>
+    <SubNavigationStyles className={`sub-nav ${props.className}`}>
       {props.menu.map((item, id) => {
         return (
           <li key={id} className={`sub-nav-li`}>
@@ -21,14 +21,31 @@ const SubNavigation = props => {
 }
 const SubNavigationStyles = styled.ul`
   & {
+    background: var(--mainWhite);
+    border: 1px solid var(--offWhite);
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
-    width: -webkit-max-content;
+    height: max-content;
+    left: 0;
     position: absolute;
-    z-index: 0;
-    background: var(--mainWhite);
+    top: 102%;
+    width: max-content;
+
+    /* DEFAULT VALUES */
     display: none;
+    z-index: 0;
+
+    li.sub-nav-li {
+      display: contents;
+      a.sub-nav-link {
+        background: var(--mainWhite);
+        width: 100%;
+        text-align: left;
+        span {
+          padding: 0.25rem;
+        }
+      }
+    }
   }
 `
 class DesktopNavbar extends Component {
@@ -41,12 +58,12 @@ class DesktopNavbar extends Component {
               if (item.id === 'education') {
                 return (
                   <li key={id} className="education">
-                    <ProfessionalStatus />
+                    <ProfessionalStatus className="main-link" />
                   </li>
                 )
               } else {
                 return item.menu.length > 0 ? (
-                  <li className="parent-li" key={id} style={{ opacity: '1' }}>
+                  <li className="main-li" key={id}>
                     <SubNavigation
                       label={item.label}
                       menu={item.menu}
@@ -55,8 +72,8 @@ class DesktopNavbar extends Component {
                     {item.text}
                   </li>
                 ) : (
-                  <li key={id} className="parent-li">
-                    <AniLink fade to={item.path}>
+                  <li key={id} className="main-li">
+                    <AniLink fade to={item.path} className="main-link">
                       {item.text}
                     </AniLink>
                   </li>
@@ -71,49 +88,26 @@ class DesktopNavbar extends Component {
 }
 export default styled(DesktopNavbar)`
   & nav#desktop-nav ul.main-nav-links {
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-  }
-  & nav#desktop-nav ul.main-nav-links li.education,
-  & nav#desktop-nav ul.main-nav-links li.parent-li {
-    margin: 2px;
-    align-self: center;
-    position: relative;
-    text-align: left;
-    a {
-      margin: 0.5rem;
-      padding: 0.5rem;
-    }
-  }
-  & nav#desktop-nav ul.main-nav-links li.parent-li:hover ul.sub-navigation {
+    justify-content: space-evenly;
     background: var(--mainWhite);
-    display: flex;
-    position: absolute;
-    top: 100%;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
-    z-index: 1;
-
-    li.sub-nav-li {
-      background: var(--mainWhite);
-      border-top: 0.1px solid var(--mainWhite);
-      border-bottom: 0.1px solid var(--mainWhite);
-      line-height: 2;
-      margin: 0;
-      padding: 0.5rem 0;
-      a.sub-nav-link {
-        background: var(--mainWhite);
-        line-height: 2;
-        white-space: nowrap;
-      }
+    a {
+      align-self: center;
+      margin: 0.25rem;
+      padding: 0.25rem;
+      text-align: left;
+    }
+    li {
+      align-self: center;
+      position: relative;
     }
   }
+  & nav#desktop-nav ul.main-nav-links li.main-li:hover ul.sub-nav {
+    display: flex;
+    z-index: 1;
+  }
+
   @media (max-width: 749px) {
     & {
       display: none;

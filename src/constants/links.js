@@ -6,10 +6,6 @@ const createParentLink = (name, pth) => {
     <AniLink
       to={`/${pth}/`}
       fade
-      style={{
-        lineHeight: '32px',
-        position: 'initial',
-      }}
     >
       {name}
     </AniLink>
