@@ -31,5 +31,5 @@ export default () => {
       </span>
     )
   }
-  return <li className={`main-li pro-education ${styles['pro__education']}`}>{details}</li>
+  return <span className={`pro-education ${styles['pro__education']}`}>{details}</span>
 }
