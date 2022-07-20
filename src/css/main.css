@@ -39,21 +39,18 @@
 }
 a {
   color: var(--mainBlack);
-  cursor: pointer;
   text-decoration: none;
   line-height: inherit;
   font-size: 100%;
   font-weight: 400;
 }
-a:focus,
-a:active,
-a:hover {
-  cursor: pointer;
-}
 a:focus {
   outline: none;
   background: inherit;
   text-decoration: none;
+}
+a:hover{
+  cursor: pointer;
 }
 body {
   background: var(--mainMcc);
@@ -126,13 +123,14 @@ main {
 }
 nav {
   color: var(--mainBlack);
-  font-size: 16px;
+  font-size: 1rem;
   letter-spacing: var(--mainSpacing);
-  margin-bottom: 20px;
+  margin: 1.25rem auto;
+  padding-bottom: 1.25rem;
 }
 nav * {
   color: var(--mainBlack);
-  font-size: 16px;
+  font-size: 1rem;
   letter-spacing: var(--mainSpacing);
   line-height: var(--bodyLineHeight);
   text-transform: uppercase;
@@ -210,11 +208,13 @@ div#content {
 .btn:hover,
 .btn:active,
 .btn:focus {
-  cursor: pointer;
   background: var(--mainWhite);
   color: var(--poppyHigh);
   border: 2px solid var(--poppyHigh);
   box-shadow: var(--dark-shadow);
+}
+.btn:hover{
+  cursor: pointer;
 }
 .btn-form {
   border: 2px solid var(--poppy);
@@ -245,9 +245,6 @@ Utility classes
 }
 .w-100 {
   width: 100%;
-}
-.facebook {
-  color: blue !important;
 }
 @media screen and (max-width: 320px) {
   div#content {

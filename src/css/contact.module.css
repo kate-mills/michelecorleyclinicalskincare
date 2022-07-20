@@ -29,11 +29,12 @@
   text-transform: capitalize;
   color: var(--mainBlack);
   transition: var(--mainTransition);
-  cursor: pointer;
 }
-
 .submit:hover,.submit:active,.submit:focus {
   background: var(--mainWhite);
   outline:none;
   transition: var(--bgTransition);
+}
+.submit:hover{
+  cursor:pointer;
 }
