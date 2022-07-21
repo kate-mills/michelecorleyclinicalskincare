@@ -5,10 +5,10 @@
   color: var(--mainWhite);
   font-size: .35rem;
   position: absolute;
-  padding: 1px;
   top: 100%;
   left: 59%;
+  padding: 0 0;
 }
-.pro__education .professional__logout__link:hover {
-  color: var(--mainBlack) !important;
+.pro__education a.logout-link.professional__logout__link:hover {
+  color: var(--mainBlack);
 }

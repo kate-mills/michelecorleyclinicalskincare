@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import links from '../../constants/links'
-import ProfessionalStatus from '../Professionals/Status'
+import links from '../../constants/desktopLinks'
 
 const SubNavigation = props => {
   return (
     <SubNavigationStyles className={`sub-nav ${props.className}`}>
-      {props.menu.map((item, id) => {
+      {props.subMenu.map((item, id) => {
         return (
-          <li key={id} className={`sub-nav-li`}>
-            <AniLink fade className="sub-nav-link" to={item.path}>
-              {item.text}
+          <li key={id} className={`sub-li`}>
+            <AniLink fade className="navigation-link sub-link" to={item.path}>
+              {item.name}
             </AniLink>
           </li>
         )
@@ -22,11 +21,11 @@ const SubNavigation = props => {
 const SubNavigationStyles = styled.ul`
   & {
     background: var(--mainWhite);
-    border: 1px solid var(--offWhite);
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
     height: max-content;
-    left: 0;
+    left: -1rem;
     position: absolute;
     top: 102%;
     width: max-content;
@@ -35,16 +34,8 @@ const SubNavigationStyles = styled.ul`
     display: none;
     z-index: 0;
 
-    li.sub-nav-li {
+    li.sub-li {
       display: contents;
-      a.sub-nav-link {
-        background: var(--mainWhite);
-        width: 100%;
-        text-align: left;
-        span {
-          padding: 0.25rem;
-        }
-      }
     }
   }
 `
@@ -55,26 +46,30 @@ class DesktopNavbar extends Component {
         <nav id="desktop-nav">
           <ul className="main-nav-links">
             {links.map((item, id) => {
-              if (item.id === 'education') {
-                return <ProfessionalStatus />
-              } else {
-                return item.menu.length > 0 ? (
-                  <li className="main-li" key={id}>
-                    <SubNavigation
-                      label={item.label}
-                      menu={item.menu}
-                      className={this.props.className}
-                    />
-                  {item.text}
-                  </li>
-                ) : (
-                  <li key={id} className="main-li">
-                    <AniLink fade to={item.path} className="main-link">
-                      {item.text}
+              return item.subMenu.length > 0 ? (
+                <li className="main-li" key={id}>
+                  <SubNavigation
+                    label={item.label}
+                    subMenu={item.subMenu}
+                    className={this.props.className}
+                  />
+                  <span className="toggle-sub-nav">{item.name}</span>
+                </li>
+              ) : (
+                <li key={id} className="main-li">
+                  {item.id === 'education' ? (
+                    item.name
+                  ) : (
+                    <AniLink
+                      fade
+                      to={item.path}
+                      className="navigation-link main-link"
+                    >
+                      {item.name}
                     </AniLink>
-                  </li>
-                )
-              }
+                  )}
+                </li>
+              )
             })}
           </ul>
         </nav>
@@ -86,15 +81,21 @@ export default styled(DesktopNavbar)`
   & nav#desktop-nav ul.main-nav-links {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background: var(--mainWhite);
-    a {
-      align-self: center;
-      margin: 0.25rem;
-      padding: 0.25rem;
-      text-align: left;
+
+    & button.toggle-sub-nav {
+      border: none;
+      background: var(--mainWhite);
+      :hover {
+        cursor: context-menu;
+      }
     }
-    li {
+    & a.navigation-link {
+      padding: 0.4rem 0.313rem;
+    }
+    & .main-li {
+      margin: 0.313rem;
       align-self: center;
       position: relative;
     }
