@@ -20,22 +20,26 @@ const SubNavigation = props => {
 }
 const SubNavigationStyles = styled.ul`
   & {
-    background: var(--mainWhite);
-    border: 1px solid red;
+    background: var(--offWhite);
     display: flex;
     flex-direction: column;
     height: max-content;
-    left: -1rem;
     position: absolute;
     top: 102%;
+    left: -2rem;
     width: max-content;
+    padding-left: 1rem;
 
     /* DEFAULT VALUES */
     display: none;
     z-index: 0;
 
     li.sub-li {
-      display: contents;
+      display:contents;
+      a.sub-link.navigation-link {
+        margin-left: .6rem;
+        margin-right: 1rem;
+      }
     }
   }
 `
@@ -47,7 +51,7 @@ class DesktopNavbar extends Component {
           <ul className="main-nav-links">
             {links.map((item, id) => {
               return item.subMenu.length > 0 ? (
-                <li className="main-li" key={id}>
+                <li className="main-li main-li__toggle-btn" key={id}>
                   <SubNavigation
                     label={item.label}
                     subMenu={item.subMenu}
@@ -100,7 +104,7 @@ export default styled(DesktopNavbar)`
       position: relative;
     }
   }
-  & nav#desktop-nav ul.main-nav-links li.main-li:hover ul.sub-nav {
+  & nav#desktop-nav ul.main-nav-links li.main-li.main-li__toggle-btn:hover ul.sub-nav {
     display: flex;
     z-index: 1;
   }
