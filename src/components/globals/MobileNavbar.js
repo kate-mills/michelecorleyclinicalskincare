@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import links from '../../constants/links'
+import links from '../../constants/mobileLinks'
 import { screen } from '../../css/js/media-functions'
 import ProfessionalStatus from '../Professionals/Status'
 
