@@ -35,7 +35,8 @@
 
 }
 .press__col:nth-child(2) h3{
-  padding: 1rem inherit;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-size: 1rem;
   text-align: center;
   width: 70%;
