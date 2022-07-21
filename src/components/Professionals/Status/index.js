@@ -19,7 +19,7 @@ export default () => {
         <Link to="/app/education">EDUCATION</Link>
         <Link
           aria-hidden="true"
-          className={styles[`professional__logout__link`]}
+          className={`logout-link ${styles[`professional__logout__link`]}`}
           to="/"
           onClick={event => {
             event.preventDefault()
