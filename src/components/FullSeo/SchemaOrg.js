@@ -1,5 +1,5 @@
 import React from 'react'
-import { seoLinks } from '../../constants/links'
+import { seoLinks } from '../../constants/seoLinks'
 
 import { Helmet } from 'react-helmet'
 
