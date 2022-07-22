@@ -94,10 +94,7 @@ const FooterWrapper = styled(Footer)`
           line-height: 2;
           padding: 0.3125rem;
           svg {
-            fill: var(--darkGrey);
-            stroke: #1db2e9;
-            stroke-opacity: 0.1;
-            stroke-width: 1px;
+            color: var(--darkGrey);
           }
         }
       }

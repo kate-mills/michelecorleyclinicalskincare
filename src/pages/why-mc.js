@@ -91,7 +91,7 @@ export const query = graphql`
 const WhyWrapper = styled.div`
   & {
     display: flex;
-    display-content: center;
+    align-content: center;
     flex-direction: column;
     margin: 0 auto;
     justify-content: space-between;
