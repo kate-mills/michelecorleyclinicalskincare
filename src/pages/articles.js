@@ -6,7 +6,6 @@ import ArticleList from '../components/Articles/ArticleList'
 import styled from 'styled-components'
 
 const Press2 = ({ data }) => {
-  console.log('datapress ', data)
   return (
     <PageModel title="Articles" centeredTitle>
       <PressWrapper>
