@@ -5,8 +5,7 @@ import { Helmet } from 'react-helmet'
 
 import { Logo } from './LogoImg'
 import Announcement from './Announcement'
-import MobileNavbar from './globals/MobileNavbar'
-import DesktopNavbar from './globals/DesktopNavbar'
+import {MobileNavbar, DesktopNavbar} from './Navbar'
 import ProductSearch from './ProductSearch'
 
 import Footer from './Footer'
