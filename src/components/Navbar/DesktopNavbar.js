@@ -8,13 +8,18 @@ const SubMenu = props => {
     <SubNavigationStyles className={`submenu ${props.className}`}>
       {props.subMenu.map((item, id) => {
         return (
-          <li key={id} className={`navigation-li submenu__li`}>
+          <li
+            key={id}
+            className={`submenu__listitem navigation__listitem`}
+          >
             <AniLink
               fade
-              className="navigation-link submenu__link"
+              className="submenu__link navigation__link"
               to={item.path}
             >
-              <span className="submenu__link--text">{item.name}</span>
+              <span>
+                {item.name}
+              </span>
             </AniLink>
           </li>
         )
@@ -34,40 +39,37 @@ const SubNavigationStyles = styled.ul`
     /* default - hidden */
     display: none;
     z-index: 0;
-
-    li.submenu__li {
-      padding: 0.4rem 0.3125rem;
-    }
   }
 `
 class DesktopNavbar extends Component {
   render() {
     return (
       <div className={`${this.props.className}`}>
-        <nav id="nav-main--w">
-          <ul id="nav-main-links--w" className="nav-links">
+        <nav id="desktop-navigation">
+          <ul id="topnav" className="navigation-links">
             {links.map((item, id) => {
               return item.subMenu.length > 0 ? (
                 <li
-                  className="nav-main__uli nav-main__uli-toggle-submenu"
                   key={id}
+                  className="topnav__listitem navigation__listitem topnav__toggle-subnavigation"
                 >
                   <SubMenu
-                    label={item.label}
                     subMenu={item.subMenu}
                     className={this.props.className}
                   />
-                  <span className="toggle-submenu-txt">{item.name}</span>
+                  <span>
+                    {item.name}
+                  </span>
                 </li>
               ) : (
-                <li key={id} className="nav-main__uli">
+                <li key={id} className="topnav__listitem navigation__listitem">
                   {item.id === 'education' ? (
                     item.name
                   ) : (
                     <AniLink
                       fade
                       to={item.path}
-                      className="navigation-link main-link"
+                      className="topnav__link navigation__link"
                     >
                       {item.name}
                     </AniLink>
@@ -82,31 +84,32 @@ class DesktopNavbar extends Component {
   }
 }
 export default styled(DesktopNavbar)`
-  & nav#nav-main--w ul#nav-main-links--w {
+  & nav#desktop-navigation ul#topnav.navigation-links {
+    background: var(--mainWhite);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    background: var(--mainWhite);
-
-    & .nav-main__uli {
-      margin: 0.3125rem 1rem;
-      padding: 0.4rem 0.3125rem;
-      & .navigation-link {
-        padding: 0.4rem 0.3125rem;
+    & li.navigation__listitem {
+      margin: 0.3rem;
+      padding: 0.2rem 0.5rem;
+      & .navigation__link {
+        padding: 0.2rem 0.5rem;
       }
     }
-    & li.nav-main__uli.nav-main__uli-toggle-submenu {
+    & li.navigation__listitem.topnav__toggle-subnavigation {
       position: relative;
       :hover {
-        cursor: context-menu;
+        cursor: pointer;
         & ul.submenu {
           display: flex;
           z-index: 1;
         }
       }
+      & .submenu__listitem {
+        margin-left: 0;
+      }
     }
   }
-
   @media (max-width: 749px) {
     & {
       display: none;
