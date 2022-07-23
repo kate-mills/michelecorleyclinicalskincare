@@ -131,9 +131,10 @@ nav {
 nav * {
   color: var(--mainBlack);
   font-size: 1rem;
-  letter-spacing: var(--mainSpacing);
-  line-height: var(--bodyLineHeight);
+  letter-spacing: -0.03rem;
+  line-height: 2;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 p {
   color: var(--mainBlack);
