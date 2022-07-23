@@ -2,38 +2,51 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import links from '../../constants/desktopLinks'
+import { matchLettersJoinDash } from '../../utils/regexHelper'
 
-const SubMenu = props => {
+const SubMenu = ({ className, name, safeId, subMenu }) => {
   return (
-    <SubNavigationStyles className={`submenu ${props.className}`}>
-      {props.subMenu.map((item, id) => {
-        return (
-          <li
-            key={id}
-            className={`submenu__listitem navigation__listitem`}
-          >
-            <AniLink
-              fade
-              className="submenu__link navigation__link"
-              to={item.path}
-            >
-              <span>
-                {item.name}
-              </span>
-            </AniLink>
-          </li>
-        )
-      })}
-    </SubNavigationStyles>
+    <>
+      <button className={`navigation__button`} id={`${safeId}-button`}>
+        {name}
+      </button>
+      <SubNavigationStyles
+        className={`submenu ${className}`}
+        id={`${safeId}-submenu`}
+      >
+        {subMenu.map((item, id) => {
+          return (
+            <li key={id} className={`submenu__listitem navigation__listitem`}>
+              <AniLink
+                fade
+                className="submenu__link navigation__link"
+                to={item.path}
+              >
+                <span>{item.name}</span>
+              </AniLink>
+            </li>
+          )
+        })}
+      </SubNavigationStyles>
+    </>
   )
 }
+SubMenu.defaultProps = {
+  className: '',
+  name: '',
+  safeId: '',
+  subMenu: [],
+}
+
 const SubNavigationStyles = styled.ul`
   & {
     background: var(--mainWhite);
+    border-bottom: 2px solid var(--darkGrey);
     flex-direction: column;
-    left: -0.4rem;
+    left: -10px;
+    padding: 0px 10px;
     position: absolute;
-    top: 100%;
+    top: 90%;
     width: max-content;
 
     /* default - hidden */
@@ -51,15 +64,14 @@ class DesktopNavbar extends Component {
               return item.subMenu.length > 0 ? (
                 <li
                   key={id}
-                  className="topnav__listitem navigation__listitem topnav__toggle-subnavigation"
+                  className="topnav__listitem navigation__listitem topnav__toggle-submenu"
                 >
                   <SubMenu
-                    subMenu={item.subMenu}
                     className={this.props.className}
+                    name={item.name}
+                    safeId={matchLettersJoinDash(item.name)}
+                    subMenu={item.subMenu}
                   />
-                  <span>
-                    {item.name}
-                  </span>
                 </li>
               ) : (
                 <li key={id} className="topnav__listitem navigation__listitem">
@@ -85,28 +97,27 @@ class DesktopNavbar extends Component {
 }
 export default styled(DesktopNavbar)`
   & nav#desktop-navigation ul#topnav.navigation-links {
-    background: var(--mainWhite);
     display: flex;
     flex-flow: row wrap;
+    gap: 1rem 1.35rem;
     justify-content: space-around;
-    & li.navigation__listitem {
-      margin: 0.3rem;
-      padding: 0.2rem 0.5rem;
-      & .navigation__link {
-        padding: 0.2rem 0.5rem;
-      }
+
+    & span > a:nth-child(1),
+    & a.navigation__link,
+    & button.navigation__button {
+      background: var(--mainWhite);
+      border: none;
+      display: block;
+      padding: 0.3rem 0px;
     }
-    & li.navigation__listitem.topnav__toggle-subnavigation {
+    & li.navigation__listitem.topnav__toggle-submenu {
       position: relative;
       :hover {
-        cursor: pointer;
+        cursor: default;
         & ul.submenu {
           display: flex;
           z-index: 1;
         }
-      }
-      & .submenu__listitem {
-        margin-left: 0;
       }
     }
   }
