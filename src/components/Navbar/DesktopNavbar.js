@@ -5,14 +5,27 @@ import links from '../../constants/desktopLinks'
 import { matchLettersJoinDash } from '../../utils/regexHelper'
 
 const SubMenu = ({ className, name, safeId, subMenu }) => {
+  const [isExpanded, setIsExpanded] = React.useState(false)
+  const btnClick = e => {
+    setIsExpanded(current => !current)
+  }
   return (
     <>
-      <button className={`navigation__button`} id={`${safeId}-button`}>
+      <button
+        onClick={btnClick}
+        aria-haspopup="true"
+        aria-expanded={isExpanded}
+        aria-controls={`${safeId}-submenu`}
+        id={`${safeId}-button`}
+        className={`navigation__button`}
+      >
         {name}
       </button>
       <SubNavigationStyles
         className={`submenu ${className}`}
         id={`${safeId}-submenu`}
+        aria-labelledby={`${safeId}-button`}
+        hidden={!isExpanded}
       >
         {subMenu.map((item, id) => {
           return (
@@ -41,7 +54,7 @@ SubMenu.defaultProps = {
 const SubNavigationStyles = styled.ul`
   & {
     background: var(--mainWhite);
-    border-bottom: 2px solid var(--darkGrey);
+    border-bottom: 2px solid var(--offWhite);
     flex-direction: column;
     left: -10px;
     padding: 0px 10px;
