@@ -1,6 +1,5 @@
 import './src/css/main.css'
 
-require('typeface-montserrat')
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

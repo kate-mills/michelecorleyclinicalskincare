@@ -154,6 +154,18 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: [
+            'Montserrat:wght@300;400;500;600;700',
+            /*'Montserrat+Alternates:ital,wght@0,500;1,300&display=swap',*/
+          ],
+        },
+        timeout: 2000,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cache',
       options: {
         cachePublic: false,
