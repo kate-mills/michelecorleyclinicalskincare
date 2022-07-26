@@ -54,14 +54,17 @@ SubMenu.defaultProps = {
 const SubNavigationStyles = styled.ul`
   & {
     background: var(--mainWhite);
-    border-bottom: 2px solid var(--offWhite);
+    border-bottom: 10px solid var(--mainWhite);
     flex-direction: column;
     left: -10px;
     padding: 0px 10px;
     position: absolute;
-    top: 90%;
+    top: 80%;
     width: max-content;
-
+    & li a{
+      display: inline-block;
+      width: 100%;
+    }
     /* default - hidden */
     display: none;
     z-index: 0;
@@ -114,14 +117,17 @@ export default styled(DesktopNavbar)`
     flex-flow: row wrap;
     gap: 1rem 1.35rem;
     justify-content: space-around;
+    align-items: center;
 
+    & li.navigation__listitem{
+      padding: 0.2rem;
+      background: var(--mainWhite);
+    }
     & span > a:nth-child(1),
     & a.navigation__link,
     & button.navigation__button {
       background: var(--mainWhite);
-      border: none;
-      display: block;
-      padding: 0.3rem 0px;
+      border: 4px solid var(--mainWhite);
     }
     & li.navigation__listitem.topnav__toggle-submenu {
       position: relative;
