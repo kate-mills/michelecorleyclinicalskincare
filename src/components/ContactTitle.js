@@ -16,11 +16,11 @@ export default styled(Title)`
     text-transform: uppercase;
     font-size: 2.3rem;
     margin-bottom: 2rem;
-    line-height: 34px;
+    line-height: initial;
   }
   & h3 {
     text-align: center;
-    letter-spacing: 7px;
+    letter-spacing: 1px;
     color: rgba(179, 0, 0, 0.8);
   }
   .title {

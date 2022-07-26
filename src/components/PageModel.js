@@ -35,7 +35,7 @@ const PageModel = ({
         />
       )}
       {centeredTitle && (
-        <Title color={'var(--mainBlack)'} size={'2.3876rem'} title={title} />
+        <Title color={'var(--poppyDark)'} size={'2.4876rem'} title={title} />
       )}
       {children}
     </Layout>

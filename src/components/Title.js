@@ -6,9 +6,9 @@ const Title = ({ className, color, size, weight, title }) => {
 }
 
 Title.defaultProps = {
-  color: 'var(--mainBlack)',
+  color: 'var(--poppyDark)',
   size: '2.6875rem',
-  weight: 300,
+  weight: 400,
 }
 
 export default styled(Title)`
