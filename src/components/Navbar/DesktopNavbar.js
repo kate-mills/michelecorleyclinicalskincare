@@ -59,9 +59,9 @@ const SubNavigationStyles = styled.ul`
     left: -10px;
     padding: 0px 10px;
     position: absolute;
-    top: 80%;
+    top: 95%;
     width: max-content;
-    & li a{
+    & li a {
       display: inline-block;
       width: 100%;
     }
@@ -119,7 +119,7 @@ export default styled(DesktopNavbar)`
     justify-content: space-around;
     align-items: center;
 
-    & li.navigation__listitem{
+    & li.navigation__listitem {
       padding: 0.2rem;
       background: var(--mainWhite);
     }
@@ -128,15 +128,27 @@ export default styled(DesktopNavbar)`
     & button.navigation__button {
       background: var(--mainWhite);
       border: 4px solid var(--mainWhite);
+      text-decoration: underline;
     }
     & li.navigation__listitem.topnav__toggle-submenu {
       position: relative;
       :hover {
+        button {
+          opacity: 0.8;
+        }
         cursor: default;
         & ul.submenu {
           display: flex;
           z-index: 1;
         }
+      }
+    }
+    a.navigation__link[aria-current='page'] span,
+    a.navigation__link[aria-current='page'] {
+      background: var(--darkGrey) !important;
+      color: var(--mainWhite) !important;
+      :hover {
+        cursor: default;
       }
     }
   }
