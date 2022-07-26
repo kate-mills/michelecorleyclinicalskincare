@@ -1,19 +1,19 @@
 :root {
   --clear: rgba(0, 0, 0, 0);
-  --darkGrey: #9D9692;
-  --mainBlack:#201e22;/* #4e4e4e; /*#1d252d;*/
+  --darkGrey: #9d9692;
+  --mainBlack: #201e22;
   --darkGrey: #7b7b7b;
   --blackText: #3c3c3c;
   --lightBlack: #585858;
-  --mainMcc: #DCDCDC;
-  --offWhite: #f9f9f9; /*#FCFCFC*/
+  --mainMcc: #dcdcdc;
+  --offWhite: #f9f9f9;
   --mainWhite: #fefefe;
   --mainSpacing: 0.0625rem;
-  --poppy: #1B55A1; /*#1c57a5;*/
-  --poppyLow: #4d5580; /*#6F7CB9;*/
-  --poppyHigh: hsl(214 52% 36% / 1); /*#3f78c2;*/
+  --poppy: #1b55a1;
+  --poppyLow: #4d5580;
+  --poppyHigh: hsl(214 52% 36% / 1);
   --poppyDark: hsl(214 71% 37% / 1);
-  --poppyDark:#5a6cae;
+  --poppyDark: #5a6cae;
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
@@ -51,7 +51,7 @@ a:focus {
   background: inherit;
   text-decoration: none;
 }
-a:hover{
+a:hover {
   cursor: pointer;
 }
 body {
@@ -84,7 +84,7 @@ h6 {
   font-weight: 300;
   line-height: var(--headingLineHeight);
   margin: 0.5em 0 0.3em;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
@@ -224,7 +224,7 @@ div#content {
   border: 2px solid var(--poppyHigh);
   box-shadow: var(--dark-shadow);
 }
-.btn:hover{
+.btn:hover {
   cursor: pointer;
 }
 .btn-form {
