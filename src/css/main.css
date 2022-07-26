@@ -4,6 +4,7 @@
   --mainBlack:#201e22;/* #4e4e4e; /*#1d252d;*/
   --darkGrey: #7b7b7b;
   --blackText: #3c3c3c;
+  --lightBlack: #585858;
   --mainMcc: #DCDCDC;
   --offWhite: #f9f9f9; /*#FCFCFC*/
   --mainWhite: #fefefe;
@@ -128,14 +129,14 @@ main {
   width: 100%;
 }
 nav {
-  color: var(--mainBlack);
+  color: var(--lightBlack);
   font-size: 1rem;
   letter-spacing: var(--mainSpacing);
   margin: 1.25rem auto;
   padding-bottom: 1.25rem;
 }
 nav * {
-  color: var(--mainBlack);
+  color: var(--lightBlack);
   font-size: 1rem;
   letter-spacing: -0.03rem;
   line-height: 2;
