@@ -25,7 +25,7 @@ module.exports = {
       email: `customerservice@michelecorley.com`,
       name: `Michele Corley Clinical Skin Care`,
       url: `https://michelecorleyclinicalskincare.com`,
-      logo:`https://michelecorleyclinicalskincare.com/logo.jpg`,
+      logo: `https://michelecorleyclinicalskincare.com/logo.jpg`,
       telephone: `707-287-0555`,
       priceRange: `$$`,
       sameAs: [
@@ -100,12 +100,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-preconnect',
-      options: {
-        domains: ['https://foo.com', 'https://bar.com'],
-      },
-    },
-    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.GATSBY_AIRTABLE_API,
@@ -151,12 +145,6 @@ module.exports = {
             mapping: { pdf: `fileNode` },
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify-cache',
-      options: {
-        cachePublic: false,
       },
     },
   ],

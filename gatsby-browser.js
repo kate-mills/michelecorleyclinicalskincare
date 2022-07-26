@@ -1,6 +1,8 @@
-import './src/css/main.css'
+import "@fontsource/montserrat/variable.css";
+import "@fontsource/montserrat/variable-italic.css";
 
-require('typeface-montserrat')
+import './src/css/main.css';
+
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
