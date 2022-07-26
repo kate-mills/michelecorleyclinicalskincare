@@ -6,13 +6,13 @@
   --mainMcc: #DCDCDC;
   --offWhite: #f9f9f9; /*#FCFCFC*/
   --mainWhite: #fefefe;
-  --mainSpacing: 0.0625rem;
+  /*--mainSpacing: 0.0625rem;*/
   --poppy: #1B55A1; /*#1c57a5;*/
   --poppyLow: #4d5580; /*#6F7CB9;*/
   --poppyHigh: hsl(214 52% 36% / 1); /*#3f78c2;*/
   --poppyDark: hsl(214 71% 37% / 1);
   --poppyDark: #4b5198;
-  --mainFont: Montserrat, sans-serif;
+  --mainFont: "MontserratVariable", sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
   --bgTransition: background-color 100ms linear;
@@ -21,28 +21,42 @@
   --dark-shadow: 0 0 4px rgb(0 0 0 / 15%);
 }
 *,
-::after,
-::before {
+*::after,
+*::before {
+  box-sizing: inherit;
+  color: var(--mainBlack);
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: var(--mainFont);
+}
+
+html{
   font-size: 100%;
-  text-decoration: none;
 }
-::selection {
+body {
+  background: var(--mainMcc);
   background-color: var(--mainMcc);
-  color: var(--poppyHigh);
-}
-:focus {
-  outline: var(--clear);
+  background-size: auto;
+  background-repeat: repeat;
+  color: var(--mainBlack);
+  font-size: 16px;
+  font-family: sans-serif;
+  font-family: var(--mainFont);
+  font-weight: 400;
+  color: var(--mainBlack);
+  display: block;
+  line-height: var(--bodyLineHeight);
+  margin: 0;
+  min-height: 100vh;
+  overflow: scroll;
+  text-decoration: none;
+  text-transform: none;
 }
 a {
   color: var(--mainBlack);
   text-decoration: none;
   line-height: inherit;
   font-size: 100%;
-  font-weight: 400;
+  font-weight: 450;
 }
 a:focus {
   outline: none;
@@ -52,24 +66,8 @@ a:focus {
 a:hover{
   cursor: pointer;
 }
-body {
-  background: var(--mainMcc);
-  background-color: var(--mainMcc);
-  background-size: auto;
-  background-repeat: repeat;
-  color: var(--mainBlack);
-  display: block;
-  font-family: var(--mainFont);
-  font-style: normal;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: var(--bodyLineHeight);
-  margin: 0;
-  min-height: 100vh;
-  overflow: scroll;
-  text-decoration: none;
-  text-transform: none;
-}
+
+
 h1,
 h2,
 h3,
@@ -79,13 +77,13 @@ h6 {
   color: var(--mainBlack);
   font-family: var(--mainFont);
   font-style: normal;
-  font-weight: 300;
+  font-weight: 455;
   line-height: var(--headingLineHeight);
   margin: 0.5em 0 0.3em;
 }
 h1 {
+  font-weight: 300;
   font-size: 43px;
-  letter-spacing: var(--mainSpacing);
 }
 h2,
 h3 {
@@ -123,27 +121,30 @@ main {
 }
 nav {
   color: var(--mainBlack);
-  font-size: 1rem;
-  letter-spacing: var(--mainSpacing);
   margin: 1.25rem auto;
   padding-bottom: 1.25rem;
+  font-family: var(--mainFont);
+  font-weight: 500;
+  font-size: 1rem;
 }
 nav * {
-  color: var(--mainBlack);
-  font-size: 1rem;
+  background: var(--mainWhite);
   letter-spacing: -0.03rem;
   line-height: 2;
+  font-size: .9rem;
+  font-weight: 500;
+  font-family: var(--mainFont);
   text-transform: uppercase;
   white-space: nowrap;
 }
 p {
   color: var(--mainBlack);
   padding: 0 0 1.8em;
-  font-family: var(--mainFont);
-  font-weight: 400;
   line-height: var(--bodyLineHeight);
   white-space: pre-line;
+  font-family: var(--mainFont);
   font-size: 1rem;
+  font-weight: 400;
 }
 ul {
   list-style: none;
@@ -202,7 +203,7 @@ div#content {
   box-shadow: var(--light-shadow);
   color: var(--poppyLow);
   display: inline-block;
-  letter-spacing: var(--mainSpacing);
+  /*letter-spacing: var(--mainSpacing);*/
   padding: 0.8rem 1.6rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -292,4 +293,12 @@ Utility classes
   height: 1px;
   top: auto;
   overflow: hidden;
+}
+
+::selection {
+  background-color: var(--mainMcc);
+  color: var(--poppyHigh);
+}
+:focus {
+  outline: var(--clear);
 }

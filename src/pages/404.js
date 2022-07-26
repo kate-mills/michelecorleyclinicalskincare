@@ -1,33 +1,36 @@
 import React from 'react'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const ErrorPage = () => {
+const ErrorPage = props => {
   return (
-    <PageModel name="Oops" title="Oops">
-      <ErrorWrapper>
-        <div>
-          <h1 className="oops">Oops!</h1>
-          <p>
+    <Layout name="Oops" title="Oops">
+      <ErrorWrapper className={props.className}>
+        <div className="txt-center">
+          <h1>Oops!</h1>
+          <p className="info">
             We couldn't find the page you were looking for. This is either
             because:
           </p>
           <ul data-bullet-list>
-            <li>
+            <li className="indent">
               <p>There is an error in the URL entered into your web browser.</p>
             </li>
-            <li>
+            <li className="indent">
               <p>The page you are looking for has been moved or deleted.</p>
             </li>
           </ul>
-          <p className=" m-top">
-            Please check the URL and try again or click below to return to our
-            home page.
-          </p>
-          <p className="txt-center m-top">
+
+          <div className="txt-center">
+            <p className="info">
+              Please check the URL and try again or click below to return to our
+              home page.
+            </p>
+          </div>
+          <p className="txt-center">
             {' '}
             <AniLink className="btn" fade to="/">
               Return to our home page
@@ -36,42 +39,33 @@ const ErrorPage = () => {
           </p>
         </div>
       </ErrorWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const ErrorWrapper = styled.section`
-  & {
-    font-family: inherit;
-  }
-  & div h1 {
-    margin-left: 5px;
-  }
   & div {
-    margin: 10px auto;
-    width: 70%;
+    margin: 0 auto;
+    max-width: 70%;
+    width: 100%;
+    & .info{
+      padding-bottom: 0.25rem;
+    }
+    & ul {
+      text-align: left;
+      margin:  1rem auto;
+      width: 70%;
+      .indent{
+        margin: 0 .5rem;
+      }
+    }
+  & a.btn{
+    margin-top: 1rem;
   }
-  & div p {
-    font-family: inherit;
-    font-size: 15px;
-    font-height: 27px;
-    color: #5c5c5c;
-    font-weight: 300;
   }
-  & div h1.oops {
-    font-size: 45px;
-    font-height: 1.2em;
-    color: #222222;
-    font-weight: 300;
-  }
-  & div li {
-    margin-left: 40px;
-  }
-  & p.m-top{
-    margin-top: 20px;
-  }
+
   @media (max-width: 749px) {
     & div{
-      width 100%;
+      max-width 100%;
     }
   }
 

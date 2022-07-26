@@ -57,7 +57,7 @@ const SubNavigationStyles = styled.ul`
     border-bottom: 2px solid var(--offWhite);
     flex-direction: column;
     left: -10px;
-    padding: 0px 10px;
+    padding: 0px 15px 20px 10px;
     position: absolute;
     top: 90%;
     width: max-content;
@@ -65,6 +65,10 @@ const SubNavigationStyles = styled.ul`
     /* default - hidden */
     display: none;
     z-index: 0;
+
+    & .submenu__listitem:hover span {
+      color: var(--poppy);
+    }
   }
 `
 class DesktopNavbar extends Component {
@@ -122,10 +126,17 @@ export default styled(DesktopNavbar)`
       border: none;
       display: block;
       padding: 0.3rem 0px;
+      :hover {
+        color: var(--poppy);
+      }
     }
     & li.navigation__listitem.topnav__toggle-submenu {
       position: relative;
       :hover {
+      & button{
+        font-weight: 525;
+        color: var(--poppy);
+      }
         cursor: default;
         & ul.submenu {
           display: flex;
