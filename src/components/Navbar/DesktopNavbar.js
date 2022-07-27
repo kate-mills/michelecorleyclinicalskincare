@@ -128,7 +128,6 @@ export default styled(DesktopNavbar)`
     & button.navigation__button {
       background: var(--mainWhite);
       border: 4px solid var(--mainWhite);
-      text-decoration: underline;
     }
     & li.navigation__listitem.topnav__toggle-submenu {
       position: relative;
@@ -145,8 +144,7 @@ export default styled(DesktopNavbar)`
     }
     a.navigation__link[aria-current='page'] span,
     a.navigation__link[aria-current='page'] {
-      background: var(--darkGrey) !important;
-      color: var(--mainWhite) !important;
+      text-decoration: underline;
       :hover {
         cursor: default;
       }
