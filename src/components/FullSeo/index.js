@@ -80,7 +80,7 @@ const SEO = ({
 
   return (
     <React.Fragment>
-    <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
+      <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
         <meta name="description" content={seo.description} />
@@ -138,8 +138,7 @@ const SEO = ({
           <meta name="twitter:description" content={seo.description} />
         )}
         {seo.image && <meta name="twitter:image" content={seo.image} />}
-
-    </Helmet>
+      </Helmet>
 
       <SchemaOrg
         compoundTitle={`${seo.title} | Michele Corley Clinical Skin Care`}
@@ -152,7 +151,6 @@ const SEO = ({
         organization={organization}
       />
     </React.Fragment>
-
   )
 }
 

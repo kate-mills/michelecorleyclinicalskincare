@@ -20,7 +20,7 @@ export default styled(Title)`
   }
   & h3 {
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 7px;
     color: rgba(179, 0, 0, 0.8);
   }
   .title {
