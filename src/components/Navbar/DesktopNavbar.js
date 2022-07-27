@@ -61,7 +61,7 @@ const SubNavigationStyles = styled.ul`
     position: absolute;
     top: 95%;
     width: max-content;
-    & li a {
+    & li a{
       display: inline-block;
       width: 100%;
     }
@@ -119,7 +119,7 @@ export default styled(DesktopNavbar)`
     justify-content: space-around;
     align-items: center;
 
-    & li.navigation__listitem {
+    & li.navigation__listitem{
       padding: 0.2rem;
       background: var(--mainWhite);
     }
@@ -134,8 +134,8 @@ export default styled(DesktopNavbar)`
       :hover {
         button {
           opacity: 0.8;
+          cursor: default;
         }
-        cursor: default;
         & ul.submenu {
           display: flex;
           z-index: 1;
