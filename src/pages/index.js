@@ -26,7 +26,7 @@ export const query = graphql`
     allFile(filter: { relativeDirectory: { eq: "slideshow" } }) {
       nodes {
         childImageSharp {
-          fluid(maxWidth: 1280, maxHeight: 800, fit: COVER) {
+          fluid(maxWidth: 1280, maxHeight: 800, fit: COVER, toFormat: WEBP) {
             ...GatsbyImageSharpFluid
           }
         }
