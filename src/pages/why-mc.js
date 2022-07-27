@@ -80,7 +80,7 @@ export const query = graphql`
     files: allFile(filter: { relativePath: { eq: "facial-treatment.jpg" } }) {
       nodes {
         childImageSharp {
-          fluid(maxWidth: 447) {
+          fluid(maxWidth: 447, toFormat: WEBP) {
             ...GatsbyImageSharpFluid
           }
         }

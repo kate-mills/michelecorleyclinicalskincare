@@ -101,7 +101,7 @@ export const query = graphql`
   {
     file(relativePath: { eq: "red-flowers.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
+        fluid(maxWidth: 500, toFormat: WEBP) {
           ...GatsbyImageSharpFluid
         }
       }

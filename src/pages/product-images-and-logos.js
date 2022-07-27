@@ -83,7 +83,7 @@ export const query = graphql`
             id
             title
             description
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }
@@ -104,7 +104,7 @@ export const query = graphql`
             id
             title
             description
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }
@@ -125,7 +125,7 @@ export const query = graphql`
             id
             title
             description
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }
@@ -146,7 +146,7 @@ export const query = graphql`
             id
             title
             description
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }
@@ -167,7 +167,7 @@ export const query = graphql`
             id
             title
             description
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }
@@ -188,7 +188,7 @@ export const query = graphql`
             id
             title
             description
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }
@@ -231,7 +231,7 @@ export const query = graphql`
             title
             description
             contentful_id
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }
@@ -254,7 +254,7 @@ export const query = graphql`
             title
             description
             contentful_id
-            fluid {
+            fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
           }

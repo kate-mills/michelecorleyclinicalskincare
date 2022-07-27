@@ -30,7 +30,7 @@ export const query = graphql`
           image {
             localFiles {
               childImageSharp {
-                fluid {
+                fluid(toFormat: WEBP) {
                   ...GatsbyImageSharpFluid
                 }
               }
