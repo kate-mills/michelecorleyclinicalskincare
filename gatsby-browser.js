@@ -1,3 +1,4 @@
+import 'typeface-montserrat'
 import './src/css/main.css'
 
 
