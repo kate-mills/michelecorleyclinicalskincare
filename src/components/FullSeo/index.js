@@ -80,7 +80,7 @@ const SEO = ({
 
   return (
     <React.Fragment>
-      <Helmet title={seo.title} htmlAttributes={{ lang: 'en' }}>
+      <Helmet defaultTitle="Michele Corley Clinical Skin Care"  title={seo.title} htmlAttributes={{ lang: 'en' }} >
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
         <meta name="description" content={seo.description} />
