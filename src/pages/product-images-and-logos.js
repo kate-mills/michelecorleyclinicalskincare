@@ -34,12 +34,12 @@ const ProductImagesLogos = props => {
           <ProductImageList data={props.data.moisture} />
         </section>
 
-        <section id="eyes & lips">
+        <section id="eyes-lips">
           <h2 className="poppy">Eyes and Lips</h2>
           <ProductImageList data={props.data.eyesLips} />
         </section>
 
-        <section id="serums & specialty">
+        <section id="serums-specialty">
           <h2 className="poppy">Serums and Specialty</h2>
           <ProductImageList data={props.data.serums} />
         </section>

@@ -14,7 +14,7 @@ const ProductImage = ({ imgRetail, name, slug }) => {
 
   return (
     <AniLink
-      id={name}
+      id={`${slug}`}
       className={styles.grid__item}
       state={{ modal: true, closeTo: pathname }}
       to={`/product-images-and-logos/${slug}/`}
