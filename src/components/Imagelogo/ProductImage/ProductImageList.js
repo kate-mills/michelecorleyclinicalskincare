@@ -5,7 +5,7 @@ import ProductImage from './ProductImage'
 
 const ProductImageList = props => {
   return (
-    <div className={styles.img__logo__grid__container}>
+    <div className={styles.productimagelist}>
       {props.data.edges.map(({ node }) => {
         return (
           <ProductImage

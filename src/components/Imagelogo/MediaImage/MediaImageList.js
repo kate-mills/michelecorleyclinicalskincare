@@ -5,7 +5,7 @@ import MediaImage from './MediaImage'
 
 const MediaImageList = props => {
   return (
-    <div className={styles.media__logo__grid__container}>
+    <div className={styles.mediaimagelist}>
       {props.data.edges.map(({ node }) => {
         return (
           <MediaImage

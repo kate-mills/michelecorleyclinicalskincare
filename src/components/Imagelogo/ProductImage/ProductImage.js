@@ -9,20 +9,20 @@ const ProductImage = ({ imgRetail, name, slug }) => {
   let pathname = '/product-images-and-logos'
 
   if (typeof window !== `undefined`) {
-    pathname = `${window.location.pathname}#${name}`
+    pathname = `${window.location.pathname}#${slug}`
   }
 
   return (
     <AniLink
       id={`${slug}`}
-      className={styles.grid__item}
+      className={styles.productimagelist__item}
       state={{ modal: true, closeTo: pathname }}
       to={`/product-images-and-logos/${slug}/`}
     >
-      <div className={styles.product__img__fluid}>
-        <Img fluid={imgRetail.fluid} />
+      <div>
+        <Img fixed={imgRetail.fixed} />
       </div>
-      <span className={styles.product__name}>{name}</span>
+      <span className={styles.productimagelist__item_name}>{name}</span>
     </AniLink>
   )
 }

@@ -9,21 +9,21 @@ const MediaImage = ({ name, slug, category, images }) => {
   let pathname = '/product-images-and-logos'
 
   if (typeof window !== `undefined`) {
-    pathname = `${window.location.pathname}#${name}`
+    pathname = `${window.location.pathname}#${slug}`
   }
 
   return (
     <AniLink
       id={slug}
-      className={styles.grid__item}
+      className={styles.mediaimagelist__item}
       state={{ modal: true, closeTo: pathname }}
       to={`/product-images-and-logos/${slug}/`}
     >
-      <div className={styles.media__img__fluid}>
+      <div>
         {/* Show thumbnail which is at last index */}
-        <Img fluid={images[images.length - 1].fluid} />
+        <Img fixed={images[images.length - 1].fixed} />
       </div>
-      <span className={styles.media__name}>{name}</span>
+      <span className={styles.mediaimagelist__item_name}>{name}</span>
     </AniLink>
   )
 }
