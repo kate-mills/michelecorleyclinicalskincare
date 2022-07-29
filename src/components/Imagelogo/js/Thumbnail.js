@@ -5,7 +5,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Img from 'gatsby-image'
 
-const ProductImage = ({ thumbnail, name, slug }) => {
+const Thumbnail = ({ thumbnail, name, slug, category}) => {
   let pathname = '/product-images-and-logos'
 
   if (typeof window !== `undefined`) {
@@ -14,17 +14,18 @@ const ProductImage = ({ thumbnail, name, slug }) => {
 
   return (
     <AniLink
-      id={`${slug}`}
+      id={slug}
       className={styles.griditem}
       state={{ modal: true, closeTo: pathname }}
       to={`/product-images-and-logos/${slug}/`}
     >
       <div>
-        <Img fixed={thumbnail} />
+        {/* Show thumbnail which is at last index */}
+        <Img fixed={thumbnail.fixed} />
       </div>
       <span className={styles.griditem__name}>{name}</span>
     </AniLink>
   )
 }
 
-export default ProductImage
+export default Thumbnail

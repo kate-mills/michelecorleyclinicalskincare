@@ -1,17 +1,20 @@
 import React from 'react'
 import styles from '../css/mediagrid.module.css'
 
-import MediaImage from './MediaImage'
+import Thumbnail from './Thumbnail'
 
-const MediaImageList = props => {
+const ThumbnailGrid = ({data, logoMedia=false}) => {
+
   return (
     <div className={styles.mediagrid}>
-      {props.data.edges.map(({ node }) => {
+      {data.edges.map(({ node }) => {
+
         return (
-          <MediaImage
+          <Thumbnail
             key={node.contentful_id}
             className={styles.grid__item}
             {...node}
+            thumbnail={logoMedia ? node.images[node.images.length - 1] : node.imgRetail }
           />
         )
       })}
@@ -19,4 +22,4 @@ const MediaImageList = props => {
   )
 }
 
-export default MediaImageList
+export default ThumbnailGrid

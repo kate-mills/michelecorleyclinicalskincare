@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './mediaimage.module.css'
+import styles from '../css/griditem.module.css'
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
@@ -15,7 +15,7 @@ const MediaImage = ({ name, slug, category, images }) => {
   return (
     <AniLink
       id={slug}
-      className={styles.mediaimagelist__item}
+      className={styles.griditem}
       state={{ modal: true, closeTo: pathname }}
       to={`/product-images-and-logos/${slug}/`}
     >
@@ -23,7 +23,7 @@ const MediaImage = ({ name, slug, category, images }) => {
         {/* Show thumbnail which is at last index */}
         <Img fixed={images[images.length - 1].fixed} />
       </div>
-      <span className={styles.mediaimagelist__item_name}>{name}</span>
+      <span className={styles.griditem__name}>{name}</span>
     </AniLink>
   )
 }

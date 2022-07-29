@@ -1,20 +1,21 @@
-.productimagelist__item {
+.griditem {
   font-size: 12px;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
   width: 100%;
-  width: 230px;
+  width: 240px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 10px;
+  
 }
-.productimagelist__item:hover{
+.griditem:hover{
   box-shadow: var(--dark-shadow);
 }
-.productimagelist__item_name{
-  white-space: nowrap; 
+.griditem__name{
   width: 100%;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; 
+  display:block;
 }
