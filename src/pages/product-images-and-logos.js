@@ -13,7 +13,7 @@ const ProductImagesLogos = props => {
       centeredTitle
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
     >
-      <p className="txt-center">
+      <p className="txt-center pb0">
         The following resources are available for your use in representing
         Michele Corley Clinical Skin Care products.
       </p>
@@ -29,17 +29,17 @@ const ProductImagesLogos = props => {
         </article>
 
         <article id="moisturizers-spf">
-          <h2>Moisturizers and SPF</h2>
+          <h2>Moisturizers & SPF</h2>
           <Thumbnails data={props.data.moisture} />
         </article>
 
         <article id="eyes-lips">
-          <h2>Eyes and Lips</h2>
+          <h2>Eyes & Lips</h2>
           <Thumbnails data={props.data.eyesLips} />
         </article>
 
         <article id="serums-specialty">
-          <h2>Serums and Specialty</h2>
+          <h2>Serums & Specialty</h2>
           <Thumbnails data={props.data.serums} />
         </article>
 
@@ -291,9 +291,15 @@ export const query = graphql`
 `
 
 const ProductsWrapper = styled.section`
-  & h2 {
+  & > article h2 {
     color: var(--poppy);
     margin: 2rem auto 0;
+    text-align: center;
+  }
+  @media (min-width: 563px) {
+    & article h2 {
+      text-align: left;
+    }
   }
 `
 export default ProductImagesLogos

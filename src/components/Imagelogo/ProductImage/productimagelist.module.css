@@ -1,8 +1,0 @@
-.productimagelist {
-  width: 100%;
-  margin: 0 auto;
-  justify-content: baseline;
-  border: 1px solid var(--mainMcc);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
