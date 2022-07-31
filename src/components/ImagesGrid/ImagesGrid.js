@@ -28,7 +28,8 @@ export default styled(ImageGrid)`
     border: 1px solid var(--mainMcc);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 5px 2px;
+    gap: 5px;
+    padding: 10px;
     & li {
       background: var(--mainWhite);
       margin: 0 auto;
