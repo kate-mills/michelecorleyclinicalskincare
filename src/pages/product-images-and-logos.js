@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import PageModel from '../components/PageModel'
-import ProductImageList from '../components/Imagelogo/ProductImage/ProductImageList'
-import MediaImageList from '../components/Imagelogo/MediaImage/MediaImageList'
+
+import Thumbnails from '../components/Thumbnails'
 import styled from 'styled-components'
 
 const ProductImagesLogos = props => {
@@ -13,56 +13,55 @@ const ProductImagesLogos = props => {
       centeredTitle
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
     >
+      <p className="txt-center">
+        The following resources are available for your use in representing
+        Michele Corley Clinical Skin Care products.
+      </p>
       <ProductsWrapper>
-        <p className="txt-center">
-          The following resources are available for your use in representing
-          Michele Corley Clinical Skin Care products.
-        </p>
+        <article id="cleansers">
+          <h2>Cleansers</h2>
+          <Thumbnails data={props.data.cleansers} />
+        </article>
 
-        <section id="cleansers">
-          <h2 className="grid-category-title">Cleansers</h2>
-          <ProductImageList data={props.data.cleansers} />
-        </section>
+        <article id="toners">
+          <h2>Toners</h2>
+          <Thumbnails data={props.data.toners} />
+        </article>
 
-        <section id="toners">
-          <h2 className="grid-category-title">Toners</h2>
-          <ProductImageList data={props.data.toners} />
-        </section>
+        <article id="moisturizers-spf">
+          <h2>Moisturizers and SPF</h2>
+          <Thumbnails data={props.data.moisture} />
+        </article>
 
-        <section id="moisturizers-spf">
-          <h2 className="grid-category-title">Moisturizers and SPF</h2>
-          <ProductImageList data={props.data.moisture} />
-        </section>
+        <article id="eyes-lips">
+          <h2>Eyes and Lips</h2>
+          <Thumbnails data={props.data.eyesLips} />
+        </article>
 
-        <section id="eyes-lips">
-          <h2 className="grid-category-title">Eyes and Lips</h2>
-          <ProductImageList data={props.data.eyesLips} />
-        </section>
+        <article id="serums-specialty">
+          <h2>Serums and Specialty</h2>
+          <Thumbnails data={props.data.serums} />
+        </article>
 
-        <section id="serums-specialty">
-          <h2 className="grid-category-title">Serums and Specialty</h2>
-          <ProductImageList data={props.data.serums} />
-        </section>
+        <article id="exfoliants">
+          <h2>Exfoliants</h2>
+          <Thumbnails data={props.data.exfoliants} />
+        </article>
 
-        <section id="exfoliants">
-          <h2 className="grid-category-title">Exfoliants</h2>
-          <ProductImageList data={props.data.exfoliants} />
-        </section>
+        <article id="masks">
+          <h2>Masks</h2>
+          <Thumbnails data={props.data.masks} />
+        </article>
 
-        <section id="masks">
-          <h2 className="grid-category-title">Masks</h2>
-          <ProductImageList data={props.data.masks} />
-        </section>
+        <article id="multi-product-photos">
+          <h2>Multi-Product Photos</h2>
+          <Thumbnails data={props.data.multi} logoMedia={true} />
+        </article>
 
-        <section id="multi-product-photos">
-          <h2 className="grid-category-title">Multi-Product Photos</h2>
-          <MediaImageList data={props.data.multi} />
-        </section>
-
-        <section id="logos">
-          <h2 className="grid-category-title">Logos</h2>
-          <MediaImageList data={props.data.logos} />
-        </section>
+        <article id="logos">
+          <h2>Logos</h2>
+          <Thumbnails data={props.data.logos} logoMedia={true} />
+        </article>
       </ProductsWrapper>
     </PageModel>
   )
@@ -86,7 +85,7 @@ export const query = graphql`
             fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
           }
@@ -107,7 +106,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -131,7 +130,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -155,7 +154,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -179,7 +178,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -203,7 +202,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -227,7 +226,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid {
@@ -292,7 +291,7 @@ export const query = graphql`
 `
 
 const ProductsWrapper = styled.section`
-  & h2.grid-category-title {
+  & h2 {
     color: var(--poppy);
     margin: 2rem auto 0;
   }
