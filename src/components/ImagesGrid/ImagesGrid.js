@@ -26,12 +26,13 @@ export default styled(ImageGrid)`
   & {
     width: 100%;
     border: 1px solid var(--mainMcc);
-    padding: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 5px;
+    gap: 5px 2px;
     & li {
+      background: var(--mainWhite);
       margin: 0 auto;
+      padding: 0;
       width: 230px;
       :hover {
         box-shadow: var(--light-shadow);
