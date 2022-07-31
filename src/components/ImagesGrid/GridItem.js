@@ -26,9 +26,6 @@ export default styled(ImageItem)`
     flex-wrap: wrap;
     justify-content: center;
   }
-  &:hover{
-    box-shadow: var(--light-shadow);
-   }
   & .griditem__name {
     font-size: 12px;
     width: 100%;

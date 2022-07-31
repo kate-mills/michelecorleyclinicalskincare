@@ -8,10 +8,7 @@ const ImageGrid = ({ className, data, logoMedia = false }) => {
     <ul className={`${className}`}>
       {data.edges.map(({ node }) => {
         return (
-          <li
-            id={`${node.slug}`}
-            key={node.contentful_id}
-          >
+          <li id={`${node.slug}`} key={node.contentful_id}>
             <GridItem
               {...node}
               thumbnail={
@@ -33,9 +30,12 @@ export default styled(ImageGrid)`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 5px;
-  & li{
-    margin: 0 auto;
-    width: 230px;
-  }
+    & li {
+      margin: 0 auto;
+      width: 230px;
+      :hover {
+        box-shadow: var(--light-shadow);
+      }
+    }
   }
 `
