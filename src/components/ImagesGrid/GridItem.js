@@ -5,44 +5,31 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Img from 'gatsby-image'
 
-const ImageGridItem = ({ className, thumbnail, name, slug, category }) => {
-  let pathname = '/product-images-and-logos'
-
-  if (typeof window !== `undefined`) {
-    pathname = `${window.location.pathname}#${slug}`
-  }
-
+const ImageItem = ({ className, thumbnail, name, slug, category }) => {
   return (
-    <li className={`${className}`}>
       <AniLink
-        id={slug}
-        state={{ modal: true, closeTo: pathname }}
+        state={{slug}}
         to={`/product-images-and-logos/${slug}/`}
-    className="imagegriditem"
-      >
-        <>
+    className={className}>
           {/* Show thumbnail which is at last index */}
           <Img fixed={thumbnail.fixed} alt={`Static Media for ${name} `}/>
-        <p className={'imagegriditem__name'}>{name}</p>
-        </>
+        <p className={'griditem__name'}>{name}</p>
       </AniLink>
-    </li>
   )
 }
 
-export default styled(ImageGridItem)`
-  & a.imagegriditem {
+export default styled(ImageItem)`
+  & {
     margin: 0;
     text-align: center;
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  & a.imagegriditem:hover{
+  &:hover{
     box-shadow: var(--light-shadow);
    }
-  & p.imagegriditem__name {
+  & .griditem__name {
     font-size: 12px;
     width: 100%;
     white-space: nowrap;

@@ -2,10 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import PageModel from '../components/PageModel'
-import ImageGrid from '../components/ImageGrid/ImageGrid'
+import ImagesGrid from '../components/ImagesGrid/ImagesGrid'
 import styled from 'styled-components'
 
 const ProductImagesLogos = props => {
+
   return (
     <PageModel
       title={`Product Images & Logos`}
@@ -19,48 +20,48 @@ const ProductImagesLogos = props => {
         </p>
 
         <section id="cleansers">
-          <h2 className="category-title">Cleansers</h2>
-          <ImageGrid data={props.data.cleansers} />
+          <h2 className="title">Cleansers</h2>
+          <ImagesGrid className="images" data={props.data.cleansers} />
         </section>
 
         <section id="toners">
-          <h2 className="category-title">Toners</h2>
-          <ImageGrid data={props.data.toners} />
+          <h2 className="title">Toners</h2>
+          <ImagesGrid data={props.data.toners} />
         </section>
 
         <section id="moisturizers-spf">
-          <h2 className="category-title">Moisturizers and SPF</h2>
-          <ImageGrid data={props.data.moisture} />
+          <h2 className="title">Moisturizers and SPF</h2>
+          <ImagesGrid data={props.data.moisture} />
         </section>
 
         <section id="eyes-lips">
-          <h2 className="category-title">Eyes and Lips</h2>
-          <ImageGrid data={props.data.eyesLips} />
+          <h2 className="title">Eyes and Lips</h2>
+          <ImagesGrid data={props.data.eyesLips} />
         </section>
 
         <section id="serums-specialty">
-          <h2 className="category-title">Serums and Specialty</h2>
-          <ImageGrid data={props.data.serums} />
+          <h2 className="title">Serums and Specialty</h2>
+          <ImagesGrid data={props.data.serums} />
         </section>
 
         <section id="exfoliants">
-          <h2 className="category-title">Exfoliants</h2>
-          <ImageGrid data={props.data.exfoliants} />
+          <h2 className="title">Exfoliants</h2>
+          <ImagesGrid data={props.data.exfoliants} />
         </section>
 
         <section id="masks">
-          <h2 className="category-title">Masks</h2>
-          <ImageGrid data={props.data.masks} />
+          <h2 className="title">Masks</h2>
+          <ImagesGrid data={props.data.masks} />
         </section>
 
         <section id="multi-product-photos">
-          <h2 className="category-title">Multi-Product Photos</h2>
-          <ImageGrid data={props.data.multi} logoMedia={true}/>
+          <h2 className="title">Multi-Product Photos</h2>
+          <ImagesGrid data={props.data.multi} logoMedia={true} />
         </section>
 
         <section id="logos">
-          <h2 className="category-title">Logos</h2>
-          <ImageGrid data={props.data.logos} logoMedia={true}/>
+          <h2 className="title">Logos</h2>
+          <ImagesGrid data={props.data.logos} logoMedia={true} />
         </section>
       </ProductsWrapper>
     </PageModel>
@@ -291,12 +292,12 @@ export const query = graphql`
 `
 
 const ProductsWrapper = styled.section`
-  & h2.category-title {
+  & h2.title {
     text-align: center;
     color: var(--poppy);
-    margin: 2rem auto .75rem;
+    margin: 2rem auto 0.75rem;
 
-    @media(min-width: 1024px){
+    @media (min-width: 1024px) {
       text-align: left;
       font-size: 2.2rem;
     }
