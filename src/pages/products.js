@@ -18,50 +18,50 @@ const ProductImagesLogos = props => {
         Michele Corley Clinical Skin Care products.
       </p>
       <ProductsWrapper>
-        <article id="cleansers">
+        <section id="cleansers">
           <h2>Cleansers</h2>
           <Thumbnails data={props.data.cleansers} />
-        </article>
+        </section>
 
-        <article id="toners">
+        <section id="toners">
           <h2>Toners</h2>
           <Thumbnails data={props.data.toners} />
-        </article>
+        </section>
 
-        <article id="moisturizers-spf">
+        <section id="moisturizers-spf">
           <h2>Moisturizers & SPF</h2>
           <Thumbnails data={props.data.moisture} />
-        </article>
+        </section>
 
-        <article id="eyes-lips">
+        <section id="eyes-lips">
           <h2>Eyes & Lips</h2>
           <Thumbnails data={props.data.eyesLips} />
-        </article>
+        </section>
 
-        <article id="serums-specialty">
+        <section id="serums-specialty">
           <h2>Serums & Specialty</h2>
           <Thumbnails data={props.data.serums} />
-        </article>
+        </section>
 
-        <article id="exfoliants">
+        <section id="exfoliants">
           <h2>Exfoliants</h2>
           <Thumbnails data={props.data.exfoliants} />
-        </article>
+        </section>
 
-        <article id="masks">
+        <section id="masks">
           <h2>Masks</h2>
           <Thumbnails data={props.data.masks} />
-        </article>
+        </section>
 
-        <article id="multi-product-photos">
+        <section id="multi-product-photos">
           <h2>Multi-Product Photos</h2>
           <Thumbnails data={props.data.multi} logoMedia={true} />
-        </article>
+        </section>
 
-        <article id="logos">
+        <section id="logos">
           <h2>Logos</h2>
           <Thumbnails data={props.data.logos} logoMedia={true} />
-        </article>
+        </section>
       </ProductsWrapper>
     </PageModel>
   )
@@ -291,13 +291,14 @@ export const query = graphql`
 `
 
 const ProductsWrapper = styled.section`
-  & > article h2 {
+  & > section h2 {
     color: var(--poppy);
     margin: 2rem auto 0;
     text-align: center;
+    font-size: 2.4rem;
   }
   @media (min-width: 563px) {
-    & article h2 {
+    & section h2 {
       text-align: left;
     }
   }

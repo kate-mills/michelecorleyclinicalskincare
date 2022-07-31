@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 
-const ListItem = ({ title, slug, image, showTitle=true }) => {
+const ListItem = ({ title, slug, image, showTitle = true }) => {
   return (
     <li id={`${slug}-img`} className="listitem">
       <AniLink
@@ -15,7 +15,9 @@ const ListItem = ({ title, slug, image, showTitle=true }) => {
         <span className="sr-only">View Larger Image.</span>
         <figure className={`thumbnail`}>
           <Img alt={`Static Media for ${title}`} fixed={image.fixed} />
-          <figcaption className={`${!showTitle ?'sr-only':'thumbnail-title'}`}>
+          <figcaption
+            className={`${!showTitle ? 'sr-only' : 'thumbnail-title'}`}
+          >
             {title}
             <span className="sr-only">{` Thumbnail`}</span>
           </figcaption>
@@ -57,10 +59,10 @@ export default styled(Thumbnails)`
     & > li.listitem {
       background: var(--mainWhite);
       border: 1px solid var(--offWhite);
-      :hover figure{
+      :hover figure {
         box-shadow: var(--light-shadow);
       }
-      & > a > .thumbnail{
+      & > a > .thumbnail {
         align-items: center;
         display: flex;
         flex-direction: column;

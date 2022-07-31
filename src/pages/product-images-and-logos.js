@@ -295,7 +295,7 @@ const ProductsWrapper = styled.section`
     color: var(--poppy);
     margin: 2rem auto 0;
     text-align: center;
-  font-size: 2.4rem;
+    font-size: 2.4rem;
   }
   @media (min-width: 563px) {
     & section h2 {
