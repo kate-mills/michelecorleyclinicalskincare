@@ -48,12 +48,14 @@ export default styled(Thumbnails)`
   & {
     border: 1px solid var(--mainMcc);
     display: grid;
-    gap: 20px;
+    gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     margin: 0 auto;
+    padding: 10px;
 
     & > li.listitem {
       background: var(--mainWhite);
+      border: 1px solid var(--offWhite);
       :hover {
         box-shadow: var(--light-shadow);
       }
