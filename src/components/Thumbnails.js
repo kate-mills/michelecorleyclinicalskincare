@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 
-const ListItem = ({ title, slug, image }) => {
+const ListItem = ({ title, slug, image, showTitle=true }) => {
   return (
     <li id={`${slug}-img`} className="listitem">
       <AniLink
@@ -15,7 +15,7 @@ const ListItem = ({ title, slug, image }) => {
         <span className="sr-only">View Larger Image.</span>
         <figure className={`thumbnail`}>
           <Img alt={`Static Media for ${title}`} fixed={image.fixed} />
-          <figcaption>
+          <figcaption className={`${!showTitle ?'sr-only':'thumbnail-title'}`}>
             {title}
             <span className="sr-only">{` Thumbnail`}</span>
           </figcaption>
@@ -35,6 +35,7 @@ const Thumbnails = ({ className, data, logoMedia = false }) => {
             image={
               logoMedia ? node.images[node.images.length - 1] : node.imgRetail
             }
+            showTitle={!logoMedia}
             slug={node.slug}
             title={node.name}
           />
@@ -56,7 +57,7 @@ export default styled(Thumbnails)`
     & > li.listitem {
       background: var(--mainWhite);
       border: 1px solid var(--offWhite);
-      :hover {
+      :hover figure{
         box-shadow: var(--light-shadow);
       }
       & > a > .thumbnail{
@@ -68,14 +69,19 @@ export default styled(Thumbnails)`
         width: 100%;
 
         & > figcaption {
+          background: var(--offWhite);
+          color: var(--mainBlack);
           font-size: 14px;
+          line-height: 55px;
+          margin: 0 auto;
           overflow: hidden;
           padding-bottom: 0;
+          padding-left: 5px;
+          padding-right: 5px;
           text-align: center;
           text-overflow: ellipsis;
           white-space: nowrap;
-          margin: 0 auto;
-          max-width: 200px;
+          width: 100%;
         }
       }
     }
