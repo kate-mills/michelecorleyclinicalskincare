@@ -46,10 +46,9 @@ export default styled(Thumbnails)`
   & {
     border: 1px solid var(--mainMcc);
     display: grid;
-    gap: 10px 0;
+    gap: 5px;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    padding: 0;
-    width: 100%;
+    padding: 10px;
 
     & > li.thumbnail {
       background: var(--mainWhite);
@@ -72,12 +71,6 @@ export default styled(Thumbnails)`
           white-space: nowrap;
         }
       }
-    }
-  }
-  @media (min-width: 480px) {
-    & {
-      gap: 10px 5px;
-      padding: 10px;
     }
   }
 `

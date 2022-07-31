@@ -86,7 +86,7 @@ export const query = graphql`
             fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
           }
@@ -110,7 +110,7 @@ export const query = graphql`
             fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
             }
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
           }
@@ -131,7 +131,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -155,7 +155,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -179,7 +179,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -203,7 +203,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
@@ -227,7 +227,7 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid {
@@ -252,7 +252,7 @@ export const query = graphql`
             title
             description
             contentful_id
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP) {
               ...GatsbyContentfulFixed
             }
             fluid(toFormat: WEBP) {
