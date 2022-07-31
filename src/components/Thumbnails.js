@@ -5,19 +5,17 @@ import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 
-
 const Thumbnail = ({ title, slug, image }) => {
   return (
     <li id={`${slug}-img`} className="thumbnail">
       <AniLink
+        className="thumbnail-link"
         state={{ id: `${slug}-img` }}
         to={`/product-images-and-logos/${slug}/`}
-        className="thumbnail-link"
       >
         <Img
-          className={`thumbnail-content-img`}
-          fixed={image.fixed}
           alt={`Static Media for ${title} `}
+          fixed={image.fixed}
         />
         <p className={`thumbnail-content-title`}>{title}</p>
       </AniLink>
@@ -32,11 +30,9 @@ const Thumbnails = ({ className, data, logoMedia = false }) => {
         return (
           <Thumbnail
             key={node.contentful_id}
-            title={node.name}
+            image={ logoMedia ? node.images[node.images.length - 1] : node.imgRetail }
             slug={node.slug}
-            image={
-              logoMedia ? node.images[node.images.length - 1] : node.imgRetail
-            }
+            title={node.name}
           />
         )
       })}
