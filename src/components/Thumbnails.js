@@ -71,7 +71,6 @@ export default styled(Thumbnails)`
         width: 100%;
 
         & > figcaption {
-          background: var(--offWhite);
           color: var(--mainBlack);
           font-size: 14px;
           line-height: 55px;
