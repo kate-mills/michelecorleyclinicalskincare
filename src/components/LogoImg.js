@@ -7,7 +7,7 @@ const query = graphql`
   {
     file(relativePath: { eq: "michele-corley-clinical-skin-care-logo.jpg" }) {
       childImageSharp {
-        fixed(width: 300, height: 220, toFormat: WEBP) {
+        fixed(width: 300, height: 220, toFormat: JPG) {
           ...GatsbyImageSharpFixed
         }
       }
