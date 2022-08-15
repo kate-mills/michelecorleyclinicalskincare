@@ -72,7 +72,7 @@ const Product = ({ product, isTemplate }) => {
           {product.video && (
             <VideoPlayer
               className="product-video"
-              title={`Michele Corley discusses ${product.name}.`}
+              title={`${product.name} from Michele Corley on Vimeo`}
               src={`https://player.vimeo.com/video/${product.video}`}
             />
           )}
