@@ -10,41 +10,39 @@ import Image from 'gatsby-image'
 const About = ({ data }) => {
   return (
     <PageModel
-    seoTitle="About Us"
+      seoTitle="About Us"
       title="About"
       description="Each Michele Corley Clinical Skincare product is crafted with care and consideration to the health and well being of the skin. The ingredients I choose must come from the most natural sources available, and their effectiveness proven."
     >
       <AboutWrapper>
         <div className="col-1" style={{ margin: '0 auto' }}>
-          <h1>My Philosophy</h1>
+          <h1>Our Philosophy</h1>
           <p className="text">
             is simple, to provide healthy, effective skincare with exemplary
-            customer service. I believe in treating my clients' success as
-            important as my own, and value a true partnership with everyone I
-            have the pleasure to work with.
+            customer service. We believe in treating our clients' success as
+            important as our own and value a true partnership with everyone we
+            have the pleasure to work with. We are a very accessible company and
+            pride ourselves in working with businesses of all sizes.
           </p>
           <p className="text">
-            My journey in creating Michele Corley Clinical Skincare began in
-            2002 when I wanted to fulfill what I saw as a need in the
-            professional skincare industry to offer not only great products, but
-            the great service to back them up. So many times busy salon owners
-            and estheticians get lost in the shuffle of big corporate skincare
-            companies, having to place large opening orders with huge minimums,
-            and fighting for good customer service. I wanted to change all that,
-            by offering completely affordable premium professional skincare with
-            accessible customer service.
+            Michele's journey in creating Michele Corley Clinical Skin Care
+            began in 2002 when she wanted to fulfill what she perceived as a
+            need in the professional skincare industry to offer great products
+            and excellent service to back them up.
           </p>
           <p className="text">
-            Each Michele Corley Clinical Skincare product is crafted with care
-            and consideration to the health and well being of the skin. The
-            ingredients I choose must come from the most natural sources
-            available, and their effectiveness proven. I strongly believe that
-            you and your clients will love the results you'll see and feel from
-            using Michele Corley Clinical Skincare, and enjoy the excellence in
-            care you receive.
+            Each Michele Corley Clinical Skin Care product is crafted with care
+            and consideration for the health and well-being of the skin. Our
+            ingredients must come from the most natural sources available, and
+            their effectiveness is proven.
+          </p>
+          <p className="text">
+            We strongly believe you and your clients will love the results
+            you'll see and feel from using Michele Corley Clinical Skin Care and
+            enjoy the excellence in the care you receive.
           </p>
           <p className="text">Many thanks.</p>
-          <h2 className="italic poppy">Michele</h2>
+          <h2 className="italic signature">The Michele Corley Team</h2>
         </div>
         <div className="col-2" style={{ margin: '0 auto' }}>
           <h2>
@@ -90,6 +88,13 @@ const AboutWrapper = styled.section`
     text-align: center;
     white-space: break-spaces;
     margin-top: 40px;
+  }
+  & h2.italic.signature{
+    font-size: 1.8rem;
+    color: var(--poppy);
+    letter-spacing: -1.5px;
+    font-family: var(--mainFont);
+    font-weight: 400;
   }
   & .italic {
     font-style: italic;

@@ -126,12 +126,13 @@ const StyledProduct = styled.article`
   }
   & .product-heading {
     & .product-name {
+      font-family: var(--mainFont);
       align-items: center;
       color: var(--mainBlack);
       display: flex;
-      flex-flow: row wrap;
+      font-weight: 400;
       font-size: 2rem;
-      font-weight: 300;
+      flex-flow: row wrap;
       line-height: 2.4rem;
       justify-content: flex-start;
       text-align: left;
@@ -144,6 +145,8 @@ const StyledProduct = styled.article`
     }
     & h1.product-name {
       color: var(--poppy);
+      font-family: var(--mainFont);
+      font-weight: 400;
       font-size: 2.7rem;
       line-height: 3.24rem;
     }
