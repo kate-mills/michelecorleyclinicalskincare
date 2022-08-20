@@ -10,7 +10,24 @@ import { graphql, useStaticQuery } from 'gatsby'
 const query = graphql`
   {
     manuals: allAirtable(
-      filter: { table: { eq: "Manuals" } }
+      filter: { table: { eq: "Manuals" }, data: { isKit: { ne: true } } }
+      sort: { fields: data___orderId, order: ASC }
+    ) {
+      nodes {
+        id
+        data {
+          name
+          notes
+          pdf {
+            localFiles {
+              publicURL
+            }
+          }
+        }
+      }
+    }
+    kits: allAirtable(
+      filter: { table: { eq: "Manuals" }, data: { isKit: { eq: true } } }
       sort: { fields: data___orderId, order: ASC }
     ) {
       nodes {
@@ -84,9 +101,11 @@ const query = graphql`
 `
 const Profile = () => {
   const data = useStaticQuery(query)
-  const { manuals, media, facialsA, facialsB } = data
+  const { manuals, kits, media, facialsA, facialsB } = data
   const esty = media.nodes.filter(({ data }) => data.name === 'esty')
   const bowl = media.nodes.filter(({ data }) => data.name === 'bowl')
+  const kitsSlice1 = kits.nodes.slice(0, kits.nodes.length / 2)
+  const kitsSlice2 = kits.nodes.slice(kits.nodes.length / 2)
 
   return (
     <article>
@@ -99,7 +118,7 @@ const Profile = () => {
       {/* Row -  Manuals */}
       <section className={styles.manuals__row}>
         <Img
-          className={`${styles.manuals__col} ${styles.left}`}
+          className={`${styles.manuals__col} ${styles.left} ${styles.esty_img}`}
           fluid={esty[0].data.image.localFiles[0].childImageSharp.fluid}
         />
         <div className={`${styles.manuals__col}  ${styles.right}`}>
@@ -109,7 +128,51 @@ const Profile = () => {
                 <h3 className={styles.item__name}>{data.name}</h3>
                 <p className={styles.item__notes}>{data.notes}</p>
                 <a
-                  className={`${styles.section__download} btn`}
+                  className="btn"
+                  href={data.pdf.localFiles[0].publicURL}
+                  target="_blank"
+                  rel="noreferrer"
+                  download
+                >
+                  Download {data.name}
+                </a>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+      {/* Row -  Manuals Kits */}
+      <section className={`${styles.manuals__row} ${styles.kits}`}>
+        <h2 className={`${styles.section__header}`}>Kits</h2>
+        <div className={`${styles.manuals__col} ${styles.kits} ${styles.left}`}>
+          {kitsSlice1.map(({ id, data }) => {
+            return (
+              <div key={id} className={styles.manual__item}>
+                <h3 className={styles.item__name}>{data.name}</h3>
+                <p className={styles.item__notes}>{data.notes}</p>
+                <a
+                  className="btn"
+                  href={data.pdf.localFiles[0].publicURL}
+                  target="_blank"
+                  rel="noreferrer"
+                  download
+                >
+                  Download {data.name}
+                </a>
+              </div>
+            )
+          })}
+        </div>
+        <div
+          className={`${styles.manuals__col} ${styles.kits} ${styles.right}`}
+        >
+          {kitsSlice2.map(({ id, data }) => {
+            return (
+              <div key={id} className={styles.manual__item}>
+                <h3 className={styles.item__name}>{data.name}</h3>
+                <p className={styles.item__notes}>{data.notes}</p>
+                <a
+                  className="btn"
                   href={data.pdf.localFiles[0].publicURL}
                   target="_blank"
                   rel="noreferrer"
@@ -162,7 +225,7 @@ const Profile = () => {
                 <div key={id} className={styles.facialA__item}>
                   <h3 className={styles.item__name}>{data.name}</h3>
                   <a
-                    className={`${styles.section__download} btn`}
+                    className="btn"
                     href={data.pdf.localFiles[0].publicURL}
                     target="_blank"
                     rel="noreferrer"
@@ -190,7 +253,7 @@ const Profile = () => {
                   <div key={id} className={styles.facialB__item}>
                     <h3 className={styles.item__name}>{data.name}</h3>
                     <a
-                      className={`${styles.section__download} btn`}
+                      className="btn"
                       href={data.pdf.localFiles[0].publicURL}
                       target="_blank"
                       rel="noreferrer"
