@@ -1,41 +1,42 @@
-/* Manuals */
-.manuals__row {
+/* GLOBALS */
+.section__header {
+  width: 100%;
+  text-align: center;
+  color: var(--poppy);
+  font-size: 2.3rem;
+  margin: 1rem auto;
+}
+
+/* MANUALS - KITS - FACIALS */
+.manual__section, .kit__section, .facial__section {
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-evenly;
-}
-.manuals__row .manuals__col {
-  margin: 30px auto;
-  text-align: center;
+  justify-content: center;
   width: 100%;
 }
-.manual__item .item__notes {
-  padding-bottom: 0.2rem;
-}
-.manuals__col.right,
-.manuals__col.left.esty_img {
-  width: 50%;
-}
-.manuals__col.right {
-  margin-top: -20px;
-}
 
-/* Kits */
-
-.manuals__row.kits .manuals__col.kits.left,
-.manuals__row.kits .manuals__col.kits.right {
+/* MANUALS */
+.esthetician_image {
+  margin: 30px auto;
+  text-align: center;
   width: 40%;
-  margin-top: 0;
-}
-.manuals__row.kits .manuals__col.kits.right {
-  width: 45%;
 }
 
-.manuals__row.kits .section__header{ margin-bottom: 0; }
+/* FACIALS  */
+.facial__download_list_image_container {
+  width: 40%;
+}
+div.facial__download_list {
+  width: 100%;
+}
+.facial__bowl_image {
+  margin: 30px auto;
+  width: 70%;
+}
 
-/* Orders  */
+/* ORDERS  */
 .order__specifics {
   margin: 0 auto;
   text-align: center;
@@ -51,103 +52,15 @@
   align-items: center;
 }
 
-/* Facials  */
-.section__facials {
-  padding: 0.5rem 1.6rem;
-}
-.section__facials_img {
-  margin: 20px auto 0;
-}
-.facial__top__container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.facial__top__container .facialA__item {
-  width: 45%;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0.6rem 0.5rem;
-  display: inline-block;
-}
-.facial__bottom__container {
-  display: flex;
-  margin-top: 5px;
-}
-.facial__bottom__container .facial__col__left {
-  width: 50%;
-}
-.facial__bottom__container .facial__col__left {
-  margin: 0 auto;
-  width: 40%;
-}
-.facial__bottom__container .facial__col__right {
-  display: flex;
-  flex-direction: column;
-}
-.facial__bottom__container .facial__col__right .facialA__item,
-.facial__bottom__container .facial__col__right .facialB__item {
-  display: block;
-  margin: 30px auto;
-  text-align: center;
-  width: 100%;
-}
-.facial__col__right.facial__item {
-  width: 50%;
-}
-.facial__col__right.facial__item:nth-child(2) .facialB__item {
-  margin-top: unset;
-  padding: 0.6rem 0;
-}
-
-/* Globals */
-.item__name {
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: -0.09rem;
-  line-height: 2rem;
-  white-space: pre-line;
-  margin: 30px auto 10px;
-  padding-bottom: 0;
-}
-.section__header {
-  color: var(--poppy);
-  width: 100%;
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 400;
-}
-.section__content__wrapper {
-  margin-top: -1rem;
-}
-/* Media */
 @media screen and (max-width: 767px) {
-  .manuals__row {
-    display: flex;
+  .facial__section, .kit__section, .manual__section {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
-  .manuals__row.kits .manuals__col.kits.left,
-  .manuals__row.kits .manuals__col.kits.right,
-  .manuals__row div.manuals__col.right {
-    width: 100%;
-  }
-  .manuals__col.left.esty_img {
-    display:none;
-  }
-  .facial__col__left {
+  .esthetician_image {
     display: none;
   }
-  .facial__top__container {
-    flex-direction: column;
-  }
-  .facial__bottom__container {
-    justify-content: center;
-  }
-  .facial__top__container .facialA__item,
-  .facial__col__right.facial__item {
+  .facial__download_list_image_container {
     width: 100%;
   }
 }

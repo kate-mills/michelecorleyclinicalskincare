@@ -1,0 +1,51 @@
+.download_list {
+  margin: 0 auto 10px;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+.download {
+  margin: 0 auto 1.88rem;
+}
+.download__name {
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: -0.09rem;
+  line-height: 2rem;
+  white-space: pre-line;
+  margin: 0px auto;
+  padding: 0;
+}
+.download__notes {
+  padding: 5px;
+}
+.download__btn{
+  background: var(--mainWhite);
+  border: 2px solid var(--poppyLow);
+  border-radius: 8px;
+  box-shadow: var(--light-shadow);
+  color: var(--poppyLow);
+  display: inline-block;
+  letter-spacing: var(--mainSpacing);
+  padding: 0.8rem 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: var(--mainTransition);
+}
+.download__btn:hover,
+.download__btn:active,
+.download__btn:focus {
+  color: var(--poppyHigh);
+}
+
+@media screen and (min-width: 1024px) {
+  .download_list {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 767px) {
+  .download_list {
+    width: 45%;
+  }
+}
+

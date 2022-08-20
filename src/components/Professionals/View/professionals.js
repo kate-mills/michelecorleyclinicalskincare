@@ -4,6 +4,7 @@ import SEO from '../../../components/FullSeo'
 import Img from 'gatsby-image'
 
 import styles from './professionals.module.css'
+import DownloadList from './downloadList'
 
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -114,79 +115,22 @@ const Profile = () => {
         image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
       />
       <h1 className="poppy txt-center">Education</h1>
-
-      {/* Row -  Manuals */}
-      <section className={styles.manuals__row}>
+      {/* Manuals */}
+      <section className={styles.manual__section}>
         <Img
-          className={`${styles.manuals__col} ${styles.left} ${styles.esty_img}`}
+          className={styles.esthetician_image}
           fluid={esty[0].data.image.localFiles[0].childImageSharp.fluid}
         />
-        <div className={`${styles.manuals__col}  ${styles.right}`}>
-          {manuals.nodes.map(({ id, data }) => {
-            return (
-              <div key={id} className={styles.manual__item}>
-                <h3 className={styles.item__name}>{data.name}</h3>
-                <p className={styles.item__notes}>{data.notes}</p>
-                <a
-                  className="btn"
-                  href={data.pdf.localFiles[0].publicURL}
-                  target="_blank"
-                  rel="noreferrer"
-                  download
-                >
-                  Download {data.name}
-                </a>
-              </div>
-            )
-          })}
-        </div>
+        <DownloadList data={manuals.nodes} />
       </section>
-      {/* Row -  Manuals Kits */}
-      <section className={`${styles.manuals__row} ${styles.kits}`}>
+      {/* Kits */}
+      <section className={`${styles.kit__section}`}>
         <h2 className={`${styles.section__header}`}>Kits</h2>
-        <div className={`${styles.manuals__col} ${styles.kits} ${styles.left}`}>
-          {kitsSlice1.map(({ id, data }) => {
-            return (
-              <div key={id} className={styles.manual__item}>
-                <h3 className={styles.item__name}>{data.name}</h3>
-                <p className={styles.item__notes}>{data.notes}</p>
-                <a
-                  className="btn"
-                  href={data.pdf.localFiles[0].publicURL}
-                  target="_blank"
-                  rel="noreferrer"
-                  download
-                >
-                  Download {data.name}
-                </a>
-              </div>
-            )
-          })}
-        </div>
-        <div
-          className={`${styles.manuals__col} ${styles.kits} ${styles.right}`}
-        >
-          {kitsSlice2.map(({ id, data }) => {
-            return (
-              <div key={id} className={styles.manual__item}>
-                <h3 className={styles.item__name}>{data.name}</h3>
-                <p className={styles.item__notes}>{data.notes}</p>
-                <a
-                  className="btn"
-                  href={data.pdf.localFiles[0].publicURL}
-                  target="_blank"
-                  rel="noreferrer"
-                  download
-                >
-                  Download {data.name}
-                </a>
-              </div>
-            )
-          })}
-        </div>
+        <DownloadList data={kitsSlice1} />
+        <DownloadList data={kitsSlice2} />
       </section>
 
-      {/* Row -  Orders */}
+      {/* Orders */}
       <section className={`${styles.order__specifics}`}>
         <h2 className={`${styles.section__header}`}>Order Specifics</h2>
         <div
@@ -211,61 +155,20 @@ const Profile = () => {
           </ul>
         </div>
       </section>
-
       {/* Row -  Facials */}
-      <section
-        title="Facials"
-        className={`${styles.section} ${styles.section__facials}`}
-      >
+      <section title="Facials" className={`${styles.facial__section}`}>
         <h2 className={styles.section__header}>Facial Protocols</h2>
-        <div className={`${styles.section__content__wrapper}`}>
-          <div className={styles.facial__top__container}>
-            {facialsA.nodes.map(({ id, data }) => {
-              return (
-                <div key={id} className={styles.facialA__item}>
-                  <h3 className={styles.item__name}>{data.name}</h3>
-                  <a
-                    className="btn"
-                    href={data.pdf.localFiles[0].publicURL}
-                    target="_blank"
-                    rel="noreferrer"
-                    download
-                  >
-                    Download
-                  </a>
-                </div>
-              )
-            })}
-          </div>
-          <div className={`${styles.facial__bottom__container}`}>
-            <div className={styles.facial__col__left}>
-              <Img
-                className={styles.section__facials_img}
-                fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
-                alt="Show a hand holding a bowl containing a fan brush and facial product."
-              />
-            </div>
-            <div
-              className={`${styles.facial__col__right} ${styles.facial__item}`}
-            >
-              {facialsB.nodes.map(({ id, data }) => {
-                return (
-                  <div key={id} className={styles.facialB__item}>
-                    <h3 className={styles.item__name}>{data.name}</h3>
-                    <a
-                      className="btn"
-                      href={data.pdf.localFiles[0].publicURL}
-                      target="_blank"
-                      rel="noreferrer"
-                      download
-                    >
-                      Download
-                    </a>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
+        <DownloadList data={facialsA.nodes} />
+        <div className={styles.facial__download_list_image_container}>
+          <DownloadList
+            data={facialsB.nodes}
+            className={styles.facial__download_list}
+          />
+          <Img
+            className={styles.facial__bowl_image}
+            fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
+            alt="Show a hand holding a bowl containing a fan brush and facial product."
+          />
         </div>
       </section>
     </article>
