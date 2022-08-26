@@ -130,6 +130,23 @@ const Profile = () => {
         <DownloadList data={kitsSlice2} />
       </section>
 
+      {/* Row -  Facials */}
+      <section title="Facials" className={`${styles.facial__section}`}>
+        <h2 className={styles.section__header}>Facial Protocols</h2>
+        <DownloadList data={facialsA.nodes} />
+        <div className={styles.facial__download_list_image_container}>
+          <DownloadList
+            data={facialsB.nodes}
+            className={styles.facial__download_list}
+          />
+          <Img
+            className={styles.facial__bowl_image}
+            fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
+            alt="Show a hand holding a bowl containing a fan brush and facial product."
+          />
+        </div>
+      </section>
+
       {/* Orders */}
       <section className={`${styles.order__specifics}`}>
         <h2 className={`${styles.section__header}`}>Order Specifics</h2>
@@ -153,22 +170,6 @@ const Profile = () => {
               </p>
             </li>
           </ul>
-        </div>
-      </section>
-      {/* Row -  Facials */}
-      <section title="Facials" className={`${styles.facial__section}`}>
-        <h2 className={styles.section__header}>Facial Protocols</h2>
-        <DownloadList data={facialsA.nodes} />
-        <div className={styles.facial__download_list_image_container}>
-          <DownloadList
-            data={facialsB.nodes}
-            className={styles.facial__download_list}
-          />
-          <Img
-            className={styles.facial__bowl_image}
-            fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
-            alt="Show a hand holding a bowl containing a fan brush and facial product."
-          />
         </div>
       </section>
     </article>
