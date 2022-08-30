@@ -51,7 +51,7 @@ const CategoryTemplateWrapper = styled.div`
 export const query = graphql`
   query GetCategory($name: String) {
     products: allContentfulMccProduct(
-      filter: { category: { eq: $name } }
+      filter: { categories: { eq: $name } }
       sort: { order: [ASC], fields: [name] }
     ) {
       edges {
