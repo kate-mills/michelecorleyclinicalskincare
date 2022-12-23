@@ -6,17 +6,20 @@ export default function Slideshow({ images = [], interval = 3000 }) {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
+
     const loop = setInterval(() => {
       currentSlide === images.length - 1
         ? setCurrentSlide(c => 0)
         : setCurrentSlide(c => c + 1)
     }, interval)
+
     return () => clearInterval(loop)
   }, [images, currentSlide, interval])
 
   return (
     <Img
-      load={'eager'}
+      loading={currentSlide < 2 ? 'eager': 'lazy'}
+      fetchPriority={currentSlide < 2 ? 'high': 'low'}
       fluid={images[currentSlide].childImageSharp.fluid}
       alt={`Michele Corley product highlight`}
       className={styles.fade__in__out}
