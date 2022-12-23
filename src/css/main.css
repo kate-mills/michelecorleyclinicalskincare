@@ -1,15 +1,15 @@
 :root {
   --clear: rgba(0, 0, 0, 0);
   --darkGrey: #9D9692;
-  --mainBlack: #4e4e4e; /*#1d252d;*/
+  --mainBlack: #4e4e4e;
   --blackText: #3c3c3c;
   --mainMcc: #DCDCDC;
-  --offWhite: #f9f9f9; /*#FCFCFC*/
+  --offWhite: #f9f9f9;
   --mainWhite: #fefefe;
   --mainSpacing: 0.0625rem;
-  --poppy: #1B55A1; /*#1c57a5;*/
-  --poppyLow: #4d5580; /*#6F7CB9;*/
-  --poppyHigh: hsl(214 52% 36% / 1); /*#3f78c2;*/
+  --poppy: #1B55A1;
+  --poppyLow: #4d5580;
+  --poppyHigh: hsl(214 52% 36% / 1);
   --poppyDark: hsl(214 71% 37% / 1);
   --poppyDark: #4b5198;
   --mainFont: Montserrat, sans-serif;
@@ -192,7 +192,7 @@ div#content {
   max-width: 1150px;
   margin: 2px auto;
   outline: none;
-  padding: 0.1rem 3.2rem; /*padding: 0 50px;*/
+  padding: 0.1rem 3.2rem;
   white-space: pre-line;
 }
 .btn {
@@ -253,7 +253,7 @@ Utility classes
 @media screen and (max-width: 320px) {
   div#content {
     border-radius: 10px;
-    padding: 0.1rem 0.7rem; /*padding: 1.6px 11px;*/
+    padding: 0.1rem 0.7rem;
   }
   h1 {
     text-align: center;
@@ -264,25 +264,25 @@ Utility classes
 @media screen and (min-width: 321px) and (max-width: 480px) {
   div#content {
     border-radius: 15px;
-    padding: 0.1rem 1.1rem; /*padding: 1.6px 17px;*/
+    padding: 0.1rem 1.1rem;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 719px) {
   div#content {
     border-radius: 25px;
-    padding: 0.1rem 2.2rem; /*padding: 1.6px 35px;*/
+    padding: 0.1rem 2.2rem;
   }
 }
 @media screen and (min-width: 720px) and (max-width: 1239px) {
   div#content {
     border-radius: 25px;
-    padding: 0.1rem 2.5rem; /*padding: 1.6px 40px;*/
+    padding: 0.1rem 2.5rem;
   }
 }
 @media screen and (min-width: 1240px) {
   div#content {
     border-radius: 30px;
-    padding: 0.1rem 3.2rem; /*padding: 1.6px 50px;*/
+    padding: 0.1rem 3.2rem;
   }
 }
 .sr-only {
