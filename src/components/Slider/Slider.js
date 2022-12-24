@@ -22,7 +22,7 @@ export default function Slideshow({ images = [], interval = 3000 }) {
       fetchPriority={currentSlide < 2 ? 'high': 'low'}
       fluid={images[currentSlide].childImageSharp.fluid}
       alt={`Michele Corley product highlight`}
-      className={styles.fade__in__out}
+      className={styles.scale}
     />
   )
 }
