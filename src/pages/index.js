@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import PageModel from '../components/PageModel'
 import Slider from '../components/Slider/Slider'
 import YesNo from '../components/YesNo'
-import styled from 'styled-components'
+
 
 const Home = ({ data }) => {
   return (
@@ -13,13 +13,15 @@ const Home = ({ data }) => {
       title=""
       description="Achieve beautifully healthy skin. Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."
       homePage>
-      <Wrapper>
+    <h1>Beautifully Healthy Skin Starts Here</h1>
         <Slider interval={10000} images={data.allFile.nodes} />
         <YesNo />
-      </Wrapper>
     </PageModel>
   )
 }
+
+export default Home
+
 
 export const query = graphql`
   query {
@@ -34,11 +36,3 @@ export const query = graphql`
     }
   }
 `
-const Wrapper = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  @media (max-width: 672px) {
-    width: 100%;
-  }
-`
-export default Home
