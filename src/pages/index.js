@@ -14,7 +14,7 @@ const Home = ({ data }) => {
       description="Achieve beautifully healthy skin. Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives."
       homePage>
     <h1>Beautifully Healthy Skin Starts Here</h1>
-        <Slider interval={10000} images={data.allFile.nodes} />
+        <Slider images={data.allFile.nodes} />
         <YesNo />
     </PageModel>
   )
@@ -28,7 +28,7 @@ export const query = graphql`
     allFile(filter: { relativeDirectory: { eq: "slideshow" } }) {
       nodes {
         childImageSharp {
-          fluid(maxWidth: 1280, maxHeight: 800, fit: COVER, toFormat: WEBP) {
+          fluid(maxWidth: 1700, fit: COVER, toFormat: WEBP) {
             ...GatsbyImageSharpFluid
           }
         }

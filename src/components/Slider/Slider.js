@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Img from 'gatsby-image'
 import styles from './slider.module.css'
 
-export default function Slideshow({ images = [], interval = 3000 }) {
+export default function Slideshow({ images = [], interval = 7500 }) {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Slideshow({ images = [], interval = 3000 }) {
       fetchPriority={currentSlide < 2 ? 'high': 'low'}
       fluid={images[currentSlide].childImageSharp.fluid}
       alt={`Michele Corley product highlight`}
-      className={styles.scale}
+      className={styles.opacity}
     />
   )
 }
