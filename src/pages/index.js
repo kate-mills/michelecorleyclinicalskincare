@@ -13,7 +13,7 @@ const Home = ({ data }) => {
       title=""
       description="Achieve beautifully healthy skin. Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.">
 
-    {/*<h1>Beautifully Healthy Skin Starts Here</h1>*/}
+    <h1>Beautifully Healthy Skin Starts Here</h1>
         <Slider images={data.allFile.nodes} />
         <YesNo />
     </PageModel>
