@@ -26,13 +26,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--mainFont);
-  font-size: 100%;
   text-decoration: none;
 }
 ::selection {
-  background-color: var(--mainMcc);
-  color: var(--poppyHigh);
+  background-color: var(--poppy);
+  color: var(--offWhite);
 }
 :focus {
   outline: var(--clear);
@@ -40,8 +38,8 @@
 a {
   color: var(--mainBlack);
   text-decoration: none;
-  line-height: inherit;
-  font-size: 100%;
+  line-height: 1.5em;
+  font-size: inherit;
   font-weight: 400;
 }
 a:focus {
@@ -55,14 +53,14 @@ a:hover{
 body {
   background: var(--mainMcc);
   background-color: var(--mainMcc);
-  background-size: auto;
-  background-repeat: repeat;
+  /*background-size: auto;
+  background-repeat: repeat;*/
   color: var(--mainBlack);
   display: block;
   font-family: var(--mainFont);
   font-style: normal;
-  font-size: 16px;
   font-weight: 400;
+  font-size: 1rem;
   line-height: var(--bodyLineHeight);
   margin: 0;
   min-height: 100vh;
@@ -77,16 +75,21 @@ h4,
 h5,
 h6 {
   color: var(--mainBlack);
-  font-family: var(--mainFont);
+  /*font-family: var(--mainFont);*/
   font-style: normal;
   font-weight: 400;
   line-height: var(--headingLineHeight);
   margin: 0.5em 0 0.3em;
+  text-transform: capitalize;
 }
 h1 {
-  font-size: 43px;
-  letter-spacing: var(--mainSpacing);
+  color: var(--poppyLow);
+  letter-spacing: -0.02rem;
+  font-size: 2.6876em;
+  margin: 0.5em auto 0.3em;
+  text-align: center;
 }
+
 h2,
 h3 {
   font-size: 2rem;
@@ -114,9 +117,6 @@ main {
   border: 0;
   border-radius: 25px;
   color: var(--mainBlack);
-  font-family: var(--mainFont);
-  font-size: 16px;
-  font-weight: 400;
   margin: 0 auto;
   padding: 0;
   width: 100%;
@@ -140,10 +140,10 @@ p {
   color: var(--mainBlack);
   padding: 0 0 1.8em;
   font-family: var(--mainFont);
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 400 !important;
   line-height: var(--bodyLineHeight);
   white-space: pre-line;
-  font-size: 1rem;
 }
 ul {
   list-style: none;
@@ -195,6 +195,10 @@ div#content {
   padding: 0.1rem 3.2rem; /*padding: 0 50px;*/
   white-space: pre-line;
 }
+
+button{
+  font-family: var(--mainFont);
+}
 .btn {
   background: var(--mainWhite);
   border: 2px solid var(--poppyLow);
@@ -202,7 +206,9 @@ div#content {
   box-shadow: var(--light-shadow);
   color: var(--poppyLow);
   display: inline-block;
+  font-family: var(--mainFont);
   letter-spacing: var(--mainSpacing);
+  letter-spacing: 0;
   padding: 0.8rem 1.6rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -229,6 +235,7 @@ div#content {
   padding: 0.95rem 2.05rem;
   transition: background-color 100ms linear;
 }
+
 
 /*
 =============== 

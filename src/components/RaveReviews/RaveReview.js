@@ -6,7 +6,6 @@ const RaveReview = ({ id, data: { data } }) => {
       <p
         style={{
           fontStyle: 'italic',
-          fontWeight: '300',
           margin: '0',
           padding: '0 0 .5rem',
         }}
