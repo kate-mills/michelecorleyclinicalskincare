@@ -117,9 +117,7 @@ const StyledProduct = styled.article`
   & {
     margin: 20px auto;
     max-width: 100%;
-    font-weight: 400;
     p {
-      font-weight: 400;
       max-width: 100%;
       padding-bottom: 0;
     }
@@ -130,7 +128,6 @@ const StyledProduct = styled.article`
       align-items: center;
       color: var(--mainBlack);
       display: flex;
-      font-weight: 400;
       font-size: 2rem;
       flex-flow: row wrap;
       line-height: 2.4rem;
@@ -146,7 +143,6 @@ const StyledProduct = styled.article`
     & h1.product-name {
       color: var(--poppy);
       font-family: var(--mainFont);
-      font-weight: 400;
       font-size: 2.7rem;
       line-height: 3.24rem;
     }
@@ -163,7 +159,6 @@ const StyledProduct = styled.article`
         border: 2px solid var(--darkGrey);
         display: block;
         font-size: 0.85rem;
-        font-weight: 400;
         line-height: 1;
         padding: 0.3rem;
         margin: 0 15px 0 0;
@@ -219,7 +214,7 @@ const StyledProduct = styled.article`
     li.key-ingredients-pdf.product-profile-sheet {
       margin-left: 15px;
       a.get-product-profile-sheet.no-bullet {
-        font-weight: 500;
+        font-weight: 600;
         font-size: 0.9rem;
         color: var(--poppy);
         ::before {
@@ -236,7 +231,6 @@ const StyledProduct = styled.article`
         font-weight: 600;
       }
       span.key-ingredient-benefit {
-        font-weight: 300;
         padding-left: 5px;
       }
     }
