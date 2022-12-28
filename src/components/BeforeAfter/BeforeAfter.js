@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import styles from './beforeafter.module.css'
 
-const BeforeAfter = ({ data }) => {
+const BeforeAfter = ({ data, idx }) => {
   const splitTrim = products => {
     return products.split('- ').slice(1)
   }
@@ -12,6 +12,7 @@ const BeforeAfter = ({ data }) => {
       <div className={styles.ba__article__media}>
         <figure>
           <Img
+    loading={idx < 1 ? 'eager': 'lazy'}
             fluid={data.data.media.localFiles[0].childImageSharp.fluid}
             alt={`Before and after of Michele Corley client using ${data.data.product_heading.toLowerCase()}`}
           />
