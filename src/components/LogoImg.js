@@ -7,8 +7,8 @@ const query = graphql`
   {
     file(relativePath: { eq: "michele-corley-clinical-skin-care-logo.jpg" }) {
       childImageSharp {
-        fixed(width: 300, height: 220, toFormat: JPG) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 500, toFormat: WEBP, fit: CONTAIN) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -17,23 +17,22 @@ const query = graphql`
 export const Logo = () => {
   const data = useStaticQuery(query)
   return (
-    <Wrapper>
+    <LogoWrapper>
       <Img
+    style={{margin: '0 auto', maxWidth: '250px', height: 'auto'}}
         loading="eager"
-        fixed={data.file.childImageSharp.fixed}
+        fluid={data.file.childImageSharp.fluid}
         media="screen"
         alt="Michele Corley Clinical Skin Care Logo"
       />
-    </Wrapper>
+    </LogoWrapper>
   )
 }
 
-const Wrapper = styled.div`
+const LogoWrapper = styled.div`
   & {
     margin: 0 auto;
-    text-align: center;
-  }
-  & img {
-    object-fit: contain !important;
+    max-width: 250px;
+    height: auto;
   }
 `
