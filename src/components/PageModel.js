@@ -27,13 +27,7 @@ const PageModel = ({
         image={image}
       />
 
-      {homePage && (
-        <Title
-          color="var(--mainBlack)"
-          size={'2.6876rem'}
-          title="Beautifully Healthy Skin Starts Here"
-        />
-      )}
+
       {centeredTitle && (
         <Title color={'var(--mainBlack)'} size={'2.3876rem'} title={title} />
       )}

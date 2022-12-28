@@ -33,7 +33,7 @@ const YesNo = ({ className }) => {
 
         <article className="list-of-ingredients" role="region" aria-labelledby="we-say-no">
           <h2 className="list-title poppy" id="we-say-no">
-            We say NO to{` `}<span className="sr-only">parabens, synthetic colorants, synthetic fragrance, phthalates, formaldehyde releasing preservatives, and sodium lauryl sulfate.</span>
+            We say NO to<span className="sr-only">parabens, synthetic colorants, synthetic fragrance, phthalates, formaldehyde releasing preservatives, and sodium lauryl sulfate.</span>
           </h2>
           <ul data-bullet-list>
             <li><p className="ingredient">Parabens</p></li>
@@ -59,7 +59,7 @@ const YesNo = ({ className }) => {
       <h3 className="michele-corley-promise poppy">
         Professional skincare that delivers. Clean, safe, efficacious formulas.
       </h3>
-      <h4 className="michele-corley-promise italic">
+      <h4 className="michele-corley-promise">
         Only available through your licensed skincare professional.
       </h4>
     </div>
@@ -80,24 +80,20 @@ const Wrapper = styled(YesNo)`
     margin: 0 auto;
   }
   & .list-title {
-    font-weight: 400;
     line-height: var(--bodyLineHeight);
     white-space: pre-wrap;
     text-align: left;
     font-size: 2rem;
+    word-spacing: -2px;
   }
   & .ingredient {
-    color: var(--mainBlack);
     display: block;
-    font-family: var(--mainFont);
     line-height: var(--headingLineHeight);
     margin-block-start: 2.33em;
     margin-block-end: 2.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    margin: 0.5em 0 0.3em;
-    margin-bottom: 1.26rem;
-    font-weight: 300;
+    margin: 0.5em 0 1rem;
 
     .long-ingredient-name {
       display: block;
@@ -105,18 +101,18 @@ const Wrapper = styled(YesNo)`
     }
   }
   & .michele-corley-promise {
+    font-size: 1.3125rem;
     text-align: center;
-    font-weight: 400;
   }
-  & .michele-corley-promise.poppy {
+  & h3.michele-corley-promise.poppy {
     font-size: 1.6rem;
     margin-top: 2rem;
   }
-  & .michele-corley-promise.italic {
-    font-size: 21px;
-    font-style: italic;
-  }
   @media (max-width: 672px) {
+    & #we-say-no,
+    & #we-say-yes{
+      margin-right: 1rem;
+    }
     & .flex-row {
       justify-content: center;
       margin: 0 auto;

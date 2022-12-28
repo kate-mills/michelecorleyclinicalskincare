@@ -1,5 +1,6 @@
-.search__form{
-  outline-color: transparent;
+form input{
+  font-family: var(--mainFont);
+  letter-spacing: normal; 
 }
 .search__form__input{
   outline: none;
@@ -10,7 +11,7 @@
   border: 2px solid #ccc;
   border-radius: 4px;
   display:block;
-  font-size: 16px;
+  font-size: 1rem;
   margin: 20px auto;
   padding: 12px 20px 12px 40px;
   transition: width 0.4s ease-in-out;
@@ -36,8 +37,6 @@
 .search__th{
   text-align: left;
   padding: 10px;
-  font-size: 16px;
-  font-style: normal;
   border-bottom: 2px solid var(--mainBlack);
 }
 .search__th:nth-child(2){
@@ -48,7 +47,6 @@
   text-align: right
 }
 .search__td{
-  font-size: 16px;
   padding: 5px;
   border: 1px solid var(--mainWhite);
 }

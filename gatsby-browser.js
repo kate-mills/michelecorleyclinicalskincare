@@ -1,4 +1,5 @@
-import 'typeface-montserrat'
+// import 'typeface-montserrat'
+import 'typeface-montserrat/files/montserrat-latin-400.woff'
 import './src/css/main.css'
 
 

@@ -16,8 +16,6 @@ export default styled(Title)`
     color: ${props => props.color};
     font-size: ${props => props.size};
     font-weight: ${props => props.weight};
-    line-height: 54px;
-    margin: 20px auto;
     padding-left: 0px;
     padding-right: 0px;
     text-align: center;
