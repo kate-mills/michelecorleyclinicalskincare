@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@fontsource/montserrat": "^4.5.13",
     "acorn": "^6.4.2",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.23.12",

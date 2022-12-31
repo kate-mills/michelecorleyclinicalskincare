@@ -1,7 +1,5 @@
-// import 'typeface-montserrat'
-import 'typeface-montserrat/files/montserrat-latin-400.woff'
+import "@fontsource/montserrat/variable.css";
 import './src/css/main.css'
-
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
