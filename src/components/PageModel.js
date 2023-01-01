@@ -39,7 +39,7 @@ const PageModel = ({
 PageModel.defaultProps = {
   centeredTitle: false,
   description: '',
-  image: 'https://michelecorleyclinicalskincare.com/logo.jpg',
+  image: 'https://michelecorleyclinicalskincare.com/michele-corley-logo.jpg',
   homePage: false,
   keywords: [],
   noindex: false,

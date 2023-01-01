@@ -8,7 +8,7 @@ const Title = ({ className, color, size, weight, title }) => {
 Title.defaultProps = {
   color: 'var(--mainBlack)',
   size: '2.6875rem',
-  weight: 300,
+  weight: 400,
 }
 
 export default styled(Title)`
@@ -16,8 +16,8 @@ export default styled(Title)`
     color: ${props => props.color};
     font-size: ${props => props.size};
     font-weight: ${props => props.weight};
-    padding-left: 0px;
-    padding-right: 0px;
+    letter-spacing: -0.05rem;
+    padding-inline: 0;
     text-align: center;
     text-transform: capitalize;
   }
