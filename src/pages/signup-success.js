@@ -6,11 +6,8 @@ const SignupSuccessPage = () => {
   return (
     <PageModel title="Signup Success" noindex>
       <section>
+          <h1>Success!</h1>
         <div className="txt-center w-100">
-          <h1
-            className="poppy"
-            style={{ margin: '20px auto', fontWeight: '300' }}
-          >Success!</h1>
           <p>You will begin to receive specials in the email provided.</p>
           <AniLink fade to="/" className="btn btn-white">
             back home

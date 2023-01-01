@@ -10,9 +10,9 @@ const ProductImagesLogos = props => {
   return (
     <PageModel
       title={`Product Images & Logos`}
-      centeredTitle
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
     >
+    <h1>Product Images & Logos</h1>
       <p className="txt-center pb0">
         The following resources are available for your use in representing
         Michele Corley Clinical Skin Care products.

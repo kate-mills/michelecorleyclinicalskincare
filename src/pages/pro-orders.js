@@ -7,9 +7,16 @@ import styled from 'styled-components'
 
 const ProOrders = () => {
   return (
-    <PageModel title="Pro Orders" centeredTitle description="Login or create a professional account, and order your Michele Corley Clinical Skin Care products online.">
+    <PageModel
+      title="Pro Orders"
+      description="Login or create a professional account, and order your Michele Corley Clinical Skin Care products online."
+    >
       <ProOrdersWrapper>
-    <h2 className="sr-only">Login or create a professional account, and order your Michele Corley Clinical Skin Care products online.</h2>
+        <h1>Pro Orders</h1>
+        <h2 className="sr-only">
+          Login or create a professional account, and order your Michele Corley
+          Clinical Skin Care products online.
+        </h2>
         <div className="txt-center w-100">
           <p>
             If you need a login to place online orders contact us{` - `}
@@ -41,21 +48,19 @@ const ProOrders = () => {
 const ProOrdersWrapper = styled.section`
   & {
     width: 100%;
-    font-size: 20px;
-    margin: 0 auto;
     text-align: center;
   }
   & .needs-login,
   & .has-login {
+    font-weight: 400;
     font-style: italic;
   }
   & > .email {
     text-decoration: none;
   }
   & .btn {
-    margin-left: 10px;
-    margin-top: 25px;
-    margin-right: 10px;
+    margin-block: 0.8rem;
+    margin-block-start: 25px;
   }
 
   @media (max-width: 600px) {
@@ -63,6 +68,7 @@ const ProOrdersWrapper = styled.section`
       display: block;
     }
     & .btn {
+      margin-block-start: 25px;
     }
   }
 `

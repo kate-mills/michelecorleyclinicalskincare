@@ -20,9 +20,9 @@ const CategoryTemplate = props => {
   return (
     <PageModel
       title={category.name}
-      centeredTitle
       description={category.description.description}
     >
+    <h1>{category.name}</h1>
       <CategoryTemplateWrapper>
         <p className="description">
           {index_0.trim()} <span className="bold">{bold.trim()} </span>

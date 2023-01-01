@@ -14,9 +14,9 @@ const Whymc = ({
     <PageModel
       seoTitle="Why Estheticians Choose Us"
       title="Why Choose Michele Corley Clinical Skincare?"
-      description="What makes Michele Corley Clinical Skin Care different in a sea of other brands?  Our commitment to you and your success by offering the best possible products for your clients; with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
-    centeredTitle>
+      description="What makes Michele Corley Clinical Skin Care different in a sea of other brands?  Our commitment to you and your success by offering the best possible products for your clients; with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us.">
 
+    <h1>Why Choose Us?</h1>
       <WhyWrapper>
         <div className="row">
           <div className="col-left">

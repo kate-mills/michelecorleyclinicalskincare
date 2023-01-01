@@ -7,7 +7,8 @@ import styled from 'styled-components'
 
 const Press = ({ data }) => {
   return (
-    <PageModel seoTitle="Products In The Press" title="in the Press" description="Award-winning professional skincare products for dry and oily skin types to sensitive, sun-damaged and acne-prone skin exclusively sold through licensed skincare professionals." centeredTitle>
+    <PageModel seoTitle="Products In The Press" title="in the Press" description="Award-winning professional skincare products for dry and oily skin types to sensitive, sun-damaged and acne-prone skin exclusively sold through licensed skincare professionals.">
+    <h1>In The Press</h1>
       <PressWrapper>
         <PressList pressList={data.allAirtable.pressList} />
       </PressWrapper>

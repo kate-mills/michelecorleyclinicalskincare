@@ -10,9 +10,8 @@ const BeforeAfter = ({ data }) => {
   return (
     <PageModel
       title="Before & After Photos"
-      description="See results achieved by using proper home skincare product daily. Our before and after photos are not retouched and are generally taken with cellular phones."
-      centeredTitle
-    >
+      description="See results achieved by using proper home skincare product daily. Our before and after photos are not retouched and are generally taken with cellular phones.">
+    <h1>Before & After Photos</h1>
       <BeforeAfterWrapper>
         <p>
           These photos are provided by my dear clients utilizing only Michele

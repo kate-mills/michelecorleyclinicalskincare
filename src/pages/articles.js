@@ -5,9 +5,10 @@ import PageModel from '../components/PageModel'
 import ArticleList from '../components/Articles/ArticleList'
 import styled from 'styled-components'
 
-const Press2 = ({ data }) => {
+const Articles = ({ data }) => {
   return (
-    <PageModel title="Articles" centeredTitle>
+    <PageModel title="Articles">
+    <h1>Articles</h1>
       <PressWrapper>
         <ArticleList articleList={data.allAirtable.articleList} />
       </PressWrapper>
@@ -50,4 +51,4 @@ const PressWrapper = styled.section`
     margin: 0 auto;
   }
 `
-export default Press2
+export default Articles 

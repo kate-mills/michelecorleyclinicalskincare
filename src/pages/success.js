@@ -7,12 +7,7 @@ const Success = () => {
     <PageModel title="Success" noindex>
       <section>
         <div className="txt-center w-100">
-          <h1
-            className="poppy"
-            style={{ margin: '20px auto', fontWeight: '300' }}
-          >
-            Thank you! Your submission was received!
-          </h1>
+          <h3 className="poppy">Thank you! Your submission was received!</h3>
           <p>We'll be in contact shortly.</p>
           <AniLink fade to="/" className="btn btn-white">
             back home
