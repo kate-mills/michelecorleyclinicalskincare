@@ -1,15 +1,15 @@
 :root {
   --clear: rgba(0, 0, 0, 0);
   --darkGrey: #9d9692;
-  --mainBlack: #4e4e4e; /*#1d252d;*/
+  --mainBlack: #4e4e4e;
   --blackText: #3c3c3c;
   --mainMcc: #dcdcdc;
-  --offWhite: #f9f9f9; /*#FCFCFC*/
+  --offWhite: #f9f9f9;
   --mainWhite: #fefefe;
-  --mainSpacing: 0.0625rem;
-  --poppy: #1b55a1; /*#1c57a5;*/
-  --poppyLow: #4d5580; /*#6F7CB9;*/
-  --poppyHigh: hsl(214 52% 36% / 1); /*#3f78c2;*/
+  --mainSpacing: 0.0625em;
+  --poppy: #1b55a1;
+  --poppyLow: #4d5580;
+  --poppyHigh: hsl(214 52% 36% / 1);
   --poppyDark: hsl(214 71% 37% / 1);
   --poppyDark: #4b5198;
   --mainFont: Montserrat, sans-serif;
@@ -19,9 +19,7 @@
   --mainTransition: all 0.1s linear;
   --light-shadow: 0 5px 3px rgb(0 0 0 / 10%);
   --dark-shadow: 0 0 4px rgb(0 0 0 / 15%);
-}
-html {
-  font-size: 16px;
+  --mainRadius: 1.75rem;
 }
 *,
 ::after,
@@ -33,6 +31,9 @@ html {
 }
 body {
   font-family: var(--mainFont);
+  font-kerning: normal;
+  font-stretch:ultra-condensed;
+  font-style: normal;
   font-size: 1rem;
   font-weight: 400;
   background: var(--mainMcc);
@@ -72,6 +73,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-kerning: normal;
   font-weight: 400;
   color: var(--mainBlack);
   line-height: var(--headingLineHeight);
@@ -80,7 +82,7 @@ h6 {
 }
 h1 {
   color: var(--poppyLow);
-  letter-spacing: -0.02rem;
+  letter-spacing: normal;
   font-size: 2.6876em;
   margin: 0.5em auto 0.3em;
   text-align: center;
@@ -102,7 +104,7 @@ input,
 textarea,
 select{
   font-family: var(--mainFont);
-  letter-spacing:  normal;
+  letter-spacing: normal;
 }
 input:focus,
 textarea:focus,
@@ -118,7 +120,7 @@ main {
   background: var(--mainWhite);
   background-color: var(--mainWhite);
   border: 0;
-  border-radius: 25px;
+  border-radius: var(--mainRadius);
   color: var(--mainBlack);
   margin: 0 auto;
   padding: 0;
@@ -129,20 +131,21 @@ nav {
   font-size: 1rem;
   letter-spacing: var(--mainSpacing);
   margin: 1.25rem auto;
-  padding-bottom: 1.25rem;
+  padding-block-end: 1.25rem;
 }
 nav * {
   color: var(--mainBlack);
   font-size: 1rem;
-  letter-spacing: -0.03rem;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 p {
   color: var(--mainBlack);
-  padding: 0 0 1.8em;
+  /*padding: 0 0 1.8em;*/
+  padding-block-end: 1.8em;
   font-size: 1rem;
-  font-weight: 400 !important;
+  font-weight: 400;
   line-height: var(--bodyLineHeight);
   white-space: pre-line;
 }
@@ -160,12 +163,14 @@ ul[data-bullet-list] {
   font-weight: 400;
   line-height: 1.6875em;
   list-style: none;
-  margin: 0 20px;
+  /* list-style-position: outside; /* TODO: fix homepage  we say no to */
+  margin: 0 1.25rem;
+  margin-block-end: .5em;
 }
 ul[data-bullet-list] > li h3,
 ul[data-bullet-list] > li h4,
 ul[data-bullet-list] > li p {
-  margin: 7.5px auto;
+  margin: 0.46875rem auto;
   padding: 0 0 0.2rem;
   white-space: pre-line;
   font-weight: 400;
@@ -189,7 +194,8 @@ ul[data-bullet-list] li > *:first-child::before {
 }
 div#content {
   background: var(--mainWhite);
-  border-radius: 25px;
+  border-radius:1.5625rem;
+  border-radius: var(--mainRadius);
   max-width: 1150px;
   margin: 2px auto;
   outline: none;
@@ -202,13 +208,12 @@ button {
 }
 .btn {
   background: var(--mainWhite);
-  border: 2px solid var(--poppyLow);
-  border-radius: 8px;
+  border: 0.125rem solid var(--poppyLow);
+  border-radius: 0.5rem;
   box-shadow: var(--light-shadow);
   color: var(--poppyLow);
   display: inline-block;
   letter-spacing: var(--mainSpacing);
-  letter-spacing: 0;
   padding: 0.8rem 1.6rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -227,8 +232,8 @@ button {
   cursor: pointer;
 }
 .btn-form {
-  border: 2px solid var(--poppy);
-  border-radius: 5px;
+  border: 0.125rem solid var(--poppy);
+  border-radius: 0.3125rem;
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 0.75rem;
@@ -259,7 +264,7 @@ Utility classes
 @media screen and (max-width: 320px) {
   div#content {
     border-radius: 10px;
-    padding: 0.1rem 0.7rem; /*padding: 1.6px 11px;*/
+    padding: 0.1rem 0.7rem;
   }
   h1 {
     text-align: center;
@@ -270,25 +275,25 @@ Utility classes
 @media screen and (min-width: 321px) and (max-width: 480px) {
   div#content {
     border-radius: 15px;
-    padding: 0.1rem 1.1rem; /*padding: 1.6px 17px;*/
+    padding: 0.1rem 1.1rem;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 719px) {
   div#content {
-    border-radius: 25px;
-    padding: 0.1rem 2.2rem; /*padding: 1.6px 35px;*/
+    border-radius:1.5625rem;
+    padding: 0.1rem 2.2rem;
   }
 }
 @media screen and (min-width: 720px) and (max-width: 1239px) {
   div#content {
-    border-radius: 25px;
-    padding: 0.1rem 2.5rem; /*padding: 1.6px 40px;*/
+    border-radius: 1.5625rem;
+    padding: 0.1rem 2.5rem;
   }
 }
 @media screen and (min-width: 1240px) {
   div#content {
-    border-radius: 30px;
-    padding: 0.1rem 3.2rem; /*padding: 1.6px 50px;*/
+    border-radius: var(--mainRadius);
+    padding: 0.1rem 3.2rem;
   }
 }
 .sr-only {
