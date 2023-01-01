@@ -20,7 +20,7 @@ export default styled(HeadingOneOrTwo)`
     line-height: 54px;
     color: #222222;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0 auto;
 
   }
