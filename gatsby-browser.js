@@ -1,4 +1,4 @@
-import "@fontsource/montserrat/variable.css";
+//import "@fontsource/montserrat";
 import './src/css/main.css'
 
 export const onServiceWorkerUpdateReady = () => {
