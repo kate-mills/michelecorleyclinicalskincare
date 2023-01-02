@@ -1,18 +1,18 @@
 import React from 'react'
 
 import { graphql } from 'gatsby'
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import ArticleList from '../components/Articles/ArticleList'
 import styled from 'styled-components'
 
 const Articles = ({ data }) => {
   return (
-    <PageModel title="Articles">
+    <Layout title="Articles">
     <h1>Articles</h1>
       <PressWrapper>
         <ArticleList articleList={data.allAirtable.articleList} />
       </PressWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 

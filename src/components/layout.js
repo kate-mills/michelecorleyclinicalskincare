@@ -1,20 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Helmet } from 'react-helmet'
+import SEO from '../components/FullSeo'
 
 import { Logo } from './LogoImg'
 import Announcement from './Announcement'
-import {MobileNavbar, DesktopNavbar} from './Navbar'
+import { MobileNavbar, DesktopNavbar } from './Navbar'
 import ProductSearch from './ProductSearch'
 
 import Footer from './Footer'
 
-const Layout = ({noindex=false, children }) => {
+const Layout = ({ description, image, seoTitle, title, noindex, children }) => {
   return (
     <>
-        {noindex && <Helmet><meta name="robots" content="noindex nofollow"/></Helmet>}
-
+      <SEO
+        noindex={noindex}
+        title={seoTitle || title}
+        description={description}
+        image={image}
+      />
       <Announcement />
       <div id="content">
         <main>
@@ -32,6 +36,15 @@ const Layout = ({noindex=false, children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+}
+
+Layout.defaultProps = {
+  description: '',
+  image: 'https://michelecorleyclinicalskincare.com/michele-corley-logo.jpg',
+  homePage: false,
+  noindex: false,
+  seoTitle: '',
+  title: '',
 }
 
 export default Layout

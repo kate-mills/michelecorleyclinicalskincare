@@ -2,7 +2,7 @@ import React from 'react'
 
 import { graphql } from 'gatsby'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import Product from '../components/Products/Product'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
@@ -21,7 +21,7 @@ const ProductTemplate = ({ data: { product }, className }) => {
     category.replace(' & ', ' ').split(' ').join('-')
 
   return (
-    <PageModel
+    <Layout
       title={product.name}
       description={product.description.description}
       image={product.seoImg.fixed.src}
@@ -36,7 +36,7 @@ const ProductTemplate = ({ data: { product }, className }) => {
           </AniLink>
         </p>{' '}
       </div>
-    </PageModel>
+    </Layout>
   )
 }
 

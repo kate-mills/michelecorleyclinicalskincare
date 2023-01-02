@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import SignupForm from '../components/SignupForm'
 import ContactInfo from '../components/ContactInformation'
 
@@ -10,7 +10,7 @@ import styled from 'styled-components'
 
 const SignupPage = ({ data }) => {
   return (
-    <PageModel title="Signup For Specials" seoTitle="Signup For Specials" image={data.seoImg.publicURL}>
+    <Layout title="Signup For Specials" seoTitle="Signup For Specials" image={data.seoImg.publicURL}>
       <PageWrapper>
         <div className="flex-col">
           <div className="flex-item-1">
@@ -33,7 +33,7 @@ const SignupPage = ({ data }) => {
         </div>
         <ContactInfo className="desktop" wrapperMaxWidth="50%" />
       </PageWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const PageWrapper = styled.section`

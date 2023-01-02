@@ -1,13 +1,13 @@
 import React from 'react'
 import Email from '../components/Email'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 
 import styled from 'styled-components'
 
 const ProOrders = () => {
   return (
-    <PageModel
+    <Layout
       title="Pro Orders"
       description="Login or create a professional account, and order your Michele Corley Clinical Skin Care products online."
     >
@@ -42,7 +42,7 @@ const ProOrders = () => {
           </p>
         </div>
       </ProOrdersWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const ProOrdersWrapper = styled.section`

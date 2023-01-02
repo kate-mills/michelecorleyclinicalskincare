@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import Slider from '../components/Slider/Slider'
 import YesNo from '../components/YesNo'
 
 
 const Home = ({ data }) => {
   return (
-    <PageModel
+    <Layout
       seoTitle=""
       title=""
       description="Achieve beautifully healthy skin. Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.">
@@ -16,7 +16,7 @@ const Home = ({ data }) => {
     <h1>Beautifully Healthy Skin Starts Here</h1>
         <Slider images={data.allFile.nodes} />
         <YesNo />
-    </PageModel>
+    </Layout>
   )
 }
 

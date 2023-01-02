@@ -1,13 +1,13 @@
 import React from 'react'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const ErrorPage = () => {
   return (
-    <PageModel name="Oops" title="Oops">
+    <Layout name="Oops" title="Oops">
       <ErrorWrapper>
         <div>
           <h1 className="oops">Oops!</h1>
@@ -36,7 +36,7 @@ const ErrorPage = () => {
           </p>
         </div>
       </ErrorWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const ErrorWrapper = styled.section`

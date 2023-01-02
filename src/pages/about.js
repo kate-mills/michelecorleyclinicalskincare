@@ -2,14 +2,14 @@ import React from 'react'
 
 import styled from 'styled-components'
 import { screen } from '../css/js/media-functions'
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 const About = ({ data }) => {
   return (
-    <PageModel
+    <Layout
       seoTitle="About Us"
       title="About"
       description="Each Michele Corley Clinical Skincare product is crafted with care and consideration to the health and well being of the skin. The ingredients I choose must come from the most natural sources available, and their effectiveness proven."
@@ -69,7 +69,7 @@ const About = ({ data }) => {
           </p>
         </div>
       </AboutWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const AboutWrapper = styled.section`

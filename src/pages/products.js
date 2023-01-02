@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 
 import Thumbnails from '../components/Thumbnails'
 import styled from 'styled-components'
 
 const ProductImagesLogos = props => {
   return (
-    <PageModel
+    <Layout
       title={`Product Images & Logos`}
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
     >
@@ -63,7 +63,7 @@ const ProductImagesLogos = props => {
           <Thumbnails data={props.data.logos} logoMedia={true} />
         </section>
       </ProductsWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 export const query = graphql`

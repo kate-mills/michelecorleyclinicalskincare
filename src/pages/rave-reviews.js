@@ -1,19 +1,20 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import PageModel from '../components/PageModel'
+
+import Layout from '../components/layout'
 import RaveReviewList from '../components/RaveReviews/RaveReviewList'
 
 import styled from 'styled-components'
 
 const RaveReviews = ({ data }) => {
   return (
-    <PageModel title="Rave Reviews">
+    <Layout title="Rave Reviews">
     <h1>Rave Reviews</h1>
       <RaveReviewsWrapper>
         <RaveReviewList reviews={data.allAirtable.reviews} />
       </RaveReviewsWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 

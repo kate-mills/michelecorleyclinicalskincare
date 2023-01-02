@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import ContactForm from '../components/ContactForm'
 
 import ContactInfo from '../components/ContactInformation'
@@ -11,13 +11,12 @@ import styled from 'styled-components'
 
 const ContactPage = ({ data }) => {
   return (
-    <PageModel title="Contact" seoTitle="Contact Us">
+    <Layout title="Contact" seoTitle="Contact Us">
       <PageWrapper>
         <div className="flex-col">
           <div className="flex-item-1">
             <div className="contact-text-container">
-              <h1 className="poppy">
-                Have a question about Michele Corley Clinical Skin Care
+              <h1>Have a question about Michele Corley Clinical Skin Care
                 products?
               </h1>
               <p>
@@ -38,10 +37,13 @@ const ContactPage = ({ data }) => {
           </div>
         </div>
       </PageWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const PageWrapper = styled.section`
+  & h1{
+    text-align: left;
+  }
   & .flex-col {
     align-items: flex-start;
     display: flex;

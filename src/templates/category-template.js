@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { graphql } from 'gatsby'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import ProductList from '../components/Products/ProductList'
 
 const CategoryTemplate = props => {
@@ -18,7 +18,7 @@ const CategoryTemplate = props => {
   } = category
 
   return (
-    <PageModel
+    <Layout
       title={category.name}
       description={category.description.description}
     >
@@ -30,7 +30,7 @@ const CategoryTemplate = props => {
         </p>
         <ProductList products={data.products} id="product-list" />
       </CategoryTemplateWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const CategoryTemplateWrapper = styled.div`

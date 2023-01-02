@@ -1,10 +1,10 @@
 import React from 'react'
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const SignupSuccessPage = () => {
   return (
-    <PageModel title="Signup Success" noindex>
+    <Layout title="Signup Success" noindex>
       <section>
           <h1>Success!</h1>
         <div className="txt-center w-100">
@@ -14,7 +14,7 @@ const SignupSuccessPage = () => {
           </AniLink>
         </div>
       </section>
-    </PageModel>
+    </Layout>
   )
 }
 

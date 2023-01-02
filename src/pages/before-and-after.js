@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import PageModel from '../components/PageModel'
+import Layout from '../components/layout'
 import BeforeAfterList from '../components/BeforeAfter/BeforeAfterList'
 
 import styled from 'styled-components'
 
 const BeforeAfter = ({ data }) => {
   return (
-    <PageModel
+    <Layout
       title="Before & After Photos"
       description="See results achieved by using proper home skincare product daily. Our before and after photos are not retouched and are generally taken with cellular phones.">
     <h1>Before & After Photos</h1>
@@ -23,7 +23,7 @@ const BeforeAfter = ({ data }) => {
         </p>
         <BeforeAfterList bal={data.allAirtable.bal} />
       </BeforeAfterWrapper>
-    </PageModel>
+    </Layout>
   )
 }
 const BeforeAfterWrapper = styled.section`
