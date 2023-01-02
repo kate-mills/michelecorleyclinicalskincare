@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import "typeface-montserrat"
 
 import SEO from '../components/FullSeo'
 
