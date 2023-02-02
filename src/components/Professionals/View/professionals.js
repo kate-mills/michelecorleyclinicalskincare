@@ -156,7 +156,7 @@ const Profile = () => {
           <ul data-bullet-list className={styles.order__specifics__list}>
             <li className={styles.order__specifics__item}>
               <p className={styles.order__specifics__item__details}>
-                $100 minimum order (Exception - Best Sellers Travel Size Kit)
+                Please note we have a $150 minimum order.
               </p>
             </li>
             <li className={styles.order__specifics__item}>
