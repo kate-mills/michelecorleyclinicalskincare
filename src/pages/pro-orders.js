@@ -35,10 +35,8 @@ const ProOrders = () => {
               Online orders
             </a>
           </p>
-
-          <p>
-            Please note we have a $100 minimum order (Exception - Best Sellers
-            Travel Size Kit).
+          <p className="poppy">
+            Please note we have a $150 minimum order.
           </p>
         </div>
       </ProOrdersWrapper>
