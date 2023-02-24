@@ -18,7 +18,6 @@ class Announcement extends React.Component {
               style={{
                 padding: '0',
                 paddingTop: '0px',
-                lineHeight: '17px',
                 textAlign: 'center',
                 color: 'var(--blackText)',
                 fontFamily: 'Times, serif',
