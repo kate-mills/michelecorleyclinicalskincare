@@ -25,7 +25,7 @@ module.exports = {
       email: `customerservice@michelecorley.com`,
       name: `Michele Corley Clinical Skin Care`,
       url: `https://michelecorleyclinicalskincare.com`,
-      logo:`https://michelecorleyclinicalskincare.com/logo.jpg`,
+      logo: `https://michelecorleyclinicalskincare.com/logo.jpg`,
       telephone: `707-287-0555`,
       priceRange: `$$`,
       sameAs: [
@@ -99,7 +99,6 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
- /*{ resolve: `gatsby-plugin-google-fonts`, options: { fonts: [ `montserrat:400,600` // you can also specify font weights and styles ], display: 'swap' } },*/
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {
