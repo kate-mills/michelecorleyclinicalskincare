@@ -7,7 +7,7 @@ import {SpaLocator} from '../components/SpaLocator'
 const SpaLocatorPage = () => {
   return (
     <Layout title="Spa Locator">
-      <h1>Spa Locator</h1>
+      <h1 style={{marginBottom: '0'}}>Spa Locator</h1>
       <SpaLocatorPageWrapper>
         <h2 className={'center'}>
           Find Our Products At These Professional Locations
@@ -22,9 +22,11 @@ const SpaLocatorPageWrapper = styled.section`
     width: 100%;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
+    min-height: 100vh;
     > h2 {
       text-align: center;
-      padding-bottom: 1rem;
+      font-size: .8125rem;
+      margin: 0;
     }
   }
 `
