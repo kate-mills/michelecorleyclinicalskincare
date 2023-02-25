@@ -19,7 +19,7 @@ const SpaLocatorFixedLink = ({ className }) => {
 
 export default styled(SpaLocatorFixedLink)`
   & {
-    font-family: nobel, sans-serif;
+    font-family: var(--mainFont);
     background: var(--poppy);
     position: fixed;
     right: 20px;
