@@ -150,6 +150,10 @@ module.exports = {
             tableName: `Manuals`,
             mapping: { pdf: `fileNode` },
           },
+          {
+            baseId: process.env.GATSBY_AIRTABLE_WHOLESALE_BASE_ID,
+            tableName: `Spas`,
+          },
         ],
       },
     },
