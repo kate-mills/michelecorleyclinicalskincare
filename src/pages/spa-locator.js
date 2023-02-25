@@ -6,8 +6,8 @@ import {SpaLocator} from '../components/SpaLocator'
 
 const SpaLocatorPage = () => {
   return (
-    <Layout title="Store Locator">
-      <h1>Store Locator</h1>
+    <Layout title="Spa Locator">
+      <h1>Spa Locator</h1>
       <SpaLocatorPageWrapper>
         <h2 className={'center'}>
           Find Our Products At These Professional Locations
