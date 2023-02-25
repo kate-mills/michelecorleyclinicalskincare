@@ -96,8 +96,8 @@ export const StyledSpaLocatorForm = styled.form`
 
 export const StyledSpaList = styled.ul`
   & {
-    background:var(--lightGrey);
-    border: .556666px solid var(--lightGrey);
+    background:var(--offWhite);
+    border: .556666px solid var(--offWhite);
     display: grid;
     gap: 2px 2.5633333px;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
