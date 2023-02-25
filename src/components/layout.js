@@ -4,6 +4,8 @@ import "typeface-montserrat"
 
 import SEO from '../components/FullSeo'
 
+import {SpaLocatorFixedLink} from './SpaLocator'
+
 import { Logo } from './LogoImg'
 import Announcement from './Announcement'
 import { MobileNavbar, DesktopNavbar } from './Navbar'
@@ -31,6 +33,7 @@ const Layout = ({ description, image, seoTitle, title, noindex, children }) => {
           <Footer />
         </main>
       </div>
+    <SpaLocatorFixedLink/>
     </>
   )
 }
