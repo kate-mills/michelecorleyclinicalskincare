@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import {SpaLocator} from '../components/SpaLocator'
 
-
-
 const SpaLocatorPage = () => {
   return (
     <Layout title="Spa Locator">
