@@ -4,10 +4,11 @@ import Layout from '../components/layout'
 import {SpaLocator} from '../components/SpaLocator'
 
 
+
 const SpaLocatorPage = () => {
   return (
     <Layout title="Spa Locator">
-      <h1 style={{marginBottom: '0'}}>Spa Locator</h1>
+      <h1 style={{marginBottom: '0'}}>Find Our Products In Spas</h1>
       <SpaLocatorPageWrapper>
         <h2 className={'center'}>
           Find Our Products At These Professional Locations

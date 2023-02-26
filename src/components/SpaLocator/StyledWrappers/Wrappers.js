@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FiShoppingCart } from 'react-icons/fi'
+import { FaShoppingCart } from 'react-icons/fa'
+
 import imgUrl from '../../../images/searchicon.png'
 
 export const StyledSpaWebstoreBadge = ({ className }) => {
   return (
     <SpaWebstoreBadgeWrapper>
       <div>
-        <FiShoppingCart />
+        <FaShoppingCart />
       </div>
     </SpaWebstoreBadgeWrapper>
   )
@@ -22,10 +23,13 @@ const SpaWebstoreBadgeWrapper = styled.div`
       display: inline;
       > svg {
         position: absolute;
-        left: -25px;
-        top: 2px;
+        left: -35px;
         color: var(--poppyDark);
-        background: aliceblue;
+        background: rgb(34 180 229 / 17%);
+        font-size: 30px;
+        border-radius: 50%;
+        padding: 7px;
+        display: table;
       }
     }
   }
@@ -34,14 +38,22 @@ export const StyledSearchResults = styled.section`
   & {
     font-family: nobel, sans-serif;
     margin: 0 auto;
-    width: 85%;
-    > .search_results_count {
-      display: inline-block;
-      vertical-align: middle;
-      padding-inline-start: 0.5rem;
-      min-height: 3.5rem;
+    border-bottom: .556666px solid var(--offWhite);
+    div.hide {
+      display: none;
+    }
+    div.search_results_count {
+      padding-inline-start: 6px;
+      background-color: var(--mainMcc);
+      overflow: hidden;
       h5 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-inline-end: 2px;
+        line-height: 2.3;
+        height: 2rem;
+        padding-left: 36px;
+      }
+      h5 {
       }
     }
   }
@@ -49,7 +61,6 @@ export const StyledSearchResults = styled.section`
 export const StyledSpaLocatorForm = styled.form`
   & {
     margin: 0 auto;
-    display: block;
     width: 100%;
     input#StoreLocator {
       outline: none;
@@ -62,19 +73,17 @@ export const StyledSpaLocatorForm = styled.form`
       display: block;
       font-size: 1rem;
       margin: 20px auto 0;
-      padding: 12px 20px 12px 40px;
+      padding: 12px 20px 12px 40.8px;
       transition: width 0.4s ease-in-out;
       -webkit-transition: width 0.4s ease-in-out;
       width: 40%;
     }
     input#StoreLocator:active,
     input#StoreLocator:focus {
-      width: 85%;
+      width: 100%;
       border-color: var(--poppyDark);
-      background: var(--poppy);
-      color: white;
       ::placeholder {
-        color: var(--offWhite);
+        color: var(--mainMcc);
       }
     }
     input#StoreLocator.input-err,
@@ -96,11 +105,12 @@ export const StyledSpaLocatorForm = styled.form`
 
 export const StyledSpaList = styled.ul`
   & {
+    min-width: 100%;
     background:var(--offWhite);
     border: .556666px solid var(--offWhite);
     display: grid;
     gap: 2px 2.5633333px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     *, > *{
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -112,10 +122,11 @@ export const StyledSpaList = styled.ul`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 0.5rem;
-      padding-inline-start: 1rem;
-      padding-inline-end:3rem;
+      padding-block: 0.5rem;
+      padding-inline-start:6px;
+      padding-inline-end:1rem;
       h4{
+        padding-left: 36px;
         margin: 0;
         margin-block-end: .5em;
         font-family: nobel, sans-serif;
@@ -131,17 +142,30 @@ export const StyledSpaList = styled.ul`
         word-break: break-word;
         vertical-align: baseline;
         outline-color: rgb(75 81 152);
-        padding-left: 36px;
       }
       address {
         padding-left: 36px;
         font-style: normal;
         font-family: nobel, sans-serif;
         font-size: 15px;
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
       }
       address.spa-address{
-          line-height: normal;
+        line-height: normal;
+        span{
+          display:inline-block;
+          vertical-align: middle;
+          max-height: fit-content;
+          max-width: fit-content;
+          padding-block: 3px;
+        }
+        span.space{
+          margin-inline-end: 2px;
+        }
+        span.highlight{
+          background: var(--hiBlue);
+          color: var(--mainWhite);
+        }
       }
       address.spa-urls {
         line-height: 2;

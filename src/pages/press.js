@@ -6,6 +6,7 @@ import PressList from '../components/Press/PressList'
 import styled from 'styled-components'
 
 const Press = ({ data }) => {
+
   return (
     <Layout seoTitle="Products In The Press" title="in the Press" description="Award-winning professional skincare products for dry and oily skin types to sensitive, sun-damaged and acne-prone skin exclusively sold through licensed skincare professionals.">
     <h1>In The Press</h1>

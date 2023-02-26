@@ -1,17 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { useLocation } from '@reach/router'
+
+const SPA_LOCATOR_URL = '/spa-locator';
 
 const SpaLocatorFixedLink = ({ className }) => {
+  const {pathname} = useLocation()
   return (
-    <div className={className}>
+    <div className={`${className} ${pathname === SPA_LOCATOR_URL ? 'hide': ''}`}>
       <AniLink
         fade
-        to={`/spa-locator`}
+        to={SPA_LOCATOR_URL}
         className={`link-content`}
         tabIndex={0}
-      >
-        FIND OUR PRODUCTS IN STORES
+      >FIND OUR PRODUCTS NEAR YOU
       </AniLink>
     </div>
   )
@@ -27,33 +30,33 @@ export default styled(SpaLocatorFixedLink)`
     z-index: 9998;
     display: table-cell;
     width: auto;
-    min-height: fit-content;
-    height: fit-content;
     padding: 20px 15px;
     letter-spacing: normal;
-    word-spacing: 3px;
+    word-spacing: 1px;
     border-radius: 5px;
     box-shadow: var(--light-shadow);
     text-align: center;
     vertical-align: middle;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
     > .link-content{
       display: table-cell;
-      width: auto;
-      min-height: 42px;
       height: auto;
       text-align: center;
       vertical-align: middle;
-      color: #fbfbfb;
       color: var(--mainWhite);
       white-space: wrap;
       text-overflow: ellipsis;
-      overflow: hidden;
-
     }
-  @media(max-width: 300px){
-    left: 20px;
-    width: fit-content;
-  }
+    @media(max-width: 300px){
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-width: fit-content;
+      max-height: fit-content;
+      padding: 10px;
+    }
+    &.hide{ display: none; }
   }
 `

@@ -4,16 +4,18 @@ import "typeface-montserrat"
 
 import SEO from '../components/FullSeo'
 
-import {SpaLocatorFixedLink} from './SpaLocator'
 
-import { Logo } from './LogoImg'
 import Announcement from './Announcement'
+import Footer from './Footer'
+import {SpaLocatorFixedLink} from './SpaLocator'
+import { Logo } from './LogoImg'
 import { MobileNavbar, DesktopNavbar } from './Navbar'
 import ProductSearch from './ProductSearch'
 
-import Footer from './Footer'
 
-const Layout = ({ description, image, seoTitle, title, noindex, children }) => {
+const Layout = (props) => {
+
+  const {title, description, image, seoTitle, noindex, children} = props
   return (
     <>
       <SEO
@@ -45,7 +47,6 @@ Layout.propTypes = {
 Layout.defaultProps = {
   description: '',
   image: 'https://michelecorleyclinicalskincare.com/michele-corley-logo.jpg',
-  homePage: false,
   noindex: false,
   seoTitle: '',
   title: '',

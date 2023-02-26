@@ -22,7 +22,7 @@ const SpaSearch = props => {
 
     dataToSearch.sanitizer = new JsSearch.LowerCaseSanitizer()
 
-    dataToSearch.searchIndex = new JsSearch.TfIdfSearchIndex('spaid')
+    dataToSearch.searchIndex = new JsSearch.TfIdfSearchIndex()
 
     dataToSearch.addIndex('city') // sets the index attribute for the data
     dataToSearch.addIndex('state') // sets the index attribute for the data
@@ -33,6 +33,7 @@ const SpaSearch = props => {
       return { ...data }
     })
     dataToSearch.addDocuments(allSpas)
+    window.dataToSearch = dataToSearch
     setSearch(dataToSearch)
   }, [airtableSpas])
 
@@ -40,6 +41,23 @@ const SpaSearch = props => {
     const queryResult = search.search(e.target.value)
     setSearchQuery(e.target.value)
     setSearchResults(queryResult)
+  }
+
+  const cleanQueryString = q => {
+    let reg = /(\w|\s)/gi
+    let cleanQ = q.trim().match(reg)
+    return !cleanQ ? '' : cleanQ.join('')
+  }
+  const isRegexMatch = (q, testStr) => {
+    let cleanQ = cleanQueryString(q)
+
+    return !cleanQ
+      ? false
+      : [...cleanQ.trim().split(' ')].find(str => {
+          let trimmed = str.trim()
+          let re = new RegExp(`\\b${trimmed}`, 'gi')
+          return !trimmed || re.exec(testStr)
+        })
   }
 
   const handleSubmit = e => {
@@ -71,71 +89,100 @@ const SpaSearch = props => {
           className={`${
             searchQuery.trim().length > 0 && searchResults.length < 1
               ? 'input-err'
-              : 'input-success'
+              : ''
           }`}
         />
       </StyledSpaLocatorForm>
 
-      <StyledSearchResults>
-        <div className="search_results_count">
-          <h5>
-            {searchResults.length > 0 &&
-              `${searchResults.length} Location${
-                searchResults.length > 1 ? 's' : ''
-              } Found`}
-          </h5>
-        </div>
-        {queryResults.length > 0 ? (
-          <StyledSpaList>
-            {queryResults &&
-              queryResults.map(spa => {
-                const {
-                  spaid,
-                  name,
-                  zip,
-                  address,
-                  city,
-                  state,
-                  phone,
-                  email,
-                  webstore,
-                  url,
-                } = spa
-                return (
-                  <li key={spaid} className="spa">
+      {searchQuery.length > 0 && (
+        <StyledSearchResults>
+          <div className={`${searchResults.length>0?'search_results_count':'hide'}`}>
+            <h5>
+              {searchResults.length > 0 &&
+                `${searchResults.length} Location${
+                  searchResults.length > 1 ? 's' : ''
+                } Found`}
+            </h5>
+          </div>
+        </StyledSearchResults>
+      )}
+
+      {queryResults.length > 0 ? (
+        <StyledSpaList>
+          {queryResults &&
+            queryResults.map(spa => {
+              const {
+                spaid,
+                name,
+                zip,
+                address,
+                city,
+                state,
+                statecode,
+                phone,
+                email,
+                webstore,
+                url,
+              } = spa
+              return (
+                <li key={spaid} className="spa">
+                  <div>
+                    <h4>{name}</h4>
+                  </div>
+                  <address className="spa-address">
+                    <div>{address}</div>
+                    {
+                      <div>
+                        <span
+                          className={`${
+                            isRegexMatch(searchQuery, city) ? 'highlight' : ''
+                          }`}
+                        >{`${city}`}</span>
+                        <span className="space">{', '}</span>
+                        <span
+                          className={`${
+                            isRegexMatch(searchQuery, state) ||
+                            isRegexMatch(searchQuery, statecode)
+                              ? 'highlight'
+                              : ''
+                          }`}
+                        >{`${state} `}</span>
+                        <span className="space"> </span>
+                        <span
+                          className={`${
+                            isRegexMatch(searchQuery, zip) ? 'highlight' : ''
+                          }`}
+                        >
+                          {zip}
+                        </span>
+                      </div>
+                    }
+                    <div>United States</div>
+                  </address>
+                  <address className="spa-urls">
+                    <div>{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
                     <div>
-                      <h4>{name}</h4>
+                      {email && <a href={`mailto:${email}`}>{email}</a>}
                     </div>
-                    <address className="spa-address">
-                      <div>{address}</div>
-                      <div>{`${city},  ${state} ${zip}`}</div>
-                      <div>United States</div>
-                    </address>
-                    <address className="spa-urls">
-                      <div>
-                        {phone && <a href={`tel:${phone}`}>{phone}</a>}
-                      </div>
-                      <div>
-                        {email && <a href={`mailto:${email}`}>{email}</a>}
-                      </div>
-                      <div className="web">
-                        {!!webstore && ( <StyledSpaWebstoreBadge/>)}
-                        <a
-                          tabIndex={-1}
-                          href={!!webstore?webstore:url}
-                          target="_blank"
-                          rel="noreferrer">{getPrettyUrl(webstore|| url)}
-                        </a>
-                      </div>
-                    </address>
-                  </li>
-                )
-              })}
-          </StyledSpaList>
-        ) : (
-          <div style={{ minHeight: '50vh' }} />
-        )}
-      </StyledSearchResults>
+                    <div className="web">
+                      {!!webstore && <StyledSpaWebstoreBadge />}
+                      <a
+                        tabIndex={-1}
+                        href={!!webstore ? webstore : url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {getPrettyUrl(webstore || url)}
+                      </a>
+                    </div>
+                  </address>
+                </li>
+              )
+            })}
+        </StyledSpaList>
+      ) : (
+        <div style={{ minHeight: '50vh' }} />
+      )}
     </>
   )
 }
