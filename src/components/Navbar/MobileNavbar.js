@@ -2,7 +2,6 @@ import React, { Component, useState } from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import links from '../../constants/mobileLinks'
-import { screen } from '../../css/js/media-functions'
 import ProfessionalStatus from '../Professionals/Status'
 
 const MoreItems = props => {
@@ -142,7 +141,7 @@ export default styled(MobileNavbar)`
     justify-content: center;
     letter-spacing: .5px;
     line-height: 27px;
-    margin: 6px auto;
+    margin: 6px auto 0;
     text-align: center;
   }
   & a {
@@ -159,7 +158,7 @@ export default styled(MobileNavbar)`
   }
   & button.navbar-toggler {
     box-shadow: none;
-    margin: .5rem auto 1rem;
+    margin: .5rem auto 0;
   }
   & ul {
     margin 0px;
@@ -181,5 +180,7 @@ export default styled(MobileNavbar)`
     border: unset;
     padding: unset;
   }
-  ${screen.nav.wide`&{display: none;}`};
+ @media (min-width: 750px){
+    display: none;
+ };
 `

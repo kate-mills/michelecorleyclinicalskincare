@@ -95,7 +95,11 @@ const SpaSearch = props => {
       </StyledSpaLocatorForm>
       {searchQuery.length > 0 ? (
         <StyledSearchResults>
-          <div className={`${searchResults.length>0?'search_results_count':'hide'}`}>
+          <div
+            className={`${
+              searchResults.length > 0 ? 'search_results_count' : 'hide'
+            }`}
+          >
             <h5>
               {searchResults.length > 0 &&
                 `${searchResults.length} Location${
@@ -104,7 +108,9 @@ const SpaSearch = props => {
             </h5>
           </div>
         </StyledSearchResults>
-      ): <div style={{minHeight: '1rem'}}/>}
+      ) : (
+        <div style={{ minHeight: '1rem' }} />
+      )}
 
       {queryResults.length > 0 ? (
         <StyledSpaList>
@@ -130,32 +136,40 @@ const SpaSearch = props => {
                   </div>
                   <address className="spa-address">
                     <div>{address}</div>
-                    {
-                      <div>
-                        <span
-                          className={`${
-                            isRegexMatch(searchQuery, city) ? 'highlight' : ''
-                          }`}
-                        >{`${city}`}</span>
-                        <span className="space">{', '}</span>
-                        <span
-                          className={`${
-                            isRegexMatch(searchQuery, state) ||
-                            isRegexMatch(searchQuery, statecode)
-                              ? 'highlight'
-                              : ''
-                          }`}
-                        >{`${statecode} `}</span>
-                        <span className="space"> </span>
-                        <span
-                          className={`${
-                            isRegexMatch(searchQuery, zip) ? 'highlight' : ''
-                          }`}
-                        >
-                          {zip}
-                        </span>
-                      </div>
-                    }
+                    <div>
+                      <span className="city-split">
+                        {city.split(' ').map(name => {
+                          return (
+                            <span
+                              key={name}
+                              className={`${
+                                isRegexMatch(searchQuery, name)
+                                  ? 'highlight':''
+                              }`}
+                            >
+                              {name}
+                            </span>
+                          )
+                        })}
+                      </span>
+                      <span className="space">{', '}</span>
+                      <span
+                        className={`${
+                          isRegexMatch(searchQuery, state) ||
+                          isRegexMatch(searchQuery, statecode)
+                            ? 'highlight'
+                            : ''
+                        }`}
+                      >{`${statecode} `}</span>
+                      <span className="space" />
+                      <span
+                        className={`${
+                          isRegexMatch(searchQuery, zip) ? 'highlight' : ''
+                        }`}
+                      >
+                        {zip}
+                      </span>
+                    </div>
                     <div>United States</div>
                   </address>
                   <address className="spa-urls">
@@ -164,7 +178,11 @@ const SpaSearch = props => {
                       {email && <a href={`mailto:${email}`}>{email}</a>}
                     </div>
                     <div className="web">
-                      {!!webstore && <span><FaShoppingCart /></span>}
+                      {!!webstore && (
+                        <span>
+                          <FaShoppingCart />
+                        </span>
+                      )}
                       <a
                         tabIndex={-1}
                         href={!!webstore ? webstore : url}

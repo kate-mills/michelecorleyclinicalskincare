@@ -137,8 +137,8 @@ nav {
   color: var(--mainBlack);
   font-size: 1rem;
   letter-spacing: var(--mainSpacing);
-  margin: 1.25rem auto;
-  padding-block-end: 1.25rem;
+  margin: 1.25rem auto 1rem;
+  /*padding-block-end: 1.25rem;*/
 }
 nav * {
   color: var(--mainBlack);

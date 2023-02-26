@@ -4,6 +4,14 @@ import Layout from '../components/layout'
 import {SpaLocator} from '../components/SpaLocator'
 
 const SpaLocatorPage = () => {
+  React.useEffect(()=>{
+    if(typeof window !== `undefined`){
+      let logo = document.getElementById('logo')
+      if(logo){
+        logo.classList.add('sr-only')
+      }
+    }
+  }, [])
   return (
     <Layout title="Spa Locator">
       <h1 style={{marginBottom: '0'}}>Spa Locator</h1>

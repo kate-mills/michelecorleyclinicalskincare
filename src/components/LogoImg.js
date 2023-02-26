@@ -17,9 +17,8 @@ const query = graphql`
 export const Logo = () => {
   const data = useStaticQuery(query)
   return (
-    <LogoWrapper>
+    <LogoWrapper id="logo">
       <Img
-    style={{margin: '0 auto', maxWidth: '250px', height: 'auto'}}
         loading="eager"
         fluid={data.file.childImageSharp.fluid}
         media="screen"
@@ -31,8 +30,12 @@ export const Logo = () => {
 
 const LogoWrapper = styled.div`
   & {
-    margin: 0 auto;
-    max-width: 250px;
+    margin: auto auto;
+    max-width: 40%;
     height: auto;
+    div.gatsby-image-wrapper{
+      max-width: 220px;
+      margin: 6px auto 0;
+    }
   }
 `

@@ -79,9 +79,6 @@ export const StyledSpaLocatorForm = styled.form`
     input#StoreLocator:focus {
       width: 100%;
       border-color: var(--poppyDark);
-      ::placeholder {
-        color: var(--mainMcc);
-      }
     }
     input#StoreLocator.input-err,
     input#StoreLocator.input-err:active,
@@ -151,16 +148,23 @@ export const StyledSpaList = styled.ul`
           display:inline-block;
           max-height: fit-content;
           max-width: fit-content;
-          padding-block: 3px;
+          padding-block: -10px;
+          vertical-align: middle;
+          margin-block: 2px;
+        }
+        span.highlight{ background: var(--hiBlue); color: var(--mainWhite); }
+        span.city-split{
+          span:not(:last-of-type){
+            margin-inline-start: 0px;
+            margin-inline-end: 3px;
+          }
         }
         span.space{
-          margin-inline-end: 2px;
-        }
-        span.highlight{
-          background: var(--hiBlue);
-          color: var(--mainWhite);
+          margin-inline-start: 0px;
+          margin-inline-end: 3px;
         }
       }
+
       address.spa-urls {
         line-height: 1.5;
         div.web {
