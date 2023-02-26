@@ -123,23 +123,21 @@ export const StyledSpaList = styled.ul`
       padding-block: 0.5rem;
       padding-inline-start:6px;
       padding-inline-end:1rem;
-      h4{
+
+      div.spa-name{
         padding-left: 36px;
-        margin: 0;
-        margin-block-end: .5em;
-        font-family: nobel, sans-serif;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 25px;
-        color: rgb(78 78 78);
-        outline-offset: 0px;
-        outline-width: 0px;
-        -webkit-border-image: none;
-        -webkit-font-smoothing: antialiased;
-        text-size-adjust: 100%;
-        word-break: break-word;
-        vertical-align: baseline;
-        outline-color: rgb(75 81 152);
+        h4{
+          font-family: nobel, sans-serif;
+          font-weight: 700;
+          font-size: 1rem;
+          line-height: normal;
+          color: rgb(78 78 78);
+          -webkit-border-image: none;
+          -webkit-font-smoothing: antialiased;
+          text-size-adjust: 100%;
+          word-break: break-word;
+          outline-color: rgb(75 81 152);
+        }
       }
       address {
         padding-left: 36px;
@@ -147,12 +145,11 @@ export const StyledSpaList = styled.ul`
         font-family: nobel, sans-serif;
         font-size: 15px;
         margin-bottom: 1rem;
+        line-height: 1.1;
       }
       address.spa-address{
-        line-height: normal;
         span{
           display:inline-block;
-          vertical-align: middle;
           max-height: fit-content;
           max-width: fit-content;
           padding-block: 3px;
@@ -166,7 +163,7 @@ export const StyledSpaList = styled.ul`
         }
       }
       address.spa-urls {
-        line-height: 2;
+        line-height: 1.5;
         div.web{
           overflow: visible;
           overflow-y: clip;

@@ -125,7 +125,7 @@ const SpaSearch = props => {
               } = spa
               return (
                 <li key={spaid} className="spa">
-                  <div>
+                  <div className="spa-name">
                     <h4>{name}</h4>
                   </div>
                   <address className="spa-address">
@@ -145,7 +145,7 @@ const SpaSearch = props => {
                               ? 'highlight'
                               : ''
                           }`}
-                        >{`${state} `}</span>
+                        >{`${statecode} `}</span>
                         <span className="space"> </span>
                         <span
                           className={`${
