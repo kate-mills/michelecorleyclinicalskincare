@@ -44,7 +44,6 @@ export const StyledSearchResults = styled.section`
     }
     div.search_results_count {
       padding-inline-start: 6px;
-      background-color: var(--mainMcc);
       overflow: hidden;
       h5 {
         font-size: 1rem;
