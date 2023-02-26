@@ -53,8 +53,6 @@ export const StyledSearchResults = styled.section`
         height: 2rem;
         padding-left: 36px;
       }
-      h5 {
-      }
     }
   }
 `

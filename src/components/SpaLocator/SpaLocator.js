@@ -93,8 +93,7 @@ const SpaSearch = props => {
           }`}
         />
       </StyledSpaLocatorForm>
-
-      {searchQuery.length > 0 && (
+      {searchQuery.length > 0 ? (
         <StyledSearchResults>
           <div className={`${searchResults.length>0?'search_results_count':'hide'}`}>
             <h5>
@@ -105,7 +104,7 @@ const SpaSearch = props => {
             </h5>
           </div>
         </StyledSearchResults>
-      )}
+      ): <div style={{minHeight: '1rem'}}/>}
 
       {queryResults.length > 0 ? (
         <StyledSpaList>
