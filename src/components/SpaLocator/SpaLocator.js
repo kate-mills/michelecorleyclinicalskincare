@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import * as JsSearch from 'js-search'
 import { useSpaData } from '../../hooks/use-spa-data'
+import { FaShoppingCart } from 'react-icons/fa'
 
 import {
   StyledSpaList,
   StyledSpaLocatorForm,
-  StyledSpaWebstoreBadge,
   StyledSearchResults,
 } from './StyledWrappers'
 
@@ -164,7 +164,7 @@ const SpaSearch = props => {
                       {email && <a href={`mailto:${email}`}>{email}</a>}
                     </div>
                     <div className="web">
-                      {!!webstore && <StyledSpaWebstoreBadge />}
+                      {!!webstore && <span><FaShoppingCart /></span>}
                       <a
                         tabIndex={-1}
                         href={!!webstore ? webstore : url}

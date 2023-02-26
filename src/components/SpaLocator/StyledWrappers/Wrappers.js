@@ -38,7 +38,7 @@ export const StyledSearchResults = styled.section`
   & {
     font-family: nobel, sans-serif;
     margin: 0 auto;
-    border-bottom: .556666px solid var(--offWhite);
+    border-bottom: 0.556666px solid var(--offWhite);
     div.hide {
       display: none;
     }
@@ -164,9 +164,29 @@ export const StyledSpaList = styled.ul`
       }
       address.spa-urls {
         line-height: 1.5;
-        div.web{
+        div.web {
+          position: relative;
           overflow: visible;
-          overflow-y: clip;
+          a{ }
+          span{
+            background: rgb(34 180 229 / 17%);
+            min-width: fit-content;
+            position: absolute;
+            left: -30px;
+            bottom: 2px;
+            border-radius: 100%;
+            padding: 2px;
+            padding-inline: 6px;
+            svg{
+              font-size: 13px;
+              position: relative;
+              right: 1px;
+              bottom: 1px;
+              vertical-align: middle;
+              background: rgb(34 180 229 / 17%);
+              color: var(--poppyDark);
+            }
+          }
         }
         div{
           > a {
