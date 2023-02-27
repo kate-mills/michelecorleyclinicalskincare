@@ -172,8 +172,6 @@ export const StyledSpaList = styled.ul`
               position: relative;
               background: var(--poppy);
               color: var(--mainWhite);
-              width: 100%;
-              height: 100%;
 
             }
           }
