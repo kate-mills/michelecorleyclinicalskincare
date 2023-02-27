@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import * as JsSearch from 'js-search'
 import { useSpaData } from '../../hooks/use-spa-data'
 import { FaShoppingCart } from 'react-icons/fa'
@@ -14,6 +14,8 @@ const SpaSearch = props => {
   const [search, setSearch] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+  const formInputRef = React.useRef(null);
+
 
   useEffect(() => {
     const dataToSearch = new JsSearch.Search('spaid')
@@ -37,6 +39,10 @@ const SpaSearch = props => {
     setSearch(dataToSearch)
   }, [airtableSpas])
 
+
+  useEffect(()=>{
+      formInputRef.current.focus()
+  }, [])
 
   const trimSpaces = (q) => {
     return q.replace(/(\s+)\s/g, ' ')
@@ -75,7 +81,7 @@ const SpaSearch = props => {
     <>
       <StyledSpaLocatorForm onSubmit={handleSubmit}>
         <input
-          ref={input => input && input.focus()}
+          ref={formInputRef}
           tabIndex={0}
           aria-label="Search"
           autoComplete="off"

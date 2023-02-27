@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import imgUrl from '../../../images/searchicon.png'
 
+const JUSTIFY_LEFT_PX = '25px'
+
 export const StyledSearchResults = styled.section`
   & {
     font-family: nobel, sans-serif;
@@ -12,7 +14,7 @@ export const StyledSearchResults = styled.section`
         margin-inline-end: 2px;
         line-height: 2;
         height: 1.5rem;
-        padding-left: 36px;
+        padding-left: ${JUSTIFY_LEFT_PX};
       }
     }
   }
@@ -32,7 +34,7 @@ export const StyledSpaLocatorForm = styled.form`
       display: block;
       font-size: 1rem;
       margin: 20px auto 0;
-      padding: 12px 20px 12px 40.8px;
+      padding: 12px 20px 12px 40px;
       transition: width 0.4s ease-in-out;
       -webkit-transition: width 0.4s ease-in-out;
       width: 85%;
@@ -41,6 +43,8 @@ export const StyledSpaLocatorForm = styled.form`
     input#StoreLocator:focus {
       width: 100%;
       border-color: var(--poppyDark);
+      padding: 12px 20px 12px ${JUSTIFY_LEFT_PX};
+      background-image: none;
     }
     input#StoreLocator.input-err,
     input#StoreLocator.input-err:active,
@@ -69,7 +73,6 @@ export const StyledSpaList = styled.ul`
       -webkit-border-image: none;
       -webkit-font-smoothing: antialiased;
       text-size-adjust: 100%;
-
     }
     .spa {
       background: var(--mainWhite);
@@ -79,7 +82,7 @@ export const StyledSpaList = styled.ul`
       padding-block: 1rem;
       color: rgb(78 78 78);
       > .spa-name{
-        padding-inline: 36px;
+        padding-inline-start: ${JUSTIFY_LEFT_PX};
         h4{
           padding: 0;
           font-family: nobel, sans-serif;
@@ -94,7 +97,8 @@ export const StyledSpaList = styled.ul`
         }
       }
       > address {
-        padding-inline: 36px;
+        padding-inline-start: ${JUSTIFY_LEFT_PX};
+        padding-inline-end: 10px;
         margin-inline: 0;
         font-style: normal;
         font-family: nobel, sans-serif;
@@ -107,11 +111,13 @@ export const StyledSpaList = styled.ul`
         text-overflow: ellipsis;
         line-height: normal;
         @media(min-width: 480px){
-          font-size: .9rem;
+          font-size: .85rem;
         }
       }
       > .spa-address-location{
+
          padding-block-end: .3rem;
+         text-transform: uppercase;
          div.locale div{
           display:inline-block;
           vertical-align: top;
@@ -152,19 +158,22 @@ export const StyledSpaList = styled.ul`
           }
         div.web {
           span{
-            background: var(--offWhite);
-            position: absolute;
-            display:flex;
-            left: 6px;
+            background: var(--poppy);
             border-radius: 100%;
-            padding: 5px;
-            justify-content: center;
+            display:flex;
             align-items: center;
-            bottom: 1px;
+            justify-content: center;
+            position: absolute;
+            left: 4px;
+            bottom: 6px;
+            padding: 3px;
+            z-index: 10;
             svg{
               position: relative;
-              background: transparent;
-              color: var(--poppyDark);
+              background: var(--poppy);
+              color: var(--mainWhite);
+              width: 100%;
+              height: 100%;
             }
           }
         }
