@@ -44,12 +44,11 @@ export const StyledSearchResults = styled.section`
     }
     div.search_results_count {
       padding-inline-start: 6px;
-      overflow: hidden;
       h5 {
         font-size: 1rem;
         margin-inline-end: 2px;
-        line-height: 2.3;
-        height: 2rem;
+        line-height: 2;
+        height: 1.5rem;
         padding-left: 36px;
       }
     }
@@ -105,24 +104,27 @@ export const StyledSpaList = styled.ul`
     display: grid;
     gap: 2px 2.5633333px;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    *, > *{
+    >*, * {
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
-      overflow-y: clip;
+      text-size: adjust: 100%;
+      font-family: nobel, sans-serif;
+      font-style: normal;
+      font-stretch: 100%;
     }
-    li.spa {
+    .spa {
       background: var(--mainWhite);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding-block: 0.5rem;
-      padding-inline-start:6px;
-      padding-inline-end:1rem;
-
-      div.spa-name{
-        padding-left: 36px;
+      justify-content: space-around;
+      padding-inline: 1rem;
+      padding-block: 1rem;
+      padding-inline-start: 0;
+      min-width: 100%;
+      > .spa-name{
         h4{
+          margin-left: 36px;
           font-family: nobel, sans-serif;
           font-weight: 700;
           font-size: 1rem;
@@ -132,47 +134,59 @@ export const StyledSpaList = styled.ul`
           -webkit-font-smoothing: antialiased;
           text-size-adjust: 100%;
           word-break: break-word;
-          outline-color: rgb(75 81 152);
+          background-color: var(--mainWhite);
+          max-width: fit-content;
         }
       }
-      address {
+      > address {
         padding-left: 36px;
         font-style: normal;
         font-family: nobel, sans-serif;
         font-size: 15px;
-        margin-bottom: 1rem;
-        line-height: 1.1;
+        line-height: 1.2;
       }
-      address.spa-address{
-        span{
+      > .spa-address-location{
+         margin-bottom: 1rem;
+         div.locale div{
           display:inline-block;
-          max-height: fit-content;
-          max-width: fit-content;
-          padding-block: -10px;
-          vertical-align: middle;
-          margin-block: 2px;
-        }
-        span.highlight{ background: var(--hiBlue); color: var(--mainWhite); }
-        span.city-split{
-          span:not(:last-of-type){
-            margin-inline-start: 0px;
-            margin-inline-end: 3px;
+          vertical-align: bottom;
+          margin-block: 5px;
+          margin-inline: 0px;
+
+          span.highlight{
+            background-color: var(--hiYellow);
           }
         }
-        span.space{
-          margin-inline-start: 0px;
+        div.city{
+          span.city-name{
+            display: inline-block;
+            vertical-align: bottom;
+            :not(:first-of-type){
+              padding-inline-start: 3px;
+            }
+          }
+        }
+        .zip.wrap-zip{
+          display: contents;
+          > span.zipcode{
+            display:block;
+          }
+        }
+        .space{
+          display:inline-block;
+          margin: 0;
+          min-width: 3px;
+          padding-right: 3px;
           margin-inline-end: 3px;
         }
       }
-
-      address.spa-urls {
+      > .spa-address-urls {
         line-height: 1.5;
         div.web {
           position: relative;
           overflow: visible;
-          a{ }
           span{
-            background: rgb(34 180 229 / 17%);
+            background: var(--offWhite);
             min-width: fit-content;
             position: absolute;
             left: -30px;
@@ -180,25 +194,22 @@ export const StyledSpaList = styled.ul`
             border-radius: 100%;
             padding: 2px;
             padding-inline: 6px;
+            outline: 5px solid var(--mainWhite);
             svg{
               font-size: 13px;
               position: relative;
               right: 1px;
-              bottom: 1px;
               vertical-align: middle;
-              background: rgb(34 180 229 / 17%);
+              background: transparent;
               color: var(--poppyDark);
             }
           }
         }
         div{
           > a {
-            text-size: adjust: 100%;
-            vertical-align: baseline;
+            position: relative;
+            z-index: 5;
             margin-block-start: 1rem;
-            font-family: nobel, sans-serif;
-            font-style: normal;
-            font-stretch: 100%;
             font-weight: 400; 
             text-decoration-line: underline;
             text-decoration-style: solid;

@@ -37,23 +37,21 @@ const SpaSearch = props => {
     setSearch(dataToSearch)
   }, [airtableSpas])
 
+
+  const trimSpaces = (q) => {
+    return q.replace(/(\s+)\s/g, ' ')
+  }
   const searchData = e => {
-    const queryResult = search.search(e.target.value)
-    setSearchQuery(e.target.value)
+    let q = trimSpaces(e.target.value)
+    const queryResult = search.search(q)
+    setSearchQuery(q)
     setSearchResults(queryResult)
   }
-
-  const cleanQueryString = q => {
-    let reg = /(\w|\s)/gi
-    let cleanQ = q.trim().match(reg)
-    return !cleanQ ? '' : cleanQ.join('')
-  }
   const isRegexMatch = (q, testStr) => {
-    let cleanQ = cleanQueryString(q)
-
+    let cleanQ = q.trim().match(/(\w|\s)/gi)
     return !cleanQ
       ? false
-      : [...cleanQ.trim().split(' ')].find(str => {
+      : [...cleanQ.join('').split(' ')].find(str => {
           let trimmed = str.trim()
           let re = new RegExp(`\\b${trimmed}`, 'gi')
           return !trimmed || re.exec(testStr)
@@ -101,15 +99,17 @@ const SpaSearch = props => {
             }`}
           >
             <h5>
-              {searchResults.length > 0 &&
-                `${searchResults.length} Location${
-                  searchResults.length > 1 ? 's' : ''
-                } Found`}
+              <span className="number-of-results">
+                {searchResults.length > 0 &&
+                  `${searchResults.length} Location${
+                    searchResults.length > 1 ? 's' : ''
+                  } Found`}
+              </span>
             </h5>
           </div>
         </StyledSearchResults>
       ) : (
-        <div style={{ minHeight: '1rem' }} />
+        <div style={{ minHeight: '29.8px' }} />
       )}
 
       {queryResults.length > 0 ? (
@@ -129,50 +129,52 @@ const SpaSearch = props => {
                 webstore,
                 url,
               } = spa
+
+              let isLongCity = ((city.split(' ').length > 1) && (city.length > 10))
               return (
                 <li key={spaid} className="spa">
                   <div className="spa-name">
                     <h4>{name}</h4>
                   </div>
-                  <address className="spa-address">
-                    <div>{address}</div>
-                    <div>
-                      <span className="city-split">
-                        {city.split(' ').map(name => {
+                  <address className="spa-address-location">
+                    <div className="street">{address}</div>
+                    <div className="locale">
+                      <div className={`city ${isLongCity?'long-city':''}`}>
+                        {city.split(' ').map((name, i) => {
                           return (
                             <span
                               key={name}
                               className={`${
                                 isRegexMatch(searchQuery, name)
-                                  ? 'highlight':''
+                                  ? 'highlight city-name idx' + i 
+                                  : 'city-name idx' + i
                               }`}
-                            >
-                              {name}
+                            >{name}
                             </span>
                           )
                         })}
-                      </span>
-                      <span className="space">{', '}</span>
-                      <span
-                        className={`${
-                          isRegexMatch(searchQuery, state) ||
-                          isRegexMatch(searchQuery, statecode)
-                            ? 'highlight'
-                            : ''
-                        }`}
-                      >{`${statecode} `}</span>
-                      <span className="space" />
-                      <span
-                        className={`${
-                          isRegexMatch(searchQuery, zip) ? 'highlight' : ''
-                        }`}
-                      >
-                        {zip}
-                      </span>
+
+                      </div>
+                      <div className="space">{', '}</div>
+                      <div className="state">
+                        <span
+                          className={`${
+                            isRegexMatch(searchQuery, state) ||
+                            isRegexMatch(searchQuery, statecode)
+                              ? 'highlight'
+                              : ''
+                          }`}
+                        >{statecode}</span>
+                      </div>
+                      <div className="space">{' '}</div>
+                      <div className={`zip ${isLongCity ? 'wrap-zip': ''}`}>
+                        <span className="zipcode">
+                          <span className={`${ isRegexMatch(searchQuery, zip) ? 'highlight' : ''}`}>{zip}</span> 
+                        </span>
+                      </div>
                     </div>
-                    <div>United States</div>
                   </address>
-                  <address className="spa-urls">
+                  <address className="spa-address-urls">
                     <div>{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
                     <div>
                       {email && <a href={`mailto:${email}`}>{email}</a>}
