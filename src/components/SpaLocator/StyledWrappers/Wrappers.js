@@ -131,7 +131,7 @@ export const StyledSpaList = styled.ul`
             }
           }
           span.highlight{
-            background-color: var(--hiYellow);
+            background-color: aliceblue;
           }
         }
         div.zip.wrap-zip{
@@ -174,6 +174,7 @@ export const StyledSpaList = styled.ul`
               color: var(--mainWhite);
               width: 100%;
               height: 100%;
+
             }
           }
         }
