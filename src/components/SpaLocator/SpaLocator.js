@@ -191,7 +191,7 @@ const SpaSearch = props => {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        {getPrettyUrl(webstore || url)}
+                        {webstore || url}
                       </a>
                     </div>
                   </address>
@@ -205,13 +205,4 @@ const SpaSearch = props => {
     </>
   )
 }
-
-const getPrettyUrl = url => {
-  const replaceRegex = /http(s)?(:)?(\/\/)?|(\/\/)?(www\.)?\/?/g
-  const matchRegex = /(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#]*)/g
-  if (!url) return
-  let tempUrl = url.trim().match(matchRegex)[0] || url.trim()
-  return tempUrl.replace(replaceRegex, '')
-}
-
 export default SpaSearch
