@@ -95,7 +95,7 @@ const SpaSearch = props => {
         <StyledSearchResults>
           <div
             className={`${
-              searchResults.length > 0 ? 'search_results_count' : 'hide'
+              searchResults.length > 0 ? 'search_results_message' : ''
             }`}
           >
             <h5>
