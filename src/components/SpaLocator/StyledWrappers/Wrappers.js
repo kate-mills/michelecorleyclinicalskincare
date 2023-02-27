@@ -98,7 +98,7 @@ export const StyledSpaList = styled.ul`
         margin-inline: 0;
         font-style: normal;
         font-family: nobel, sans-serif;
-        font-size: small;
+        font-size: 1rem;
         -webkit-font-smoothing: antialiased;
         -webkit-border-image: none;
         -webkit-font-smoothing: antialiased;
@@ -106,9 +106,12 @@ export const StyledSpaList = styled.ul`
         overflow: hidden;
         text-overflow: ellipsis;
         line-height: normal;
+        @media(min-width: 480px){
+          font-size: .9rem;
+        }
       }
       > .spa-address-location{
-         padding-block-end: .5rem;
+         padding-block-end: .3rem;
          div.locale div{
           display:inline-block;
           vertical-align: top;
@@ -142,7 +145,11 @@ export const StyledSpaList = styled.ul`
       }
       > .spa-address-urls {
           position: relative;
-          line-height: 1.5;
+          > div{
+            line-height: normal;
+            margin-block: .5rem;
+            max-width: fit-content;
+          }
         div.web {
           span{
             background: var(--offWhite);
