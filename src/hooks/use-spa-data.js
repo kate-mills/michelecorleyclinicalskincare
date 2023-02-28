@@ -9,13 +9,14 @@ export const useSpaData = () => {
       query {
         allAirtable(
           filter: { table: { eq: "Spas" } }
-          sort: { fields: [data___statecode, data___city, data___name] }
+          sort: { fields: [data___city, data___statecode] }
         ) {
           totalCount
           airtableSpas: nodes {
             airtable_id: id
             data {
               spaid
+              placeId
               contact
               email
               url
@@ -32,12 +33,13 @@ export const useSpaData = () => {
         }
         allWebSpas: allAirtable(
           filter: { table: { eq: "Spas" }, data: { webstore: { ne: null } } }
-          sort: { fields: [data___statecode, data___city, data___name] }
+          sort: { fields: [data___city, data___statecode] }
         ) {
           airtableWebSpas: nodes {
             airtable_id: id
             data {
               spaid
+              placeId
               contact
               email
               url
@@ -55,5 +57,6 @@ export const useSpaData = () => {
       }
     `
   )
-  return { airtableSpas,airtableWebSpas }
+
+  return { airtableSpas, airtableWebSpas }
 }

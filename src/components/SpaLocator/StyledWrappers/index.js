@@ -1,7 +1,7 @@
-import {StyledSpaList, StyledSpaLocatorForm, StyledSearchResults } from './Wrappers'
+import {StyledSpaList, StyledSpaLocatorFormWrapper, StyledSearchResults } from './Wrappers'
 
 export {
-  StyledSpaLocatorForm,
+  StyledSpaLocatorFormWrapper,
   StyledSpaList,
   StyledSearchResults,
 }

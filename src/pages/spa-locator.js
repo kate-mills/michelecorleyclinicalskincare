@@ -29,7 +29,6 @@ const SpaLocatorPageWrapper = styled.section`
     width: 100%;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    min-height: 100vh;
     > h2 {
       text-align: center;
       font-size: .8125rem;

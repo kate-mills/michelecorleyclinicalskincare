@@ -5,15 +5,16 @@ import { FaShoppingCart } from 'react-icons/fa'
 
 import {
   StyledSpaList,
-  StyledSpaLocatorForm,
+  StyledSpaLocatorFormWrapper,
   StyledSearchResults,
 } from './StyledWrappers'
 
 const SpaSearch = props => {
-  const { airtableSpas, airtableWebSpas } = useSpaData()
+  const { airtableSpas, airtableWebSpas} = useSpaData()
   const [search, setSearch] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+  //const [uniquePlaces, setUniquePlaces] = useState([])
   const formInputRef = React.useRef(null);
 
 
@@ -27,15 +28,14 @@ const SpaSearch = props => {
     dataToSearch.searchIndex = new JsSearch.TfIdfSearchIndex()
 
     dataToSearch.addIndex('city') // sets the index attribute for the data
-    dataToSearch.addIndex('state') // sets the index attribute for the data
     dataToSearch.addIndex('statecode') // sets the index attribute for the data
+    dataToSearch.addIndex('state') // sets the index attribute for the data
     dataToSearch.addIndex('zip') // sets the index attribute for the data
 
     let allSpas = airtableSpas.map(({ data }) => {
       return { ...data }
     })
     dataToSearch.addDocuments(allSpas)
-    window.dataToSearch = dataToSearch
     setSearch(dataToSearch)
   }, [airtableSpas])
 
@@ -43,6 +43,18 @@ const SpaSearch = props => {
   useEffect(()=>{
       formInputRef.current.focus()
   }, [])
+
+
+  const getUniquePlaces = (places) =>{
+    let tempPlaces = [...places]
+    let uniquePlaces= Array.from(new Set(tempPlaces.map((place)=>{
+        return place.placeId
+    })))
+    return uniquePlaces.map(placeId=>{
+        return tempPlaces.find((place)=>place.placeId === placeId)
+    })
+  }
+  //useEffect(()=>{ }, [searchResults])
 
   const trimSpaces = (q) => {
     return q.replace(/(\s+)\s/g, ' ')
@@ -53,6 +65,7 @@ const SpaSearch = props => {
     setSearchQuery(q)
     setSearchResults(queryResult)
   }
+
   const isRegexMatch = (q, testStr) => {
     let cleanQ = q.trim().match(/(\w|\s)/gi)
     return !cleanQ
@@ -69,7 +82,7 @@ const SpaSearch = props => {
   }
 
   const queryResults =
-    searchQuery === ''
+    searchQuery.trim() === ''
       ? [
           ...airtableWebSpas.map(({ data }) => {
             return { ...data }
@@ -78,8 +91,9 @@ const SpaSearch = props => {
       : searchResults
 
   return (
-    <>
-      <StyledSpaLocatorForm onSubmit={handleSubmit}>
+    <section style={{minHeight: '75vh', background: 'var(--mainWhite)'}}>
+      <StyledSpaLocatorFormWrapper>
+        <form onSubmit={handleSubmit}>
         <input
           ref={formInputRef}
           tabIndex={0}
@@ -96,7 +110,8 @@ const SpaSearch = props => {
               : ''
           }`}
         />
-      </StyledSpaLocatorForm>
+    </form>
+      </StyledSpaLocatorFormWrapper>
       {searchQuery.length > 0 ? (
         <StyledSearchResults>
           <div
@@ -112,10 +127,26 @@ const SpaSearch = props => {
                   } Found`}
               </span>
             </h5>
+
+        {getUniquePlaces([...queryResults]).map(({placeId}) => {
+          
+          return !!placeId ?(
+          <button className="searchHelper"  key={placeId}
+            onClick={(e)=>{
+              e.target.value = placeId
+              formInputRef.current.value = placeId
+              searchData(e)
+            }}
+            >{placeId}
+            </button>
+          ): null
+        })
+        }
+        
           </div>
         </StyledSearchResults>
       ) : (
-        <div style={{ minHeight: '29.8px' }} />
+        <StyledSearchResults />
       )}
 
       {queryResults.length > 0 ? (
@@ -206,9 +237,9 @@ const SpaSearch = props => {
             })}
         </StyledSpaList>
       ) : (
-        <div style={{ minHeight: '50vh' }} />
+        <div style={{ }} />
       )}
-    </>
+    </section>
   )
 }
 export default SpaSearch

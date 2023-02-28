@@ -6,23 +6,51 @@ const JUSTIFY_LEFT_PX = '25px'
 
 export const StyledSearchResults = styled.section`
   & {
+    min-height: 30px;
     font-family: nobel, sans-serif;
     margin: 0 auto;
     div.search_results_message {
       h5 {
-        font-size: 1rem;
+        background-color: var(--offWhite);
+        font-size: 12px;
         margin-inline-end: 2px;
-        line-height: 2;
+        line-height: 1.76;
         height: 1.5rem;
         padding-left: ${JUSTIFY_LEFT_PX};
       }
     }
+    button.searchHelper{
+      display: block;
+      border: none;
+      width: 100%;
+      min-height: 20px;
+      text-align: left;
+      padding-left: ${JUSTIFY_LEFT_PX};
+      padding-block: 5px;
+      border-block-end: 1px solid var(--mainWhite);
+      unicode-bidi: isolate;
+      border: none;
+      position: relative;
+      color: #70757a;
+      font-size: 12px;
+      min-height: 24px;
+      padding-top: 6px;
+      padding-bottom: 7px;
+      cursor: pointer;
+      direction: ltr;
+      text-align: left;
+      :hover{
+
+        cursor: pointer;
+      }
+    }
   }
 `
-export const StyledSpaLocatorForm = styled.form`
+export const StyledSpaLocatorFormWrapper = styled.section`
   & {
     margin: 0 auto;
     width: 100%;
+    background-color: var(--mainWhite);
     input#StoreLocator {
       outline: none;
       background-color: white;
