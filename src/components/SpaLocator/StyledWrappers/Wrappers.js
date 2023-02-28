@@ -80,7 +80,9 @@ export const StyledSpaList = styled.ul`
       flex-direction: column;
       justify-content: space-between;
       padding-block: 1rem;
+      padding-inline-end: 10px;
       color: rgb(78 78 78);
+      max-width: 100%;
       > .spa-name{
         padding-inline-start: ${JUSTIFY_LEFT_PX};
         h4{
@@ -98,7 +100,6 @@ export const StyledSpaList = styled.ul`
       }
       > address {
         padding-inline-start: ${JUSTIFY_LEFT_PX};
-        padding-inline-end: 10px;
         margin-inline: 0;
         font-style: normal;
         font-family: nobel, sans-serif;
@@ -117,7 +118,6 @@ export const StyledSpaList = styled.ul`
       > .spa-address-location{
 
          padding-block-end: .3rem;
-         text-transform: uppercase;
          div.locale div{
           display:inline-block;
           vertical-align: top;
@@ -131,7 +131,7 @@ export const StyledSpaList = styled.ul`
             }
           }
           span.highlight{
-            background-color: aliceblue;
+            background-color: #9d96923d;
           }
         }
         div.zip.wrap-zip{
@@ -158,7 +158,7 @@ export const StyledSpaList = styled.ul`
           }
         div.web {
           span{
-            background: var(--poppy);
+            background: #fff;
             border-radius: 100%;
             display:flex;
             align-items: center;
@@ -170,9 +170,7 @@ export const StyledSpaList = styled.ul`
             z-index: 10;
             svg{
               position: relative;
-              background: var(--poppy);
-              color: var(--mainWhite);
-
+              color: var(--poppy);
             }
           }
         }
