@@ -11,11 +11,9 @@ export const StyledSearchResults = styled.section`
     margin: 0 auto;
     div.search_results_message {
       h5 {
-        background-color: var(--offWhite);
-        font-size: 12px;
+        font-size: 10px;
         margin-inline-end: 2px;
-        line-height: 1.76;
-        height: 1.5rem;
+        line-height: 2;
         padding-left: ${JUSTIFY_LEFT_PX};
       }
     }
@@ -65,7 +63,7 @@ export const StyledSpaLocatorFormWrapper = styled.section`
       padding: 12px 20px 12px 40px;
       transition: width 0.4s ease-in-out;
       -webkit-transition: width 0.4s ease-in-out;
-      width: 85%;
+      width: calc(100% - 45px);
     }
     input#StoreLocator:active,
     input#StoreLocator:focus {

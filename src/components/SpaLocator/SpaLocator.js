@@ -1,22 +1,22 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import * as JsSearch from 'js-search'
 import { useSpaData } from '../../hooks/use-spa-data'
 import { FaShoppingCart } from 'react-icons/fa'
-
 import {
   StyledSpaList,
   StyledSpaLocatorFormWrapper,
   StyledSearchResults,
 } from './StyledWrappers'
 
+import { getUnique } from '../../utils/unique'
+
 const SpaSearch = props => {
-  const { airtableSpas, airtableWebSpas} = useSpaData()
+  const { airtableSpas, airtableWebSpas } = useSpaData()
   const [search, setSearch] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
-  //const [uniquePlaces, setUniquePlaces] = useState([])
-  const formInputRef = React.useRef(null);
 
+  const formInputRef = React.useRef(null)
 
   useEffect(() => {
     const dataToSearch = new JsSearch.Search('spaid')
@@ -39,24 +39,11 @@ const SpaSearch = props => {
     setSearch(dataToSearch)
   }, [airtableSpas])
 
-
-  useEffect(()=>{
-      formInputRef.current.focus()
+  useEffect(() => {
+    formInputRef.current.focus()
   }, [])
 
-
-  const getUniquePlaces = (places) =>{
-    let tempPlaces = [...places]
-    let uniquePlaces= Array.from(new Set(tempPlaces.map((place)=>{
-        return place.placeId
-    })))
-    return uniquePlaces.map(placeId=>{
-        return tempPlaces.find((place)=>place.placeId === placeId)
-    })
-  }
-  //useEffect(()=>{ }, [searchResults])
-
-  const trimSpaces = (q) => {
+  const trimSpaces = q => {
     return q.replace(/(\s+)\s/g, ' ')
   }
   const searchData = e => {
@@ -91,26 +78,26 @@ const SpaSearch = props => {
       : searchResults
 
   return (
-    <section style={{minHeight: '75vh', background: 'var(--mainWhite)'}}>
+    <section style={{ minHeight: '75vh', background: 'var(--mainWhite)' }}>
       <StyledSpaLocatorFormWrapper>
         <form onSubmit={handleSubmit}>
-        <input
-          ref={formInputRef}
-          tabIndex={0}
-          aria-label="Search"
-          autoComplete="off"
-          id="StoreLocator"
-          onChange={searchData}
-          placeholder={'Type a city, state, or postcode...'}
-          type="text"
-          value={searchQuery}
-          className={`${
-            searchQuery.trim().length > 0 && searchResults.length < 1
-              ? 'input-err'
-              : ''
-          }`}
-        />
-    </form>
+          <input
+            ref={formInputRef}
+            tabIndex={0}
+            aria-label="Search"
+            autoComplete="off"
+            id="StoreLocator"
+            onChange={searchData}
+            placeholder={'Type a city, state, or postcode...'}
+            type="text"
+            value={searchQuery}
+            className={`${
+              searchQuery.trim().length > 0 && searchResults.length < 1
+                ? 'input-err'
+                : ''
+            }`}
+          />
+        </form>
       </StyledSpaLocatorFormWrapper>
       {searchQuery.length > 0 ? (
         <StyledSearchResults>
@@ -122,27 +109,27 @@ const SpaSearch = props => {
             <h5>
               <span className="number-of-results">
                 {searchResults.length > 0 &&
-                  `${searchResults.length} Location${
+                  `${searchResults.length} Spa${
                     searchResults.length > 1 ? 's' : ''
                   } Found`}
               </span>
             </h5>
 
-        {getUniquePlaces([...queryResults]).map(({placeId}) => {
-          
-          return !!placeId ?(
-          <button className="searchHelper"  key={placeId}
-            onClick={(e)=>{
-              e.target.value = placeId
-              formInputRef.current.value = placeId
-              searchData(e)
-            }}
-            >{placeId}
-            </button>
-          ): null
-        })
-        }
-        
+            {getUnique(queryResults, searchQuery.trim()).map(city => {
+              return !!city ? (
+                <button
+                  className="searchHelper"
+                  key={city}
+                  onClick={e => {
+                    e.target.value = city.replace(' USA', '')
+                    formInputRef.current.value = e.target.value
+                    searchData(e)
+                  }}
+                >
+                  {city}
+                </button>
+              ) : null
+            })}
           </div>
         </StyledSearchResults>
       ) : (
@@ -167,7 +154,7 @@ const SpaSearch = props => {
                 url,
               } = spa
 
-              let isLongCity = ((city.split(' ').length > 1) && (city.length > 10))
+              let isLongCity = city.split(' ').length > 1 && city.length > 10
               return (
                 <li key={spaid} className="spa">
                   <div className="spa-name">
@@ -176,21 +163,21 @@ const SpaSearch = props => {
                   <address className="spa-address-location">
                     <div className="street">{address}</div>
                     <div className="locale">
-                      <div className={`city ${isLongCity?'long-city':''}`}>
+                      <div className={`city ${isLongCity ? 'long-city' : ''}`}>
                         {city.split(' ').map((name, i) => {
                           return (
                             <span
                               key={name}
                               className={`${
                                 isRegexMatch(searchQuery, name)
-                                  ? 'highlight city-name idx' + i 
+                                  ? 'highlight city-name idx' + i
                                   : 'city-name idx' + i
                               }`}
-                            >{name}
+                            >
+                              {name}
                             </span>
                           )
                         })}
-
                       </div>
                       <div className="space">{', '}</div>
                       <div className="state">
@@ -201,12 +188,20 @@ const SpaSearch = props => {
                               ? 'highlight'
                               : ''
                           }`}
-                        >{statecode}</span>
+                        >
+                          {statecode}
+                        </span>
                       </div>
-                      <div className="space">{' '}</div>
-                      <div className={`zip ${isLongCity ? 'wrap-zip': ''}`}>
+                      <div className="space"> </div>
+                      <div className={`zip ${isLongCity ? 'wrap-zip' : ''}`}>
                         <span className="zipcode">
-                          <span className={`${ isRegexMatch(searchQuery, zip) ? 'highlight' : ''}`}>{zip}</span> 
+                          <span
+                            className={`${
+                              isRegexMatch(searchQuery, zip) ? 'highlight' : ''
+                            }`}
+                          >
+                            {zip}
+                          </span>
                         </span>
                       </div>
                     </div>
@@ -237,7 +232,7 @@ const SpaSearch = props => {
             })}
         </StyledSpaList>
       ) : (
-        <div style={{ }} />
+        <div style={{}} />
       )}
     </section>
   )

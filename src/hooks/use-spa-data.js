@@ -11,6 +11,7 @@ export const useSpaData = () => {
           filter: { table: { eq: "Spas" } }
           sort: { fields: [data___city, data___statecode] }
         ) {
+
           totalCount
           airtableSpas: nodes {
             airtable_id: id
@@ -58,5 +59,9 @@ export const useSpaData = () => {
     `
   )
 
-  return { airtableSpas, airtableWebSpas }
+
+  return {
+    airtableSpas,
+    airtableWebSpas,
+  }
 }
