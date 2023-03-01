@@ -1,17 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { useLocation } from '@reach/router'
-
-const SPA_LOCATOR_URL = '/spa-locator';
 
 const SpaLocatorFixedLink = ({ className }) => {
-  const {pathname} = useLocation()
   return (
-    <div className={`${className} ${pathname === SPA_LOCATOR_URL ? 'hide': ''}`}>
+    <div className={`${className}`}>
       <AniLink
         fade
-        to={SPA_LOCATOR_URL}
+        to={'/spa-locator'}
         className={`link-content`}
         tabIndex={0}
       >FIND OUR PRODUCTS NEAR YOU
@@ -57,6 +53,5 @@ export default styled(SpaLocatorFixedLink)`
       max-height: fit-content;
       padding: 10px;
     }
-    &.hide{ display: none; }
   }
 `

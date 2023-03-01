@@ -62,18 +62,18 @@ export const StyledSpaList = styled.ul`
     display: grid;
     gap: 2px 2.5633333px;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    > *, * {
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      text-size: adjust: 100%;
-      font-family: nobel, sans-serif;
-      font-style: normal;
-      -webkit-font-smoothing: antialiased;
-      -webkit-border-image: none;
-      -webkit-font-smoothing: antialiased;
-      text-size-adjust: 100%;
-    }
+    position: sticky;
+    top: 200px;
+    z-index: 100;
+    padding-block-start: 1px;
+    white-space: nowrap;
+    text-size: adjust: 100%;
+    font-family: nobel, sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-border-image: none;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
     .spa {
       background: var(--mainWhite);
       display: flex;
@@ -83,9 +83,12 @@ export const StyledSpaList = styled.ul`
       padding-inline-end: 10px;
       color: rgb(78 78 78);
       max-width: 100%;
+
       > .spa-name{
         padding-inline-start: ${JUSTIFY_LEFT_PX};
         h4{
+          overflow: clip;
+          text-overflow: ellipsis;
           padding: 0;
           font-family: nobel, sans-serif;
           font-weight: 700;
@@ -108,17 +111,22 @@ export const StyledSpaList = styled.ul`
         -webkit-border-image: none;
         -webkit-font-smoothing: antialiased;
         text-size-adjust: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
         line-height: normal;
+        > div{
+          overflow: clip;
+          text-overflow: ellipsis;
+        }
+        span.highlight{
+          background-color: #e1e7ec96;
+        }
         @media(min-width: 480px){
           font-size: .85rem;
         }
       }
-      > .spa-address-location{
-
+      > address.spa-location{
          padding-block-end: .3rem;
-         div.locale div{
+
+         div.spa-addr-locality div{
           display:inline-block;
           vertical-align: top;
           margin: 0;
@@ -130,11 +138,8 @@ export const StyledSpaList = styled.ul`
               padding-inline-start:3px;
             }
           }
-          span.highlight{
-            background-color: #9d96923d;
-          }
         }
-        div.zip.wrap-zip{
+        div.zip.block-zip{
           display: contents;
           > span.zipcode{
             display:block;
@@ -149,9 +154,9 @@ export const StyledSpaList = styled.ul`
           margin-inline-end: 3px;
         }
       }
-      > .spa-address-urls {
-          position: relative;
-          > div{
+      > address.spa-urls {
+        position: relative;
+        > div{
             line-height: normal;
             margin-block: .5rem;
             max-width: fit-content;

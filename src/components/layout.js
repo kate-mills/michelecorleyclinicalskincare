@@ -18,9 +18,7 @@ const SPA_LOCATOR_URL = '/spa-locator'
 
 const Layout = props => {
   const { title, description, image, seoTitle, noindex, children } = props
-
   const { pathname } = useLocation()
-
   return (
     <>
       <SEO
@@ -30,17 +28,21 @@ const Layout = props => {
         image={image}
       />
       <Announcement />
-      <div id="content">
+      <div id="content" style={{}}>
         <main>
           <MobileNavbar />
           <Logo />
-          { pathname!==SPA_LOCATOR_URL && <ProductSearch tabIndex={0} /> }
+          { pathname!==SPA_LOCATOR_URL && (
+            <div style={{display: 'sticky', top: '0'}}>
+              <ProductSearch tabIndex={0} />  
+              <SpaLocatorFixedLink />
+            </div>
+          )}
           <DesktopNavbar tabIndex={0} />
           {children}
           <Footer />
         </main>
       </div>
-     <SpaLocatorFixedLink />
     </>
   )
 }

@@ -23,7 +23,6 @@ const IframeVideoWrapper = styled.div`
   max-width: 525px;
 
   .video {
-    overflow: hidden;
     /* // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625) */
     padding-top: 56.25%;
     position: relative;

@@ -31,10 +31,9 @@ export const Logo = () => {
 const LogoWrapper = styled.div`
   & {
     margin: auto auto;
-    max-width: 40%;
     height: auto;
     div.gatsby-image-wrapper{
-      max-width: 220px;
+      max-width: 250px;
       margin: 6px auto 0;
     }
   }

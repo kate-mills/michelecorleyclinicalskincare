@@ -1,18 +1,25 @@
 @import url('https://use.typekit.net/ull5rdh.css');
+
+
 :root {
+  --adobeWhite: #f2f2f2;
+  --adobeBlack: #737373;
+  --adobeLightBlue: #B3C3F2;
+  --adobeBlue: #6078BF;
+  --adobeDarkBlue: #5872A6;
+
   --clear: rgba(0, 0, 0, 0);
   --darkGrey: #9d9692;
   --mainBlack: #4e4e4e;
   --blackText: #3c3c3c;
   --mainMcc: #dcdcdc;
-  --offWhite: #e9e9e9;
+  --offWhite: var(--adobeWhite);/*#e9e9e9;*/
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
-  --poppy: #5367a1;/*#1b55a1;*/
-  --poppyLow: #4d5580;
-  --poppyHigh: hsl(214 52% 36% / 1);
-  --poppyDark: hsl(214 71% 37% / 1);
-  --poppyDark: #4b5198;
+  --poppy: var(--adobeDarkBlue);  /*#5367a1;/*#1b55a1;*/
+  --poppyLow: var(--adobeDarkBlue); /*#4d5580;*/
+  --poppyHigh: var(--adobeLightBlue); /*hsl(214 52% 36% / 1);*/
+  --poppyDark: var(--adobeDarkBlue); /* hsl(214 71% 37% / 1);*/
   --mainFont: Montserrat,sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
@@ -47,7 +54,6 @@ body {
   line-height: var(--bodyLineHeight);
   margin: 0;
   min-height: 100vh;
-  overflow: scroll;
   text-decoration: none;
   text-transform: none;
 }
@@ -77,7 +83,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--mainFamily);
+  font-family: var(--mainFont);
   font-kerning: normal;
   font-weight: 400;
   color: var(--mainBlack);
@@ -97,7 +103,6 @@ h1 {
 h2,
 h3 {
   color: var(--mainBlack);
-  line-height: 1.3em;
   font-size: 2em;
 }
 hr {
@@ -206,8 +211,9 @@ div#content {
   max-width: 1150px;
   margin: 2px auto;
   outline: none;
-  padding: 0.1rem 3.2rem; /*padding: 0 50px;*/
+  padding: 0.1em 3.2em;
   white-space: pre-line;
+  height: fit-content;
 }
 
 button {
@@ -294,17 +300,17 @@ Utility classes
 }
 @media screen and (min-width: 481px) and (max-width: 719px) {
   div#content {
-    border-radius:1.5625rem;
-    padding: 0.1rem 2.2rem;
-    padding-block: 0.1rem;
-    padding-inline: 2.2rem;
+    border-radius:1.5625em;
+    padding: 0.1rem 2.2em;
+    padding-block: 0.1em;
+    padding-inline: 2.2em;
   }
 }
 @media screen and (min-width: 720px) and (max-width: 1239px) {
   div#content {
-    border-radius: 1.5625rem;
-    padding-block: 0.1rem;
-    padding-inline: 2.5rem;
+    border-radius: 1.5625em;
+    padding-block: 0.1em;
+    padding-inline: 2.5em;
   }
 }
 @media screen and (min-width: 1240px) {
@@ -314,14 +320,17 @@ Utility classes
   }
 }
 .sr-only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
   position: absolute;
   left: -10000px;
   width: 1px;
   height: 1px;
   top: auto;
-  overflow: hidden;
+  overflow: clip;
 }
-
 p.pb0 {
   padding-bottom: 0px;
 }

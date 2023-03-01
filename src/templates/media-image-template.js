@@ -69,7 +69,6 @@ export default styled(MediaImageTemplate)`
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 100px 100%;
   margin: 0 auto;
-  overflow: hidden;
   text-align: center;
   width: 100%;
 

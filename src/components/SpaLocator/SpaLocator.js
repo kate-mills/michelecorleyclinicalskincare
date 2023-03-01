@@ -18,6 +18,7 @@ const SpaSearch = props => {
 
 
   useEffect(() => {
+    formInputRef.current.focus()
     const dataToSearch = new JsSearch.Search('spaid')
 
     dataToSearch.indexStrategy = new JsSearch.PrefixIndexStrategy()
@@ -39,10 +40,6 @@ const SpaSearch = props => {
     setSearch(dataToSearch)
   }, [airtableSpas])
 
-
-  useEffect(()=>{
-      formInputRef.current.focus()
-  }, [])
 
   const trimSpaces = (q) => {
     return q.replace(/(\s+)\s/g, ' ')
@@ -78,7 +75,7 @@ const SpaSearch = props => {
       : searchResults
 
   return (
-    <>
+    <div style={{height: 'fit-content'}}>
       <StyledSpaLocatorForm onSubmit={handleSubmit}>
         <input
           ref={formInputRef}
@@ -119,7 +116,8 @@ const SpaSearch = props => {
       )}
 
       {queryResults.length > 0 ? (
-        <StyledSpaList>
+        <div style={{minHeight: '50vh'}}>
+        <StyledSpaList tabIndex={0}>
           {queryResults &&
             queryResults.map(spa => {
               const {
@@ -136,16 +134,16 @@ const SpaSearch = props => {
                 url,
               } = spa
 
-              let isLongCity = ((city.split(' ').length > 1) && (city.length > 10))
+              let isLongCity = ((city.split(' ').length > 1) && (city.length > 15))
               return (
                 <li key={spaid} className="spa">
                   <div className="spa-name">
                     <h4>{name}</h4>
                   </div>
-                  <address className="spa-address-location">
-                    <div className="street">{address}</div>
-                    <div className="locale">
-                      <div className={`city ${isLongCity?'long-city':''}`}>
+                  <address className="spa-location">
+                    <div className="spa-addr-street">{address}</div>
+                    <div className="spa-addr-locality">
+                      <div className={`spa-city ${isLongCity?'spa-long-city':''}`}>
                         {city.split(' ').map((name, i) => {
                           return (
                             <span
@@ -159,7 +157,6 @@ const SpaSearch = props => {
                             </span>
                           )
                         })}
-
                       </div>
                       <div className="space">{', '}</div>
                       <div className="state">
@@ -173,14 +170,14 @@ const SpaSearch = props => {
                         >{statecode}</span>
                       </div>
                       <div className="space">{' '}</div>
-                      <div className={`zip ${isLongCity ? 'wrap-zip': ''}`}>
+                      <div className={`zip ${isLongCity ? 'block-zip': ''}`}>
                         <span className="zipcode">
                           <span className={`${ isRegexMatch(searchQuery, zip) ? 'highlight' : ''}`}>{zip}</span> 
                         </span>
                       </div>
                     </div>
                   </address>
-                  <address className="spa-address-urls">
+                  <address className="spa-urls">
                     <div>{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
                     <div>
                       {email && <a href={`mailto:${email}`}>{email}</a>}
@@ -205,10 +202,11 @@ const SpaSearch = props => {
               )
             })}
         </StyledSpaList>
+        </div>
       ) : (
         <div style={{ minHeight: '50vh' }} />
       )}
-    </>
+    </div>
   )
 }
 export default SpaSearch

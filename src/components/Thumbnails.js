@@ -51,14 +51,13 @@ export default styled(Thumbnails)`
   & {
     border: 1px solid var(--mainMcc);
     display: grid;
-    gap: 10px;
+    gap: 2px 2.5633333px;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     margin: 0 auto;
-    padding: 10px;
-
     & > li.listitem {
       background: var(--mainWhite);
       border: 1px solid var(--offWhite);
+
       :hover figure {
         box-shadow: var(--light-shadow);
       }
@@ -75,11 +74,12 @@ export default styled(Thumbnails)`
           font-size: 14px;
           line-height: 55px;
           margin: 0 auto;
-          overflow: hidden;
           padding-bottom: 0;
           padding-left: 5px;
           padding-right: 5px;
+          padding-inline: 5px;
           text-align: center;
+          overflow-y: clip;
           text-overflow: ellipsis;
           white-space: nowrap;
           width: 100%;

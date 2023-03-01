@@ -54,8 +54,8 @@ form input{
   text-decoration: none;
 }
 .search__td > a:focus{
-  background-color: gainsboro;
-  color: var(--poppyHigh);
+  background-color: var(--offWhite);
+  color: var(--poppyLow);
 }
 
 .search__flex{
