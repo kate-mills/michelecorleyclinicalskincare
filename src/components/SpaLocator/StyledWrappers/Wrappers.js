@@ -6,15 +6,18 @@ const JUSTIFY_LEFT_PX = '25px'
 
 export const StyledSearchResults = styled.section`
   & {
-    font-family: nobel, sans-serif;
+    min-height: 30px;
     margin: 0 auto;
     div.search_results_message {
+      font-family: 'mr-eaves-modern', sans-serif;
+      font-weight: 400;
+      font-style: normal;
       h5 {
-        font-size: 1rem;
+        font-size: small;
+        line-height: 3;
         margin-inline-end: 2px;
-        line-height: 2;
-        height: 1.5rem;
         padding-left: ${JUSTIFY_LEFT_PX};
+        color: #70757a;
       }
     }
   }
@@ -23,6 +26,7 @@ export const StyledSpaLocatorForm = styled.form`
   & {
     margin: 0 auto;
     width: 100%;
+    background-color: var(--mainWhite);
     input#StoreLocator {
       outline: none;
       background-color: white;
@@ -37,7 +41,7 @@ export const StyledSpaLocatorForm = styled.form`
       padding: 12px 20px 12px 40px;
       transition: width 0.4s ease-in-out;
       -webkit-transition: width 0.4s ease-in-out;
-      width: 85%;
+      width: calc(100% - 45px);
     }
     input#StoreLocator:active,
     input#StoreLocator:focus {
@@ -56,98 +60,98 @@ export const StyledSpaLocatorForm = styled.form`
 
 export const StyledSpaList = styled.ul`
   & {
-    min-width: 100%;
-    background:var(--offWhite);
-    border: .556666px solid var(--offWhite);
-    display: grid;
-    gap: 2px 2.5633333px;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    position: sticky;
-    top: 200px;
-    z-index: 100;
-    padding-block-start: 1px;
-    white-space: nowrap;
-    text-size: adjust: 100%;
-    font-family: nobel, sans-serif;
+    background: var(--offWhite);
+    border: 0.556666px solid var(--offWhite);
+    font-family: mr-eaves-modern, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
     font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-border-image: none;
-    -webkit-font-smoothing: antialiased;
-    text-size-adjust: 100%;
+    white-space: nowrap;
+    width: calc(100% + 15px);
+    margin-left: -10px;
+
+    @media (min-width: 700px) {
+      display: grid;
+      gap: 2px 2.5633333px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+    > *,
+    * {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding-block-start: 1px;
+      overflow: hidden;
+      font-family: mr-eaves-modern, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      text-size-adjust: 100%;
+    }
     .spa {
       background: var(--mainWhite);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding-block: 1rem;
-      padding-inline-end: 10px;
+      padding-inline-end: 1rem;
       color: rgb(78 78 78);
-      max-width: 100%;
-
-      > .spa-name{
+      > .spa-name {
         padding-inline-start: ${JUSTIFY_LEFT_PX};
-        h4{
-          overflow: clip;
-          text-overflow: ellipsis;
+        padding-inline-end: 2rem;
+        h4 {
           padding: 0;
-          font-family: nobel, sans-serif;
-          font-weight: 700;
-          font-size: 1rem;
-          line-height: 1.2;
-          -webkit-font-smoothing: antialiased;
-          -webkit-border-image: none;
-          -webkit-font-smoothing: antialiased;
-          text-size-adjust: 100%;
+          font-family: mr-eaves-sans, sans-serif;
+          font-weight: 800;
+          font-style: normal;
+          font-size: large;
           word-break: break-word;
+          line-height: 1;
+          color: #706c6a;
+          text-size-adjust: 100%;
+          min-width: fit-content;
+          overflow-wrap: normal;
+          white-space: pre-wrap;
         }
       }
       > address {
         padding-inline-start: ${JUSTIFY_LEFT_PX};
         margin-inline: 0;
         font-style: normal;
-        font-family: nobel, sans-serif;
-        font-size: 1rem;
-        -webkit-font-smoothing: antialiased;
-        -webkit-border-image: none;
-        -webkit-font-smoothing: antialiased;
+        font-family: 'mr-eaves-modern', sans-serif;
+        font-weight: 300;
+        font-style: normal;
         text-size-adjust: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
         line-height: normal;
-        > div{
-          overflow: clip;
-          text-overflow: ellipsis;
-        }
-        span.highlight{
-          background-color: #e1e7ec96;
-        }
-        @media(min-width: 480px){
-          font-size: .85rem;
-        }
       }
-      > address.spa-location{
-         padding-block-end: .3rem;
+      > address.spa-location {
+        padding-block-end: 0.3rem;
 
-         div.spa-addr-locality div{
-          display:inline-block;
+        div.spa-addr-locality div {
+          display: inline-block;
           vertical-align: top;
           margin: 0;
           margin-block: 5px;
-          span.city-name{
+          span.city-name {
             display: inline-block;
             vertical-align: top;
-            :not(:first-of-type){
-              padding-inline-start:3px;
+            :not(:first-of-type) {
+              padding-inline-start: 3px;
             }
           }
+          span.highlight {
+            background-color: #e1e7ec96;
+          }
         }
-        div.zip.block-zip{
+        div.zip.wrap-zip {
           display: contents;
-          > span.zipcode{
-            display:block;
+          > span.zipcode {
+            display: block;
             width: fit-content;
           }
         }
-        .space{
-          display:inline-block;
+        .space {
+          display: inline-block;
           margin: 0;
           min-width: 3px;
           padding-right: 3px;
@@ -156,34 +160,32 @@ export const StyledSpaList = styled.ul`
       }
       > address.spa-urls {
         position: relative;
-        > div{
-            line-height: normal;
-            margin-block: .5rem;
-            max-width: fit-content;
-          }
+        > div {
+          line-height: normal;
+          margin-block: 0.5rem;
+          max-width: fit-content;
+        }
         div.web {
-          span{
+          span {
             background: #fff;
             border-radius: 100%;
-            display:flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             position: absolute;
             left: 4px;
-            bottom: 6px;
             padding: 3px;
-            z-index: 10;
-            svg{
+            z-index: 2;
+            svg {
               position: relative;
               color: var(--poppy);
+              font-size: 0.8rem;
             }
           }
         }
         & a {
           position: relative;
-          z-index: 5;
           margin-block-start: 1rem;
-          font-weight: 400;
           text-decoration-line: underline;
           text-decoration-style: solid;
           text-decoration-thickness: auto;
@@ -192,7 +194,7 @@ export const StyledSpaList = styled.ul`
           line-height: inherit;
           text-decoration-color: var(--poppyDark);
           color: var(--poppyDark);
-          :hover{
+          :hover {
             text-decoration-color: var(--poppyHover);
             color: var(--poppyHover);
           }

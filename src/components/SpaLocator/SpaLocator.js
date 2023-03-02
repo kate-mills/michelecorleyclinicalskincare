@@ -138,7 +138,7 @@ const SpaSearch = props => {
               return (
                 <li key={spaid} className="spa">
                   <div className="spa-name">
-                    <h4>{name}</h4>
+                    <h4 className={name.length >20 ? 'long': ''}>{name}</h4>
                   </div>
                   <address className="spa-location">
                     <div className="spa-addr-street">{address}</div>
@@ -170,7 +170,7 @@ const SpaSearch = props => {
                         >{statecode}</span>
                       </div>
                       <div className="space">{' '}</div>
-                      <div className={`zip ${isLongCity ? 'block-zip': ''}`}>
+                      <div className={`zip ${isLongCity ? 'wrap-zip': ''}`}>
                         <span className="zipcode">
                           <span className={`${ isRegexMatch(searchQuery, zip) ? 'highlight' : ''}`}>{zip}</span> 
                         </span>
