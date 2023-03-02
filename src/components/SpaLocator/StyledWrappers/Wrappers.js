@@ -190,7 +190,7 @@ export const StyledSpaList = styled.ul`
           font-weight: 400;
           :hover {
             text-decoration-color: var(--poppyHover);
-            color: var(--poppyHover);
+          color: var(--poppyHover);
           }
         }
       }

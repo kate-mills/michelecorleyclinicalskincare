@@ -116,7 +116,7 @@ const SpaSearch = props => {
       )}
 
       {queryResults.length > 0 ? (
-        <div style={{minHeight: '50vh'}}>
+        <div style={{minHeight: '500px'}}>
         <StyledSpaList tabIndex={0}>
           {queryResults &&
             queryResults.map(spa => {
@@ -204,7 +204,7 @@ const SpaSearch = props => {
         </StyledSpaList>
         </div>
       ) : (
-        <div style={{ minHeight: '50vh' }} />
+        <div style={{ minHeight: '500px' }} />
       )}
     </div>
   )
