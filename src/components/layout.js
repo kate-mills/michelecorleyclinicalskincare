@@ -1,17 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import 'typeface-montserrat'
+import "typeface-montserrat"
 
 import SEO from '../components/FullSeo'
 
-import Announcement from './Announcement'
-import Footer from './Footer'
-import { SpaLocatorFixedLink } from './SpaLocator'
-
 import { Logo } from './LogoImg'
-
+import Announcement from './Announcement'
+import { SpaLocatorFixedLink } from './SpaLocator'
 import { MobileNavbar, DesktopNavbar } from './Navbar'
 import ProductSearch from './ProductSearch'
+
+import Footer from './Footer'
 
 import { useLocation } from '@reach/router'
 const SPA_LOCATOR_URL = '/spa-locator'
@@ -28,14 +27,14 @@ const Layout = props => {
         image={image}
       />
       <Announcement />
-      <div id="content" style={{}}>
+      <div id="content">
         <main>
           <MobileNavbar />
           <Logo />
           { pathname!==SPA_LOCATOR_URL && (
             <div style={{display: 'sticky', top: '0'}}>
-              <ProductSearch tabIndex={0} />  
-              <SpaLocatorFixedLink />
+              <ProductSearch tabIndex={0} />
+              <SpaLocatorFixedLink pathname={pathname}/>
             </div>
           )}
           <DesktopNavbar tabIndex={0} />
