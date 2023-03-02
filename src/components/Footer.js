@@ -70,11 +70,15 @@ Footer.defaultProps = ConstantContactInfo
 
 const FooterWrapper = styled(Footer)`
   & {
-    padding: 30px;
     text-align: center;
+    width: calc(100% + 10px);
+    margin-left: -10px;
+    padding-block: 30px;
     .gatsby-image-wrapper.footer-infinity-image {
-      margin: 0.5rem auto;
+      margin-block: 0.5rem;
       max-width: 500px;
+      padding-inline: 50px;
+      margin-inline: auto;
     }
     .follow-us-on {
       padding-bottom: 1rem;

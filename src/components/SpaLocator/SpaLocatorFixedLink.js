@@ -36,6 +36,7 @@ export default styled(SpaLocatorFixedLink)`
     font-size: 13px;
     font-weight: 500;
     line-height: 1.5;
+    opacity: 1;
     > .link-content{
       display: table-cell;
       height: auto;
@@ -52,6 +53,7 @@ export default styled(SpaLocatorFixedLink)`
       max-width: fit-content;
       max-height: fit-content;
       padding: 10px;
+      z-index: 9998;
     }
   }
 `
