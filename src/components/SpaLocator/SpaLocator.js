@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import * as JsSearch from 'js-search'
 import { useSpaData } from '../../hooks/use-spa-data'
 import { FaShoppingCart } from 'react-icons/fa'
@@ -14,8 +14,7 @@ const SpaSearch = props => {
   const [search, setSearch] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
-  const formInputRef = React.useRef(null);
-
+  const formInputRef = React.useRef(null)
 
   useEffect(() => {
     formInputRef.current.focus()
@@ -40,8 +39,8 @@ const SpaSearch = props => {
     setSearch(dataToSearch)
   }, [airtableSpas])
 
-
-  const trimSpaces = (q) => {
+  const trimSpaces = q => {
+    q = q.replace(/^\s/, '')
     return q.replace(/(\s+)\s/g, ' ')
   }
   const searchData = e => {
@@ -75,7 +74,7 @@ const SpaSearch = props => {
       : searchResults
 
   return (
-    <div style={{height: 'fit-content'}}>
+    <div style={{ height: 'fit-content' }}>
       <StyledSpaLocatorForm onSubmit={handleSubmit}>
         <input
           ref={formInputRef}
@@ -116,92 +115,107 @@ const SpaSearch = props => {
       )}
 
       {queryResults.length > 0 ? (
-        <div style={{minHeight: '500px'}}>
-        <StyledSpaList tabIndex={0}>
-          {queryResults &&
-            queryResults.map(spa => {
-              const {
-                spaid,
-                name,
-                zip,
-                address,
-                city,
-                state,
-                statecode,
-                phone,
-                email,
-                webstore,
-                url,
-              } = spa
+        <div style={{ minHeight: '500px' }}>
+          <StyledSpaList tabIndex={0}>
+            {queryResults &&
+              queryResults.map(spa => {
+                const {
+                  spaid,
+                  name,
+                  zip,
+                  address,
+                  city,
+                  state,
+                  statecode,
+                  phone,
+                  email,
+                  webstore,
+                  url,
+                } = spa
 
-              let isLongCity = ((city.split(' ').length > 1) && (city.length > 15))
-              return (
-                <li key={spaid} className="spa">
-                  <div className="spa-name">
-                    <h4 className={name.length >20 ? 'long': ''}>{name}</h4>
-                  </div>
-                  <address className="spa-location">
-                    <div className="spa-addr-street">{address}</div>
-                    <div className="spa-addr-locality">
-                      <div className={`spa-city ${isLongCity?'spa-long-city':''}`}>
-                        {city.split(' ').map((name, i) => {
-                          return (
-                            <span
-                              key={name}
-                              className={`${
-                                isRegexMatch(searchQuery, name)
-                                  ? 'highlight city-name idx' + i 
-                                  : 'city-name idx' + i
-                              }`}
-                            >{name}
-                            </span>
-                          )
-                        })}
-                      </div>
-                      <div className="space">{', '}</div>
-                      <div className="state">
-                        <span
-                          className={`${
-                            isRegexMatch(searchQuery, state) ||
-                            isRegexMatch(searchQuery, statecode)
-                              ? 'highlight'
-                              : ''
+                let isLongCity = city.split(' ').length > 1 && city.length > 15
+                return (
+                  <li key={spaid} className="spa">
+                    <div className="spa-name">
+                      <h4 className={name.length > 20 ? 'long' : ''}>{name}</h4>
+                    </div>
+                    <address className="spa-location">
+                      <div className="spa-addr-street">{address}</div>
+                      <div className="spa-addr-locality">
+                        <div
+                          className={`spa-city ${
+                            isLongCity ? 'spa-long-city' : ''
                           }`}
-                        >{statecode}</span>
+                        >
+                          {city.split(' ').map((name, i) => {
+                            return (
+                              <span
+                                key={name}
+                                className={`${
+                                  isRegexMatch(searchQuery, name)
+                                    ? 'highlight city-name idx' + i
+                                    : 'city-name idx' + i
+                                }`}
+                              >
+                                {name}
+                              </span>
+                            )
+                          })}
+                        </div>
+                        <div className="space">{', '}</div>
+                        <div className="state">
+                          <span
+                            className={`${
+                              isRegexMatch(searchQuery, state) ||
+                              isRegexMatch(searchQuery, statecode)
+                                ? 'highlight'
+                                : ''
+                            }`}
+                          >
+                            {statecode}
+                          </span>
+                        </div>
+                        <div className="space"> </div>
+                        <div className={`zip ${isLongCity ? 'wrap-zip' : ''}`}>
+                          <span className="zipcode">
+                            <span
+                              className={`${
+                                isRegexMatch(searchQuery, zip)
+                                  ? 'highlight'
+                                  : ''
+                              }`}
+                            >
+                              {zip}
+                            </span>
+                          </span>
+                        </div>
                       </div>
-                      <div className="space">{' '}</div>
-                      <div className={`zip ${isLongCity ? 'wrap-zip': ''}`}>
-                        <span className="zipcode">
-                          <span className={`${ isRegexMatch(searchQuery, zip) ? 'highlight' : ''}`}>{zip}</span> 
-                        </span>
+                    </address>
+                    <address className="spa-urls">
+                      <div>{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
+                      <div>
+                        {email && <a href={`mailto:${email}`}>{email}</a>}
                       </div>
-                    </div>
-                  </address>
-                  <address className="spa-urls">
-                    <div>{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
-                    <div>
-                      {email && <a href={`mailto:${email}`}>{email}</a>}
-                    </div>
-                    <div className="web">
-                      {!!webstore && (
-                        <span>
-                          <FaShoppingCart />
-                        </span>
-                      )}
-                      <a
-                        tabIndex={-1}
-                        href={!!webstore ? webstore : url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {webstore || url}
-                      </a>
-                    </div>
-                  </address>
-                </li>
-              )
-            })}
-        </StyledSpaList>
+                      <div className="web">
+                        {!!webstore && (
+                          <span>
+                            <FaShoppingCart />
+                          </span>
+                        )}
+                        <a
+                          tabIndex={-1}
+                          href={!!webstore ? webstore : url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {webstore || url}
+                        </a>
+                      </div>
+                    </address>
+                  </li>
+                )
+              })}
+          </StyledSpaList>
         </div>
       ) : (
         <div style={{ minHeight: '500px' }} />
