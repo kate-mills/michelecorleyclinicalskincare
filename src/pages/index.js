@@ -42,9 +42,3 @@ export const query = graphql`
     }
   }
 `
-
-/*
-*** import { useLocation } from '@reach/router'
-***  const {origin} = useLocation()
-***  image={`${origin}${data.seoImg?.nodes[0].publicURL}`}
-*/
