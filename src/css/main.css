@@ -14,6 +14,7 @@
   --poppyLow: var(--poppy); /*#4d5580;*/
   --poppyHigh: hsl(214 52% 36% / 1);
   --poppyDark: var(--poppy); /* hsl(214 71% 37% / 1);*/
+  --poppyHover: #6cb1ca;
   --mainFont: Montserrat,sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
