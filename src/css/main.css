@@ -1,6 +1,5 @@
 @import url("https://use.typekit.net/evh4zqj.css");
 
-
 :root {
   --clear: rgba(0, 0, 0, 0);
   --darkGrey: #9d9692;
@@ -25,6 +24,12 @@
   --mainRadius: 1.75rem;
   --errRed: #c74236;
 }
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
 *,
 ::after,
 ::before {
@@ -59,6 +64,7 @@ body {
   outline: var(--clear);
 }
 a {
+  background: 0 0;
   color: var(--mainBlack);
   text-decoration: none;
   line-height: 1.5em;
@@ -85,6 +91,7 @@ h6 {
   margin: 0.5em 0 0.3em;
   margin-top: 0;
   text-transform: capitalize;
+
 }
 h1 {
   color: var(--poppyLow);
@@ -148,7 +155,7 @@ nav * {
 }
 p {
   color: var(--mainBlack);
-  /*padding: 0 0 1.8em;*/
+  padding: 0 0 1.8em;
   padding-block-end: 1.8em;
   font-size: 1rem;
   font-weight: 400;
