@@ -55,7 +55,7 @@ const Search = () => {
           autoComplete="off"
           id="Search"
           onChange={searchData}
-          placeholder="Search..."
+          placeholder="Search Products..."
           type="text"
           className={styles.search__form__input}
           value={searchQuery}
