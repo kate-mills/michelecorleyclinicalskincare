@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 export const useSpaData = () => {
   const {
     allAirtable: { airtableSpas },
-    allWebSpas: { airtableWebSpas },
+    allDefaultSpas: { airtableDefaultSpas },
   } = useStaticQuery(
     graphql`
       query {
@@ -30,15 +30,14 @@ export const useSpaData = () => {
             }
           }
         }
-        allWebSpas: allAirtable(
-          filter: { table: { eq: "Spas" }, data: { webstore: { ne: null } } }
-          sort: { fields: [data___statecode, data___city, data___name] }
+        allDefaultSpas: allAirtable(
+          filter: { table: { eq: "Spas" }, data: { defaultSpa: { eq: true } } }
+          sort: { fields: data___state }
         ) {
-          airtableWebSpas: nodes {
+          airtableDefaultSpas: nodes {
             airtable_id: id
             data {
               spaid
-              contact
               email
               url
               name
@@ -55,5 +54,5 @@ export const useSpaData = () => {
       }
     `
   )
-  return { airtableSpas,airtableWebSpas }
+  return { airtableSpas, airtableDefaultSpas }
 }

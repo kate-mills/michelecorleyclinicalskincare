@@ -10,7 +10,7 @@ import {
 } from './StyledWrappers'
 
 const SpaSearch = props => {
-  const { airtableSpas, airtableWebSpas } = useSpaData()
+  const { airtableSpas, airtableDefaultSpas } = useSpaData()
   const [search, setSearch] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
@@ -31,7 +31,7 @@ const SpaSearch = props => {
     dataToSearch.addIndex('statecode') // sets the index attribute for the data
     dataToSearch.addIndex('zip') // sets the index attribute for the data
 
-    let allSpas = airtableSpas.map(({ data }) => {
+    let allSpas = [...airtableSpas].map(({ data }) => {
       return { ...data }
     })
     dataToSearch.addDocuments(allSpas)
@@ -66,11 +66,9 @@ const SpaSearch = props => {
 
   const queryResults =
     searchQuery === ''
-      ? [
-          ...airtableWebSpas.map(({ data }) => {
-            return { ...data }
-          }),
-        ]
+      ? [...airtableDefaultSpas].map(({ data }) => {
+          return { ...data }
+        })
       : searchResults
 
   return (
@@ -203,7 +201,6 @@ const SpaSearch = props => {
                           </span>
                         )}
                         <a
-                          tabIndex={-1}
                           href={!!webstore ? webstore : url}
                           target="_blank"
                           rel="noreferrer"
