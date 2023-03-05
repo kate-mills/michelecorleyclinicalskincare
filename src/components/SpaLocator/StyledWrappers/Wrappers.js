@@ -87,7 +87,6 @@ export const StyledSpaList = styled.ul`
       justify-content: space-between;
       padding-block: 1rem;
       padding-inline-end: 1rem;
-      color: rgb(78 78 78);
       border: 0.5566666px solid #e9e9e9;
       > .spa-name {
         padding-inline-start: ${JUSTIFY_LEFT_PX};
@@ -99,8 +98,6 @@ export const StyledSpaList = styled.ul`
           line-height: 1;
           padding: 0;
           word-break: break-word;
-          color: #706c6a;
-          color: var(--poppy);
           min-width: fit-content;
           overflow-wrap: normal;
           white-space: pre-wrap;
@@ -171,7 +168,7 @@ export const StyledSpaList = styled.ul`
             z-index: 2;
             svg {
               position: relative;
-              color: var(--poppy);
+              color: var(--darkGrey);
               font-size: 0.8rem;
             }
           }
@@ -185,12 +182,10 @@ export const StyledSpaList = styled.ul`
           vertical-align: top;
           letter-spacing: normal;
           line-height: 1;
-          text-decoration-color: var(--poppyDark);
-          color: var(--poppyDark);
           font-weight: 400;
           :hover {
-            text-decoration-color: var(--poppyHover);
-          color: var(--poppyHover);
+            text-decoration-color: var(--poppyDark);
+            color: var(--poppyDark);
           }
         }
       }
