@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
@@ -8,7 +9,7 @@ const SpaLocatorPage = ({data}) => {
   return (
     <Layout title="Spa Locator" image={data?.file?.publicURL}>
       <SpaLocatorPageWrapper>
-        <h1 style={{ marginBottom: '0'}}>In Spas Near You</h1>
+        <h1>In Spas Near You</h1>
         <h2 className={'center'}>Find Our Products At These Professional Locations</h2>
         <SpaLocator />
       </SpaLocatorPageWrapper>
@@ -17,10 +18,9 @@ const SpaLocatorPage = ({data}) => {
 }
 const SpaLocatorPageWrapper = styled.section`
   & {
-    width: 100%;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
+    padding-block-start: .5rem;
     > h1{
+      line-height: 1;
       font-family: mr-eaves-modern,sans-serif;
       font-weight: 400;
       @media(min-width: 500px){
