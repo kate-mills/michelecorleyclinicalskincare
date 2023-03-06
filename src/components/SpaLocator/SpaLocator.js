@@ -35,7 +35,6 @@ const SpaSearch = props => {
       return { ...data }
     })
     dataToSearch.addDocuments(allSpas)
-    window.dataToSearch = dataToSearch
     setSearch(dataToSearch)
   }, [airtableSpas])
 
