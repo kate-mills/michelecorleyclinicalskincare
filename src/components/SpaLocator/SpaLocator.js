@@ -130,7 +130,8 @@ const SpaSearch = props => {
                   url,
                 } = spa
 
-                let isLongCity = city.split(' ').length > 1 && city.length > 15
+                let isLongCity =
+                  city && city.split(' ').length > 1 && city.length > 15
                 return (
                   <li key={spaid} className="spa">
                     <div className="spa-name">
@@ -144,22 +145,23 @@ const SpaSearch = props => {
                             isLongCity ? 'spa-long-city' : ''
                           }`}
                         >
-                          {city.split(' ').map((name, i) => {
-                            return (
-                              <span
-                                key={name}
-                                className={`${
-                                  isRegexMatch(searchQuery, name)
-                                    ? 'highlight city-name idx' + i
-                                    : 'city-name idx' + i
-                                }`}
-                              >
-                                {name}
-                              </span>
-                            )
-                          })}
+                          {city &&
+                            city.split(' ').map((name, i) => {
+                              return (
+                                <span
+                                  key={name}
+                                  className={`${
+                                    isRegexMatch(searchQuery, name)
+                                      ? 'highlight city-name idx' + i
+                                      : 'city-name idx' + i
+                                  }`}
+                                >
+                                  {name}
+                                </span>
+                              )
+                            })}
                         </div>
-                        <div className="space">{', '}</div>
+                        <div className="space">{city && ', '}</div>
                         <div className="state">
                           <span
                             className={`${
