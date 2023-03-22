@@ -5,12 +5,15 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import { SpaLocator } from '../components/SpaLocator'
 
-const SpaLocatorPage = ({data}) => {
+const SpaLocatorPage = ({ data }) => {
   return (
     <Layout title="Spa Locator" image={data?.file?.publicURL}>
       <SpaLocatorPageWrapper>
-        <h1>In Spas Near You</h1>
-        <h2 className={'center'}>Find Our Products At These Professional Locations</h2>
+        <h1>Get Your Hands On our products</h1>
+        <h2 className={'center'}>
+          Some options are below, <span>OR</span> use our search bar to find
+          your nearest spa.
+        </h2>
         <SpaLocator />
       </SpaLocatorPageWrapper>
     </Layout>
@@ -18,12 +21,12 @@ const SpaLocatorPage = ({data}) => {
 }
 const SpaLocatorPageWrapper = styled.section`
   & {
-    padding-block-start: .5rem;
-    > h1{
+    padding-block-start: 0.5rem;
+    > h1 {
       line-height: 1;
-      font-family: mr-eaves-modern,sans-serif;
       font-weight: 400;
-      @media(min-width: 500px){
+      font-size: 2rem;
+      @media (min-width: 500px) {
         font-family: var(--mainFont);
       }
     }
@@ -31,6 +34,10 @@ const SpaLocatorPageWrapper = styled.section`
       text-align: center;
       font-size: 0.8125rem;
       margin: 0;
+      span {
+        font-weight: 500;
+        text-decoration: underline;
+      }
     }
   }
 `
