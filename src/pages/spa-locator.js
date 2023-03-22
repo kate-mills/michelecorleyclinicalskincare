@@ -31,9 +31,10 @@ const SpaLocatorPageWrapper = styled.section`
       }
     }
     > h2 {
-      text-align: center;
       font-size: 0.8125rem;
       margin: 0;
+      text-align: center;
+      text-transform: none;
       span {
         font-weight: 500;
         text-decoration: underline;
