@@ -16,7 +16,7 @@ module.exports = {
     defaultImage: `https://michelecorleyclinicalskincare.com/logo.jpg`,
     organization: {
       address: {
-        street: `1400 Lafayette St.`,
+        street: `604 Bladen St.`,
         city: `Beaufort`,
         state: `SC`,
         zip: `29902`,
