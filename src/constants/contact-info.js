@@ -24,7 +24,7 @@ export const ConstantContactInfo = {
   },
 
   Address: {
-    street: '604 Bladen St.',
+    street: '604 Bladen ST STE 6',
     city: 'Beaufort',
     state: 'SC',
     zip: '29902',
