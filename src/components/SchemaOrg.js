@@ -22,7 +22,6 @@ export default React.memo(({ image, seoImg, defaultImg, description, url }) => {
       logo: defaultImg,
       name: 'Michele Corley Clinical Skincare',
       openingHoursSpecification: openingHoursSpecification,
-      priceRange: '$$',
       sameAs: [
         'https://www.instagram.com/michelecorleyskincare/',
         'https://www.michelecorleyclinicalskincare.com/',
@@ -38,12 +37,12 @@ export default React.memo(({ image, seoImg, defaultImg, description, url }) => {
         addressRegion: 'SC',
         name: 'Michele Corley Clinical Skincare',
         postalCode: '29902',
-        streetAddress: '1400 Lafayette Street',
+        streetAddress: '604 Bladen ST STE 6',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: '32.44588444063868',
-        longitude: '-80.6779530598902',
+        latitude: '32.434892463189364',
+        longitude: '-80.67971044409107',
       },
     },
   ]
