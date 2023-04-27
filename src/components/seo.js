@@ -46,8 +46,11 @@ function SEO({ description, lang, meta, title, image }) {
             name: `description`,
             content: metaDescription,
           },
-          { property: `og:site_name`, content: `Michele Corley Clinical Skin Care` },
-          { property: `og:title`, content: title, },
+          {
+            property: `og:site_name`,
+            content: `Michele Corley Clinical Skin Care`,
+          },
+          { property: `og:title`, content: title },
           {
             property: `og:description`,
             content: metaDescription,
