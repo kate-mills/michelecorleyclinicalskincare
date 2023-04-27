@@ -34,7 +34,7 @@ const query = graphql`
     }
   }
 `
-const SEO = ({ title: seoTitle, description, image, snippet, noindex }) => {
+const SEO = ({ pageTitle, description, image, snippet, noindex }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -47,11 +47,10 @@ const SEO = ({ title: seoTitle, description, image, snippet, noindex }) => {
     organization,
   } = site.siteMetadata
 
-
   let defaultSeoImage = `${baseUrl}${defaultImage}`
 
   const seo = {
-    title: seoTitle || defaultTitle,
+    title: pageTitle || defaultTitle,
     description: description || defaultDescription,
     image: `${image || defaultSeoImage}`,
     url: `${baseUrl}${pathname}`,

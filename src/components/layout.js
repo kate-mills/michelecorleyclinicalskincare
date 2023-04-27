@@ -22,7 +22,7 @@ const Layout = props => {
     <>
       <SEO
         noindex={noindex}
-        title={seoTitle || title}
+        pageTitle={seoTitle || title}
         description={description}
         image={image}
       />
