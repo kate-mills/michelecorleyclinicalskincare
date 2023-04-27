@@ -1,20 +1,14 @@
 import React from 'react'
 import { seoLinks } from '../../constants/seoLinks'
-
 import { Helmet } from 'react-helmet'
 
 export default React.memo(
   ({
     url,
-    compoundTitle,
-    defaultTitle,
-    pageTitle,
     image,
     description,
     baseUrl,
-    author,
     organization,
-    dateModified,
     sameAs,
   }) => {
     const linkCrumbs = seoLinks.map(link => {
@@ -36,7 +30,6 @@ export default React.memo(
         image: image,
         logo: organization.logo,
         name: organization.name,
-        priceRange: organization.priceRange,
         sameAs: organization.sameAs,
         telephone: organization.telephone,
         url: organization.url,
