@@ -47,16 +47,11 @@ const SEO = ({ title: seoTitle, description, image, snippet, noindex }) => {
     organization,
   } = site.siteMetadata
 
-  const formatTitle = title => {
-    let plain = `${title}${title.length < 47 ? ' | Michele Corley' : ''}`
-    let fancy = `${title} | Michele Corley Clinical Skin Care`
-    return plain.length < 29 ? fancy : plain
-  }
 
   let defaultSeoImage = `${baseUrl}${defaultImage}`
 
   const seo = {
-    title: seoTitle.length === 0 ? defaultTitle : formatTitle(seoTitle),
+    title: seoTitle || defaultTitle,
     description: description || defaultDescription,
     image: `${image || defaultSeoImage}`,
     url: `${baseUrl}${pathname}`,
