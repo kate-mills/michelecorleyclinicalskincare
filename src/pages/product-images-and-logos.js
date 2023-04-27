@@ -1,17 +1,16 @@
 import React from 'react'
+
 import { graphql } from 'gatsby'
-
-import Layout from '../components/layout'
-
-import Thumbnails from '../components/Thumbnails'
 import styled from 'styled-components'
+import Layout from '../components/layout'
+import Thumbnails from '../components/Thumbnails'
 
 const ProductImagesLogos = ({ data }) => {
   return (
     <Layout
       title={`Product Images & Logos`}
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
-      image={data.file.publicURL}
+      image={data?.file?.publicURL}
     >
       <h1>Product Images & Logos</h1>
       <p className="txt-center pb0">
