@@ -6,14 +6,14 @@ import Layout from '../components/layout'
 import Thumbnails from '../components/Thumbnails'
 import styled from 'styled-components'
 
-const ProductImagesLogos = props => {
+const ProductImagesLogos = ({ data }) => {
   return (
     <Layout
       title={`Product Images & Logos`}
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
+      image={data.file.publicURL}
     >
-
-    <h1>Product Images & Logos</h1>
+      <h1>Product Images & Logos</h1>
       <p className="txt-center pb0">
         The following resources are available for your use in representing
         Michele Corley Clinical Skin Care products.
@@ -21,47 +21,42 @@ const ProductImagesLogos = props => {
       <ProductsWrapper>
         <section id="cleansers">
           <h2>Cleansers</h2>
-          <Thumbnails data={props.data.cleansers} />
+          <Thumbnails data={data.cleansers} />
         </section>
 
         <section id="toners">
           <h2>Toners</h2>
-          <Thumbnails data={props.data.toners} />
+          <Thumbnails data={data.toners} />
         </section>
 
         <section id="moisturizers-spf">
           <h2>Moisturizers & SPF</h2>
-          <Thumbnails data={props.data.moisture} />
+          <Thumbnails data={data.moisture} />
         </section>
 
         <section id="eyes-lips">
           <h2>Eyes & Lips</h2>
-          <Thumbnails data={props.data.eyesLips} />
+          <Thumbnails data={data.eyesLips} />
         </section>
 
         <section id="serums-specialty">
           <h2>Serums & Specialty</h2>
-          <Thumbnails data={props.data.serums} />
+          <Thumbnails data={data.serums} />
         </section>
 
         <section id="exfoliants">
           <h2>Exfoliants</h2>
-          <Thumbnails data={props.data.exfoliants} />
+          <Thumbnails data={data.exfoliants} />
         </section>
 
         <section id="masks">
           <h2>Masks</h2>
-          <Thumbnails data={props.data.masks} />
-        </section>
-
-        <section id="multi-product-photos">
-          <h2>Multi-Product Photos</h2>
-          <Thumbnails data={props.data.multi} logoMedia={true} />
+          <Thumbnails data={data.masks} />
         </section>
 
         <section id="logos">
           <h2>Logos</h2>
-          <Thumbnails data={props.data.logos} logoMedia={true} />
+          <Thumbnails data={data.logos} logoMedia={true} />
         </section>
       </ProductsWrapper>
     </Layout>
@@ -69,6 +64,13 @@ const ProductImagesLogos = props => {
 }
 export const query = graphql`
   {
+    file(
+      relativePath: {
+        eq: "slideshow/array-of-michele-corley-products-1280x800-blue.jpg"
+      }
+    ) {
+      publicURL
+    }
     cleansers: allContentfulMccProduct(
       filter: { category: { eq: "cleansers" } }
       sort: { order: [ASC], fields: [name] }
@@ -257,32 +259,6 @@ export const query = graphql`
             }
             fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    }
-    multi: allContentfulMccMediaImg(
-      filter: { category: { eq: "Multi-Product Photos" } }
-      sort: { order: [DESC], fields: [name] }
-    ) {
-      totalCount
-      edges {
-        node {
-          contentful_id
-          name
-          slug
-          category
-          images {
-            contentful_id
-            title
-            description
-            contentful_id
-            fluid(maxWidth: 230, maxHeight: 164, toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(width: 230, height: 164, toFormat: WEBP) {
-              ...GatsbyContentfulFixed
             }
           }
         }
