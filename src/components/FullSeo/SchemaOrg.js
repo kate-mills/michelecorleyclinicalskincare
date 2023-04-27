@@ -3,14 +3,7 @@ import { seoLinks } from '../../constants/seoLinks'
 import { Helmet } from 'react-helmet'
 
 export default React.memo(
-  ({
-    url,
-    image,
-    description,
-    baseUrl,
-    organization,
-    sameAs,
-  }) => {
+  ({ url, image, description, baseUrl, organization, sameAs }) => {
     const linkCrumbs = seoLinks.map(link => {
       return {
         type: 'ListItem',
@@ -41,6 +34,11 @@ export default React.memo(
           name: organization.name,
           postalCode: organization.address.zip,
           streetAddress: organization.address.street,
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: '32.434892463189364',
+          longitude: '-80.67971044409107',
         },
       },
       {

@@ -34,7 +34,7 @@ const query = graphql`
     }
   }
 `
-const SEO = ({ pageTitle, description, image, snippet, noindex }) => {
+const SEO = ({ title:pageTitle, description, image, snippet, noindex }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
