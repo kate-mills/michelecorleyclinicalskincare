@@ -12,7 +12,6 @@ export const StyledSearchResults = styled.section`
       padding-left: ${JUSTIFY_LEFT_PX};
       margin-left: 0;
       h5 {
-        font-family: 'mr-eaves-modern', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: small;
@@ -92,11 +91,12 @@ export const StyledSpaList = styled.ul`
         padding-inline-start: ${JUSTIFY_LEFT_PX};
         padding-inline-end: 2rem;
         h4 {
-          font-family: mr-eaves-modern, sans-serif;
-          font-weight: 800;
+          font-weight: 700;
+          font-size: .8rem;
           font-style: normal;
           line-height: 1;
           padding: 0;
+          padding-block-end: 8px;
           word-break: break-word;
           min-width: fit-content;
           overflow-wrap: normal;
@@ -110,10 +110,9 @@ export const StyledSpaList = styled.ul`
         text-overflow: ellipsis;
         line-height: normal;
         > * {
-          font-family: 'mr-eaves-modern', sans-serif;
-          font-weight: 400;
           font-style: normal;
-          line-height: 1;
+          font-size: 0.8125rem;
+          line-height: 0.9;
         }
       }
       > address.spa-location {
@@ -158,16 +157,10 @@ export const StyledSpaList = styled.ul`
         div.web {
           span {
             background: #fff;
-            border-radius: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: absolute;
             left: 4px;
-            padding: 3px;
-            z-index: 2;
+            padding-inline-end: 4px;
             svg {
-              position: relative;
               color: var(--darkGrey);
               font-size: 0.8rem;
             }
