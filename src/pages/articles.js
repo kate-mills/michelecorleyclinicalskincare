@@ -1,4 +1,5 @@
 import React from 'react'
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
@@ -8,6 +9,7 @@ import styled from 'styled-components'
 const Articles = ({ data }) => {
   return (
     <Layout title="Articles">
+    <SpaLocatorFixedLink/>
     <h1>Articles</h1>
       <PressWrapper>
         <ArticleList articleList={data.allAirtable.articleList} />

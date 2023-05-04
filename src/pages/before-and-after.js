@@ -1,4 +1,5 @@
 import React from 'react'
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -11,6 +12,7 @@ const BeforeAfter = ({ data }) => {
     <Layout
       title="Before & After Photos"
       description="See results achieved by using proper home skincare product daily. Our before and after photos are not retouched and are generally taken with cellular phones.">
+    <SpaLocatorFixedLink/>
     <h1>Before & After Photos</h1>
       <BeforeAfterWrapper>
         <p>

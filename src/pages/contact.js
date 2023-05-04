@@ -11,12 +11,13 @@ import styled from 'styled-components'
 
 const ContactPage = ({ data }) => {
   return (
-    <Layout title="Contact" seoTitle="Contact Us">
+    <Layout seoTitle="Contact Us">
       <PageWrapper>
         <div className="flex-col">
           <div className="flex-item-1">
             <div className="contact-text-container">
-              <h1>Have a question about Michele Corley Clinical Skin Care
+              <h1>
+                Have a question about Michele Corley Clinical Skin Care
                 products?
               </h1>
               <p>
@@ -28,7 +29,11 @@ const ContactPage = ({ data }) => {
               <p className="indent-p">Thank you!</p>
             </div>
             <div className="contact-img-container">
-              <Image fluid={data.file.childImageSharp.fluid} alt="Bright red flowers and spa rocks in water." title="Contact Michele Corley Clinical Skin Care"/>
+              <Image
+                fluid={data.file.childImageSharp.fluid}
+                alt="Bright red flowers and spa rocks in water."
+                title="Contact Michele Corley Clinical Skin Care"
+              />
               <ContactInfo className="desktop" wrapperMaxWidth="100%" />
             </div>
           </div>
@@ -41,7 +46,7 @@ const ContactPage = ({ data }) => {
   )
 }
 const PageWrapper = styled.section`
-  & h1{
+  & h1 {
     text-align: left;
   }
   & .flex-col {

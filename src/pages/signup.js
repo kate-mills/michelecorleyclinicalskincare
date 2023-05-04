@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 
 import Layout from '../components/layout'
 import SignupForm from '../components/SignupForm'
@@ -10,7 +11,12 @@ import styled from 'styled-components'
 
 const SignupPage = ({ data }) => {
   return (
-    <Layout title="Signup For Specials" seoTitle="Signup For Specials" image={data.seoImg.publicURL}>
+    <Layout
+      title="Signup For Specials"
+      seoTitle="Signup For Specials"
+      image={data.seoImg.publicURL}
+    >
+      <SpaLocatorFixedLink />
       <PageWrapper>
         <div className="flex-col">
           <div className="flex-item-1">
@@ -19,7 +25,6 @@ const SignupPage = ({ data }) => {
               <p>If you're not getting our specials please signup here.</p>
               <p>Thank you!</p>
             </div>
-
             <Image
               className="signup-info__img"
               fluid={data.file.childImageSharp.fluid}
@@ -105,14 +110,16 @@ const PageWrapper = styled.section`
 
 export const query = graphql`
   {
-    file(relativePath: { eq: "cleansers-with-overflowing-teaspoon-of-powder.jpg" }) {
+    file(
+      relativePath: { eq: "cleansers-with-overflowing-teaspoon-of-powder.jpg" }
+    ) {
       childImageSharp {
-        fluid(maxWidth:1000) {
+        fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    seoImg:file(relativePath: { eq: "signup.jpg" }) {
+    seoImg: file(relativePath: { eq: "signup.jpg" }) {
       publicURL
     }
   }

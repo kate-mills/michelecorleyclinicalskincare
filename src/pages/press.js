@@ -1,4 +1,5 @@
 import React from 'react'
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
@@ -9,6 +10,7 @@ const Press = ({ data }) => {
 
   return (
     <Layout seoTitle="Products In The Press" title="in the Press" description="Award-winning professional skincare products for dry and oily skin types to sensitive, sun-damaged and acne-prone skin exclusively sold through licensed skincare professionals.">
+    <SpaLocatorFixedLink/>
     <h1>In The Press</h1>
       <PressWrapper>
         <PressList pressList={data.allAirtable.pressList} />

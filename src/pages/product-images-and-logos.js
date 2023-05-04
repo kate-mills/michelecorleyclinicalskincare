@@ -1,4 +1,5 @@
 import React from 'react'
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -12,6 +13,7 @@ const ProductImagesLogos = ({ data }) => {
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
       image={data?.file?.publicURL}
     >
+      <SpaLocatorFixedLink/>
       <h1>Product Images & Logos</h1>
       <p className="txt-center pb0">
         The following resources are available for your use in representing

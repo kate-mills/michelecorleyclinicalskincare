@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 import styled from 'styled-components'
 
 import { graphql } from 'gatsby'
@@ -22,7 +22,8 @@ const CategoryTemplate = props => {
       title={category.name}
       description={category.description.description}
     >
-    <h1>{category.name}</h1>
+      <SpaLocatorFixedLink />
+      <h1>{category.name}</h1>
       <CategoryTemplateWrapper>
         <p className="description">
           {index_0.trim()} <span className="bold">{bold.trim()} </span>

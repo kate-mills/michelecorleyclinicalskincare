@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components'
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 import { screen } from '../css/js/media-functions'
 import Layout from '../components/layout'
 
@@ -14,6 +15,7 @@ const About = ({ data }) => {
       title="About"
       description="Each Michele Corley Clinical Skincare product is crafted with care and consideration to the health and well being of the skin. The ingredients I choose must come from the most natural sources available, and their effectiveness proven."
     >
+      <SpaLocatorFixedLink/>
       <AboutWrapper>
         <div className="col-1" style={{ margin: '0 auto' }}>
           <h1>Our Philosophy</h1>

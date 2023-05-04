@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { SpaLocatorFixedLink } from '../components/SpaLocator'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -27,14 +28,14 @@ const ProductTemplate = ({ data: { product }, className }) => {
       image={product.seoImg.fixed.src}
       id={product.name}
     >
+      <SpaLocatorFixedLink />
       <Product product={product} isTemplate={true} />
       <div className="lower-btn-div">
-        {' '}
         <p className="txt-center">
           <AniLink className="btn" fade to={`/${formatLink(product)}/`}>
             {formatCategory(product.category)}
           </AniLink>
-        </p>{' '}
+        </p>
       </div>
     </Layout>
   )
