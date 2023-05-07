@@ -2,18 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const SpaLocatorFixedLink = ({pathname, className }) => {
-  return pathname !== '/spa-locator' ? (
+const SpaLocatorFixedLink = ({ className }) => {
+  return (
     <div className={`${className}`}>
       <AniLink
         fade
-        to={'/spa-locator'}
+        to={'/spa-locator/'}
         className={`link-content`}
         tabIndex={0}
-      >FIND OUR PRODUCTS NEAR YOU
+      >
+        FIND OUR PRODUCTS NEAR YOU
       </AniLink>
     </div>
-  ) : null
+  )
 }
 
 export default styled(SpaLocatorFixedLink)`
@@ -37,7 +38,7 @@ export default styled(SpaLocatorFixedLink)`
     font-weight: 500;
     line-height: 1.5;
     opacity: 1;
-    > .link-content{
+    > .link-content {
       display: table-cell;
       height: auto;
       text-align: center;
@@ -46,7 +47,7 @@ export default styled(SpaLocatorFixedLink)`
       white-space: wrap;
       text-overflow: ellipsis;
     }
-    @media(max-width: 300px){
+    @media (max-width: 300px) {
       left: 0;
       right: 0;
       bottom: 0;
