@@ -30,9 +30,10 @@ module.exports = {
       priceRange: `$$`,
       sameAs: [
         `https://vimeo.com/michelecorley`,
-        `https://www.facebook.com/michelecorleyclinicalskincare`,
-        `https://www.instagram.com/michelecorleyskincare`,
-        `https://www.pinterest.com/michelecorleyskincare`,
+        `https://facebook.com/michelecorleyclinicalskincare/`,
+        `https://instagram.com/michelecorleyskincare/`,
+        `https://www.pinterest.com/michelecorleyskincare/`,
+        `https://www.youtube.com/@michelecorleyskincare/`,
       ],
     },
   },
