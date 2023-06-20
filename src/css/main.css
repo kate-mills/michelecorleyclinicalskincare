@@ -4,13 +4,13 @@
   --mainBlack: #4e4e4e;
   --blackText: #3c3c3c;
   --mainMcc: #dcdcdc;
-  --offWhite: #f2f2f2; /*#e9e9e9;*/
+  --offWhite: #f2f2f2;
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
-  --poppy: #5872a6; /*#5367a1;/*#1b55a1;*/
-  --poppyLow: var(--poppy); /*#4d5580;*/
+  --poppy: #5872a6;
+  --poppyLow: var(--poppy);
   --poppyHigh: hsl(214 52% 36% / 1);
-  --poppyDark: var(--poppy); /* hsl(214 71% 37% / 1);*/
+  --poppyDark: var(--poppy);
   --poppyHover: #6cb1ca;
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
@@ -324,7 +324,6 @@ Utility classes
   top: auto;
   overflow: hidden;
 }
-
 p.pb0 {
   padding-bottom: 0px;
 }
