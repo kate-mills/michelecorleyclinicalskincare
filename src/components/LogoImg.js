@@ -19,6 +19,7 @@ export const Logo = () => {
   return (
     <LogoWrapper id="logo">
       <Img
+        width={'500'}
         loading="eager"
         fluid={data.file.childImageSharp.fluid}
         media="screen"
