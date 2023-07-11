@@ -59,18 +59,15 @@ body {
   color: var(--offWhite);
 }
 :focus {
-  outline: var(--clear);
+  outline: 2px solid var(--poppy) !important;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 a {
   background: 0 0;
   color: var(--mainBlack);
   text-decoration: none;
   line-height: 1.5em;
-}
-a:focus {
-  outline: none;
-  background: inherit;
-  text-decoration: none;
 }
 a:hover {
   cursor: pointer;
@@ -123,7 +120,6 @@ select:focus,
 input:active,
 textarea:active,
 select:active {
-  outline: none;
   outline-color: var(--poppy);
   border: 1px solid var(--poppy);
 }
