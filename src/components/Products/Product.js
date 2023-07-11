@@ -7,6 +7,8 @@ import VideoPlayer from '../Video'
 const Product = ({ product, isTemplate }) => {
   const {
     acneSafe,
+    award,
+    imgRetail,
     professionalOnly: proOnly,
     name,
     slug,
@@ -14,6 +16,7 @@ const Product = ({ product, isTemplate }) => {
     description,
     keyIngredients,
     profiles,
+    video,
   } = product
 
   return (
@@ -24,11 +27,11 @@ const Product = ({ product, isTemplate }) => {
             <span className={`name`}>{`${name}`}</span>
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
-            {product.award && (
+            {award && (
               <Image
                 className="award-winner"
                 fixed={product.awardImage.fixed}
-                alt={`Best Product ${product.award} Award Emblem`}
+                alt={`Best Product ${award} Award Emblem`}
               />
             )}
           </h1>
@@ -37,7 +40,7 @@ const Product = ({ product, isTemplate }) => {
             <span className={`name`}>{`${name}`}</span>
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
-            {product.award && (
+            {award && (
               <Image
                 className="award-winner"
                 fixed={product.awardImage.fixed}
@@ -66,15 +69,15 @@ const Product = ({ product, isTemplate }) => {
           >
             <Image
               className="product-image"
-              fixed={product?.imgRetail?.fixed}
+              fixed={imgRetail?.fixed}
               alt={`Retail Size ${name}`}
             />
           </AniLink>
-          {product.video && (
+          {video && (
             <VideoPlayer
               className="product-video"
-              title={`${product.name} from Michele Corley on Vimeo`}
-              src={`https://player.vimeo.com/video/${product.video}`}
+              title={`${name} from Michele Corley on Vimeo`}
+              src={`https://player.vimeo.com/video/${video}`}
             />
           )}
         </div>
@@ -86,7 +89,6 @@ const Product = ({ product, isTemplate }) => {
               href={profiles[0].file.url}
               target="_blank"
               rel="noreferrer"
-              zIndex={0}
             >Download Product Details & Usage Instructions.</a>
           ) : null}
           <p className="bold">A FEW KEY Ingredients & Benefits:</p>
