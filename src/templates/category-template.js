@@ -18,10 +18,7 @@ const CategoryTemplate = props => {
   } = category
 
   return (
-    <Layout
-      title={category.name}
-      description={category.description.description}
-    >
+    <Layout title={`Michele Corley Skin Care ${category.name}`} description={category.description.description}>
       <SpaLocatorFixedLink />
       <h1>{category.name}</h1>
       <CategoryTemplateWrapper>
