@@ -91,7 +91,9 @@ const Product = ({ product, isTemplate }) => {
               href={profiles[0].file.url}
               target="_blank"
               rel="noreferrer"
-            >Download Product Details & Usage Instructions.</a>
+            >
+              Download Product Details & Usage Instructions.
+            </a>
           ) : null}
           <p className="bold">A FEW KEY Ingredients & Benefits:</p>
           <ul data-bullet-list id="ingredient-list">
@@ -133,7 +135,7 @@ const StyledProduct = styled.article`
       display: flex;
       font-size: 2rem;
       flex-flow: row wrap;
-      line-height: 2.4rem;
+      line-height: normal !important;
       justify-content: flex-start;
       text-align: left;
       span {
@@ -146,12 +148,12 @@ const StyledProduct = styled.article`
     & h1.product-name {
       color: var(--poppy);
       font-family: var(--mainFont);
-      font-size: 2.7rem;
-      line-height: 3.24rem;
+      font-size: 2.2rem;
+      line-height: normal !important;
     }
     & .award-winner.gatsby-image-wrapper {
       max-width: 70px;
-      width: 100%;
+      max-height: 70px;
       img {
         object-fit: contain !important;
       }
@@ -160,12 +162,10 @@ const StyledProduct = styled.article`
     & .acne-safe,
     & .pro-only {
       ::after {
-        display: inline;
+        display: block;
         border: 2px solid var(--darkGrey);
         font-size: 0.85rem;
         padding: 0.2rem;
-        position: relative;
-        bottom: 0.2rem;
         margin: 0;
       }
     }
@@ -179,7 +179,7 @@ const StyledProduct = styled.article`
       color: var(--offWhite);
       content: 'ACNE-SAFE';
     }
-    .best-seller::after{
+    .best-seller::after {
       background: var(--poppyHover);
       color: var(--mainWhite);
       content: 'BEST-SELLER';
