@@ -160,11 +160,12 @@ const StyledProduct = styled.article`
     & .acne-safe,
     & .pro-only {
       ::after {
+        display: inline;
         border: 2px solid var(--darkGrey);
-        display: block;
         font-size: 0.85rem;
-        line-height: 1;
-        padding: 0.3rem;
+        padding: 0.2rem;
+        position: relative;
+        bottom: 0.2rem;
         margin: 0;
       }
     }
