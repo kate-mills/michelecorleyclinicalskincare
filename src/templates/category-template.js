@@ -55,6 +55,7 @@ export const query = graphql`
       edges {
         node {
           acneSafe
+          isBestSeller
           contentful_id
           description {
             description

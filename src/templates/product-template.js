@@ -49,6 +49,7 @@ export const query = graphql`
           url
         }
       }
+      isBestSeller
       acneSafe
       name
       professionalOnly

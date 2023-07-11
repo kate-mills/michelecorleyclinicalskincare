@@ -7,6 +7,7 @@ import VideoPlayer from '../Video'
 const Product = ({ product, isTemplate }) => {
   const {
     acneSafe,
+    isBestSeller,
     award,
     imgRetail,
     professionalOnly: proOnly,
@@ -18,7 +19,6 @@ const Product = ({ product, isTemplate }) => {
     profiles,
     video,
   } = product
-
   return (
     <StyledProduct id={slug}>
       <div className={`product-heading`}>
@@ -27,6 +27,7 @@ const Product = ({ product, isTemplate }) => {
             <span className={`name`}>{`${name}`}</span>
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
+            {isBestSeller && <span className={`best-seller`} />}
             {award && (
               <Image
                 className="award-winner"
@@ -40,6 +41,7 @@ const Product = ({ product, isTemplate }) => {
             <span className={`name`}>{`${name}`}</span>
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
+            {isBestSeller && <span className={`best-seller`} />}
             {award && (
               <Image
                 className="award-winner"
@@ -154,6 +156,7 @@ const StyledProduct = styled.article`
         object-fit: contain !important;
       }
     }
+    & .best-seller,
     & .acne-safe,
     & .pro-only {
       ::after {
@@ -162,7 +165,7 @@ const StyledProduct = styled.article`
         font-size: 0.85rem;
         line-height: 1;
         padding: 0.3rem;
-        margin: 0 15px 0 0;
+        margin: 0;
       }
     }
     .pro-only::after {
@@ -174,6 +177,11 @@ const StyledProduct = styled.article`
       background: var(--poppy);
       color: var(--offWhite);
       content: 'ACNE-SAFE';
+    }
+    .best-seller::after{
+      background: var(--poppyHover);
+      color: var(--mainWhite);
+      content: 'BEST-SELLER';
     }
   }
   & .product-skintypes {
