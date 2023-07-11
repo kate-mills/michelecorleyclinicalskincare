@@ -64,7 +64,8 @@ const Product = ({ product, isTemplate }) => {
             to={`/product-images-and-logos/${slug}/`}
             aria-label="View image"
           >
-            <Image className="product-image"
+            <Image
+              className="product-image"
               fixed={product?.imgRetail?.fixed}
               alt={`Retail Size ${name}`}
             />
@@ -78,21 +79,19 @@ const Product = ({ product, isTemplate }) => {
           )}
         </div>
         <div className="product-ingredients">
+          {!!profiles ? (
+            <a
+              className="download-product-details-and-usage-instructions"
+              title={`Download pdf with product details and usage instructions for ${name}.`}
+              href={profiles[0].file.url}
+              target="_blank"
+              rel="noreferrer"
+              zIndex={0}
+            >Download Product Details & Usage Instructions.</a>
+          ) : null}
           <p className="bold">A FEW KEY Ingredients & Benefits:</p>
           <ul data-bullet-list id="ingredient-list">
-            <li className="key-ingredients-pdf product-profile-sheet">
-              {!!profiles ? (
-                <a
-                  className="get-product-profile-sheet no-bullet"
-                  title={`View pdf with full ingredient list for ${name}`}
-                  href={profiles[0].file.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View FULL Ingredient List Here
-                </a>
-              ) : null}
-            </li>
+            <li className="key-ingredients-pdf product-profile-sheet"></li>
             {keyIngredients.map(ing => {
               return (
                 <li className="key-ingredient" key={ing.id}>
@@ -211,16 +210,12 @@ const StyledProduct = styled.article`
       font-weight: 600;
       padding-bottom: 0;
     }
-    li.key-ingredients-pdf.product-profile-sheet {
-      margin-left: 15px;
-      a.get-product-profile-sheet.no-bullet {
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--poppy);
-        ::before {
-          content: '';
-        }
-      }
+    a.download-product-details-and-usage-instructions {
+      text-transform: capitalize;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--poppy);
     }
     li.key-ingredient {
       margin-left: 1rem;
