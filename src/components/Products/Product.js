@@ -180,7 +180,7 @@ const StyledProduct = styled.article`
       content: 'ACNE-SAFE';
     }
     .best-seller::after {
-      background: var(--poppyHover);
+      background: var(--bestSeller);
       color: var(--mainWhite);
       content: 'BEST-SELLER';
     }
