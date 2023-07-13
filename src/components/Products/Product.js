@@ -181,7 +181,7 @@ const StyledProduct = styled.article`
     }
     .best-seller::after {
       background: var(--bestSeller);
-      color: var(--mainWhite);
+      color: var(--offWhite);
       content: 'BEST-SELLER';
     }
   }
