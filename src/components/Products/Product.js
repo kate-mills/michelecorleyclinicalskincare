@@ -169,20 +169,20 @@ const StyledProduct = styled.article`
         margin: 0;
       }
     }
+    .best-seller::after,
     .pro-only::after {
       background: var(--offWhite);
       color: var(--poppy);
       content: 'PROFESSIONAL USE ONLY';
     }
+    .best-seller::after {
+      border-color: var(--poppy);
+      content: 'BEST-SELLER';
+    }
     .acne-safe::after {
       background: var(--poppy);
       color: var(--offWhite);
       content: 'ACNE-SAFE';
-    }
-    .best-seller::after {
-      background: var(--bestSeller);
-      color: var(--offWhite);
-      content: 'BEST-SELLER';
     }
   }
   & .product-skintypes {
