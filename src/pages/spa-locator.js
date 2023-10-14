@@ -7,12 +7,11 @@ import { SpaLocator } from '../components/SpaLocator'
 
 const SpaLocatorPage = ({ data }) => {
   return (
-    <Layout title="Spa Locator" image={data?.file?.publicURL}>
+    <Layout title="Locate Our Products in Spas Near You" description="Are you looking for Spas and Estheticians who sell Michele Corley Clinical Skin Care products near you? Find them quickly with our Spa Locator!" image={data?.file?.publicURL}>
       <SpaLocatorPageWrapper>
-        <h1>Get Your Hands On our products</h1>
+        <h1>Get Your Hands On Our Products</h1>
         <h2 className={'center'}>
-          Some options are below, <span>OR</span> use our search bar to find
-          your nearest spa.
+          Please enter your city, state, or zip code in the search bar below to find the nearest spas and estheticians carrying our products.
         </h2>
         <SpaLocator />
       </SpaLocatorPageWrapper>
