@@ -23,11 +23,12 @@ export const query = graphql`
   {
     allAirtable(
       filter: { table: { eq: "Press" } }
-      sort: { fields: data___mcc_id, order: ASC }
+      sort: { fields: data___sortOrder, order: DESC }
     ) {
       pressList: nodes {
         id
         data {
+          sortOrder
           mcc_id
           title
           summary
