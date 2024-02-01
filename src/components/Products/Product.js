@@ -20,8 +20,6 @@ const Product = ({ product, isTemplate }) => {
     video,
   } = product
 
-  let showAward = award ? (award !== 2024) : null
-
   return (
     <StyledProduct id={slug}>
       <div className={`product-heading`}>
@@ -31,7 +29,7 @@ const Product = ({ product, isTemplate }) => {
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
             {isBestSeller && <span className={`best-seller`} />}
-            {showAward && (
+            {award && (
               <Image
                 className="award-winner"
                 fixed={product.awardImage.fixed}
@@ -45,7 +43,7 @@ const Product = ({ product, isTemplate }) => {
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
             {isBestSeller && <span className={`best-seller`} />}
-            {showAward && (
+            { award && (
               <Image
                 className="award-winner"
                 fixed={product.awardImage.fixed}
