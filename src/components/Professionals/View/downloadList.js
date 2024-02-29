@@ -15,7 +15,7 @@ const DownloadList = ({ data, className }) => {
               href={data.pdf.localFiles[0].publicURL}
               target="_blank"
               rel="noreferrer"
-              download>Download</a>
+              download={data.name}>Download</a>
           </div>
         )
       })}
