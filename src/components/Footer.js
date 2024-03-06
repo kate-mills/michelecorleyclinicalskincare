@@ -105,7 +105,7 @@ const FooterWrapper = styled(Footer)`
       .footer-phone,
       .footer-email {
         color: var(--mainBlack);
-        letter-spacing: -0.07rem;
+        letter-spacing: 0.03rem;
         padding: 0.09rem;
       }
       .footer-address {

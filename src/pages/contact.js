@@ -4,12 +4,14 @@ import Image from 'gatsby-image'
 
 import Layout from '../components/layout'
 import ContactForm from '../components/ContactForm'
+import {ConstantContactInfo} from '../constants/contact-info'
 
 import ContactInfo from '../components/ContactInformation'
 
 import styled from 'styled-components'
 
 const ContactPage = ({ data }) => {
+  const {Telephone: {phone}} = ConstantContactInfo
   return (
     <Layout seoTitle="Contact Us">
       <PageWrapper>
@@ -22,7 +24,7 @@ const ContactPage = ({ data }) => {
               </h1>
               <p>
                 Please contact us via the submission form or give us a call at
-                (707) 287-0555 and we'll get back to you as soon as we can. If
+    {' '} {phone} {' '} and we'll get back to you as soon as we can. If
                 you are a licensed professional, please include your license
                 number.
               </p>

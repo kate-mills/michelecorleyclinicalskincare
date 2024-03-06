@@ -1,8 +1,8 @@
 const fmtPhone = (a, p, s) => `(${a}) ${p} - ${s}`
 
-export const areaCode = '707'
-export const prefix = '287'
-export const suffix = '0555'
+export const areaCode = '843'
+export const prefix = '929'
+export const suffix = '8677'
 
 export const ConstantContactInfo = {
   Email: {

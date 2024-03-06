@@ -26,7 +26,7 @@ module.exports = {
       name: `Michele Corley Clinical Skin Care`,
       url: `https://michelecorleyclinicalskincare.com`,
       logo: `https://michelecorleyclinicalskincare.com/logo.jpg`,
-      telephone: `707-287-0555`,
+      telephone: `843-929-8677`,
       priceRange: `$$`,
       sameAs: [
         `https://vimeo.com/michelecorley`,
@@ -109,7 +109,7 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: process.env.GATSBY_AIRTABLE_API,
+        apiKey: process.env.MCC_AIRTABLE_ACCESS,
         concurrency: 5,
         tables: [
           {
