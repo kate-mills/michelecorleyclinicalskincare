@@ -182,6 +182,13 @@ export const StyledSpaList = styled.ul`
           }
         }
       }
+      & a.btn {
+        margin-inline-start: 1rem;
+        text-align: center;
+        font-size: 0.8rem;
+        background: var(--offWhite);
+        border-color: var(--mainMcc);
+      }
     }
   }
 `
