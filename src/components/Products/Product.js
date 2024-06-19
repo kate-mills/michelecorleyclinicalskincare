@@ -10,6 +10,7 @@ const Product = ({ product, isTemplate }) => {
     isBestSeller,
     award,
     imgRetail,
+    imgTravel,
     professionalOnly: proOnly,
     name,
     slug,
@@ -43,7 +44,7 @@ const Product = ({ product, isTemplate }) => {
             {acneSafe && <span className={`acne-safe`} />}
             {proOnly && <span className={`pro-only`} />}
             {isBestSeller && <span className={`best-seller`} />}
-            { award && (
+            {award && (
               <Image
                 className="award-winner"
                 fixed={product.awardImage.fixed}
@@ -65,20 +66,36 @@ const Product = ({ product, isTemplate }) => {
         </p>
         <p className="product-description">{description.description}</p>
         <div className="product-media" id={`${slug}-media`}>
-          <AniLink
-            fade
-            to={`/product-images-and-logos/${slug}/`}
-            aria-label="View image"
-          >
-            <Image
-              className="product-image"
-              fixed={imgRetail?.fixed}
-              alt={`Retail Size ${name}`}
-            />
-          </AniLink>
+          <div className="product-media-image-box">
+            <AniLink
+              fade
+              to={`/product-images-and-logos/${slug}/`}
+              aria-label="View image"
+            >
+              <Image
+                className="product-image img-retail"
+                fixed={imgRetail?.fixed}
+                alt={`Retail-size ${name}`}
+              />
+            </AniLink>
+
+            {imgTravel && (
+              <AniLink
+                className="img-travel-box"
+                fade
+                to={`/product-images-and-logos/${slug}/`}
+                aria-label="View image"
+              >
+                <Image
+                  className="product-image img-travel"
+                  fixed={imgTravel?.fixed}
+                  alt={`Travel-size ${name}`}
+                />
+              </AniLink>
+            )}
+          </div>
           {video && (
             <VideoPlayer
-              className="product-video"
               title={`${name} from Michele Corley on Vimeo`}
               src={`https://player.vimeo.com/video/${video}`}
             />
@@ -205,14 +222,25 @@ const StyledProduct = styled.article`
   }
   & .product-media {
     background: var(--mainWhite);
-    align-items: center;
+    align-items: baseline;
     display: flex;
     flex-flow: row wrap-reverse;
-    justify-content: space-around;
-    div.product-image-wrapper {
-      width: 300px;
-      img {
-        object-fit: contain !important;
+    flex-flow: row wrap;
+    justify-content: center;
+    > .product-media-image-box {
+      width: 49%;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      padding: 5px;
+
+      & a.img-travel-box {
+        transform: translateX(-100px);
+      }
+      & a {
+        img {
+          object-fit: contain !important;
+        }
       }
     }
   }

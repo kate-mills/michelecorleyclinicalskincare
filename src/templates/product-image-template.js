@@ -16,6 +16,7 @@ const ProductImageTemplate = props => {
     className,
   } = props
 
+  console.log(product)
   return (
     <>
       <SEO
@@ -23,21 +24,34 @@ const ProductImageTemplate = props => {
         description={`Michele Corley Clinical Skincare - ${product.name}`}
         image={product.fluidImg.fluid.src.slice(2)}
       />
-      <div className={`${className} grid-container`}>
-        <div
-          className="grid-top w-100"
-          role="button"
-          tabIndex="0"
-          onClick={goBack}
-          onKeyPress={goBack}
-        >
-          X
+      <div className={`${className}`}>
+        <div className="top-bar">
+          <div className="top-bar--spacer">
+          </div>
+          <div
+            className="top-bar--goback"
+            role="button"
+            tabIndex="0"
+            onClick={goBack}
+            onKeyPress={goBack}
+          >
+            X
+          </div>
         </div>
-        <div className="grid-img">
+
+        <div className="flex-box-images">
           <Img
+            className="retail-img img"
             fluid={product.fluidImg.fluid}
             alt={product.fluidImg.description}
           />
+          {product.imgTravel && (
+            <Img
+              className="travel-img img"
+              fluid={product.imgTravel.fluid}
+              alt={product.imgTravel.description}
+            />
+          )}
         </div>
       </div>
     </>
@@ -55,7 +69,26 @@ export const query = graphql`
         id
         title
         description
-        fluid(maxWidth: 1000, quality: 100, toFormat: JPG, background: "white") {
+        fluid(
+          maxWidth: 1000
+          quality: 100
+          toFormat: JPG
+          background: "white"
+        ) {
+          ...GatsbyContentfulFluid
+        }
+      }
+      imgTravel {
+        id
+        title
+        description
+        fluid(
+          cropFocus: BOTTOM
+          maxWidth: 1000
+          quality: 100
+          toFormat: JPG
+          background: "white"
+        ) {
           ...GatsbyContentfulFluid
         }
       }
@@ -63,52 +96,63 @@ export const query = graphql`
   }
 `
 export default styled(ProductImageTemplate)`
-  background-color: var(--mainWhite);
-  box-sizing: border-box;
-  color: var(--mainWhite);
-  display: grid;
-  min-height: 100vh;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 100px 80%;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  & .grid-top {
-    align-items: center;
-    background: var(--mainWhite);
-    color: rgb(187, 189, 191); /*grey*/
-    cursor: pointer !important;
-    display: flex;
-    font-size: 2.5em;
-    font-weight: 300;
-    justify-content: flex-end;
-    margin: 0;
-    padding: 20px 40px;
-    width: 100vw;
-  }
-  & .grid-top:hover {
-    color: var(--poppy);
-    cursor: pointer !important;
-  }
-  & .grid-img {
-    max-height: 80vh;
-  }
-  & .gatsby-image-wrapper {
-    width: 100vw;
-  }
-  & img {
-    object-fit: contain !important;
-    margin-top: 5px;
-    max-height: 80vh;
-  }
-  & .grid-desc {
-    font-size: 1.5em;
-    letter-spacing: var(--mainSpacing);
-    margin-top: 15px;
-  }
-  @media (min-width: 320px) and (max-width: 480px) {
-    & .grid-top {
-      font-size: 1.5em;
+  & {
+    background-color: var(--mainMcc);
+    background-color: var(--offWhite);
+    border-color: transparent;
+    min-width: 100vw;
+
+    > .top-bar {
+      color: var(--blackText);
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      width: 100%;
+
+      > .top-bar--goback {
+        font-size: 3.5rem;
+        padding: 1rem 1rem;
+        font-weight: 300;
+
+        &:hover {
+          cursor: pointer !important;
+          background: var(--mainWhite);
+        }
+      }
+      > .top-bar--spacer {
+        width: 100vw;
+      }
+    }
+
+    > .flex-box-images {
+      background: var(--mainWhite);
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin: 2px auto 0;
+      width: 100%;
+      border: 1px solid transparent;
+      .img {
+        width: 50%;
+        border: 1px solid var(--offWhite);
+      }
+    }
+
+    @media (min-width: 0px) and (max-width: 480px) {
+      > .top-bar {
+        > .top-bar--goback {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    @media (max-width: 1024px){
+      > .flex-box-images {
+        flex-wrap: wrap;
+        .img {
+          width: 100%;
+        }
+      }
     }
   }
 `

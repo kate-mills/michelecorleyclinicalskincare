@@ -18,7 +18,10 @@ const CategoryTemplate = props => {
   } = category
 
   return (
-    <Layout title={`Michele Corley Skin Care ${category.name}`} description={category.description.description}>
+    <Layout
+      title={`Michele Corley Skin Care ${category.name}`}
+      description={category.description.description}
+    >
       <SpaLocatorFixedLink />
       <h1>{category.name}</h1>
       <CategoryTemplateWrapper>
@@ -57,6 +60,7 @@ export const query = graphql`
           acneSafe
           isBestSeller
           contentful_id
+          name
           description {
             description
           }
@@ -65,8 +69,7 @@ export const query = graphql`
             title
             description
             fixed(
-              cropFocus: CENTER
-              width: 300
+              resizingBehavior: PAD
               quality: 100
               toFormat: WEBP
               background: "#fff"
@@ -74,7 +77,18 @@ export const query = graphql`
               ...GatsbyContentfulFixed
             }
           }
-          name
+          imgTravel {
+            fixed(
+              resizingBehavior: PAD
+              width: 200
+              quality: 100
+              toFormat: WEBP
+              background: "#fff"
+            ) {
+              src
+              ...GatsbyContentfulFixed
+            }
+          }
           professionalOnly
           profiles {
             file {

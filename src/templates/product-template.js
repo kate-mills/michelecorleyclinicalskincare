@@ -8,6 +8,7 @@ import Product from '../components/Products/Product'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const ProductTemplate = ({ data: { product }, className }) => {
+  console.log(product)
   const formatCategory = category => {
     let CategoryMap = {}
     let str = 'View All '
@@ -79,6 +80,19 @@ export const query = graphql`
           toFormat: WEBP
           background: "#fff"
         ) {
+          ...GatsbyContentfulFixed
+        }
+      }
+      imgTravel{
+        fixed(
+          resizingBehavior: PAD
+          width: 400
+          height: 200
+          quality: 100
+          toFormat: WEBP
+          background: "#fff"
+        ) {
+          src
           ...GatsbyContentfulFixed
         }
       }
