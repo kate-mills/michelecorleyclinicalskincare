@@ -222,7 +222,7 @@ const StyledProduct = styled.article`
   }
   & .product-media {
     background: var(--mainWhite);
-    align-items: baseline;
+    align-items: center;
     display: flex;
     flex-flow: row wrap-reverse;
     flex-flow: row wrap;
@@ -230,9 +230,9 @@ const StyledProduct = styled.article`
     > .product-media-image-box {
       width: 49%;
       display: flex;
+      flex-wrap: nowrap;
       justify-content: center;
-      align-items: baseline;
-      padding: 5px;
+      align-items: center;
 
       & a.img-travel-box {
         transform: translateX(-100px);
@@ -240,6 +240,15 @@ const StyledProduct = styled.article`
       & a {
         img {
           object-fit: contain !important;
+        }
+      }
+    }
+    @media (max-width: 767px) {
+      > .product-media-image-box {
+        flex-wrap: wrap;
+
+        & a.img-travel-box {
+          transform: translateX(0px);
         }
       }
     }

@@ -19,8 +19,8 @@ const Video = ({ src, title, ...props }) => {
 }
 
 const IframeVideoWrapper = styled.div`
-  width: 90vw;
-  max-width: 525px;
+  width: 100%;
+  width: 425px;
 
   .video {
     /* // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625) */
@@ -28,7 +28,6 @@ const IframeVideoWrapper = styled.div`
     position: relative;
     border-radius: var(--radius);
   }
-
   .video iframe {
     border: 0;
     height: 100%;
@@ -37,15 +36,14 @@ const IframeVideoWrapper = styled.div`
     top: 0;
     width: 100%;
   }
-
-  @media (max-width: 600px) {
-    width: 90vw;
+  @media (max-width: 768px) {
+    max-width: 525px;
   }
 `
 
 Video.defaultProps = {
   src: 'https://player.vimeo.com/video/360311714',
-  title: 'Peptide Rich & Radiant Eye Cream',
+  title: 'Michele Corley Clinical Skin Care',
 }
 
 export default Video

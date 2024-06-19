@@ -80,7 +80,7 @@ export const query = graphql`
           imgTravel {
             fixed(
               resizingBehavior: PAD
-              width: 200
+              width: 300 
               quality: 100
               toFormat: WEBP
               background: "#fff"
