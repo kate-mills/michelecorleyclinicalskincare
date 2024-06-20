@@ -19,8 +19,10 @@ const Video = ({ src, title, ...props }) => {
 }
 
 const IframeVideoWrapper = styled.div`
-  width: 100%;
-  width: 425px;
+  height: 100%;
+  margin: 0 auto;
+  min-width: 50%;
+  width: 523px;
 
   .video {
     /* // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625) */
@@ -37,7 +39,7 @@ const IframeVideoWrapper = styled.div`
     width: 100%;
   }
   @media (max-width: 768px) {
-    max-width: 525px;
+    width: 100%;
   }
 `
 

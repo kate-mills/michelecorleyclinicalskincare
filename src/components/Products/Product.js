@@ -221,17 +221,19 @@ const StyledProduct = styled.article`
     padding: 0 2rem 1rem 1rem;
   }
   & .product-media {
-    background: var(--mainWhite);
-    align-items: center;
     display: flex;
+    align-items: center;
     flex-flow: row wrap;
+    justify-content: flex-start;
 
+    /*** TRAVEL & RETAIL IMGS IN ROW ***/
     > .product-media-imgs-box {
       width: 50%;
       display: flex;
       flex-wrap: nowrap;
-      justify-content: flex-start;
       align-items: center;
+      justify-content: center;
+      margin: 0 auto;
 
       & a.img-travel-box {
         transform: translateX(-100px);
@@ -242,12 +244,15 @@ const StyledProduct = styled.article`
         }
       }
     }
-    @media (max-width: 481px) {
+
+    @media (max-width: 768px) {
+
       > .product-media-imgs-box {
-        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 0 auto;
 
         & a.img-travel-box {
-          transform: translateX(0px);
+          transform: initial;
         }
       }
     }
