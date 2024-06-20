@@ -228,7 +228,6 @@ const StyledProduct = styled.article`
 
     /*** TRAVEL & RETAIL IMGS IN ROW ***/
     > .product-media-imgs-box {
-      width: 50%;
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
@@ -245,7 +244,7 @@ const StyledProduct = styled.article`
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
 
       > .product-media-imgs-box {
         flex-direction: column;
