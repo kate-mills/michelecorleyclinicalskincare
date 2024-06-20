@@ -69,7 +69,7 @@ export const query = graphql`
             title
             description
             fixed(
-              resizingBehavior: PAD
+              width: 300
               quality: 100
               toFormat: WEBP
               background: "#fff"
@@ -79,8 +79,7 @@ export const query = graphql`
           }
           imgTravel {
             fixed(
-              resizingBehavior: PAD
-              width: 300 
+              width: 200
               quality: 100
               toFormat: WEBP
               background: "#fff"

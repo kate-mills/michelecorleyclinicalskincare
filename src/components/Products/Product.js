@@ -66,7 +66,7 @@ const Product = ({ product, isTemplate }) => {
         </p>
         <p className="product-description">{description.description}</p>
         <div className="product-media" id={`${slug}-media`}>
-          <div className="product-media-image-box">
+          <div className="product-media-imgs-box">
             <AniLink
               fade
               to={`/product-images-and-logos/${slug}/`}
@@ -224,14 +224,13 @@ const StyledProduct = styled.article`
     background: var(--mainWhite);
     align-items: center;
     display: flex;
-    flex-flow: row wrap-reverse;
     flex-flow: row wrap;
-    justify-content: center;
-    > .product-media-image-box {
-      width: 49%;
+
+    > .product-media-imgs-box {
+      width: 50%;
       display: flex;
       flex-wrap: nowrap;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
 
       & a.img-travel-box {
@@ -243,8 +242,8 @@ const StyledProduct = styled.article`
         }
       }
     }
-    @media (max-width: 767px) {
-      > .product-media-image-box {
+    @media (max-width: 481px) {
+      > .product-media-imgs-box {
         flex-wrap: wrap;
 
         & a.img-travel-box {
