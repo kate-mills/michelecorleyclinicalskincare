@@ -138,7 +138,7 @@ const Product = ({ product, isTemplate }) => {
 }
 const StyledProduct = styled.article`
   & {
-    margin: 20px auto;
+    margin: 20px 0;
     max-width: 100%;
     p {
       max-width: 100%;
@@ -218,41 +218,24 @@ const StyledProduct = styled.article`
   }
   & .product-description {
     margin-bottom: 0;
-    padding: 0 2rem 1rem 1rem;
+    padding: 0 1rem;
   }
+
+  /** PRODUCT IMGS & VIDEO **/
   & .product-media {
     display: flex;
-    align-items: center;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-evenly;
 
-    /*** TRAVEL & RETAIL IMGS IN ROW ***/
+    /** TRAVEL & RETAIL IMGS **/
     > .product-media-imgs-box {
       display: flex;
-      flex-wrap: nowrap;
+      flex-flow: row wrap;
       align-items: center;
       justify-content: center;
-      margin: 0 auto;
-
-      & a.img-travel-box {
-        transform: translateX(-100px);
-      }
-      & a {
-        img {
-          object-fit: contain !important;
-        }
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      > .product-media-imgs-box {
-        flex-direction: column;
-        margin: 0 auto;
-
-        & a.img-travel-box {
-          transform: initial;
-        }
+      & a img {
+        object-fit: contain !important;
       }
     }
   }
