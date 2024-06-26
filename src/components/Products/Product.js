@@ -72,15 +72,15 @@ const Product = ({ product, isTemplate }) => {
               <Image
                 className="product-img product-img-retail"
                 fixed={imgRetail?.fixed}
-                alt={`Retail-size ${name}`}
+                alt={`${proOnly ? 'Pro-size': 'Retail-size'} ${name}`}
               />
               <a
                 className="btn product-img-btn"
-                download={`Retail-size ${name}`}
+                download={`${proOnly ? 'Pro-size': 'Retail-size'} ${name}`}
                 href={imgRetail?.localFile?.publicURL}
                 aria-label="Download image"
               >
-                Download Retail-size Image
+                Download
               </a>
             </div>
 
@@ -97,7 +97,7 @@ const Product = ({ product, isTemplate }) => {
                   className="btn product-img-btn"
                   aria-label="Download image"
                 >
-                  Download Travel-size Image
+                  Download
                 </a>
               </div>
             )}
@@ -253,12 +253,12 @@ const StyledProduct = styled.article`
         display: block;
         font-size: 10px;
         margin: 0 auto;
-        max-width: 81%;
+        width: fit-content;
         text-align: center;
+        box-shadow: unset;
 
         @media (max-width: 600px) {
           /* on Mobile - 2 LINE BTN OK */
-          font-size: 12px;
         }
       }
     }
