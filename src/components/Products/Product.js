@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+/*import AniLink from 'gatsby-plugin-transition-link/AniLink'*/
 import VideoPlayer from '../Video'
 
 const Product = ({ product, isTemplate }) => {
@@ -65,33 +65,41 @@ const Product = ({ product, isTemplate }) => {
           })}
         </p>
         <p className="product-description">{description.description}</p>
+
         <div className="product-media" id={`${slug}-media`}>
           <div className="product-media-imgs-box">
-            <AniLink
-              fade
-              to={`/product-images-and-logos/${slug}/`}
-              aria-label="View image"
-            >
+            <div className="product-media-img">
               <Image
-                className="product-image img-retail"
+                className="product-img product-img-retail"
                 fixed={imgRetail?.fixed}
                 alt={`Retail-size ${name}`}
               />
-            </AniLink>
+              <a
+                className="btn product-img-btn"
+                download={`Retail-size ${name}`}
+                href={imgRetail?.localFile?.publicURL}
+                aria-label="Download image"
+              >
+                Download Retail-size Image
+              </a>
+            </div>
 
             {imgTravel && (
-              <AniLink
-                className="img-travel-box"
-                fade
-                to={`/product-images-and-logos/${slug}/`}
-                aria-label="View image"
-              >
+              <div className="product-media-img">
                 <Image
-                  className="product-image img-travel"
+                  className="product-img product-img-travel"
                   fixed={imgTravel?.fixed}
                   alt={`Travel-size ${name}`}
                 />
-              </AniLink>
+                <a
+                  href={imgTravel?.localFile?.publicURL}
+                  download={`Travel-size ${name}`}
+                  className="btn product-img-btn"
+                  aria-label="Download image"
+                >
+                  Download Travel-size Image
+                </a>
+              </div>
             )}
           </div>
           {video && (
@@ -224,21 +232,38 @@ const StyledProduct = styled.article`
   /** PRODUCT IMGS & VIDEO **/
   & .product-media {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row no-wrap;
     align-items: center;
-    justify-content: space-evenly;
-
-    /** TRAVEL & RETAIL IMGS **/
-    > .product-media-imgs-box {
-      display: flex;
-      flex-flow: row wrap;
-      align-items: center;
+    @media (max-width: 1000px) {
       justify-content: center;
-      & a img {
-        object-fit: contain !important;
+      flex-wrap: wrap;
+    }
+
+    > .product-media-imgs-box {
+      width: 600px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-evenly;
+      @media (max-width: 600px) {
+        flex-wrap: wrap;
+      }
+
+      & a.product-img-btn {
+        display: block;
+        font-size: 10px;
+        margin: 0 auto;
+        max-width: 81%;
+        text-align: center;
+
+        @media (max-width: 600px) {
+          /* on Mobile - 2 LINE BTN OK */
+          font-size: 12px;
+        }
       }
     }
   }
+
   & .product-ingredients {
     padding-top: 1rem;
     & > p.bold {

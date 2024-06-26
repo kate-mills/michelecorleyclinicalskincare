@@ -60,7 +60,7 @@ body {
 }
 :focus {
   outline: 2px solid var(--poppy) !important;
-  outline-offset: 2px;
+  outline-offset: -4px;
   border-radius: 4px;
 }
 a {

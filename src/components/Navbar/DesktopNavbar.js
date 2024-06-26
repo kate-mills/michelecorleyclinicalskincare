@@ -120,7 +120,6 @@ export default styled(DesktopNavbar)`
     align-items: center;
 
     & li.navigation__listitem{
-      padding: 0.2rem;
       background: var(--mainWhite);
     }
     & span > a:nth-child(1),
@@ -128,6 +127,7 @@ export default styled(DesktopNavbar)`
     & button.navigation__button {
       background: var(--mainWhite);
       border: 4px solid var(--mainWhite);
+      padding:5px;
     }
     & li.navigation__listitem.topnav__toggle-submenu {
       position: relative;

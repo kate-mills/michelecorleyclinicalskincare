@@ -1,6 +1,9 @@
 .professional__status__span{
   position: relative;
 }
+.professional__status__span a{
+  padding: 5px;
+}
 .pro__education .professional__logout__link {
   color: var(--mainWhite);
   font-size: .35rem;

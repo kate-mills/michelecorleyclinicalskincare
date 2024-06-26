@@ -70,12 +70,15 @@ export const query = graphql`
         benefit
       }
       imgRetail {
+        localFile{
+          publicURL
+        }
         id
         title
         description
         fixed(
-          cropFocus: CENTER
-          width: 300
+          resizingBehavior: PAD 
+          width: 200
           quality: 100
           toFormat: WEBP
           background: "#fff"
@@ -84,9 +87,11 @@ export const query = graphql`
         }
       }
       imgTravel{
+        localFile{
+          publicURL
+        }
         fixed(
-          resizingBehavior: PAD
-          width: 400
+          resizingBehavior:NO_CHANGE
           height: 200
           quality: 100
           toFormat: WEBP
@@ -98,7 +103,7 @@ export const query = graphql`
       }
       seoImg: imgRetail {
         fixed(
-          resizingBehavior: PAD
+          resizingBehavior:NO_CHANGE
           width: 400
           height: 200
           quality: 100

@@ -65,6 +65,9 @@ export const query = graphql`
             description
           }
           imgRetail {
+            localFile {
+              publicURL
+            }
             id
             title
             description
@@ -78,8 +81,11 @@ export const query = graphql`
             }
           }
           imgTravel {
+            localFile {
+              publicURL
+            }
             fixed(
-              width: 200
+              width: 300
               quality: 100
               toFormat: WEBP
               background: "#fff"

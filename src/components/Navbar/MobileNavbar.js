@@ -83,6 +83,9 @@ const MoreItemsWrapper = styled.div`
     background-color: rgba(242, 242, 242, 1);
     width: 90vw;
     margin: 0 auto;
+    a {
+      padding: 5px;
+    }
   }
   & nav.sub-nav.hide {
     display: none;
@@ -115,7 +118,11 @@ class MobileNavbar extends Component {
           <div className={`${this.state.css} full-nav`}>
             {links.map((item, id) => {
               if (item.id === 'education') {
-                return <ProfessionalStatus key={id} className="li" />
+                return(
+                  <li className="li">
+                  <ProfessionalStatus key={id} className="li"/>
+                  </li>
+                )
               } else {
                 return item.menu.length > 0 ? (
                   <MoreItems key={id} name={item.title} menu={item.menu} />
@@ -151,7 +158,7 @@ export default styled(MobileNavbar)`
     font-weight: 400;
     color: var(--mainBlack);
   }
-  & a.li{
+  & a.li {
     display: block;
     border: 5px solid var(--clear);
     padding: 2px;
