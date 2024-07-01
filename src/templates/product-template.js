@@ -8,7 +8,6 @@ import Product from '../components/Products/Product'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const ProductTemplate = ({ data: { product }, className }) => {
-  console.log(product)
   const formatCategory = category => {
     let CategoryMap = {}
     let str = 'View All '

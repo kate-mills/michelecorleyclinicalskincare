@@ -21,37 +21,37 @@ const ProductImagesLogos = ({ data }) => {
       </p>
       <ProductsWrapper>
         <section id="cleansers">
-          <h2>Cleansers</h2>
+          <h2>Cleansers (Retail-size)</h2>
           <Thumbnails data={data.cleansers} />
         </section>
 
         <section id="toners">
-          <h2>Toners</h2>
+          <h2>Toners (Retail-size)</h2>
           <Thumbnails data={data.toners} />
         </section>
 
         <section id="moisturizers-spf">
-          <h2>Moisturizers & SPF</h2>
+          <h2>Moisturizers & SPF (Retail-size)</h2>
           <Thumbnails data={data.moisture} />
         </section>
 
         <section id="eyes-lips">
-          <h2>Eyes & Lips</h2>
+          <h2>Eyes & Lips (Retail-size)</h2>
           <Thumbnails data={data.eyesLips} />
         </section>
 
         <section id="serums-specialty">
-          <h2>Serums & Specialty</h2>
+          <h2>Serums & Specialty (Retail-size)</h2>
           <Thumbnails data={data.serums} />
         </section>
 
         <section id="exfoliants">
-          <h2>Exfoliants</h2>
+          <h2>Exfoliants (Retail-size)</h2>
           <Thumbnails data={data.exfoliants} />
         </section>
 
         <section id="masks">
-          <h2>Masks</h2>
+          <h2>Masks (Retail-size)</h2>
           <Thumbnails data={data.masks} />
         </section>
 

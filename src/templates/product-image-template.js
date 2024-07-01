@@ -16,7 +16,6 @@ const ProductImageTemplate = props => {
     className,
   } = props
 
-  console.log(product)
   return (
     <>
       <SEO
