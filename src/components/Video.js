@@ -22,7 +22,7 @@ const IframeVideoWrapper = styled.div`
   height: 100%;
   margin: 0 0 0;
   max-width: 500px;
-  width: 40%;
+  width: 50%;
 
   .video {
     /* // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625) */
