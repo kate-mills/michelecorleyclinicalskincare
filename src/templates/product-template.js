@@ -86,21 +86,6 @@ export const query = graphql`
           ...GatsbyContentfulFixed
         }
       }
-      imgTravel{
-        localFile{
-          publicURL
-        }
-        fixed(
-          resizingBehavior:NO_CHANGE
-          height: 200
-          quality: 100
-          toFormat: WEBP
-          background: "#fff"
-        ) {
-          src
-          ...GatsbyContentfulFixed
-        }
-      }
       seoImg: imgRetail {
         fixed(
           resizingBehavior:NO_CHANGE

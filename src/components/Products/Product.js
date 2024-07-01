@@ -10,7 +10,6 @@ const Product = ({ product, isTemplate }) => {
     isBestSeller,
     award,
     imgRetail,
-    imgTravel,
     professionalOnly: proOnly,
     name,
     slug,
@@ -84,23 +83,6 @@ const Product = ({ product, isTemplate }) => {
               </a>
             </div>
 
-            {imgTravel && (
-              <div className="product-media-img">
-                <Image
-                  className="product-img product-img-travel"
-                  fixed={imgTravel?.fixed}
-                  alt={`Travel-size ${name}`}
-                />
-                <a
-                  href={imgTravel?.localFile?.publicURL}
-                  download={`Travel-size ${name}`}
-                  className="btn product-img-btn"
-                  aria-label="Download image"
-                >
-                  Download
-                </a>
-              </div>
-            )}
           </div>
           {video && (
             <VideoPlayer
@@ -240,14 +222,11 @@ const StyledProduct = styled.article`
     }
 
     > .product-media-imgs-box {
-      width: 600px;
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
-      justify-content: space-evenly;
-      @media (max-width: 600px) {
-        flex-wrap: wrap;
-      }
+      justify-content: center;
+      @media (max-width: 600px) { flex-wrap: wrap; }
 
       & a.product-img-btn {
         display: block;
@@ -256,10 +235,6 @@ const StyledProduct = styled.article`
         width: fit-content;
         text-align: center;
         box-shadow: unset;
-
-        @media (max-width: 600px) {
-          /* on Mobile - 2 LINE BTN OK */
-        }
       }
     }
   }
