@@ -70,14 +70,14 @@ export const query = graphql`
         benefit
       }
       imgRetail {
-        localFile{
+        localFile {
           publicURL
         }
         id
         title
         description
         fixed(
-          resizingBehavior: PAD 
+          resizingBehavior: PAD
           width: 200
           quality: 100
           toFormat: WEBP
@@ -88,7 +88,7 @@ export const query = graphql`
       }
       seoImg: imgRetail {
         fixed(
-          resizingBehavior:NO_CHANGE
+          resizingBehavior: NO_CHANGE
           width: 400
           height: 200
           quality: 100

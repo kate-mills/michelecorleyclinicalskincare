@@ -71,18 +71,17 @@ const Product = ({ product, isTemplate }) => {
               <Image
                 className="product-img product-img-retail"
                 fixed={imgRetail?.fixed}
-                alt={`${proOnly ? 'Pro-size': 'Retail-size'} ${name}`}
+                alt={`${proOnly ? 'Pro-size' : 'Retail-size'} ${name}`}
               />
               <a
                 className="btn product-img-btn"
-                download={`${proOnly ? 'Pro-size': 'Retail-size'} ${name}`}
+                download={`${proOnly ? 'Pro-size' : 'Retail-size'} ${name}`}
                 href={imgRetail?.localFile?.publicURL}
                 aria-label="Download image"
               >
                 Download
               </a>
             </div>
-
           </div>
           {video && (
             <VideoPlayer
@@ -226,7 +225,9 @@ const StyledProduct = styled.article`
       flex-flow: row nowrap;
       align-items: center;
       justify-content: center;
-      @media (max-width: 600px) { flex-wrap: wrap; }
+      @media (max-width: 600px) {
+        flex-wrap: wrap;
+      }
 
       & a.product-img-btn {
         display: block;
