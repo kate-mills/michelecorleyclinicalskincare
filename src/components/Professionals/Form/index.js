@@ -31,7 +31,7 @@ export default ({ handleSubmit, handleUpdate }) => {
         <label htmlFor="username" className={styles[`form__label`]}>
           Username
           <input
-            focus="true"
+            autofocus
             autoComplete="new-username"
             autoCapitalize="off"
             className={styles[`form__input`]}
