@@ -118,9 +118,9 @@ class MobileNavbar extends Component {
           <div className={`${this.state.css} full-nav`}>
             {links.map((item, id) => {
               if (item.id === 'education') {
-                return(
+                return (
                   <li className="li">
-                  <ProfessionalStatus key={id} className="li"/>
+                    <ProfessionalStatus key={id} className="li" />
                   </li>
                 )
               } else {
