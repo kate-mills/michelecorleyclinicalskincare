@@ -117,22 +117,15 @@ class MobileNavbar extends Component {
           </button>
           <div className={`${this.state.css} full-nav`}>
             {links.map((item, id) => {
-              if (item.id === 'education') {
-                return (
-                  <li className="li">
-                    <ProfessionalStatus key={id} className="li" />
-                  </li>
+              return (item.id === 'education'
+                ? <ProfessionalStatus key={id} className="li" />
+                : item.menu.length > 0
+                ? <MoreItems key={id} name={item.title} menu={item.menu} />
+                : (
+                  <AniLink key={id} className="li" fade to={item.path}>{item.text}</AniLink>
                 )
-              } else {
-                return item.menu.length > 0 ? (
-                  <MoreItems key={id} name={item.title} menu={item.menu} />
-                ) : (
-                  <AniLink key={id} className="li" fade to={item.path}>
-                    {item.text}
-                  </AniLink>
-                )
-              }
-            })}
+              )}
+            )}
           </div>
         </div>
       </div>
