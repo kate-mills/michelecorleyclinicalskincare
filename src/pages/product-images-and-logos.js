@@ -24,8 +24,6 @@ const ProductImagesLogos = ({ data }) => {
       </p>
       <ProductsWrapper>
         <article id="retail-size-images">
-          <h2>Retail-Size Product Images</h2>
-
           <section id="cleansers-retail">
             <h3>Cleansers (Retail-size)</h3>
             <Thumbnails data={data.cleansers} />
@@ -62,33 +60,48 @@ const ProductImagesLogos = ({ data }) => {
         </article>
 
         <article id="travel-size-images">
-          <h2>Travel-size Product Images</h2>
-          <h3>Cleansers (Travel-size)</h3>
-          <Thumbnails data={data.cleansers} travelMedia={true} />
+          <section id="cleansers-travel">
+            <h3>Cleansers (Travel-size)</h3>
+            <Thumbnails data={data.cleansers} travelMedia={true} />
+          </section>
 
-          <h3>Toners (Travel-size)</h3>
-          <Thumbnails data={data.toners} travelMedia={true} />
+          <section id="toners-travel">
+            <h3>Toners (Travel-size)</h3>
+            <Thumbnails data={data.toners} travelMedia={true} />
+          </section>
 
-          <h3>Serums & Specialty (Travel-size)</h3>
-          <Thumbnails data={data.serums} travelMedia={true} />
+          <section id="moisturizers-spf-travel">
+            <h3>Moisturizers & SPF (Travel-size)</h3>
+            <Thumbnails data={data.moisture} travelMedia={true} />
+          </section>
 
-          <h3>Exfoliants (Travel-size)</h3>
-          <Thumbnails data={data.exfoliants} travelMedia={true} />
+          <section id="eyes-lips-travel">
+            <h3>Eyes & Lips (Travel-size)</h3>
+            <Thumbnails data={data.eyesLips} travelMedia={true} />
+          </section>
 
-          <h3>Masks (Travel-size)</h3>
-          <Thumbnails data={data.masks} travelMedia={true} />
+          <section id="serums-specialty-travel">
+            <h3>Serums & Specialty (Travel-size)</h3>
+            <Thumbnails data={data.serums} travelMedia={true} />
+          </section>
 
-          <h3>Moisturizers & SPF (Travel-size)</h3>
-          <Thumbnails data={data.moisture} travelMedia={true} />
+          <section id="exfoliants-travel">
+            <h3>Exfoliants (Travel-size)</h3>
+            <Thumbnails data={data.exfoliants} travelMedia={true} />
+          </section>
 
-          <h3>Eyes & Lips (Travel-size)</h3>
-          <Thumbnails data={data.eyesLips} travelMedia={true} />
+          <section id="masks-travel">
+            <h3>Masks (Travel-size)</h3>
+            <Thumbnails data={data.masks} travelMedia={true} />
+          </section>
         </article>
 
-        <section id="logos">
-          <h3>Logos</h3>
-          <Thumbnails data={data.logos} images={data.edges} logoMedia={true} />
-        </section>
+        <article>
+          <section id="logos">
+            <h3>Logos</h3>
+            <Thumbnails data={data.logos} images={data.edges} logoMedia={true} />
+          </section>
+        </article>
       </ProductsWrapper>
     </Layout>
   )
