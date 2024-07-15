@@ -6,8 +6,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const ListItem = ({ title, slug, image, showTitle = true }) => {
-  return (
-    <li id={`${slug}-img`} className="listitem">
+  return ( !image ?  null : <li id={`${slug}-img`} className="listitem">
       <AniLink
         state={{ id: `${slug}-img` }}
         to={`/product-images-and-logos/${slug}/`}
@@ -27,7 +26,7 @@ const ListItem = ({ title, slug, image, showTitle = true }) => {
   )
 }
 
-const Thumbnails = ({ className, data, logoMedia = false }) => {
+const Thumbnails = ({ className, data, logoMedia = false, travelMedia = false }) => {
   return (
     <ul className={`${className}`}>
       {data.edges.map(({ node }) => {
@@ -35,7 +34,8 @@ const Thumbnails = ({ className, data, logoMedia = false }) => {
           <ListItem
             key={node.contentful_id}
             image={
-              logoMedia ? node.images[node.images.length - 1] : node.imgRetail
+              logoMedia ? node.images[node.images.length - 1]
+              : travelMedia ? node.imgTravel: node.imgRetail
             }
             showTitle={!logoMedia}
             slug={node.slug}

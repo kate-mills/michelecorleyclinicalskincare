@@ -1,5 +1,6 @@
 import React from 'react'
-import { SpaLocatorFixedLink } from '../components/SpaLocator'
+import  FixedLink  from '../components/FixedLink'
+
 
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -13,51 +14,80 @@ const ProductImagesLogos = ({ data }) => {
       description={`The following resources are available for your use in representing Michele Corley Clinical Skin Care products.`}
       image={data?.file?.publicURL}
     >
-      <SpaLocatorFixedLink/>
+
+    <FixedLink  isPageLink to={`/product-images-and-logos#travel-size-images`} text="NEW TRAVEL-SIZE IMAGES HERE"/>
+
       <h1>Product Images & Logos</h1>
       <p className="txt-center pb0">
         The following resources are available for your use in representing
         Michele Corley Clinical Skin Care products.
       </p>
       <ProductsWrapper>
-        <section id="cleansers">
-          <h2>Cleansers (Retail-size)</h2>
-          <Thumbnails data={data.cleansers} />
-        </section>
+        <article id="retail-size-images">
+          <h2>Retail-Size Product Images</h2>
 
-        <section id="toners">
-          <h2>Toners (Retail-size)</h2>
-          <Thumbnails data={data.toners} />
-        </section>
+          <section id="cleansers-retail">
+            <h3>Cleansers (Retail-size)</h3>
+            <Thumbnails data={data.cleansers} />
+          </section>
 
-        <section id="moisturizers-spf">
-          <h2>Moisturizers & SPF (Retail-size)</h2>
-          <Thumbnails data={data.moisture} />
-        </section>
+          <section id="toners-retail">
+            <h3>Toners (Retail-size)</h3>
+            <Thumbnails data={data.toners} />
+          </section>
 
-        <section id="eyes-lips">
-          <h2>Eyes & Lips (Retail-size)</h2>
-          <Thumbnails data={data.eyesLips} />
-        </section>
+          <section id="moisturizers-spf-retail">
+            <h3>Moisturizers & SPF (Retail-size)</h3>
+            <Thumbnails data={data.moisture} />
+          </section>
 
-        <section id="serums-specialty">
-          <h2>Serums & Specialty (Retail-size)</h2>
-          <Thumbnails data={data.serums} />
-        </section>
+          <section id="eyes-lips-retail">
+            <h3>Eyes & Lips (Retail-size)</h3>
+            <Thumbnails data={data.eyesLips} />
+          </section>
 
-        <section id="exfoliants">
-          <h2>Exfoliants (Retail-size)</h2>
-          <Thumbnails data={data.exfoliants} />
-        </section>
+          <section id="serums-specialty-retail">
+            <h3>Serums & Specialty (Retail-size)</h3>
+            <Thumbnails data={data.serums} />
+          </section>
 
-        <section id="masks">
-          <h2>Masks (Retail-size)</h2>
-          <Thumbnails data={data.masks} />
-        </section>
+          <section id="exfoliants-retail">
+            <h3>Exfoliants (Retail-size)</h3>
+            <Thumbnails data={data.exfoliants} />
+          </section>
+          <section id="masks-retail">
+            <h3>Masks (Retail-size)</h3>
+            <Thumbnails data={data.masks} />
+          </section>
+        </article>
+
+        <article id="travel-size-images">
+          <h2>Travel-size Product Images</h2>
+          <h3>Cleansers (Travel-size)</h3>
+          <Thumbnails data={data.cleansers} travelMedia={true} />
+
+          <h3>Toners (Travel-size)</h3>
+          <Thumbnails data={data.toners} travelMedia={true} />
+
+          <h3>Serums & Specialty (Travel-size)</h3>
+          <Thumbnails data={data.serums} travelMedia={true} />
+
+          <h3>Exfoliants (Travel-size)</h3>
+          <Thumbnails data={data.exfoliants} travelMedia={true} />
+
+          <h3>Masks (Travel-size)</h3>
+          <Thumbnails data={data.masks} travelMedia={true} />
+
+          <h3>Moisturizers & SPF (Travel-size)</h3>
+          <Thumbnails data={data.moisture} travelMedia={true} />
+
+          <h3>Eyes & Lips (Travel-size)</h3>
+          <Thumbnails data={data.eyesLips} travelMedia={true} />
+        </article>
 
         <section id="logos">
-          <h2>Logos</h2>
-          <Thumbnails data={data.logos} logoMedia={true} />
+          <h3>Logos</h3>
+          <Thumbnails data={data.logos} images={data.edges} logoMedia={true} />
         </section>
       </ProductsWrapper>
     </Layout>
@@ -93,6 +123,17 @@ export const query = graphql`
               ...GatsbyContentfulFixed
             }
           }
+          imgTravel {
+            id
+            title
+            description
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid
+            }
+            fixed(height: 230, toFormat: WEBP) {
+              ...GatsbyContentfulFixed
+            }
+          }
         }
       }
     }
@@ -115,6 +156,17 @@ export const query = graphql`
             }
             fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
+            }
+          }
+          imgTravel {
+            id
+            title
+            description
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid
+            }
+            fixed(height: 230, toFormat: WEBP) {
+              ...GatsbyContentfulFixed
             }
           }
         }
@@ -141,6 +193,17 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
+          imgTravel {
+            id
+            title
+            description
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid
+            }
+            fixed(height: 230, toFormat: WEBP) {
+              ...GatsbyContentfulFixed
+            }
+          }
         }
       }
     }
@@ -163,6 +226,17 @@ export const query = graphql`
             }
             fluid(toFormat: WEBP) {
               ...GatsbyContentfulFluid
+            }
+          }
+          imgTravel {
+            id
+            title
+            description
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid
+            }
+            fixed(height: 230, toFormat: WEBP) {
+              ...GatsbyContentfulFixed
             }
           }
         }
@@ -189,6 +263,17 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
+          imgTravel {
+            id
+            title
+            description
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid
+            }
+            fixed(height: 230, toFormat: WEBP) {
+              ...GatsbyContentfulFixed
+            }
+          }
         }
       }
     }
@@ -213,6 +298,17 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
+          imgTravel {
+            id
+            title
+            description
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid
+            }
+            fixed(height: 230, toFormat: WEBP) {
+              ...GatsbyContentfulFixed
+            }
+          }
         }
       }
     }
@@ -235,6 +331,17 @@ export const query = graphql`
             }
             fluid {
               ...GatsbyContentfulFluid
+            }
+          }
+          imgTravel {
+            id
+            title
+            description
+            fluid(toFormat: WEBP) {
+              ...GatsbyContentfulFluid
+            }
+            fixed(height: 230, toFormat: WEBP) {
+              ...GatsbyContentfulFixed
             }
           }
         }
@@ -269,15 +376,26 @@ export const query = graphql`
 `
 
 const ProductsWrapper = styled.section`
-  & > section h2 {
-    color: var(--poppy);
-    margin: 2rem auto 0;
-    text-align: center;
-    font-size: 2.4rem;
+  & article {
+    h2, h3{
+      color: var(--poppy);
+      text-align: center;
+    }
+    h2{
+      padding-top: 2rem;
+    }
+    h3 {
+      margin: 1.5rem 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre;
+    }
   }
   @media (min-width: 563px) {
-    & section h2 {
-      text-align: left;
+    & article {
+      h2, h3{
+        text-align: left;
+      }
     }
   }
 `
