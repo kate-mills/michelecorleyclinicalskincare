@@ -77,7 +77,7 @@ export const query = graphql`
         description
         fixed(
           resizingBehavior: PAD 
-          width: 200
+          width: 400
           quality: 100
           toFormat: WEBP
           background: "#fff"

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
-/*import AniLink from 'gatsby-plugin-transition-link/AniLink'*/
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import VideoPlayer from '../Video'
 
 const Product = ({ product, isTemplate }) => {
@@ -68,19 +68,14 @@ const Product = ({ product, isTemplate }) => {
         <div className="product-media" id={`${slug}-media`}>
           <div className="product-media-imgs-box">
             <div className="product-media-img">
+              <AniLink to={`/product-images-and-logos/${slug}/`}>
               <Image
                 className="product-img product-img-retail"
                 fixed={imgRetail?.fixed}
                 alt={`${proOnly ? 'Pro-size' : 'Retail-size'} ${name}`}
               />
-              <a
-                className="btn product-img-btn"
-                download={`${proOnly ? 'Pro-size' : 'Retail-size'} ${name}`}
-                href={imgRetail?.localFile?.publicURL}
-                aria-label="Download image"
-              >
-                Download
-              </a>
+              </AniLink>
+            {/*<a className="btn product-img-btn" download={`${proOnly ? 'Pro-size' : 'Retail-size'} ${name}`} href={imgRetail?.localFile?.publicURL} aria-label="Download image" > Download </a>*/}
             </div>
           </div>
           {video && (
@@ -215,21 +210,22 @@ const StyledProduct = styled.article`
     display: flex;
     flex-flow: row no-wrap;
     align-items: center;
+    justify-content: space-around;
+    height: fit-content;
+
     @media (max-width: 1000px) {
       justify-content: center;
       flex-wrap: wrap;
     }
-
     > .product-media-imgs-box {
-
-      & a.product-img-btn {
+      /*& a.product-img-btn {
         display: block;
-        font-size: 10px;
+        font-size: 8px;
         margin: 0 auto;
         width: fit-content;
         text-align: center;
         box-shadow: unset;
-      }
+      }*/
     }
   }
 
