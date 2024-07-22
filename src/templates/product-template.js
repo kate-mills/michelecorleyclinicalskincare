@@ -44,22 +44,16 @@ const ProductTemplate = ({ data: { product }, className }) => {
 export const query = graphql`
   query GetMccProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
-      profiles {
-        file {
-          url
-        }
-      }
-      isBestSeller
+      profiles { file { url } }
       acneSafe
+      isBestSeller
       name
       professionalOnly
       slug
       contentful_id
       category
       skinType
-      description {
-        description
-      }
+      description { description }
       video
       keyIngredients {
         id
@@ -69,9 +63,6 @@ export const query = graphql`
         benefit
       }
       imgRetail {
-        localFile{
-          publicURL
-        }
         id
         title
         description
@@ -82,21 +73,6 @@ export const query = graphql`
           toFormat: WEBP
           background: "#fff"
         ) {
-          ...GatsbyContentfulFixed
-        }
-      }
-      imgTravel{
-        localFile{
-          publicURL
-        }
-        fixed(
-          resizingBehavior:NO_CHANGE
-          height: 200
-          quality: 100
-          toFormat: WEBP
-          background: "#fff"
-        ) {
-          src
           ...GatsbyContentfulFixed
         }
       }

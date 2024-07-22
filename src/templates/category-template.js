@@ -57,57 +57,29 @@ export const query = graphql`
     ) {
       edges {
         node {
+          contentful_id
           acneSafe
           isBestSeller
-          contentful_id
           name
-          description {
-            description
-          }
+          description { description }
           imgRetail {
-            localFile {
-              publicURL
-            }
-            id
-            title
-            description
             fixed(
-              width: 300
+              width: 400
               quality: 100
               toFormat: WEBP
               background: "#fff"
             ) {
-              ...GatsbyContentfulFixed
-            }
-          }
-          imgTravel {
-            localFile {
-              publicURL
-            }
-            fixed(
-              width: 300
-              quality: 100
-              toFormat: WEBP
-              background: "#fff"
-            ) {
-              src
               ...GatsbyContentfulFixed
             }
           }
           professionalOnly
-          profiles {
-            file {
-              url
-            }
-          }
+          profiles { file { url } }
           slug
           skinType
           video
           keyIngredients {
             id
-            name {
-              formatted
-            }
+            name { formatted }
             benefit
           }
           award
