@@ -108,11 +108,7 @@ const ProductImagesLogos = ({ data }) => {
 }
 export const query = graphql`
   {
-    file(
-      relativePath: {
-        eq: "slideshow/array-of-michele-corley-products-1280x800-blue.jpg"
-      }
-    ) {
+    file( relativePath: { eq: "slideshow/array-of-michele-corley-products-1280x800-blue.jpg" }) {
       publicURL
     }
     cleansers: allContentfulMccProduct(
@@ -129,10 +125,7 @@ export const query = graphql`
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -140,10 +133,7 @@ export const query = graphql`
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -164,21 +154,15 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
-            }
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
             }
           }
           imgTravel {
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -199,21 +183,15 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
-            }
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
             }
           }
           imgTravel {
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -234,21 +212,15 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
-            }
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
             }
           }
           imgTravel {
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -269,21 +241,15 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
-            }
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
             }
           }
           imgTravel {
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -304,21 +270,15 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
-            }
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
             }
           }
           imgTravel {
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -339,21 +299,15 @@ export const query = graphql`
             id
             title
             description
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
-            }
-            fluid {
-              ...GatsbyContentfulFluid
             }
           }
           imgTravel {
             id
             title
             description
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
-            }
-            fixed(height: 230, toFormat: WEBP) {
+            fixed(height: 230, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
             }
           }
@@ -375,11 +329,8 @@ export const query = graphql`
             title
             description
             contentful_id
-            fixed(height: 164, toFormat: WEBP) {
+            fixed(height: 164, toFormat: WEBP, quality: 100) {
               ...GatsbyContentfulFixed
-            }
-            fluid(toFormat: WEBP) {
-              ...GatsbyContentfulFluid
             }
           }
         }
