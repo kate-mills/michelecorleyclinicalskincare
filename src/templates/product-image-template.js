@@ -68,7 +68,9 @@ export const query = graphql`
         id
         title
         description
+        localFile {publicURL}
         fluid(
+          cropFocus: BOTTOM
           maxWidth: 1000
           quality: 100
           toFormat: JPG
@@ -81,6 +83,7 @@ export const query = graphql`
         id
         title
         description
+        localFile {publicURL}
         fluid(
           cropFocus: BOTTOM
           maxWidth: 1000

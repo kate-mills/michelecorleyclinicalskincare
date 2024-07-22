@@ -15,7 +15,9 @@ const MediaImageTemplate = props => {
     className,
   } = props
 
+
   const seoDescription = `Drag and drop your copy of Michele Corley Clinical Skincare image for social media titled ${media.name}.`
+
   return (
     <>
       <SEO
@@ -53,6 +55,7 @@ export const query = graphql`
         id
         title
         description
+        localFile { publicURL }
         fluid(quality: 100, toFormat: WEBP) {
           ...GatsbyContentfulFluid
         }
