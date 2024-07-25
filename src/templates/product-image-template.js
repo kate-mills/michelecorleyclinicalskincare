@@ -25,10 +25,10 @@ const ProductImageTemplate = props => {
       />
       <div className={`${className}`}>
         <div className="top-bar">
-          <div className="top-bar--spacer">
+          <div className="top-bar--left_spacer">
           </div>
           <div
-            className="top-bar--goback"
+            className="top-bar--right_goback"
             role="button"
             tabIndex="0"
             onClick={goBack}
@@ -39,18 +39,22 @@ const ProductImageTemplate = props => {
         </div>
 
         <div className="flex-box-images">
-          <Img
-            className="retail-img img"
-            fluid={product.fluidImg.fluid}
-            alt={product.fluidImg.description}
-          />
-          {product.imgTravel && (
-            <Img
-              className="travel-img img"
-              fluid={product.imgTravel.fluid}
-              alt={product.imgTravel.description}
-            />
+          { product.imgTravel && (
+            <div className="img-box small-box">
+              <Img
+                className="img small-img"
+                fluid={product.imgTravel.fluid}
+                alt={product.imgTravel.description}
+              />
+            </div>
           )}
+          <div className="img-box">
+            <Img
+              className="img"
+              fluid={product.fluidImg.fluid}
+              alt={product.fluidImg.description}
+            />
+          </div>
         </div>
       </div>
     </>
@@ -103,26 +107,25 @@ export default styled(ProductImageTemplate)`
     background-color: var(--offWhite);
     border-color: transparent;
     min-width: 100vw;
+    min-height: calc(100vh + 200px);
 
     > .top-bar {
       color: var(--blackText);
       display: flex;
       align-items: center;
-      font-size: 1.4rem;
-      width: 100%;
 
-      > .top-bar--goback {
-        font-size: 3.5rem;
-        padding: 1rem 1rem;
+      > .top-bar--left_spacer{
+        width: 100vw;
+      }
+      > .top-bar--right_goback {
+        padding: 1rem 1.5rem;
+        font-size: 2.5rem;
         font-weight: 300;
 
         &:hover {
           cursor: pointer !important;
           background: var(--mainWhite);
         }
-      }
-      > .top-bar--spacer {
-        width: 100vw;
       }
     }
 
@@ -132,27 +135,32 @@ export default styled(ProductImageTemplate)`
       flex-wrap: nowrap;
       justify-content: center;
       margin: 2px auto 0;
-      width: 100%;
-      border: 1px solid transparent;
-      .img {
-        width: 50%;
-        border: 1px solid var(--offWhite);
-      }
-    }
+      border-inline: 1px solid transparent;
+      border-block-end: 1px solid transparent;
+      width: 100vw;
 
-    @media (min-width: 0px) and (max-width: 480px) {
-      > .top-bar {
-        > .top-bar--goback {
-          font-size: 2rem;
+      div.img-box {
+        background: var(--mainWhite);
+        border-inline: 1px solid var(--offWhite);
+        border-block-end: 1px solid var(--offWhite);
+        width: 100%;
+
+        & .small-img {
+          transform: scale(0.65) translateY(25%);
         }
       }
     }
+  }
 
-    @media (max-width: 1024px){
+  @media (max-width: 1024px) {
+    & {
       > .flex-box-images {
         flex-wrap: wrap;
-        .img {
-          width: 100%;
+        div.img-box {
+          width: 60vh;
+          & .small-img{
+            transform: scale(0.65) translateY(10%);
+          }
         }
       }
     }
