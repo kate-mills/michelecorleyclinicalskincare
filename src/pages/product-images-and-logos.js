@@ -19,86 +19,85 @@ const ProductImagesLogos = ({ data }) => {
 
       <h1>Product Images & Logos</h1>
       <p className="txt-center pb0">
-        The following resources are available for your use in representing
-        Michele Corley Clinical Skin Care products.
+        The following resources are available for your use in representing Michele Corley Clinical Skin Care products.
       </p>
       <ProductsWrapper>
         <article id="retail-size-images">
           <section id="cleansers-retail">
-            <h3>Cleansers (Retail-size)</h3>
+            <h2>Cleansers (Retail-size)</h2>
             <Thumbnails data={data.cleansers} />
           </section>
 
           <section id="toners-retail">
-            <h3>Toners (Retail-size)</h3>
+            <h2>Toners (Retail-size)</h2>
             <Thumbnails data={data.toners} />
           </section>
 
           <section id="moisturizers-spf-retail">
-            <h3>Moisturizers & SPF (Retail-size)</h3>
+            <h2>Moisturizers & SPF (Retail-size)</h2>
             <Thumbnails data={data.moisture} />
           </section>
 
           <section id="eyes-lips-retail">
-            <h3>Eyes & Lips (Retail-size)</h3>
+            <h2>Eyes & Lips (Retail-size)</h2>
             <Thumbnails data={data.eyesLips} />
           </section>
 
           <section id="serums-specialty-retail">
-            <h3>Serums & Specialty (Retail-size)</h3>
+            <h2>Serums & Specialty (Retail-size)</h2>
             <Thumbnails data={data.serums} />
           </section>
 
           <section id="exfoliants-retail">
-            <h3>Exfoliants (Retail-size)</h3>
+            <h2>Exfoliants (Retail-size)</h2>
             <Thumbnails data={data.exfoliants} />
           </section>
           <section id="masks-retail">
-            <h3>Masks (Retail-size)</h3>
+            <h2>Masks (Retail-size)</h2>
             <Thumbnails data={data.masks} />
           </section>
         </article>
 
         <article id="travel-size-images">
           <section id="cleansers-travel">
-            <h3>Cleansers (Travel-size)</h3>
+            <h2>Cleansers (Travel-size)</h2>
             <Thumbnails data={data.cleansers} travelMedia={true} />
           </section>
 
           <section id="toners-travel">
-            <h3>Toners (Travel-size)</h3>
+            <h2>Toners (Travel-size)</h2>
             <Thumbnails data={data.toners} travelMedia={true} />
           </section>
 
           <section id="moisturizers-spf-travel">
-            <h3>Moisturizers & SPF (Travel-size)</h3>
+            <h2>Moisturizers & SPF (Travel-size)</h2>
             <Thumbnails data={data.moisture} travelMedia={true} />
           </section>
 
           <section id="eyes-lips-travel">
-            <h3>Eyes & Lips (Travel-size)</h3>
+            <h2>Eyes & Lips (Travel-size)</h2>
             <Thumbnails data={data.eyesLips} travelMedia={true} />
           </section>
 
           <section id="serums-specialty-travel">
-            <h3>Serums & Specialty (Travel-size)</h3>
+            <h2>Serums & Specialty (Travel-size)</h2>
             <Thumbnails data={data.serums} travelMedia={true} />
           </section>
 
           <section id="exfoliants-travel">
-            <h3>Exfoliants (Travel-size)</h3>
+            <h2>Exfoliants (Travel-size)</h2>
             <Thumbnails data={data.exfoliants} travelMedia={true} />
           </section>
 
           <section id="masks-travel">
-            <h3>Masks (Travel-size)</h3>
+            <h2>Masks (Travel-size)</h2>
             <Thumbnails data={data.masks} travelMedia={true} />
           </section>
         </article>
 
         <article>
           <section id="logos">
-            <h3>Logos</h3>
+            <h2>Logos</h2>
             <Thumbnails data={data.logos} images={data.edges} logoMedia={true} />
           </section>
         </article>
@@ -341,25 +340,12 @@ export const query = graphql`
 
 const ProductsWrapper = styled.section`
   & article {
-    h2, h3{
+    & h2 {
       color: var(--poppy);
-      text-align: center;
-    }
-    h2{
-      padding-top: 2rem;
-    }
-    h3 {
       margin: 1.5rem 0 auto;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: pre;
-    }
-  }
-  @media (min-width: 563px) {
-    & article {
-      h2, h3{
-        text-align: left;
-      }
     }
   }
 `
