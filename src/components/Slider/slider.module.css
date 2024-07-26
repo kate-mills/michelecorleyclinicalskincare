@@ -8,6 +8,14 @@
   max-width: 850px;
   margin: auto auto;
 }
+.slideZero {
+  animation: none;
+  border-radius: 0.625rem;
+  background-color: var(--poppy);
+  height: auto;
+  max-width: 850px;
+  margin: auto auto;
+}
 
 @-webkit-keyframes fadeInFromNone {
     0% {

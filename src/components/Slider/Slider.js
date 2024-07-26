@@ -18,11 +18,12 @@ export default function Slideshow({ images = [], interval = 7500 }) {
 
   return (
     <Img
-      loading={currentSlide < 2 ? 'eager': 'lazy'}
-      fetchPriority={currentSlide < 2 ? 'high': 'low'}
+      loading={currentSlide < 1 ? 'eager': 'lazy'}
+      fadeIn={currentSlide < 1 ? false: true}
+      //fetchPriority={currentSlide < 2 ? 'high': 'low'}
       fluid={images[currentSlide].childImageSharp.fluid}
       alt={`Michele Corley product highlight`}
-      className={styles.opacity}
+      className={currentSlide < 1 ? styles.slideZero: styles.opacity}
     />
   )
 }
