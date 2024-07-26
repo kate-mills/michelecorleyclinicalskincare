@@ -49,7 +49,7 @@ const ProductImageTemplate = props => {
                 fluid={product.imgTravel.fluid}
                 alt={product.imgTravel.description}
               />
-            <a href={product.imgTravel.localFile.publicURL} className="btn" download={`Travel-size ${product.name}`}>Download Travel-size Image</a>
+            <a href={product.imgTravel.localFile.publicURL} className="btn travel" download={`Travel-size ${product.name}`}>Download Travel-size Image</a>
             </div>
           )}
           <div className="img-box large-box">
@@ -58,7 +58,7 @@ const ProductImageTemplate = props => {
               fluid={product.fluidImg.fluid}
               alt={product.fluidImg.description}
             />
-            <a href={product.fluidImg.localFile.publicURL} className="btn" download={`${retailOrProText} ${product.name}`}>Download {retailOrProText} Image</a>
+            <a href={product.fluidImg.localFile.publicURL} className="btn retail" download={`${retailOrProText} ${product.name}`}>Download {retailOrProText} Image</a>
           </div>
         </div>
       </div>
@@ -182,6 +182,9 @@ export default styled(ProductImageTemplate)`
         div.img-box {
           & a.btn{
             bottom: 3%;
+          }
+          & a.btn.travel{
+            bottom: 25%;
           }
 
           width: 60vh;
