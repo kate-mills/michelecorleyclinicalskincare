@@ -13,7 +13,7 @@ const ListItem = ({ title, slug, image, showTitle = true }) => {
       >
         <span className="sr-only">View Larger Image.</span>
         <figure className={`thumbnail`}>
-          <Img alt={`Static Media for ${title}`} fixed={image.fixed} />
+          <Img loading="lazy" alt={`Static Media for ${title}`} fixed={image.fixed} />
           <figcaption
             className={`${!showTitle ? 'sr-only' : 'thumbnail-title'}`}
           >
