@@ -46,14 +46,16 @@ const ProductImageTemplate = props => {
                 fluid={product.imgTravel.fluid}
                 alt={product.imgTravel.description}
               />
+            <a href={product.imgTravel.localFile.publicURL} className="btn" download={`Travel-size ${product.name}`}>Download Travel-size Image</a>
             </div>
           )}
-          <div className="img-box">
+          <div className="img-box large-box">
             <Img
-              className="img"
+              className="img large-img"
               fluid={product.fluidImg.fluid}
               alt={product.fluidImg.description}
             />
+            <a href={product.fluidImg.localFile.publicURL} className="btn" download={`Retail-size ${product.name}`}>Download Retail-size Image</a>
           </div>
         </div>
       </div>
@@ -130,7 +132,7 @@ export default styled(ProductImageTemplate)`
     }
 
     > .flex-box-images {
-      background: var(--mainWhite);
+      background: var(--mainMcc);
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
@@ -138,16 +140,32 @@ export default styled(ProductImageTemplate)`
       border-inline: 1px solid transparent;
       border-block-end: 1px solid transparent;
       width: 100vw;
+      padding-top: 5%;
 
       div.img-box {
         background: var(--mainWhite);
         border-inline: 1px solid var(--offWhite);
         border-block-end: 1px solid var(--offWhite);
-        width: 100%;
+        border-block-start: 1px solid var(--offWhite);
+        width: 85vh;
+        height: 100%;
 
+        position: relative;
+
+        & a.btn{
+          background-color: rgb(255 255 255 / 59%);
+          display: block;
+          position: absolute;
+          top: -8%;
+          left: 50%;
+          margin-left: -178px;
+          width: 356px;
+          text-align: center;
+          font-size: .8rem;
+        }
         & .small-img {
           transform: scale(0.65) translateY(25%);
-        }
+         }
       }
     }
   }
@@ -155,11 +173,16 @@ export default styled(ProductImageTemplate)`
   @media (max-width: 1024px) {
     & {
       > .flex-box-images {
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
+
         div.img-box {
+          & a.btn{
+            top: 3%;
+          }
+
           width: 60vh;
           & .small-img{
-            transform: scale(0.65) translateY(10%);
+            transform: scale(0.55) translateY(-10%);
           }
         }
       }
