@@ -16,6 +16,9 @@ const ProductImageTemplate = props => {
     className,
   } = props
 
+
+  const retailOrProText =  `${product.professionalOnly ? 'Pro':'Retail'}-size`
+
   return (
     <>
       <SEO
@@ -55,7 +58,7 @@ const ProductImageTemplate = props => {
               fluid={product.fluidImg.fluid}
               alt={product.fluidImg.description}
             />
-            <a href={product.fluidImg.localFile.publicURL} className="btn" download={`Retail-size ${product.name}`}>Download Retail-size Image</a>
+            <a href={product.fluidImg.localFile.publicURL} className="btn" download={`${retailOrProText} ${product.name}`}>Download {retailOrProText} Image</a>
           </div>
         </div>
       </div>
@@ -67,6 +70,7 @@ export const query = graphql`
   query GetMccImage($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
       name
+      professionalOnly
       description {
         description
       }
@@ -140,7 +144,7 @@ export default styled(ProductImageTemplate)`
       border-inline: 1px solid transparent;
       border-block-end: 1px solid transparent;
       width: 100vw;
-      padding-top: 5%;
+      padding-bottom: 5%;
 
       div.img-box {
         background: var(--mainWhite);
@@ -156,7 +160,7 @@ export default styled(ProductImageTemplate)`
           background-color: rgb(255 255 255 / 59%);
           display: block;
           position: absolute;
-          top: -8%;
+          bottom: -8%;
           left: 50%;
           margin-left: -178px;
           width: 356px;
@@ -177,7 +181,7 @@ export default styled(ProductImageTemplate)`
 
         div.img-box {
           & a.btn{
-            top: 3%;
+            bottom: 3%;
           }
 
           width: 60vh;
