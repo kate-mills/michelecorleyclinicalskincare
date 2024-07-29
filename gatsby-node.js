@@ -59,7 +59,11 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/${category.slug}`,
       component: path.resolve(`src/templates/category-template.js`),
-      context: { name: category.name.toLowerCase(), category },
+      context: {
+        name: category.name.toLowerCase(),
+        description: category.description.description,
+        category: { ...category },
+      },
     })
   })
 
@@ -72,7 +76,6 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   results.productData.data.products.nodes.forEach(product => {
-
     createPage({
       path: `/products/${product.slug}`,
       component: path.resolve(`src/templates/product-template.js`),
@@ -85,5 +88,4 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { slug: product.slug },
     })
   })
-
 }

@@ -10,7 +10,7 @@ import ProductList from '../components/Products/ProductList'
 const CategoryTemplate = props => {
   const {
     data,
-    pageContext: { category },
+    pageContext: { name, description, category },
   } = props
 
   const {
@@ -19,11 +19,11 @@ const CategoryTemplate = props => {
 
   return (
     <Layout
-      title={`Michele Corley Skin Care ${category.name}`}
-      description={category.description.description}
+      title={`Michele Corley Skin Care ${name}`}
+      description={description}
     >
       <SpaLocatorFixedLink />
-      <h1>{category.name}</h1>
+      <h1>{name}</h1>
       <CategoryTemplateWrapper>
         <p className="description">
           {index_0.trim()} <span className="bold">{bold.trim()} </span>
