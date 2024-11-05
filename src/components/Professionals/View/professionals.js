@@ -17,6 +17,8 @@ const query = graphql`
       nodes {
         id
         data {
+          isNew
+          dateUpdated(formatString: "MM/DD/YY")
           name
           notes
           pdf {
@@ -35,6 +37,8 @@ const query = graphql`
         id
         data {
           name
+          isNew
+          dateUpdated(formatString: "MM/DD/YY")
           notes
           pdf {
             localFiles {
