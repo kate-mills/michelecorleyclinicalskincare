@@ -7,6 +7,7 @@ import styles from './professionals.module.css'
 import DownloadList from './downloadList'
 
 import { graphql, useStaticQuery } from 'gatsby'
+import ProVideo from './proVideo'
 
 const query = graphql`
   {
@@ -115,27 +116,32 @@ const Profile = () => {
   return (
     <article>
       <SEO
-        title="Education"
+        title="Professional Education"
         image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
       />
       <h1 className="poppy txt-center">Education</h1>
+
       {/* Manuals */}
-      <section className={styles.manual__section}>
+      <section className={styles.manual__section} id="manuals">
         <Img
           className={styles.esthetician_image}
           fluid={esty[0].data.image.localFiles[0].childImageSharp.fluid}
         />
-        <DownloadList data={manuals.nodes} />
+        <DownloadList data={manuals.nodes.slice(0, 4)} />
+        <div className={styles.section_flex_div}>
+          <DownloadList data={manuals.nodes.slice(4)} />
+        </div>
       </section>
+
       {/* Kits */}
-      <section className={`${styles.kit__section}`}>
+      <section className={`${styles.kit__section}`} id="kits">
         <h2 className={`${styles.section__header}`}>Kits</h2>
         <DownloadList data={kitsSlice1} />
         <DownloadList data={kitsSlice2} />
       </section>
 
       {/* Row -  Facials */}
-      <section title="Facials" className={`${styles.facial__section}`}>
+      <section title="Facials" className={`${styles.facial__section}`} id="facials">
         <h2 className={styles.section__header}>Facial Protocols</h2>
         <DownloadList data={facialsA.nodes} />
         <div className={styles.facial__download_list_image_container}>
@@ -152,7 +158,7 @@ const Profile = () => {
       </section>
 
       {/* Orders */}
-      <section className={`${styles.order__specifics}`}>
+      <section className={`${styles.order__specifics}`} id="orders">
         <h2 className={`${styles.section__header}`}>Order Specifics</h2>
         <div
           className={`${styles.order__specifics__wrapper} ${styles.section__content__wrapper}`}
@@ -174,6 +180,14 @@ const Profile = () => {
               </p>
             </li>
           </ul>
+        </div>
+      </section>
+
+      {/* Row - Product Classes*/}
+      <section className={styles.section} id="product-classes">
+        <h2 className={styles.section__header}>Product Classes</h2>
+        <div>
+      <ProVideo videoId="1018659107" title="Acne Safe Best Sellers Zoom Training" />
         </div>
       </section>
     </article>

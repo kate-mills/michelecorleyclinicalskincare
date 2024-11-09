@@ -58,7 +58,7 @@ const DownloadList = ({ data, className }) => {
               )}
             <a
               className={styles.download__btn}
-              href={data.pdf.localFiles[0].publicURL}
+              href={data?.pdf?.localFiles[0]?.publicURL}
               target="_blank"
               rel="noreferrer"
               download={data.name}
