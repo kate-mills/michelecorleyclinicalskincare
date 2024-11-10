@@ -121,48 +121,59 @@ const Profile = () => {
       />
       <h1 className="poppy txt-center">Education</h1>
 
+      <p className="txt-center">
+        Explore professional PDF and video resources below to enhance your
+        Michele Corley Clinical Skin Care product knowledge.
+      </p>
       {/* Manuals */}
-      <section className={styles.manual__section} id="manuals">
-        <Img
-          className={styles.esthetician_image}
-          fluid={esty[0].data.image.localFiles[0].childImageSharp.fluid}
-        />
-        <DownloadList data={manuals.nodes.slice(0, 4)} />
-        <div className={styles.section_flex_div}>
+      <section className={styles.section} id="manuals">
+        <h2 className={'poppy'}>Manuals</h2>
+        <div
+          style={{ alignItems: 'stretch' }}
+          className={styles.sectionFlexItems}
+        >
+          <Img
+            className={styles.estheticianImg}
+            fluid={esty[0].data.image.localFiles[0].childImageSharp.fluid}
+          />
+          <DownloadList data={manuals.nodes.slice(0, 4)} />
+        </div>
+        <div className={styles.sectionFlexItem}>
           <DownloadList data={manuals.nodes.slice(4)} />
         </div>
       </section>
 
       {/* Kits */}
-      <section className={`${styles.kit__section}`} id="kits">
-        <h2 className={`${styles.section__header}`}>Kits</h2>
-        <DownloadList data={kitsSlice1} />
-        <DownloadList data={kitsSlice2} />
+      <section className={styles.section} id="kits">
+        <h2 className={'poppy'}>Kits</h2>
+        <div className={styles.sectionFlexItems}>
+          <DownloadList data={kitsSlice1} />
+          <DownloadList data={kitsSlice2} />
+        </div>
       </section>
 
       {/* Row -  Facials */}
-      <section title="Facials" className={`${styles.facial__section}`} id="facials">
-        <h2 className={styles.section__header}>Facial Protocols</h2>
-        <DownloadList data={facialsA.nodes} />
-        <div className={styles.facial__download_list_image_container}>
-          <DownloadList
-            data={facialsB.nodes}
-            className={styles.facial__download_list}
-          />
-          <Img
-            className={styles.facial__bowl_image}
-            fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
-            alt="Show a hand holding a bowl containing a fan brush and facial product."
-          />
+      <section title="Facials" className={`${styles.section}`} id="facials">
+        <h2 className={'poppy'}>Facial Protocols</h2>
+        <div className={styles.sectionFlexItems}>
+          <div>
+            <DownloadList data={facialsA.nodes} />
+          </div>
+          <div>
+            <DownloadList data={facialsB.nodes} />
+            <Img
+              fluid={bowl[0].data.image.localFiles[0].childImageSharp.fluid}
+              alt="Hand holding a bowl containing a fan brush and facial product."
+              className={styles.facialBowlImg}
+            />
+          </div>
         </div>
       </section>
 
       {/* Orders */}
-      <section className={`${styles.order__specifics}`} id="orders">
-        <h2 className={`${styles.section__header}`}>Order Specifics</h2>
-        <div
-          className={`${styles.order__specifics__wrapper} ${styles.section__content__wrapper}`}
-        >
+      <section className={`${styles.section}`} id="orders">
+        <h2 className={'poppy'}>Order Specifics</h2>
+        <div className={`${styles.sectionFlexItems}`}>
           <ul data-bullet-list className={styles.order__specifics__list}>
             <li className={styles.order__specifics__item}>
               <p className={styles.order__specifics__item__details}>
@@ -185,9 +196,12 @@ const Profile = () => {
 
       {/* Row - Product Classes*/}
       <section className={styles.section} id="product-classes">
-        <h2 className={styles.section__header}>Product Classes</h2>
+        <h2 className={'poppy'}>Product Classes</h2>
         <div>
-      <ProVideo videoId="1018659107" title="Acne Safe Best Sellers Zoom Training" />
+          <ProVideo
+            videoId="1018659107"
+            title="Acne Safe Best Sellers Zoom Training"
+          />
         </div>
       </section>
     </article>

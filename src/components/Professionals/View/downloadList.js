@@ -2,18 +2,16 @@ import React from 'react'
 
 import styles from './downloadList.module.css'
 
-const DownloadList = ({ data, className }) => {
+const DownloadList = ({ data }) => {
   return (
-    <div className={`${styles.download_list} ${className || 'primary'} `}>
+    <div className={styles.downloadList}>
       {data.map(({ id, data }) => {
         return (
           <div key={id} className={styles.download}>
-            <h3 className={`${styles.download__name}`}>
-              {data.name}
-            </h3>
-            <p className={styles.download__notes}>{data.notes}</p>
+            <h3>{data.name}</h3>
+            <p>{data.notes}</p>
               {data.dateUpdated && (
-                <div className={styles.date_info}>
+                <div className={styles.dateInfo}>
                   <div>
                   {data.isNew && (
                     <input
@@ -57,14 +55,12 @@ const DownloadList = ({ data, className }) => {
                 </div>
               )}
             <a
-              className={styles.download__btn}
+              className={'btn'}
               href={data?.pdf?.localFiles[0]?.publicURL}
               target="_blank"
               rel="noreferrer"
               download={data.name}
-            >
-              Download
-            </a>
+            >Download PDF</a>
           </div>
         )
       })}

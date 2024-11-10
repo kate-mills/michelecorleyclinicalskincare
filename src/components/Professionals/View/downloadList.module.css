@@ -1,89 +1,65 @@
-.download_list {
+.downloadList {
   margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  line-height: normal;
-
-  .download {
-    margin: 0 auto 1.88rem;
-    font-size: x-small;
-  }
-  .download__name {
-    font-size: 1.4rem;
-    letter-spacing: -0.09rem;
-    white-space: pre-line;
-    margin: 0px auto;
-    padding: 0;
-  }
-  .download__notes {
-    padding-block: 5px;
-    margin-inline: 5px;
-  }
-  .download__btn {
-    background: var(--mainWhite);
-    border: 2px solid var(--poppyLow);
-    border-radius: 8px;
-    box-shadow: var(--light-shadow);
-    color: var(--poppyLow);
-    display: inline-block;
-    letter-spacing: var(--mainSpacing);
-    padding: 0.8rem 1.6rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: var(--mainTransition);
-  }
-  .download__btn:hover,
-  .download__btn:active,
-  .download__btn:focus {
-    color: var(--poppyHigh);
-  }
-}
-/* Toggle Date Info */
-.date_info {
   display: flex;
-  width: 100%;
+  flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
-  font-size: xx-small;
-  font-weight: normal;
-  line-height: normal;
-  position: relative;
-  margin: -5px auto 10px;
-  div {
-    padding: 0;
+  .download {
     font-size: x-small;
-    display: flex;
-  }
-  .ibtn {
-    background: var(--mainWhite);
-    border: 1px solid var(--mainMcc);
-    border-radius: 0.9rem !important;
-    box-shadow: none !important;
-    color: var(--mainBlack);
-    cursor: pointer !important;
-    display: inline-block;
-    font-size: xx-small;
-    letter-spacing: 1.5px;
-    outline: none !important;
-    padding: 5px !important;
-    text-decoration: none;
-    transition: var(--mainTransition);
-  }
-  .ibtn:focus {
-    border: 1px solid var(--mainMcc) !important;
-    outline: none !important;
-    outline: 1px solid transparent !important;
-    outline-offset: 0;
-  }
-}
+    margin-block-end: 1.88rem;
+    margin-inline: auto;
+    text-align: center;
+    width: 100%;
+    h3 {
+      font-size: 1.5rem;
+      letter-spacing: -0.09rem;
+      margin-block-end: 0;
+    }
+    p {
+      font-size: 14px;
+      padding-inline: 10%;
+      padding-block-end: 0;
+      min-height: 1rem; /* if no value */
+    }
+    /* Toggle Date Info */
+    .dateInfo {
+      display: flex;
+      justify-content: center;
+      margin: 5px auto 10px;
+      > div {
+        padding: 0;
+        display: flex;
+      }
+      .ibtn {
+        background: var(--mainWhite);
+        border: 1px solid var(--mainMcc);
+        border-radius: 0.9rem;
+        color: var(--mainBlack);
+        cursor: pointer;
+        display: inline-block;
+        font-size: xx-small;
+        line-height: normal;
+        letter-spacing: 1.5px;
+        outline: none !important;
+        padding: 6px;
+        text-decoration: none;
+        transition: border 0.2s ease-in;
+      }
+      .ibtn:hover,
+      .ibtn:focus,
+      .ibtn:active {
+        border: 1px solid var(--poppyLow) !important;
+        outline: 1px solid transparent !important;
+        outline-offset: 0 !important;
+      }
+    }
 
-@media screen and (min-width: 1024px) {
-  .download_list {
-    width: 50%;
-  }
-}
-@media screen and (min-width: 767px) {
-  .download_list {
-    width: 45%;
+    @media screen and (max-width: 481px) {
+      h3 {
+        font-size: 1.3rem;
+      }
+      p {
+        padding-inline: 1rem;
+      }
+    }
   }
 }

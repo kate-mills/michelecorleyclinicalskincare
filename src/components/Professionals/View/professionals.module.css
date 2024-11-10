@@ -1,90 +1,47 @@
-/* GLOBALS */
-.section__header {
+.section {
   width: 100%;
+  margin: 0 auto 1rem;
   text-align: center;
-  color: var(--poppy);
-  font-size: 2.3rem;
-  margin: 1rem auto;
-}
-
-.section_flex_div{
-  width: 100%;
-  margin: 0 auto;
-  > div{
-    width: 100%;
+  .sectionFlexItems {
+    align-items: flex-start;
+    align-content: flex-start;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
     > div {
+      /* download_list */
       width: 50%;
-      margin: 0 0 1.88rem;
+    }
+
+    div.facialBowlImg {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 252px;
     }
   }
-}
-
-/* MANUALS - KITS - FACIALS */
-.manual__section, .kit__section, .facial__section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-}
-
-/* MANUALS */
-.esthetician_image {
-  margin: 0 auto 30px;
-  width: 40%;
-}
-
-/* FACIALS  */
-.facial__download_list_image_container {
-  width: 50%;
-}
-div.facial__download_list {
-  width: 100%;
-}
-.facial__bowl_image {
-  margin: 30px auto;
-  width: 50%;
-}
-
-/* ORDERS  */
-.order__specifics {
-  margin: 0 auto;
-  text-align: center;
-}
-.order__specifics__item > .order__specifics__item__details {
-  margin-left: 25px;
-  text-align: left;
-  white-space: pre-line;
-}
-.order__specifics__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@media screen and (max-width: 767px) {
-  .section_flex_div{
-    > div{
-      flex-direction: column;
-      align-items: center;
-      > div{
-        width: unset;
+  .sectionFlexItem {
+    margin: 0 auto;
+    > div {
+      /* download_list */
+      width: 100%;
+      > div {
+        /* individual download */
+        width: 50%;
       }
     }
   }
-  
-  .facial__section, .kit__section, .manual__section {
-    > div{
-      flex-direction: column;
-      align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    div.estheticianImg {
+      display: none;
     }
-  }
-  .esthetician_image {
-    display: none;
-  }
-  .facial__download_list_image_container {
-    width: 100%;
+    .sectionFlexItem > div > div,
+    .sectionFlexItems > div,
+    .sectionList > div {
+      width: 100%;
+    }
   }
 }
