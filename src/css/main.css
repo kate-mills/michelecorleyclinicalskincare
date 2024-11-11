@@ -59,7 +59,7 @@ body {
   color: var(--offWhite);
 }
 :focus {
-  outline: 2px solid var(--poppy) !important;
+  outline: none;
   outline-offset: -4px;
   border-radius: 4px;
 }
@@ -68,6 +68,10 @@ a {
   color: var(--mainBlack);
   text-decoration: none;
   line-height: 1.5em;
+}
+button:focus,
+a:focus{
+  outline: 2px solid var(--poppy) !important;
 }
 a:hover {
   cursor: pointer;
