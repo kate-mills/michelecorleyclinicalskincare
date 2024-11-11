@@ -191,9 +191,9 @@ const Profile = () => {
         </div>
       </section>
 
-      {/* Row - Product Classes*/}
-      <section className={styles.section} id="product-classes">
-        <h2 className={'poppy'}>Product Classes</h2>
+      {/* Row - Virtual Classes*/}
+      <section className={styles.section} id="virtual-classes">
+        <h2 className={'poppy'}>Virtual Classes</h2>
         <div>
           <ProVideo
             videoId="1018659107"
