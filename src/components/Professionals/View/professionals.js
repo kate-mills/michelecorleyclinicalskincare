@@ -128,18 +128,15 @@ const Profile = () => {
       {/* Manuals */}
       <section className={styles.section} id="manuals">
         <h2 className={'poppy'}>Manuals</h2>
-        <div
-          style={{ alignItems: 'stretch' }}
-          className={styles.sectionFlexItems}
-        >
+        <div className={styles.sectionFlexItems}>
           <Img
             className={styles.estheticianImg}
             fluid={esty[0].data.image.localFiles[0].childImageSharp.fluid}
           />
-          <DownloadList data={manuals.nodes.slice(0, 4)} />
+          <DownloadList data={manuals.nodes.slice(0, 4)}/>
         </div>
-        <div className={styles.sectionFlexItem}>
-          <DownloadList data={manuals.nodes.slice(4)} />
+        <div className={styles.sectionFlexSingle}>
+          <DownloadList data={manuals.nodes.slice(4)}/>
         </div>
       </section>
 
@@ -153,7 +150,7 @@ const Profile = () => {
       </section>
 
       {/* Row -  Facials */}
-      <section title="Facials" className={`${styles.section}`} id="facials">
+      <section title="Facials" className={styles.section} id="facials">
         <h2 className={'poppy'}>Facial Protocols</h2>
         <div className={styles.sectionFlexItems}>
           <div>
@@ -171,9 +168,9 @@ const Profile = () => {
       </section>
 
       {/* Orders */}
-      <section className={`${styles.section}`} id="orders">
+      <section className={styles.section} id="orders">
         <h2 className={'poppy'}>Order Specifics</h2>
-        <div className={`${styles.sectionFlexItems}`}>
+        <div className={styles.sectionFlexItems}>
           <ul data-bullet-list className={styles.order__specifics__list}>
             <li className={styles.order__specifics__item}>
               <p className={styles.order__specifics__item__details}>
