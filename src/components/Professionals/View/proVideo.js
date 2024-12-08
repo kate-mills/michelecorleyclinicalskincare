@@ -19,7 +19,7 @@ const ProVideo = ({ videoId, title, ...props }) => {
 }
 
 const IframeVideoWrapper = styled.div`
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   width: 75%;
   transition: margin .2s ease, width .8s ease;
 

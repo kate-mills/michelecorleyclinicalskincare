@@ -199,6 +199,10 @@ const Profile = () => {
             videoId="1018659107"
             title="Acne Safe Best Sellers Zoom Training"
           />
+          <ProVideo
+            videoId="1036018318"
+            title="All Acne Safe Products Zoom Training"
+          />
         </div>
       </section>
     </article>
