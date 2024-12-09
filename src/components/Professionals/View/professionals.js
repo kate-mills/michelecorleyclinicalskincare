@@ -196,15 +196,15 @@ const Profile = () => {
         <h2 className={'poppy'}>Virtual Classes</h2>
         <div>
           <ProVideo
-            videoId="1035709332"
-            title="All Acne Safe Products Zoom Training"
-          />
-          <ProVideo
             videoId="1018659107"
             title="Acne Safe Best Sellers Zoom Training"
           />
           <ProVideo
             videoId="1036018318"
+            title="All Acne Safe Products Zoom Training"
+          />
+          <ProVideo
+            videoId="1035709332"
             title="All Acne Safe Products Zoom Training"
           />
         </div>
