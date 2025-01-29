@@ -1,13 +1,14 @@
 import React from 'react'
-import SEO from '../../../components/FullSeo'
+import SEO from '../../../../components/FullSeo'
 
 import Img from 'gatsby-image'
 
-import styles from './professionals.module.css'
-import DownloadList from './downloadList'
+import styles from './index.module.css'
+import DownloadList from '../downloadList'
 
 import { graphql, useStaticQuery } from 'gatsby'
-import ProVideo from './proVideo'
+//import ProLayout from './ProLayout'
+import ProVideo from '../proVideo'
 
 const query = graphql`
   {

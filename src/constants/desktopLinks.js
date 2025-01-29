@@ -71,7 +71,7 @@ export default [
   {
     name: <ProfessionalStatus />,
     id: 'education',
-    path: '/app/education',
+    path: '/app/education/manuals',
     subMenu: [],
   },
   {

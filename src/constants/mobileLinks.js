@@ -43,7 +43,7 @@ export default [
   },
   { path: '/contact/', text: 'contact', menu: [] },
   { path: '/pro-orders/', text: 'pro orders', menu: [] },
-  { id: 'education', path: '/app/education', text: <ProfessionalStatus/> , menu: [] },
+  { id: 'education', path: '/app/education/manuals', text: <ProfessionalStatus/> , menu: [] },
   { path: '/articles/', text: 'articles', menu: [] },
 ]
 
