@@ -1,6 +1,4 @@
 import React from 'react'
-import SEO from '../../../../components/FullSeo'
-
 import Img from 'gatsby-image'
 
 import styles from './index.module.css'
@@ -71,11 +69,6 @@ const Profile = () => {
 
   return (
     <article>
-      <SEO
-        title="PRO - Facial Protocols"
-        image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
-      />
-
       {/* Row -  Facials */}
       <section title="Facials" className={styles.section} id="facials">
         <div className={styles.sectionFlexItems}>

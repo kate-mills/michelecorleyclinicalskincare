@@ -25,7 +25,7 @@ const ProLayout = ({ data, title, location, children }) => {
 
   return (
     <Layout noindex>
-      <SEO title={`PRO - ${capFirstLetter(proTitle)}`}
+      <SEO title={`EDUCATION - ${capFirstLetter(proTitle)}`}
         image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
       />
       <div>
