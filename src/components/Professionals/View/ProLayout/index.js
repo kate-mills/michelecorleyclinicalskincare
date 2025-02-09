@@ -13,7 +13,8 @@ function capFirstLetter(propertyName) {
 }
 
 const ProLayout = ({ data, title, location, children }) => {
-  if (!isLoggedIn() && location.pathname !== `/pro/login`) {
+  const isBrowser = typeof window !== "undefined"
+  if( isBrowser && !isLoggedIn() && location.pathname !== `/pro/login`) {
     navigate(`/pro/login`)
     return null
   }
