@@ -1,4 +1,5 @@
 import React from 'react'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Link, navigate } from '@reach/router'
 import { isLoggedIn, logout } from '../../../utils/auth'
 
@@ -9,24 +10,21 @@ export default () => {
 
   if (!isLoggedIn()) {
     details = (
-      <Link to="/app/login">
-        EDUCATION
-      </Link>
+      <AniLink to="/pro/login">PROFESSIONALS</AniLink>
     )
   } else {
     details = (
       <span className={styles[`professional__status__span`]}>
-        <Link to="/app/education">EDUCATION</Link>
+        <AniLink fade to="/pro/manuals">PROFESSIONALS</AniLink>
         <Link
-          aria-hidden="true"
           className={`logout-link ${styles[`professional__logout__link`]}`}
-          to="/"
+          to="/pro/login"
           onClick={event => {
             event.preventDefault()
-            logout(() => navigate(`/app/login`))
+            logout(() => navigate(`/pro/login`))
           }}
         >
-          Logout
+         Logout
         </Link>
       </span>
     )

@@ -1,17 +1,13 @@
-.professional__status__span{
-  position: relative;
-}
-.professional__status__span a{
+a.professional__logout__link {
+  border: 4px solid var(--mainWhite);
   padding: 5px;
+  padding-inline-start: 0;
 }
-.pro__education .professional__logout__link {
-  color: var(--mainWhite);
-  font-size: .35rem;
-  position: absolute;
-  top: 100%;
-  left: 59%;
-  padding: 0 0;
+a.professional__logout__link::before {
+  content: '/ ';
+  color: var(--darkGrey);
 }
-.pro__education a.logout-link.professional__logout__link:hover {
-  color: var(--mainBlack);
+a.professional__logout__link:focus,
+.professional__logout__link:hover {
+  color: red;
 }

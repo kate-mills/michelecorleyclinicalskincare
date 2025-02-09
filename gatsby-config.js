@@ -49,6 +49,8 @@ module.exports = {
           { userAgent: '*', allow: '/' },
           { userAgent: '*', disallow: '/app' },
           { userAgent: '*', disallow: '/app/login' },
+          { userAgent: '*', disallow: '/pro'},
+          { userAgent: '*', disallow: '/pro/login' },
         ],
       },
     },

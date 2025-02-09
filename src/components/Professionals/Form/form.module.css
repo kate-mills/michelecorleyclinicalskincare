@@ -4,6 +4,9 @@
   align-items: center;
   margin: 0 auto 3rem;
 }
+.form__header{
+  text-align: center;
+}
 .form__label {
   display: block;
   letter-spacing: 0.125em;
