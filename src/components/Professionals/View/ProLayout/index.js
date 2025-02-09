@@ -30,7 +30,7 @@ const ProLayout = ({ data, title, location, children }) => {
         image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
       />
       <div>
-        <h1 className={`poppy txt-center`}>PRO - Education</h1>
+        <h2 className={`poppy txt-center`}>PRO Education</h2>
         <ProNavigation activePath={activePath} />
       </div>
       {children}
