@@ -9,6 +9,10 @@ const VirtualClasses  = () => {
       <section className={styles.section} id="virtual-classes">
         <div>
           <ProVideo
+            videoId="1055674922"
+            title="Moisturizers & Masks Zoom Training"
+          />
+          <ProVideo
             videoId="1018659107"
             title="Acne Safe Best Sellers Zoom Training"
           />
