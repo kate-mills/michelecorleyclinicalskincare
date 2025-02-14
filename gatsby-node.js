@@ -8,7 +8,7 @@ exports.onCreatePage = async ({ page, actions }) => {
   if(page.path.match(/^(\/pro\/)(?!\/pro-)/)){
     page.matchPath = `/pro/*`
   }
-  else if (page.path.match(/^\/app/)) {
+  if (page.path.match(/^\/app/)) {
     page.matchPath = `/app/*`
   }
   // Update the page.

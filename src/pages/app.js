@@ -6,6 +6,7 @@ import Manuals from '../components/Professionals/View/Manuals'
 import Kits from '../components/Professionals/View/Kits'
 import FacialProtocols from '../components/Professionals/View/FacialProtocols'
 import VirtualClasses from '../components/Professionals/View/VirtualClasses'
+import Orders from '../components/Professionals/View/Orders'
 
 import Login from '../components/Professionals/Login'
 import PrivateRoute from '../components/Professionals/PrivateRoute'
@@ -19,6 +20,7 @@ const App = (props) => {
         <PrivateRoute path="/kits" component={Kits}/>
         <PrivateRoute path="/facials" component={FacialProtocols}/>
         <PrivateRoute path="/classes" component={VirtualClasses}/>
+        <PrivateRoute path="/orders" component={Orders}/>
       </ProLayout>
       <Login path="/app/login"/>
 
