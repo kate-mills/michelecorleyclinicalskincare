@@ -1,0 +1,46 @@
+.manuals {
+  width: 100%;
+  margin: 0 auto 1rem;
+  text-align: center;
+
+  .sectionFlexItems {
+    align-items: flex-start;
+    align-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    /* download list */
+    > div{
+      width: 50%;
+    }
+    .estheticianImg {
+      margin-inline: auto;
+    }
+  }
+  .sectionFlexSingle {
+    display: flex;
+    /* individual download */
+    > div > div {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 719px) {
+    .estheticianImg {
+      display: none;
+    }
+    .sectionFlexItems {
+      /* download list */
+      > div {
+        width: 100%;
+      }
+    }
+    .sectionFlexSingle {
+      /* individual download */
+      > div > div {
+        width: 100%;
+      }
+    }
+  }
+}

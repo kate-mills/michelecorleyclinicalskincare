@@ -27,7 +27,6 @@ const MoreItems = props => {
             return (
               <li key={id} className={`${css} child`}>
                 <AniLink fade to={item.path}>
-                  {' '}
                   {item.text}
                 </AniLink>
               </li>

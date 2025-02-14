@@ -35,6 +35,7 @@ export default [
     title: 'WHY MC?',
     menu: [
       subLinkProps('why choose us?', 'why-mc'),
+      subLinkProps('articles', 'articles'),
       subLinkProps('before and after', 'before-and-after'),
       subLinkProps('rave reviews!', 'rave-reviews'),
       subLinkProps('press', 'press'),
@@ -43,8 +44,7 @@ export default [
   },
   { path: '/contact/', text: 'contact', menu: [] },
   { path: '/pro-orders/', text: 'pro orders', menu: [] },
-  { id: 'education', path: '/app/education', text: <ProfessionalStatus/> , menu: [] },
-  { path: '/articles/', text: 'articles', menu: [] },
+  { id: 'education', path: '/pro/manuals', text: <ProfessionalStatus/> , menu: [] },
 ]
 
 export const seoLinks = [

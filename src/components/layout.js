@@ -12,7 +12,8 @@ import ProductSearch from './ProductSearch'
 import Footer from './Footer'
 
 const Layout = props => {
-  const { title, description, image, seoTitle, noindex, children } = props
+  const {title, description, image, seoTitle, noindex, children,
+    hideProductSearch, hideNavbars } = props
   return (
     <>
       <SEO
@@ -24,12 +25,14 @@ const Layout = props => {
       <Announcement />
       <div id="content">
         <main>
-          <MobileNavbar />
+          {!hideNavbars && <MobileNavbar />}
           <Logo />
-          <div style={{ display: 'sticky', top: '0' }}>
-            <ProductSearch tabIndex={0} />
-          </div>
-          <DesktopNavbar tabIndex={0} />
+          {!hideProductSearch && (
+            <div style={{ display: 'sticky', top: '0' }}>
+              <ProductSearch tabIndex={0} />
+            </div>
+          )}
+          {!hideNavbars && <DesktopNavbar tabIndex={0} />}
           {children}
           <Footer />
         </main>
@@ -48,6 +51,8 @@ Layout.defaultProps = {
   noindex: false,
   seoTitle: '',
   title: '',
+  hideProductSearch: false,
+  hideNavbars: false,
 }
 
 export default Layout

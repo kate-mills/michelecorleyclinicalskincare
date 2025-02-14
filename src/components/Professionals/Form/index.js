@@ -10,22 +10,21 @@ export default ({ handleSubmit, handleUpdate }) => {
 
   return (
     <>
-      <SEO
-        title={`Professionals Login`}
-        image={'https://michelecorleyclinicalskincare.com/logo.jpg'}
-      />
+      <SEO title={`Professionals Login`} />
       <p className={styles[`form__instructions`]}>
-        Professionals, please contact us at{' '}
+        Pros, contact us at
         <span className={styles[`phone`]}>{phone}</span>
         or <Email subject="Professional login and password" fontWeight="600" />{' '}
-        for access to our exclusive information.
+        to access to our exclusive information.
       </p>
+
+      <h3 className={styles[`form__header`]}>Education Login</h3>
       <form
         className={styles.form}
         method="post"
         onSubmit={event => {
           handleSubmit(event)
-          navigate(`/app/education`)
+          navigate(`/pro/manuals`)
         }}
       >
         <label htmlFor="username" className={styles[`form__label`]}>

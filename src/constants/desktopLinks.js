@@ -45,15 +45,18 @@ export default [
       { name: 'WHY CHOOSE US?',
         path: `/why-mc/`
       },
-      { name: 'BEFORE AND AFTER',
-        path: `/before-and-after/`
-      },
       { name: 'RAVE REVIEWS!',
         path: `/rave-reviews/`
+      },
+      {
+        name: 'ARTICLES',
+        path: '/articles/',
       },
       { name: 'PRESS',
         path: `/press/`
       },
+      { name: 'BEFORE AND AFTER', path: `/before-and-after/` },
+
       { name: 'PRODUCT IMAGES & LOGOS',
         path: `/product-images-and-logos/`
       },
@@ -71,13 +74,8 @@ export default [
   {
     name: <ProfessionalStatus />,
     id: 'education',
-    path: '/app/education',
+    path: '/pro/manuals',
     subMenu: [],
-  },
-  {
-    name: 'ARTICLES',
-    path: '/articles/',
-    subMenu: []
   },
 ]
 

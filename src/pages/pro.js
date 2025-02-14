@@ -14,7 +14,7 @@ import PrivateRoute from '../components/Professionals/PrivateRoute'
 const App = (props) => {
   return (
     <Router primary={false}>
-      <ProLayout path="/app">
+      <ProLayout path="/pro">
         <PrivateRoute path="/" component={Manuals}/>
         <PrivateRoute path="/manuals" component={Manuals}/>
         <PrivateRoute path="/kits" component={Kits}/>
@@ -22,7 +22,8 @@ const App = (props) => {
         <PrivateRoute path="/classes" component={VirtualClasses}/>
         <PrivateRoute path="/orders" component={Orders}/>
       </ProLayout>
-      <Login path="/app/login"/>
+
+      <Login path="/pro/login" />
     </Router>
   )
 }
