@@ -1,0 +1,3 @@
+[build]
+  environment = { LIBVIPS_VERSION = "8.9.1" }  # Set the version as needed
+  command = "npm install -g libvips"
