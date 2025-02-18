@@ -26,7 +26,6 @@
     "gatsby-transformer-sharp": "^2.5.7",
     "gsap": "^3.4.0",
     "js-search": "^2.0.0",
-    "libvips": "0.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -34,7 +33,6 @@
     "react-icons": "^3.10.0",
     "react-player": "^2.6.0",
     "react-refresh": "^0.8.3",
-    "sharp": "^0.33.5",
     "styled-components": "^5.1.1",
     "typeface-montserrat": "^1.1.13",
     "typescript": "^4.7.4"
