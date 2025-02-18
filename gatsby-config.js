@@ -74,8 +74,8 @@ module.exports = {
         path: `${__dirname}/src/prof`,
       },
     },
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
