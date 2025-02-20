@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /app
+
+User-agent: *
+Disallow: /app/login
+
+User-agent: *
+Disallow: /pro
+
+User-agent: *
+Disallow: /pro/login
+Sitemap: https://michelecorleyclinicalskincare.com/sitemap.xml
+Host: https://michelecorleyclinicalskincare.com
