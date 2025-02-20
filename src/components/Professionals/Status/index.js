@@ -14,7 +14,7 @@ export default () => {
   } else {
     details = (
       <span className={styles[`professional__status__span`]}>
-        <Link fade to="/pro/manuals">PROFESSIONALS</Link>
+        <Link to="/pro/manuals">PROFESSIONALS</Link>
         <Link
           className={`logout-link ${styles[`professional__logout__link`]}`}
           to="/pro/login"

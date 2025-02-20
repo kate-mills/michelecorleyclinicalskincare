@@ -1,9 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useLocation } from '@reach/router'
 import { graphql, useStaticQuery } from 'gatsby'
 import SchemaOrg from './SchemaOrg'
+//import PropTypes from 'prop-types'
+
 
 const query = graphql`
   {
@@ -34,7 +35,7 @@ const query = graphql`
     }
   }
 `
-const SEO = ({ title:pageTitle, description, image, snippet, noindex }) => {
+const SEO = ({ title, description, image, snippet, noindex }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -50,7 +51,7 @@ const SEO = ({ title:pageTitle, description, image, snippet, noindex }) => {
   let defaultSeoImage = `${baseUrl}${defaultImage}`
 
   const seo = {
-    title: pageTitle || defaultTitle,
+    title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${image || defaultSeoImage}`,
     url: `${baseUrl}${pathname}`,
@@ -109,12 +110,12 @@ const SEO = ({ title:pageTitle, description, image, snippet, noindex }) => {
 
 export default SEO
 
-SEO.propTypes = {
+/*SEO.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   snippet: PropTypes.string,
-}
+}*/
 
 SEO.defaultProps = {
   title: null,

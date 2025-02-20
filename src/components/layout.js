@@ -1,9 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import 'typeface-montserrat'
 
 import SEO from '../components/FullSeo'
-
 import { Logo } from './LogoImg'
 import Announcement from './Announcement'
 import { MobileNavbar, DesktopNavbar } from './Navbar'
@@ -11,16 +9,17 @@ import ProductSearch from './ProductSearch'
 
 import Footer from './Footer'
 
+
 const Layout = props => {
-  const {title, description, image, seoTitle, noindex, children,
-    hideProductSearch, hideNavbars } = props
+  const {title="", description="", image="", seoTitle="", noindex=false, 
+    hideProductSearch=false, hideNavbars=false, children } = props
   return (
     <>
       <SEO
         noindex={noindex}
         title={seoTitle || title}
         description={description}
-        image={image}
+        image={image || 'https://michelecorleyclinicalskincare.com/michele-corley-logo.jpg'}
       />
       <Announcement />
       <div id="content">
@@ -39,20 +38,6 @@ const Layout = props => {
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-Layout.defaultProps = {
-  description: '',
-  image: 'https://michelecorleyclinicalskincare.com/michele-corley-logo.jpg',
-  noindex: false,
-  seoTitle: '',
-  title: '',
-  hideProductSearch: false,
-  hideNavbars: false,
 }
 
 export default Layout
