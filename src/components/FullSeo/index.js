@@ -96,6 +96,8 @@ const SEO = ({ title, description, image, snippet, noindex }) => {
         {seo.title && <meta name="twitter:title" content={seo.title} />}
         {seo.description && ( <meta name="twitter:description" content={seo.description} />)}
         {seo.image && <meta name="twitter:image" content={seo.image} />}
+
+        <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials" />
       </Helmet>
 
       <SchemaOrg

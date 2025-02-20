@@ -40,26 +40,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: `https://michelecorleyclinicalskincare.com`,
-        sitemap: `https://michelecorleyclinicalskincare.com/sitemap.xml`,
-        policy: [
-          { userAgent: '*', allow: '/' },
-          { userAgent: '*', disallow: '/app' },
-          { userAgent: '*', disallow: '/app/login' },
-          { userAgent: '*', disallow: '/pro'},
-          { userAgent: '*', disallow: '/pro/login' },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/sitemap.xml`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -75,23 +55,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Michele Corley Clinical Skin Care`,
-        description: `Professional skin care products available through licensed estheticians. Clean, safe, efficacious formulas.`,
-        short_name: `mcc`,
-        start_url: `/`,
-        background_color: `#dcdcdc`,
-        theme_color: `#dcdcdc`,
-        display: `standalone`,
-        icon: `src/images/maskable_icon.png`, // This path is relative to the root of the site.
-        icon_options: {
-          purpose: `any maskable`,
-        },
-        crossOrigin: `use-credentials`,
-      },
-    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
