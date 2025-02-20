@@ -1,18 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 
 const SpaLocatorFixedLink = ({ className }) => {
   return (
     <div className={`${className}`}>
-      <AniLink
-        fade
+      <Link
         to={'/spa-locator/'}
         className={`link-content`}
         tabIndex={0}
       >
         FIND OUR PRODUCTS NEAR YOU
-      </AniLink>
+      </Link>
     </div>
   )
 }

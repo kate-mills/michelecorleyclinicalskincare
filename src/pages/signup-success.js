@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 
 const SignupSuccessPage = () => {
   return (
@@ -9,9 +9,9 @@ const SignupSuccessPage = () => {
           <h1>Success!</h1>
         <div className="txt-center w-100">
           <p>You will begin to receive specials in the email provided.</p>
-          <AniLink fade to="/" className="btn btn-white">
+          <Link to="/" className="btn btn-white">
             back home
-          </AniLink>
+          </Link>
         </div>
       </section>
     </Layout>

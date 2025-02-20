@@ -1,9 +1,9 @@
 import React from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import ProfessionalStatus from '../components/Professionals/Status'
 
 const createParentLink = (name, pth) => {
-    return <AniLink to={`/${pth}/`} fade >{name}</AniLink>
+    return <Link to={`/${pth}/`}>{name}</Link>
 }
 
 const subLinkProps = (name, pth) => {

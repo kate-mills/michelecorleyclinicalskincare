@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import styles from '../css/productsearch.module.css'
 import * as JsSearch from 'js-search'
 
@@ -79,19 +79,19 @@ const Search = () => {
             return (
               <tr key={`row_${item.contentful_id}`}>
                 <td className={styles.search__td}>
-                  <AniLink fade to={`/products/${item.slug}`}>
+                  <Link to={`/products/${item.slug}`}>
                     {item.name}
-                  </AniLink>
+                  </Link>
                 </td>
                 <td className={styles.search__td}>
                   {item.category.indexOf(' ') === -1 ? (
-                    <AniLink fade to={`/${item.category}`}>
+                    <Link to={`/${item.category}`}>
                       {item.category}
-                    </AniLink>
+                    </Link>
                   ) : (
-                    <AniLink fade to={`/${item.category.replace(' & ', '-')}`}>
+                    <Link to={`/${item.category.replace(' & ', '-')}`}>
                       {item.category}
-                    </AniLink>
+                    </Link>
                   )}
                 </td>
               </tr>

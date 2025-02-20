@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import VideoPlayer from '../Video'
 
 const Product = ({ product, isTemplate }) => {
@@ -68,13 +68,13 @@ const Product = ({ product, isTemplate }) => {
         <div className="product-media" id={`${slug}-media`}>
           <div className="product-media-imgs-box">
             <div className="product-media-img">
-              <AniLink to={`/product-images-and-logos/${slug}/`}>
+              <Link to={`/product-images-and-logos/${slug}/`}>
               <Image
                 className="product-img product-img-retail"
                 fixed={imgRetail?.fixed}
                 alt={`${proOnly ? 'Pro-size' : 'Retail-size'} ${name}`}
               />
-              </AniLink>
+              </Link>
             {/*<a className="btn product-img-btn" download={`${proOnly ? 'Pro-size' : 'Retail-size'} ${name}`} href={imgRetail?.localFile?.publicURL} aria-label="Download image" > Download </a>*/}
             </div>
           </div>

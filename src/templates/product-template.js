@@ -1,11 +1,10 @@
 import React from 'react'
 
 import { SpaLocatorFixedLink } from '../components/SpaLocator'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Product from '../components/Products/Product'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const ProductTemplate = ({ data: { product }, className }) => {
   const formatCategory = category => {
@@ -32,9 +31,9 @@ const ProductTemplate = ({ data: { product }, className }) => {
       <Product product={product} isTemplate={true} />
       <div className="lower-btn-div">
         <p className="txt-center">
-          <AniLink className="btn" fade to={`/${formatLink(product)}/`}>
+          <Link className="btn" to={`/${formatLink(product)}/`}>
             {formatCategory(product.category)}
-          </AniLink>
+          </Link>
         </p>
       </div>
     </Layout>

@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import links from '../../constants/mobileLinks'
 import ProfessionalStatus from '../Professionals/Status'
 
@@ -26,9 +26,9 @@ const MoreItems = props => {
           {props.menu.map((item, id) => {
             return (
               <li key={id} className={`${css} child`}>
-                <AniLink fade to={item.path}>
+                <Link to={item.path}>
                   {item.text}
-                </AniLink>
+                </Link>
               </li>
             )
           })}
@@ -121,7 +121,7 @@ class MobileNavbar extends Component {
                 : item.menu.length > 0
                 ? <MoreItems key={id} name={item.title} menu={item.menu} />
                 : (
-                  <AniLink key={id} className="li" fade to={item.path}>{item.text}</AniLink>
+                  <Link key={id} className="li" to={item.path}>{item.text}</Link>
                 )
               )}
             )}

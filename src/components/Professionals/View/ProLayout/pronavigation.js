@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import icons from './icons'
 
 const ProNavigation = props => {
@@ -13,12 +13,12 @@ const ProNavigation = props => {
               key={id}
               className={`${props.activePath === item.path ? 'active':''}`}
             >
-              <AniLink fade to={item.path}>
+              <Link to={item.path}>
                 <div>
                   {item?.svg}
                   <span className="item-name">{item.name}</span>
                 </div>
-              </AniLink>
+              </Link>
             </li>
           )
         })}

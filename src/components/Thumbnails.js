@@ -1,13 +1,13 @@
 import React from 'react'
 
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 
 const ListItem = ({ title, slug, image, showTitle = true }) => {
   return ( !image ?  null : <li id={`${slug}-img`} className="listitem">
-      <AniLink
+      <Link
         state={{ id: `${slug}-img` }}
         to={`/product-images-and-logos/${slug}/`}
       >
@@ -21,7 +21,7 @@ const ListItem = ({ title, slug, image, showTitle = true }) => {
             <span className="sr-only">{` Thumbnail`}</span>
           </figcaption>
         </figure>
-      </AniLink>
+      </Link>
     </li>
   )
 }

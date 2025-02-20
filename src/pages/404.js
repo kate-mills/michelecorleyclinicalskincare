@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../components/layout'
 
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 
 const ErrorPage = () => {
   return (
@@ -28,10 +28,9 @@ const ErrorPage = () => {
             home page.
           </p>
           <p className="txt-center m-top">
-            {' '}
-            <AniLink className="btn" fade to="/">
+            <Link className="btn" to="/">
               Return to our home page
-            </AniLink>
+            </Link>
             .
           </p>
         </div>

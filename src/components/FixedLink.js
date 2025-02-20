@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import { navigate } from 'gatsby'
 
 const FixedLink = ({
@@ -12,9 +12,9 @@ const FixedLink = ({
   return (
     <div className={`${className} fixed-link`}>
       {!isPageLink ? (
-        <AniLink fade to={to} className={`link-content`}>
+        <Link to={to} className={`link-content`}>
           {text}
-        </AniLink>
+        </Link>
       ) : (
         <span className={`link-content`}
           tabIndex={0}

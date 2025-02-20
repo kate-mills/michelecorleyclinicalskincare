@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 import links from '../../constants/desktopLinks'
 import { matchLettersJoinDash } from '../../utils/regexHelper'
 
@@ -30,13 +30,12 @@ const SubMenu = ({ className, name, safeId, subMenu }) => {
         {subMenu.map((item, id) => {
           return (
             <li key={id} className={`submenu__listitem navigation__listitem`}>
-              <AniLink
-                fade
+              <Link
                 className="submenu__link navigation__link"
                 to={item.path}
               >
                 <span>{item.name}</span>
-              </AniLink>
+              </Link>
             </li>
           )
         })}
@@ -94,13 +93,12 @@ class DesktopNavbar extends Component {
                   {item.id === 'education' ? (
                     item.name
                   ) : (
-                    <AniLink
-                      fade
+                    <Link
                       to={item.path}
                       className="topnav__link navigation__link"
                     >
                       {item.name}
-                    </AniLink>
+                    </Link>
                   )}
                 </li>
               )

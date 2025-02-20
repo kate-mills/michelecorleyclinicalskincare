@@ -1,7 +1,7 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styles from './press.module.css'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {Link} from 'gatsby'
 
 const Press = ({ data: { data } }) => {
   return (
@@ -26,10 +26,10 @@ const Press = ({ data: { data } }) => {
           </a>
         )}
         {data.relativeLink && (
-          <AniLink fade tabIndex={0} to={data.relativeLink} className={`${styles.read__more} btn`}>
+          <Link tabIndex={0} to={data.relativeLink} className={`${styles.read__more} btn`}>
             Read More
           <h4 className="sr-only">{data.title}</h4>
-          </AniLink>
+          </Link>
         )}
       </div>
     </div>
