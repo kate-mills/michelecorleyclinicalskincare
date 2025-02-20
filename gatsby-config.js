@@ -38,7 +38,6 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-robots-txt',
