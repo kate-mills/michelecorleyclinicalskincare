@@ -40,18 +40,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: `https://michelecorleyclinicalskincare.com`,
-        sitemap: `https://michelecorleyclinicalskincare.com/sitemap.xml`,
-        policy: [
-          { userAgent: '*', allow: '/' },
-          { userAgent: '*', disallow: '/app' },
-          { userAgent: '*', disallow: '/app/login' },
-        ],
-      },
-    },
+    //{ resolve: 'gatsby-plugin-robots-txt', options: { host: `https://michelecorleyclinicalskincare.com`, sitemap: `https://michelecorleyclinicalskincare.com/sitemap.xml`, policy: [ { userAgent: '*', allow: '/' }, { userAgent: '*', disallow: '/app' }, { userAgent: '*', disallow: '/app/login' }, ], }, },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
