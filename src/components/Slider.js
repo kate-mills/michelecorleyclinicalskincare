@@ -4,8 +4,6 @@ import styled, { keyframes } from 'styled-components'
 
 const Slideshow = ({ className, images = [], interval = 5000 }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  console.log('images', images)
-  console.log('images', images[currentSlide].publicURL)
 
   useEffect(() => {
     const loop = setInterval(() => {
