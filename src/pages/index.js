@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-//import Layout from '../components/Layout'
+import {GlobalLayout} from '../components/Layouts'
 import Slider from '../components/Slider'
 import YesNo from '../components/YesNo'
 
@@ -10,11 +10,11 @@ export default function Home({ data }) {
     allFile: { nodes },
   } = data
   return (
-    <div>
+    <GlobalLayout>
       <h1>Beautifully Healthy Skin Starts Here</h1>
       <Slider images={nodes} />
       <YesNo />
-    </div>
+    </GlobalLayout>
   )
 }
 

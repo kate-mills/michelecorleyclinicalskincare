@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-//import Layout from '../components/Layout'
+import {GlobalLayout} from '../components/Layouts'
 
 export default function Error({ data }) {
   return (
-    <div>
+    <GlobalLayout>
       <h1>Oops! Wrong Page</h1>
       <div className="txt-center">
         <p>
@@ -22,6 +22,6 @@ export default function Error({ data }) {
           </Link>
         </p>
       </div>
-    </div>
+    </GlobalLayout>
   )
 }
