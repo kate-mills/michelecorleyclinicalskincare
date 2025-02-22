@@ -1,15 +1,23 @@
 import * as React from 'react'
-import {Announcement, Logo, ProductSearch} from './components'
+import { Announcement, Logo, ProductSearch } from './components'
 
-
-const GlobalLayout = ({ title="", description="", image="", seoTitle="", noindex=false, children }) => {
+const GlobalLayout = ({
+  title = '',
+  description = '',
+  image = '',
+  seoTitle = '',
+  noindex = false,
+  children,
+}) => {
   return (
     <>
-        <Announcement/>
+      <Announcement />
       <div id="content">
-        <Logo />
-        <ProductSearch/>
-        <main>{children}</main>
+        <main>
+          <Logo />
+          <ProductSearch />
+          {children}
+        </main>
       </div>
     </>
   )
