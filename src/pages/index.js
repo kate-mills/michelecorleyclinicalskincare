@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import {GlobalLayout} from '../components/Layouts'
-import Slider from '../components/Slider'
-import YesNo from '../components/YesNo'
+import {GlobalLayout, Slider, YesNo} from '../components'
 
 export default function Home({ data }) {
   const {

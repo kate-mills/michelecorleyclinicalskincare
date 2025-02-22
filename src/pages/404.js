@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import {GlobalLayout} from '../components/Layouts'
+import {GlobalLayout} from '../components'
 
 export default function Error({ data }) {
   return (
