@@ -1,3 +1,9 @@
+const address = {
+  street: '604 Bladen ST STE 6',
+  city: 'Beaufort',
+  state: 'SC',
+  zip: '29902',
+}
 export const PhoneInfo = {
   fullPhone: `${843}.${929}.${8677}`,
   areaCode: '843',
@@ -15,6 +21,7 @@ export const EmailInfo = {
 }
 
 export const AddressInfo = {
+  oneLine: `${address.street} ${address.city}, ${address.state} ${address.zip}`,
   street: '604 Bladen ST STE 6',
   city: 'Beaufort',
   state: 'SC',
