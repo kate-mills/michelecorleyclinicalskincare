@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Announcement, Logo, ProductSearch, Footer, NavbarLg } from './components'
+import { Announcement, Logo, ProductSearch, Footer, Navbar } from './components'
 
 const GlobalLayout = ({
   title = '',
@@ -15,8 +15,8 @@ const GlobalLayout = ({
       <div id="content">
         <main>
           <Logo />
+          <Navbar/>
           <ProductSearch />
-          <NavbarLg/>
           {children}
           <Footer />
         </main>

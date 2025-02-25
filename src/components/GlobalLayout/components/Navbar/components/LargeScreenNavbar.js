@@ -2,15 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-import { links } from './desktop-links'
+import { links } from './links'
 
-const onlyLettersRegex = /([A-Z]\w+|[A-Z])/gi
-const matchLettersJoinDash = str =>
-  str.match(onlyLettersRegex).join('-').toLowerCase()
-
-const SubMenu = ({ subMenu, safeId }) => {
+const SubMenu = ({ subMenu, id }) => {
   return (
-    <ul id={`${safeId}-submenu`}>
+    <ul id={`link--${id}--submenu`}>
       {subMenu.map((menuItem, id) => {
         return (
           <li key={id}>
@@ -24,7 +20,7 @@ const SubMenu = ({ subMenu, safeId }) => {
   )
 }
 
-class DesktopNavbar extends Component {
+class LargeScreenNavbar extends Component {
   render() {
     return (
       <div className={`${this.props.className}`}>
@@ -32,14 +28,14 @@ class DesktopNavbar extends Component {
           <ul id="topnav" className="navigation-links">
             {links.map((item, id) => {
               return (
-                <li>
+                <li key={`${item.path}-${id}`}>
                   <Link to={item.path} className={'navigation__link'}>
                     {item.name}
                   </Link>
-                  {item.subMenu.length > 0 && (
+                  {item?.subMenu?.length > 0 && (
                     <SubMenu
                       subMenu={item.subMenu}
-                      safeId={matchLettersJoinDash(item.name)}
+                      id={id}
                     />
                   )}
                 </li>
@@ -52,7 +48,7 @@ class DesktopNavbar extends Component {
   }
 }
 
-export default styled(DesktopNavbar)`
+export default styled(LargeScreenNavbar)`
   & {
     & nav#desktop-navigation ul#topnav.navigation-links {
       align-items: center;
@@ -72,8 +68,7 @@ export default styled(DesktopNavbar)`
           position: absolute;
           top: 28px;
           li {
-            background: var(--offWhite);
-            border: 1px solid rgb(0 0 0 / 6%);
+            background: rgb(242 242 242);
             padding-block: 3px;
           }
         }
