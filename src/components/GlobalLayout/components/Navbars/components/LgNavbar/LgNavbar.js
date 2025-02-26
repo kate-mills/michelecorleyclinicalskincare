@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-import { links } from './links'
+import { links } from '../links'
 
 const SubMenu = ({ subMenu, id }) => {
   return (

@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { links } from './links'
+import { links } from '../links'
 
 const MoreItems = props => {
   const [isOpen, setIsOpen] = useState(false)

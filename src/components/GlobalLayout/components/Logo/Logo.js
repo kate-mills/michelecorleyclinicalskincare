@@ -31,8 +31,8 @@ const Logo = ({ className }) => {
 }
 
 const StyledLogo = styled.div`
-  max-width: 150px;
-  margin: 0 auto;
+  max-width: 250px;
+  margin: 1rem auto 0;
 `
 
 export default Logo
