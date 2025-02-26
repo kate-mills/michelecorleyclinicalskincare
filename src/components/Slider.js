@@ -45,12 +45,13 @@ const fadeInAnimation = keyframes`
 
 const StyledSlider = styled(Slideshow)`
   border-radius: 0.625rem;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   border-radius: 0.625rem;
 
   & .visibleImg {
-    animation: ${fadeInAnimation} 5ms ease-out;
+    animation: ${fadeInAnimation} 5ms linear;
+    transition-timing-function: linear;
     border-radius: 0.625rem;
     background-color: var(--poppy);
     height: auto;
@@ -58,7 +59,8 @@ const StyledSlider = styled(Slideshow)`
   }
   & .hiddenImg {
     animation: none;
-    animation: ${fadeInAnimation} 5ms ease-out;
+    animation: ${fadeInAnimation} 5ms linear;
+    transition-timing-function: linear;
     border-radius: 0.625rem;
     height: auto;
     margin: auto auto;
