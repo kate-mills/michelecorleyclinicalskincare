@@ -1,3 +1,5 @@
 export {default as GlobalLayout}  from './GlobalLayout'
 export {default as Slider}  from './Slider'
 export {default as YesNo}  from './YesNo'
+export {default as ContactForm}  from './ContactForm'
+export {default as ContactInformation}  from './ContactInformation'
