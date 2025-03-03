@@ -8,7 +8,7 @@ import { GlobalLayout } from '../components'
 const About = ({ data }) => {
   return (
     <GlobalLayout>
-      <AboutWrapper>
+      <StyledSection>
         <div className="col-1">
           <h1>Our Philosophy</h1>
           <p>
@@ -62,19 +62,18 @@ const About = ({ data }) => {
             knowledge of skin aging, acne conditions and rosecea.
           </p>
         </div>
-      </AboutWrapper>
+      </StyledSection>
     </GlobalLayout>
   )
 }
 
-const AboutWrapper = styled.section`
+const StyledSection = styled.section`
   & {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     margin: 0 auto;
     white-space: initial;
-
     & .col-1 {
       & h1 {
         margin-block: 20px;
@@ -90,7 +89,6 @@ const AboutWrapper = styled.section`
           padding-bottom: 0;
         }
       }
-
       & h2.italic {
         color: var(--poppy);
         font-size: 1.8rem;
@@ -100,7 +98,6 @@ const AboutWrapper = styled.section`
         text-align: left;
       }
     }
-
     & .col-2 {
       align-items: center;
       display: flex;
@@ -108,7 +105,6 @@ const AboutWrapper = styled.section`
       justify-content: center;
       margin: 0 auto;
       padding: 0 1.5em 0;
-
       & .gatsby-image-wrapper {
         width: 65%;
       }
@@ -124,7 +120,6 @@ const AboutWrapper = styled.section`
         padding: 1em 2em 0;
       }
     }
-
     @media (max-width: 739px) {
       flex-direction: column;
     }
