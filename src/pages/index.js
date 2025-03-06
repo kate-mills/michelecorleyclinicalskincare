@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import {GlobalLayout, Slider, YesNo} from '../components'
 
-export default function Home({ data }) {
+export default function HomePage({ data }) {
   const {
     allFile: { nodes },
   } = data

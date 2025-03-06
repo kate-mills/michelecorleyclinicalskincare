@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import {GlobalLayout} from '../components'
 
-export default function Press({ data }) {
+export default function PressPage({ data }) {
   return (
     <GlobalLayout>
       <h1>Press Page</h1>

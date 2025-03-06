@@ -5,7 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { GlobalLayout } from '../components'
 
-const About = ({ data }) => {
+const AboutPage = ({ data }) => {
   return (
     <GlobalLayout>
       <StyledSection>
@@ -134,4 +134,4 @@ export const query = graphql`
     }
   }
 `
-export default About
+export default AboutPage

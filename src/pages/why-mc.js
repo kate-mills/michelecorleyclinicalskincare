@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { GlobalLayout } from '../components'
 
-export default function WhyMC({
+export default function WhyMCPage({
   data: {
     file: { childImageSharp },
   },

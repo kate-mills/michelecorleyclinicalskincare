@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import {GlobalLayout} from '../components'
 
-export default function BeforeAndAfter({ data }) {
+export default function BeforeAndAfterPage({ data }) {
   return (
     <GlobalLayout>
       <h1>Before & After Page</h1>

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import {GlobalLayout} from '../components'
 
-export default function Error({ data }) {
+export default function Errorpage({ data }) {
   return (
     <GlobalLayout>
       <h1>Oops! Wrong Page</h1>

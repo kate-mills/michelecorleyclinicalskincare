@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import {GlobalLayout} from '../components'
 
-export default function ProductImagesLogos({ data }) {
+export default function ProductImagesLogosPage({ data }) {
   return (
     <GlobalLayout>
       <h1>ProductImagesLogos Page</h1>

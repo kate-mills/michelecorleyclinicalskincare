@@ -10,7 +10,7 @@ import {GlobalLayout, ContactForm, ContactInformation} from '../components'
 
 import {PhoneInfo} from '../constants/contact-info'
 
-export default function Contact({ data }) {
+export default function ContactPage({ data }) {
   return (
     <GlobalLayout>
       <PageWrapper>

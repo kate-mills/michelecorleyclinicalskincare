@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import {GlobalLayout} from '../components'
 
-export default function RaveReviews({ data }) {
+export default function RaveReviewsPage({ data }) {
   return (
     <GlobalLayout>
       <h1>RaveReviews Page</h1>
