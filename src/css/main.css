@@ -268,6 +268,7 @@ Utility classes
 .poppy {
   color: var(--poppy);
 }
+.g-txt-center,
 .txt-center {
   text-align: center;
 }
