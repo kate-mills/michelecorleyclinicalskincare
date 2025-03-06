@@ -1,27 +1,45 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import {GlobalLayout} from '../components'
+import { GlobalLayout, Articles } from '../components'
 
-export default function Articles({ data }) {
+export default function ArticlesPage({ data }) {
   return (
     <GlobalLayout>
-      <h1>Articles Page</h1>
-      <div className="txt-center">
-        <p>
-          We couldn't find the page you were looking for. This is either
-          because:
-        </p>
-        <p>
-          Please check the URL and try again or click below to return to our
-          home page.
-        </p>
-        <p>
-          <Link to="/" className="btn">
-            Return to our Home Page
-          </Link>
-        </p>
-      </div>
+      <h1>Articles</h1>
+      <Articles lst={data.allAirtable.articles} />
     </GlobalLayout>
   )
 }
+
+export const query = graphql`
+  {
+    allAirtable(
+      filter: { table: { eq: "MccArticles" } }
+      sort: { data: { mcc_id: ASC } }
+    ) {
+      articles: edges {
+        node {
+          id
+          data {
+            title
+            mcc_id
+            summary
+            link
+            image {
+              localFiles {
+                childImageSharp {
+                  gatsbyImageData(
+                    placeholder: DOMINANT_COLOR
+                    layout: CONSTRAINED
+                    width: 750
+                  )
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

@@ -224,6 +224,7 @@ button {
   display: inline-block;
   letter-spacing: var(--mainSpacing);
   padding: 0.8rem 1.6rem;
+  text-align: center;
   text-transform: uppercase;
   text-decoration: none;
   transition: var(--mainTransition);
