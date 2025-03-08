@@ -1,27 +1,32 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import {GlobalLayout} from '../components'
+import { GlobalLayout, RaveReviews } from '../components'
 
 export default function RaveReviewsPage({ data }) {
   return (
     <GlobalLayout>
-      <h1>RaveReviews Page</h1>
-      <div className="txt-center">
-        <p>
-          We couldn't find the page you were looking for. This is either
-          because:
-        </p>
-        <p>
-          Please check the URL and try again or click below to return to our
-          home page.
-        </p>
-        <p>
-          <Link to="/" className="btn">
-            Return to our Home Page
-          </Link>
-        </p>
-      </div>
+      <h1>Rave Reviews</h1>
+      <section>
+        <RaveReviews lst={data.allAirtable.reviews} />
+      </section>
     </GlobalLayout>
   )
 }
+
+export const query = graphql`
+  {
+    allAirtable(
+      filter: { table: { eq: "RaveReviews" } }
+      sort: { data: { mcc_id: ASC } }
+    ) {
+      reviews: nodes {
+        id
+        data {
+          review
+          signature
+        }
+      }
+    }
+  }
+`
