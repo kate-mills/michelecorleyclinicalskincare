@@ -47,51 +47,56 @@ const StyledArticle = styled.article`
     box-shadow: var(--light-shadow);
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    margin: 1.25rem auto 0;
+    justify-content: space-between;
     width: 100%;
+    > div.media,
+    > div.text {
+      max-width: 50%;
+    }
     > div.media {
-      border-radius: 1rem;
-      margin: 0 auto;
-      height: auto;
-      width: 40%;
       > figure {
-        margin: 0 auto 0.5rem;
+        & .gatsby-image-wrapper {
+          border-radius: 0.625rem 0 0 0;
+          height: auto;
+        }
         & figcaption {
           font-size: 0.8rem;
           line-height: normal;
+          width: 80%;
+          max-width: fit-content;
           text-align: center;
-          width: 90%;
         }
       }
     }
+
     > div.text {
-      margin: 0 auto;
-      white-space: pre-line;
-      width: 60%;
-      > h2 {
-        font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      & h2 {
+        font-size: 1rem;
         font-weight: 600;
-        margin-bottom: 0;
         text-align: center;
       }
-      > ul {
-        margin-left: 20%;
-        white-space: pre-line;
-        p {
-          line-height: normal;
-        }
+      & ul p {
+        font-size: 0.95rem;
+        line-height: normal;
       }
     }
     @media screen and (max-width: 820px) {
       > div.media,
       > div.text {
-        width: 100%;
-        > figure .gatsby-image-wrapper {
-          display: flex;
-        }
-        > ul {
-          width: 75%;
+        max-width: 100%;
+      }
+      > div.media {
+        > figure {
+          & .gatsby-image-wrapper {
+            display: flex;
+            border-radius: 0.625rem 0.625rem 0 0;
+          }
+          & figcaption {
+            width: 100%;
+          }
         }
       }
     }
