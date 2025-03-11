@@ -1,27 +1,39 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import {GlobalLayout} from '../components'
+import {GlobalLayout, PressList} from '../components'
 
 export default function PressPage({ data }) {
   return (
     <GlobalLayout>
       <h1>Press Page</h1>
-      <div className="txt-center">
-        <p>
-          We couldn't find the page you were looking for. This is either
-          because:
-        </p>
-        <p>
-          Please check the URL and try again or click below to return to our
-          home page.
-        </p>
-        <p>
-          <Link to="/" className="btn">
-            Return to our Home Page
-          </Link>
-        </p>
-      </div>
+      <PressList lst={data.allAirtable.nodes}/>
     </GlobalLayout>
   )
 }
+
+
+export const query = graphql`
+  {
+    allAirtable(filter: {table: {eq: "Press"}}, sort: {data: {sortOrder: DESC}}) {
+      nodes {
+        id
+        data {
+          sortOrder
+          mcc_id
+          title
+          summary
+          image {
+            localFiles {
+              childImageSharp {
+                gatsbyImageData(width: 500)
+              }
+            }
+          }
+          link
+          relativeLink
+        }
+      }
+    }
+  }
+`
