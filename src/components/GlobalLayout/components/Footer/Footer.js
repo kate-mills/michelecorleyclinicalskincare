@@ -82,6 +82,8 @@ const FooterWrapper = styled(Footer)`
     text-align: center;
     font-family: serif;
     font-weight: 400;
+    position: sticky;
+    top: 100%;
     div.infinity-img {
       max-width: 400px;
     }
