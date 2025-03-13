@@ -67,6 +67,12 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/product-template.js`),
       context: { slug: product.slug },
     })
+
+    createPage({
+      path: `/product-images-and-logos/${product.slug}`,
+      component: path.resolve(`src/templates/product-image-template.js`),
+      context: { slug: product.slug },
+    })
   })
 
   /*results.mediaData.data.medias.nodes.forEach(media => {
@@ -74,13 +80,6 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/product-images-and-logos/${media.slug}`,
       component: path.resolve(`src/templates/media-image-template.js`),
       context: { slug: media.slug },
-    })
-  })*/
-
-  /*createPage({
-      path: `/product-images-and-logos/${product.slug}`,
-      component: path.resolve(`src/templates/product-image-template.js`),
-      context: { slug: product.slug },
     })
   })*/
 }
