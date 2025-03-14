@@ -62,9 +62,10 @@ const StyledArticle = styled.article`
         & figcaption {
           font-size: 0.8rem;
           line-height: normal;
-          width: 80%;
-          max-width: fit-content;
+          margin: 0 auto;
+          max-width: 100%;
           text-align: center;
+          width: 400px;
         }
       }
     }
