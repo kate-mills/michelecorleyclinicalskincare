@@ -1,56 +1,77 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import { links } from '../links'
 
-const SubMenu = ({ subMenu, id }) => {
+const LiBtn = ({ item }) => {
+  const [isExpanded, setIsExpanded] = React.useState(false)
+
+  const btnClick = e => {
+    setIsExpanded(isExpanded => !isExpanded)
+  }
+  const showMenu = e => {
+    setIsExpanded(true)
+  }
+  const hideMenu = e => {
+    setIsExpanded(false)
+  }
+
+  let id = `${item.name}--submenu`
+
   return (
-    <ul id={`link--${id}--submenu`}>
-      {subMenu.map((menuItem, id) => {
-        return (
-          <li key={id}>
-            <Link to={menuItem.path}>
-              <span>{menuItem.name}</span>
-            </Link>
-          </li>
-        )
-      })}
-    </ul>
+    <li>
+      <button onPointerEnter={showMenu} onPointerLeave={hideMenu} onClick={btnClick}>
+        {item.name}
+        <span className={'tgl'}>{`${!isExpanded ? '+': '-'}`}</span>
+      </button>
+      <ul
+        onPointerEnter={e=> setIsExpanded(true)}
+        id={id}
+        style={{ display: !isExpanded ? 'none' : 'block', position: 'absolute'}}
+        hidden={!isExpanded}
+      >
+        {item.subMenu.map((menuItem, idx) => {
+          return (
+            <li key={`${id}--${idx}`}>
+              <Link to={menuItem.path}>{menuItem.name}</Link>
+            </li>
+          )
+        })}
+      </ul>
+    </li>
   )
 }
 
-class LargeScreenNavbar extends Component {
-  render() {
-    return (
-      <div className={`${this.props.className}`}>
-        <nav id="desktop-navigation">
-          <ul id="topnav" className="navigation-links">
-            {links.map((item, id) => {
-              return (
-                <li key={`${item.path}-${id}`}>
-                  <Link to={item.path} className={'navigation__link'}>
-                    {item.name}
-                  </Link>
-                  {item?.subMenu?.length > 0 && (
-                    <SubMenu
-                      subMenu={item.subMenu}
-                      id={id}
-                    />
-                  )}
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
-      </div>
-    )
-  }
+const LiA = ({ item }) => {
+  return (
+    <li>
+      <Link to={item.path}>{item.name}</Link>
+    </li>
+  )
+}
+
+const LargeScreenNavbar = props => {
+  return (
+    <div className={`${props.className}`}>
+      <nav id="desktop-navigation">
+        <ul id="topnav">
+          {links.map(item => {
+            return !item.path ? (
+              <LiBtn item={item} key={item.name} />
+            ) : (
+              <LiA item={item} key={item.name} />
+            )
+          })}
+        </ul>
+      </nav>
+    </div>
+  )
 }
 
 export default styled(LargeScreenNavbar)`
   & {
-    & nav#desktop-navigation ul#topnav.navigation-links {
+    & nav#desktop-navigation ul#topnav {
       align-items: center;
       display: flex;
       flex-flow: row wrap;
@@ -59,23 +80,35 @@ export default styled(LargeScreenNavbar)`
       list-style: none;
       & li {
         background: var(--mainWhite);
+        padding: 0.25rem;
         position: relative;
-        padding-inline: 5px;
-        top: 0;
+        button, a {
+          background: var(--mainWhite);
+          border: none;
+          display: inline-block;
+          padding: 0.25rem;
+          span.tgl{
+            display: inline-block;
+            width: 20px;
+          }
+        }
         ul {
+          background: rgb(242 242 242);
           display: none;
           left: 0;
           position: absolute;
-          top: 28px;
+          top: 90%;
+          z-index: 10;
           li {
             background: rgb(242 242 242);
-            padding-block: 3px;
+            a{
+              background: inherit;
+            }
           }
         }
         &:hover {
           ul {
-            display: block;
-            z-index: 10;
+          display: block;
           }
         }
       }

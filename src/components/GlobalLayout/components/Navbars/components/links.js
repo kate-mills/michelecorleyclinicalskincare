@@ -7,30 +7,28 @@ const getProps = name => {
 }
 
 export const links = [
-  { ...getProps('HOME'), path: '/', },
-  { ...getProps('ABOUT')},
-
-  { ...getProps('PRODUCTS'),
-    path: '/cleansers/',
+  { ...getProps('HOME'), path: '/' },
+  { ...getProps('PRODUCTS'), path: '',
     subMenu: [
       getProps('CLEANSERS'),
       getProps('TONERS'),
-      getProps('MOISTURIZERS & SPF'),
-      getProps('EYES & LIPS'),
-      getProps('SERUMS & SPECIALTY'),
       getProps('EXFOLIANTS'),
+      getProps('SERUMS & SPECIALTY'),
+      getProps('MOISTURIZERS & SPF'),
       getProps('MASKS'),
+      getProps('EYES & LIPS'),
     ],
   },
-  { ...getProps('WHY MC?'),
+  { ...getProps('WHY MC?'), path: '',
     subMenu: [
-      { ...getProps('WHY CHOOSE US?'), path: '/why-mc' },
+      getProps('ABOUT'),
+      getProps('ARTICLES'),
       getProps('BEFORE AND AFTER'),
-      getProps('RAVE REVIEWS!'),
       getProps('PRESS'),
       getProps('PRODUCT IMAGES & LOGOS'),
+      getProps('RAVE REVIEWS!'),
+      { ...getProps('WHY CHOOSE US?'), path: '/why-mc' },
     ],
   },
   { ...getProps('CONTACT') },
-  { ...getProps('ARTICLES') },
 ]
