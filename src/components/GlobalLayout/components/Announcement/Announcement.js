@@ -53,6 +53,7 @@ const WrappedAnnouncement = styled(Announcement)`
     font-size: 18px;
     font-family: Times, serif;
     font-weight: 400;
+    min-height: 40px;
     position: relative;
     width: 100%;
     white-space: nowrap;
