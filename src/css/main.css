@@ -277,6 +277,12 @@ Utility classes
 .w-100 {
   width: 100%;
 }
+.g-mb1{
+  margin-block: 1rem;
+}
+.g-mb2{
+  margin-block: 2rem;
+}
 @media screen and (max-width: 320px) {
   div#content {
     border-radius: 10px;
