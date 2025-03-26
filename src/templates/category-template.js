@@ -2,13 +2,12 @@ import React from 'react'
 
 import { graphql } from 'gatsby'
 
-import {GlobalLayout} from '../components'
+import {GlobalLayout, Products} from '../components'
 
 const CategoryTemplate = props => {
   const { data, pageContext: { name, description, category }, } = props
 
-  console.log(data)
-  console.log(category)
+  console.log('template data', data)
 
   return (
     <GlobalLayout
@@ -17,6 +16,7 @@ const CategoryTemplate = props => {
     >
       <h1>{name}</h1>
       <p>{category.description.description}</p>
+      <Products lst={data.products.lst}/>
     </GlobalLayout>
   )
 }
@@ -26,8 +26,8 @@ export const query = graphql`
     filter: {categories: {eq: $name}}
     sort: {name: ASC}
     ) {
-      edges {
-        node {
+      lst:edges {
+        data:node {
           contentful_id
           acneSafe
           isBestSeller
