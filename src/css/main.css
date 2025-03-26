@@ -67,7 +67,7 @@ a {
   background: inherit;
   color: var(--mainBlack);
   text-decoration: none;
-  line-height: var(--bodyLineHeight);
+  line-height: 1.5em;
 }
 button:focus,
 a:focus{
@@ -158,14 +158,14 @@ p {
   padding-block-end: 1.8em;
   font-size: 1rem;
   font-weight: 400;
-  line-height: var(--bodyLineHeight);
+  line-height: 1.5em;
   white-space: pre-line;
 }
 ul {
   list-style: none;
 }
 li {
-  line-height: var(--bodyLineHeight);
+  line-height: 1.5em;
   list-style: none;
 }
 ul[data-bullet-list] {
@@ -217,7 +217,7 @@ div#content {
 
 button {
   font-family: var(--mainFont);
-  line-height: var(--bodyLineHeight);
+  line-height: 1.5em;
   background: inherit;
 }
 .btn {
