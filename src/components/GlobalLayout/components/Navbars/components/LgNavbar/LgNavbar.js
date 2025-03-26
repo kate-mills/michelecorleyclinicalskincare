@@ -1,40 +1,25 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import { links } from '../links'
 
-const LiBtn = ({ item }) => {
+const LiMenu = ({ name, subMenu }) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
 
-  const btnClick = e => {
-    setIsExpanded(isExpanded => !isExpanded)
-  }
-  const showMenu = e => {
-    setIsExpanded(true)
-  }
-  const hideMenu = e => {
-    setIsExpanded(false)
-  }
-
-  let id = `${item.name}--submenu`
+  const btnClick = e => setIsExpanded(prev => !prev)
+  const showMenu = e => setIsExpanded(true)
+  const hideMenu = e => setIsExpanded(false)
 
   return (
-    <li>
-      <button onPointerEnter={showMenu} onPointerLeave={hideMenu} onClick={btnClick}>
-        {item.name}
-        <span className={'tgl'}>{`${!isExpanded ? '+': '-'}`}</span>
-      </button>
-      <ul
-        onPointerEnter={e=> setIsExpanded(true)}
-        id={id}
-        style={{ display: !isExpanded ? 'none' : 'block', position: 'absolute'}}
-        hidden={!isExpanded}
-      >
-        {item.subMenu.map((menuItem, idx) => {
+    <li className="top-li" onMouseEnter={showMenu} onMouseLeave={hideMenu}>
+      <button onClick={btnClick}>{name}<span>{!isExpanded ? '+' : '-'}</span></button>
+      <ul id={name} hidden={!isExpanded} data-visible={isExpanded}>
+        {subMenu.map(({ name, path }) => {
           return (
-            <li key={`${id}--${idx}`}>
-              <Link to={menuItem.path}>{menuItem.name}</Link>
+            <li id={name} key={name}>
+              <Link to={path}>{name}</Link>
             </li>
           )
         })}
@@ -43,24 +28,18 @@ const LiBtn = ({ item }) => {
   )
 }
 
-const LiA = ({ item }) => {
+const LgNavbar = ({ className }) => {
   return (
-    <li>
-      <Link to={item.path}>{item.name}</Link>
-    </li>
-  )
-}
-
-const LargeScreenNavbar = props => {
-  return (
-    <div className={`${props.className}`}>
+    <div className={`${className}`}>
       <nav id="desktop-navigation">
         <ul id="topnav">
-          {links.map(item => {
-            return !item.path ? (
-              <LiBtn item={item} key={item.name} />
+          {links.map(({ path, name, subMenu }) => {
+            return !path ? (
+              <LiMenu name={name} subMenu={subMenu} key={name} />
             ) : (
-              <LiA item={item} key={item.name} />
+              <li className="top-li" key={name}>
+                <Link to={path}>{name}</Link>
+              </li>
             )
           })}
         </ul>
@@ -69,7 +48,7 @@ const LargeScreenNavbar = props => {
   )
 }
 
-export default styled(LargeScreenNavbar)`
+export default styled(LgNavbar)`
   & {
     & nav#desktop-navigation ul#topnav {
       align-items: center;
@@ -77,38 +56,48 @@ export default styled(LargeScreenNavbar)`
       flex-flow: row wrap;
       gap: 1rem 1.35rem;
       justify-content: space-evenly;
-      list-style: none;
-      & li {
-        background: var(--mainWhite);
-        padding: 0.25rem;
+      & li.top-li {
         position: relative;
-        button, a {
-          background: var(--mainWhite);
-          border: none;
-          display: inline-block;
+        & a,
+        & button {
+          border: 3px solid transparent;
+          display: block;
           padding: 0.25rem;
-          span.tgl{
+          > span {
             display: inline-block;
+            line-height: var(--bodyLineHeight);
             width: 20px;
           }
+          &[aria-current='page'] {
+            color: var(--poppyHigh);
+            &::before{
+              content: '* ';
+              position: relative;
+              top: 3px;
+            }
+          }
+          &:focus-visible,
+          &:focus-within,
+          &:focus {
+            outline-offset: -2px;
+          }
         }
-        ul {
+        > ul {
           background: rgb(242 242 242);
           display: none;
-          left: 0;
           position: absolute;
-          top: 90%;
+          left: 0;
           z-index: 10;
           li {
-            background: rgb(242 242 242);
-            a{
-              background: inherit;
-            }
+            padding: 0.25rem;
+          }
+          &[data-visible="true"]{
+            display: block;
           }
         }
         &:hover {
-          ul {
-          display: block;
+          > ul {
+            display: block;
           }
         }
       }

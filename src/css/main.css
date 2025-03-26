@@ -64,10 +64,10 @@ body {
   border-radius: 4px;
 }
 a {
-  background: 0 0;
+  background: inherit;
   color: var(--mainBlack);
   text-decoration: none;
-  line-height: 1.5em;
+  line-height: var(--bodyLineHeight);
 }
 button:focus,
 a:focus{
@@ -165,6 +165,7 @@ ul {
   list-style: none;
 }
 li {
+  line-height: var(--bodyLineHeight);
   list-style: none;
 }
 ul[data-bullet-list] {
@@ -216,6 +217,8 @@ div#content {
 
 button {
   font-family: var(--mainFont);
+  line-height: var(--bodyLineHeight);
+  background: inherit;
 }
 .btn {
   background: var(--mainWhite);
