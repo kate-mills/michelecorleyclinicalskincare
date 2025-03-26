@@ -28,8 +28,12 @@ const Product = ({ data, className }) => {
         <div className="product-name">{name}</div>
         <div className="product-badges">
           {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
-          {proOnly && <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>}
-          {isBestSeller && <span className={`badge best-seller`}>BEST SELLER</span>}
+          {proOnly && (
+            <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>
+          )}
+          {isBestSeller && (
+            <span className={`badge best-seller`}>BEST SELLER</span>
+          )}
           {!!award && (
             <GatsbyImage
               className="award-winner"
@@ -105,16 +109,15 @@ export default styled(Product)`
       & .product-name {
         margin-inline-end: 0.2rem;
       }
-
       & .product-name,
       & .product-badges {
         align-items: center;
-        justify-content: center;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         & .award-winner {
-          min-width: 70px;
           min-height: 70px;
+          min-width: 70px;
           img {
             object-fit: contain !important;
           }
@@ -144,12 +147,11 @@ export default styled(Product)`
       }
     }
     & .product-media {
-      display: flex;
       align-items: center;
-      justify-content: center;
+      display: flex;
       flex-wrap: wrap;
+      justify-content: center;
     }
-
     & .product-download-pdf {
       font-size: 0.65rem;
       margin-inline-end: 0.5rem;
@@ -157,8 +159,8 @@ export default styled(Product)`
     }
     & .product-skintypes {
       font-weight: bold;
-      padding-block-end: unset;
       margin-block-end: 0;
+      padding-block-end: unset;
       span {
         font-style: italic;
         &::after {
@@ -169,7 +171,6 @@ export default styled(Product)`
         }
       }
     }
-
     & .product-ingredients {
       padding-top: 1rem;
       & > p.bold {
@@ -177,8 +178,7 @@ export default styled(Product)`
         font-weight: 600;
         padding-block-end: 0;
       }
-
-      li.key-ingredient {
+      & .key-ingredient {
         margin-inline-start: 1rem;
         & p {
           padding-block-end: 0;
@@ -188,6 +188,15 @@ export default styled(Product)`
           & .key-ingredient-benefit {
             padding-inline-start: 5px;
           }
+        }
+      }
+    }
+    @media (max-width: 676px) {
+      & .product-download-pdf {
+        width: 100%;
+        max-width: 100%;
+        > a {
+          padding-inline: 0.3rem;
         }
       }
     }
