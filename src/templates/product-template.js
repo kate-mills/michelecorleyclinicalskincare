@@ -2,17 +2,12 @@ import React from 'react'
 
 import { graphql } from 'gatsby'
 
-import {GlobalLayout} from '../components'
+import {GlobalLayout, Product} from '../components'
 
-const ProductTemplate = ({ data: { product }, className }) => {
+const ProductTemplate = ({ data: { product }}) => {
   return (
-    <GlobalLayout
-      title={product.name}
-      description={product.description.description}
-      id={product.name}
-    >
-      <h1>{product.name}</h1>
-      <p>{product.description.description}</p>
+    <GlobalLayout>
+      <Product data={product} singleProductPage={true}/>
     </GlobalLayout>
   )
 }

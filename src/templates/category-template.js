@@ -2,12 +2,13 @@ import React from 'react'
 
 import { graphql } from 'gatsby'
 
-import {GlobalLayout, Products} from '../components'
+import { GlobalLayout, Product } from '../components'
 
 const CategoryTemplate = props => {
-  const { data, pageContext: { name, description, category }, } = props
-
-  console.log('template data', data)
+  const {
+    data:{products:{lst}},
+    pageContext: { name, description, category },
+  } = props
 
   return (
     <GlobalLayout
@@ -16,7 +17,9 @@ const CategoryTemplate = props => {
     >
       <h1>{name}</h1>
       <p>{category.description.description}</p>
-      <Products lst={data.products.lst}/>
+      {lst.map(({ data }) => (
+        <Product key={data.contentful_id} data={data} />
+      ))}
     </GlobalLayout>
   )
 }

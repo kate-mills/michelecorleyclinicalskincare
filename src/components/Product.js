@@ -4,11 +4,12 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { Link } from 'gatsby'
 
-import VideoPlayer from '../VideoPlayer'
+import VideoPlayer from './VideoPlayer'
 
-const Product = ({ data, className }) => {
+const Product = ({ singleProductPage = false, data, className }) => {
   const {
     acneSafe,
+    awardImage,
     isBestSeller,
     award,
     imgRetail,
@@ -22,58 +23,90 @@ const Product = ({ data, className }) => {
     video,
   } = data
 
+  let skTypeLen = skinType.length
+
   return (
     <article className={className} id={slug}>
-      <h2>
-        <div className="product-name">{name}</div>
-        <div className="product-badges">
-          {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
-          {proOnly && (
-            <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>
-          )}
-          {isBestSeller && (
-            <span className={`badge best-seller`}>BEST SELLER</span>
-          )}
-          {!!award && (
-            <GatsbyImage
-              className="award-winner"
-              image={data?.awardImage?.gatsbyImageData}
-              alt={`Best Product ${award} Award Emblem`}
-            />
-          )}
-        </div>
-      </h2>
-
-      <p className="product-download-pdf">
-        {!!pdf ? (
-          <a
-            className="btn pdf"
-            title={`Download pdf with product details and usage instructions for ${name}.`}
-            href={pdf[0].file.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            DOWNLOAD PRODUCT DETAILS PDF
-          </a>
-        ) : null}
-      </p>
+      {!singleProductPage ? (
+        <h2>
+          <div className="product-name">{name}</div>
+          <div className="product-badges">
+            {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
+            {proOnly && (
+              <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>
+            )}
+            {isBestSeller && (
+              <span className={`badge best-seller`}>BEST SELLER</span>
+            )}
+            {!!award && (
+              <GatsbyImage
+                className="award-winner"
+                image={awardImage?.gatsbyImageData}
+                alt={`Best Product ${award} Award Emblem`}
+              />
+            )}
+          </div>
+        </h2>
+      ) : (
+        <h1>
+          <div className="product-name">{name}</div>
+          <div className="product-badges">
+            {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
+            {proOnly && (
+              <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>
+            )}
+            {isBestSeller && (
+              <span className={`badge best-seller`}>BEST SELLER</span>
+            )}
+            {!!award && (
+              <GatsbyImage
+                className="award-winner"
+                image={awardImage?.gatsbyImageData}
+                alt={`Best Product ${award} Award Emblem`}
+              />
+            )}
+          </div>
+        </h1>
+      )}
       <h4 className={`product-skintypes`}>
-        {skinType.map((item, index) => (
-          <span key={index}>{item}</span>
-        ))}
+        <div className="product-download-pdf">
+          {!!pdf ? (
+            <a
+              className="btn pdf"
+              title={`Download pdf with product details and usage instructions for ${name}.`}
+              href={pdf[0].file.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              DOWNLOAD PRODUCT DETAILS PDF
+            </a>
+          ) : null}
+        </div>
+        <div className={'skintypes'}>
+          {skinType.map((item, index) => (
+            <span key={index}>
+              {item}
+              {index + 1 === skTypeLen ? '' : ', '}
+            </span>
+          ))}
+        </div>
       </h4>
 
       <p>{description}</p>
       <div className="product-media">
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`}>
-            <GatsbyImage image={imgRetail.gatsbyImageData} />
+            <GatsbyImage
+              image={imgRetail.gatsbyImageData}
+              alt={`Retail size ${name}`}
+            />
           </Link>
         </div>
         {video && (
           <VideoPlayer
             title={`${name} from Michele Corley on Vimeo`}
             src={`https://player.vimeo.com/video/${video}`}
+            className="video"
           />
         )}
       </div>
@@ -86,7 +119,7 @@ const Product = ({ data, className }) => {
                 <p>
                   <span className="key-ingredient-name-formatted">
                     {ing.name.formatted}:
-                  </span>{' '}
+                  </span>
                   <span className="key-ingredient-benefit">{ing.benefit}</span>
                 </p>
               </li>
@@ -102,12 +135,15 @@ export default styled(Product)`
   & {
     margin: 20px 0;
     max-width: 100%;
+    h1,
     h2 {
       align-items: center;
       color: var(--poppy);
       display: flex;
+      text-align: left;
+      margin-block-end: unset;
       & .product-name {
-        margin-inline-end: 0.2rem;
+        margin-inline-end: 0.5rem;
       }
       & .product-name,
       & .product-badges {
@@ -118,9 +154,6 @@ export default styled(Product)`
         & .award-winner {
           min-height: 70px;
           min-width: 70px;
-          img {
-            object-fit: contain !important;
-          }
         }
         .badge {
           background: var(--poppy);
@@ -130,11 +163,9 @@ export default styled(Product)`
           font-size: 0.75rem;
           line-height: 0.75rem;
           margin-block: 0.2rem;
-          margin-inline: 0.2rem;
           padding: 0.2rem;
           text-align: center;
           white-space: pre;
-          width: fit-content;
           &.best-seller,
           &.pro-only {
             background: var(--offWhite);
@@ -147,30 +178,35 @@ export default styled(Product)`
       }
     }
     & .product-media {
-      align-items: center;
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
     }
-    & .product-download-pdf {
-      font-size: 0.65rem;
-      margin-inline-end: 0.5rem;
-      max-width: 75%;
-    }
+
     & .product-skintypes {
-      font-weight: bold;
-      margin-block-end: 0;
-      padding-block-end: unset;
-      span {
-        font-style: italic;
-        &::after {
-          content: ', ';
-        }
-        &:last-child::after {
-          content: '';
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+
+      > div.skintypes {
+        font-weight: bold;
+        span {
+          font-style: italic;
+          margin-inline-end: 0.2rem;
         }
       }
     }
+
+    & .product-download-pdf {
+      font-size: 0.65rem;
+      margin-inline-end: 0.5rem;
+      > a {
+        padding-inline: 0.3rem;
+      }
+    }
+
     & .product-ingredients {
       padding-top: 1rem;
       & > p.bold {
@@ -192,11 +228,13 @@ export default styled(Product)`
       }
     }
     @media (max-width: 676px) {
-      & .product-download-pdf {
-        width: 100%;
-        max-width: 100%;
-        > a {
-          padding-inline: 0.3rem;
+      & .product-name {
+        margin-inline-end: auto;
+      }
+      & .product-skintypes {
+        & .skintypes {
+          width: 80%;
+          margin-block-start: 0.4rem;
         }
       }
     }
