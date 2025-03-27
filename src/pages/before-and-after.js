@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, BeforeAndAfters } from '../components'
+import { GlobalLayout, BeforeAndAfter } from '../components'
 
 export default function BeforeAndAfterPage({ data }) {
   return (
@@ -15,7 +15,13 @@ export default function BeforeAndAfterPage({ data }) {
         lamp were used. These photos are not retouched and are generally taken
         with cellular phones.
       </p>
-      <BeforeAndAfters lst={data.allAirtable.nodes} />
+      <ul className="before-and-afters">
+        {
+          data.allAirtable.nodes.map(({id, data}) => {
+            return <BeforeAndAfter key={id} data={data}/>
+          })
+        }
+      </ul>
     </GlobalLayout>
   )
 }
@@ -35,9 +41,7 @@ export const query = graphql`
             localFiles {
               childImageSharp {
                 gatsbyImageData(
-                  placeholder: DOMINANT_COLOR
-                  layout: CONSTRAINED
-                  width: 400
+                  width: 1000
                 )
               }
             }
