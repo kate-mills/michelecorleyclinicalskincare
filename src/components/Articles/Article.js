@@ -15,7 +15,7 @@ const Article = ({
   let img = localFiles[0]?.childImageSharp?.gatsbyImageData
   let alt = `Dermascope magazine cover and ${title} article page`
   return (
-    <StyledDiv>
+    <StyledLi>
       <GatsbyImage image={img} alt={alt} />
       <div className="col-txt">
         <p>{summary}</p>
@@ -25,11 +25,11 @@ const Article = ({
           </a>
         )}
       </div>
-    </StyledDiv>
+    </StyledLi>
   )
 }
 
-const StyledDiv = styled.div`
+const StyledLi = styled.li`
   & {
     align-items: center;
     border: 5px solid var(--mainMcc);
