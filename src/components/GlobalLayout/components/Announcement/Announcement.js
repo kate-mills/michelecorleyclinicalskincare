@@ -53,11 +53,11 @@ const WrappedAnnouncement = styled(Announcement)`
     font-size: 18px;
     font-family: Times, serif;
     font-weight: 400;
+    height: 40px;
     min-height: 40px;
     position: relative;
     width: 100%;
     white-space: nowrap;
-
     > .announcement-info {
       width: 100%;
     }
@@ -75,7 +75,6 @@ const WrappedAnnouncement = styled(Announcement)`
       line-height: 40px;
       text-align: center;
       > .tilda {
-        position: relative;
         width: 30px;
         &::after {
           content: '~';
