@@ -1,13 +1,19 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, Articles } from '../components'
+import { GlobalLayout, Article } from '../components'
 
-export default function ArticlesPage({ data }) {
+export default function ArticlesPage({ data:{allAirtable:{articles}} }) {
   return (
     <GlobalLayout>
       <h1>Articles</h1>
-      <Articles lst={data.allAirtable.articles} />
+      <ul className="articles">
+        {
+          articles.map(({ node }) => {
+            return <Article key={node.id} data={node}/>
+          })
+        }
+      </ul>
     </GlobalLayout>
   )
 }
@@ -23,16 +29,13 @@ export const query = graphql`
           id
           data {
             title
-            mcc_id
             summary
             link
             image {
               localFiles {
                 childImageSharp {
                   gatsbyImageData(
-                    placeholder: DOMINANT_COLOR
-                    layout: CONSTRAINED
-                    width: 750
+                    width: 1000 
                   )
                 }
               }

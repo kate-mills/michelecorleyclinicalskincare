@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 const Article = ({
-  article: {
+  data: {
     data: {
       summary,
       link,
@@ -16,8 +16,10 @@ const Article = ({
   let alt = `Dermascope magazine cover and ${title} article page`
   return (
     <StyledLi>
-      <GatsbyImage image={img} alt={alt} />
-      <div className="col-txt">
+      <div className="col">
+        <GatsbyImage image={img} alt={alt} />
+      </div>
+      <div className="col">
         <p>{summary}</p>
         {link && (
           <a href={link} className={'btn'}>
@@ -40,30 +42,39 @@ const StyledLi = styled.li`
     &:hover {
       box-shadow: var(--dark-shadow);
     }
-    div.gatsby-image-wrapper {
-      border-radius: 10px 0px 0px 10px;
-    }
-    > div.col-txt {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 0 auto 10px;
-      padding-block-end: 0.5em;
-      text-align: center;
-      > p {
-        padding-block-end: 0.5em;
-        width: 95%;
+    & .col {
+      width: 50%;
+      & .gatsby-image-wrapper {
+        border-radius: 10px 0px 0px 10px;
+        img {
+          max-width: 739px;
+        }
       }
-      > a {
+      & p {
+        line-break: auto;
+        margin: 0 auto;
+        padding-block-end: 0.25rem;
+        text-align: center;
+        width: 75%;
+      }
+      & a {
+        display: block;
+        margin: 0 auto 0.5rem;
         width: fit-content;
-        max-width: 90%;
       }
     }
-    @media screen and (max-width: 739px) {
-      & {
-        flex-direction: column;
-        div.gatsby-image-wrapper {
+
+  @media screen and (max-width: 739px) {
+      flex-direction: column;
+      & .col {
+        width: 100%;
+        & .gatsby-image-wrapper {
           border-radius: 10px 10px 0px 0px;
+        }
+        & p {
+          font-size: small;
+          max-width: 95%;
+          width: 95%;
         }
       }
     }
