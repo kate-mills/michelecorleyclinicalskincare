@@ -11,7 +11,7 @@ const GlobalLayout = ({
 }) => {
   return (
     <>
-      <Announcement />
+      <div id="announcement"><Announcement /></div>
       <div id="content">
         <main>
           <SmNavbar/>

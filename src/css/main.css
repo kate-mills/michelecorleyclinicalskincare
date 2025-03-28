@@ -340,3 +340,13 @@ Utility classes
 p.pb0 {
   padding-bottom: 0px;
 }
+
+#announcement{
+  height: 40px;
+  transition: height 50ms linear;
+}
+@media screen and (max-width: 570px) {
+  #announcement{
+    height: 0;
+  }
+}
