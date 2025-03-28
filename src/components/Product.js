@@ -36,7 +36,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
               <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>
             )}
             {isBestSeller && (
-              <span className={`badge best-seller`}>BEST SELLER</span>
+              <span className={`badge best-seller`}>BEST-SELLER</span>
             )}
             {!!award && (
               <GatsbyImage
@@ -45,6 +45,17 @@ const Product = ({ singleProductPage = false, data, className }) => {
                 alt={`Best Product ${award} Award Emblem`}
               />
             )}
+            {!!pdf ? (
+              <a
+                className="pdf badge"
+                title={`Download pdf with product details and usage instructions for ${name}.`}
+                href={pdf[0].file.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GET PRODUCT DETAIL PDF
+              </a>
+            ) : null}
           </div>
         </h2>
       ) : (
@@ -65,23 +76,22 @@ const Product = ({ singleProductPage = false, data, className }) => {
                 alt={`Best Product ${award} Award Emblem`}
               />
             )}
+            {!!pdf ? (
+              <a
+                className="badge pdf"
+                title={`Download pdf with product details and usage instructions for ${name}.`}
+                href={pdf[0].file.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                DOWNLOAD PRODUCT PDF
+              </a>
+            ) : null}
           </div>
         </h1>
       )}
+
       <h4 className={`product-skintypes`}>
-        <div className="product-download-pdf">
-          {!!pdf ? (
-            <a
-              className="btn pdf"
-              title={`Download pdf with product details and usage instructions for ${name}.`}
-              href={pdf[0].file.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              DOWNLOAD PRODUCT DETAILS PDF
-            </a>
-          ) : null}
-        </div>
         <div className={'skintypes'}>
           {skinType.map((item, index) => (
             <span key={index}>
@@ -174,9 +184,15 @@ export default styled(Product)`
           &.best-seller {
             border-color: var(--poppy);
           }
+          &.pdf {
+            background: var(--blackText);
+            color: var(--mainWhite);
+            border-color: var(--poppyDark);
+          }
         }
       }
     }
+
     & .product-media {
       display: flex;
       flex-wrap: wrap;
@@ -196,14 +212,6 @@ export default styled(Product)`
           font-style: italic;
           margin-inline-end: 0.2rem;
         }
-      }
-    }
-
-    & .product-download-pdf {
-      font-size: 0.65rem;
-      margin-inline-end: 0.5rem;
-      > a {
-        padding-inline: 0.3rem;
       }
     }
 
