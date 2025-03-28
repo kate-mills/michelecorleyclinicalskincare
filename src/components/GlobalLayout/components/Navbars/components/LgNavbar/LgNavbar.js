@@ -63,12 +63,12 @@ export default styled(LgNavbar)`
           border: 3px solid transparent;
           display: block;
           padding: 0.25rem;
+          position: relative;
           > span {
             display: inline-block;
             line-height: var(--bodyLineHeight);
             width: 20px;
           }
-          position: relative;
           &[aria-current='page'] {
             color: var(--poppyHigh);
             &::before{
