@@ -68,12 +68,14 @@ export default styled(LgNavbar)`
             line-height: var(--bodyLineHeight);
             width: 20px;
           }
+          position: relative;
           &[aria-current='page'] {
             color: var(--poppyHigh);
             &::before{
+              position: absolute;
               content: '* ';
-              position: relative;
-              top: 3px;
+              top: 20%;
+              left: -3px;
             }
           }
           &:focus-visible,
