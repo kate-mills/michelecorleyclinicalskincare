@@ -22,12 +22,12 @@ const Product = ({ singleProductPage = false, data, className }) => {
       <ProductTitle singleProductPage={singleProductPage} data={data} />
       <h4 className={`product-skintypes`}>
         {skinType.map((item, index) => (
-          <span className={'skintype'} key={index}>
+          <span className={'skintype bold'} key={index}>
             {item}
           </span>
         ))}
       </h4>
-      <p>{description}</p>
+      <p className="product-description">{description}</p>
       <div className="product-media">
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`}>
@@ -47,8 +47,8 @@ const Product = ({ singleProductPage = false, data, className }) => {
         <ul data-bullet-list id="ingredient-list">
           {keyIngredients.map(ing => {
             let {
-              name: {formatted:fmtNm},
-              benefit
+              name: { formatted: fmtNm },
+              benefit,
             } = ing
             return (
               <li className="key-ingredient" key={ing.id}>
@@ -65,18 +65,38 @@ const Product = ({ singleProductPage = false, data, className }) => {
   )
 }
 
-const ProductTitle = props => {
-  let { singleProductPage, data } = props
+const ProductTitle = ({ data, singleProductPage }) => {
+  let { name, award, awardImage } = data
   return !singleProductPage ? (
     <h2>
-      <div className="product-name">{data.name}</div>
+      <div className="product-name">
+        <span className="name">{name}</span>
+        <AwardImage award={award} awardImage={awardImage} />
+      </div>
       <ProductBadges product={data} />
     </h2>
   ) : (
     <h1>
-      <div className="product-name">{data.name}</div>
+      <div className="product-name poppy">
+        <span className="name">{name}</span>
+        <AwardImage award={award} awardImage={awardImage} />
+      </div>
       <ProductBadges product={data} />
     </h1>
+  )
+}
+
+const AwardImage = ({ award, awardImage }) => {
+  return (
+    !!award && (
+      <GatsbyImage
+        width={70}
+        height={70}
+        className="award-winner"
+        image={awardImage?.gatsbyImageData}
+        alt={`Best Product ${award} Award Emblem`}
+      />
+    )
   )
 }
 
@@ -95,16 +115,7 @@ const ProductBadges = ({ product }) => {
       {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
       {isBst && <span className={`badge best-seller`}>BEST-SELLER</span>}
       {proOnly && <span className={`badge pro-only`}>PRO USE ONLY</span>}
-      {!!award ? (
-        <GatsbyImage
-          width={70}
-          height={70}
-          className="award-winner"
-          image={awardImage?.gatsbyImageData}
-          alt={`Best Product ${award} Award Emblem`}
-        />
-      ) : null}
-      {!!pdf ? (
+      {!!pdf && (
         <a
           className="pdf badge"
           title={`Download pdf with product details and usage instructions for ${name}.`}
@@ -114,42 +125,45 @@ const ProductBadges = ({ product }) => {
         >
           GET PRODUCT DETS
         </a>
-      ) : null}
+      )}
     </div>
   )
 }
 
 export default styled(Product)`
   & {
-    margin: 20px 0;
-    max-width: 100%;
+    border: 1px solid #766f69;
+    border-radius: var(--mainRadius);
+    margin: 20px auto;
+    padding: 0.5rem 1rem;
     h1,
     h2 {
       align-items: center;
-      color: var(--poppy);
       display: flex;
       flex-wrap: wrap;
       margin-block-end: unset;
       text-align: left;
       & .product-name {
-        margin-inline-end: 0.5rem;
-        white-space: normal;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+        & .gatsby-image-wrapper {
+          min-width: 70px;
+        }
+        & span{
+          margin-inline-end: 0.2rem;
+        }
       }
       & .product-badges {
-        align-items: center;
         display: flex;
+        align-items: center;
         flex-wrap: wrap;
         .badge {
           background: var(--poppy);
           border: 2px solid var(--darkGrey);
           color: var(--offWhite);
-          display: inline-block;
-          font-size: 0.75rem;
-          line-height: 0.75rem;
-          margin-block: 0.2rem;
-          margin-inline: 0.2rem;
+          font-size: 0.85rem;
+          line-height: normal;
+          margin: 0 0.2rem 0.2rem 0;
           padding: 0.2rem;
           text-align: center;
           &.best-seller,
@@ -160,36 +174,30 @@ export default styled(Product)`
           &.best-seller {
             border-color: var(--poppy);
           }
-          &:first-child {
-            margin-inline-start: 0;
-          }
           &.pdf {
-            background: var(--blackText);
-            border-color: var(--poppyDark);
-            color: var(--mainWhite);
-            margin-inline-end: 0;
+            background: var(--brightBlue);
           }
         }
       }
     }
-
+    & .product-description {
+      margin-inline: 1rem;
+    }
     & .product-media,
     & .product-skintypes {
       align-items: center;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-evenly;
     }
-
     & .product-skintypes {
-      font-weight: bold;
       justify-content: flex-start;
-      & .skintype {
+      & span {
         font-style: italic;
         &:not(:last-of-type) {
           &:after {
             content: ', ';
-            margin-inline-end: 0.2rem;
+            margin-inline-end: 0.3rem;
           }
         }
       }
@@ -209,7 +217,7 @@ export default styled(Product)`
         }
         p {
           padding-block-end: 0;
-          >:first-child{
+          > :first-child {
             font-weight: 600;
             margin-inline-end: 4px;
           }
@@ -217,8 +225,17 @@ export default styled(Product)`
       }
     }
     @media (max-width: 676px) {
+      margin-inline: 0.2rem;
+
       & .product-name {
         margin-inline-end: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      & .product-ingredients {
+        & .key-ingredient {
+          margin-inline-start: 0;
+        }
       }
     }
   }
