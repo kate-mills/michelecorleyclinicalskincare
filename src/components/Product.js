@@ -18,7 +18,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
   } = data
 
   return (
-    <article className={className} id={slug}>
+    <article className={`${className} ${!singleProductPage ? 'border' : ''}`} id={slug} >
       <ProductTitle singleProductPage={singleProductPage} data={data} />
       <h4 className={`product-skintypes`}>
         {skinType.map((item, index) => (
@@ -132,10 +132,12 @@ const ProductBadges = ({ product }) => {
 
 export default styled(Product)`
   & {
-    border: 1px solid #766f69;
-    border-radius: var(--mainRadius);
     margin: 20px auto;
     padding: 0.5rem 1rem;
+    &.border{
+      border: 1px solid #766f69;
+      border-radius: var(--mainRadius);
+    }
     h1,
     h2 {
       align-items: center;
@@ -149,7 +151,7 @@ export default styled(Product)`
         & .gatsby-image-wrapper {
           min-width: 70px;
         }
-        & span{
+        & span {
           margin-inline-end: 0.2rem;
         }
       }
@@ -175,7 +177,9 @@ export default styled(Product)`
             border-color: var(--poppy);
           }
           &.pdf {
-            background: var(--brightBlue);
+            background: var(--blackText);
+            border-color: var(--poppy);
+            color: var(--mainWhite);
           }
         }
       }
