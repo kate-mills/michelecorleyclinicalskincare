@@ -8,108 +8,30 @@ import VideoPlayer from './VideoPlayer'
 
 const Product = ({ singleProductPage = false, data, className }) => {
   const {
-    acneSafe,
-    awardImage,
-    isBestSeller,
-    award,
-    imgRetail,
-    professionalOnly: proOnly,
+    imgRetail: { gatsbyImageData },
     name,
     slug,
     skinType,
     description: { description },
     keyIngredients,
-    profiles: pdf,
     video,
   } = data
 
-  let skTypeLen = skinType.length
-
   return (
     <article className={className} id={slug}>
-      {!singleProductPage ? (
-        <h2>
-          <div className="product-name">{name}</div>
-          <div className="product-badges">
-            {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
-            {proOnly && (
-              <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>
-            )}
-            {isBestSeller && (
-              <span className={`badge best-seller`}>BEST-SELLER</span>
-            )}
-            {!!award && (
-              <GatsbyImage
-                className="award-winner"
-                image={awardImage?.gatsbyImageData}
-                alt={`Best Product ${award} Award Emblem`}
-              />
-            )}
-            {!!pdf ? (
-              <a
-                className="pdf badge"
-                title={`Download pdf with product details and usage instructions for ${name}.`}
-                href={pdf[0].file.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                GET PRODUCT DETAIL PDF
-              </a>
-            ) : null}
-          </div>
-        </h2>
-      ) : (
-        <h1>
-          <div className="product-name">{name}</div>
-          <div className="product-badges">
-            {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
-            {proOnly && (
-              <span className={`badge pro-only`}>PROFESSIONAL USE ONLY</span>
-            )}
-            {isBestSeller && (
-              <span className={`badge best-seller`}>BEST SELLER</span>
-            )}
-            {!!award && (
-              <GatsbyImage
-                className="award-winner"
-                image={awardImage?.gatsbyImageData}
-                alt={`Best Product ${award} Award Emblem`}
-              />
-            )}
-            {!!pdf ? (
-              <a
-                className="badge pdf"
-                title={`Download pdf with product details and usage instructions for ${name}.`}
-                href={pdf[0].file.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                DOWNLOAD PRODUCT PDF
-              </a>
-            ) : null}
-          </div>
-        </h1>
-      )}
-
+      <ProductTitle singleProductPage={singleProductPage} data={data} />
       <h4 className={`product-skintypes`}>
-        <div className={'skintypes'}>
-          {skinType.map((item, index) => (
-            <span key={index}>
-              {item}
-              {index + 1 === skTypeLen ? '' : ', '}
-            </span>
-          ))}
-        </div>
+        {skinType.map((item, index) => (
+          <span className={'skintype'} key={index}>
+            {item}
+          </span>
+        ))}
       </h4>
-
       <p>{description}</p>
       <div className="product-media">
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`}>
-            <GatsbyImage
-              image={imgRetail.gatsbyImageData}
-              alt={`Retail size ${name}`}
-            />
+            <GatsbyImage image={gatsbyImageData} alt={`Retail size ${name}`} />
           </Link>
         </div>
         {video && (
@@ -124,13 +46,15 @@ const Product = ({ singleProductPage = false, data, className }) => {
         <p className="bold">A FEW KEY Ingredients & Benefits:</p>
         <ul data-bullet-list id="ingredient-list">
           {keyIngredients.map(ing => {
+            let {
+              name: {formatted:fmtNm},
+              benefit
+            } = ing
             return (
               <li className="key-ingredient" key={ing.id}>
                 <p>
-                  <span className="key-ingredient-name-formatted">
-                    {ing.name.formatted}:
-                  </span>
-                  <span className="key-ingredient-benefit">{ing.benefit}</span>
+                  <span>{`${fmtNm}: `}</span>
+                  <span>{` ${benefit}`}</span>
                 </p>
               </li>
             )
@@ -138,6 +62,60 @@ const Product = ({ singleProductPage = false, data, className }) => {
         </ul>
       </div>
     </article>
+  )
+}
+
+const ProductTitle = props => {
+  let { singleProductPage, data } = props
+  return !singleProductPage ? (
+    <h2>
+      <div className="product-name">{data.name}</div>
+      <ProductBadges product={data} />
+    </h2>
+  ) : (
+    <h1>
+      <div className="product-name">{data.name}</div>
+      <ProductBadges product={data} />
+    </h1>
+  )
+}
+
+const ProductBadges = ({ product }) => {
+  let {
+    name,
+    acneSafe,
+    professionalOnly: proOnly,
+    isBestSeller: isBst,
+    award,
+    profiles: pdf,
+    awardImage,
+  } = product
+  return (
+    <div className="product-badges">
+      {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
+      {isBst && <span className={`badge best-seller`}>BEST-SELLER</span>}
+      {proOnly && <span className={`badge pro-only`}>PRO USE ONLY</span>}
+      {!!award ? (
+        <GatsbyImage
+          width={70}
+          height={70}
+          className="award-winner"
+          image={awardImage?.gatsbyImageData}
+          alt={`Best Product ${award} Award Emblem`}
+        />
+      ) : null}
+      {!!pdf ? (
+        <a
+          className="pdf badge"
+          title={`Download pdf with product details and usage instructions for ${name}.`}
+          href={pdf[0].file.url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          GET PRODUCT DETS
+        </a>
+      ) : null}
+    </div>
   )
 }
 
@@ -150,21 +128,19 @@ export default styled(Product)`
       align-items: center;
       color: var(--poppy);
       display: flex;
-      text-align: left;
+      flex-wrap: wrap;
       margin-block-end: unset;
+      text-align: left;
       & .product-name {
         margin-inline-end: 0.5rem;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-      & .product-name,
       & .product-badges {
         align-items: center;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        & .award-winner {
-          min-height: 70px;
-          min-width: 70px;
-        }
         .badge {
           background: var(--poppy);
           border: 2px solid var(--darkGrey);
@@ -173,9 +149,9 @@ export default styled(Product)`
           font-size: 0.75rem;
           line-height: 0.75rem;
           margin-block: 0.2rem;
+          margin-inline: 0.2rem;
           padding: 0.2rem;
           text-align: center;
-          white-space: pre;
           &.best-seller,
           &.pro-only {
             background: var(--offWhite);
@@ -184,39 +160,42 @@ export default styled(Product)`
           &.best-seller {
             border-color: var(--poppy);
           }
+          &:first-child {
+            margin-inline-start: 0;
+          }
           &.pdf {
             background: var(--blackText);
-            color: var(--mainWhite);
             border-color: var(--poppyDark);
+            color: var(--mainWhite);
+            margin-inline-end: 0;
           }
         }
       }
     }
 
-    & .product-media {
+    & .product-media,
+    & .product-skintypes {
+      align-items: center;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: center;
     }
 
     & .product-skintypes {
-      display: flex;
+      font-weight: bold;
       justify-content: flex-start;
-      align-items: center;
-      flex-wrap: wrap;
-
-      > div.skintypes {
-        font-weight: bold;
-        span {
-          font-style: italic;
-          margin-inline-end: 0.2rem;
+      & .skintype {
+        font-style: italic;
+        &:not(:last-of-type) {
+          &:after {
+            content: ', ';
+            margin-inline-end: 0.2rem;
+          }
         }
       }
     }
-
     & .product-ingredients {
-      padding-top: 1rem;
+      margin-block-start: 0.5rem;
       & > p.bold {
         font-size: 1.3rem;
         font-weight: 600;
@@ -224,26 +203,22 @@ export default styled(Product)`
       }
       & .key-ingredient {
         margin-inline-start: 1rem;
-        & p {
+        &:first-child p {
+          padding-block-start: 0;
+          margin-block-start: 0;
+        }
+        p {
           padding-block-end: 0;
-          & .key-ingredient-name-formatted {
+          >:first-child{
             font-weight: 600;
-          }
-          & .key-ingredient-benefit {
-            padding-inline-start: 5px;
+            margin-inline-end: 4px;
           }
         }
       }
     }
     @media (max-width: 676px) {
       & .product-name {
-        margin-inline-end: auto;
-      }
-      & .product-skintypes {
-        & .skintypes {
-          width: 80%;
-          margin-block-start: 0.4rem;
-        }
+        margin-inline-end: 0;
       }
     }
   }
