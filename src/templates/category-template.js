@@ -16,9 +16,9 @@ const CategoryTemplate = props => {
       description={description}
     >
       <h1>{name}</h1>
-      <p>{category.description.description}</p>
+      <p>{category?.description?.description}</p>
       {lst.map(({ data }) => (
-        <Product key={data.contentful_id} data={data} />
+        <Product key={data?.contentful_id} data={data} />
       ))}
     </GlobalLayout>
   )

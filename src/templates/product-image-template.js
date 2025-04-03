@@ -31,15 +31,15 @@ const ProductImageTemplate = props => {
       </div>
 
       <div className="flex-box-images">
-        {product.imgTravel && (
+        {product?.imgTravel && (
           <div className="img-box small-box">
             <GatsbyImage
               className="img small-img"
-              image={product.imgTravel.gatsbyImageData}
-              alt={product.imgTravel.description}
+              image={product.imgTravel?.gatsbyImageData}
+              alt={product.imgTravel?.description}
             />
             <a
-              href={product.imgTravel.localFile.publicURL}
+              href={product?.imgTravel?.localFile?.publicURL}
               className="btn travel"
               download={`Travel-size ${product.name}`}
             >
@@ -54,9 +54,9 @@ const ProductImageTemplate = props => {
             alt={product.fluidImg.description}
           />
           <a
-            href={product.fluidImg.localFile.publicURL}
+            href={product?.fluidImg?.localFile?.publicURL}
             className="btn retail"
-            download={`${retailOrProText} ${product.name}`}
+            download={`${retailOrProText} ${product?.name}`}
           >
             Download {retailOrProText} Image
           </a>

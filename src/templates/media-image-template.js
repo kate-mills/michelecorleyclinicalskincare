@@ -5,9 +5,10 @@ import { graphql } from 'gatsby'
 
 const MediaImageTemplate = props => {
   const { data: { media }} = props
+  console.log(props)
   return (
     <>
-      {media.name}
+      {media?.name}
     </>
   )
 }
@@ -16,11 +17,11 @@ export const query = graphql`
   query GetMccMediaImage($slug: String) {
     media: contentfulMccMediaImg(slug: { eq: $slug }) {
       name
-      fluidImgs: images {
-        id
-        title
-        description
+      slug
+      category
+      images {
         gatsbyImageData
+        localFile{ publicURL }
       }
     }
   }
