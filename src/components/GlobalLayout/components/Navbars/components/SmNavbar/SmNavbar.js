@@ -7,7 +7,7 @@ const MoreItems = props => {
   const [isOpen, setIsOpen] = useState(false)
   const [css, setCss] = useState('hide')
 
-  const {item} = props
+  const { item } = props
 
   const clickHandler = () => {
     if (!isOpen) {
@@ -140,7 +140,7 @@ export default styled(SmallScreenNavbar)`
     display: flex;
     font-size: 16px;
     justify-content: center;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     line-height: 27px;
     margin: 6px auto 0;
     text-align: center;
@@ -151,29 +151,34 @@ export default styled(SmallScreenNavbar)`
     text-transform: uppercase;
     font-weight: 400;
     color: var(--mainBlack);
+    &.li {
+      display: block;
+      border: 5px solid var(--clear);
+      padding-block: 2px;
+      margin-block: 0.5rem;
+    }
   }
-  & a.li {
-    display: block;
-    border: 5px solid var(--clear);
-    padding: 2px;
-  }
-  & button.navbar-toggler {
-    box-shadow: none;
-    margin: .5rem auto 0;
+  & button {
+    margin-block: 0.25rem;
+    &.navbar-toggler {
+      border: 2px solid var(--poppy);
+      box-shadow: none;
+      margin: 0.25rem auto 0;
+    }
   }
   & ul {
-    margin 0px;
+    margin: 0 auto;
   }
   & div.full-nav.hide {
     display: none;
   }
   /* PROFESSIONALS link */
-  & span.professionals a:first-child{
+  & span.professionals a:first-child {
     font-size: 16px;
     border-right: unset;
   }
   /* LOGOUT link */
-  & a.status-module--professional__logout__link--2sh3t{
+  & a.status-module--professional__logout__link--2sh3t {
     color: var(--mainBlack);
     font-size: 10px;
     position: relative;
@@ -181,7 +186,7 @@ export default styled(SmallScreenNavbar)`
     border: unset;
     padding: unset;
   }
- @media (min-width: 750px){
+  @media (min-width: 750px) {
     display: none;
- };
+  }
 `
