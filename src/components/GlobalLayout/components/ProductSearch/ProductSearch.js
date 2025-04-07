@@ -53,7 +53,7 @@ const Search = () => {
             autoComplete="off"
             id="search"
             onChange={searchData}
-            placeholder="Search Products..."
+            placeholder="Search Products ..."
             type="text"
             value={searchQuery}
             ref={inputRef}
@@ -106,17 +106,16 @@ const StyledProductSearch = styled.div`
     & form {
       height: 80px;
       margin: 0 auto;
-      width: 25%;
-      min-width: 220px;
+      width: 220px;
       position: relative;
 
      transition: width 0.5s ease-in-out;
      -webkit-transition: width 0.5s ease-in-out;
 
 
-     &:focus-within,
-     &:target{
+     &:focus-within {
       width: 70%;
+      max-width: 100%;
      }
 
       .search-inputs {
