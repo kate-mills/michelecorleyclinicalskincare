@@ -106,25 +106,22 @@ const StyledProductSearch = styled.div`
     & form {
       height: 80px;
       margin: 0 auto;
-      min-width: 25%;
+      width: 25%;
+      min-width: 220px;
       position: relative;
-      transition: width 0.5s ease-in-out;
-      -webkit-transition: width 0.5s ease-in-out;
-      width: 130px;
 
-      &:active,
-      &:focus-visible,
-      &:focus-within,
-      &:target,
-      &:focus {
-        width: 85%;
-      }
+     transition: width 0.5s ease-in-out;
+     -webkit-transition: width 0.5s ease-in-out;
+
+
+     &:focus-within,
+     &:target{
+      width: 70%;
+     }
 
       .search-inputs {
-        align-items: center;
         border: 2px solid #ccc;
         border-radius: 4px;
-        display: flex;
         margin: 20px auto;
         #search {
           background-color: var(--mainWhite);
@@ -133,9 +130,11 @@ const StyledProductSearch = styled.div`
           background-repeat: no-repeat;
           border: 1px solid var(--mainWhite);
           padding: 12px 20px 12px 40px;
-          width: 100%;
         }
         #clear {
+          position: absolute;
+          right: 3px;
+          top: 0;
           border: none;
           color: #9d9692;
           padding: 12px 20px;
@@ -181,13 +180,17 @@ const StyledProductSearch = styled.div`
       @media (max-width: 800px) {
         background: var(--mainWhite);
         & #table .row .td.cat {
-            max-width: 200px;
+          max-width: 200px;
         }
       }
       @media (max-width: 600px) {
         & #table .row .td {
-          &.name { max-width: 200px; }
-          &.cat  { max-width: 100px; }
+          &.name {
+            max-width: 200px;
+          }
+          &.cat {
+            max-width: 100px;
+          }
         }
       }
     }
