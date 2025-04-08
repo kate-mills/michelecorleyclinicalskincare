@@ -8,9 +8,8 @@
   --offWhite: #f2f2f2;
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
-  --poppyK: #006ba6;
-  --poppy: #5872a6;
-  --poppy: var(--poppyK);
+  --Oldpoppy: #5872a6;
+  --poppy: #006ba6;
   --poppyHigh: hsl(214 52% 36% / 1);
   --poppyHover: #274e83;
   --mainFont: Montserrat, sans-serif;
@@ -93,7 +92,7 @@ h6 {
   text-transform: capitalize;
 }
 h1 {
-  color: var(--poppyLow);
+  color: var(--poppy);
   letter-spacing: normal;
   font-size: 2.6876em;
   margin: 0 auto 0.3em;
@@ -220,10 +219,10 @@ button {
 }
 .btn {
   background: var(--mainWhite);
-  border: 0.125rem solid var(--poppyLow);
+  border: 0.125rem solid var(--poppy);
   border-radius: 0.5rem;
   box-shadow: var(--light-shadow);
-  color: var(--poppyLow);
+  color: var(--poppy);
   display: inline-block;
   letter-spacing: var(--mainSpacing);
   padding: 0.8rem 1.6rem;
