@@ -52,7 +52,6 @@ const ContactForm = () => {
                 name="phone"
                 id="phone"
                 className={'formControl'}
-                required
               />
             </label>
           </div>
@@ -102,13 +101,11 @@ const ContactForm = () => {
                 className={'formControl'}
                 required
               >
-                <option value="Licensed Professional">
-                  Licensed Professional
-                </option>
                 <option value="Internet Search">Internet Search</option>
-                <option value="Friend">Friend</option>
-                <option value="Trade Show">Trade Show</option>
-                <option value="Other">Other</option>
+                <option value=" Licensed Professional"> Licensed Professional</option>
+                <option value=" Friend"> Friend</option>
+                <option value=" Trade Show"> Trade Show</option>
+                <option value=" Other"> Other</option>
               </select>
             </label>
           </div>
