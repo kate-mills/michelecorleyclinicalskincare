@@ -106,9 +106,7 @@ const ProductBadges = ({ product }) => {
     acneSafe,
     professionalOnly: proOnly,
     isBestSeller: isBst,
-    award,
     profiles: pdf,
-    awardImage,
   } = product
   return (
     <div className="product-badges">
