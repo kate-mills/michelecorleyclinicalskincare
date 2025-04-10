@@ -10,3 +10,5 @@ export {default as Article}  from './Article'
 export {default as BeforeAndAfter}  from './BeforeAndAfter'
 export {default as SpaFndr}  from './SpaFndr'
 export {default as InThePress}  from './InThePress'
+
+export {default as BasicEmail} from './BasicEmail'

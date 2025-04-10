@@ -5,9 +5,7 @@ const ContactForm = () => {
   const asterisk = <span className={'asterisk'}>&lowast;</span>
   return (
     <StyledForm>
-      <h3 style={{ fontSize: '43px' }} className="poppy g-txt-center">
-        CONTACT US
-      </h3>
+      <h3 className="poppy g-txt-center">CONTACT US</h3>
       <div className={'center'}>
         <form
           method="post"
@@ -107,12 +105,11 @@ const ContactForm = () => {
   )
 }
 const StyledForm = styled.section`
-  & .center {
-    width: 100%;
-    margin: 0 auto;
-  }
-  @media screen and (min-width: 992px) {
-    & .center {
+  &{
+    h3{
+      font-size: 43px;
+    }
+    .center{
       width: 100%;
       margin: 0 auto;
     }
