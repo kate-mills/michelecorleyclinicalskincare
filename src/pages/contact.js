@@ -12,7 +12,7 @@ import {PhoneInfo} from '../constants/contact-info'
 
 export default function ContactPage({ data }) {
   return (
-    <GlobalLayout>
+    <GlobalLayout showSpaFndrLnk={false}>
       <PageWrapper>
           <div className="flex-col">
           <div className="flex-item-1">

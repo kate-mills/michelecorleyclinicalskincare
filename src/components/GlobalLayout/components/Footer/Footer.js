@@ -128,6 +128,9 @@ const FooterWrapper = styled(Footer)`
         }
       }
     }
+    @media(max-width: 900px){
+      padding-block-end: 70px;
+    }
   }
 `
 export default FooterWrapper
