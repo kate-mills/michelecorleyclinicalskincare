@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-const Press = ({ data }) => {
+const InThePress = ({ data }) => {
   let { title, summary, image, link, relativeLink } = data
 
   let img = image?.localFiles[0]?.childImageSharp?.gatsbyImageData
@@ -72,4 +72,4 @@ const StyledDiv = styled.div`
   }
 `
 
-export default Press
+export default InThePress

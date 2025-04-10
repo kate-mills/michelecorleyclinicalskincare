@@ -6,7 +6,7 @@ import { GlobalLayout, BeforeAndAfter } from '../components'
 export default function BeforeAndAfterPage({ data }) {
   return (
     <GlobalLayout>
-      <h1>Before & After Page</h1>
+      <h1>Before & After</h1>
       <p style={{ paddingBottom: 0 }}>
         These photos are provided by my dear clients utilizing only Michele
         Corley Clinical Skin Care Products (unless noted). The results were
