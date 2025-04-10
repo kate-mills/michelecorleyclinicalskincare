@@ -5,7 +5,7 @@ const ContactForm = () => {
   const asterisk = <span className={'asterisk'}>&lowast;</span>
   return (
     <StyledForm>
-      <h3 style={{ fontSize: '43px' }} className="poppy txt-center">
+      <h3 style={{ fontSize: '43px' }} className="poppy g-txt-center">
         CONTACT US
       </h3>
       <div className={'center'}>
@@ -20,105 +20,83 @@ const ContactForm = () => {
           <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="contact" />
           <div>
-            <label htmlFor="name">
-              {asterisk}Name:
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className={'formControl'}
-                ref={input => input && input.focus()}
-                required
-              />
-            </label>
+            <label htmlFor="name">{asterisk}Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className={'formControl'}
+              ref={input => input && input.focus()}
+              required
+            />
           </div>
           <div>
-            <label htmlFor="email">
-              {asterisk}Email:
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className={'formControl'}
-                required
-              />
-            </label>
+            <label htmlFor="email">{asterisk}Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className={'formControl'}
+              required
+            />
           </div>
           <div>
-            <label htmlFor="phone">
-              {asterisk}Phone:
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                className={'formControl'}
-              />
-            </label>
+            <label htmlFor="phone">Phone:</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              className={'formControl'}
+            />
           </div>
           <div>
-            <label htmlFor="subject">
-              {asterisk}Subject:
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                className={'formControl'}
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="license">
-              Professional License Number:
-              <input
-                type="text"
-                name="license"
-                id="license"
-                className={'formControl'}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="message">
-              {asterisk}Message:
-              <textarea
-                name="message"
-                id="message"
-                rows="7"
-                className={'formControl'}
-                placeholder="Hello there..."
-                required
-              />
-            </label>
+            <label htmlFor="message">{asterisk}Message:</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="7"
+              className={'formControl'}
+              placeholder="Hello there..."
+              required
+            />
           </div>
           <div>
             <label htmlFor="reference">
-              {asterisk}How Did You Hear About Us?:
-              <select
-                type="text"
-                name="reference"
-                id="reference"
-                className={'formControl'}
-                required
-              >
-                <option value="Internet Search">Internet Search</option>
-                <option value=" Licensed Professional"> Licensed Professional</option>
-                <option value=" Friend"> Friend</option>
-                <option value=" Trade Show"> Trade Show</option>
-                <option value=" Other"> Other</option>
-              </select>
+              {asterisk}How Did You Hear About Us?
             </label>
+            <select
+              name="reference"
+              id="reference"
+              className={'formControl'}
+              required
+              default={'Internet Search'}
+            >
+              <option value="Internet Search">Internet Search</option>
+              <option value="Licensed Professional">
+                Licensed Professional
+              </option>
+              <option value="Friend"> Friend</option>
+              <option value="Trade Show"> Trade Show</option>
+              <option value="Other"> Other</option>
+            </select>
           </div>
           <div>
-            <label htmlFor="website">
-              Website:
-              <input
-                type="url"
-                name="website"
-                id="website"
-                className={'formControl'}
-              />
-            </label>
+            <label htmlFor="license">Professional License Num:</label>
+            <input
+              type="text"
+              name="license"
+              id="license"
+              className={'formControl'}
+            />
+          </div>
+          <div>
+            <label htmlFor="website">Website:</label>
+            <input
+              type="url"
+              name="website"
+              id="website"
+              className={'formControl'}
+            />
           </div>
           <div>
             <input type="submit" value="send" className={'submit'} />
@@ -139,43 +117,39 @@ const StyledForm = styled.section`
       margin: 0 auto;
     }
   }
-
   & label {
-    font-size: 17px;
-    text-transform: capitalize;
     display: block;
-    margin-bottom: 0.5rem;
-    & .asterisk{
+    font-size: 17px;
+    margin-block-end: 0.5rem;
+    text-transform: capitalize;
+    & .asterisk {
       color: var(--poppy);
-      paddingRight: 2px; 
+      padding-inline-end: 2px;
     }
   }
-
   & .formControl,
   & .submit {
-    width: 100%;
+    border: 1px solid var(--darkGrey);
+    border-radius: 0.25rem;
     font-size: 1rem;
     margin-bottom: 1rem;
     padding: 0.375rem 0.75rem;
-    border: 1px solid var(--darkGrey);
-    border-radius: 0.25rem;
+    width: 100%;
   }
   & .submit {
     background-color: var(--mainMcc);
     border-color: var(--darkGrey);
-    text-transform: capitalize;
     color: var(--mainBlack);
+    text-transform: capitalize;
     transition: var(--mainTransition);
-  }
-  & .submit:hover,
-  & .submit:active,
-  & .submit:focus {
-    background: var(--mainWhite);
-    outline: none;
-    transition: var(--bgTransition);
-  }
-  & .submit:hover {
-    cursor: pointer;
+    &:hover,
+    &:active,
+    &:focus {
+      background: var(--mainWhite);
+      cursor: pointer;
+      outline: none;
+      transition: var(--bgTransition);
+    }
   }
 `
 export default ContactForm
