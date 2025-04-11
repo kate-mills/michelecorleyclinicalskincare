@@ -38,55 +38,31 @@ const MoreItems = props => {
 }
 
 const MoreItemsWrapper = styled.div`
-  & button.plus-btn,
-  & li.show.child {
-    display: inline-block;
-    position: sticky;
-    font-size: 16px;
-    border: 5px solid var(--clear);
-    padding: 2px;
-    background: var(--mainWhite);
-    :hover {
-      cursor: pointer;
-    }
-  }
-  & li.show.child {
-    display: block;
-    background-color: rgba(242, 242, 242, 1);
-  }
-  & button.plus-btn.hide::after {
-    position: relative;
-    left: 5px;
-    display: inline-block;
-    content: '+';
-    padding: 2px;
-  }
-  & button.plus-btn.show::after {
-    display: inline-block;
-    position: relative;
-    left: 5px;
-    content: '--';
-    letter-spacing: -2px;
-    padding: 2px;
-  }
-  & nav {
-    background: #f2f2f2;
-    background-image: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: rgba(242, 242, 242, 1);
+  & {
     width: 90vw;
-    margin: 0 auto;
-    a {
-      padding: 5px;
+    button {
+      position: relative;
+      &.hide::after,
+      &.show::after {
+        content: '+';
+        position: absolute;
+        right: 0;
+      }
+      &.show::after {
+        content: '-';
+      }
     }
-  }
-  & nav.sub-nav.hide {
-    display: none;
+    nav {
+      margin-block-start: 0;
+      ul {
+        & li {
+          background-color: var(--mainMcc);
+        }
+        &.hide {
+          display: none;
+        }
+      }
+    }
   }
 `
 
@@ -108,12 +84,12 @@ class SmallScreenNavbar extends Component {
       <div className={`${this.props.className}`}>
         <div>
           <button
-            className={`${this.state.css} btn navbar-toggler`}
+            className={`${this.state.css} btn menu`}
             onClick={this.navbarHandler}
           >
             MENU
           </button>
-          <div className={`${this.state.css} full-nav`}>
+          <div className={`${this.state.css} nav-menu`}>
             {links.map((item, id) => {
               return item?.subMenu?.length > 0 ? (
                 <MoreItems key={id} item={item} />
@@ -138,55 +114,30 @@ export default styled(SmallScreenNavbar)`
   & {
     align-items: center !important;
     display: flex;
-    font-size: 16px;
     justify-content: center;
     letter-spacing: 0.5px;
-    line-height: 27px;
     margin: 6px auto 0;
     text-align: center;
-  }
-  & a {
-    font-size: 1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: var(--mainBlack);
-    &.li {
-      display: block;
+    & a {
       border: 5px solid var(--clear);
-      padding-block: 2px;
-      margin-block: 0.5rem;
+      display: inline-block;
+      margin-block: 0.25rem;
     }
-  }
-  & button {
-    margin-block: 0.25rem;
-    &.navbar-toggler {
-      border: 2px solid var(--poppy);
+    & button {
+      border-color: var(--clear);
       box-shadow: none;
-      margin: 0.25rem auto 0;
+      color: var(--mainBlack) !important;
+      margin-block: 0.25rem;
+      padding-inline: 1rem;
+      &.btn.menu{
+        border-color: var(--poppy);
+      }
     }
-  }
-  & ul {
-    margin: 0 auto;
-  }
-  & div.full-nav.hide {
-    display: none;
-  }
-  /* PROFESSIONALS link */
-  & span.professionals a:first-child {
-    font-size: 16px;
-    border-right: unset;
-  }
-  /* LOGOUT link */
-  & a.status-module--professional__logout__link--2sh3t {
-    color: var(--mainBlack);
-    font-size: 10px;
-    position: relative;
-    left: 2px;
-    border: unset;
-    padding: unset;
-  }
-  @media (min-width: 750px) {
-    display: none;
+    div.nav-menu.hide {
+      display: none;
+    }
+    @media (min-width: 750px) {
+      display: none;
+    }
   }
 `
