@@ -6,8 +6,7 @@ import { isLoggedIn } from '../../../utils/auth'
 
 
 const ProLayout = ({ data, title, location, children }) => {
-  const isBrowser = typeof window !== "undefined"
-  if( isBrowser && !isLoggedIn() && location.pathname !== `/pros/login`) {
+  if(!isLoggedIn() && location.pathname !== `/pros/login`) {
     navigate(`/pros/login`)
     return null
   }

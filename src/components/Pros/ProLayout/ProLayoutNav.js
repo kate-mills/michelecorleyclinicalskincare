@@ -121,8 +121,8 @@ const icons = {
 
 const links = [
   { name:'manuals', path: '/pros/manuals', svg: icons.manuals},
-  { name:'kits',    path: '/pros/kits',    svg: icons.kits },
+  /*{ name:'kits',    path: '/pros/kits',    svg: icons.kits },
   { name:'facials', path: '/pros/facials', svg: icons.facials},
   { name:'classes', path: '/pros/classes', svg: icons.classes},
-  { name:'orders',  path: '/pros/orders',  svg: icons.manuals},
+  { name:'orders',  path: '/pros/orders',  svg: icons.manuals}, */
 ]
