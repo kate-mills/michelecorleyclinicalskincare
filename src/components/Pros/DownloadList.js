@@ -1,7 +1,5 @@
 import React from 'react'
 
-//import styles from './downloadList.module.css'
-
 const DownloadList = ({ data }) => {
   return (
     <div className={''}>

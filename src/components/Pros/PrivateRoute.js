@@ -12,6 +12,7 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
     navigate(`/professionals/login`)
     return null
   }
+  console.log(rest)
   return <Component {...rest}/>
 }
 

@@ -5,31 +5,34 @@ import GlobalLayout from '../../GlobalLayout'
 import { isLoggedIn } from '../../../utils/auth'
 
 const ProLayout = ({ data, title, location, children }) => {
-  if (!isLoggedIn() && location.pathname !== `/professionals/login`) {
-    navigate(`/professionals/login`)
-    return null
-  } else {
-    let activePath = location?.pathname === '/professionals' ? '/professionals/manuals' : location.pathname
-    return (
-      <GlobalLayout noindex>
-        <div>
-          <h2 className={`poppy txt-center`}>PRO Education</h2>
-          <ProLayoutNav activePath={activePath} />
-        </div>
-        {children}
+  //if (!isLoggedIn() && location.pathname !== `/professionals/login`) {
+  //navigate(`/professionals/login`)
+  //return null
+  //}
 
-        {/* Orders */}
-        <div>
-          <section style={{ textAlign: 'center' }}>
-            <OnlineOrders />
-            <hr style={{ marginBlock: '1rem' }} />
-            <OrderSpecifics />
-            <hr style={{ marginBlock: '1rem' }} />
-          </section>
-        </div>
-      </GlobalLayout>
-    )
-  }
+  let activePath =
+    location?.pathname === '/professionals'
+      ? '/professionals/manuals'
+      : location.pathname
+  return (
+    <GlobalLayout noindex>
+      <div>
+        <h2 className={`poppy txt-center`}>PRO Education</h2>
+        <ProLayoutNav activePath={activePath} />
+      </div>
+      {children}
+
+      {/* Orders */}
+      <div>
+        <section style={{ textAlign: 'center' }}>
+          <OnlineOrders />
+          <hr style={{ marginBlock: '1rem' }} />
+          <OrderSpecifics />
+          <hr style={{ marginBlock: '1rem' }} />
+        </section>
+      </div>
+    </GlobalLayout>
+  )
 }
 
 const OrderSpecifics = () => {
