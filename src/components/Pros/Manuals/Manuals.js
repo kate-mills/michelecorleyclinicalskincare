@@ -2,7 +2,7 @@ import React from 'react'
 
 import { graphql, useStaticQuery } from 'gatsby'
 
-import DownloadList from '../downloadList'
+import DownloadList from '../DownloadList'
 
 
 const Manuals = () => {
