@@ -120,6 +120,7 @@ export default styled(SmallScreenNavbar)`
     text-align: center;
     & a {
       border: 5px solid var(--clear);
+      width: 100%;
       display: inline-block;
       margin-block: 0.25rem;
     }

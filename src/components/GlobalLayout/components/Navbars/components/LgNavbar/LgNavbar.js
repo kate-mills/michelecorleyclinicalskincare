@@ -14,7 +14,7 @@ const LiMenu = ({ name, subMenu }) => {
 
   return (
     <li className="top-li" onMouseEnter={showMenu} onMouseLeave={hideMenu}>
-      <button onClick={btnClick}>{name}<span>{!isExpanded ? '+' : '-'}</span></button>
+      <button onClick={btnClick}>{name}</button>
       <ul id={name} hidden={!isExpanded} data-visible={isExpanded}>
         {subMenu.map(({ name, path }) => {
           return (
@@ -37,8 +37,13 @@ const LgNavbar = ({ className }) => {
             return !path ? (
               <LiMenu name={name} subMenu={subMenu} key={name} />
             ) : (
-              <li className="top-li" key={name}>
-                <Link to={path}>{name}</Link>
+              <li className={`top-li`} key={name}>
+                <Link
+                  className={path.slice(1) === 'pros' ? 'private' : 'public'}
+                  to={path}
+                >
+                  {name}
+                </Link>
               </li>
             )
           })}
@@ -64,14 +69,11 @@ export default styled(LgNavbar)`
           display: block;
           padding: 0.25rem;
           position: relative;
-          > span {
-            display: inline-block;
-            line-height: var(--bodyLineHeight);
-            width: 20px;
+          &.private{
           }
           &[aria-current='page'] {
             color: var(--poppyHigh);
-            &::before{
+            &::before {
               position: absolute;
               content: '* ';
               top: 20%;
@@ -93,7 +95,7 @@ export default styled(LgNavbar)`
           li {
             padding: 0.25rem;
           }
-          &[data-visible="true"]{
+          &[data-visible='true'] {
             display: block;
           }
         }

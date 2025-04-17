@@ -6,6 +6,7 @@ const getProps = name => {
   }
 }
 
+
 export const links = [
   { ...getProps('HOME'), path: '/' },
   { ...getProps('PRODUCTS'), path: '',
@@ -31,4 +32,5 @@ export const links = [
     ],
   },
   { ...getProps('CONTACT') },
+  { ...getProps('PROFESSIONALS'), path: '/pros'}
 ]
