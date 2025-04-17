@@ -8,8 +8,8 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
   // below is now on ProLayout
   //if (!isLoggedIn() && location.pathname !== `/app/login`) { // If we’re not logged in, redirect to the login page.  navigate(`/app/login`) return null }
 
-  if(!isLoggedIn() && location?.pathname !== `/pros/login`){
-    navigate(`/pros/login`)
+  if(!isLoggedIn() && location?.pathname !== `/professionals/login`){
+    navigate(`/professionals/login`)
     return null
   }
   return <Component {...rest}/>

@@ -32,5 +32,5 @@ export const links = [
     ],
   },
   { ...getProps('CONTACT') },
-  { ...getProps('PROFESSIONALS'), path: '/pros'}
+  { ...getProps('PROFESSIONALS'), path: '/professionals'}
 ]

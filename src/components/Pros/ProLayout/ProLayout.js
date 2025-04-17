@@ -4,42 +4,36 @@ import ProLayoutNav from './ProLayoutNav'
 import GlobalLayout from '../../GlobalLayout'
 import { isLoggedIn } from '../../../utils/auth'
 
-
 const ProLayout = ({ data, title, location, children }) => {
-  if(!isLoggedIn() && location.pathname !== `/pros/login`) {
-    navigate(`/pros/login`)
+  if (!isLoggedIn() && location.pathname !== `/professionals/login`) {
+    navigate(`/professionals/login`)
     return null
+  } else {
+    let activePath = location?.pathname === '/professionals' ? '/professionals/manuals' : location.pathname
+    return (
+      <GlobalLayout noindex>
+        <div>
+          <h2 className={`poppy txt-center`}>PRO Education</h2>
+          <ProLayoutNav activePath={activePath} />
+        </div>
+        {children}
+
+        {/* Orders */}
+        <div>
+          <section style={{ textAlign: 'center' }}>
+            <OnlineOrders />
+            <hr style={{ marginBlock: '1rem' }} />
+            <OrderSpecifics />
+            <hr style={{ marginBlock: '1rem' }} />
+          </section>
+        </div>
+      </GlobalLayout>
+    )
   }
-  let activePath =
-    location?.pathname === '/pros'
-      ? '/pros/manuals'
-      : location.pathname
-
-  /*let proTitle = activePath.split('/').slice(-1)[0].replace('-', ' ')*/
-
-  return (
-    <GlobalLayout noindex>
-      <div>
-        <h2 className={`poppy txt-center`}>PRO Education</h2>
-        <ProLayoutNav activePath={activePath} />
-      </div>
-      {children}
-
-      {/* Orders */}
-      <div>
-        <section style={{ textAlign: 'center' }}>
-          <OnlineOrders/>
-        <hr style={{ marginBlock: '1rem' }} />
-          <OrderSpecifics/>
-        <hr style={{ marginBlock: '1rem' }} />
-        </section>
-      </div>
-    </GlobalLayout>
-  )
 }
 
-const OrderSpecifics = ()=> {
-  return(
+const OrderSpecifics = () => {
+  return (
     <div>
       <h2 className={'poppy'}>Order Specifics</h2>
       <div>
@@ -59,25 +53,37 @@ const OrderSpecifics = ()=> {
   )
 }
 
-
 const OnlineOrders = () => {
   return (
     <div>
-    {/* Ordering Online */}
+      {/* Ordering Online */}
       <h2 className={'poppy'}>Ordering Online</h2>
       {/* EMAIL - GET ACCESS TO ORDER */}
       <div>
-        <p>If you need a login to place online orders contact us - 
-          <a href="mailto:customerservice@michelecorley.com?subject=I%20Need%20Online%20Ordering%20Access&body=Please%20include%20your%20name,%20spa,%20phone%20number%20and%20other%20important%20details%20below." style={{color: 'var(--poppy)'}}>customerservice@michelecorley.com</a>
+        <p>
+          If you need a login to place online orders contact us -
+          <a
+            href="mailto:customerservice@michelecorley.com?subject=I%20Need%20Online%20Ordering%20Access&body=Please%20include%20your%20name,%20spa,%20phone%20number%20and%20other%20important%20details%20below."
+            style={{ color: 'var(--poppy)' }}
+          >
+            customerservice@michelecorley.com
+          </a>
         </p>
       </div>
       {/* NOWCOMMERCE */}
-      <div style={{marginBlockEnd: '1rem'}}>
+      <div style={{ marginBlockEnd: '1rem' }}>
         <p>If you already have a login, click below to place online orders.</p>
-        <a href="https://portal.nowcommerce.com/custsignin.aspx?ID=99867" target="_blank" rel="noreferrer" className="btn" >Place Online Order</a>
+        <a
+          href="https://portal.nowcommerce.com/custsignin.aspx?ID=99867"
+          target="_blank"
+          rel="noreferrer"
+          className="btn"
+        >
+          Place Online Order
+        </a>
       </div>
     </div>
-   )
+  )
 }
 
 export default ProLayout

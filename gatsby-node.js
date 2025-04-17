@@ -3,10 +3,8 @@ const path = require(`path`)
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
 
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/pros/)) {
-    page.matchPath = `/pros/*`
+  if (page.path.match(/^\/professionals/)) {
+    page.matchPath = `/professionals/*`
 
     // Update the page.
     createPage(page)
@@ -74,12 +72,4 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { slug: product.slug },
     })
   })
-
-  /*results.mediaData.data.medias.nodes.forEach(media => {
-    createPage({
-      path: `/product-images-and-logos/${media.slug}`,
-      component: path.resolve(`src/templates/media-image-template.js`),
-      context: { slug: media.slug },
-    })
-  }) */
 }

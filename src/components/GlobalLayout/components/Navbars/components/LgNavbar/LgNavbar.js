@@ -38,12 +38,7 @@ const LgNavbar = ({ className }) => {
               <LiMenu name={name} subMenu={subMenu} key={name} />
             ) : (
               <li className={`top-li`} key={name}>
-                <Link
-                  className={path.slice(1) === 'pros' ? 'private' : 'public'}
-                  to={path}
-                >
-                  {name}
-                </Link>
+                <Link to={path}>{name}</Link>
               </li>
             )
           })}
@@ -69,8 +64,6 @@ export default styled(LgNavbar)`
           display: block;
           padding: 0.25rem;
           position: relative;
-          &.private{
-          }
           &[aria-current='page'] {
             color: var(--poppyHigh);
             &::before {
