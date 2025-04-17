@@ -1,6 +1,11 @@
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 module.exports = {
-flags: {
-    DEV_SSR: true
+  flags: {
+    DEV_SSR: true,
+  },
+  siteMetadata: {
+    title: `Michele Corley Clinical Skin Care`,
+    description: `Achieve beautifully healthy skin. Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

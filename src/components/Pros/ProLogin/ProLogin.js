@@ -28,7 +28,7 @@ class LoginRoute extends React.Component {
 
   render() {
     if (isLoggedIn()) {
-      navigate(`/pros/manuals`)
+      navigate(`/professionals/manuals`)
     }
     return (
       <GlobalLayout noindex>
