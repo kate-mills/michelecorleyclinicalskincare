@@ -75,11 +75,11 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  results.mediaData.data.medias.nodes.forEach(media => {
+  /*results.mediaData.data.medias.nodes.forEach(media => {
     createPage({
       path: `/product-images-and-logos/${media.slug}`,
       component: path.resolve(`src/templates/media-image-template.js`),
       context: { slug: media.slug },
     })
-  })
+  }) */
 }
