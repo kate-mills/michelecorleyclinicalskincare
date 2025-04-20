@@ -1,4 +1,6 @@
-export {default as ProLayout} from './ProLayout'
-export {default as ProLogin} from './ProLogin'
-export {default as PrivateRoute} from './PrivateRoute'
-export {default as Manuals} from './Manuals'
+export {default as PrivateRoute} from './routes/PrivateRoute'
+export {default as LoginRoute} from './routes/LoginRoute'
+
+
+export {default as Details} from './components/Details'
+export {default as ProStatus} from './components/ProStatus'
