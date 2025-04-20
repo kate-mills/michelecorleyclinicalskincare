@@ -5,15 +5,9 @@ import GlobalLayout from '../../GlobalLayout'
 import { isLoggedIn } from '../../../utils/auth'
 
 const ProLayout = ({ data, title, location, children }) => {
-  //if (!isLoggedIn() && location.pathname !== `/professionals/login`) {
-  //navigate(`/professionals/login`)
-  //return null
-  //}
-
   let activePath =
-    location?.pathname === '/professionals'
-      ? '/professionals/manuals'
-      : location.pathname
+    location?.pathname === '/pros' ? '/pros/manuals' : location.pathname
+
   return (
     <GlobalLayout noindex>
       <div>

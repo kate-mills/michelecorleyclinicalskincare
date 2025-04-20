@@ -120,9 +120,9 @@ const icons = {
 }
 
 const links = [
-  { name:'manuals', path: '/professionals/manuals', svg: icons.manuals},
-  { name:'kits',    path: '/professionals/kits',    svg: icons.kits },
-  { name:'facials', path: '/professionals/facials', svg: icons.facials},
-  { name:'classes', path: '/professionals/classes', svg: icons.classes},
-  { name:'orders',  path: '/professionals/orders',  svg: icons.manuals},
+  { name:'manuals', path: '/pros/manuals', svg: icons.manuals},
+  { name:'kits',    path: '/pros/kits',    svg: icons.kits },
+  { name:'facials', path: '/pros/facials', svg: icons.facials},
+  { name:'classes', path: '/pros/classes', svg: icons.classes},
+  { name:'orders',  path: '/pros/orders',  svg: icons.manuals},
 ]

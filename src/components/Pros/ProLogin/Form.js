@@ -21,7 +21,7 @@ const Form = ({ handleSubmit, handleUpdate }) => {
         method="post"
         onSubmit={event => {
           handleSubmit(event)
-          navigate(`/professionals/`)
+          navigate(`/pros/manuals`)
         }}
       >
         <label htmlFor="username" className={`styles.form__label`}>

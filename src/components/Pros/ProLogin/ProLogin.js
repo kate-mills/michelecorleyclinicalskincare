@@ -1,9 +1,10 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 
-import {GlobalLayout} from '../../../components'
-import Form from './Form'
+import {GlobalLayout, BasicEmail} from '../../../components'
+//import { ConstantContactInfo } from '../../../constants/contact-info'
 import { handleLogin, isLoggedIn } from '../../../utils/auth'
+
 
 class LoginRoute extends React.Component {
   state = {
@@ -28,7 +29,7 @@ class LoginRoute extends React.Component {
 
   render() {
     if (isLoggedIn()) {
-      navigate(`/professionals/manuals`)
+      navigate(`/pros/manuals`)
     }
     return (
       <GlobalLayout noindex>
@@ -89,6 +90,56 @@ If you already have a login click the button below to place online orders.
       <hr/>
       </div>
 
+  )
+}
+
+
+
+const Form = ({ handleSubmit, handleUpdate }) => {
+  return (
+    <>
+      <p className={`styles[form__instructions]`}>
+        Pros, contact us at
+        <span className={`styles.phone`}>{'phone'}</span>
+        or <BasicEmail subject="Professional login and password" fontWeight="600" />{' '}
+        to access to our exclusive information.
+      </p>
+
+      <h3 className={`styles.form__header`}>Education Login</h3>
+      <form
+        className={`styles.form`}
+        method="post"
+        onSubmit={event => {
+          handleSubmit(event)
+          navigate(`/pros/manuals`)
+        }}
+      >
+        <label htmlFor="username" className={`styles.form__label`}>
+          Username
+          <input
+            autoComplete="true"
+            autoCapitalize="off"
+            className={`styles.form__input`}
+            type="text"
+            name="username"
+            onChange={handleUpdate}
+          />
+        </label>
+        <label htmlFor="password" className={`styles.form__label`}>
+          Password
+          <input
+            autoComplete="true"
+            className={`styles.form__input`}
+            type="password"
+            name="password"
+            onChange={handleUpdate}
+          />
+        </label>
+        <button className={`btn btn-form`} type="submit">
+          Log in
+        </button>
+      </form>
+    </>
   )
 }
 

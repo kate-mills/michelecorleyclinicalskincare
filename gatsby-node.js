@@ -3,8 +3,8 @@ const path = require(`path`)
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
 
-  if (page.path.match(/^\/professionals/)) {
-    page.matchPath = `/professionals/*`
+  if (page.path.match(/^\/pros/)) {
+    page.matchPath = `/pros/*`
 
     // Update the page.
     createPage(page)

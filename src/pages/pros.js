@@ -6,15 +6,13 @@ import { ProLayout, ProLogin, PrivateRoute, Manuals } from '../components/Pros'
 const Pros = props => {
   return (
     <Router primary={false}>
-      <ProLayout path="/professionals">
-        <PrivateRoute path="/" component={Manuals}/>
-        <PrivateRoute path="/manuals" component={Manuals}/>
-        <PrivateRoute path="/kits" component={Manuals}/>
-        <PrivateRoute path="/facials" component={Manuals}/>
-        <PrivateRoute path="/classes" component={Manuals}/>
-        <PrivateRoute path="/orders" component={Manuals}/>
-      </ProLayout>
-      <ProLogin path="/professionals/login" />
+      <PrivateRoute path="/pros" component={Manuals} />
+      <PrivateRoute path="/pros/manuals" component={Manuals} />
+      <PrivateRoute path="/pros/kits" component={Manuals} />
+      <PrivateRoute path="/pros/facials" component={Manuals} />
+      <PrivateRoute path="/pros/classes" component={Manuals} />
+      <PrivateRoute path="/pros/orders" component={Manuals} />
+      <ProLogin path="/pros/login"/>
     </Router>
   )
 }
