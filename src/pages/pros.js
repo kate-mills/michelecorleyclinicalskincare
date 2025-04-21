@@ -1,18 +1,17 @@
 import React from 'react'
 import { Router } from '@reach/router'
 
-import { PrivateRoute, PublicLogin, Details, ProStatus } from '../components/Pros'
+import { GlobalLayout } from '../components'
+import { PrivateRoute, PublicLogin, Details } from '../components/Pros'
 
 const Pros = props => {
   return (
-    <>
-      Hello Pros
-      <ProStatus/>
+    <GlobalLayout>
     <Router primary={false}>
       <PrivateRoute path="/pros/manuals" component={Details} />
       <PublicLogin path="/pros/login" />
     </Router>
-    </>
+    </GlobalLayout>
   )
 }
 export default Pros

@@ -10,6 +10,7 @@ const Form =  ({ handleSubmit, handleUpdate }) => (
       navigate(`/pros/manuals`)
     }}
   >
+    <h1>Public Form</h1>
     <p>
       For this demo, please log in with the username <code>gatsby</code> and the
       password <code>demo</code>.

@@ -1,5 +1,8 @@
 const getProps = name => {
-  let path = name.match(/([A-Z]\w+|[A-Z])/gi).join('-').toLowerCase()
+  let path = name
+    .match(/([A-Z]\w+|[A-Z])/gi)
+    .join('-')
+    .toLowerCase()
   return {
     name,
     path: `/${path}/`,
@@ -9,7 +12,9 @@ const getProps = name => {
 
 export const links = [
   { ...getProps('HOME'), path: '/' },
-  { ...getProps('PRODUCTS'), path: '',
+  {
+    ...getProps('PRODUCTS'),
+    path: '',
     subMenu: [
       getProps('CLEANSERS'),
       getProps('TONERS'),
@@ -20,7 +25,9 @@ export const links = [
       getProps('EYES & LIPS'),
     ],
   },
-  { ...getProps('WHY MC?'), path: '',
+  {
+    ...getProps('WHY MC?'),
+    path: '',
     subMenu: [
       getProps('ABOUT'),
       getProps('ARTICLES'),
@@ -32,5 +39,4 @@ export const links = [
     ],
   },
   { ...getProps('CONTACT') },
-  { ...getProps('PROFESSIONALS'), path: '/pros'}
 ]

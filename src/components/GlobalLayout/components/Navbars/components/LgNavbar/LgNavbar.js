@@ -5,6 +5,9 @@ import { Link } from 'gatsby'
 
 import { links } from '../links'
 
+import {isLoggedIn} from '../../../../../../utils/auth'
+import ProLink from '../ProLink'
+
 const LiMenu = ({ name, subMenu }) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
 
@@ -34,6 +37,9 @@ const LgNavbar = ({ className }) => {
       <nav id="desktop-navigation">
         <ul id="topnav">
           {links.map(({ path, name, subMenu }) => {
+            if (name === 'pro') {
+              return <path />
+            }
             return !path ? (
               <LiMenu name={name} subMenu={subMenu} key={name} />
             ) : (
@@ -42,6 +48,9 @@ const LgNavbar = ({ className }) => {
               </li>
             )
           })}
+          <li className={`top-li`}>
+            <ProLink isPro={isLoggedIn()}/>
+          </li>
         </ul>
       </nav>
     </div>
