@@ -1,10 +1,10 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import ViewGbl from '../components/ViewGbl'
-import Form from './Form'
-import { handleLogin, isLoggedIn } from '../../../utils/auth'
+import Container from './components/Container'
+import Form from './components/Form'
+import { handleLogin, isLoggedIn } from '../../utils/auth'
 
-class LoginRoute extends React.Component {
+class PublicLogin extends React.Component {
   state = {
     username: ``,
     password: ``,
@@ -31,14 +31,14 @@ class LoginRoute extends React.Component {
     }
 
     return (
-      <ViewGbl>
+      <Container>
         <Form
           handleUpdate={e => this.handleUpdate(e)}
           handleSubmit={e => this.handleSubmit(e)}
         />
-      </ViewGbl>
+      </Container>
     )
   }
 }
 
-export default LoginRoute
+export default PublicLogin

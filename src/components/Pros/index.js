@@ -1,5 +1,5 @@
-export {default as PrivateRoute} from './routes/PrivateRoute'
-export {default as LoginRoute} from './routes/LoginRoute'
+export {default as PrivateRoute} from './PrivateRoute'
+export {default as PublicLogin} from './PublicLogin'
 
 
 export {default as Details} from './components/Details'

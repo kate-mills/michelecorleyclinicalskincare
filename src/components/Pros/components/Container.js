@@ -1,11 +1,11 @@
 import React from "react"
 
-const ViewGbl = ({ title, children }) => (
+const Container = ({ title, children }) => (
   <section className={''}>
     <h1>{title}</h1>
-    ViewGbl
+    Container
     {children}
   </section>
 )
 
-export default ViewGbl
+export default Container 

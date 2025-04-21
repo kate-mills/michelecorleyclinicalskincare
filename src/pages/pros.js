@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router } from '@reach/router'
 
-import { PrivateRoute, LoginRoute, Details, ProStatus } from '../components/Pros'
+import { PrivateRoute, PublicLogin, Details, ProStatus } from '../components/Pros'
 
 const Pros = props => {
   return (
@@ -10,7 +10,7 @@ const Pros = props => {
       <ProStatus/>
     <Router primary={false}>
       <PrivateRoute path="/pros/manuals" component={Details} />
-      <LoginRoute path="/pros/login" />
+      <PublicLogin path="/pros/login" />
     </Router>
     </>
   )
