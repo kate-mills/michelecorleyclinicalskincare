@@ -1,12 +1,14 @@
-import React from "react"
+import React from 'react'
 
 const Container = ({ title, children }) => (
-  <section className={''}>
+  <section className={'pro'}>
     <h1>{title}</h1>
-    <p className="g-txt-center">
+    <p className="txt-center">
+      Explore professional PDF and video resources below to enhance your Michele
+      Corley Clinical Skin Care product knowledge.
     </p>
     {children}
   </section>
 )
 
-export default Container 
+export default Container

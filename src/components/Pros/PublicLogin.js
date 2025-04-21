@@ -3,6 +3,8 @@ import { navigate } from 'gatsby'
 import Container from './components/Container'
 import Form from './components/Form'
 import { handleLogin, isLoggedIn } from '../../utils/auth'
+import {PATH_DTL} from '../../constants/pro-info'
+
 
 class PublicLogin extends React.Component {
   state = {
@@ -27,11 +29,11 @@ class PublicLogin extends React.Component {
 
   render() {
     if (isLoggedIn()) {
-      navigate(`/pros/manuals`)
+      navigate(`${PATH_DTL.private.path}`)
     }
 
     return (
-      <Container>
+      <Container title="Professional Login">
         <Form
           handleUpdate={e => this.handleUpdate(e)}
           handleSubmit={e => this.handleSubmit(e)}

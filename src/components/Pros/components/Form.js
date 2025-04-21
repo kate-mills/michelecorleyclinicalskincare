@@ -1,20 +1,18 @@
 import React from "react"
 import { navigate } from "@reach/router"
 
+import {PATH_DTL} from '../../../constants/pro-info'
+
+
 const Form =  ({ handleSubmit, handleUpdate }) => (
   <form
     className={'form'}
     method="post"
     onSubmit={event => {
       handleSubmit(event)
-      navigate(`/pros/manuals`)
+      navigate(`${PATH_DTL.private.path}`)
     }}
   >
-    <h1>Public Form</h1>
-    <p>
-      For this demo, please log in with the username <code>gatsby</code> and the
-      password <code>demo</code>.
-    </p>
     <label className={'form__label'}>
       Username
       <input

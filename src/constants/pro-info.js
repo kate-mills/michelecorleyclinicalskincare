@@ -1,6 +1,6 @@
 export const PATH_PREFIX='/pros'
 
-export const paths = {
+export const PATH_DTL  = {
   public: {
     name: 'pro login',
     path: `${PATH_PREFIX}/login`
