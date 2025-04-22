@@ -93,16 +93,15 @@ class SmallScreenNavbar extends Component {
             {links.map((item, id) => {
               return item?.subMenu?.length > 0 ? (
                 <MoreItems key={id} item={item} />
-              ) : item.id === 'education' ? (
-                <div key={id} className="li">
-                  Professional
-                </div>
               ) : (
                 <Link key={id} className="li" to={item.path}>
                   {item.name}
                 </Link>
               )
             })}
+            <Link className="li" to={'/pros/login'}>
+              PROFESSIONAL
+            </Link>
           </div>
         </div>
       </div>
@@ -130,7 +129,7 @@ export default styled(SmallScreenNavbar)`
       color: var(--mainBlack) !important;
       margin-block: 0.25rem;
       padding-inline: 1rem;
-      &.btn.menu{
+      &.btn.menu {
         border-color: var(--poppy);
       }
     }

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const OrderSpecifics = ({ className }) => {
   return (
-    <StyledOrders className={className}>
+    <StyledContainer className={className} title="Test Container">
       <div className="block">
         <h2>Ordering Online</h2>
         {/* EMAIL - GET ACCESS TO ORDER */}
@@ -44,11 +44,11 @@ const OrderSpecifics = ({ className }) => {
           </ul>
         </div>
       </div>
-    </StyledOrders>
+    </StyledContainer>
   )
 }
 
-const StyledOrders = styled(Container)`
+const StyledContainer = styled(Container)`
   & {
     h2 {
       color: var(--poppy);

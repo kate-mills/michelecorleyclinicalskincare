@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import { links } from '../links'
 
-import {isLoggedIn} from '../../../../../../utils/auth'
-import ProLink from '../ProLink'
+import { isLoggedIn, logout } from '../../../../../../utils/auth'
+import { navigate } from '@reach/router'
 
 const LiMenu = ({ name, subMenu }) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
@@ -32,6 +32,11 @@ const LiMenu = ({ name, subMenu }) => {
 }
 
 const LgNavbar = ({ className }) => {
+  const [isPro, setIsPro] = useState(false)
+
+  useEffect(() => {
+    setIsPro(isLoggedIn())
+  }, [isPro])
   return (
     <div className={`${className}`}>
       <nav id="desktop-navigation">
@@ -49,7 +54,31 @@ const LgNavbar = ({ className }) => {
             )
           })}
           <li className={`top-li`}>
-            <ProLink isPro={isLoggedIn()}/>
+            <Link
+              className="pro"
+              to={'/pros/login'}
+              onClick={e => {
+                e.preventDefault()
+                setIsPro(isLoggedIn())
+                navigate('/pros/login')
+              }}
+            >
+              Professional
+            </Link>
+            {isPro && (
+              <Link
+                id="pro-logout"
+                className="pro"
+                to={'/pros/login'}
+                onClick={e => {
+                  e.preventDefault()
+                  setIsPro(false)
+                  logout(() => navigate(`/pros/login`))
+                }}
+              >
+                Logout
+              </Link>
+            )}
           </li>
         </ul>
       </nav>
@@ -67,6 +96,7 @@ export default styled(LgNavbar)`
       justify-content: space-evenly;
       & li.top-li {
         position: relative;
+
         & a,
         & button {
           border: 3px solid transparent;
@@ -86,6 +116,20 @@ export default styled(LgNavbar)`
           &:focus-within,
           &:focus {
             outline-offset: -2px;
+          }
+          &.pro {
+            display: inline;
+            &#pro-logout {
+              position: relative;
+              &:hover {
+                color: red;
+              }
+              &::before {
+                position: absolute;
+                content: '/';
+                left: -5px;
+              }
+            }
           }
         }
         > ul {
