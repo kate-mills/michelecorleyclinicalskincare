@@ -5,7 +5,9 @@ import { Link } from 'gatsby'
 
 import { links } from '../links'
 
+import { PATH_DTL } from '../../../../../../constants/pro-info'
 import { isLoggedIn, logout } from '../../../../../../utils/auth'
+
 import { navigate } from '@reach/router'
 
 const LiMenu = ({ name, subMenu }) => {
@@ -56,11 +58,11 @@ const LgNavbar = ({ className }) => {
           <li className={`top-li`}>
             <Link
               className="pro"
-              to={'/pros/login'}
+              to={`${PATH_DTL.public.path}`}
               onClick={e => {
                 e.preventDefault()
                 setIsPro(isLoggedIn())
-                navigate('/pros/login')
+                navigate(`${PATH_DTL.public.path}`)
               }}
             >
               Professional
@@ -69,11 +71,11 @@ const LgNavbar = ({ className }) => {
               <Link
                 id="pro-logout"
                 className="pro"
-                to={'/pros/login'}
+                to={`${PATH_DTL.public.path}`}
                 onClick={e => {
                   e.preventDefault()
                   setIsPro(false)
-                  logout(() => navigate(`/pros/login`))
+                  logout(() => navigate(`${PATH_DTL.public.path}`))
                 }}
               >
                 Logout

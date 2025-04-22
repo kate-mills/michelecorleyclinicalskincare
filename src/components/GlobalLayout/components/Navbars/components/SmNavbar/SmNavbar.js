@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { links } from '../links'
+import { PATH_DTL } from '../../../../../../constants/pro-info'
 
 const MoreItems = props => {
   const [isOpen, setIsOpen] = useState(false)
@@ -99,7 +100,7 @@ class SmallScreenNavbar extends Component {
                 </Link>
               )
             })}
-            <Link className="li" to={'/pros/login'}>
+            <Link className="li" to={`${PATH_DTL.public.path}`}>
               PROFESSIONAL
             </Link>
           </div>
