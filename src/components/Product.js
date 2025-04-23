@@ -75,8 +75,7 @@ const ProductTitle = ({ data, singleProductPage }) => {
     <h2>
       <div className="product-name">
         <span className={'nm-img'}>
-          {' '}
-          {name} <AwardImage award={award} awardImage={awardImage} />
+          <span>{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
         </span>
         <ProductBadges product={data} />
       </div>
@@ -85,8 +84,7 @@ const ProductTitle = ({ data, singleProductPage }) => {
     <h1>
       <div className="product-name poppy">
         <span className={'nm-img'}>
-          {' '}
-          {name} <AwardImage award={award} awardImage={awardImage} />
+          <span>{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
         </span>
         <ProductBadges product={data} />
       </div>
@@ -149,8 +147,10 @@ export default styled(Product)`
         .nm-img {
           display: flex;
           align-items: center;
+          >span{ margin-inline-end: 2px; }
           & .gatsby-image-wrapper {
             min-width: 70px;
+            margin-inline-end: 2px;
           }
         }
         & .product-badges {
@@ -244,7 +244,7 @@ export default styled(Product)`
       }
     }
     hr {
-      margin-block-start: 2rem;
+      margin-block: 0.5rem 1rem;
     }
   }
 `
