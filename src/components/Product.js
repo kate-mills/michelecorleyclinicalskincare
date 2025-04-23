@@ -179,13 +179,12 @@ export default styled(Product)`
               border-color: var(--poppy);
             }
             &.pdf {
-              background: var(--m3);
-              box-shadow: var(--light-shadow);
-              border-color: var(--m5);
+              background: var(--m2);
+              border-color: var(--m2);
               margin-inline-end: 0;
               transition: var(--mainTransition);
               &:hover {
-                background: var(--m5);
+                background: var(--m6);
               }
             }
           }

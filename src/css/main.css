@@ -3,13 +3,14 @@
   --brightBlue: #00adef; 
   --darkGrey: #9d9692;
   --blackText: #3c3c3c;
-  --mainBlack: #212121;/* #4e4e4e; */
+  --mainBlack: #555;/* #4e4e4e; */
   --mainMcc: #E0E0E0;  /* #dcdcdc; */
   --offWhite: #EEEEEE; /* #f2f2f2; */
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
-  --poppy: #006ba6;
   --poppyDull: #5872a6;
+  --poppy: #5970A4;
+  --poppyBright: #006ba6;
   --poppyHigh: hsl(214 52% 36% / 1);
   --poppyHover: #274e83;
   --brown: #c2b17f;
@@ -164,7 +165,8 @@ nav * {
 }
 p {
   color: var(--mainBlack);
-  padding: 0 0 1.8em;
+  /*padding: 0 0 1.8em;*/
+  padding: 0 0 0.5em;
   font-size: 1rem;
   font-weight: 400;
   line-height: var(--bodyLineHeight);
