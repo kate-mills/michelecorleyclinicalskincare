@@ -4,10 +4,9 @@ import { navigate } from '@reach/router'
 import { PATH_DTL } from '../../../constants/pro-info'
 import styled from 'styled-components'
 import { BasicEmail, BasicPhone } from '../../../components'
-import Container from './Container'
 
 const Form = ({ handleSubmit, handleUpdate, className }) => (
-  <StyledContainer title={'Professional Login'} className={className}>
+  <StyledDiv className={className}>
     <p className={'login-instructions'}>
       Pros, contact us at <BasicPhone />
       or
@@ -23,53 +22,52 @@ const Form = ({ handleSubmit, handleUpdate, className }) => (
       }}
     >
       <label className={'form-label'}>
-        Username
+        <span className="astrisk">*</span>
+        USERNAME
         <input
           className={'form-input'}
           autoCapitalize="off"
           type="text"
           name="username"
           onChange={handleUpdate}
+          required
         />
       </label>
       <label className={'form-label'}>
-        Password
+        <span className="astrisk">*</span>
+        PASSWORD
         <input
           className={'form-input'}
           autoCapitalize="off"
           type="password"
           name="password"
           onChange={handleUpdate}
+          required
         />
       </label>
       <input className={'form-button btn'} type="submit" value="Log In" />
     </form>
-  </StyledContainer>
+  </StyledDiv>
 )
-const StyledContainer = styled(Container)`
+const StyledDiv = styled.div`
   & {
+     text-align: center;
     & .login-instructions {
       margin: 0 auto;
       padding-block-end: 1rem;
-      text-align: center;
       & a {
         color: var(--poppyDull);
         padding-inline: 3px;
       }
     }
-    h2{
-      text-align: center;
-    }
     & .form {
+      align-items: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      margin-block-end: 1rem;
-      &-label {
-        display: block;
-        letter-spacing: 0.125em;
-        margin-block: 0.25rem;
-        text-transform: uppercase;
+      margin-block-end: 2rem;
+      &-button{
+        margin-block-start: 1rem;
+        font-weight: 600;
       }
       &-input {
         border: 1px solid #ccc;
@@ -78,9 +76,16 @@ const StyledContainer = styled(Container)`
         font-size: 1rem;
         padding: 0.45rem;
       }
-      &-button{
-        margin-block-start: 1rem;
-        font-weight: 600;
+      &-label {
+        display: block;
+        letter-spacing: 0.125em;
+        margin-block: 0.25rem;
+        text-align: left;
+        > span.astrisk{
+          color: var(--poppy);
+          position: relative;
+          top: 4px;
+        }
       }
     }
   }

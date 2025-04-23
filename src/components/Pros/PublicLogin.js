@@ -3,7 +3,9 @@ import { navigate } from 'gatsby'
 import { handleLogin, isLoggedIn } from '../../utils/auth'
 import { PATH_DTL } from '../../constants/pro-info'
 
+import Container from './components/Container'
 import Form from './components/Form'
+import OrderDetails from './components/OrderDetails'
 
 class PublicLogin extends React.Component {
   state = {
@@ -32,10 +34,13 @@ class PublicLogin extends React.Component {
     }
 
     return (
+      <Container title="Professionals Login">
       <Form
         handleUpdate={e => this.handleUpdate(e)}
         handleSubmit={e => this.handleSubmit(e)}
       />
+      <OrderDetails/>
+      </Container>
     )
   }
 }

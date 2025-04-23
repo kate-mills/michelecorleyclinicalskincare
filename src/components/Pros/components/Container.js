@@ -1,10 +1,42 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const Container = ({ title, children, className }) => (
-  <section className={className}>
+  <StyledContainer className={className}>
     <h1>{title}</h1>
-    {children}
-  </section>
+    <article>{children}</article>
+  </StyledContainer>
 )
+
+const StyledContainer = styled.section`
+  & {
+    & a {
+      color: var(--poppy);
+      &.btn {
+        margin-block: 1rem;
+      }
+    }
+
+    & h2 {
+      text-align: center;
+    }
+    & hr {
+      margin-block: 1rem;
+      width: 100%;
+      background: var(--brown);
+    }
+
+    > article {
+      background: var(--brown);
+      border-radius: 1rem;
+      color: var(--mainBlack);
+     
+      > div {
+        padding: 1rem;
+      }
+    }
+
+  }
+`
 
 export default Container

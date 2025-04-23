@@ -18,7 +18,10 @@ const Product = ({ singleProductPage = false, data, className }) => {
   } = data
 
   return (
-    <article className={`${className} ${!singleProductPage ? 'border' : ''}`} id={slug} >
+    <article
+      className={`${className} ${!singleProductPage ? 'border' : ''}`}
+      id={slug}
+    >
       <ProductTitle singleProductPage={singleProductPage} data={data} />
       <h4 className={`product-skintypes`}>
         {skinType.map((item, index) => (
@@ -61,6 +64,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
           })}
         </ul>
       </div>
+      <hr />
     </article>
   )
 }
@@ -70,18 +74,22 @@ const ProductTitle = ({ data, singleProductPage }) => {
   return !singleProductPage ? (
     <h2>
       <div className="product-name">
-        <span className="name">{name}</span>
-        <AwardImage award={award} awardImage={awardImage} />
+        <span className={'nm-img'}>
+          {' '}
+          {name} <AwardImage award={award} awardImage={awardImage} />
+        </span>
+        <ProductBadges product={data} />
       </div>
-      <ProductBadges product={data} />
     </h2>
   ) : (
     <h1>
       <div className="product-name poppy">
-        <span className="name">{name}</span>
-        <AwardImage award={award} awardImage={awardImage} />
+        <span className={'nm-img'}>
+          {' '}
+          {name} <AwardImage award={award} awardImage={awardImage} />
+        </span>
+        <ProductBadges product={data} />
       </div>
-      <ProductBadges product={data} />
     </h1>
   )
 }
@@ -120,9 +128,7 @@ const ProductBadges = ({ product }) => {
           href={pdf[0].file.url}
           target="_blank"
           rel="noreferrer"
-        >
-          GET PRODUCT DETS
-        </a>
+        >GET PRODUCT DETS</a>
       )}
     </div>
   )
@@ -130,54 +136,58 @@ const ProductBadges = ({ product }) => {
 
 export default styled(Product)`
   & {
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 0.5rem 1rem;
-    &.border{
-      border: 1px solid #766f69;
-      border-radius: var(--mainRadius);
-    }
     h1,
     h2 {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      margin-block-end: unset;
       text-align: left;
+      display: contents;
       & .product-name {
         display: flex;
         align-items: center;
-        & .gatsby-image-wrapper {
-          min-width: 70px;
-        }
-        & span {
-          margin-inline-end: 0.2rem;
-        }
-      }
-      & .product-badges {
-        display: flex;
-        align-items: center;
         flex-wrap: wrap;
-        .badge {
-          background: var(--poppy);
-          border: 2px solid var(--darkGrey);
-          color: var(--offWhite);
-          font-size: 0.85rem;
-          line-height: normal;
-          margin: 0 0.2rem 0.2rem 0;
-          padding: 0.2rem;
-          text-align: center;
-          &.best-seller,
-          &.pro-only {
-            background: var(--offWhite);
-            color: var(--poppy);
+        .nm-img {
+          display: flex;
+          align-items: center;
+          & .gatsby-image-wrapper {
+            min-width: 70px;
           }
-          &.best-seller {
-            border-color: var(--poppy);
-          }
-          &.pdf {
-            background: var(--blackText);
-            border-color: var(--poppy);
-            color: var(--mainWhite);
+        }
+        & .product-badges {
+          display: contents;
+          .badge {
+            background: var(--poppy);
+            border: 1px solid var(--darkGrey);
+            color: var(--offWhite);
+            font-size: 0.85rem;
+            line-height: 1.3em;
+            height: fit-content;
+            margin-block-end: 2px;
+            margin-inline-end: 2px;
+            overflow: hidden;
+            padding-inline: 2px;
+            text-align: center;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            white-space: nowrap;
+            &.best-seller,
+            &.pro-only {
+              background: var(--offWhite);
+              color: var(--poppy);
+            }
+            &.best-seller {
+              border-color: var(--poppy);
+            }
+            &.pdf {
+              background: var(--m3);
+              box-shadow: var(--light-shadow);
+              border-color: var(--m5);
+              margin-inline-end: 0;
+              transition: var(--mainTransition);
+              &:hover {
+                background: var(--m5);
+              }
+            }
           }
         }
       }
@@ -228,17 +238,14 @@ export default styled(Product)`
     }
     @media (max-width: 676px) {
       margin-inline: 0.2rem;
-
-      & .product-name {
-        margin-inline-end: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
       & .product-ingredients {
         & .key-ingredient {
           margin-inline-start: 0;
         }
       }
+    }
+    hr {
+      margin-block-start: 2rem;
     }
   }
 `

@@ -101,7 +101,7 @@ class SmallScreenNavbar extends Component {
               )
             })}
             <Link className="li" to={`${PATH_DTL.public.path}`}>
-              PROFESSIONAL
+              PROFESSIONALS
             </Link>
           </div>
         </div>

@@ -65,7 +65,7 @@ const LgNavbar = ({ className }) => {
                 navigate(`${PATH_DTL.public.path}`)
               }}
             >
-              Professional
+              Professionals
             </Link>
             {isPro && (
               <Link

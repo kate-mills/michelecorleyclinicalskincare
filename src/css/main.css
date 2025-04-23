@@ -2,16 +2,17 @@
   --clear: rgba(0, 0, 0, 0);
   --brightBlue: #00adef; 
   --darkGrey: #9d9692;
-  --mainBlack: #4e4e4e;
   --blackText: #3c3c3c;
-  --mainMcc: #dcdcdc;
-  --offWhite: #f2f2f2;
+  --mainBlack: #212121;/* #4e4e4e; */
+  --mainMcc: #E0E0E0;  /* #dcdcdc; */
+  --offWhite: #EEEEEE; /* #f2f2f2; */
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
   --poppy: #006ba6;
   --poppyDull: #5872a6;
   --poppyHigh: hsl(214 52% 36% / 1);
   --poppyHover: #274e83;
+  --brown: #c2b17f;
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
@@ -21,6 +22,16 @@
   --dark-shadow: 0 0 4px rgb(0 0 0 / 15%);
   --mainRadius: 1.75rem;
   --errRed: #c74236;
+  --m0: #E8EAF6;
+  --m1: #C5CAE9;
+  --m2: #9FA8DA;
+  --m3: #7986CB;
+  --m4: #5C6BC0;
+  --m5: #3F51B5;
+  --m6: #3949AB;
+  --m7: #303F9F;
+  --m8: #283593;
+  --m9: #1A237E;
 }
 html {
   font-family: sans-serif;

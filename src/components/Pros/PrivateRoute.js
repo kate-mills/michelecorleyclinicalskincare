@@ -2,6 +2,7 @@ import React from "react"
 import { navigate } from "gatsby"
 import { isLoggedIn } from "../../utils/auth"
 import {PATH_DTL} from '../../constants/pro-info'
+import Container from './components/Container'
 
 
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
@@ -12,7 +13,9 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
     return null
   }
 
-  return <Component {...rest} />
+  return <Container title="Professionals">
+    <Component {...rest} />
+  </Container>
 }
 
 export default PrivateRoute
