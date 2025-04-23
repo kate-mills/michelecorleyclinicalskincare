@@ -27,10 +27,6 @@ const StyledContainer = styled.section`
     }
 
     > article {
-      background: var(--brown);
-      border-radius: 1rem;
-      color: var(--mainBlack);
-     
       > div {
         padding: 1rem;
       }
