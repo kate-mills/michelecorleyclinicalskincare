@@ -103,21 +103,17 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
-    & form {
-      height: 80px;
-      margin: 0 auto;
-      width: 220px;
-      position: relative;
-
-     transition: width 0.5s ease-in-out;
-     -webkit-transition: width 0.5s ease-in-out;
-
-
-     &:focus-within {
+    margin: 0 auto;
+    width: 220px;
+    transition: width 0.5s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out;
+    &:focus-within {
       width: 70%;
       max-width: 100%;
-     }
-
+    }
+    & form {
+      margin: 0 auto;
+      position: relative;
       .search-inputs {
         border: 2px solid #ccc;
         border-radius: 4px;
@@ -141,25 +137,23 @@ const StyledProductSearch = styled.div`
       }
     }
     & #results {
-      background: var(--offWhite);
       border-radius: var(--mainRadius);
+      margin: 0 auto;
+      width: 100%;
       & .number-found {
         text-align: center;
       }
       & #table {
-        display: table;
-        margin: 20px auto;
         & .row {
-          display: table-row;
+          display: flex;
+          justify-content: space-between;
           border-block-end: 1px solid var(--mainMcc);
-
           & .td {
-            display: table-cell;
+            max-width: 400px;
             overflow: hidden;
             padding: 5px;
             text-overflow: ellipsis;
             white-space: nowrap;
-            max-width: 400px;
             & a {
               padding: inherit;
             }

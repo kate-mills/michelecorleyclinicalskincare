@@ -7,6 +7,6 @@ export const PATH_DTL  = {
   },
   private: {
     name: 'professional',
-    path: `${PATH_PREFIX}/manuals`
+    path: `${PATH_PREFIX}/education`
   }
 }

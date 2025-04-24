@@ -3,10 +3,10 @@ import { navigate } from "gatsby"
 import { isLoggedIn } from "../../utils/auth"
 import {PATH_DTL} from '../../constants/pro-info'
 import Container from './components/Container'
+import Navigation from './components/Navigation'
 
 
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
-
   if (!isLoggedIn() && location.pathname !== PATH_DTL.public.path) {
     // If not logged in, redirect to the login page
     navigate(PATH_DTL.public.path)
@@ -14,6 +14,7 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
   }
 
   return <Container title="Professionals">
+    <Navigation/>
     <Component {...rest} />
   </Container>
 }
