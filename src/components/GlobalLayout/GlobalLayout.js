@@ -19,12 +19,15 @@ const GlobalLayout = ({
   children,
   showSearch = true,
   showLogo = true,
+  isPro = false,
 }) => {
   return (
     <>
-      <div id="announcement">
-        <Announcement />
-      </div>
+      {!isPro && (
+        <div id="announcement">
+          <Announcement />
+        </div>
+      )}
       <div id="content">
         <main>
           {!!showSpaFndrLnk && <SpaFndrLnk />}

@@ -23,7 +23,6 @@ const StyledContainer = styled.section`
     & hr {
       margin-block: 1rem;
       width: 100%;
-      background: var(--brown);
     }
 
     > article {
