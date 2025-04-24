@@ -5,7 +5,7 @@ import { PATH_DTL } from '../../constants/pro-info'
 
 import Container from './components/Container'
 import Form from './components/Form'
-import OrderDetails from './components/OrderDetails'
+import Orders from './components/Orders'
 
 class PublicLogin extends React.Component {
   state = {
@@ -39,7 +39,7 @@ class PublicLogin extends React.Component {
         handleUpdate={e => this.handleUpdate(e)}
         handleSubmit={e => this.handleSubmit(e)}
       />
-      <OrderDetails/>
+      <Orders/>
       </Container>
     )
   }

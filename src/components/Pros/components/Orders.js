@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const OrderSpecifics = ({ className }) => {
+const Orders = ({ className }) => {
   return (
     <StyledDiv className={className}>
       <h2>Order Specifics</h2>
@@ -58,4 +58,4 @@ const StyledDiv = styled.div`
   }
 `
 
-export default OrderSpecifics
+export default Orders 
