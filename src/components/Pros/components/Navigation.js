@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const ProNavigation = props => {
-  console.log('pro navigation props', props)
   const {location: {pathname}} = props
-  console.log('pathname', pathname)
   return (
     <nav className={props.className}>
       <ul>

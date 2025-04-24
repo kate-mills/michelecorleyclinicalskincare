@@ -17,6 +17,7 @@ const Manuals = () => {
       <section className={'manuals'} id="manuals">
         <div className={'sectionFlexItems'}>
           <GatsbyImage
+            alt=""
             className={'estheticianImg'}
             image={
               esty[0].data.image.localFiles[0].childImageSharp.gatsbyImageData
