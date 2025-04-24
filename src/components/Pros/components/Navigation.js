@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const ProNavigation = props => {
+  console.log('pro navigation props', props)
+  const {location: {pathname}} = props
+  console.log('pathname', pathname)
   return (
     <nav className={props.className}>
       <ul>
@@ -10,7 +13,7 @@ const ProNavigation = props => {
           return (
             <li
               key={id}
-              className={`${props.activePath === item.path ? 'active' : ''}`}
+              className={`${pathname === item.path ? 'active' : ''}`}
             >
               <Link to={item.path}>
                 <div>
@@ -55,11 +58,11 @@ const icons = {
 }
 
 const links = [
-  { name: 'manuals', path: '/pros/manuals', svg: icons.manuals },
-  { name: 'kits', path: '/pros/kits', svg: icons.kits },
-  { name: 'facials', path: '/pros/facials', svg: icons.facials },
-  { name: 'classes', path: '/pros/classes', svg: icons.classes },
-  { name: 'orders', path: '/pros/orders', svg: icons.manuals },
+  { name: 'manuals', path: '/pros/manuals/', svg: icons.manuals },
+  { name: 'kits', path: '/pros/kits/', svg: icons.kits },
+  { name: 'facials', path: '/pros/facials/', svg: icons.facials },
+  { name: 'classes', path: '/pros/classes/', svg: icons.classes },
+  { name: 'orders', path: '/pros/orders/', svg: icons.manuals },
 ]
 
 export default styled(ProNavigation)`
@@ -77,22 +80,15 @@ export default styled(ProNavigation)`
       margin: 0 auto;
       width: fit-content;
       & li {
-        height: 52px;
         border-block-color: transparent;
         border-block-style: solid;
         border-block-width: 1px;
-        padding-top: 3px;
+        padding-block: 3px;
         > a {
           height: 52px;
           &[aria-current='page'] {
             > div{
-              background: var(--m0);
-              path{
-                /*fill: var(--mainWhite);*/
-              }
-              span{
-                /*color: var(--mainWhite);*/
-              }
+              background: var(--m2);
             }
           }
 
@@ -115,9 +111,10 @@ export default styled(ProNavigation)`
         }
       }
       & li.active {
-        border-block-start-color: var(--poppy);
+        border-block-color: var(--poppy);
         > a {
           > div {
+              background: var(--m1);
           }
         }
       }

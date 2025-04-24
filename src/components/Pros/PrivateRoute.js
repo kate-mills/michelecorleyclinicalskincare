@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
   }
 
   return <Container title="Professionals">
-    <Navigation/>
+    <Navigation location={location}/>
     <Component {...rest} />
   </Container>
 }
