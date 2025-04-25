@@ -32,7 +32,7 @@ const GlobalLayout = ({
         <main>
           {!!showSpaFndrLnk && <SpaFndrLnk />}
           <SmNavbar />
-          {!!showLogo && <Logo />}
+          {!isPro && <Logo />}
           {!!showSearch && <ProductSearch />}
           <LgNavbar />
           {children}

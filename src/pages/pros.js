@@ -4,7 +4,7 @@ import { Router } from '@reach/router'
 import { PATH_PREFIX, PATH_DTL } from '../constants/pro-info'
 
 import { GlobalLayout } from '../components'
-import { PrivateRoute, PublicLogin, Orders, Manuals, Kits, Facials } from '../components/Pros'
+import { PrivateRoute, PublicLogin, Orders, Manuals, Kits, Facials, Classes } from '../components/Pros'
 
 const Pros = props => {
   return (
@@ -14,7 +14,8 @@ const Pros = props => {
         <PrivateRoute path={`${PATH_PREFIX}/manuals`} component={Manuals} />
         <PrivateRoute path={`${PATH_PREFIX}/kits`} component={Kits} />
         <PrivateRoute path={`${PATH_PREFIX}/facials`} component={Facials} />
-        <PrivateRoute path={`${PATH_PREFIX}/classes`} component={Orders} />
+        <PrivateRoute path={`${PATH_PREFIX}/classes`} component={Classes} />
+        <PrivateRoute path={`${PATH_PREFIX}/classes/:tag`} component={Classes} />
         <PublicLogin path={PATH_DTL.public.path} />
       </Router>
     </GlobalLayout>
