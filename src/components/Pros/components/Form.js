@@ -8,9 +8,7 @@ import { BasicEmail, BasicPhone } from '../../../components'
 const Form = ({ handleSubmit, handleUpdate, className }) => (
   <StyledDiv className={className}>
     <p className={'login-instructions'}>
-      Pros, contact us at <BasicPhone />
-      or
-      <BasicEmail subject="Professional login and password" fontWeight="600" />
+      Pros, contact us at <BasicPhone /> or <BasicEmail block={true} subject="Professional login and password" fontWeight="600" />
       to access to our exclusive information.
     </p>
     <form
