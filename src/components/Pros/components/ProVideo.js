@@ -65,11 +65,12 @@ const IframeVideoWrapper = styled.div`
         height: 100%;
       }
     }
+    & .title, & .dt{
+      line-height: 1;
+    }
     & .dt {
       font-size: xx-small;
-      line-height: 0.8rem;
     }
-
     & .tags {
       margin-block: 0;
       padding-block: 0;

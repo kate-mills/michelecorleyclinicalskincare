@@ -31,7 +31,7 @@ const Classes = props => {
 
   return (
     <StyledArticle>
-      <div className="tags">
+      <div className="tags nav">
         <Link
           className={`${!tag ? 'active tag' : 'tag'}`}
           to={`/pros/classes/`}
@@ -101,7 +101,9 @@ const StyledArticle = styled.article`
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-block: 2rem;
+      &.nav{
+        margin-block: 1rem;
+      }
       a.tag{
         border: 1px solid var(--m0);
         color: #000000;
