@@ -65,19 +65,26 @@ const IframeVideoWrapper = styled.div`
         height: 100%;
       }
     }
-    & .dt{
+    & .dt {
       font-size: xx-small;
-      line-height: .8rem;
+      line-height: 0.8rem;
     }
 
     & .tags {
       margin-block: 0;
+      padding-block: 0;
     }
-    @media (max-width: 800px) {
+    & hr {
+      margin-block-start: 0;
+      margin-block-end: 0.5rem;
+    }
+  }
+  @media (max-width: 800px) {
+    & {
       width: 100%;
-    }
-    & hr{
-      margin-block: 0.5rem;
+      & .dt{
+        display: none;
+      }
     }
   }
 `
