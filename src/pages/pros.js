@@ -8,7 +8,7 @@ import { PrivateRoute, PublicLogin, Orders, Manuals, Kits, Facials, Classes } fr
 
 const Pros = props => {
   return (
-    <GlobalLayout title="Professionals"  isPro={true}>
+    <GlobalLayout title="Professionals"  isPro={true} showSpaFndrLnk={false}>
       <Router primary={false}>
         <PrivateRoute path={PATH_DTL.private.path} component={Orders} />
         <PrivateRoute path={`${PATH_PREFIX}/manuals`} component={Manuals} />

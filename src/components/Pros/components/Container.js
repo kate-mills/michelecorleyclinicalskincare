@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import ProOrderFixedLink from './ProOrderFixedLink'
 
 const Container = ({ title, children, className }) => (
   <StyledContainer className={className}>
+    <ProOrderFixedLink/>
     <h1>{title}</h1>
     <article>{children}</article>
   </StyledContainer>
