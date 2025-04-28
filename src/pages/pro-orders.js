@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {GlobalLayout, BasicEmail} from '../components'
+import {GlobalLayout, BasicEmail, Seo} from '../components'
 
 import styled from 'styled-components'
 
@@ -71,3 +71,7 @@ const ProOrdersWrapper = styled.section`
   }
 `
 export default ProOrders
+
+export const Head = ({location:{pathname}, params, data, pageContext})=> {
+  return <Seo title="Professional Ordering Info" noindex={true} pathname={pathname}/>
+}

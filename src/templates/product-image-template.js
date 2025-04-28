@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+
 const ProductImageTemplate = props => {
   const {
     data: { product },
@@ -184,3 +185,14 @@ export default styled(ProductImageTemplate)`
     }
   }
 `
+
+
+export const Head = ({pageContext})=> {
+  console.log('in Head', pageContext)
+  return (
+    <>
+      <title>{pageContext.title}</title>
+      <meta name="description" content={pageContext.description}/>
+    </>
+  )
+}

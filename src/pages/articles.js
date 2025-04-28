@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, Article } from '../components'
+import { GlobalLayout, Article, Seo } from '../components'
 
 export default function ArticlesPage({ data:{allAirtable:{articles}} }) {
   return (
@@ -46,3 +46,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({location:{pathname}, params, data, pageContext})=> {
+  return <Seo title="Articles Written By Michele Corley" pathname={pathname}/>
+}

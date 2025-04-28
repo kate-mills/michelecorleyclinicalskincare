@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import {GlobalLayout, Slider, YesNo} from '../components'
+import { GlobalLayout, Slider, YesNo, Seo } from '../components'
 
 export default function HomePage({ data }) {
   const {
@@ -27,3 +27,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return <Seo />
+}

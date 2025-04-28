@@ -33,7 +33,11 @@ exports.createPages = async ({ graphql, actions }) => {
     query GetProducts {
       products: allContentfulMccProduct {
         nodes {
+          name
           slug
+          description {
+            description
+          }
         }
       }
     }
@@ -54,6 +58,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/category-template.js`),
       context: {
         name: category.name.toLowerCase(),
+        title: category.name,
         description: category.description.description,
         category: { ...category },
       },
@@ -63,13 +68,21 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/products/${product.slug}`,
       component: path.resolve(`src/templates/product-template.js`),
-      context: { slug: product.slug },
+      context: {
+        slug: product.slug,
+        title: product.name,
+        description: product.description.description,
+      },
     })
 
     createPage({
       path: `/product-images-and-logos/${product.slug}`,
       component: path.resolve(`src/templates/product-image-template.js`),
-      context: { slug: product.slug },
+      context: {
+        slug: product.slug,
+        title: `Get ${product.name} Images`,
+        description: `Download images of ${product.name}.`
+      },
     })
   })
 }

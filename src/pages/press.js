@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, InThePress } from '../components'
+import { GlobalLayout, InThePress, Seo } from '../components'
 
 export default function PressPage({ data:{allAirtable:{lst}} }) {
   return (
@@ -48,3 +48,7 @@ export const query = graphql`
     }
   }
 `
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return <Seo title="Michele Corley Skin Care In The Press" description="Award-winning skin care in the press for dry and oily skin types to sensitive, sun-damaged, and acne-prone skin exclusively sold through licensed skincare professionals."/>
+}
+

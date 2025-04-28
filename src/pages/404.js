@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import { GlobalLayout } from '../components'
+import { GlobalLayout, Seo } from '../components'
 
 export default function Errorpage({ data }) {
   return (
@@ -54,3 +54,7 @@ const PageWrapper = styled.section`
     }
   }
 `
+
+export const Head = ()=> {
+  return <Seo title="Oops!" noindex={true}/>
+}

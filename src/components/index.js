@@ -13,3 +13,4 @@ export {default as InThePress}  from './InThePress'
 
 export {default as BasicEmail} from './BasicEmail'
 export {default as BasicPhone} from './BasicPhone'
+export {default as Seo} from './Seo'

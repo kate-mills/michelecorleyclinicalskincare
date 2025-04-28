@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { GlobalLayout } from '../components'
+import { GlobalLayout, Seo } from '../components'
 
 const AboutPage = ({ data }) => {
   return (
@@ -135,3 +135,7 @@ export const query = graphql`
   }
 `
 export default AboutPage
+
+export const Head = ({location:{pathname}, params, data, pageContext})=> {
+  return <Seo title="About Us" pathname={pathname}/>
+}

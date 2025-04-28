@@ -6,7 +6,7 @@ import {GatsbyImage} from 'gatsby-plugin-image'
 
 import styled from 'styled-components'
 
-import {GlobalLayout, ContactForm, ContactInformation} from '../components'
+import {GlobalLayout, ContactForm, ContactInformation, Seo} from '../components'
 
 import {PhoneInfo} from '../constants/contact-info'
 
@@ -120,3 +120,13 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({location:{pathname}, params, data, pageContext})=> {
+  const {file:{childImageSharp:{gatsbyImageData:{images:{fallback:{src}}}}}} = data
+  return <Seo
+    title="Contact Us"
+    pathname={pathname}
+    description="Get in touch with us at our warehouse via phone or use the submission form here."
+    image={src}
+  />
+}

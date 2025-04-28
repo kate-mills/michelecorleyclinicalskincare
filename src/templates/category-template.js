@@ -60,4 +60,11 @@ export const query = graphql`
 `
 export default CategoryTemplate
 
-//allContentfulMccCategory(filter: { slug: { eq: $slug } }) { nodes { name slug description { description } } }
+export const Head = ({pageContext})=> {
+  return (
+    <>
+      <title>{pageContext.title}</title>
+      <meta name="description" content={pageContext.description}/>
+    </>
+  )
+}

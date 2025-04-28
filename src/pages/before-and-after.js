@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, BeforeAndAfter } from '../components'
+import { GlobalLayout, BeforeAndAfter, Seo } from '../components'
 
 export default function BeforeAndAfterPage({ data }) {
   return (
@@ -53,3 +53,11 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({location:{pathname}, params, data, pageContext})=> {
+  return <Seo
+    title="Before And After Photos"
+    pathname={pathname}
+    description="Before and after Photos from Michele Corley clients showing results achieved by using proper home care products daily."
+  />
+}

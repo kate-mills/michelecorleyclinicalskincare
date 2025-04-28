@@ -2,12 +2,13 @@ import React from 'react'
 
 import { graphql } from 'gatsby'
 
-import {GlobalLayout, Product} from '../components'
+import { GlobalLayout, Product } from '../components'
 
-const ProductTemplate = ({ data: { product }}) => {
+const ProductTemplate = ({ data: { product }, pageContext }) => {
+  console.log('pageContext from template', pageContext)
   return (
     <GlobalLayout>
-      <Product data={product} singleProductPage={true}/>
+      <Product data={product} singleProductPage={true} />
     </GlobalLayout>
   )
 }
@@ -15,7 +16,11 @@ const ProductTemplate = ({ data: { product }}) => {
 export const query = graphql`
   query GetMccProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
-      profiles { file { url } }
+      profiles {
+        file {
+          url
+        }
+      }
       acneSafe
       isBestSeller
       name
@@ -24,7 +29,9 @@ export const query = graphql`
       contentful_id
       category
       skinType
-      description { description }
+      description {
+        description
+      }
       video
       keyIngredients {
         id
@@ -37,7 +44,7 @@ export const query = graphql`
         id
         title
         description
-        gatsbyImageData(width: 400) 
+        gatsbyImageData(width: 400)
       }
       seoImg: imgRetail {
         gatsbyImageData(width: 400, height: 200)
@@ -50,3 +57,12 @@ export const query = graphql`
   }
 `
 export default ProductTemplate
+
+export const Head = ({pageContext})=> {
+  return (
+    <>
+      <title>{pageContext.title}</title>
+      <meta name="description" content={pageContext.description}/>
+    </>
+  )
+}
