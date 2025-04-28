@@ -38,6 +38,11 @@ exports.createPages = async ({ graphql, actions }) => {
           description {
             description
           }
+          imgRetail {
+            localFile {
+              publicURL
+            }
+          }
         }
       }
     }
@@ -72,6 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: product.slug,
         title: product.name,
         description: product.description.description,
+        image: product.imgRetail.localFile.publicURL,
       },
     })
 
@@ -81,7 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: product.slug,
         title: `Get ${product.name} Images`,
-        description: `Download images of ${product.name}.`
+        description: `Download images of ${product.name}.`,
       },
     })
   })

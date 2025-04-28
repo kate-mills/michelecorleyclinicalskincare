@@ -2,7 +2,7 @@ import React from 'react'
 
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, Product } from '../components'
+import { GlobalLayout, Product, Seo } from '../components'
 
 const ProductTemplate = ({ data: { product }, pageContext }) => {
   console.log('pageContext from template', pageContext)
@@ -58,11 +58,12 @@ export const query = graphql`
 `
 export default ProductTemplate
 
-export const Head = ({pageContext})=> {
+export const Head = ({ pageContext }) => {
   return (
-    <>
-      <title>{pageContext.title}</title>
-      <meta name="description" content={pageContext.description}/>
-    </>
+    <Seo
+      title={pageContext.title}
+      description={pageContext.description}
+      image={pageContext.image}
+    />
   )
 }
