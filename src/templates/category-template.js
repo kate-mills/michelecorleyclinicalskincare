@@ -2,7 +2,7 @@ import React from 'react'
 
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, Product } from '../components'
+import { GlobalLayout, Product, Seo } from '../components'
 
 const CategoryTemplate = props => {
   const {
@@ -62,9 +62,6 @@ export default CategoryTemplate
 
 export const Head = ({pageContext})=> {
   return (
-    <>
-      <title>{pageContext.title}</title>
-      <meta name="description" content={pageContext.description}/>
-    </>
+    <Seo title={pageContext.title} description={pageContext.description}/>
   )
 }

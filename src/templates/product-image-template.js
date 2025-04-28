@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import {Seo} from '../components'
 
 
 const ProductImageTemplate = props => {
@@ -189,9 +190,6 @@ export default styled(ProductImageTemplate)`
 
 export const Head = ({pageContext})=> {
   return (
-    <>
-      <title>{pageContext.title}</title>
-      <meta name="description" content={pageContext.description}/>
-    </>
+    <Seo title={pageContext.title} description={pageContext.description}/>
   )
 }

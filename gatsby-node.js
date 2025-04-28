@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/product-template.js`),
       context: {
         slug: product.slug,
-        title: product.name,
+        title: `${product.name}`,
         description: product.description.description,
         image: product.imgRetail.localFile.publicURL,
       },
