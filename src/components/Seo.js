@@ -13,7 +13,6 @@ const Seo = ({
   children,
 }) => {
   const { site } = useSiteMetadata()
-  console.log('Seo component pathname', pathname)
 
   const {
     defaultTitle,
@@ -25,7 +24,6 @@ const Seo = ({
     icon,
   } = site.siteMetadata
 
-  console.log('image', image)
 
   const seo = {
     title: pageTitle || defaultTitle,
@@ -36,7 +34,6 @@ const Seo = ({
     twitterUsername,
   }
 
-  console.log('Seo component', seo)
 
   return (
     <>

@@ -188,7 +188,6 @@ export default styled(ProductImageTemplate)`
 
 
 export const Head = ({pageContext})=> {
-  console.log('in Head', pageContext)
   return (
     <>
       <title>{pageContext.title}</title>

@@ -5,7 +5,6 @@ import { graphql } from 'gatsby'
 import { GlobalLayout, Product, Seo } from '../components'
 
 const ProductTemplate = ({ data: { product }, pageContext }) => {
-  console.log('pageContext from template', pageContext)
   return (
     <GlobalLayout>
       <Product data={product} singleProductPage={true} />
