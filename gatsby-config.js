@@ -5,7 +5,7 @@ module.exports = {
   },
   siteMetadata: {
     title: `Michele Corley Clinical Skin Care`,
-    description: `Achieve beautifully healthy skin. Discover premium skincare loaded with powerful peptides, potent antioxidants, stable vitamin c, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.`,
+    description: `Achieve beautifully healthy skin. Discover professional skincare loaded with powerful peptides, potent antioxidants, stable vitamin C, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.`,
     dateModified: `${new Date().toISOString()}`,
     author: `MCC`,
     twitterUsername: `@katie_napa`,

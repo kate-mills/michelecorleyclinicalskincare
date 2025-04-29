@@ -73,5 +73,5 @@ const ProOrdersWrapper = styled.section`
 export default ProOrders
 
 export const Head = ({location:{pathname}, params, data, pageContext})=> {
-  return <Seo title="Professional Ordering Info" noindex={true} pathname={pathname}/>
+  return <Seo title="Michele Corley Professional Ordering Info" noindex={true} />
 }

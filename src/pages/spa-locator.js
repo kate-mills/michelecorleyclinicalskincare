@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import { GlobalLayout, SpaFndr } from '../components'
+import { GlobalLayout, SpaFndr, Seo } from '../components'
 
 const SpaFndrPage = ({ data }) => {
   return (
@@ -41,3 +41,7 @@ const SpaFndrPageWrapper = styled.section`
   }
 `
 export default SpaFndrPage
+
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return <Seo title="Find Our Products In Spas Near You" description="Our Spa Locator helps you quickly locate Michele Corley Clinical Skin Care products at nearby aestheticians and spas." pathname={pathname}/>
+}

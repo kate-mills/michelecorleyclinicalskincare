@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { graphql } from 'gatsby'
-import { GlobalLayout, Thumbnails } from '../components'
+import { GlobalLayout, Thumbnails, Seo } from '../components'
 
 export default function ProductImagesLogosPage({ data }) {
   return (
@@ -261,3 +261,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return <Seo title="Michele Corley Product Images & Logos" pathname={pathname} description="The following resources are available for your use in representing Michele Corley Clinical Skin Care products."/>
+}

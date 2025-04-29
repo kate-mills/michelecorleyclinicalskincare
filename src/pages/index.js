@@ -28,6 +28,6 @@ export const query = graphql`
   }
 `
 
-export const Head = ({ location: { pathname }, params, data, pageContext }) => {
-  return <Seo />
+export const Head = ({ location:{pathname}, params, data, pageContext }) => {
+  return <Seo pathname={pathname}/>
 }

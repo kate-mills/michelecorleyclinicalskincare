@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
-import { GlobalLayout } from '../components'
+import { GlobalLayout, Seo } from '../components'
 
 export default function WhyMCPage({
   data: {
@@ -118,3 +118,13 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = ({location:{pathname}, params, data, pageContext})=> {
+  const {file:{childImageSharp:{gatsbyImageData:{images:{fallback:{src}}}}}} = data
+  return <Seo
+    title="Why Choose Michele Corley Clinical Skin Care?"
+    description="Our commitment to you and your success is to offer the best possible products for your clients, with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
+    image={src}
+    pathname={pathname}
+  />
+}

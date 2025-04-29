@@ -124,9 +124,9 @@ export const query = graphql`
 export const Head = ({location:{pathname}, params, data, pageContext})=> {
   const {file:{childImageSharp:{gatsbyImageData:{images:{fallback:{src}}}}}} = data
   return <Seo
-    title="Contact Us"
+    title="Contact Michele Corley Clinical Skin Care"
     pathname={pathname}
-    description="Get in touch with us at our warehouse via phone or use the submission form here."
+    description="For inquiries, please call our warehouse or use the submission form available here."
     image={src}
   />
 }

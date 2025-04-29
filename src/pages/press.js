@@ -49,6 +49,6 @@ export const query = graphql`
   }
 `
 export const Head = ({ location: { pathname }, params, data, pageContext }) => {
-  return <Seo title="Michele Corley Skin Care In The Press" description="Award-winning skin care in the press for dry and oily skin types to sensitive, sun-damaged, and acne-prone skin exclusively sold through licensed skincare professionals."/>
+  return <Seo title="Michele Corley Featured In The Press" description="Award-winning skincare products featured in the press for all skin types, including dry, oily, sensitive, sun-damaged, and acne-prone skin, exclusively sold through licensed skincare professionals." pathname={pathname}/>
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, RaveReviews } from '../components'
+import { GlobalLayout, RaveReviews, Seo } from '../components'
 
 export default function RaveReviewsPage({ data }) {
   return (
@@ -30,3 +30,7 @@ export const query = graphql`
     }
   }
 `
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return <Seo title="Rave Reviews from Licensed Skincare Professionals" description="Licensed skincare professionals share the transformative power of Michele Corley Clinical Skin Care products, customer service, and the education that empowers them." pathname={pathname}/>
+}
+

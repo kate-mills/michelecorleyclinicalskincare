@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import { GlobalLayout } from '../components'
+import { GlobalLayout, Seo } from '../components'
 
 export default function Successpage({ data }) {
   return (
@@ -17,4 +17,8 @@ export default function Successpage({ data }) {
       </section>
     </GlobalLayout>
   )
+}
+
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return <Seo title="Success" noindex={true}/>
 }

@@ -47,6 +47,8 @@ export const query = graphql`
   }
 `
 
-export const Head = ({location:{pathname}, params, data, pageContext})=> {
-  return <Seo title="Articles Written By Michele Corley" pathname={pathname}/>
+export const Head = ({location, params, data, pageContext})=> {
+  return <Seo title="Articles Written By Michele Corley"
+    description="Find articles about sensitive skin and various skin conditions by Michele Corley featured in Dermascope magazine."
+  />
 }

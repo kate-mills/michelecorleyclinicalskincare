@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/category-template.js`),
       context: {
         name: category.name.toLowerCase(),
-        title: category.name,
+        title: `Michele Corley ${category.name}`,
         description: category.description.description,
         category: { ...category },
       },
