@@ -75,9 +75,9 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/product-template.js`),
       context: {
         slug: product.slug,
-        title: `${product.name}`,
+        title: product.name,
         description: product.description.description,
-        image: product.imgRetail.localFile.publicURL,
+        image: product?.imgRetail?.localFile?.publicURL,
       },
     })
 
@@ -86,7 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/product-image-template.js`),
       context: {
         slug: product.slug,
-        title: `Get ${product.name} Images`,
+        title: `Download ${product.name} Images`,
         description: `Download images of ${product.name}.`,
       },
     })
