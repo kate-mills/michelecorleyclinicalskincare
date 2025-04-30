@@ -1,21 +1,21 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import {Seo} from '../components'
-
+import { Seo } from '../components'
 
 const ProductImageTemplate = props => {
   const {
     data: { product },
     className,
+    location: { state },
   } = props
 
-  const goBack = () => {
-    window.history.go(-1)
-  }
-  const retailOrProText =  `${product.professionalOnly ? 'Pro':'Retail'}-size`
+  const goBack = () => navigate(-1)
+  const goHome = () => navigate('/')
+
+  const retailOrProText = `${product.professionalOnly ? 'Pro' : 'Retail'}-size`
 
   return (
     <div className={`${className}`}>
@@ -25,21 +25,17 @@ const ProductImageTemplate = props => {
           className="top-bar--right_goback"
           role="button"
           tabIndex="0"
-          onClick={goBack}
-          onKeyPress={goBack}
+          onClick={state?.id ? goBack : goHome}
+          onKeyPress={state?.id ? goBack : goHome}
         >
           X
         </div>
       </div>
+      <h2 className="txt-center">Download {product.name} Images</h2>
 
       <div className="flex-box-images">
         {product?.imgTravel && (
           <div className="img-box small-box">
-            <GatsbyImage
-              className="img small-img"
-              image={product.imgTravel?.gatsbyImageData}
-              alt={product.imgTravel?.description}
-            />
             <a
               href={product?.imgTravel?.localFile?.publicURL}
               className="btn travel"
@@ -47,14 +43,14 @@ const ProductImageTemplate = props => {
             >
               Download Travel-size Image
             </a>
+            <GatsbyImage
+              className="img small-img"
+              image={product.imgTravel?.gatsbyImageData}
+              alt={product.imgTravel?.description}
+            />
           </div>
         )}
         <div className="img-box large-box">
-          <GatsbyImage
-            className="img large-img"
-            image={product.fluidImg.gatsbyImageData}
-            alt={product.fluidImg.description}
-          />
           <a
             href={product?.fluidImg?.localFile?.publicURL}
             className="btn retail"
@@ -62,6 +58,11 @@ const ProductImageTemplate = props => {
           >
             Download {retailOrProText} Image
           </a>
+          <GatsbyImage
+            className="img large-img"
+            image={product.fluidImg.gatsbyImageData}
+            alt={product.fluidImg.description}
+          />
         </div>
       </div>
     </div>
@@ -99,97 +100,61 @@ export const query = graphql`
 `
 export default styled(ProductImageTemplate)`
   & {
-    background-color: var(--mainMcc);
-    background-color: var(--offWhite);
+    /*background-color: var(--offWhite);
     border-color: transparent;
+    width: 100vw;
     min-width: 100vw;
-    min-height: calc(100vh + 200px);
+    min-height: calc(100vh + 200px);*/
 
     > .top-bar {
-      color: var(--blackText);
-      display: flex;
-      align-items: center;
-
+      text-align: right;
       > .top-bar--left_spacer {
         width: 100vw;
       }
       > .top-bar--right_goback {
+        display: inline-block;
         padding: 1rem 1.5rem;
         font-size: 2.5rem;
         font-weight: 300;
-
         &:hover {
           cursor: pointer !important;
           background: var(--mainWhite);
         }
       }
     }
-
     > .flex-box-images {
       background: var(--mainMcc);
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap-reverse;
       justify-content: center;
-      margin: 2px auto 0;
       border-inline: 1px solid transparent;
       border-block-end: 1px solid transparent;
-      width: 100vw;
-      padding-bottom: 5%;
-
+      margin: 2px auto 0;
       div.img-box {
         background: var(--mainWhite);
         border-inline: 1px solid var(--offWhite);
         border-block-end: 1px solid var(--offWhite);
         border-block-start: 1px solid var(--offWhite);
-        width: 85vh;
-        height: 100%;
-
-        position: relative;
-
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 500px;
+        & .small-img {
+          transform: scale(0.65);
+        }
         & a.btn {
           background-color: rgb(255 255 255 / 59%);
-          display: block;
-          position: absolute;
-          bottom: -8%;
-          left: 50%;
-          margin-left: -178px;
-          width: 356px;
-          text-align: center;
           font-size: 0.8rem;
-        }
-        & .small-img {
-          transform: scale(0.65) translateY(25%);
-        }
-      }
-    }
-  }
-
-  @media (max-width: 1024px) {
-    & {
-      > .flex-box-images {
-        flex-wrap: wrap-reverse;
-
-        div.img-box {
-          & a.btn {
-            bottom: 3%;
-          }
-          & a.btn.travel {
-            bottom: 25%;
-          }
-
-          width: 60vh;
-          & .small-img {
-            transform: scale(0.55) translateY(-10%);
-          }
+          text-align: center;
+          position: relative;
+          top: 2rem;
+          z-index: 100;
         }
       }
     }
   }
 `
 
-
-export const Head = ({pageContext})=> {
-  return (
-    <Seo title={pageContext.title} description={pageContext.description}/>
-  )
+export const Head = ({ pageContext }) => {
+  return <Seo title={pageContext.title} description={pageContext.description} />
 }

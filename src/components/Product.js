@@ -19,7 +19,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
 
   return (
     <article
-      className={`${className} ${!singleProductPage ? 'border' : ''}`}
+      className={`${className}`}
       id={slug}
     >
       <ProductTitle singleProductPage={singleProductPage} data={data} />
@@ -33,7 +33,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
       <p className="product-description">{description}</p>
       <div className="product-media">
         <div className="product-image">
-          <Link to={`/product-images-and-logos/${slug}`}>
+          <Link to={`/product-images-and-logos/${slug}`} state={{id: slug}}>
             <GatsbyImage image={gatsbyImageData} alt={`Retail size ${name}`} />
           </Link>
         </div>
