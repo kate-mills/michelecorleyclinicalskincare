@@ -159,6 +159,7 @@ export default styled(ProductImageTemplate)`
       }
       .flex-box-images {
         div.img-box {
+          border-block: 1px solid var(--offWhite);
           width: 100%;
           & a.btn {
             padding: 0.8rem 2rem;
