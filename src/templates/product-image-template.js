@@ -19,10 +19,9 @@ const ProductImageTemplate = props => {
 
   return (
     <div className={`${className}`}>
-      <div className="top-bar">
-        <div className="top-bar--left_spacer"></div>
+      <div className={`top-bar ${!product?.imgTravel && 'short'}`}>
         <div
-          className="top-bar--right_goback"
+          className="top-bar-goback"
           role="button"
           tabIndex="0"
           onClick={state?.id ? goBack : goHome}
@@ -31,35 +30,34 @@ const ProductImageTemplate = props => {
           X
         </div>
       </div>
-      <h2 className="txt-center">Download {product.name} Images</h2>
 
       <div className="flex-box-images">
         {product?.imgTravel && (
-          <div className="img-box small-box">
+          <div className="img-box travel-box">
             <a
               href={product?.imgTravel?.localFile?.publicURL}
-              className="btn travel"
+              className="btn"
               download={`Travel-size ${product.name}`}
             >
-              Download Travel-size Image
+              {`Download Travel-size Image`}
             </a>
             <GatsbyImage
-              className="img small-img"
+              className="img travel-img"
               image={product.imgTravel?.gatsbyImageData}
               alt={product.imgTravel?.description}
             />
           </div>
         )}
-        <div className="img-box large-box">
+        <div className="img-box">
           <a
             href={product?.fluidImg?.localFile?.publicURL}
-            className="btn retail"
+            className="btn"
             download={`${retailOrProText} ${product?.name}`}
           >
-            Download {retailOrProText} Image
+            {`Download ${retailOrProText} Image`}
           </a>
           <GatsbyImage
-            className="img large-img"
+            className="img"
             image={product.fluidImg.gatsbyImageData}
             alt={product.fluidImg.description}
           />
@@ -100,55 +98,72 @@ export const query = graphql`
 `
 export default styled(ProductImageTemplate)`
   & {
-    /*background-color: var(--offWhite);
-    border-color: transparent;
-    width: 100vw;
-    min-width: 100vw;
-    min-height: calc(100vh + 200px);*/
-
-    > .top-bar {
+    background-color: var(--offWhite);
+    min-height: calc(100vh + 200px);
+    .top-bar {
+      border-inline: 1px solid var(--mainMcc);
+      margin: 0 auto;
       text-align: right;
-      > .top-bar--left_spacer {
-        width: 100vw;
+      width: 80%;
+      &.short{
+        width: 40%; /* line up border with 1 img */
       }
-      > .top-bar--right_goback {
+      &-goback {
         display: inline-block;
         padding: 1rem 1.5rem;
         font-size: 2.5rem;
         font-weight: 300;
+        margin: 1px;
         &:hover {
-          cursor: pointer !important;
           background: var(--mainWhite);
+          cursor: pointer;
         }
       }
     }
-    > .flex-box-images {
-      background: var(--mainMcc);
+    .flex-box-images {
+      background: var(--mainWhite);
       display: flex;
       flex-wrap: wrap-reverse;
       justify-content: center;
-      border-inline: 1px solid transparent;
-      border-block-end: 1px solid transparent;
-      margin: 2px auto 0;
       div.img-box {
         background: var(--mainWhite);
         border-inline: 1px solid var(--offWhite);
-        border-block-end: 1px solid var(--offWhite);
-        border-block-start: 1px solid var(--offWhite);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        max-width: 500px;
-        & .small-img {
+        width: 40%;
+        & .travel-img {
           transform: scale(0.65);
         }
         & a.btn {
-          background-color: rgb(255 255 255 / 59%);
+          background-color: rgb(89 112 164 / 29%);
           font-size: 0.8rem;
-          text-align: center;
+          min-width: 80%;
+          padding: 0.8rem 1rem;
           position: relative;
+          text-align: center;
           top: 2rem;
           z-index: 100;
+          &:hover{
+            background-color: var(--mainWhite);
+          }
+        }
+      }
+    }
+    @media (max-width: 800px) {
+      .top-bar{
+        width: 100%;
+        &.short{
+          width: 100%;
+        }
+      }
+      .flex-box-images {
+        div.img-box {
+          width: 100%;
+          & a.btn {
+            padding: 0.8rem 2rem;
+            top: 2rem;
+          }
         }
       }
     }
