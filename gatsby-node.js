@@ -47,9 +47,10 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
   results.mediaData = await graphql(`
-    query GetMedias {
-      medias: allContentfulMccMediaImg {
+    query GetLogos {
+      logos: allContentfulMccMediaImg(filter: { category: { eq: "Logos" } }) {
         nodes {
           slug
         }
@@ -89,6 +90,16 @@ exports.createPages = async ({ graphql, actions }) => {
         title: `Download ${product.name} Images`,
         description: `Download images of ${product.name}.`,
       },
+    })
+  })
+
+  results.mediaData.data.logos.nodes.forEach(logo => {
+    createPage({
+      path: `/product-images-and-logos/${logo.slug}`,
+      component: path.resolve(`src/templates/logo-image-template.js`),
+      context: {
+        slug: logo.slug,
+      }
     })
   })
 }
