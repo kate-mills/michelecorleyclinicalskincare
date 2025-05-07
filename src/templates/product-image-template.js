@@ -172,5 +172,9 @@ export default styled(ProductImageTemplate)`
 `
 
 export const Head = ({ pageContext }) => {
-  return <Seo title={pageContext.title} description={pageContext.description} />
+  return <Seo
+    title={pageContext.title}
+    description={pageContext.description}
+    image={pageContext.image}
+  />
 }

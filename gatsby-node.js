@@ -89,6 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: product.slug,
         title: `Download ${product.name} Images`,
         description: `Download images of ${product.name}.`,
+        image: product?.imgRetail?.localFile?.publicURL,
       },
     })
   })
@@ -99,7 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/logo-image-template.js`),
       context: {
         slug: logo.slug,
-      }
+      },
     })
   })
 }
