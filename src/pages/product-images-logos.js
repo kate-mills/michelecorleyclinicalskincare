@@ -1,9 +1,19 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 
 import { graphql } from 'gatsby'
 import { GlobalLayout, Thumbnails, Seo } from '../components'
 
+import styled from 'styled-components'
+
 export default function ProductImagesLogosPage({ data }) {
+  const imgList = ['travel', 'retail']
+  const [listIdx, setListIdx] = useState(0)
+
+  const getSectionSize = () => imgList[Number(!Boolean(listIdx))]
+  const toggleImgList = () => {
+    setListIdx(prev => Number(!Boolean(prev)))
+  }
+
   return (
     <GlobalLayout>
       <h1>Product Images & Logos</h1>
@@ -11,96 +21,84 @@ export default function ProductImagesLogosPage({ data }) {
         The following resources are available for your use in representing
         Michele Corley Clinical Skin Care products.
       </p>
-
-      <section>
-        <article id="retail-size-images" className="g-mb2">
+      <StyledSection>
+        <article id="retail" className="g-mb2">
           <section id="cleansers-retail" className="g-mb1">
-            <h2 className="poppy g-txt-center">Cleansers (Retail-size)</h2>
-            <Thumbnails data={data.cleansers} />
+            <h2 className="poppy g-txt-center">
+              Cleansers {`${getSectionSize()}-size`}
+            </h2>
+            <button className="btn" onClick={toggleImgList}>
+              Show {imgList[listIdx]} Images
+            </button>
+            <Thumbnails data={data.cleansers} travelMedia={listIdx > 0} />
           </section>
 
           <section id="toners-retail" className="g-mb1">
-            <h2 className="poppy g-txt-center">Toners (Retail-size)</h2>
-            <Thumbnails data={data.toners} />
+            <h2 className="poppy g-txt-center">
+              Toners {`${getSectionSize()}-size`}
+            </h2>
+            <button className="btn" onClick={toggleImgList}>
+              Show {imgList[listIdx]} Images
+            </button>
+            <Thumbnails data={data.toners} travelMedia={listIdx > 0} />
           </section>
 
           <section id="exfoliants-retail" className="g-mb1">
-            <h2 className="poppy g-txt-center">Exfoliants (Retail-size)</h2>
-            <Thumbnails data={data.exfoliants} />
+            <h2 className="poppy g-txt-center">
+              Exfoliants {`${getSectionSize()}-size`}
+            </h2>
+            <button className="btn" onClick={toggleImgList}>
+              Show {imgList[listIdx]} Images
+            </button>
+            <Thumbnails data={data.exfoliants} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="serums-spf-retail" className="g-mb1">
+          <section id="serums-retail" className="g-mb1">
             <h2 className="poppy g-txt-center">
-              Serums & Specialty (Retail-size)
+              Serums {`${getSectionSize()}-size`}
             </h2>
-            <Thumbnails data={data.serums} />
+            <button className="btn" onClick={toggleImgList}>
+              Show {imgList[listIdx]} Images
+            </button>
+            <Thumbnails data={data.serums} travelMedia={listIdx > 0} />
           </section>
 
           <section id="moisturizers-spf-retail" className="g-mb1">
             <h2 className="poppy g-txt-center">
-              Moisturizers & Spf (Retail-size)
+              Moisturizers & Spf {`${getSectionSize()}-size`}
             </h2>
-            <Thumbnails data={data.moisturizers} />
+            <button className="btn" onClick={toggleImgList}>
+              Show {imgList[listIdx]} Images
+            </button>
+            <Thumbnails data={data.moisturizers} travelMedia={listIdx > 0} />
           </section>
 
           <section id="masks-retail" className="g-mb1">
-            <h2 className="poppy g-txt-center">Masks (Retail-size)</h2>
-            <Thumbnails data={data.masks} />
+            <h2 className="poppy g-txt-center">
+              Masks {`${getSectionSize()}-size`}
+            </h2>
+            <button className="btn" onClick={toggleImgList}>
+              Show {imgList[listIdx]} Images
+            </button>
+            <Thumbnails data={data.masks} travelMedia={listIdx > 0} />
           </section>
 
           <section id="eyes-lips-retail" className="g-mb1">
-            <h2 className="poppy g-txt-center">Eyes & Lips (Retail-size)</h2>
-            <Thumbnails data={data.eyesLips} />
-          </section>
-        </article>
-
-        <article id="travel-size-images" className="g-mb2">
-          <section id="cleansers-travel" className="g-mb1">
-            <h2 className="poppy g-txt-center">Cleansers (Travel-size)</h2>
-            <Thumbnails data={data.cleansers} travelMedia />
-          </section>
-
-          <section id="toners-travel" className="g-mb1">
-            <h2 className="poppy g-txt-center">Toners (Travel-size)</h2>
-            <Thumbnails data={data.toners} travelMedia />
-          </section>
-
-          <section id="exfoliants-travel" className="g-mb1">
-            <h2 className="poppy g-txt-center">Exfoliants (Travel-size)</h2>
-            <Thumbnails data={data.exfoliants} travelMedia />
-          </section>
-
-          <section id="serums-spf-travel" className="g-mb1">
             <h2 className="poppy g-txt-center">
-              Serums & Specialty (Travel-size)
+              Eyes & Lips {`${getSectionSize()}-size`}
             </h2>
-            <Thumbnails data={data.serums} travelMedia />
-          </section>
-
-          <section id="moisturizers-spf-travel" className="g-mb1">
-            <h2 className="poppy g-txt-center">
-              Moisturizers & Spf (Travel-size)
-            </h2>
-            <Thumbnails data={data.moisturizers} travelMedia />
-          </section>
-
-          <section id="masks-travel" className="g-mb1">
-            <h2 className="poppy g-txt-center">Masks (Travel-size)</h2>
-            <Thumbnails data={data.masks} travelMedia />
-          </section>
-
-          <section id="eyes-lips-travel" className="g-mb1">
-            <h2 className="poppy g-txt-center">Eyes & Lips (Travel-size)</h2>
-            <Thumbnails data={data.eyesLips} travelMedia />
+            <button className="btn" onClick={toggleImgList}>
+              Show {imgList[listIdx]} Images
+            </button>
+            <Thumbnails data={data.eyesLips} travelMedia={listIdx > 0} />
           </section>
 
           <section id="logos" className="g-mb1">
-            <h2 className="poppy g-txt-center">Logos</h2>
-            <Thumbnails data={data.logos} logoMedia/>
+            <h2 className="poppy g-txt-center">Logos</h2>{' '}
+            <Thumbnails data={data.logos} logoMedia />{' '}
           </section>
-
         </article>
-      </section>
+      </StyledSection>
     </GlobalLayout>
   )
 }
@@ -291,6 +289,7 @@ export const query = graphql`
     logos: allContentfulMccMediaImg(filter: { category: { eq: "Logos" } }) {
       edges {
         node {
+          contentful_id
           name
           slug
           images {
@@ -302,6 +301,15 @@ export const query = graphql`
         }
       }
     }
+  }
+`
+
+const StyledSection = styled.section`
+  & button.btn {
+    display: block;
+    margin: 0 auto 1rem;
+    padding-block: 0.4rem;
+    font-size: 9px;
   }
 `
 
