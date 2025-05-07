@@ -9,12 +9,10 @@ const SpaFndrPage = ({ data }) => {
       <SpaFndrPageWrapper>
         <h1>Find Your Michele Corley Expert</h1>
         <h2 className={'center'}>
-          This spa finder allows you to search (by location) for a Michele Corley Professional.
-        </h2>
-        <h3>
           Please enter a city, state, or zip code in the search bar below to
-          find the nearest spas and estheticians carrying Michele Corley products.
-        </h3>
+          find the nearest spas and estheticians carrying Michele Corley
+          products.
+        </h2>
         <SpaFndr />
       </SpaFndrPageWrapper>
     </GlobalLayout>
@@ -31,12 +29,7 @@ const SpaFndrPageWrapper = styled.section`
         font-family: var(--mainFont);
       }
     }
-    > h2{
-      font-size: 1rem;
-      text-align: center;
-      text-transform: none;
-    }
-    > h3 {
+    > h2 {
       font-size: 0.8125rem;
       margin: 0;
       text-align: center;

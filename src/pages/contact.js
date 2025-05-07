@@ -1,20 +1,24 @@
 import * as React from 'react'
 
 import { graphql } from 'gatsby'
-import {GatsbyImage} from 'gatsby-plugin-image'
-
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import styled from 'styled-components'
 
-import {GlobalLayout, ContactForm, ContactInformation, Seo} from '../components'
+import {
+  GlobalLayout,
+  ContactForm,
+  ContactInformation,
+  Seo,
+} from '../components'
 
-import {PhoneInfo} from '../constants/contact-info'
+import { PhoneInfo } from '../constants/contact-info'
 
 export default function ContactPage({ data }) {
   return (
     <GlobalLayout showSpaFndrLnk={false}>
       <PageWrapper>
-          <div className="flex-col">
+        <div className="flex-col">
           <div className="flex-item-1">
             <div className="contact-text-container">
               <h1>
@@ -22,10 +26,10 @@ export default function ContactPage({ data }) {
                 products?
               </h1>
               <p>
-                Please contact us via the submission form or give us a call at
-    {' '} {PhoneInfo.fullPhone} {' '} and we'll get back to you as soon as we can. If
-                you are a licensed professional, please include your license
-                number.
+                Please contact us via the submission form or give us a call at{' '}
+                {PhoneInfo.fullPhone} and we'll get back to you as soon as we
+                can. If you are a licensed professional, please include your
+                license number.
               </p>
               <p className="indent-p">Thank you!</p>
             </div>
@@ -42,13 +46,10 @@ export default function ContactPage({ data }) {
             <ContactForm tabIndex={0} />
           </div>
         </div>
-
-    </PageWrapper>
+      </PageWrapper>
     </GlobalLayout>
   )
 }
-
-
 
 const PageWrapper = styled.section`
   & h1 {
@@ -109,11 +110,10 @@ const PageWrapper = styled.section`
   }
 `
 
-
-
 export const query = graphql`
   {
     file(relativePath: { eq: "red-flowers.jpg" }) {
+      publicURL
       childImageSharp {
         gatsbyImageData
       }
@@ -121,12 +121,16 @@ export const query = graphql`
   }
 `
 
-export const Head = ({location:{pathname}, params, data, pageContext})=> {
-  const {file:{childImageSharp:{gatsbyImageData:{images:{fallback:{src}}}}}} = data
-  return <Seo
-    title="Contact Michele Corley Clinical Skin Care"
-    pathname={pathname}
-    description="For inquiries, please call our warehouse or use the submission form available here."
-    image={src}
-  />
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  const {
+    file: { publicURL },
+  } = data
+  return (
+    <Seo
+      title="Contact Michele Corley Clinical Skin Care"
+      pathname={pathname}
+      description="For inquiries, please call our warehouse or use the submission form available here."
+      image={publicURL}
+    />
+  )
 }
