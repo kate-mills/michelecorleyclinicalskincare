@@ -11,10 +11,10 @@ module.exports = {
     twitterUsername: `@katie_napa`,
     image: `/logo-300x200.jpeg`,
     icon: `/favicon-32x32.png`,
-    url: `https://mcc25.netlify.app`,
-    baseUrl: `https://mcc25.netlify.app`,
-    siteUrl: `https://mcc25.netlify.app`,
-    defaultImage: `https://mcc25.netlify.app/logo.jpg`,
+    url: `https://michelecorleyclinicalskincare.com`,
+    baseUrl: `https://michelecorleyclinicalskincare.com`,
+    siteUrl: `https://michelecorleyclinicalskincare.com`,
+    defaultImage: `https://michelecorleyclinicalskincare.com/logo-300x200.jpeg`,
     organization: {
       address: {
         street: `604 Bladen St.`,

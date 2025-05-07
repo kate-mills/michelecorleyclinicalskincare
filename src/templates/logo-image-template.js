@@ -131,5 +131,6 @@ export default styled(LogoImageTemplate)`
 `
 
 export const Head = ({ pageContext }) => {
-  return <Seo title={pageContext.title} description={pageContext.description} image={pageContext.image} />
+  const {logo} = pageContext
+  return <Seo title={pageContext.title} description={pageContext.title} image={logo?.image?.file?.url}/>
 }

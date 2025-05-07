@@ -5,7 +5,7 @@ import { GlobalLayout, Thumbnails, Seo } from '../components'
 
 import styled from 'styled-components'
 
-export default function ProductImagesLogosPage({ data }) {
+const ProductImagesLogosPage = ({ data }) => {
   const imgList = ['travel', 'retail']
   const [listIdx, setListIdx] = useState(0)
 
@@ -24,11 +24,11 @@ export default function ProductImagesLogosPage({ data }) {
 
       <StyledSection>
         <p className="instructions">
-          Click image thumbnails to see your download options.
+          Click image thumbnails to see download options.
         </p>
         <article id="retail" className="g-mb2">
           <section id="cleansers-retail" className="g-mb1">
-            <h2 className="poppy g-txt-center">
+            <h2>
               <span className="category">
                 {`${getSectionSize()} `} Cleansers
               </span>
@@ -42,47 +42,65 @@ export default function ProductImagesLogosPage({ data }) {
           <section id="toners-retail" className="g-mb2">
             <h2 className="poppy g-txt-center">
               <span className="category">{`${getSectionSize()} `} Toners</span>
-              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
+              <button className="btn" onClick={toggleImgList}>
+                Show {imgList[listIdx]}-Size
+              </button>
             </h2>
             <Thumbnails data={data.toners} travelMedia={listIdx > 0} />
           </section>
 
           <section id="exfoliants-retail" className="g-mb2">
-            <h2 className="poppy g-txt-center">
-              <span className="category">{`${getSectionSize()} `} Exfoliants</span>
-              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
+            <h2>
+              <span className="category">
+                {`${getSectionSize()} `} Exfoliants
+              </span>
+              <button className="btn" onClick={toggleImgList}>
+                Show {imgList[listIdx]}-Size
+              </button>
             </h2>
             <Thumbnails data={data.exfoliants} travelMedia={listIdx > 0} />
           </section>
 
           <section id="serums-retail" className="g-mb2">
-            <h2 className="poppy g-txt-center">
+            <h2>
               <span className="category">{`${getSectionSize()} `} Serums</span>
-              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
+              <button className="btn" onClick={toggleImgList}>
+                Show {imgList[listIdx]}-Size
+              </button>
             </h2>
             <Thumbnails data={data.serums} travelMedia={listIdx > 0} />
           </section>
 
           <section id="moisturizers-spf-retail" className="g-mb2">
-            <h2 className="poppy g-txt-center">
-              <span className="category">{`${getSectionSize()} `} Moisturizers & Spf</span>
-              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
+            <h2>
+              <span className="category">
+                {`${getSectionSize()} `} Moisturizers & Spf
+              </span>
+              <button className="btn" onClick={toggleImgList}>
+                Show {imgList[listIdx]}-Size
+              </button>
             </h2>
             <Thumbnails data={data.moisturizers} travelMedia={listIdx > 0} />
           </section>
 
           <section id="masks-retail" className="g-mb2">
-            <h2 className="poppy g-txt-center">
+            <h2>
               <span className="category">{`${getSectionSize()} `} Masks</span>
-              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
+              <button className="btn" onClick={toggleImgList}>
+                Show {imgList[listIdx]}-Size
+              </button>
             </h2>
             <Thumbnails data={data.masks} travelMedia={listIdx > 0} />
           </section>
 
           <section id="eyes-lips-retail" className="g-mb2">
-            <h2 className="poppy g-txt-center">
-              <span className="category">{`${getSectionSize()} `} Eyes & Lips </span>
-              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
+            <h2>
+              <span className="category">
+                {`${getSectionSize()} `} Eyes & Lips{' '}
+              </span>
+              <button className="btn" onClick={toggleImgList}>
+                Show {imgList[listIdx]}-Size
+              </button>
             </h2>
             <Thumbnails data={data.eyesLips} travelMedia={listIdx > 0} />
           </section>
@@ -300,7 +318,13 @@ export const query = graphql`
 
 const StyledSection = styled.section`
   & {
+    > .instructions{
+      text-align: center;
+      color: var(--m3);
+    }
     h2 {
+      margin: 0 auto;
+      text-align: center;
       .category {
         display: block;
       }
@@ -310,19 +334,18 @@ const StyledSection = styled.section`
         color: var(--mainWhite);
         display: inline-block;
         font-size: 0.7rem;
+        margin-block-end: 1rem;
         padding: 0.4rem 0.6rem;
-        &:hover, &:active, &:focus{
+        &:hover,
+        &:active,
+        &:focus {
           border-color: var(--m3);
         }
       }
     }
-    .instructions {
-      color: #6772ac;
-      font-style: italic;
-      text-align: center;
-    }
   }
 `
+export default ProductImagesLogosPage
 
 export const Head = ({ location: { pathname }, params, data, pageContext }) => {
   return (

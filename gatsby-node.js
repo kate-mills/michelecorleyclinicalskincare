@@ -108,7 +108,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: logo.slug,
         title: `Download Michele Corley ${logo.name}`,
         description: `Download Michele Corley ${logo.name}`,
-        image: logo?.image?.file?.url,
+        logo: logo,
       },
     })
   })
