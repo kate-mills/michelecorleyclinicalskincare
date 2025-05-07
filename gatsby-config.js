@@ -9,7 +9,7 @@ module.exports = {
     dateModified: `${new Date().toISOString()}`,
     author: `MCC`,
     twitterUsername: `@katie_napa`,
-    image: `/logo.jpg`,
+    image: `/logo-300x200.jpeg`,
     icon: `/favicon-32x32.png`,
     url: `https://mcc25.netlify.app`,
     baseUrl: `https://mcc25.netlify.app`,
