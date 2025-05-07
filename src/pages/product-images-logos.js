@@ -21,79 +21,73 @@ export default function ProductImagesLogosPage({ data }) {
         The following resources are available for your use in representing
         Michele Corley Clinical Skin Care products.
       </p>
+
       <StyledSection>
+        <p className="instructions">
+          Click image thumbnails to see your download options.
+        </p>
         <article id="retail" className="g-mb2">
           <section id="cleansers-retail" className="g-mb1">
             <h2 className="poppy g-txt-center">
-              Cleansers {`${getSectionSize()}-size`}
+              <span className="category">
+                {`${getSectionSize()} `} Cleansers
+              </span>
+              <button className="btn" onClick={toggleImgList}>
+                Show {imgList[listIdx]}-Size{' '}
+              </button>
             </h2>
-            <button className="btn" onClick={toggleImgList}>
-              Show {imgList[listIdx]} Images
-            </button>
             <Thumbnails data={data.cleansers} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="toners-retail" className="g-mb1">
+          <section id="toners-retail" className="g-mb2">
             <h2 className="poppy g-txt-center">
-              Toners {`${getSectionSize()}-size`}
+              <span className="category">{`${getSectionSize()} `} Toners</span>
+              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
             </h2>
-            <button className="btn" onClick={toggleImgList}>
-              Show {imgList[listIdx]} Images
-            </button>
             <Thumbnails data={data.toners} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="exfoliants-retail" className="g-mb1">
+          <section id="exfoliants-retail" className="g-mb2">
             <h2 className="poppy g-txt-center">
-              Exfoliants {`${getSectionSize()}-size`}
+              <span className="category">{`${getSectionSize()} `} Exfoliants</span>
+              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
             </h2>
-            <button className="btn" onClick={toggleImgList}>
-              Show {imgList[listIdx]} Images
-            </button>
             <Thumbnails data={data.exfoliants} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="serums-retail" className="g-mb1">
+          <section id="serums-retail" className="g-mb2">
             <h2 className="poppy g-txt-center">
-              Serums {`${getSectionSize()}-size`}
+              <span className="category">{`${getSectionSize()} `} Serums</span>
+              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
             </h2>
-            <button className="btn" onClick={toggleImgList}>
-              Show {imgList[listIdx]} Images
-            </button>
             <Thumbnails data={data.serums} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="moisturizers-spf-retail" className="g-mb1">
+          <section id="moisturizers-spf-retail" className="g-mb2">
             <h2 className="poppy g-txt-center">
-              Moisturizers & Spf {`${getSectionSize()}-size`}
+              <span className="category">{`${getSectionSize()} `} Moisturizers & Spf</span>
+              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
             </h2>
-            <button className="btn" onClick={toggleImgList}>
-              Show {imgList[listIdx]} Images
-            </button>
             <Thumbnails data={data.moisturizers} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="masks-retail" className="g-mb1">
+          <section id="masks-retail" className="g-mb2">
             <h2 className="poppy g-txt-center">
-              Masks {`${getSectionSize()}-size`}
+              <span className="category">{`${getSectionSize()} `} Masks</span>
+              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
             </h2>
-            <button className="btn" onClick={toggleImgList}>
-              Show {imgList[listIdx]} Images
-            </button>
             <Thumbnails data={data.masks} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="eyes-lips-retail" className="g-mb1">
+          <section id="eyes-lips-retail" className="g-mb2">
             <h2 className="poppy g-txt-center">
-              Eyes & Lips {`${getSectionSize()}-size`}
+              <span className="category">{`${getSectionSize()} `} Eyes & Lips </span>
+              <button className="btn" onClick={toggleImgList}>Show {imgList[listIdx]}-Size</button>
             </h2>
-            <button className="btn" onClick={toggleImgList}>
-              Show {imgList[listIdx]} Images
-            </button>
             <Thumbnails data={data.eyesLips} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="logos" className="g-mb1">
+          <section id="logos" className="g-mb2">
             <h2 className="poppy g-txt-center">Logos</h2>{' '}
             <Thumbnails data={data.logos} logoMedia />{' '}
           </section>
@@ -305,11 +299,28 @@ export const query = graphql`
 `
 
 const StyledSection = styled.section`
-  & button.btn {
-    display: block;
-    margin: 0 auto 1rem;
-    padding-block: 0.4rem;
-    font-size: 9px;
+  & {
+    h2 {
+      .category {
+        display: block;
+      }
+      button {
+        background: var(--poppy);
+        border-color: var(--clear);
+        color: var(--mainWhite);
+        display: inline-block;
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+        &:hover, &:active, &:focus{
+          border-color: var(--m3);
+        }
+      }
+    }
+    .instructions {
+      color: #6772ac;
+      font-style: italic;
+      text-align: center;
+    }
   }
 `
 
