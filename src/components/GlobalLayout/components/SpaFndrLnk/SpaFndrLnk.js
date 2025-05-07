@@ -2,20 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 
-const SpaLocatorFixedLink = ({ className}) => {
+const SpaFndrFixedLink = ({ className}) => {
   return (
     <div className={`${className}`}>
       <Link
-        to={'/spa-locator/'}
+        to={'/spa-finder/'}
         className={`link-content`}
         tabIndex={0}
-      >FIND OUR PRODUCTS NEAR YOU
+      >FIND OUR PRODUCTS IN SPAS
       </Link>
     </div>
   )
 }
 
-export default styled(SpaLocatorFixedLink)`
+export default styled(SpaFndrFixedLink)`
   & {
     font-family: var(--mainFont);
     background: var(--poppy);
