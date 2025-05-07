@@ -54,9 +54,9 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           name
           slug
-          images {
-            localFile {
-              publicURL
+          image {
+            file {
+              url
             }
           }
         }
@@ -108,7 +108,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: logo.slug,
         title: `Download Michele Corley ${logo.name}`,
         description: `Download Michele Corley ${logo.name}`,
-        image: logo?.images[0]?.localFile?.publicURL,
+        image: logo?.image?.file?.url,
       },
     })
   })
