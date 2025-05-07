@@ -52,7 +52,13 @@ exports.createPages = async ({ graphql, actions }) => {
     query GetLogos {
       logos: allContentfulMccMediaImg(filter: { category: { eq: "Logos" } }) {
         nodes {
+          name
           slug
+          images {
+            localFile {
+              publicURL
+            }
+          }
         }
       }
     }
@@ -100,6 +106,9 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/logo-image-template.js`),
       context: {
         slug: logo.slug,
+        title: `Michele Corley ${logo.name}`,
+        description: `Download Michele Corley ${logo.name}`,
+        image: logo.images[0].localFile.publicURL,
       },
     })
   })
