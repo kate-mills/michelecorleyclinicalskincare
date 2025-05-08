@@ -1,8 +1,6 @@
 import React from 'react'
 import { Router } from '@reach/router'
 
-import { PATH_PREFIX, PATH_DTL } from '../constants/pro-info'
-
 import { GlobalLayout, Seo } from '../components'
 import { PrivateRoute, PublicLogin, Orders, Manuals, Kits, Facials, Classes } from '../components/Pros'
 
@@ -11,13 +9,13 @@ const Pros = props => {
     <GlobalLayout title="Professionals"  isPro={true} showSpaFndrLnk={false}>
       <Seo title="Michele Corley Professionals Only" noindex={true}/>
       <Router primary={false}>
-        <PrivateRoute path={PATH_DTL.private.path} component={Orders} />
-        <PrivateRoute path={`${PATH_PREFIX}/manuals`} component={Manuals} />
-        <PrivateRoute path={`${PATH_PREFIX}/kits`} component={Kits} />
-        <PrivateRoute path={`${PATH_PREFIX}/facials`} component={Facials} />
-        <PrivateRoute path={`${PATH_PREFIX}/classes`} component={Classes} />
-        <PrivateRoute path={`${PATH_PREFIX}/classes/:tag`} component={Classes} />
         <PublicLogin path={`/pros/`} />
+        <PrivateRoute path={`/pros/manuals/`} component={Manuals} />
+        <PrivateRoute path={`/pros/kits/`} component={Kits} />
+        <PrivateRoute path={`/pros/facials/`} component={Facials} />
+        <PrivateRoute path={`/pros/classes/`} component={Classes} />
+        <PrivateRoute path={`/pros/classes/:tag/`} component={Classes} />
+        <PrivateRoute path={`/pros/orders/`} component={Orders} />
       </Router>
     </GlobalLayout>
   )
