@@ -17,7 +17,7 @@ const Pros = props => {
         <PrivateRoute path={`${PATH_PREFIX}/facials`} component={Facials} />
         <PrivateRoute path={`${PATH_PREFIX}/classes`} component={Classes} />
         <PrivateRoute path={`${PATH_PREFIX}/classes/:tag`} component={Classes} />
-        <PublicLogin path={PATH_DTL.public.path} />
+        <PublicLogin path={`/pros/`} />
       </Router>
     </GlobalLayout>
   )

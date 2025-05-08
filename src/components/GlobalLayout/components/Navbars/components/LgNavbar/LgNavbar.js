@@ -5,7 +5,6 @@ import { Link } from 'gatsby'
 
 import { links } from '../links'
 
-import { PATH_DTL } from '../../../../../../constants/pro-info'
 import { isLoggedIn, logout } from '../../../../../../utils/auth'
 
 import { navigate } from '@reach/router'
@@ -44,9 +43,6 @@ const LgNavbar = ({ className }) => {
       <nav id="desktop-navigation">
         <ul id="topnav">
           {links.map(({ path, name, subMenu }) => {
-            if (name === 'pro') {
-              return <path />
-            }
             return !path ? (
               <LiMenu name={name} subMenu={subMenu} key={name} />
             ) : (
@@ -57,25 +53,25 @@ const LgNavbar = ({ className }) => {
           })}
           <li className={`top-li`}>
             <Link
-              className="pro"
-              to={`${PATH_DTL.public.path}`}
+              className="pros"
+              to={`/pros/`}
               onClick={e => {
                 e.preventDefault()
                 setIsPro(isLoggedIn())
-                navigate(`${PATH_DTL.public.path}`)
+                navigate(`/pros/`, {state: {isPro}})
               }}
             >
               Professionals
             </Link>
             {isPro && (
               <Link
-                id="pro-logout"
-                className="pro"
-                to={`${PATH_DTL.public.path}`}
+                id="pros-logout"
+                className="pros"
+                to={`/pros/`}
                 onClick={e => {
                   e.preventDefault()
                   setIsPro(false)
-                  logout(() => navigate(`${PATH_DTL.public.path}`))
+                  logout(() => navigate(`/pros/`, {state: {isPro: false}}))
                 }}
               >
                 Logout
@@ -119,9 +115,9 @@ export default styled(LgNavbar)`
           &:focus {
             outline-offset: -2px;
           }
-          &.pro {
+          &.pros {
             display: inline;
-            &#pro-logout {
+            &#pros-logout {
               position: relative;
               &:hover {
                 color: red;

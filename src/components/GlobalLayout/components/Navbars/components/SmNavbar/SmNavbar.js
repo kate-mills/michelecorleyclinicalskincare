@@ -2,7 +2,9 @@ import React, { Component, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { links } from '../links'
-import { PATH_DTL } from '../../../../../../constants/pro-info'
+import { isLoggedIn, logout } from '../../../../../../utils/auth'
+import { navigate } from '@reach/router'
+
 
 const MoreItems = props => {
   const [isOpen, setIsOpen] = useState(false)
@@ -71,6 +73,7 @@ class SmallScreenNavbar extends Component {
   state = {
     navbarOpen: false,
     css: 'hide',
+    isPro: false,
   }
   navbarHandler = () => {
     if (!this.state.navbarOpen) {
@@ -79,6 +82,12 @@ class SmallScreenNavbar extends Component {
       this.setState({ css: 'hide' })
     }
     this.setState({ navbarOpen: !this.state.navbarOpen })
+  }
+  logoutProHandler = () => {
+    this.setState({isPro: false})
+  }
+  componentDidMount = () => {
+    this.setState({ isPro: isLoggedIn() })
   }
   render() {
     return (
@@ -100,9 +109,30 @@ class SmallScreenNavbar extends Component {
                 </Link>
               )
             })}
-            <Link className="li" to={`${PATH_DTL.public.path}`}>
-              PROFESSIONALS
+            <Link
+              className="li"
+              to={(`/pros/`)}
+              onClick={e => {
+                e.preventDefault()
+                this.setState({isPro: isLoggedIn()})
+                navigate(`/pros/`, {state: {isPro: this.state.isPro}})
+              }}
+            >
+              PROFESSIONALS{' '}
             </Link>
+            {this.state.isPro && (
+              <Link
+                className={'li'}
+                to={`/pros/`}
+                onClick={e => {
+                  e.preventDefault()
+                  this.logoutProHandler()
+                  logout(() => navigate(`/pros/`, { state: { isPro: this.state.isPro } }))
+                }}
+              >
+                Logout
+              </Link>
+            )}
           </div>
         </div>
       </div>
