@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const ProNavigation = props => {
-  const {
-    location: { pathname },
-  } = props
+  const { location, pth="" } = props
 
-  let nm = pathname.split('/')[2]
+  let nm = !pth && location?.pathname?.split('/')[2]
+
 
   return (
     <nav className={props.className}>
@@ -17,7 +16,7 @@ const ProNavigation = props => {
             <li
               key={id}
               className={`${
-                nm === item.name || pathname === item.path ? 'active' : ''
+                nm === item.name || pth === item.name ? 'active' : ''
               }`}
             >
               <Link to={item.path}>

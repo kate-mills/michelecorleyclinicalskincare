@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import ProOrderFixedLink from './ProOrderFixedLink'
 
-const Container = ({ title, children, className }) => (
+const Container = ({ title, isPro=true, children, className }) => (
   <StyledContainer className={className}>
-    <ProOrderFixedLink/>
+    {isPro && ( <ProOrderFixedLink/>)}
     <h1>{title}</h1>
     <article>{children}</article>
   </StyledContainer>

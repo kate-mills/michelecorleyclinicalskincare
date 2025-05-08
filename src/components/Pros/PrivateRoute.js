@@ -1,16 +1,19 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { navigate } from "@reach/router"
 import { isLoggedIn } from "../../utils/auth"
-import {PATH_DTL} from '../../constants/pro-info'
 import Container from './components/Container'
 import Navigation from './components/Navigation'
+import Form from './components/Form'
 
 
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
-  if (!isLoggedIn() && location.pathname !== PATH_DTL.public.path) {
+
+  if (!isLoggedIn() && location.pathname !== `/pros/`) {
     // If not logged in, redirect to the login page
-    navigate(PATH_DTL.public.path)
-    return null
+    navigate(`/pros/`)
+    return <Container title="Please Login" isPro={false}>
+      <Form/>
+    </Container>
   }
 
   return <Container title="Professionals">

@@ -1,7 +1,6 @@
 import React from 'react'
-import { navigate } from 'gatsby'
+import { navigate } from '@reach/router'
 import { handleLogin, isLoggedIn } from '../../utils/auth'
-import { PATH_DTL } from '../../constants/pro-info'
 
 import Container from './components/Container'
 import Form from './components/Form'
@@ -11,35 +10,30 @@ class PublicLogin extends React.Component {
   state = {
     username: ``,
     password: ``,
+    name: ``,
   }
-
-  handleUpdate(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
+  handleUpdate = e => {
+    this.setState({ [e.target.name]: e.target.value })
   }
-  componentDidMount() {
-    var el = document.getElementsByTagName('input')[1] // input[0] is search
-    el.focus()
-  }
-
-  handleSubmit(event) {
-    event.preventDefault()
+  handleSubmit = e => {
+    e.preventDefault()
     handleLogin(this.state)
   }
-
+  componentDidMount = () => {
+    var el = document.getElementsByTagName('input')[1]
+    el.focus() //idx 0 is search
+  }
   render() {
     if (isLoggedIn()) {
-      navigate(`${PATH_DTL.private.path}`)
+      navigate(`/pros/manuals/`)
     }
-
     return (
       <Container title="Professionals Login">
-      <Form
-        handleUpdate={e => this.handleUpdate(e)}
-        handleSubmit={e => this.handleSubmit(e)}
-      />
-      <Orders/>
+        <Form
+          handleUpdate={e => this.handleUpdate(e)}
+          handleSubmit={e => this.handleSubmit(e)}
+        />
+        <Orders />
       </Container>
     )
   }

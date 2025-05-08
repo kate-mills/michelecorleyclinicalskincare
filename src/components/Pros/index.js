@@ -1,5 +1,6 @@
 export {default as PrivateRoute} from './PrivateRoute'
 export {default as PublicLogin} from './PublicLogin'
+export {default as DefaultRoute} from './DefaultRoute'
 
 
 export {default as Manuals} from './components/Manuals'

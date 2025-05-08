@@ -1,55 +1,80 @@
 import React from 'react'
 import { navigate } from '@reach/router'
 
-import { PATH_DTL } from '../../../constants/pro-info'
+import { handleLogin } from '../../../utils/auth'
+
 import styled from 'styled-components'
 import { BasicEmail, BasicPhone } from '../../../components'
 
-const Form = ({ handleSubmit, handleUpdate, className }) => (
-  <StyledDiv className={className}>
-    <p className={'login-instructions'}>
-      Pros, contact us at <BasicPhone /> or <BasicEmail block={true} subject="Professional login and password" fontWeight="600" />
-      to access to our exclusive information.
-    </p>
-    <form
-      className={'form'}
-      method="post"
-      onSubmit={event => {
-        handleSubmit(event)
-        navigate(`${PATH_DTL.private.path}`)
-      }}
-    >
-      <label className={'form-label'}>
-        <span className="astrisk">*</span>
-        USERNAME
-        <input
-          className={'form-input'}
-          autoCapitalize="off"
-          type="text"
-          name="username"
-          onChange={handleUpdate}
-          required
+const Form = ({ className }) => {
+  const [user, setUser] = React.useState({
+    username: '',
+    password: '',
+  })
+
+  const handleUpdate = e => {
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    let pro = await handleLogin(user)
+    console.log('awaited pro', pro)
+  }
+  return (
+    <StyledDiv className={className}>
+      <p className={'login-instructions'}>
+        Pros, contact us at <BasicPhone /> or{' '}
+        <BasicEmail
+          block={true}
+          subject="Professional login and password"
+          fontWeight="600"
         />
-      </label>
-      <label className={'form-label'}>
-        <span className="astrisk">*</span>
-        PASSWORD
-        <input
-          className={'form-input'}
-          autoCapitalize="off"
-          type="password"
-          name="password"
-          onChange={handleUpdate}
-          required
-        />
-      </label>
-      <input className={'form-button btn'} type="submit" value="Log In" />
-    </form>
-  </StyledDiv>
-)
+        to access to our exclusive information.
+      </p>
+      <form
+        className={'form'}
+        method="post"
+        onSubmit={event => {
+          handleSubmit(event)
+          navigate(`/pros/manuals/`)
+        }}
+      >
+        <label className={'form-label'}>
+          <span className="astrisk">*</span>
+          USERNAME
+          <input
+            className={'form-input'}
+            autoCapitalize="off"
+            autoComplete="off"
+            type="text"
+            name="username"
+            onChange={handleUpdate}
+            required
+          />
+        </label>
+        <label className={'form-label'}>
+          <span className="astrisk">*</span>
+          PASSWORD
+          <input
+            className={'form-input'}
+            autoCapitalize="off"
+            autoComplete="off"
+            type="password"
+            name="password"
+            onChange={handleUpdate}
+            required
+          />
+        </label>
+        <input className={'form-button btn'} type="submit" value="Log In" />
+      </form>
+    </StyledDiv>
+  )
+}
+
 const StyledDiv = styled.div`
   & {
-     text-align: center;
+    text-align: center;
     & .login-instructions {
       margin: 0 auto;
       padding-block-end: 1rem;
@@ -63,7 +88,7 @@ const StyledDiv = styled.div`
       display: flex;
       flex-direction: column;
       margin-block-end: 2rem;
-      &-button{
+      &-button {
         margin-block-start: 1rem;
         font-weight: 600;
       }
@@ -79,7 +104,7 @@ const StyledDiv = styled.div`
         letter-spacing: 0.125em;
         margin-block: 0.25rem;
         text-align: left;
-        > span.astrisk{
+        > span.astrisk {
           color: var(--poppy);
           position: relative;
           top: 4px;

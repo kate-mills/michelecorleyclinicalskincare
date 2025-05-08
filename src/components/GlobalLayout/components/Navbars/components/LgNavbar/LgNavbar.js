@@ -55,10 +55,11 @@ const LgNavbar = ({ className }) => {
             <Link
               className="pros"
               to={`/pros/`}
+              href={`/pros/`}
               onClick={e => {
                 e.preventDefault()
                 setIsPro(isLoggedIn())
-                navigate(`/pros/`, {state: {isPro}})
+                navigate(`/pros/`, {pageContext: {isPro}})
               }}
             >
               Professionals
