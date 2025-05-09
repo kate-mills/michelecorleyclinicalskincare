@@ -70,7 +70,7 @@ export const Head = ({location: {pathname}, params, data:{media:{localFiles}}, p
   let [f] = localFiles
   return (
     <Seo
-      title="Professionals Only"
+      title="Michele Corley Professionals Only"
       description="Get access to our exclusive information and education for skin care professionals."
       image={f?.publicURL}
     />
