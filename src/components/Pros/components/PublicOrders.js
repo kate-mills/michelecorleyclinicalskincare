@@ -30,7 +30,7 @@ const PublicOrders = ({ className }) => {
             rel="noreferrer"
             tabIndex={0}
           >place online orders here{' '}
-          </a>.
+          </a>
         </p>
 
         {/* EMAIL - GET ACCESS TO ORDER */}
