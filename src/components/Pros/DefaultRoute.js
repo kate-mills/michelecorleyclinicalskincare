@@ -2,6 +2,7 @@ import React from 'react'
 import { isLoggedIn } from '../../utils/auth'
 import Navigation from './components/Navigation'
 import Manuals from './components/Manuals'
+import PublicOrders from './components/PublicOrders'
 import Container from './components/Container'
 import Form from './components/Form'
 
@@ -21,6 +22,7 @@ const DefaultRoute = props => {
   ) : (
     <Container title="Pro Login" isPro={false}>
       <Form />
+      <PublicOrders/>
     </Container>
   )
 }
