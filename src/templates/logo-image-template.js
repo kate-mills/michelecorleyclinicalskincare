@@ -30,10 +30,10 @@ const LogoImageTemplate = props => {
       </div>
 
       <div className="flex-box-images">
-        {logo.images[0] && (
+        {logo?.image && (
           <div className="img-box">
             <a
-              href={logo.images[0].localFile.publicURL}
+              href={logo.image.localFile.publicURL}
               className="btn"
               download={`${logo.name}`}
             >
@@ -41,7 +41,7 @@ const LogoImageTemplate = props => {
             </a>
             <GatsbyImage
               className="img"
-              image={logo.images[0].gatsbyImageData}
+              image={logo.image?.gatsbyImageData}
               alt="Michele Corley Logo"
             />
           </div>
@@ -56,8 +56,8 @@ export const query = graphql`
     logo: contentfulMccMediaImg(slug: { eq: $slug }) {
       name
       slug
-      images {
-        localFile {
+      image {
+        localFile{
           publicURL
         }
         gatsbyImageData
@@ -130,7 +130,12 @@ export default styled(LogoImageTemplate)`
   }
 `
 
-export const Head = ({ pageContext }) => {
-  const {logo} = pageContext
-  return <Seo title={pageContext.title} description={pageContext.title} image={logo?.image?.file?.url}/>
+export const Head = ({ pageContext, data }) => {
+  return (
+    <Seo
+      title={pageContext.title}
+      description={pageContext.title}
+      image={data.image?.localFile?.publicURL}
+    />
+  )
 }
