@@ -1,13 +1,11 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import ProLink from '../ProLink'
 
 import { links } from '../links'
 
-import { isLoggedIn, logout } from '../../../../../../utils/auth'
-
-import { navigate } from '@reach/router'
 
 const LiMenu = ({ name, subMenu }) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
@@ -33,11 +31,6 @@ const LiMenu = ({ name, subMenu }) => {
 }
 
 const LgNavbar = ({ className }) => {
-  const [isPro, setIsPro] = useState(false)
-
-  useEffect(() => {
-    setIsPro(isLoggedIn())
-  }, [isPro])
   return (
     <div className={`${className}`}>
       <nav id="desktop-navigation">
@@ -51,34 +44,7 @@ const LgNavbar = ({ className }) => {
               </li>
             )
           })}
-          <li className={`top-li`}>
-            <Link
-              className="pros"
-              to={`/pros/`}
-              href={`/pros/`}
-              onClick={e => {
-                e.preventDefault()
-                setIsPro(isLoggedIn())
-                navigate(`/pros/`, {pageContext: {isPro}})
-              }}
-            >
-              Professionals
-            </Link>
-            {isPro && (
-              <Link
-                id="pros-logout"
-                className="pros"
-                to={`/pros/`}
-                onClick={e => {
-                  e.preventDefault()
-                  setIsPro(false)
-                  logout(() => navigate(`/pros/`, {state: {isPro: false}}))
-                }}
-              >
-                Logout
-              </Link>
-            )}
-          </li>
+          <ProLink/>
         </ul>
       </nav>
     </div>
@@ -95,7 +61,6 @@ export default styled(LgNavbar)`
       justify-content: space-evenly;
       & li.top-li {
         position: relative;
-
         & a,
         & button {
           border: 3px solid transparent;
@@ -123,10 +88,10 @@ export default styled(LgNavbar)`
               &:hover {
                 color: red;
               }
-              &::before {
+              &::before{
                 position: absolute;
-                content: '/';
                 left: -5px;
+                content: '/';
               }
             }
           }

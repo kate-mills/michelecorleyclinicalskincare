@@ -2,8 +2,8 @@ import React, { Component, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { links } from '../links'
-import { isLoggedIn, logout } from '../../../../../../utils/auth'
-import { navigate } from '@reach/router'
+
+import ProLink from '../ProLink'
 
 
 const MoreItems = props => {
@@ -83,12 +83,6 @@ class SmallScreenNavbar extends Component {
     }
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
-  logoutProHandler = () => {
-    this.setState({isPro: false})
-  }
-  componentDidMount = () => {
-    this.setState({ isPro: isLoggedIn() })
-  }
   render() {
     return (
       <div className={`${this.props.className}`}>
@@ -109,30 +103,7 @@ class SmallScreenNavbar extends Component {
                 </Link>
               )
             })}
-            <Link
-              className="li"
-              to={(`/pros/`)}
-              onClick={e => {
-                e.preventDefault()
-                this.setState({isPro: isLoggedIn()})
-                navigate(`/pros/`, {state: {isPro: this.state.isPro}})
-              }}
-            >
-              PROFESSIONALS{' '}
-            </Link>
-            {this.state.isPro && (
-              <Link
-                className={'li'}
-                to={`/pros/`}
-                onClick={e => {
-                  e.preventDefault()
-                  this.logoutProHandler()
-                  logout(() => navigate(`/pros/`, { state: { isPro: this.state.isPro } }))
-                }}
-              >
-                Logout
-              </Link>
-            )}
+            <ProLink/>
           </div>
         </div>
       </div>
