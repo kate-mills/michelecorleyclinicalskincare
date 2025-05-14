@@ -1,8 +1,5 @@
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 module.exports = {
-  flags: {
-    DEV_SSR: true,
-  },
   siteMetadata: {
     title: `Michele Corley Clinical Skin Care`,
     description: `Achieve beautifully healthy skin. Discover professional skincare loaded with powerful peptides, potent antioxidants, stable vitamin C, active enzymes, nutritious plant oils, balancing essential oils, and gentle preservatives.`,
