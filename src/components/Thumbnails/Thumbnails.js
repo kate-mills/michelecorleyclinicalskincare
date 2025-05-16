@@ -11,7 +11,7 @@ const Thumbnails = ({ className, data, logoMedia = false, travelMedia = false })
           <Thumbnail
             key={node.contentful_id}
             image={
-              logoMedia ? node.images[node.images.length - 1]
+              logoMedia ? node.thumb
               : travelMedia ? node.imgTravel: node.imgRetail
             }
             showTitle={!logoMedia}

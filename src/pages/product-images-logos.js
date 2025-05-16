@@ -298,13 +298,13 @@ export const query = graphql`
         }
       }
     }
-    logos: allContentfulMccMediaImg(filter: { category: { eq: "Logos" } }) {
+    logos: allContentfulMccMediaImg {
       edges {
         node {
           contentful_id
           name
           slug
-          images {
+          thumb {
             gatsbyImageData
             localFile {
               publicURL

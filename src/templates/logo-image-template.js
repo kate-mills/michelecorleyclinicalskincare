@@ -7,7 +7,7 @@ import { Seo } from '../components'
 
 const LogoImageTemplate = props => {
   const {
-    data: { logo },
+    data: { logo:{name, img} },
     className,
     location: { state },
   } = props
@@ -30,37 +30,35 @@ const LogoImageTemplate = props => {
       </div>
 
       <div className="flex-box-images">
-        {logo?.image && (
-          <div className="img-box">
-            <a
-              href={logo.image.localFile.publicURL}
-              className="btn"
-              download={`${logo.name}`}
-            >
-              {`Download Logo`}
-            </a>
-            <GatsbyImage
-              className="img"
-              image={logo.image?.gatsbyImageData}
-              alt="Michele Corley Logo"
-            />
-          </div>
-        )}
+        <div className="img-box">
+          <a
+            href={img.localFile.publicURL}
+            className="btn"
+            download={`${name}`}
+          >
+            {`Download Logo`}
+          </a>
+          <GatsbyImage
+            className="img"
+            image={img.gatsbyImageData}
+            alt="Michele Corley Logo"
+          />
+        </div>
       </div>
     </div>
   )
 }
 
 export const query = graphql`
-  query GetMccMediaImage($slug: String) {
+  query GetLogos($slug: String) {
     logo: contentfulMccMediaImg(slug: { eq: $slug }) {
       name
       slug
-      image {
-        localFile{
+      img {
+        gatsbyImageData
+        localFile {
           publicURL
         }
-        gatsbyImageData
       }
     }
   }
@@ -131,11 +129,12 @@ export default styled(LogoImageTemplate)`
 `
 
 export const Head = ({ pageContext, data }) => {
+  const {logo:{img:{localFile}}} = data
   return (
     <Seo
       title={pageContext.title}
       description={pageContext.title}
-      image={data.image?.localFile?.publicURL}
+      image={localFile.publicURL}
     />
   )
 }

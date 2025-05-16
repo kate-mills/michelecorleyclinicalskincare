@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   results.mediaData = await graphql(`
     query GetLogos {
-      logos: allContentfulMccMediaImg(filter: { category: { eq: "Logos" } }) {
+      logos: allContentfulMccMediaImg {
         nodes {
           name
           slug
