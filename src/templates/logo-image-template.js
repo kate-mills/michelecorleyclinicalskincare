@@ -7,7 +7,7 @@ import { Seo } from '../components'
 
 const LogoImageTemplate = props => {
   const {
-    data: { logo:{name, img} },
+    data: { logo:{name, img } },
     className,
     location: { state },
   } = props
@@ -32,7 +32,7 @@ const LogoImageTemplate = props => {
       <div className="flex-box-images">
         <div className="img-box">
           <a
-            href={img.localFile.publicURL}
+            href={img?.localFile?.publicURL}
             className="btn"
             download={`${name}`}
           >
@@ -40,7 +40,7 @@ const LogoImageTemplate = props => {
           </a>
           <GatsbyImage
             className="img"
-            image={img.gatsbyImageData}
+            image={img?.gatsbyImageData}
             alt="Michele Corley Logo"
           />
         </div>
