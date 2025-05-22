@@ -129,12 +129,10 @@ export default styled(LogoImageTemplate)`
 `
 
 export const Head = ({ pageContext, data }) => {
-  const {logo:{img:{localFile}}} = data
   return (
     <Seo
       title={pageContext.title}
       description={pageContext.title}
-      image={localFile.publicURL}
     />
   )
 }
