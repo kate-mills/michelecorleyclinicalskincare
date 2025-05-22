@@ -131,13 +131,14 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
+
           }
         }
       }
@@ -157,13 +158,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
         }
       }
@@ -183,13 +184,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
         }
       }
@@ -209,13 +210,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
         }
       }
@@ -235,13 +236,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
         }
       }
@@ -261,13 +262,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
         }
       }
@@ -287,13 +288,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230)
+            gatsbyImageData(height: 230, quality: 100)
           }
         }
       }
@@ -305,10 +306,7 @@ export const query = graphql`
           name
           slug
           thumb {
-            gatsbyImageData
-            localFile {
-              publicURL
-            }
+            gatsbyImageData(height: 230, quality: 100)
           }
         }
       }
