@@ -10,11 +10,10 @@ import {
   ContactForm,
   ContactInformation,
   Seo,
+  BasicPhone,
 } from '../components'
 
-import { PhoneInfo } from '../constants/contact-info'
-
-export default function ContactPage({ data }) {
+const ContactPage = ({data}) => {
   return (
     <GlobalLayout showSpaFndrLnk={false}>
       <PageWrapper>
@@ -26,8 +25,8 @@ export default function ContactPage({ data }) {
                 products?
               </h1>
               <p>
-                Please contact us via the submission form or give us a call at{' '}
-                {PhoneInfo.fullPhone} and we'll get back to you as soon as we
+                Please contact us via the submission form or give us a call at
+                {' '} <BasicPhone/> and we'll get back to you as soon as we
                 can. If you are a licensed professional, please include your
                 license number.
               </p>
@@ -134,3 +133,7 @@ export const Head = ({ location: { pathname }, params, data, pageContext }) => {
     />
   )
 }
+
+
+
+export default ContactPage
