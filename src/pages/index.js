@@ -18,16 +18,22 @@ export default function HomePage({ data }) {
 
 export const query = graphql`
   query {
-    allFile(filter: { relativeDirectory: { eq: "slideshow" } }) {
+    allFile(filter: { relativeDirectory: { eq: "slideshow" } }, limit: 2) {
       nodes {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(
+            height: 600
+            transformOptions: { cropFocus: ATTENTION }
+            placeholder: BLURRED
+            jpgOptions: { quality: 50, progressive: true }
+            aspectRatio: 1.5
+          )
         }
       }
     }
   }
 `
 
-export const Head = ({ location:{pathname}, params, data, pageContext }) => {
-  return <Seo pathname={pathname}/>
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return <Seo pathname={pathname} />
 }

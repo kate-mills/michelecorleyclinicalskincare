@@ -18,7 +18,6 @@ const Slideshow = ({ className, images = [], interval = 5000 }) => {
   return (
     <div className={className}>
       <GatsbyImage
-        className={currentSlide < 1 ? 'visibleImg' : 'hiddenImg'}
         loading={currentSlide < 1 ? 'eager' : 'lazy'}
         image={images[currentSlide].childImageSharp.gatsbyImageData}
         layout="constrained"
@@ -30,42 +29,25 @@ const Slideshow = ({ className, images = [], interval = 5000 }) => {
 
 const fadeInAnimation = keyframes`
   0% {
-    display: none;
-    opacity: 0;
-  }
-  1% {
-    display: block;
     opacity: 0;
   }
   100% {
-    display: block;
     opacity: 1;
   }
 `
 
 const StyledSlider = styled(Slideshow)`
   border-radius: 0.625rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  border-radius: 0.625rem;
+  max-height: 600;
+  text-align: center;
 
-  & .visibleImg {
+  & .gatsby-image-wrapper {
     animation: ${fadeInAnimation} 5ms linear;
-    transition-timing-function: linear;
-    border-radius: 0.625rem;
     background-color: var(--poppy);
-    height: auto;
-    margin: auto auto;
-  }
-  & .hiddenImg {
-    animation: none;
-    animation: ${fadeInAnimation} 5ms linear;
-    transition-timing-function: linear;
     border-radius: 0.625rem;
-    height: auto;
-    margin: auto auto;
+    transition-timing-function: linear;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 427px) {
     & {
       display: none;
     }
