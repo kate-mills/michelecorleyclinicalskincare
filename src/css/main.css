@@ -4,11 +4,15 @@
   --darkGrey: #9d9692;
   --blackText: #3c3c3c;
   --mainBlack: #555; /* #4e4e4e; */
-  --mainMcc: #e0e0e0; /* #dcdcdc; */
+  --mainMcc: #caced1; /*#e0e0e0; /* #dcdcdc; */
   --offWhite: #eeeeee; /* #f2f2f2; */
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
+  --mcSummerBright: #3784c6;
+  --mcSummer: #457ba9;
+  --mcSummerDark: #235686;
   --poppyDull: #5872a6;
+
   --poppy: #5970a4;
   --poppyBright: #006ba6;
   --poppyHigh: hsl(214 52% 36% / 1);

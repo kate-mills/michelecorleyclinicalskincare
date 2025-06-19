@@ -75,7 +75,7 @@ const ProductTitle = ({ data, singleProductPage }) => {
     <h2>
       <div className="product-name">
         <span className={'nm-img'}>
-          <span>{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
+          <span className="name">{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
         </span>
         <ProductBadges product={data} />
       </div>
@@ -84,7 +84,7 @@ const ProductTitle = ({ data, singleProductPage }) => {
     <h1>
       <div className="product-name poppy">
         <span className={'nm-img'}>
-          <span>{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
+          <span className="name">{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
         </span>
         <ProductBadges product={data} />
       </div>
@@ -96,8 +96,8 @@ const AwardImage = ({ award, awardImage }) => {
   return (
     !!award && (
       <GatsbyImage
-        width={70}
-        height={70}
+        width={60}
+        height={60}
         className="award-winner"
         image={awardImage?.gatsbyImageData}
         alt={`Best Product ${award} Award Emblem`}
@@ -144,28 +144,37 @@ export default styled(Product)`
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        .nm-img {
-          display: flex;
-          align-items: center;
-          >span{ margin-inline-end: 2px; }
-          & .gatsby-image-wrapper {
-            min-width: 70px;
-            margin-inline-end: 2px;
+        & .nm-img{
+          display: contents;
+          .name, .award-winner{
+            margin-inline-end: 0.5rem;
+            line-height: normal;
+          }
+          .award-winner{
+            width: 50px;
+            height: 50px;
+          }
+          @media screen and (max-width 576px){
+            .name {
+              margin-inline-end: 0;
+            }
           }
         }
         & .product-badges {
           display: contents;
           .badge {
-            background: var(--poppy);
-            border: 1px solid var(--darkGrey);
+            background: var(--mcSummerBright);
+            border: 2px solid var(--darkGrey);
             color: var(--offWhite);
             font-size: 0.85rem;
+            letter-spacing: normal;
             line-height: 1.3em;
             height: fit-content;
             margin-block-end: 2px;
-            margin-inline-end: 2px;
+            margin-inline-end: 8px;
             overflow: hidden;
-            padding-inline: 2px;
+            padding-block: 0.125rem;
+            padding-inline: 0.3125rem;
             text-align: center;
             text-overflow: ellipsis;
             vertical-align: middle;
@@ -179,8 +188,8 @@ export default styled(Product)`
               border-color: var(--poppy);
             }
             &.pdf {
-              background: var(--m2);
-              border-color: var(--m2);
+              background: var(--poppy);
+              border-color: var(--mcSummerBright);
               margin-inline-end: 0;
               transition: var(--mainTransition);
               &:hover {
