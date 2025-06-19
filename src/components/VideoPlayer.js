@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 const VideoPlayer = ({
-  src='https://player.vimeo.com/video/360311714',
-  title='Michele Corley Clinical Skin Care'
+  src = 'https://player.vimeo.com/video/360311714',
+  title = 'Michele Corley Clinical Skin Care',
+  maxWidth = '',
+  className,
 }) => {
   return (
-    <IframeVideoWrapper>
-      <div className="video">
+    <div className={className}>
+      <div className="video" >
         <iframe
           type="media"
           src={src}
@@ -17,14 +19,14 @@ const VideoPlayer = ({
           allowFullScreen
         />
       </div>
-    </IframeVideoWrapper>
+    </div>
   )
 }
 
-const IframeVideoWrapper = styled.div`
+const IframeVideoWrapper = styled(VideoPlayer)`
   height: 100%;
-  margin: 0 0 0;
-  max-width: 500px;
+  margin: 0 0 0 0;
+  max-width: ${props => (props.maxWidth ? props.maxWidth : `600px`)};
   width: 50%;
 
   .video {
@@ -47,4 +49,4 @@ const IframeVideoWrapper = styled.div`
   }
 `
 
-export default VideoPlayer
+export default IframeVideoWrapper

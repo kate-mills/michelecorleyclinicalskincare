@@ -30,11 +30,11 @@ const Product = ({ singleProductPage = false, data, className }) => {
           </span>
         ))}
       </h4>
-      <p className="product-description">{description}</p>
+      <p className="product-description pb0">{description}</p>
       <div className="product-media">
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`} state={{id: slug}}>
-            <GatsbyImage image={gatsbyImageData} alt={`Retail size ${name}`} />
+            <GatsbyImage image={gatsbyImageData} alt={`Retail size ${name}`}/>
           </Link>
         </div>
         {video && (
@@ -42,6 +42,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
             title={`${name} from Michele Corley on Vimeo`}
             src={`https://player.vimeo.com/video/${video}`}
             className="video"
+            maxWidth={'400px'}
           />
         )}
       </div>
@@ -203,15 +204,18 @@ export default styled(Product)`
     & .product-description {
       margin-inline: 1rem;
     }
-    & .product-media,
-    & .product-skintypes {
+    & .product-media {
       align-items: center;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
     }
     & .product-skintypes {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
       justify-content: flex-start;
+      padding-block-start: 1rem;
       & span {
         font-style: italic;
         &:not(:last-of-type) {

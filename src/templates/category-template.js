@@ -37,7 +37,7 @@ export const query = graphql`
           name
           description { description }
           imgRetail {
-            gatsbyImageData( width: 400, backgroundColor: "#fff")
+            gatsbyImageData( width: 225, height: 225, quality: 100)
           }
           professionalOnly
           profiles { file { url } }
@@ -51,7 +51,7 @@ export const query = graphql`
           }
           award
           awardImage {
-            gatsbyImageData(width: 70, height: 70, backgroundColor: "#fff")
+            gatsbyImageData(width: 60, height: 60, quality: 100)
           }
         }
       }

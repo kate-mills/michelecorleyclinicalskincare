@@ -43,7 +43,7 @@ export const query = graphql`
         id
         title
         description
-        gatsbyImageData(width: 400)
+        gatsbyImageData(width: 225, height: 225, quality: 100)
       }
       seoImg: imgRetail {
         gatsbyImageData(width: 400, height: 200)
