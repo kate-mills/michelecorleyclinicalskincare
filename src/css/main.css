@@ -105,7 +105,7 @@ h6 {
 }
 h1 {
   color: var(--poppy);
-  letter-spacing: normal;
+  letter-spacing: -0.1rem;
   font-size: 2.6876em;
   margin: 0 auto 0.3em;
   text-align: center;
@@ -114,6 +114,7 @@ h2,
 h3 {
   color: var(--mainBlack);
   line-height: 1.3em;
+  letter-spacing: -0.1rem;
   font-size: 2em;
 }
 hr {
@@ -128,6 +129,10 @@ textarea,
 select {
   font-family: var(--mainFont);
   letter-spacing: normal;
+}
+img{
+  border-radius: 1rem;
+
 }
 input:focus,
 textarea:focus,
@@ -166,7 +171,7 @@ nav * {
 p {
   color: var(--mainBlack);
   /*padding: 0 0 1.8em;*/
-  padding: 0 0 0.5em;
+  padding: 0 0 1.4em;
   font-size: 1rem;
   font-weight: 400;
   line-height: var(--bodyLineHeight);
@@ -273,6 +278,7 @@ button {
 Utility classes
 ===============
 */
+
 .bold {
   font-weight: 600;
 }
@@ -285,10 +291,6 @@ Utility classes
 .poppy {
   color: var(--poppy);
 }
-.g-txt-center,
-.txt-center {
-  text-align: center;
-}
 .w-100 {
   width: 100%;
 }
@@ -298,6 +300,31 @@ Utility classes
 .g-mb2 {
   margin-block: 2rem;
 }
+
+.clearfix{
+  overflow: auto;
+}
+
+.g-txt-center,
+.txt-center {
+  text-align: center;
+}
+.txt-left{
+  text-align: left;
+}
+.txt-justify{
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+/* 
+=============== 
+END utility classes
+===============
+*/
+
+
 @media screen and (max-width: 320px) {
   div#content {
     border-radius: 10px;
