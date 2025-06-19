@@ -131,13 +131,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
 
           }
         }
@@ -158,13 +158,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
         }
       }
@@ -184,13 +184,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
         }
       }
@@ -210,13 +210,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
         }
       }
@@ -236,13 +236,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
         }
       }
@@ -262,13 +262,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
         }
       }
@@ -288,13 +288,13 @@ export const query = graphql`
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
           imgTravel {
             id
             title
             description
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
         }
       }
@@ -306,7 +306,7 @@ export const query = graphql`
           name
           slug
           thumb {
-            gatsbyImageData(height: 230, quality: 100)
+            gatsbyImageData(height: 460, quality: 100)
           }
         }
       }
