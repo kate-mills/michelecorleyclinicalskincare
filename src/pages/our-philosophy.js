@@ -56,18 +56,20 @@ const AboutPage = ({ data }) => {
 
 const StyledSection = styled.section`
   & {
-    transition: all 500ms linear;
     h2 {
       font-size: 1.6rem;
     }
     .indent {
-      margin-block: 1rem 0;
+      margin-block: 2rem 0;
       h1 {
         float: left;
-        padding-inline-end: 0.5rem;
         line-height: normal;
         margin-block: 0;
         white-space: break-spaces;
+      }
+      > p {
+        text-indent: 1rem;
+        padding-block-start: 1.6rem;
       }
     }
     .gatsby-image-wrapper {
@@ -76,21 +78,29 @@ const StyledSection = styled.section`
       margin-block-end: 1rem;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 576px) {
       .gatsby-image-wrapper {
         margin-inline-start: 0;
       }
-      .indent h1 {
-        float: none;
-        padding-inline-end: 0;
+      .indent {
+        h1 {
+          float: none;
+          text-align: center;
+        }
+        > p {
+          text-indent: 4rem;
+        }
       }
     }
-
   }
 `
 export const query = graphql`
   {
-    file(relativePath: { eq: "michele2025/michele-corley-smiling-wearing-blue-with-products.jpg" }) {
+    file(
+      relativePath: {
+        eq: "michele2025/michele-corley-smiling-wearing-blue-with-products.jpg"
+      }
+    ) {
       childImageSharp {
         gatsbyImageData(
           placeholder: BLURRED
