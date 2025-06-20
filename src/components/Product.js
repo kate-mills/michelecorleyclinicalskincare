@@ -18,11 +18,17 @@ const Product = ({ singleProductPage = false, data, className }) => {
   } = data
 
   return (
-    <article
-      className={`${className}`}
-      id={slug}
-    >
-      <ProductTitle singleProductPage={singleProductPage} data={data} />
+    <article className={`${className}`} id={slug}>
+      {!singleProductPage ? (
+        <h2>
+          <ProductBadges product={data} />
+        </h2>
+      ) : (
+        <h1>
+          <ProductBadges product={data} />
+        </h1>
+      )}
+
       <h4 className={`product-skintypes`}>
         {skinType.map((item, index) => (
           <span className={'skintype bold'} key={index}>
@@ -33,8 +39,8 @@ const Product = ({ singleProductPage = false, data, className }) => {
       <p className="product-description pb0">{description}</p>
       <div className="product-media">
         <div className="product-image">
-          <Link to={`/product-images-and-logos/${slug}`} state={{id: slug}}>
-            <GatsbyImage image={gatsbyImageData} alt={`Retail size ${name}`}/>
+          <Link to={`/product-images-and-logos/${slug}`} state={{ id: slug }}>
+            <GatsbyImage image={gatsbyImageData} alt={`Retail size ${name}`} />
           </Link>
         </div>
         {video && (
@@ -70,43 +76,6 @@ const Product = ({ singleProductPage = false, data, className }) => {
   )
 }
 
-const ProductTitle = ({ data, singleProductPage }) => {
-  let { name, award, awardImage } = data
-  return !singleProductPage ? (
-    <h2>
-      <div className="product-name">
-        <span className={'nm-img'}>
-          <span className="name">{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
-        </span>
-        <ProductBadges product={data} />
-      </div>
-    </h2>
-  ) : (
-    <h1>
-      <div className="product-name poppy">
-        <span className={'nm-img'}>
-          <span className="name">{name}</span>{' '}<AwardImage award={award} awardImage={awardImage} />
-        </span>
-        <ProductBadges product={data} />
-      </div>
-    </h1>
-  )
-}
-
-const AwardImage = ({ award, awardImage }) => {
-  return (
-    !!award && (
-      <GatsbyImage
-        width={60}
-        height={60}
-        className="award-winner"
-        image={awardImage?.gatsbyImageData}
-        alt={`Best Product ${award} Award Emblem`}
-      />
-    )
-  )
-}
-
 const ProductBadges = ({ product }) => {
   let {
     name,
@@ -114,9 +83,12 @@ const ProductBadges = ({ product }) => {
     professionalOnly: proOnly,
     isBestSeller: isBst,
     profiles: pdf,
+    award,
+    awardImage,
   } = product
   return (
     <div className="product-badges">
+      <span className="product-name">{name}</span>
       {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
       {isBst && <span className={`badge best-seller`}>BEST-SELLER</span>}
       {proOnly && <span className={`badge pro-only`}>PRO USE ONLY</span>}
@@ -127,7 +99,16 @@ const ProductBadges = ({ product }) => {
           href={pdf[0].file.url}
           target="_blank"
           rel="noreferrer"
-        >GET PRODUCT DETS</a>
+        >
+          GET PRODUCT DETS
+        </a>
+      )}
+      {!!award && (
+        <GatsbyImage
+          className="award-winner"
+          image={awardImage?.gatsbyImageData}
+          alt={`Best Product ${award} Award Emblem`}
+        />
       )}
     </div>
   )
@@ -137,65 +118,59 @@ export default styled(Product)`
   & {
     margin: 0 auto;
     padding: 0.5rem 1rem;
+    position: relative;
     h1,
     h2 {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 0 0;
+      padding: 0 0;
       text-align: left;
-      display: contents;
-      & .product-name {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        & .nm-img{
-          display: contents;
-          .name, .award-winner{
-            margin-inline-end: 0.5rem;
-            line-height: normal;
-          }
-          .award-winner{
-            width: 50px;
-            height: 50px;
-          }
-          @media screen and (max-width 576px){
-            .name {
-              margin-inline-end: 0;
-            }
-          }
+
+      & .product-badges {
+        display: contents;
+        & .product-name{
+          margin-inline-end: 5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
-        & .product-badges {
-          display: contents;
-          .badge {
-            background: var(--mcSummerBright);
+        & :last-child{
+          margin-inline-end: 0 !important;
+        }
+        .badge {
+          background: var(--brightLo);
+          border: 2px solid var(--brightHi);
+          color: var(--brightHi);
+          font-size: 0.85rem;
+          letter-spacing: normal;
+          line-height: normal;
+          margin: 5px 5px 5px 0;
+          overflow: hidden;
+          padding-block: 0.125rem;
+          padding-inline: 0.3125rem;
+          text-align: center;
+          text-overflow: ellipsis;
+          transition: color, background 0.4s linear;
+          white-space: nowrap;
+
+          &.best-seller {
+            border: 2px solid var(--mainBlack);
+            color: var(--blackText);
+          }
+          &.pro-only {
+            background: var(--mainWhite);
+            border: 2px solid var(--brightTxt);
+            color: var(--brightTxt);
+          }
+          &.pdf {
+            background: var(--offWhite);
             border: 2px solid var(--darkGrey);
-            color: var(--offWhite);
-            font-size: 0.85rem;
-            letter-spacing: normal;
-            line-height: 1.3em;
-            height: fit-content;
-            margin-block-end: 2px;
-            margin-inline-end: 8px;
-            overflow: hidden;
-            padding-block: 0.125rem;
-            padding-inline: 0.3125rem;
-            text-align: center;
-            text-overflow: ellipsis;
-            vertical-align: middle;
-            white-space: nowrap;
-            &.best-seller,
-            &.pro-only {
-              background: var(--offWhite);
-              color: var(--poppy);
-            }
-            &.best-seller {
-              border-color: var(--poppy);
-            }
-            &.pdf {
-              background: var(--poppy);
-              border-color: var(--mcSummerBright);
-              margin-inline-end: 0;
-              transition: var(--mainTransition);
-              &:hover {
-                background: var(--m6);
-              }
+            color: var(--mainBlack);
+            &:hover {
+              color: var(--offWhite);
+              background: var(--mainBlack);
             }
           }
         }
@@ -215,7 +190,6 @@ export default styled(Product)`
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      padding-block-start: 1rem;
       & span {
         font-style: italic;
         &:not(:last-of-type) {

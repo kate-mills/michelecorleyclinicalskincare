@@ -51,7 +51,7 @@ export const query = graphql`
           }
           award
           awardImage {
-            gatsbyImageData(width: 60, height: 60, quality: 100)
+            gatsbyImageData(width: 80, height: 80, quality: 100)
           }
         }
       }

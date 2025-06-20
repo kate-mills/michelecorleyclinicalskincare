@@ -1,23 +1,27 @@
 :root {
   --clear: rgba(0, 0, 0, 0);
-  --brightBlue: #00adef;
+
+  --gray: #e1dfe0;
+  --brown: #c2b17f;
+
+  --brightLo:#E3F2FD;
+  --bright: #90CAF9;
+  --brightTxt:#006dc4;
+  --brightHi: #2196F3;
+
   --darkGrey: #9d9692;
-  --blackText: #3c3c3c;
+  --blackTxt: #3c3c3c;
   --mainBlack: #555; /* #4e4e4e; */
   --mainMcc: #caced1; /*#e0e0e0; /* #dcdcdc; */
   --offWhite: #eeeeee; /* #f2f2f2; */
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
-  --mcSummerBright: #3784c6;
-  --mcSummer: #457ba9;
-  --mcSummerDark: #235686;
   --poppyDull: #5872a6;
 
   --poppy: #2560a1;
   --poppyBright: #006ba6;
   --poppyHigh: hsl(214 52% 36% / 1);
   --poppyHover: #274e83;
-  --brown: #c2b17f;
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
@@ -50,12 +54,10 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
 }
 body {
   font-family: var(--mainFont);
-  font-kerning: normal;
-  font-stretch: ultra-condensed;
+  font-stretch: normal;
   font-style: normal;
   font-size: 1rem;
   font-weight: 400;
@@ -67,7 +69,6 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow: scroll;
-  text-decoration: none;
   text-transform: none;
 }
 ::selection {
@@ -82,8 +83,8 @@ body {
 a {
   background: inherit;
   color: var(--mainBlack);
-  text-decoration: none;
-  line-height: 1.5em;
+  /*line-height: 1.5em;*/
+  text-decoration-line: none;
 }
 button:focus,
 a:focus {

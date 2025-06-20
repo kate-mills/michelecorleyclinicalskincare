@@ -76,7 +76,6 @@ const StyledDiv = styled.div`
   & {
     text-align: center;
     & .login-instructions {
-      margin: 0 auto;
       padding-block-end: 1rem;
       & a {
         color: var(--poppyDull);
@@ -84,12 +83,11 @@ const StyledDiv = styled.div`
       }
     }
     & .form {
-      align-items: center;
       display: flex;
+      align-items: center;
       flex-direction: column;
-      margin-block-end: 2rem;
       &-button {
-        margin-block-start: 1rem;
+        margin-block: 1rem;
         font-weight: 600;
       }
       &-input {
