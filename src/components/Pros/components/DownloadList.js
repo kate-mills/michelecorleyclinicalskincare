@@ -85,6 +85,9 @@ const StyledDiv = styled.div`
         font-size: 1.5rem;
         letter-spacing: -0.09rem;
         margin-block-end: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       p {
         font-size: 14px;

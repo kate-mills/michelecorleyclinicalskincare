@@ -8,7 +8,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const query = graphql`
   {
-    media: allAirtable(filter: { table: { eq: "Media" } }) {
+    media: allAirtable(
+      filter: { table: { eq: "Media" }, data: { name: { eq: "bowl" } } }
+    ) {
       nodes {
         id
         data {
@@ -16,13 +18,14 @@ const query = graphql`
           image {
             localFiles {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(placeholder: BLURRED, height: 300)
               }
             }
           }
         }
       }
     }
+
     facialsA: allAirtable(
       filter: { table: { eq: "Facials" } }
       limit: 4
@@ -63,7 +66,7 @@ const query = graphql`
 const Profile = () => {
   const data = useStaticQuery(query)
   const { media, facialsA, facialsB } = data
-  const bowl = media.nodes.filter(({ data }) => data.name === 'bowl')
+  const bowl = media?.nodes?.[0]
 
   return (
     <StyledArticle>
@@ -75,9 +78,7 @@ const Profile = () => {
           <div>
             <DownloadList data={facialsB.nodes} />
             <GatsbyImage
-              image={
-                bowl[0].data.image.localFiles[0].childImageSharp.gatsbyImageData
-              }
+              image={ bowl?.data?.image?.localFiles?.[0].childImageSharp.gatsbyImageData }
               alt="Hand holding a bowl containing a fan brush and facial product."
               className={'facialBowlImg'}
             />
@@ -92,7 +93,7 @@ const StyledArticle = styled.article`
   & {
     .section {
       width: 100%;
-      margin: 0 auto 1rem;
+      margin: 1rem auto 0;
       text-align: center;
 
       .sectionFlexItems {
@@ -105,10 +106,6 @@ const StyledArticle = styled.article`
         /* download list */
         > div {
           width: 50%;
-        }
-        .facialBowlImg {
-          margin-inline: auto;
-          max-width: 252px;
         }
       }
       .sectionFlexSingle {
