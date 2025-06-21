@@ -59,7 +59,7 @@ const MoreItemsWrapper = styled.div`
       margin-block-start: 0;
       ul {
         & li {
-          background-color: var(--mainMcc);
+          background-color: var(--offWhite);
         }
         &.hide {
           display: none;
