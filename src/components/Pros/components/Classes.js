@@ -105,18 +105,18 @@ const StyledArticle = styled.article`
         margin-block: 1rem;
       }
       a.tag{
-        border: 1px solid var(--m0);
+        border: 1px solid var(--brightLo);
         color: #000000;
         font-size: small;
-        background: var(--m0);
+        background: var(--brightLo);
         border-radius: 5em;
         padding-inline: 5px;
         margin: 0.5rem;
         &.active{
-          border: 1px solid var(--poppy);
+          border: 1px solid var(--brightTxt);
           cursor: default;
           background: var(--clear);
-          color: var(--m1);
+          color: var(--bright);
           }
         }
       }

@@ -103,6 +103,7 @@ export default styled(ProNavigation)`
     border-block-style: solid;
     border-block-color: rgb(219, 219, 219);
     border-block-width: 1px;
+    margin-block-end: 2rem;
     ul {
       display: flex;
       flex-flow: row wrap;
@@ -115,14 +116,9 @@ export default styled(ProNavigation)`
         border-block-color: transparent;
         border-block-style: solid;
         border-block-width: 1px;
-        padding-block: 3px;
-        > a {
+        a {
           height: 52px;
-          &[aria-current='page'] {
-            > div {
-              background: var(--m2);
-            }
-          }
+          &[aria-current='page'] { }
           > div {
             display: flex;
             align-items: center;
@@ -142,17 +138,17 @@ export default styled(ProNavigation)`
         }
       }
       & li.active {
-        border-block-color: var(--poppy);
+        border-block-color: var(--brightTxt);
         > a {
           > div {
             background: var(--clear);
             > svg {
               & path {
-                stroke: var(--m1);
+                stroke: var(--bright);
               }
             }
             > span.item-name {
-              color: var(--m1);
+              color: var(--bright);
             }
           }
         }
