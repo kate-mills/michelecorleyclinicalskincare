@@ -46,7 +46,7 @@ const PublicOrders = ({ className }) => {
 
 const StyledDiv = styled.div`
   & {
-    background: var(--gray) !important;
+    background: var(--brightLo) !important;
     text-align: center;
   }
 `
