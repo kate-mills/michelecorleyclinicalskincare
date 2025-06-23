@@ -318,7 +318,9 @@ const StyledSection = styled.section`
   & {
     > .instructions{
       text-align: center;
-      color: var(--m3);
+      color: var(--poppy);
+      font-weight: 450;
+      padding-block-end: 0;
     }
     h2 {
       margin: 0 auto;
@@ -334,11 +336,6 @@ const StyledSection = styled.section`
         font-size: 0.7rem;
         margin-block-end: 1rem;
         padding: 0.4rem 0.6rem;
-        &:hover,
-        &:active,
-        &:focus {
-          border-color: var(--m3);
-        }
       }
     }
   }

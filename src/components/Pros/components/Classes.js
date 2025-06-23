@@ -44,7 +44,8 @@ const Classes = props => {
               className={`${tg === tag ? 'active tag' : 'tag'}`}
               key={tg}
               to={`/pros/classes/${tg}`}
-            >{tg}
+            >
+              {tg}
             </Link>
           )
         })}
@@ -97,38 +98,48 @@ const virtualClasses = [
 
 const StyledArticle = styled.article`
   & {
-    .tags{
+    .tags {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      &.nav{
+      align-items: center;
+      &.nav {
         margin-block: 1rem;
       }
-      a.tag{
-        border: 1px solid var(--brightLo);
-        color: #000000;
+      a.tag {
+        border: 1px solid var(--darkGrey);
+        color: var(--blackTxt);
         font-size: small;
-        background: var(--brightLo);
+        background: var(--gray);
         border-radius: 5em;
         padding-inline: 5px;
         margin: 0.5rem;
-        &.active{
-          border: 1px solid var(--brightTxt);
+        & .active,
+        &.active {
+          border: 1px solid var(--darkGrey);
           cursor: default;
-          background: var(--clear);
-          color: var(--bright);
-          }
+          background: var(--mainWhite);
+          color: var(--darkGrey);
+          cursor: default;
+          outline: 2px solid var(--darkGrey);
         }
       }
     }
     section {
-      width: 100%;
       margin: 0 auto 1rem;
-      text-align: center;
-        display: flex;
-        flex-wrap: wrap;
-        > div {
-          margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      column-gap: 100px;
+
+      > div {
+        margin: 1rem auto;
+        text-align: center;
+        div.title {
+          margin-block: 1rem 0.5rem;
+        }
+        div.dt {
+          margin-block: 0.5rem;
         }
       }
     }

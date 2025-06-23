@@ -116,7 +116,7 @@ const StyledDiv = styled.div`
           &:hover,
           &:focus,
           &:active {
-            border: 1px solid var(--poppyLow) !important;
+            border: 1px solid var(--poppy) !important;
           }
         }
       }

@@ -78,7 +78,7 @@ const StyledDiv = styled.div`
     & .login-instructions {
       padding-block-end: 1rem;
       & a {
-        color: var(--poppyDull);
+        color: var(--poppy);
         padding-inline: 3px;
       }
     }

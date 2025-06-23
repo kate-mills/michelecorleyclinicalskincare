@@ -52,7 +52,7 @@ export const StyledSpaLocatorForm = styled.form`
     input#StoreLocator.input-err,
     input#StoreLocator.input-err:active,
     input#StoreLocator.input-err:focus {
-      border-color: var(--errRed);
+      border-color: firebrick;
     }
   }
 `

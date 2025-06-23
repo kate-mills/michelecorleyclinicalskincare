@@ -68,7 +68,7 @@ export default styled(LgNavbar)`
           padding: 0.25rem;
           position: relative;
           &[aria-current='page'] {
-            color: var(--poppyHigh);
+            color: var(--poppy);
             &::before {
               position: absolute;
               content: '* ';

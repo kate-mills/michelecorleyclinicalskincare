@@ -1,27 +1,18 @@
 :root {
   --clear: rgba(0, 0, 0, 0);
-
-  --gray: #e1dfe0;
-  --brown: #c2b17f;
-
-  --brightLo:#E3F2FD;
-  --bright: #90CAF9;
-  --brightTxt:#006dc4;
-  --brightHi: #2196F3;
-
-  --darkGrey: #9d9692;
+  --darkGrey: #9d9d9d; /* #9d9692;*/
   --blackTxt: #3c3c3c;
-  --mainBlack: #555; /* #4e4e4e; */
-  --mainMcc: #caced1; /*#e0e0e0; /* #dcdcdc; */
+  --mainBlack: #555;
+  --mainMcc: #e0e0e0;
   --offWhite: #eeeeee; /* #f2f2f2; */
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
-  --poppyDull: #5872a6;
-
-  --poppy: #2560a1;
-  --poppyBright: #006ba6;
-  --poppyHigh: hsl(214 52% 36% / 1);
-  --poppyHover: #274e83;
+  --gray: #e1dfe0;
+  --darkest: #030303;
+  --poppy0: #e9eff6;
+  --poppy5: #becfe3;
+  --poppy: #3b70aa;
+  --poppy9: #1c4879;
   --mainFont: Montserrat, sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
@@ -30,18 +21,8 @@
   --light-shadow: 0 5px 3px rgb(0 0 0 / 10%);
   --dark-shadow: 0 0 4px rgb(0 0 0 / 15%);
   --mainRadius: 1.75rem;
-  --errRed: #c74236;
-  --m0: #e8eaf6;
-  --m1: #c5cae9;
-  --m2: #9fa8da;
-  --m3: #7986cb;
-  --m4: #5c6bc0;
-  --m5: #3f51b5;
-  --m6: #3949ab;
-  --m7: #303f9f;
-  --m8: #283593;
-  --m9: #1a237e;
 }
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -135,9 +116,8 @@ select {
   font-family: var(--mainFont);
   letter-spacing: normal;
 }
-img{
+img {
   border-radius: 1rem;
-
 }
 input:focus,
 textarea:focus,
@@ -261,8 +241,8 @@ button {
 .btn:active,
 .btn:focus {
   background: var(--mainWhite);
-  color: var(--poppyHigh);
-  border: 2px solid var(--poppyHigh);
+  color: var(--poppy);
+  border: 2px solid var(--poppy);
   box-shadow: var(--dark-shadow);
 }
 .btn:hover {
@@ -306,7 +286,7 @@ Utility classes
   margin-block: 2rem;
 }
 
-.clearfix{
+.clearfix {
   overflow: auto;
 }
 
@@ -314,21 +294,19 @@ Utility classes
 .txt-center {
   text-align: center;
 }
-.txt-left{
+.txt-left {
   text-align: left;
 }
-.txt-justify{
+.txt-justify {
   text-align: justify;
   text-align-last: left;
 }
-
 
 /* 
 =============== 
 END utility classes
 ===============
 */
-
 
 @media screen and (max-width: 320px) {
   div#content {

@@ -49,7 +49,8 @@ const IframeVideoWrapper = styled.div`
   & {
     margin: 0 auto 2rem;
     max-width: 500px;
-    width: 50%;
+    min-width: 40%;
+    /*width: 45%;*/
     transition:
       margin 0.2s ease,
       width 0.8s ease;
@@ -67,13 +68,10 @@ const IframeVideoWrapper = styled.div`
     }
     & .title, & .dt{
       line-height: 1;
+
     }
     & .dt {
-      font-size: xx-small;
-    }
-    & .tags {
-      margin-block: 0;
-      padding-block: 0;
+      font-size: x-small;
     }
     & hr {
       margin-block-start: 0;

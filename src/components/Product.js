@@ -131,18 +131,18 @@ export default styled(Product)`
 
       & .product-badges {
         display: contents;
-        & .product-name{
+        & .product-name {
           margin-inline-end: 5px;
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        & :last-child{
+        & :last-child {
           margin-inline-end: 0 !important;
         }
         .badge {
-          background: var(--brightLo);
-          border: 2px solid var(--brightHi);
-          color: var(--brightHi);
+          background: var(--poppy0);
+          border: 2px solid var(--poppy);
+          color: var(--poppy);
           font-size: 0.85rem;
           letter-spacing: normal;
           line-height: normal;
@@ -152,25 +152,25 @@ export default styled(Product)`
           padding-inline: 0.3125rem;
           text-align: center;
           text-overflow: ellipsis;
-          transition: color, background 0.4s linear;
+          transition:
+            color,
+            background 0.4s linear;
           white-space: nowrap;
 
           &.best-seller {
             border: 2px solid var(--mainBlack);
-            color: var(--blackText);
+            color: var(--mainBlack);
           }
           &.pro-only {
-            background: var(--mainWhite);
-            border: 2px solid var(--brightTxt);
-            color: var(--brightTxt);
+            border: 2px solid var(--mainBlack);
+            color: var(--poppy9);
           }
           &.pdf {
             background: var(--offWhite);
             border: 2px solid var(--darkGrey);
             color: var(--mainBlack);
             &:hover {
-              color: var(--offWhite);
-              background: var(--mainBlack);
+              background: var(--darkGrey);
             }
           }
         }
