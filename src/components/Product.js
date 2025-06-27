@@ -80,9 +80,9 @@ const ProductBadges = ({ product }) => {
   let {
     name,
     acneSafe,
-    professionalOnly: proOnly,
-    isBestSeller: isBst,
-    profiles: pdf,
+    proOnly,
+    isBst,
+    pdf,
     award,
     awardImage,
   } = product
@@ -96,7 +96,7 @@ const ProductBadges = ({ product }) => {
         <a
           className="pdf badge"
           title={`Download pdf with product details and usage instructions for ${name}.`}
-          href={pdf[0].file.url}
+          href={pdf[0]?.publicUrl}
           target="_blank"
           rel="noreferrer"
         >

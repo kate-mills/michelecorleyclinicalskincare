@@ -6,15 +6,14 @@ import { GlobalLayout, Product, Seo } from '../components'
 
 const CategoryTemplate = props => {
   const {
-    data:{products:{lst}},
+    data: {
+      products: { lst },
+    },
     pageContext: { name, description },
   } = props
 
   return (
-    <GlobalLayout
-      title={name}
-      description={description}
-    >
+    <GlobalLayout title={name} description={description}>
       <h1>{name}</h1>
       <p>{description}</p>
       {lst.map(({ data }) => (
@@ -26,33 +25,12 @@ const CategoryTemplate = props => {
 export const query = graphql`
   query GetCategory($name: String) {
     products: allContentfulMccProduct(
-    filter: {categories: {eq: $name}}
-    sort: {name: ASC}
+      filter: { categories: { eq: $name } }
+      sort: { name: ASC }
     ) {
-      lst:edges {
-        data:node {
-          contentful_id
-          acneSafe
-          isBestSeller
-          name
-          description { description }
-          imgRetail {
-            gatsbyImageData( width: 225, height: 225, quality: 100)
-          }
-          professionalOnly
-          profiles { file { url } }
-          slug
-          skinType
-          video
-          keyIngredients {
-            id
-            name { formatted }
-            benefit
-          }
-          award
-          awardImage {
-            gatsbyImageData(width: 80, height: 80, quality: 100)
-          }
+      lst: edges {
+        data: node {
+          ...ProductDetails
         }
       }
     }
@@ -60,8 +38,6 @@ export const query = graphql`
 `
 export default CategoryTemplate
 
-export const Head = ({pageContext})=> {
-  return (
-    <Seo title={pageContext.title} description={pageContext.description}/>
-  )
+export const Head = ({ pageContext }) => {
+  return <Seo title={pageContext.title} description={pageContext.description} />
 }

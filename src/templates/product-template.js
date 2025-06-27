@@ -1,10 +1,14 @@
 import React from 'react'
 
 import { graphql } from 'gatsby'
+//import {productDetailFragment} from '../components/FragmentProductDetails'
 
 import { GlobalLayout, Product, Seo } from '../components'
 
-const ProductTemplate = ({ data: { product }, pageContext }) => {
+const ProductTemplate = props => {
+  const {
+    data: { product },
+  } = props
   return (
     <GlobalLayout>
       <Product data={product} singleProductPage={true} />
@@ -15,43 +19,7 @@ const ProductTemplate = ({ data: { product }, pageContext }) => {
 export const query = graphql`
   query GetProduct($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
-      profiles {
-        file {
-          url
-        }
-      }
-      acneSafe
-      isBestSeller
-      name
-      professionalOnly
-      slug
-      contentful_id
-      category
-      skinType
-      description {
-        description
-      }
-      video
-      keyIngredients {
-        id
-        name {
-          formatted
-        }
-        benefit
-      }
-      imgRetail {
-        id
-        title
-        description
-        gatsbyImageData(width: 225, height: 225, quality: 100)
-      }
-      seoImg: imgRetail {
-        gatsbyImageData(width: 400, height: 200)
-      }
-      award
-      awardImage {
-        gatsbyImageData(width: 80, height: 80, quality: 100)
-      }
+      ...ProductDetails
     }
   }
 `

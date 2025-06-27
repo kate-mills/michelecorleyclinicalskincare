@@ -10,11 +10,6 @@ import {
 } from './components'
 
 const GlobalLayout = ({
-  title = '',
-  description = '',
-  image = '',
-  seoTitle = '',
-  noindex = false,
   showSpaFndrLnk = true,
   children,
   showSearch = true,

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label*/
 import React from 'react'
 
 import styled from 'styled-components'
@@ -15,7 +16,9 @@ const ProductImageTemplate = props => {
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/')
 
-  const retailOrProText = `${product.professionalOnly ? 'Pro' : 'Retail'}-size`
+  const backFn = state?.id ? goBack : goHome
+
+  const retailOrProText = `${product.proOnly ? 'Pro' : 'Retail'}-size`
 
   return (
     <div className={`${className}`}>
@@ -24,10 +27,27 @@ const ProductImageTemplate = props => {
           className="top-bar-goback"
           role="button"
           tabIndex="0"
-          onClick={state?.id ? goBack : goHome}
-          onKeyPress={state?.id ? goBack : goHome}
+          onClick={backFn}
+          onKeyPress={backFn}
         >
-          X
+          <svg width="40" height="40">
+            <line
+              x1="10"
+              y1="10"
+              x2="35"
+              y2="35"
+              stroke="currentColor"
+              strokeWidth="3"
+            />
+            <line
+              x1="35"
+              y1="10"
+              x2="10"
+              y2="35"
+              stroke="currentColor"
+              strokeWidth="3"
+            />
+          </svg>
         </div>
       </div>
 
@@ -44,13 +64,13 @@ const ProductImageTemplate = props => {
             <GatsbyImage
               className="img travel-img"
               image={product.imgTravel?.gatsbyImageData}
-              alt={product.imgTravel?.description}
+              alt={`Travel-size ${product.name}`}
             />
           </div>
         )}
         <div className="img-box">
           <a
-            href={product?.fluidImg?.localFile?.publicURL}
+            href={product?.imgRetail?.localFile?.publicURL}
             className="btn"
             download={`${retailOrProText} ${product?.name}`}
           >
@@ -58,8 +78,8 @@ const ProductImageTemplate = props => {
           </a>
           <GatsbyImage
             className="img"
-            image={product.fluidImg.gatsbyImageData}
-            alt={product.fluidImg.description}
+            image={product.imgRetail.gatsbyImageData}
+            alt={`${retailOrProText} ${product.name}`}
           />
         </div>
       </div>
@@ -71,23 +91,17 @@ export const query = graphql`
   query GetMccImage($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
       name
-      professionalOnly
+      proOnly: professionalOnly
       description {
         description
       }
-      fluidImg: imgRetail {
-        id
-        title
-        description
+      imgRetail {
         gatsbyImageData
         localFile {
           publicURL
         }
       }
       imgTravel {
-        id
-        title
-        description
         gatsbyImageData
         localFile {
           publicURL
@@ -105,7 +119,7 @@ export default styled(ProductImageTemplate)`
       margin: 0 auto;
       text-align: right;
       width: 80%;
-      &.short{
+      &.short {
         width: 40%; /* line up border with 1 img */
       }
       &-goback {
@@ -144,16 +158,16 @@ export default styled(ProductImageTemplate)`
           text-align: center;
           top: 2rem;
           z-index: 100;
-          &:hover{
+          &:hover {
             background-color: var(--mainWhite);
           }
         }
       }
     }
     @media (max-width: 800px) {
-      .top-bar{
+      .top-bar {
         width: 100%;
-        &.short{
+        &.short {
           width: 100%;
         }
       }
@@ -172,9 +186,11 @@ export default styled(ProductImageTemplate)`
 `
 
 export const Head = ({ pageContext }) => {
-  return <Seo
-    title={pageContext.title}
-    description={pageContext.description}
-    image={pageContext.image}
-  />
+  return (
+    <Seo
+      title={pageContext.title}
+      description={pageContext.description}
+      image={pageContext.image}
+    />
+  )
 }
