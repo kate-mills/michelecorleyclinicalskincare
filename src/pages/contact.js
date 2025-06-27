@@ -111,7 +111,7 @@ const PageWrapper = styled.section`
 
 export const query = graphql`
   {
-    file(relativePath: { eq: "2025/products-border-blur.webp" }) {
+    file(relativePath: { eq: "2025/products-border-blur.jpg" }) {
       publicURL
       childImageSharp {
         gatsbyImageData
