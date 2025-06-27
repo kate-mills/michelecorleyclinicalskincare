@@ -99,7 +99,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     createPage({
-      path: `/product-images-and-logos/${product.slug}`,
+      path: `/product-images-and-logos/${slug}`,
       component: path.resolve(`src/templates/product-image-template.js`),
       context: {
         slug,
@@ -111,13 +111,15 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   results.mediaData.data.logos.nodes.forEach(logo => {
+    const {slug, name} = logo
+
     createPage({
-      path: `/product-images-and-logos/${logo.slug}`,
+      path: `/product-images-and-logos/${slug}`,
       component: path.resolve(`src/templates/logo-image-template.js`),
       context: {
-        slug: logo.slug,
-        title: `Download Michele Corley ${logo.name}`,
-        description: `Download Michele Corley ${logo.name}`,
+        slug,
+        title: `Download Michele Corley ${name}`,
+        description: `Download Michele Corley ${name}`,
       },
     })
   })
