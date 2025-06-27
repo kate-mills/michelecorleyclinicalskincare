@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const query = graphql`
   {
-    file(relativePath: { eq: "michele-corley-clinical-skin-care-logo.jpg" }) {
+    file(relativePath: { eq: "2025/logo.webp" }) {
       childImageSharp {
         gatsbyImageData
       }
