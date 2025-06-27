@@ -1,8 +1,7 @@
 import React from 'react'
-
 import './src/css/main.css'
+import "@fontsource/montserrat"; // Defaults to weight 400
 
-import 'typeface-montserrat'
 
 
 export const wrapRootElement = ({element}) => {
