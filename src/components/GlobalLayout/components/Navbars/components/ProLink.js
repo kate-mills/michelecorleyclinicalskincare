@@ -11,12 +11,12 @@ const ProLink = () => {
           <Link className="pros" to="/pros/manuals/">
             PROFESSIONALS
           </Link>
-          <Link className={'pros'} to="/pros/login/"
+          <Link id="pros-logout" className={'pros'} to="/pros/login/"
             onClick=
             {event => {
               event.preventDefault()
               logout(() => navigate(`/pros/login/`))
-            }}>Logout
+            }}>LOGOUT
           </Link>
         </span>
       ) : (
@@ -24,7 +24,6 @@ const ProLink = () => {
           <Link className="pros" to="/pros/login/">
             PROFESSIONALS
           </Link>
-          {/*<Link id="pros-logout" className={'pros'} to="/pros/login/" onClick={event => { event.preventDefault() logout(() => navigate(`/pros/login/`)) }} > Logout </Link>*/}
         </span>
       )}
     </li>

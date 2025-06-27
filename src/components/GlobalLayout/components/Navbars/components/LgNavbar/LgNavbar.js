@@ -86,11 +86,11 @@ export default styled(LgNavbar)`
             &#pros-logout {
               position: relative;
               &:hover {
-                color: red;
+                color: var(--poppy);
               }
               &::before{
                 position: absolute;
-                left: -5px;
+                left: -6px;
                 content: '/';
               }
             }
