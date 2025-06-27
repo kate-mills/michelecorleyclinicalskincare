@@ -37,14 +37,9 @@ const fadeInAnimation = keyframes`
 `
 
 const StyledSlider = styled(Slideshow)`
-  border-radius: 0.625rem;
-  max-height: 600;
   text-align: center;
-
   & .gatsby-image-wrapper {
     animation: ${fadeInAnimation} 5ms linear;
-    background-color: var(--poppy);
-    border-radius: 0.625rem;
     transition-timing-function: linear;
   }
   @media screen and (max-width: 427px) {

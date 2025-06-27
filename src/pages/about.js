@@ -10,57 +10,59 @@ const AboutPage = ({ data }) => {
     <GlobalLayout>
       <StyledSection>
         <div className="col-1">
-          <h1>Our Philosophy</h1>
-          <p>
-            is simple, to provide healthy, effective skincare with exemplary
-            customer service. We believe in treating our clients' success as
-            important as our own and value a true partnership with everyone we
-            have the pleasure to work with. We are a very accessible company and
-            pride ourselves in working with businesses of all sizes.
-          </p>
-          <p>
-            Michele's journey in creating Michele Corley Clinical Skin Care
-            began in 2002 when she wanted to fulfill what she perceived as a
-            need in the professional skincare industry to offer great products
-            and excellent service to back them up.
-          </p>
-          <p>
-            Each Michele Corley Clinical Skin Care product is crafted with care
-            and consideration for the health and well-being of the skin. Our
-            ingredients must come from the most natural sources available, and
-            their effectiveness is proven.
-          </p>
-          <p>
-            We strongly believe you and your clients will love the results
-            you'll see and feel from using Michele Corley Clinical Skin Care and
-            enjoy the excellence in the care you receive.
-          </p>
-          <p>Many thanks.</p>
-          <h2 className="italic">The Michele Corley Team</h2>
+          <div className="txt-box lg">
+            <h1>Our Philosophy</h1>
+            <p>
+              is simple, to provide healthy, effective skincare with exemplary
+              customer service. We believe in treating our clients' success as
+              important as our own and value a true partnership with everyone we
+              have the pleasure to work with. We are a very accessible company
+              and pride ourselves in working with businesses of all sizes.
+            </p>
+            <p>
+              Michele's journey in creating Michele Corley Clinical Skin Care
+              began in 2002 when she wanted to fulfill what she perceived as a
+              need in the professional skincare industry to offer great products
+              and excellent service to back them up.
+            </p>
+            <p>
+              Each Michele Corley Clinical Skin Care product is crafted with
+              care and consideration for the health and well-being of the skin.
+              Our ingredients must come from the most natural sources available,
+              and their effectiveness is proven.
+            </p>
+            <p>
+              We strongly believe you and your clients will love the results
+              you'll see and feel from using Michele Corley Clinical Skin Care
+              and enjoy the excellence in the care you receive.
+            </p>
+            <p>Many thanks.</p>
+            <h3 className="italic poppy">The Michele Corley Team</h3>
+          </div>
         </div>
+
         <div className="col-2">
-          <h2>
-            Meet
-            <br />
-            Michele Corley
-          </h2>
           <GatsbyImage
             image={data.file.childImageSharp.gatsbyImageData}
-            alt="Portrait of Michele Corley in a red floral blouse."
+            alt="Portrait of Michele Corley, owner of Michele Corley Clinical Skin Care"
           />
-          <p>
-            Michele is a licensed esthetician and creative visionary behind
-            every Michele Corley Clinical Skincare product. She is deeply
-            committed to educating herself first, so she can then be a resource
-            to support her clients' success. Her passion and drive to create the
-            best possible experience for her clients shines through each Michele
-            Corley Clinical Skincare Product and every client interaction.
-          </p>
-          <p>
-            Michele studied with one of the foremost cosmetic chemistry
-            authorities in the professional skincare industry, and has advanced
-            knowledge of skin aging, acne conditions and rosecea.
-          </p>
+          <div className="txt-box">
+            <h2>Meet Michele Corley</h2>
+            <p className="sm">
+              Michele is a licensed esthetician and creative visionary behind
+              every Michele Corley Clinical Skin Care product. She is deeply
+              committed to educating herself first, so she can then be a
+              resource to support her clients' success. Her passion and drive to
+              create the best possible experience for her clients shines through
+              each Michele Corley Clinical Skin Care product and every client
+              interaction.
+            </p>
+            <p className="sm">
+              Michele studied with one of the foremost cosmetic chemistry
+              authorities in the professional skincare industry, and has
+              advanced knowledge of skin aging, acne conditions and rosecea.
+            </p>
+          </div>
         </div>
       </StyledSection>
     </GlobalLayout>
@@ -69,77 +71,84 @@ const AboutPage = ({ data }) => {
 
 const StyledSection = styled.section`
   & {
+    align-items: stretch;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin: 0 auto;
-    white-space: initial;
-    & .col-1 {
-      & h1 {
-        margin-block: 20px;
-        text-align: left;
-      }
-      & p {
-        padding-left: 40px;
-        padding-right: 40px;
-        text-align: left;
-        font-size: 16px;
-        white-space: pre-line;
-        &:last-of-type {
-          padding-bottom: 0;
+    justify-content: center;
+    text-align: center;
+
+    & h2,
+    & h3 {
+      font-size: 1.6rem;
+      letter-spacing: -0.094rem;
+    }
+    & h3 {
+      text-align: left;
+    }
+    > div {
+      div.txt-box {
+        & p {
+          padding-block-end: 1.4em;
+          text-align: justify;
+          text-align-last: left;
+          &.sm {
+            font-size: 0.8125em;
+            line-height: 1.5;
+          }
         }
       }
-      & h2.italic {
-        color: var(--poppy);
-        font-size: 1.8rem;
-        font-style: italic;
-        letter-spacing: -1.5px;
-        padding-left: 10%;
-        text-align: left;
+      &.col-1 {
+        min-width: 60%;
+        div.txt-box {
+          margin-inline-end: 3rem;
+          p:first-of-type {
+            text-indent: 5.125rem;
+          }
+          p:last-of-type {
+            padding-block-end: 0;
+          }
+        }
+      }
+
+      &.col-2 {
+        margin-block: 2rem 1rem;
+        img {
+          border-radius: 1rem;
+        }
       }
     }
-    & .col-2 {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 0 auto;
-      padding: 0 1.5em 0;
-      & .gatsby-image-wrapper {
-        width: 65%;
-      }
-      & h2 {
-        text-align: center;
-        white-space: break-spaces;
-        margin-top: 40px;
-      }
-      & p {
-        margin: 0 auto;
-        font-size: 13px !important;
-        line-height: 27px;
-        padding: 1em 2em 0;
-      }
-    }
+
     @media (max-width: 739px) {
-      flex-direction: column;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+
+      > div {
+        &.col-1 {
+          div.txt-box {
+            margin-inline-end: 0;
+          }
+        }
+      }
     }
   }
 `
 export const query = graphql`
   {
-    file(relativePath: { eq: "Michele_Corley.jpg" }) {
+    file(relativePath: { eq: "michele2025/michele-corley.jpg" }) {
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+        gatsbyImageData(placeholder: BLURRED, width: 500, quality: 100)
       }
     }
   }
 `
 export default AboutPage
 
-export const Head = ({location:{pathname}, params, data, pageContext})=> {
-  return <Seo
-    title="About Michele Corley Clinical Skin Care"
-    pathname={pathname}
-    description="Discover Michele Corley Clinical Skin Care, where we offer premium skincare products and education for professionals working with all skin types. Elevate your clients' skincare routines today!"
-  />
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  return (
+    <Seo
+      title="About Michele Corley Clinical Skin Care"
+      pathname={pathname}
+      description="Discover Michele Corley Clinical Skin Care, where we offer premium skincare products and education for professionals working with all skin types. Elevate your clients' skincare routines today!"
+    />
+  )
 }
