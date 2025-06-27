@@ -7,16 +7,16 @@ import { GlobalLayout, Product, Seo } from '../components'
 const CategoryTemplate = props => {
   const {
     data:{products:{lst}},
-    pageContext: { name, description, category },
+    pageContext: { name, description },
   } = props
 
   return (
     <GlobalLayout
-      title={`Michele Corley Skin Care ${name}`}
+      title={name}
       description={description}
     >
       <h1>{name}</h1>
-      <p>{category?.description?.description}</p>
+      <p>{description}</p>
       {lst.map(({ data }) => (
         <Product key={data?.contentful_id} data={data} />
       ))}
