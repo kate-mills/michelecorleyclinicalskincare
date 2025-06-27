@@ -121,6 +121,7 @@ export const Head = ({ location: { pathname }, params, data, pageContext }) => {
       title="About Michele Corley Clinical Skin Care"
       pathname={pathname}
       description="Discover Michele Corley Clinical Skin Care, where we offer premium skincare products and education for professionals working with all skin types. Elevate your clients' skincare routines today!"
+      noindex={true}
     />
   )
 }

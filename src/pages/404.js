@@ -56,5 +56,5 @@ const PageWrapper = styled.section`
 `
 
 export const Head = ()=> {
-  return <Seo title="Oops!" noindex={true}/>
+  return <Seo title="Oops!" description=" " noindex={true}/>
 }

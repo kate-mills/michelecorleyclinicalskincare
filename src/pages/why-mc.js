@@ -112,6 +112,7 @@ const StyledSection = styled.section`
 export const query = graphql`
   {
     file(relativePath: { eq: "facial-treatment.jpg" }) {
+      publicURL
       childImageSharp {
         gatsbyImageData
       }
@@ -119,12 +120,17 @@ export const query = graphql`
   }
 `
 
-export const Head = ({location:{pathname}, params, data, pageContext})=> {
-  const {file:{childImageSharp:{gatsbyImageData:{images:{fallback:{src}}}}}} = data
-  return <Seo
-    title="Why Choose Michele Corley Clinical Skin Care?"
-    description="Our commitment to you and your success is to offer the best possible products for your clients, with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
-    image={src}
-    pathname={pathname}
-  />
+export const Head = ({ location: { pathname }, params, data, pageContext }) => {
+  const {
+    file: { publicURL },
+  } = data
+
+  return (
+    <Seo
+      title="Why Choose Michele Corley Clinical Skin Care?"
+      description="Our commitment to you and your success is to offer the best possible products for your clients, with the cleanest, most efficacious ingredients and absolute accessibility whenever you need us."
+      image={publicURL}
+      pathname={pathname}
+    />
+  )
 }

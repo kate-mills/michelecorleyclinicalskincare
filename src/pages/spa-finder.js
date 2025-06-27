@@ -7,7 +7,7 @@ const SpaFndrPage = ({ data }) => {
   return (
     <GlobalLayout showSpaFndrLnk={false}>
       <SpaFndrPageWrapper>
-        <h1>Find Your Michele Corley Expert</h1>
+        <h1>Get Your Hands On Our Products</h1>
         <h2 className={'center'}>
           Please enter a city, state, or zip code in the search bar below to
           find the nearest spas and estheticians carrying Michele Corley
@@ -46,8 +46,8 @@ export default SpaFndrPage
 export const Head = ({ location: { pathname }, params, data, pageContext }) => {
   return (
     <Seo
-      title="Spa Finder - Find Your Michele Corley Expert"
-      description="Our Spa Finder helps you quickly locate Michele Corley Clinical Skin Care professionals and products at nearby aestheticians and spas."
+      title="Spa Finder - Find Michele Corley Products"
+      description="Our Spa Finder helps you quickly locate Michele Corley professionals and products at nearby aestheticians and spas."
       pathname={pathname}
     />
   )

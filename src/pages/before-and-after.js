@@ -58,6 +58,6 @@ export const Head = ({location:{pathname}, params, data, pageContext})=> {
   return <Seo
     title="Michele Corley Before And After Photos"
     pathname={pathname}
-    description="Before-and-after Photos from Michele Corley Professional Estheticians show client results achieved by using proper home care products daily."
+    description="Before-and-after photos from Michele Corley Professional Estheticians show client results achieved by using proper home care products daily."
   />
 }
