@@ -2,14 +2,13 @@ import React from 'react'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import SchemaOrg from './SchemaOrg'
 
-
 const Seo = ({
   title: pageTitle = '',
   description = '',
   image = '',
   noindex = false,
-  snippet='',
-  pathname='',
+  snippet = '',
+  pathname = '',
   children,
 }) => {
   const { site } = useSiteMetadata()
@@ -24,7 +23,6 @@ const Seo = ({
     icon,
   } = site.siteMetadata
 
-
   const seo = {
     title: pageTitle || defaultTitle,
     description: description || defaultDescription,
@@ -33,7 +31,6 @@ const Seo = ({
     icon: `${baseUrl}${icon}`,
     twitterUsername,
   }
-
 
   return (
     <>
@@ -74,7 +71,7 @@ const Seo = ({
       {/* Google domain verification */}
       <meta
         name="google-site-verification"
-        content="__EndWSs5BPjx6w6bft3xWpgofxOEdBQBaEdh7js_M0"
+        content="UCsd__pMS96eV_ySAD3-M1elhEEinYkWjTdmj2braF8"
       />
 
       {/* Pinterest domain verification */}
@@ -84,7 +81,9 @@ const Seo = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={seo.twitterUsername} />
       {seo.title && <meta name="twitter:title" content={seo.title} />}
-      {seo.description && ( <meta name="twitter:description" content={seo.description} />)}
+      {seo.description && (
+        <meta name="twitter:description" content={seo.description} />
+      )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
       {seo.url && <meta name="twitter:url" content={seo.url} />}
 
