@@ -34,6 +34,7 @@ const Seo = ({
 
   return (
     <>
+      <html lang="en" />
       <title>{seo.title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content={seo.description} />
