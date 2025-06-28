@@ -23,14 +23,19 @@ export const productDetailFragment = graphql`
       benefit
     }
     imgRetail {
+      localFile{
+        publicURL
+      }
       gatsbyImageData(width: 225, height: 225, quality: 100)
     }
     award
     awardImage {
-      gatsbyImage(width: 80, height: 80, quality: 100)
+      gatsbyImageData(width: 80, height: 80, quality: 100)
     }
     pdf:profiles {
-      publicUrl
+      localFile{
+        publicURL
+      }
     }
   }
 `

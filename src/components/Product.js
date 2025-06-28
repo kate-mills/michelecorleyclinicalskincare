@@ -8,7 +8,7 @@ import VideoPlayer from './VideoPlayer'
 
 const Product = ({ singleProductPage = false, data, className }) => {
   const {
-    imgRetail: { gatsbyImageData },
+    imgRetail,
     name,
     slug,
     skinType,
@@ -40,7 +40,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
       <div className="product-media">
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`} state={{ id: slug }}>
-            <GatsbyImage image={gatsbyImageData} alt={`Retail size ${name}`} />
+            <GatsbyImage image={imgRetail?.gatsbyImageData} alt={`Retail size ${name}`} />
           </Link>
         </div>
         {video && (
@@ -96,7 +96,7 @@ const ProductBadges = ({ product }) => {
         <a
           className="pdf badge"
           title={`Download pdf with product details and usage instructions for ${name}.`}
-          href={pdf[0]?.publicUrl}
+          href={pdf[0]?.localFile?.publicURL}
           target="_blank"
           rel="noreferrer"
         >

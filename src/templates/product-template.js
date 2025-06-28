@@ -25,12 +25,19 @@ export const query = graphql`
 `
 export default ProductTemplate
 
-export const Head = ({ pageContext }) => {
+export const Head = ({ data, pageContext }) => {
+  const {
+    product: {
+      imgRetail: {
+        localFile: { publicURL },
+      },
+    },
+  } = data
   return (
     <Seo
       title={pageContext.title}
       description={pageContext.description}
-      image={pageContext.image}
+      image={publicURL}
     />
   )
 }

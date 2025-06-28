@@ -16,7 +16,7 @@ const Thumbnails = ({ className, data, logoMedia = false, travelMedia = false })
             }
             showTitle={!logoMedia}
             slug={node.slug}
-            title={node.name}
+            name={node.name}
           />
         )
       })}

@@ -128,6 +128,7 @@ export const query = graphql`
           category
           slug
           imgRetail {
+            localFile { publicURL }
             id
             title
             description
@@ -138,7 +139,6 @@ export const query = graphql`
             title
             description
             gatsbyImageData(height: 460, quality: 100)
-
           }
         }
       }
@@ -316,7 +316,7 @@ export const query = graphql`
 
 const StyledSection = styled.section`
   & {
-    > .instructions{
+    > .instructions {
       text-align: center;
       color: var(--poppy);
       font-weight: 450;

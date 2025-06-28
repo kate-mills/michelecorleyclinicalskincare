@@ -38,11 +38,6 @@ exports.createPages = async ({ graphql, actions }) => {
           description {
             description
           }
-          imgRetail {
-            localFile {
-              publicURL
-            }
-          }
         }
       }
     }
@@ -82,9 +77,6 @@ exports.createPages = async ({ graphql, actions }) => {
       slug,
       name,
       description: { description },
-      imgRetail: {
-        localFile: { publicURL },
-      },
     } = product
 
     createPage({
@@ -94,7 +86,6 @@ exports.createPages = async ({ graphql, actions }) => {
         slug,
         title: name,
         description,
-        image: publicURL,
       },
     })
 
@@ -105,13 +96,12 @@ exports.createPages = async ({ graphql, actions }) => {
         slug,
         title: `Download ${name} Images`,
         description: `Download images of ${name}.`,
-        image: publicURL,
       },
     })
   })
 
   results.mediaData.data.logos.nodes.forEach(logo => {
-    const {slug, name} = logo
+    const { slug, name } = logo
 
     createPage({
       path: `/product-images-and-logos/${slug}`,

@@ -13,7 +13,7 @@
   --poppy5: #becfe3;
   --poppy: #3b70aa;
   --poppy9: #1c4879;
-  --mainFont: "Montserrat";
+  --mainFont: 'Montserrat';
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
   --bgTransition: background-color 100ms linear;
@@ -37,7 +37,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-size: 1rem;
   background: var(--mainMcc);
@@ -300,6 +300,19 @@ Utility classes
   text-align-last: left;
 }
 
+.pb0 {
+  padding-bottom: 0px;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+
 /* 
 =============== 
 END utility classes
@@ -351,17 +364,6 @@ END utility classes
     border-radius: var(--mainRadius);
     padding: 0.1rem 3.2rem;
   }
-}
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  top: auto;
-  overflow: hidden;
-}
-p.pb0 {
-  padding-bottom: 0px;
 }
 
 #announcement {
