@@ -37,7 +37,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
         ))}
       </h4>
       <p className="product-description pb0">{description}</p>
-      <div className="product-media">
+      <div className={`product-media ${!!video ? "video": ""}`}>
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`} state={{ id: slug }}>
             <GatsbyImage image={imgRetail?.gatsbyImageData} alt={`Retail size ${name}`} />
@@ -142,7 +142,7 @@ export default styled(Product)`
         .badge {
           background: var(--poppy0);
           border: 2px solid var(--poppy);
-          color: var(--poppy);
+          color: var(--acneSafe);
           font-size: 0.85rem;
           letter-spacing: normal;
           line-height: normal;
@@ -182,9 +182,15 @@ export default styled(Product)`
     & .product-media {
       align-items: center;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: space-evenly;
       min-height: 225px;
+      &.video{
+        flex-wrap: wrap;
+        @media (max-width: 736px){
+          min-height: 466px;
+        }
+      }
     }
     & .product-skintypes {
       align-items: center;
