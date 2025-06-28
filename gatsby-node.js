@@ -95,7 +95,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug,
         title: `Download ${name} Images`,
-        description: `Download images of ${name}.`,
+        description: `Download the images of ${name} for use in representing the Michele Corley Brand.`,
       },
     })
   })

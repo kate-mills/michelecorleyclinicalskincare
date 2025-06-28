@@ -24,7 +24,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "2025/cover-products.jpg" }) {
       childImageSharp {
-        image: gatsbyImageData(width: 700, placeholder: BLURRED)
+        image: gatsbyImageData(height: 470, placeholder: BLURRED)
       }
     }
   }
