@@ -184,6 +184,7 @@ export default styled(Product)`
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
+      min-height: 225px;
     }
     & .product-skintypes {
       align-items: center;
