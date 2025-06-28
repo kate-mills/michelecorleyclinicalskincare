@@ -1,6 +1,7 @@
 import React from 'react'
 import './src/css/main.css'
-import "@fontsource/montserrat"; // Defaults to weight 400
+//import "@fontsource/montserrat"; // Defaults to weight 400
+import '@fontsource-variable/montserrat';
 
 
 

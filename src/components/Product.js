@@ -29,13 +29,13 @@ const Product = ({ singleProductPage = false, data, className }) => {
         </h1>
       )}
 
-      <h4 className={`product-skintypes`}>
+      <h3 className={`product-skintypes`}>
         {skinType.map((item, index) => (
           <span className={'skintype bold'} key={index}>
             {item}
           </span>
         ))}
-      </h4>
+      </h3>
       <p className="product-description pb0">{description}</p>
       <div className={`product-media ${!!video ? 'video' : ''}`}>
         <div className="product-image">
@@ -204,9 +204,11 @@ export default styled(Product)`
       align-items: center;
       display: flex;
       flex-wrap: wrap;
+      font-size: 1rem;
+      font-style: italic;
       justify-content: flex-start;
+      line-height: 1.4;
       & span {
-        font-style: italic;
         &:not(:last-of-type) {
           &:after {
             content: ', ';
@@ -219,7 +221,7 @@ export default styled(Product)`
       margin-block-start: 0.5rem;
       & > p.bold {
         font-size: 1.3rem;
-        font-weight: 600;
+        font-weight: 500;
         padding-block-end: 0;
       }
       & .key-ingredient {

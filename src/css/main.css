@@ -14,7 +14,7 @@
   --poppy: #3b70aa;
   --poppy9: #1c4879;
   --acneSafe: #2b517b;
-  --mainFont: 'Montserrat';
+  --mainFont: 'Montserrat Variable', sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
   --bgTransition: background-color 100ms linear;
@@ -38,7 +38,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat Variable', sans-serif;
   font-style: normal;
   font-size: 1rem;
   background: var(--mainMcc);
