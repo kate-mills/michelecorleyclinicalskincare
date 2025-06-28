@@ -147,7 +147,7 @@ export default styled(ProductImageTemplate)`
         justify-content: center;
         width: 40%;
         & .travel-img {
-          transform: scale(0.65);
+          transform: scale(0.60) translateY(60px);
         }
         & a.btn {
           background-color: rgb(89 112 164 / 29%);
