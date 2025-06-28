@@ -1,15 +1,20 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GlobalLayout, Slider, YesNo, Seo } from '../components'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { GlobalLayout, YesNo, Seo } from '../components'
 
 export default function HomePage({ data }) {
   const {
-    allFile: { nodes },
+    file: {
+      childImageSharp: { image },
+    },
   } = data
   return (
     <GlobalLayout>
       <h1>Beautifully Healthy Skin Starts Here</h1>
-      <Slider images={nodes} />
+      <div style={{ textAlign: 'center' }}>
+        <GatsbyImage image={image} />
+      </div>
       <YesNo />
     </GlobalLayout>
   )
@@ -17,11 +22,9 @@ export default function HomePage({ data }) {
 
 export const query = graphql`
   query {
-    allFile(filter: { relativeDirectory: { eq: "slideshow" } }, limit: 2) {
-      nodes {
-        childImageSharp {
-          gatsbyImageData(width: 600, placeholder: BLURRED)
-        }
+    file(relativePath: { eq: "2025/cover-products.jpg" }) {
+      childImageSharp {
+        image: gatsbyImageData(width: 700, placeholder: BLURRED)
       }
     }
   }
