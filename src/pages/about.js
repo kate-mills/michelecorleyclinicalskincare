@@ -134,10 +134,14 @@ const StyledSection = styled.section`
 `
 export const query = graphql`
   {
-    file(relativePath: { eq: "michele2025/michele-corley.jpg" }) {
+    file(relativePath: { eq: "2025/michele-corley-1x1.jpg" }) {
       publicURL
       childImageSharp {
-        gatsbyImageData(placeholder: BLURRED, width: 500, quality: 100)
+        gatsbyImageData(
+          placeholder: BLURRED
+          height: 350
+          quality: 100
+        )
       }
     }
   }
@@ -145,12 +149,14 @@ export const query = graphql`
 export default AboutPage
 
 export const Head = ({ location: { pathname }, params, data, pageContext }) => {
-  const {file: {publicURL}} = data
+  const {
+    file: { publicURL },
+  } = data
   return (
     <Seo
       title="About Michele Corley Clinical Skin Care"
       pathname={pathname}
-      description="Discover Michele Corley Clinical Skin Care, where we offer premium skincare products and education for professionals working with all skin types. Elevate your clients' skincare routines today!"
+      description="Discover the philosophy behind Michele Corley Clinical Skin Care and learn more about its founder, Michele Corley. We offer premium skincare products and education tailored for professionals working with diverse skin types. Elevate your clients' skincare routines today!"
       image={publicURL}
     />
   )

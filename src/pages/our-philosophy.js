@@ -98,7 +98,7 @@ export const query = graphql`
   {
     file(
       relativePath: {
-        eq: "michele2025/michele-corley-smiling-wearing-blue-with-products.jpg"
+        eq: "2025/michele-in-blue.jpg"
       }
     ) {
       childImageSharp {

@@ -96,7 +96,7 @@ const ProductBadges = ({ product }) => {
         <a
           className="pdf badge"
           title={`Download pdf with product details and usage instructions for ${name}.`}
-          href={pdf[0]?.localFile?.publicURL}
+          href={pdf[0]?.file?.url}
           target="_blank"
           rel="noreferrer"
         >

@@ -55,7 +55,7 @@ const ProductImageTemplate = props => {
         {product?.imgTravel && (
           <div className="img-box travel-box">
             <a
-              href={product?.imgTravel?.localFile?.publicURL}
+              href={product?.imgTravel?.file?.url}
               className="btn"
               download={`Travel-size ${product.name}`}
             >
@@ -70,7 +70,7 @@ const ProductImageTemplate = props => {
         )}
         <div className="img-box">
           <a
-            href={product?.imgRetail?.localFile?.publicURL}
+            href={product?.imgRetail?.file?.url}
             className="btn"
             download={`${retailOrProText} ${product?.name}`}
           >
@@ -97,14 +97,14 @@ export const query = graphql`
       }
       imgRetail {
         gatsbyImageData
-        localFile {
-          publicURL
+        file {
+          url
         }
       }
       imgTravel {
         gatsbyImageData
-        localFile {
-          publicURL
+        file {
+          url
         }
       }
     }
@@ -147,7 +147,7 @@ export default styled(ProductImageTemplate)`
         justify-content: center;
         width: 40%;
         & .travel-img {
-          transform: scale(0.60) translateY(60px);
+          transform: scale(0.6) translateY(60px);
         }
         & a.btn {
           background-color: rgb(89 112 164 / 29%);
@@ -189,7 +189,7 @@ export const Head = ({ data, pageContext }) => {
   const {
     product: {
       imgRetail: {
-        localFile: { publicURL },
+        file: { url },
       },
     },
   } = data
@@ -198,7 +198,7 @@ export const Head = ({ data, pageContext }) => {
     <Seo
       title={pageContext.title}
       description={pageContext.description}
-      image={publicURL}
+      image={url}
     />
   )
 }

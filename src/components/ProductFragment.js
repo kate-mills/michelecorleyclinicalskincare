@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { graphql } from 'gatsby'
 
 export const productDetailFragment = graphql`
@@ -23,8 +23,8 @@ export const productDetailFragment = graphql`
       benefit
     }
     imgRetail {
-      localFile{
-        publicURL
+      file{
+        url
       }
       gatsbyImageData(width: 225, height: 225, quality: 100)
     }
@@ -33,8 +33,8 @@ export const productDetailFragment = graphql`
       gatsbyImageData(width: 80, height: 80, quality: 100)
     }
     pdf:profiles {
-      localFile{
-        publicURL
+      file{
+        url
       }
     }
   }

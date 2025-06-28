@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { graphql } from 'gatsby'
 import { GlobalLayout, Product, Seo } from '../components'
+
+import { graphql } from 'gatsby'
 
 const ProductTemplate = props => {
   const {
@@ -27,7 +28,7 @@ export const Head = ({ data, pageContext }) => {
   const {
     product: {
       imgRetail: {
-        localFile: { publicURL },
+        file: { url },
       },
     },
   } = data
@@ -35,7 +36,7 @@ export const Head = ({ data, pageContext }) => {
     <Seo
       title={pageContext.title}
       description={pageContext.description}
-      image={publicURL}
+      image={url}
     />
   )
 }
