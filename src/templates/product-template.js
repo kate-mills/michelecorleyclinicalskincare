@@ -1,8 +1,6 @@
 import React from 'react'
 
 import { graphql } from 'gatsby'
-//import {productDetailFragment} from '../components/FragmentProductDetails'
-
 import { GlobalLayout, Product, Seo } from '../components'
 
 const ProductTemplate = props => {
