@@ -37,10 +37,13 @@ const Product = ({ singleProductPage = false, data, className }) => {
         ))}
       </h4>
       <p className="product-description pb0">{description}</p>
-      <div className={`product-media ${!!video ? "video": ""}`}>
+      <div className={`product-media ${!!video ? 'video' : ''}`}>
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`} state={{ id: slug }}>
-            <GatsbyImage image={imgRetail?.gatsbyImageData} alt={`Retail size ${name}`} />
+            <GatsbyImage
+              image={imgRetail?.gatsbyImageData}
+              alt={`Retail size ${name}`}
+            />
           </Link>
         </div>
         {video && (
@@ -82,21 +85,26 @@ const ProductBadges = ({ product }) => {
     acneSafe,
     proOnly,
     isBst,
-    pdf,
+    pdf: [pdfZero],
     award,
     awardImage,
   } = product
+
   return (
     <div className="product-badges">
       <span className="product-name">{name}</span>
       {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
       {isBst && <span className={`badge best-seller`}>BEST-SELLER</span>}
       {proOnly && <span className={`badge pro-only`}>PRO USE ONLY</span>}
-      {!!pdf && (
+      {!!pdfZero && (
         <a
           className="pdf badge"
           title={`Download pdf with product details and usage instructions for ${name}.`}
-          href={pdf[0]?.file?.url}
+          href={
+            pdfZero?.localFile?.publicURL ||
+            pdfZero?.publicUrl ||
+            pdfZero?.placeholderUrl
+          }
           target="_blank"
           rel="noreferrer"
         >
@@ -185,9 +193,9 @@ export default styled(Product)`
       flex-wrap: nowrap;
       justify-content: space-evenly;
       min-height: 225px;
-      &.video{
+      &.video {
         flex-wrap: wrap;
-        @media (max-width: 736px){
+        @media (max-width: 736px) {
           min-height: 466px;
         }
       }

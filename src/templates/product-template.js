@@ -27,16 +27,14 @@ export default ProductTemplate
 export const Head = ({ data, pageContext }) => {
   const {
     product: {
-      imgRetail: {
-        file: { url },
-      },
+      imgRetail: { placeholderUrl, publicUrl, localFile },
     },
   } = data
   return (
     <Seo
       title={pageContext.title}
       description={pageContext.description}
-      image={url}
+      image={localFile?.publicURL || publicUrl || placeholderUrl}
     />
   )
 }

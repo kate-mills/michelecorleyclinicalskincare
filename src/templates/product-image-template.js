@@ -15,9 +15,7 @@ const ProductImageTemplate = props => {
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/')
-
   const backFn = state?.id ? goBack : goHome
-
   const retailOrProText = `${product.proOnly ? 'Pro' : 'Retail'}-size`
 
   return (
@@ -55,7 +53,7 @@ const ProductImageTemplate = props => {
         {product?.imgTravel && (
           <div className="img-box travel-box">
             <a
-              href={product?.imgTravel?.file?.url}
+              href={product?.imgTravel?.localFile?.publicURL}
               className="btn"
               download={`Travel-size ${product.name}`}
             >
@@ -70,7 +68,7 @@ const ProductImageTemplate = props => {
         )}
         <div className="img-box">
           <a
-            href={product?.imgRetail?.file?.url}
+            href={product?.imgRetail?.localFile?.publicURL}
             className="btn"
             download={`${retailOrProText} ${product?.name}`}
           >
@@ -97,14 +95,18 @@ export const query = graphql`
       }
       imgRetail {
         gatsbyImageData
-        file {
-          url
+        publicUrl
+        placeholderUrl
+        localFile {
+          publicURL
         }
       }
       imgTravel {
         gatsbyImageData
-        file {
-          url
+        publicUrl
+        placeholderUrl
+        localFile {
+          publicURL
         }
       }
     }
@@ -188,9 +190,7 @@ export default styled(ProductImageTemplate)`
 export const Head = ({ data, pageContext }) => {
   const {
     product: {
-      imgRetail: {
-        file: { url },
-      },
+      imgRetail: { publicUrl, placeholderUrl, localFile },
     },
   } = data
 
@@ -198,7 +198,7 @@ export const Head = ({ data, pageContext }) => {
     <Seo
       title={pageContext.title}
       description={pageContext.description}
-      image={url}
+      image={localFile?.publicURL || publicUrl || placeholderUrl || ''}
     />
   )
 }
