@@ -281,6 +281,11 @@ Utility classes
   font-family: Times, serif !important;
 }
 
+.sm-txt{
+  font-size: 0.8125em;
+}
+
+
 /* 
 =============== 
 END utility classes

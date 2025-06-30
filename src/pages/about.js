@@ -5,10 +5,10 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { GlobalLayout, Seo } from '../components'
 
-const AboutPage = ({ data }) => {
+const AboutPage = ({ data, className }) => {
   return (
     <GlobalLayout>
-      <StyledSection>
+      <StyledSection className={className}>
         <div className="col-1">
           <div className="txt-box lg">
             <h1>Our Philosophy</h1>
@@ -48,7 +48,7 @@ const AboutPage = ({ data }) => {
           />
           <div className="txt-box">
             <h2>Meet Michele Corley</h2>
-            <p className="sm">
+            <p className="sm-txt">
               Michele is a licensed esthetician and creative visionary behind
               every Michele Corley Clinical Skin Care product. She is deeply
               committed to educating herself first, so she can then be a
@@ -57,7 +57,7 @@ const AboutPage = ({ data }) => {
               each Michele Corley Clinical Skin Care product and every client
               interaction.
             </p>
-            <p className="sm">
+            <p className="sm-txt">
               Michele studied with one of the foremost cosmetic chemistry
               authorities in the professional skincare industry, and has
               advanced knowledge of skin aging, acne conditions and rosecea.
@@ -73,9 +73,9 @@ const StyledSection = styled.section`
   & {
     align-items: stretch;
     display: flex;
+    gap: 3rem;
     justify-content: center;
     text-align: center;
-
     & h2,
     & h3 {
       font-size: 1.6rem;
@@ -90,16 +90,14 @@ const StyledSection = styled.section`
           padding-block-end: 1.4em;
           text-align: justify;
           text-align-last: left;
-          &.sm {
-            font-size: 0.8125em;
-            line-height: 1.5;
-          }
         }
       }
+      &.col-1,
+      &.col-2 {
+        width: 50%;
+      }
       &.col-1 {
-        min-width: 60%;
         div.txt-box {
-          margin-inline-end: 3rem;
           p:first-of-type {
             text-indent: 5.125rem;
           }
@@ -108,7 +106,6 @@ const StyledSection = styled.section`
           }
         }
       }
-
       &.col-2 {
         margin-block: 2rem 1rem;
         img {
@@ -118,15 +115,13 @@ const StyledSection = styled.section`
     }
 
     @media (max-width: 739px) {
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
 
       > div {
-        &.col-1 {
-          div.txt-box {
-            margin-inline-end: 0;
-          }
+        &.col-1,
+        &.col-2 {
+          width: 100%;
         }
       }
     }
@@ -137,11 +132,7 @@ export const query = graphql`
     file(relativePath: { eq: "2025/michele-corley-1x1.jpg" }) {
       publicURL
       childImageSharp {
-        gatsbyImageData(
-          placeholder: BLURRED
-          height: 350
-          quality: 100
-        )
+        gatsbyImageData(placeholder: BLURRED, height: 350, quality: 100)
       }
     }
   }
