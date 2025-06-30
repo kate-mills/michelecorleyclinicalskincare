@@ -13,7 +13,7 @@ export default function HomePage({ data }) {
     <GlobalLayout>
       <h1>Beautifully Healthy Skin Starts Here</h1>
       <div style={{ textAlign: 'center' }}>
-        <GatsbyImage image={image} />
+        <GatsbyImage image={image} alt="Michele Corley Clinical Skin Care cleansers, serums, masks, and moisturizers."/>
       </div>
       <YesNo />
     </GlobalLayout>
