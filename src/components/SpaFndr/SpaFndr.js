@@ -139,7 +139,7 @@ const SpaFndr = props => {
                 return (
                   <li key={spaid} className="spa">
                     <div className="spa-name">
-                      <h4 className={name.length > 20 ? 'long' : ''}>{name}</h4>
+                      <h4 className={'bold'}>{name}</h4>
                     </div>
                     <address className="spa-location">
                       <div className="spa-addr-street">{address}</div>

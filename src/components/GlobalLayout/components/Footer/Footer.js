@@ -44,7 +44,7 @@ const Footer = ({ className }) => {
         })}
       </ul>
       <div>
-        <p className="lg-txt">
+        <p>
           <span>{PhoneInfo.fullPhone}</span>
           <span>&middot;</span>
           <a
@@ -70,19 +70,18 @@ const FooterWrapper = styled(Footer)`
   & {
     padding-block: 30px 20px;
     text-align: center;
-    font-family: serif;
-    font-weight: 400;
     position: sticky;
     top: 100%;
     #infinity {
       min-width: 250px;
-      width: 500px;
+      width: 400px;
       max-width: 70%;
     }
     p {
       align-items: center;
       display: flex;
       flex-flow: row wrap;
+      font-family: serif;
       justify-content: center;
       margin-block: 0;
       padding-block: 3px;
@@ -90,9 +89,6 @@ const FooterWrapper = styled(Footer)`
         font-family: var(--mainFont);
         padding-block: 0.5rem 0;
         font-size: 1.5rem;
-      }
-      &.lg-txt {
-        font-size: 19px;
       }
       &.sm-txt {
         font-size: 14px;
@@ -122,6 +118,12 @@ const FooterWrapper = styled(Footer)`
     }
     @media (max-width: 900px) {
       padding-block-end: 70px;
+
+      #infinity{
+        min-width: 30%;
+        width: 90%;
+        max-width: 400px;
+      }
     }
   }
 `

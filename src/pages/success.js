@@ -8,8 +8,8 @@ export default function Successpage({ data }) {
     <GlobalLayout>
       <section>
       <h1 className="oops">Thank you!</h1>
-      <p className="g-txt-center">Your submission was received.</p>
-      <p className="g-txt-center">
+      <p className="txt-center">Your submission was received.</p>
+      <p className="txt-center">
         <Link className="btn" to="/">
           Return to our home page
         </Link>

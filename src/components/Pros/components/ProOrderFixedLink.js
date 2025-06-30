@@ -34,7 +34,6 @@ export default styled(ProOrderFixedLink)`
     text-align: center;
     vertical-align: middle;
     font-size: 13px;
-    font-weight: 500;
     line-height: 1.5;
     opacity: 1;
     > .link-content {
@@ -42,7 +41,7 @@ export default styled(ProOrderFixedLink)`
       height: auto;
       text-align: center;
       vertical-align: middle;
-      color: var(--poppy9);
+      color: var(--darkest);
       white-space: wrap;
       text-overflow: ellipsis;
     }

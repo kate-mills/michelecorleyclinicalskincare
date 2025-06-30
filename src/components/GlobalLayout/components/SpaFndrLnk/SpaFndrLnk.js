@@ -33,7 +33,6 @@ export default styled(SpaFndrFixedLink)`
     text-align: center;
     vertical-align: middle;
     font-size: 13px;
-    font-weight: 500;
     line-height: 1.5;
     opacity: 1;
     > .link-content {

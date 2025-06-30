@@ -31,7 +31,7 @@ const GlobalLayout = ({
           {!!showSearch && <ProductSearch />}
           <LgNavbar />
           {children}
-          <Footer />
+        <Footer />
         </main>
       </div>
     </>

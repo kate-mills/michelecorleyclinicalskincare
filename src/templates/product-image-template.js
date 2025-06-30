@@ -127,8 +127,6 @@ export default styled(ProductImageTemplate)`
       &-goback {
         display: inline-block;
         padding: 1rem 1.5rem;
-        font-size: 2.5rem;
-        font-weight: 300;
         margin: 1px;
         &:hover {
           background: var(--mainWhite);

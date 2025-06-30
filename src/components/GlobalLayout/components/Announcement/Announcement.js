@@ -50,9 +50,8 @@ class Announcement extends React.Component {
 const WrappedAnnouncement = styled(Announcement)`
   & {
     color: var(--mainBlack);
-    font-size: 18px;
     font-family: Times, serif;
-    font-weight: 400;
+    font-size: 18px;
     height: 40px;
     min-height: 40px;
     position: relative;

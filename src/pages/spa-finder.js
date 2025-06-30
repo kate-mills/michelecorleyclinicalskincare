@@ -7,12 +7,14 @@ const SpaFndrPage = ({ data }) => {
   return (
     <GlobalLayout showSpaFndrLnk={false}>
       <SpaFndrPageWrapper>
-        <h1>Get Your Hands On Our Products</h1>
-        <h2 className={'center'}>
-          Please enter a city, state, or zip code in the search bar below to
-          find the nearest spas and estheticians carrying Michele Corley
-          products.
-        </h2>
+        <div className="txt-center">
+          <h1>Get Your Hands On Our Products</h1>
+          <h2>
+            Please enter a city, state, or zip code in the search bar below to
+            find the nearest spas and estheticians carrying Michele Corley
+            products.
+          </h2>
+        </div>
         <SpaFndr />
       </SpaFndrPageWrapper>
     </GlobalLayout>
@@ -20,23 +22,12 @@ const SpaFndrPage = ({ data }) => {
 }
 const SpaFndrPageWrapper = styled.section`
   & {
-    padding-block-start: 0.5rem;
-    > h1 {
-      line-height: 1;
-      font-weight: 400;
-      font-size: 2rem;
-      @media (min-width: 500px) {
-        font-family: var(--mainFont);
+    div.txt-center {
+      h1 {
+        font-size: 2rem;
       }
-    }
-    > h2 {
-      font-size: 0.8125rem;
-      margin: 0;
-      text-align: center;
-      text-transform: none;
-      span {
-        font-weight: 500;
-        text-decoration: underline;
+      h2 {
+        font-size: 0.8125rem;
       }
     }
   }

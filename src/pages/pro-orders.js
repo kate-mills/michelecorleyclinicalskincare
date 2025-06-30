@@ -16,7 +16,7 @@ const ProOrders = () => {
           Login or create a professional account, and order your Michele Corley
           Clinical Skin Care products online.
         </h2>
-        <div className="txt-center w-100">
+        <div className="txt-center">
           <p>
             If you need a login to place online orders contact us{` - `}
             <BasicEmail subject="Pro Orders"/>
@@ -48,23 +48,12 @@ const ProOrdersWrapper = styled.section`
     width: 100%;
     text-align: center;
   }
-  & .needs-login,
-  & .has-login {
-    font-weight: 400;
-    font-style: italic;
-  }
-  & > .email {
-    text-decoration: none;
-  }
   & .btn {
     margin-block: 0.8rem;
     margin-block-start: 25px;
   }
 
   @media (max-width: 600px) {
-    & .email {
-      display: block;
-    }
     & .btn {
       margin-block-start: 25px;
     }

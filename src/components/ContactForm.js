@@ -5,7 +5,7 @@ const ContactForm = () => {
   const asterisk = <span className={'asterisk'}>&lowast;</span>
   return (
     <StyledForm>
-      <h3 className="poppy g-txt-center">CONTACT US</h3>
+      <h3 className="poppy txt-center">CONTACT US</h3>
       <div className={'center'}>
         <form
           method="post"

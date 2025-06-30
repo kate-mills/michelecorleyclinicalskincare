@@ -21,7 +21,7 @@ const ProNavigation = props => {
               <Link to={item.path}>
                 <div>
                   {item?.svg}
-                  <span className="item-name">{item.name}</span>
+                  <span className="item-name bold">{item.name}</span>
                 </div>
               </Link>
             </li>
@@ -108,7 +108,6 @@ export default styled(ProNavigation)`
               width: 10px;
             }
             > span.item-name {
-              font-weight: 600;
               font-size: 12px;
               line-height: 18px;
               letter-spacing: 0.1rem;

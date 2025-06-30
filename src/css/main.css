@@ -14,7 +14,7 @@
   --poppy: #3b70aa;
   --poppy9: #1c4879;
   --acneSafe: #2b517b;
-  --mainFont: 'Montserrat Variable', sans-serif;
+  --mainFont: 'Montserrat', sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
   --bgTransition: background-color 100ms linear;
@@ -25,9 +25,7 @@
 }
 
 html {
-  /*font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;*/
+  font-size: 16px;
 }
 
 *,
@@ -38,7 +36,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Montserrat Variable', sans-serif;
+  font-family: var(--mainFont);
   font-style: normal;
   font-size: 1rem;
   background: var(--mainMcc);
@@ -50,6 +48,7 @@ body {
   min-height: 100vh;
   overflow: scroll;
   text-transform: none;
+
 }
 ::selection {
   background-color: var(--poppy);
@@ -103,7 +102,6 @@ h3 {
   font-size: 2em;
 }
 hr {
-  /* upcoming classes */
   background: rgba(0, 0, 0, 0.1);
   border: none;
   height: 1px;
@@ -154,10 +152,8 @@ nav * {
 }
 p {
   color: var(--mainBlack);
-  /*padding: 0 0 1.8em;*/
-  padding: 0 0 1.4em;
+  padding: 0 0 1.8em;
   font-size: 1rem;
-  font-weight: 400;
   line-height: var(--bodyLineHeight);
   white-space: pre-line;
 }
@@ -169,11 +165,9 @@ li {
   list-style: none;
 }
 ul[data-bullet-list] {
-  color: var(--mainBlack);
   display: block;
   font-style: normal;
   font-size: 1rem;
-  font-weight: 400;
   line-height: 1.6875em;
   list-style: none;
   margin: 0 1.25rem 0.5em;
@@ -184,7 +178,6 @@ ul[data-bullet-list] > li p {
   margin: 0.46875rem auto;
   padding: 0 0 0.2rem;
   white-space: pre-line;
-  font-weight: 400;
 }
 
 ul[data-bullet-list] > li:first-child h3,
@@ -192,6 +185,7 @@ ul[data-bullet-list] > li:first-child h4,
 ul[data-bullet-list] > li:first-child p {
   padding: 0.4rem 0 0.2rem;
 }
+
 ul[data-bullet-list] li > *:first-child::before {
   box-sizing: border-box;
   color: var(--mainBlack);
@@ -247,15 +241,6 @@ button {
 .btn:hover {
   cursor: pointer;
 }
-.btn-form {
-  border: 0.125rem solid var(--poppy);
-  border-radius: 0.3125rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 0.75rem;
-  padding: 0.95rem 2.05rem;
-  transition: background-color 100ms linear;
-}
 
 /*
 =============== 
@@ -275,36 +260,12 @@ Utility classes
 .poppy {
   color: var(--poppy);
 }
-.w-100 {
-  width: 100%;
-}
-.g-mb1 {
-  margin-block: 1rem;
-}
-.g-mb2 {
-  margin-block: 2rem;
-}
-
-.clearfix {
-  overflow: auto;
-}
-
-.g-txt-center,
 .txt-center {
   text-align: center;
 }
-.txt-left {
-  text-align: left;
-}
-.txt-justify {
-  text-align: justify;
-  text-align-last: left;
-}
-
 .pb0 {
   padding-bottom: 0px;
 }
-
 .sr-only {
   position: absolute;
   left: -10000px;
@@ -335,29 +296,36 @@ END utility classes
     overflow: hidden;
     white-space: nowrap;
   }
+  p {
+    /*text-overflow: clip;
+    overflow: scroll;
+    white-space: nowrap;
+    min-width: 100%;
+    max-width: -webkit-fill-available; */
+  }
 }
 @media screen and (min-width: 321px) and (max-width: 480px) {
   div#content {
     border-radius: 15px;
     padding: 0.1rem 1.1rem;
-    padding-block: 0.1rem;
-    padding-inline: 1.1rem;
+    /*padding-block: 0.1rem;
+    padding-inline: 1.1rem; */
   }
 }
 @media screen and (min-width: 481px) and (max-width: 719px) {
   div#content {
     border-radius: 1.5625rem;
     padding: 0.1rem 2.2rem;
-    padding-block: 0.1rem;
-    padding-inline: 2.2rem;
+    /*padding-block: 0.1rem;
+    padding-inline: 2.2rem; */
   }
 }
 @media screen and (min-width: 720px) and (max-width: 1239px) {
   div#content {
     border-radius: 1.5625rem;
     padding: 0.1rem 2.5rem;
-    padding-block: 0.1rem;
-    padding-inline: 2.5rem;
+    /*padding-block: 0.1rem;
+    padding-inline: 2.5rem; */
   }
 }
 @media screen and (min-width: 1240px) {

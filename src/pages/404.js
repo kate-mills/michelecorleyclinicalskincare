@@ -10,7 +10,7 @@ export default function Errorpage({ data }) {
       <h1 className="oops">Oops!</h1>
       <PageWrapper>
         <div>
-          <p className="g-txt-center">
+          <p className="txt-center">
             We couldn't find the page you were looking for. This is either
             because:
           </p>
@@ -22,11 +22,11 @@ export default function Errorpage({ data }) {
               <p>The page you are looking for has been moved or deleted.</p>
             </li>
           </ul>
-          <p className="g-txt-center add-mt">
+          <p className="txt-center add-mt">
             Please check the URL and try again or click below to return to our
             home page.
           </p>
-          <p className="g-txt-center add-mt">
+          <p className="txt-center add-mt">
             <Link className="btn" to="/">
               Return to our home page
             </Link>

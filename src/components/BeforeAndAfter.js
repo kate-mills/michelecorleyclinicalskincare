@@ -24,7 +24,7 @@ const BeforeAndAfter = ({
         </figure>
       </div>
       <div className={'col'}>
-        <h4>{product_heading}</h4>
+        <h4 className="bold">{product_heading}</h4>
         <ul data-bullet-list>
           {[...product_list.split('-').slice(1)].map(product => {
             return (
@@ -69,7 +69,6 @@ const StyledLi = styled.li`
       }
       h4 {
         font-size: 1rem;
-        font-weight: 500;
         text-align: center;
         width: 80%;
       }

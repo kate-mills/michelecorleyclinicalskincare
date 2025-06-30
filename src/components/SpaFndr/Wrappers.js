@@ -11,7 +11,6 @@ export const StyledSearchResults = styled.section`
       margin-left: 0;
       h5 {
         font-style: normal;
-        font-weight: 400;
         font-size: small;
         line-height: 3;
         margin-inline-start: 0;
@@ -89,7 +88,6 @@ export const StyledSpaList = styled.ul`
         padding-inline-start: ${JUSTIFY_LEFT_PX};
         padding-inline-end: 2rem;
         h4 {
-          font-weight: 700;
           font-size: .8rem;
           font-style: normal;
           line-height: 1;
@@ -173,7 +171,6 @@ export const StyledSpaList = styled.ul`
           vertical-align: top;
           letter-spacing: normal;
           line-height: 1;
-          font-weight: 400;
           :hover {
             text-decoration-color: var(--poppyDark);
             color: var(--poppyDark);

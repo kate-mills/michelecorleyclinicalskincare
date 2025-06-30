@@ -29,7 +29,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
         </h1>
       )}
 
-      <h3 className={`product-skintypes`}>
+      <h3 className={`product-skintypes italic`}>
         {skinType.map((item, index) => (
           <span className={'skintype bold'} key={index}>
             {item}
@@ -65,8 +65,8 @@ const Product = ({ singleProductPage = false, data, className }) => {
             } = ing
             return (
               <li className="key-ingredient" key={ing.id}>
-                <p>
-                  <span>{`${fmtNm}: `}</span>
+                <p className="pb0">
+                  <span className="bold">{`${fmtNm}: `}</span>
                   <span>{` ${benefit}`}</span>
                 </p>
               </li>
@@ -74,7 +74,6 @@ const Product = ({ singleProductPage = false, data, className }) => {
           })}
         </ul>
       </div>
-      <hr />
     </article>
   )
 }
@@ -124,9 +123,7 @@ const ProductBadges = ({ product }) => {
 
 export default styled(Product)`
   & {
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-    position: relative;
+      margin-block: 0.5rem 1rem;
     h1,
     h2 {
       align-items: center;
@@ -205,7 +202,6 @@ export default styled(Product)`
       display: flex;
       flex-wrap: wrap;
       font-size: 1rem;
-      font-style: italic;
       justify-content: flex-start;
       line-height: 1.4;
       & span {
@@ -219,9 +215,9 @@ export default styled(Product)`
     }
     & .product-ingredients {
       margin-block-start: 0.5rem;
+      margin-block-start: 0;
       & > p.bold {
         font-size: 1.3rem;
-        font-weight: 500;
         padding-block-end: 0;
       }
       & .key-ingredient {
@@ -233,7 +229,6 @@ export default styled(Product)`
         p {
           padding-block-end: 0;
           > :first-child {
-            font-weight: 600;
             margin-inline-end: 4px;
           }
         }
@@ -246,9 +241,6 @@ export default styled(Product)`
           margin-inline-start: 0;
         }
       }
-    }
-    hr {
-      margin-block: 0.5rem 1rem;
     }
   }
 `

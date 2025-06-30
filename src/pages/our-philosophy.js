@@ -11,7 +11,7 @@ const AboutPage = ({ data }) => {
       <StyledSection>
         <div className="clearfix">
           <div className="indent">
-            <h1 className="txt-left">Our Philosophy</h1>
+            <h1>Our Philosophy</h1>
             <p>
               is simple, to provide healthy, effective skincare with exemplary
               customer service. We believe in treating our clients' success as
@@ -56,12 +56,16 @@ const AboutPage = ({ data }) => {
 
 const StyledSection = styled.section`
   & {
+    div.clearfix{
+      overflow: auto;
+    }
     h2 {
       font-size: 1.6rem;
     }
     .indent {
       margin-block: 2rem 0;
       h1 {
+        text-align: left;
         float: left;
         line-height: normal;
         margin-block: 0;

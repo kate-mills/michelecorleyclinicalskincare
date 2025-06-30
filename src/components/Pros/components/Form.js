@@ -66,7 +66,7 @@ const Form = ({ className }) => {
             required
           />
         </label>
-        <input className={'form-button btn'} type="submit" value="Log In" />
+        <input className={'form-button btn bold'} type="submit" value="Log In" />
       </form>
     </StyledDiv>
   )
@@ -88,7 +88,6 @@ const StyledDiv = styled.div`
       flex-direction: column;
       &-button {
         margin-block: 1rem;
-        font-weight: 600;
       }
       &-input {
         border: 1px solid #ccc;
