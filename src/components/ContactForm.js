@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ContactForm = () => {
-  const asterisk = <span className={'asterisk'}>&lowast;</span>
+  const asterisk = <span className={'asterisk poppy'}>&lowast;</span>
   return (
     <StyledForm>
-      <h3 className="poppy txt-center">CONTACT US</h3>
+      <h2 className="poppy txt-center">CONTACT US</h2>
       <div className={'center'}>
         <form
           method="post"
@@ -105,47 +105,39 @@ const ContactForm = () => {
   )
 }
 const StyledForm = styled.section`
-  &{
-    h3{
-      font-size: 43px;
+  & {
+    h2 {
+      font-size: 2.4875rem;
     }
-    .center{
+    .center {
       width: 100%;
       margin: 0 auto;
     }
-  }
-  & label {
-    display: block;
-    font-size: 17px;
-    margin-block-end: 0.5rem;
-    text-transform: capitalize;
-    & .asterisk {
-      color: var(--poppy);
-      padding-inline-end: 2px;
+    .asterisk {
+      padding-inline-end: 5px;
     }
-  }
-  & .formControl,
-  & .submit {
-    border: 1px solid var(--darkGrey);
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    padding: 0.375rem 0.75rem;
-    width: 100%;
-  }
-  & .submit {
-    background-color: var(--mainMcc);
-    border-color: var(--darkGrey);
-    color: var(--mainBlack);
-    text-transform: capitalize;
-    transition: var(--mainTransition);
-    &:hover,
-    &:active,
-    &:focus {
-      background: var(--mainWhite);
-      cursor: pointer;
-      outline: none;
-      transition: var(--bgTransition);
+    .formControl,
+    .submit {
+      border: 1px solid var(--darkGrey);
+      border-radius: 0.25rem;
+      margin-bottom: 1rem;
+      padding: 0.375rem 0.75rem;
+      width: 100%;
+    }
+    .submit {
+      background-color: var(--mainMcc);
+      border-color: var(--darkGrey);
+      color: var(--mainBlack);
+      text-transform: capitalize;
+      transition: var(--mainTransition);
+      &:hover,
+      &:active,
+      &:focus {
+        background: var(--mainWhite);
+        cursor: pointer;
+        outline: none;
+        transition: var(--bgTransition);
+      }
     }
   }
 `

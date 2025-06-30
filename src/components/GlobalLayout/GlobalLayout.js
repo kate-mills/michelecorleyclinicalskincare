@@ -18,20 +18,16 @@ const GlobalLayout = ({
 }) => {
   return (
     <>
-      {!isPro && (
-        <div id="announcement">
-          <Announcement />
-        </div>
-      )}
+      <Announcement />
       <div id="content">
         <main>
           {!!showSpaFndrLnk && <SpaFndrLnk />}
           <SmNavbar />
-          {!isPro && <Logo />}
+          <Logo />
           {!!showSearch && <ProductSearch />}
           <LgNavbar />
           {children}
-        <Footer />
+          <Footer />
         </main>
       </div>
     </>

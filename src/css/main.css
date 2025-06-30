@@ -35,58 +35,58 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
+* {
+  font-family: var(--mainFont);
+  font-size: 1rem;
+  color: var(--mainBlack);
+}
+
 body {
   font-family: var(--mainFont);
   font-style: normal;
-  font-size: 1rem;
   background: var(--mainMcc);
   background-color: var(--mainMcc);
-  color: var(--mainBlack);
-  display: block;
   line-height: var(--bodyLineHeight);
-  margin: 0;
   min-height: 100vh;
   overflow: scroll;
   text-transform: none;
-
 }
+
 ::selection {
   background-color: var(--poppy);
   color: var(--offWhite);
 }
+
 :focus {
   outline: none;
   outline-offset: 0; /* -4px */
   border-radius: 4px;
 }
+
 a {
   background: inherit;
-  color: var(--mainBlack);
-  /*line-height: 1.5em;*/
   text-decoration-line: none;
 }
+
 button:focus,
 a:focus {
-  outline: 2px solid var(--poppy) !important;
+  outline: 2px solid var(--poppy);
 }
-a:hover {
-  cursor: pointer;
-}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--mainFont);
-  font-kerning: normal;
   font-weight: 400;
-  color: var(--mainBlack);
   line-height: var(--headingLineHeight);
   margin: 0.5em 0 0.3em;
   margin-top: 0;
   text-transform: capitalize;
 }
+
 h1 {
   color: var(--poppy);
   letter-spacing: -1px;
@@ -94,28 +94,31 @@ h1 {
   margin: 0 auto 0.3em;
   text-align: center;
 }
+
 h2,
 h3 {
-  color: var(--mainBlack);
   line-height: 1.3em;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   font-size: 2em;
 }
+
 hr {
   background: rgba(0, 0, 0, 0.1);
   border: none;
   height: 1px;
   margin: 0 auto;
 }
+
 input,
 textarea,
 select {
-  font-family: var(--mainFont);
   letter-spacing: normal;
 }
+
 img {
   border-radius: 1rem;
 }
+
 input:focus,
 textarea:focus,
 select:focus,
@@ -123,35 +126,29 @@ input:active,
 textarea:active,
 select:active {
   outline-color: var(--poppy);
-  border: 1px solid var(--poppy);
 }
 main {
   background: var(--mainWhite);
   background-color: var(--mainWhite);
   border: 0;
   border-radius: var(--mainRadius);
-  color: var(--mainBlack);
   margin: 0 auto;
   min-height: 100vh;
   padding: 0;
   position: relative;
-  width: 100%;
 }
 nav {
-  color: var(--mainBlack);
   font-size: 1rem;
   letter-spacing: var(--mainSpacing);
   margin: 1.25rem auto 0.5rem;
 }
 nav * {
-  color: var(--mainBlack);
   font-size: 1rem;
   letter-spacing: -0.03rem;
   text-transform: uppercase;
   white-space: nowrap;
 }
 p {
-  color: var(--mainBlack);
   padding: 0 0 1.8em;
   font-size: 1rem;
   line-height: var(--bodyLineHeight);
@@ -188,7 +185,6 @@ ul[data-bullet-list] > li:first-child p {
 
 ul[data-bullet-list] li > *:first-child::before {
   box-sizing: border-box;
-  color: var(--mainBlack);
   content: '\2022';
   display: inline-block;
   margin-left: -40px;
@@ -210,7 +206,6 @@ div#content {
 
 button {
   cursor: pointer;
-  font-family: var(--mainFont);
   font-size: 1rem;
   line-height: 1.5em;
   background: inherit;
@@ -275,6 +270,17 @@ Utility classes
   overflow: hidden;
 }
 
+.space-l {
+  padding-inline-start: 5px;
+}
+.space-r {
+  padding-inline-end: 5px;
+}
+
+.serif{
+  font-family: Times, serif !important;
+}
+
 /* 
 =============== 
 END utility classes
@@ -332,15 +338,5 @@ END utility classes
   div#content {
     border-radius: var(--mainRadius);
     padding: 0.1rem 3.2rem;
-  }
-}
-
-#announcement {
-  height: 40px;
-  transition: height 50ms linear;
-}
-@media screen and (max-width: 570px) {
-  #announcement {
-    height: 0;
   }
 }

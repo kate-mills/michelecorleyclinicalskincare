@@ -37,8 +37,8 @@ const ContactInfo = () => {
 
   return (
     <Wrapper>
-      <div className="txt-centered">
-        <h2>Get in touch</h2>
+      <div className="txt-center">
+        <h3>Get in touch</h3>
         <div>
           <span>Monday</span>
           <span>{`-`}</span>
@@ -50,23 +50,23 @@ const ContactInfo = () => {
         </div>
       </div>
       <div className="grid-container">
-        <div className="grid-item key">Phone:</div>
+        <div className="grid-item bold space-r key">Phone:</div>
         <div className="grid-item">
           <Phone />
         </div>
-        <div className="grid-item key">Email:</div>
+        <div className="grid-item space-r bold key">Email:</div>
         <div className="grid-item">
           <UnformattedEmail />
         </div>
-        <div className="grid-item key">Address:</div>
+        <div className="grid-item space-r bold key">Address:</div>
         <div className="grid-item">
           <address>
             <span>{`${street} `}</span>
-            <span className="space">{` ${suite}`}</span>
+            <span className="space-l">{`${suite}`}</span>
             <br />
             <span>{city}</span>
-            <span className="space">{state}</span>
-            <span className="space">{zip}</span>
+            <span className="space-l">{state}</span>
+            <span className="space-l">{zip}</span>
           </address>
         </div>
       </div>
@@ -76,13 +76,12 @@ const ContactInfo = () => {
 
 const Wrapper = styled.aside`
   & {
-    color: var(--mainBlack);
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     padding: 5px 0;
 
-    & .txt-centered {
+    & .txt-center {
       margin-bottom: 5px;
       padding: 1em 0 0.1em;
       text-align: center;
@@ -90,7 +89,6 @@ const Wrapper = styled.aside`
         padding-inline: 3px;
       }
     }
-
     & .grid-container {
       display: grid;
       grid-template-columns: auto auto;
@@ -101,13 +99,8 @@ const Wrapper = styled.aside`
       width: 100%;
     }
     & .grid-item {
-      padding-block: 2px;
-      padding-inline-end: 5px;
       &.key {
         text-align: right;
-      }
-      .space {
-        padding-left: 5px;
       }
     }
   }
