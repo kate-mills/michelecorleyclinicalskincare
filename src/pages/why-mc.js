@@ -49,6 +49,7 @@ export default function WhyMCPage({
           </div>
           <div className="col-img">
             <GatsbyImage
+              className="br"
               image={childImageSharp.gatsbyImageData}
               alt="Woman receiving a relaxing facial."
             />

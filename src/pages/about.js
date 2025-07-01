@@ -42,6 +42,7 @@ const AboutPage = ({ data, className }) => {
         </div>
         <div className="col-2">
           <GatsbyImage
+            className="br"
             image={data.file.childImageSharp.gatsbyImageData}
             alt="Portrait of Michele Corley, owner of Michele Corley Clinical Skin Care"
           />
@@ -104,9 +105,6 @@ const StyledSection = styled.section`
       &.col-2 {
         text-align: center;
         margin-block: 2rem 1rem;
-        img {
-          border-radius: 1rem;
-        }
       }
     }
 

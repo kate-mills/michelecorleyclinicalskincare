@@ -34,6 +34,7 @@ const ContactPage = ({data}) => {
             </div>
             <div className="contact-img-container">
               <GatsbyImage
+                className="br"
                 image={data.file.childImageSharp.gatsbyImageData}
                 alt="Bright red flowers and spa rocks in water."
                 title="Contact Michele Corley Clinical Skin Care"

@@ -115,9 +115,6 @@ select {
   letter-spacing: normal;
 }
 
-img {
- /* border-radius: 1rem;*/
-}
 
 input:focus,
 textarea:focus,
