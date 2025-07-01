@@ -12,25 +12,25 @@ const InThePress = ({ data }) => {
     : `${title} Marketing Materials`
 
   return (
-    <StyledDiv>
+    <StyledLi>
       <GatsbyImage image={img} alt={alt} />
       <div className="col-txt txt-center">
-        <p className="pb0">{summary}</p>
+        <p className="txt-sm pb0">{summary}</p>
         {!!link ? (
-          <a href={link} className={'btn'}>
-            Read More
+          <a href={link} className={'txt-sm btn'} title={`Read more about ${title}`}>
+            Read More On Dermascope
           </a>
         ) : (
-          <Link to={relativeLink} className={'btn'}>
-            Read More
+          <Link to={relativeLink} className={'txt-sm btn'} title={title}>
+            {title}
           </Link>
         )}
       </div>
-    </StyledDiv>
+    </StyledLi>
   )
 }
 
-const StyledDiv = styled.div`
+const StyledLi = styled.li`
   & {
     align-items: center;
     border: 5px solid var(--mainMcc);
@@ -44,15 +44,14 @@ const StyledDiv = styled.div`
     }
     div.gatsby-image-wrapper {
       border-radius: 10px 0px 0px 10px;
-      width: 100%;
     }
-    > div.col-txt {
-        width: 90%;
-      a {
-        margin-block: 0.5rem;
+    div.col-txt {
+        margin: 1rem;
+      a.btn.txt-sm {
+        margin-block-start: 0.5rem;
       }
     }
-    @media screen and (max-width: 554px) {
+    @media screen and (max-width: 719px) {
       flex-wrap: wrap;
       div.gatsby-image-wrapper {
         border-radius: 10px 10px 0px 0px;
