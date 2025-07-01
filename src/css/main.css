@@ -116,7 +116,7 @@ select {
 }
 
 img {
-  border-radius: 1rem;
+ /* border-radius: 1rem;*/
 }
 
 input:focus,
@@ -285,7 +285,9 @@ Utility classes
   font-family: Times, serif !important;
 }
 
-
+.br{
+  border-radius: 1rem;
+}
 
 /* 
 =============== 
