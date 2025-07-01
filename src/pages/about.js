@@ -37,10 +37,9 @@ const AboutPage = ({ data, className }) => {
               and enjoy the excellence in the care you receive.
             </p>
             <p>Many thanks.</p>
-            <h3 className="italic poppy">The Michele Corley Team</h3>
+            <p className="italic poppy pb0">The Michele Corley Team</p>
           </div>
         </div>
-
         <div className="col-2">
           <GatsbyImage
             image={data.file.childImageSharp.gatsbyImageData}
@@ -75,14 +74,10 @@ const StyledSection = styled.section`
     display: flex;
     gap: 3rem;
     justify-content: center;
-    text-align: center;
     & h2,
-    & h3 {
+    & p.italic {
       font-size: 1.6rem;
       letter-spacing: -0.094rem;
-    }
-    & h3 {
-      text-align: left;
     }
     > div {
       div.txt-box {
@@ -107,6 +102,7 @@ const StyledSection = styled.section`
         }
       }
       &.col-2 {
+        text-align: center;
         margin-block: 2rem 1rem;
         img {
           border-radius: 1rem;
@@ -117,6 +113,7 @@ const StyledSection = styled.section`
     @media (max-width: 739px) {
       flex-direction: column;
       align-items: center;
+      gap: 0;
 
       > div {
         &.col-1,
