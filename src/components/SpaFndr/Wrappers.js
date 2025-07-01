@@ -105,7 +105,8 @@ export const StyledSpaList = styled.ul`
         text-overflow: ellipsis;
         line-height: 1;
         * {
-          font-size: 0.8rem;
+          font-size: small;
+          line-height: normal;
         }
 
         &.spa-location {
@@ -146,28 +147,16 @@ export const StyledSpaList = styled.ul`
         &.spa-urls {
           position: relative;
           div {
-            line-height: normal;
-            margin-block: 0.5rem;
-            max-width: fit-content;
-            &.web {
-              span {
-                svg {
-                  position: absolute;
-                  left: 4px;
-                }
-              }
+            margin-block-start: 0.5rem;
+            &.web span svg {
+              position: absolute;
+              left: 4px;
+              fill: var(--poppy);
             }
             & a {
-              margin-block-start: 1rem;
               text-decoration-line: underline;
               text-decoration-style: solid;
-              text-decoration-thickness: auto;
-              vertical-align: top;
               letter-spacing: normal;
-              :hover {
-                text-decoration-color: var(--poppyDark);
-                color: var(--poppyDark);
-              }
             }
           }
         }
