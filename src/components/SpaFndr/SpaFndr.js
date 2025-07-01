@@ -139,15 +139,13 @@ const SpaFndr = props => {
                 return (
                   <li key={spaid} className="spa">
                     <div className="spa-name">
-                      <h4 className={'bold'}>{name}</h4>
+                      <p className={'bold'}>{name}</p>
                     </div>
                     <address className="spa-location">
                       <div className="spa-addr-street">{address}</div>
                       <div className="spa-addr-locality">
                         <div
-                          className={`spa-city ${
-                            isLongCity ? 'spa-long-city' : ''
-                          }`}
+                          className={`spa-city`}
                         >
                           {city &&
                             city.split(' ').map((name, i) => {
@@ -179,7 +177,7 @@ const SpaFndr = props => {
                           </span>
                         </div>
                         <div className="space"> </div>
-                        <div className={`zip ${isLongCity ? 'wrap-zip' : ''}`}>
+                        <div className={`zip ${isLongCity ? 'block-zip' : ''}`}>
                           <span className="zipcode">
                             <span
                               className={`${

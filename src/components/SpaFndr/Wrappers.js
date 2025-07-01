@@ -4,14 +4,14 @@ const JUSTIFY_LEFT_PX = '25px'
 
 export const StyledSearchResults = styled.section`
   & {
-    min-height: 30px;
+    height: 30px;
     margin: 0 auto;
     div.search_results_message {
       padding-left: ${JUSTIFY_LEFT_PX};
       margin-left: 0;
       h5 {
         font-size: small;
-        line-height: 3;
+        line-height: 2;
         margin-inline-start: 0;
         margin-inline-end: 2px;
       }
@@ -20,8 +20,8 @@ export const StyledSearchResults = styled.section`
 `
 export const StyledSpaLocatorForm = styled.form`
   & {
-    min-height: 50px;
     margin: 0 auto;
+    text-align: center;
     width: 100%;
     background-color: var(--mainWhite);
     input#StoreLocator {
@@ -37,7 +37,7 @@ export const StyledSpaLocatorForm = styled.form`
       padding: 12px 20px 12px 40px;
       transition: width 0.4s ease-in-out;
       -webkit-transition: width 0.4s ease-in-out;
-      width: calc(100% - 45px);
+      width: calc(100% - 100px);
     }
     input#StoreLocator:active,
     input#StoreLocator:focus {
@@ -70,11 +70,13 @@ export const StyledSpaList = styled.ul`
       margin-left: -10px;
     }
 
-    > *,
-    * {
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    *,
+    > * {
+      font-size: small;
+      line-height: normal;
       overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .spa {
       background: var(--mainWhite);
@@ -84,31 +86,15 @@ export const StyledSpaList = styled.ul`
       padding-block: 1rem;
       padding-inline-end: 1rem;
       border: 0.5566666px solid #e9e9e9;
-      > .spa-name {
-        padding-inline-start: ${JUSTIFY_LEFT_PX};
-        h4 {
-          font-size: 0.9rem;
-          line-height: normal;
-          padding: 0 0 8px;
-          word-break: break-word;
-          min-width: fit-content;
-          overflow-wrap: normal;
-          white-space: pre-wrap;
-        }
-      }
 
-      > address {
-        font-style: normal; /* overwrite default address */
+      .spa-name,
+      address {
         padding-inline-start: ${JUSTIFY_LEFT_PX};
-        margin-inline: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1;
-        * {
-          font-size: small;
-          line-height: normal;
+        font-style: normal; /* address default italic */
+        p.bold {
+          font-size: 1rem;
+          padding-block-end: 0.75rem;
         }
-
         &.spa-location {
           padding-block-end: 0.3rem;
 
@@ -129,7 +115,7 @@ export const StyledSpaList = styled.ul`
             }
           }
 
-          div.zip.wrap-zip {
+          div.zip.block-zip {
             display: contents;
             > span.zipcode {
               display: block;
@@ -143,7 +129,6 @@ export const StyledSpaList = styled.ul`
             padding-inline-end: 3px;
           }
         }
-
         &.spa-urls {
           position: relative;
           div {
