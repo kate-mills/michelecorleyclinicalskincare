@@ -45,21 +45,22 @@ const Footer = ({ className }) => {
       </ul>
       <div>
         <p>
-          <span>{PhoneInfo.fullPhone}</span>
-          <span>&middot;</span>
+          <span className="txt-sm">{PhoneInfo.fullPhone}</span>
+          <span className="txt-sm">&middot;</span>
           <a
+            className="txt-sm"
             href={`mailto:${EmailInfo.fullEmail}?subject=${EmailInfo.defaultSubject}`}
           >
             {EmailInfo.fullEmail}
           </a>
         </p>
-        <p className="sm-txt">
-          <span>Michele Corley Company, LLC</span>
-          <span>{`${AddressInfo.oneLine}`}</span>
+        <p>
+          <span className="txt-sm">Michele Corley Company, LLC</span>
+          <span className="txt-sm">{`${AddressInfo.oneLine}`}</span>
         </p>
 
-        <p className="sm-txt">
-          <span>All rights reserved. &copy;{new Date().getFullYear()}</span>
+        <p>
+          <span className="txt-sm">All rights reserved. &copy;{new Date().getFullYear()}</span>
         </p>
       </div>
     </footer>
@@ -89,9 +90,6 @@ const FooterWrapper = styled(Footer)`
         font-family: var(--mainFont);
         padding-block: 0.5rem 0;
         font-size: 1.5rem;
-      }
-      &.sm-txt {
-        font-size: 14px;
       }
       & a,
       & span {

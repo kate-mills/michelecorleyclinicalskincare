@@ -258,6 +258,10 @@ Utility classes
 .txt-center {
   text-align: center;
 }
+.txt-sm{
+  font-size: 0.8125em;
+}
+
 .pb0 {
   padding-bottom: 0px;
 }
@@ -281,9 +285,6 @@ Utility classes
   font-family: Times, serif !important;
 }
 
-.sm-txt{
-  font-size: 0.8125em;
-}
 
 
 /* 

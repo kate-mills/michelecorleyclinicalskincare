@@ -20,16 +20,16 @@ const BeforeAndAfter = ({
             image={img}
             alt={`Before and after of Michele Corley client using ${product_heading.toLowerCase()}`}
           />
-          <figcaption>{notes}</figcaption>
+          <figcaption className="txt-sm txt-center">{notes}</figcaption>
         </figure>
       </div>
       <div className={'col'}>
-        <h4 className="bold">{product_heading}</h4>
+        <p className="bold pb0 txt-center">{product_heading}</p>
         <ul data-bullet-list>
           {[...product_list.split('-').slice(1)].map(product => {
             return (
               <li key={product.trim()}>
-                <p>{product.trim()}</p>
+                <p className="txt-sm">{product.trim()}</p>
               </li>
             )
           })}
@@ -62,19 +62,14 @@ const StyledLi = styled.li`
         border-radius: 0.425rem 0 0 0;
       }
       figcaption {
-        font-size: small;
         line-height: normal;
-        text-align: center;
         width: 99%;
       }
-      h4 {
-        font-size: 1rem;
-        text-align: center;
-        width: 80%;
+      p.bold.pb0 {
+        width: 95%;
       }
       ul[data-bullet-list] {
         p {
-          font-size: small;
           margin-block: 0;
           padding-block-end: 0;
         }
@@ -83,9 +78,6 @@ const StyledLi = styled.li`
     @media (max-width: 800px) {
       & .col {
         width: 100%;
-        h4{
-          margin-block: 0.5rem 0;
-        }
         .gatsby-image-wrapper {
           border-radius: 0.425rem 0.425rem 0 0;
         }
