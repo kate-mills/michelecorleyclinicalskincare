@@ -14,7 +14,7 @@
   --poppy: #3b70aa;
   --poppy9: #1c4879;
   --acneSafe: #2b517b;
-  --mainFont: 'Montserrat', sans-serif;
+  --mainFont: 'Montserrat Variable', sans-serif;
   --bodyLineHeight: 1.8em;
   --headingLineHeight: 1.4em;
   --bgTransition: background-color 100ms linear;
@@ -230,9 +230,6 @@ button {
   border: 2px solid var(--poppy);
   box-shadow: var(--dark-shadow);
 }
-.btn:hover {
-  cursor: pointer;
-}
 
 /*
 =============== 
@@ -258,7 +255,6 @@ Utility classes
 .txt-sm{
   font-size: 0.8125em;
 }
-
 .pb0 {
   padding-bottom: 0px;
 }
@@ -270,18 +266,15 @@ Utility classes
   top: auto;
   overflow: hidden;
 }
-
 .space-l {
   padding-inline-start: 5px;
 }
 .space-r {
   padding-inline-end: 5px;
 }
-
 .serif{
   font-family: Times, serif !important;
 }
-
 .br{
   border-radius: 1rem;
 }
