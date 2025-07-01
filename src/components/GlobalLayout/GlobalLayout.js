@@ -21,7 +21,7 @@ const GlobalLayout = ({
       <Announcement />
       <div id="content">
         <main>
-          {!!showSpaFndrLnk && <SpaFndrLnk />}
+          <SpaFndrLnk display={showSpaFndrLnk}/>
           <SmNavbar />
           <Logo />
           {!!showSearch && <ProductSearch />}

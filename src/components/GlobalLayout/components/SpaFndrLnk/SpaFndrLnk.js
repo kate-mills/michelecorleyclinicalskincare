@@ -1,57 +1,48 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 
-const SpaFndrFixedLink = ({ className}) => {
-  return (
+const SpaFndrFixedLink = ({ className = '', display = true }) => {
+  return !!display ? (
     <div className={`${className}`}>
       <Link
         to={'/spa-finder/'}
-        className={`link-content`}
+        className={`link-content txt-sm txt-center`}
         tabIndex={0}
-      >FIND OUR PRODUCTS IN SPAS
+      >
+        FIND OUR PRODUCTS IN SPAS
       </Link>
     </div>
-  )
+  ) : null
 }
 
 export default styled(SpaFndrFixedLink)`
   & {
-    font-family: var(--mainFont);
     background: var(--poppy);
-    position: fixed;
-    right: 20px;
+    border: 0.125rem solid var(--poppy);
+    border-radius: 0.5rem;
     bottom: 15px;
-    z-index: 9998;
-    display: table-cell;
-    width: auto;
-    padding: 20px 15px;
-    letter-spacing: normal;
-    word-spacing: 1px;
-    border-radius: 5px;
     box-shadow: var(--light-shadow);
-    text-align: center;
-    vertical-align: middle;
-    font-size: 13px;
+    display: table-cell;
     line-height: 1.5;
+    margin: 0 auto;
     opacity: 1;
+    padding: 0.4rem 0;
+    position: fixed;
+    right: 15px;
+    z-index: 9998;
     > .link-content {
-      display: table-cell;
-      height: auto;
-      text-align: center;
-      vertical-align: middle;
+      background: var(--poppy) !important;
       color: var(--mainWhite);
-      white-space: wrap;
-      text-overflow: ellipsis;
+      display: block;
+      padding: 0.8rem 1.6rem;
+      vertical-align: middle;
     }
     @media (max-width: 300px) {
-      left: 0;
-      right: 0;
       bottom: 0;
-      max-width: fit-content;
-      max-height: fit-content;
-      padding: 10px;
-      z-index: 9998;
+      left: 0;
+      padding: 0;
+      right: 0;
     }
   }
 `
