@@ -76,7 +76,7 @@ const WrappedAnnouncement = styled(Announcement)`
         }
       }
     }
-    @media (max-width: 570px) {
+    @media (max-width: 720px) {
       display: none;
     }
   }

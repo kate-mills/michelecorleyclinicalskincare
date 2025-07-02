@@ -18,10 +18,12 @@ const GlobalLayout = ({
 }) => {
   return (
     <>
-      <Announcement />
+      <div id="announcement">
+        <Announcement />
+      </div>
       <div id="content">
         <main>
-          <SpaFndrLnk display={showSpaFndrLnk}/>
+          <SpaFndrLnk display={showSpaFndrLnk} />
           <SmNavbar />
           <Logo />
           {!!showSearch && <ProductSearch />}

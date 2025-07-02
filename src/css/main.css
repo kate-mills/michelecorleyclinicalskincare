@@ -95,7 +95,8 @@ h1 {
   text-align: center;
 }
 
-h2, h2 *,
+h2,
+h2 *,
 h3 {
   font-size: 2rem;
   letter-spacing: 0;
@@ -114,7 +115,6 @@ textarea,
 select {
   letter-spacing: normal;
 }
-
 
 input:focus,
 textarea:focus,
@@ -248,8 +248,8 @@ button {
 .txt-center {
   text-align: center;
 }
-.txt-sm{
-  font-size: 0.8125rem; 
+.txt-sm {
+  font-size: 0.8125rem;
 }
 .pb0 {
   padding-bottom: 0px;
@@ -268,10 +268,10 @@ button {
 .space-r {
   padding-inline-end: 5px;
 }
-.serif{
+.serif {
   font-family: Times, serif !important;
 }
-.br{
+.br {
   border-radius: 1rem;
 }
 
@@ -297,6 +297,7 @@ button {
     min-width: 100%;
     max-width: -webkit-fill-available;
   }*/
+
 }
 @media screen and (min-width: 321px) and (max-width: 480px) {
   div#content {
@@ -320,5 +321,16 @@ button {
   div#content {
     border-radius: var(--mainRadius);
     padding: 0.1rem 3.2rem;
+  }
+}
+@media screen and (max-width: 720px) {
+  #announcement {
+    min-height: 0;
+    display: none;
+  }
+}
+@media screen and (min-width: 721px) {
+  #announcement {
+    min-height: 40px;
   }
 }
