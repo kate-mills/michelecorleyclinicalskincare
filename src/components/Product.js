@@ -92,12 +92,12 @@ const ProductBadges = ({ product }) => {
   return (
     <div className="product-badges">
       <span className="product-name">{name}</span>
-      {acneSafe && <span className={`badge acne-safe`}>ACNE SAFE</span>}
-      {isBst && <span className={`badge best-seller`}>BEST-SELLER</span>}
-      {proOnly && <span className={`badge pro-only`}>PRO USE ONLY</span>}
+      {acneSafe && <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>}
+      {isBst && <span className={`badge txt-sm  txt-center best-seller`}>BEST-SELLER</span>}
+      {proOnly && <span className={`badge txt-sm txt-center pro-only`}>PRO USE ONLY</span>}
       {!!pdfZero && (
         <a
-          className="pdf badge"
+          className="pdf badge txt-sm txt-center"
           title={`Download pdf with product details and usage instructions for ${name}.`}
           href={
             pdfZero?.localFile?.publicURL ||
@@ -137,6 +137,7 @@ export default styled(Product)`
       & .product-badges {
         display: contents;
         & .product-name {
+          font-size: 2rem; /* keep here */
           margin-inline-end: 5px;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -148,14 +149,11 @@ export default styled(Product)`
           background: var(--poppy0);
           border: 2px solid var(--poppy);
           color: var(--acneSafe);
-          font-size: 0.85rem;
-          letter-spacing: normal;
           line-height: normal;
           margin: 5px 5px 5px 0;
           overflow: hidden;
           padding-block: 0.125rem;
           padding-inline: 0.3125rem;
-          text-align: center;
           text-overflow: ellipsis;
           transition:
             color,

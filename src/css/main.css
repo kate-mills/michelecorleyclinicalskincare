@@ -1,10 +1,10 @@
 :root {
   --clear: rgba(0, 0, 0, 0);
-  --darkGrey: #9d9d9d; /* #9d9692;*/
+  --darkGrey: #9d9d9d;
   --blackTxt: #3c3c3c;
   --mainBlack: #555;
   --mainMcc: #e0e0e0;
-  --offWhite: #eeeeee; /* #f2f2f2; */
+  --offWhite: #eeeeee;
   --mainWhite: #fffffe;
   --mainSpacing: 0.0625em;
   --gray: #e1dfe0;
@@ -81,7 +81,6 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-  line-height: var(--headingLineHeight);
   margin: 0.5em 0 0.3em;
   margin-top: 0;
   text-transform: capitalize;
@@ -90,16 +89,17 @@ h6 {
 h1 {
   color: var(--poppy);
   letter-spacing: -1px;
+  line-height: var(--headingLineHeight);
   font-size: 2.6876em;
   margin: 0 auto 0.3em;
   text-align: center;
 }
 
-h2,
+h2, h2 *,
 h3 {
-  line-height: 1.3em;
+  font-size: 2rem;
   letter-spacing: 0;
-  font-size: 2em;
+  line-height: var(--headingLineHeight);
 }
 
 hr {
@@ -231,11 +231,7 @@ button {
   box-shadow: var(--dark-shadow);
 }
 
-/*
-=============== 
-Utility classes
-===============
-*/
+/* =============== Utility classes =============== */
 
 .bold {
   font-weight: 600;
@@ -253,7 +249,7 @@ Utility classes
   text-align: center;
 }
 .txt-sm{
-  font-size: 0.8125em;
+  font-size: 0.8125rem; 
 }
 .pb0 {
   padding-bottom: 0px;
@@ -279,18 +275,12 @@ Utility classes
   border-radius: 1rem;
 }
 
-/* 
-=============== 
-END utility classes
-===============
-*/
+/* =============== END utility classes =============== */
 
 @media screen and (max-width: 320px) {
   div#content {
     border-radius: 10px;
     padding: 0.1rem 0.7rem;
-    padding-block: 0.1rem;
-    padding-inline: 0.7rem;
   }
   h1 {
     text-align: center;
@@ -300,36 +290,30 @@ END utility classes
     overflow: hidden;
     white-space: nowrap;
   }
-  p {
-    /*text-overflow: clip;
+  /*p {
+    text-overflow: clip;
     overflow: scroll;
     white-space: nowrap;
     min-width: 100%;
-    max-width: -webkit-fill-available; */
-  }
+    max-width: -webkit-fill-available;
+  }*/
 }
 @media screen and (min-width: 321px) and (max-width: 480px) {
   div#content {
     border-radius: 15px;
     padding: 0.1rem 1.1rem;
-    /*padding-block: 0.1rem;
-    padding-inline: 1.1rem; */
   }
 }
 @media screen and (min-width: 481px) and (max-width: 719px) {
   div#content {
     border-radius: 1.5625rem;
     padding: 0.1rem 2.2rem;
-    /*padding-block: 0.1rem;
-    padding-inline: 2.2rem; */
   }
 }
 @media screen and (min-width: 720px) and (max-width: 1239px) {
   div#content {
     border-radius: 1.5625rem;
     padding: 0.1rem 2.5rem;
-    /*padding-block: 0.1rem;
-    padding-inline: 2.5rem; */
   }
 }
 @media screen and (min-width: 1240px) {
