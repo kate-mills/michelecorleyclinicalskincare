@@ -23,9 +23,9 @@ const Orders = ({ className }) => {
       <div>
         {/* EMAIL - GET ACCESS TO ORDER */}
         <p>If you have a login, please click the "PLACE ONLINE ORDER HERE" button at the bottom right of this page.</p>
-        <p className="italic">
+        <p className="">
           If you need a login to place online orders contact us - 
-          <BasicEmail block={true} subject="I need Online Ordering Access"/>
+          <BasicEmail className={'poppy9'} subject="I need Online Ordering Access"/>
         </p>
         {/* NOWCOMMERCE */}
       </div>

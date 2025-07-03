@@ -2,15 +2,13 @@ import React from 'react'
 import { EmailInfo } from '../constants/contact-info'
 import styled from 'styled-components'
 
-const BasicEmail = props => {
+const BasicEmail = ({ className = '', block = '', subject = '' }) => {
   const { defaultSubject, fullEmail } = EmailInfo
   return (
     <StyledEmail
-      className={props.block ? 'block' : ''}
+      className={(block, className)}
       target="_top"
-      href={`mailto:${fullEmail}?subject=${
-        props?.subject ? props.subject : defaultSubject
-      }`}
+      href={`mailto:${fullEmail}?subject=${subject ? subject : defaultSubject}`}
       title={`Email us at ${fullEmail}`}
     >
       {fullEmail}
@@ -20,14 +18,10 @@ const BasicEmail = props => {
 
 const StyledEmail = styled.a`
   @media (max-width: 400px) {
-    &.block {
-      display: block;
-      margin: 0 auto;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      line-height: normal;
-    }
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
 `
 

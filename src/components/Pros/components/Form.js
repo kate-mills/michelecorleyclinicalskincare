@@ -24,9 +24,9 @@ const Form = ({ className }) => {
   return (
     <StyledDiv className={className}>
       <p className={'login-instructions'}>
-        Pros, contact us at <BasicPhone /> or{' '}
+        Pros, contact us at <BasicPhone className="poppy9"/> or{' '}
         <BasicEmail
-          block={true}
+          className="poppy9"
           subject="Professional login and password"
           fontWeight="600"
         />

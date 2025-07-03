@@ -21,23 +21,29 @@ const PublicOrders = ({ className }) => {
       </div>
       <hr />
       <div>
-        <p>
+        {/* NOWCOMMERCE */}
+        <p className="pb0">
           If you have a login,{' '}
           <a
+            className="poppy9"
             href={'https://portal.nowcommerce.com/custsignin.aspx?ID=99867'}
             target={'_blank'}
             rel="noreferrer"
             tabIndex={0}
-          >place online orders here{' '}
+          >
+            PLACE ONLINE ORDERS HERE.
           </a>
         </p>
 
         {/* EMAIL - GET ACCESS TO ORDER */}
-        <p className="">
+        <p className="pb0">
           If you need a login to place online orders contact us -{' '}
-          <BasicEmail block={true} subject="I need Online Ordering Access" />
+          <BasicEmail
+            block={true}
+            subject="I need Online Ordering Access"
+            className="poppy9"
+          />
         </p>
-        {/* NOWCOMMERCE */}
       </div>
     </StyledDiv>
   )
@@ -47,7 +53,7 @@ const StyledDiv = styled.div`
   & {
     background: var(--offWhite);
     text-align: center;
-    & p{
+    & p {
       color: var(--darkest);
     }
   }
