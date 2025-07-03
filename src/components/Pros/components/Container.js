@@ -13,12 +13,11 @@ const Container = ({ title, isPro=true, children, className }) => (
 const StyledContainer = styled.section`
   & {
     & a {
-      color: var(--poppy);
+      color: var(--poppy9);
       &.btn {
         margin-block: 1rem;
       }
     }
-
     & h2 {
       text-align: center;
     }

@@ -245,6 +245,9 @@ button {
 .poppy {
   color: var(--poppy);
 }
+.poppy9{
+  color: var(--poppy9);
+}
 .txt-center {
   text-align: center;
 }

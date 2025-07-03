@@ -23,13 +23,13 @@ const GlobalLayout = ({
       </div>
       <div id="content">
         <main>
-          <SpaFndrLnk display={showSpaFndrLnk} />
           <SmNavbar />
           <Logo />
           {!!showSearch && <ProductSearch />}
           <LgNavbar />
           {children}
           <Footer />
+          <SpaFndrLnk display={showSpaFndrLnk} />
         </main>
       </div>
     </>

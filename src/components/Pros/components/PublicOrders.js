@@ -25,7 +25,6 @@ const PublicOrders = ({ className }) => {
           If you have a login,{' '}
           <a
             href={'https://portal.nowcommerce.com/custsignin.aspx?ID=99867'}
-            className="poppy"
             target={'_blank'}
             rel="noreferrer"
             tabIndex={0}
@@ -34,7 +33,7 @@ const PublicOrders = ({ className }) => {
         </p>
 
         {/* EMAIL - GET ACCESS TO ORDER */}
-        <p className="italic">
+        <p className="">
           If you need a login to place online orders contact us -{' '}
           <BasicEmail block={true} subject="I need Online Ordering Access" />
         </p>
@@ -48,6 +47,9 @@ const StyledDiv = styled.div`
   & {
     background: var(--offWhite);
     text-align: center;
+    & p{
+      color: var(--darkest);
+    }
   }
 `
 

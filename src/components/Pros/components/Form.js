@@ -41,7 +41,7 @@ const Form = ({ className }) => {
         }}
       >
         <label className={'form-label'}>
-          <span className="astrisk">*</span>
+          <span className="astrisk poppy9">*</span>
           USERNAME
           <input
             className={'form-input'}
@@ -66,7 +66,11 @@ const Form = ({ className }) => {
             required
           />
         </label>
-        <input className={'form-button btn bold'} type="submit" value="Log In" />
+        <input
+          className={'form-button btn bold'}
+          type="submit"
+          value="Log In"
+        />
       </form>
     </StyledDiv>
   )
@@ -78,7 +82,6 @@ const StyledDiv = styled.div`
     & .login-instructions {
       padding-block-end: 1rem;
       & a {
-        color: var(--poppy);
         padding-inline: 3px;
       }
     }
@@ -102,7 +105,6 @@ const StyledDiv = styled.div`
         margin-block: 0.25rem;
         text-align: left;
         > span.astrisk {
-          color: var(--poppy);
           position: relative;
           top: 4px;
         }
