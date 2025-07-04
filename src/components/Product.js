@@ -133,7 +133,7 @@ export default styled(Product)`
       margin: 0 0;
       padding: 0 0;
       text-align: left;
-
+      line-height: normal;
       & .product-badges {
         display: contents;
         & .product-name {
