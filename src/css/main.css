@@ -45,7 +45,6 @@ html {
 body {
   font-family: var(--mainFont);
   font-style: normal;
-  background: var(--mainMcc);
   background-color: var(--mainMcc);
   line-height: var(--bodyLineHeight);
   min-height: 100vh;
@@ -81,8 +80,7 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-  margin: 0.5em 0 0.3em;
-  margin-top: 0;
+  margin: 0.5rem 0 0.3rem;
   text-transform: capitalize;
 }
 
@@ -90,8 +88,8 @@ h1 {
   color: var(--poppy);
   letter-spacing: -1px;
   line-height: var(--headingLineHeight);
-  font-size: 2.6876em;
-  margin: 0 auto 0.3em;
+  font-size: 2.6876rem;
+  margin: 0 auto 0.3rem;
   text-align: center;
 }
 
@@ -130,7 +128,7 @@ main {
   border: 0;
   border-radius: var(--mainRadius);
   margin: 0 auto;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   padding: 0;
   position: relative;
 }
@@ -254,6 +252,9 @@ button {
 .txt-sm {
   font-size: 0.8125rem;
 }
+.letter-0{
+  letter-spacing: 0;
+}
 .pb0 {
   padding-bottom: 0px;
 }
@@ -286,52 +287,49 @@ button {
     padding: 0.1rem 0.7rem;
   }
   h1 {
-    text-align: center;
     margin: unset !important;
     padding: unset !important;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
   }
-  /*p {
-    text-overflow: clip;
-    overflow: scroll;
-    white-space: nowrap;
-    min-width: 100%;
-    max-width: -webkit-fill-available;
-  }*/
-
 }
+
 @media screen and (min-width: 321px) and (max-width: 480px) {
   div#content {
     border-radius: 15px;
     padding: 0.1rem 1.1rem;
   }
 }
+
 @media screen and (min-width: 481px) and (max-width: 719px) {
   div#content {
     border-radius: 1.5625rem;
     padding: 0.1rem 2.2rem;
   }
 }
+
 @media screen and (min-width: 720px) and (max-width: 1239px) {
   div#content {
     border-radius: 1.5625rem;
     padding: 0.1rem 2.5rem;
   }
 }
+
 @media screen and (min-width: 1240px) {
   div#content {
     border-radius: var(--mainRadius);
     padding: 0.1rem 3.2rem;
   }
 }
+
 @media screen and (max-width: 720px) {
   #announcement {
     min-height: 0;
     display: none;
   }
 }
+
 @media screen and (min-width: 721px) {
   #announcement {
     min-height: 40px;

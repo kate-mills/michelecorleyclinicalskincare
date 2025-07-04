@@ -1,18 +1,24 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import { GlobalLayout, Article, Seo } from '../components'
+import { GlobalLayout, ListItemImg, Seo } from '../components'
 
-export default function ArticlesPage({ data:{allAirtable:{articles}} }) {
+export default function ArticlesPage({
+  data: {
+    allAirtable: { nodes },
+  },
+}) {
   return (
     <GlobalLayout>
       <h1>Articles</h1>
+      <p className="sr-only">
+        Articles by Michele Corly on sensitive skin and various skin conditions,
+        featured in Dermascope magazine.
+      </p>
       <ul className="articles">
-        {
-          articles.map(({ node }) => {
-            return <Article key={node.id} data={node}/>
-          })
-        }
+        {nodes.map(({ id, data }) => {
+          return <ListItemImg key={id} data={data} />
+        })}
       </ul>
     </GlobalLayout>
   )
@@ -24,20 +30,18 @@ export const query = graphql`
       filter: { table: { eq: "MccArticles" } }
       sort: { data: { mcc_id: ASC } }
     ) {
-      articles: edges {
-        node {
-          id
-          data {
-            title
-            summary
-            link
-            image {
-              localFiles {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 518 
-                  )
-                }
+      nodes {
+        id
+        data {
+          summary
+          link
+          linkTxt
+          title
+          alt
+          image {
+            localFiles {
+              childImageSharp {
+                gatsbyImageData(width: 639)
               }
             }
           }
@@ -47,8 +51,11 @@ export const query = graphql`
   }
 `
 
-export const Head = ({location, params, data, pageContext})=> {
-  return <Seo title="Articles Written By Michele Corley"
-    description="Find articles about sensitive skin and various skin conditions by Michele Corley featured in Dermascope magazine."
-  />
+export const Head = ({ location, params, data, pageContext }) => {
+  return (
+    <Seo
+      title="Articles Written By Michele Corley"
+      description="Find articles about sensitive skin and various skin conditions by Michele Corley featured in Dermascope magazine."
+    />
+  )
 }
