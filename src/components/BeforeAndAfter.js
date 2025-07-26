@@ -7,28 +7,30 @@ const BeforeAndAfter = ({
     name,
     notes,
     media: { localFiles },
+    skintype,
     product_list,
-    product_heading,
   },
 }) => {
   let img = localFiles[0]?.childImageSharp?.gatsbyImageData
   return (
     <StyledLi>
-      <div className={'col'}>
+      <div className={'col media'}>
         <figure>
           <GatsbyImage
             image={img}
-            alt={`Before and after of Michele Corley client using ${product_heading.toLowerCase()}`}
+            alt={`Before and after of Michele Corley client using home care products for ${skintype}.`}
           />
           <figcaption className="txt-sm txt-center">{notes}</figcaption>
         </figure>
       </div>
-      <div className={'col'}>
-        <p className="bold pb0 txt-center">{product_heading}</p>
+      <div className={'col details'}>
+        <p className="bold heading pb0 txt-center txt-narrow">
+          Home care for {skintype}.
+        </p>
         <ul data-bullet-list>
           {[...product_list.split('-').slice(1)].map(product => {
             return (
-              <li key={product.trim()}>
+              <li key={product.trim()} className="txt-sm txt-narrow">
                 <p className="txt-sm">{product.trim()}</p>
               </li>
             )
@@ -45,39 +47,59 @@ const StyledLi = styled.li`
     border-radius: 0.625rem;
     box-shadow: var(--light-shadow);
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     margin-block-end: 1rem;
-    padding-block-end: 5px;
     &:hover {
       box-shadow: var(--dark-shadow);
     }
+
     & .col {
-      align-items: center;
-      display: flex;
-      width: 50%;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-content: center;
+      &.media {
+        background: var(--offWhite);
+        width: 40%;
+        min-width: 40%;
+        figcaption {
+          line-height: normal;
+          white-space: normal;
+        }
+      }
+      &.details {
+        align-self: center;
+        justify-items: anchor-center;
+        max-width: 100%;
+        width: 60%;
+
+        > p.heading {
+          color: var(--poppy);
+          width: 80%;
+          line-height: 1.4;
+        }
+
+        ul[data-bullet-list] {
+          li {
+            line-height: normal;
+            white-space: normal;
+            p {
+              margin-block: 0;
+              padding-block-end: 0;
+            }
+          }
+        }
+      }
       .gatsby-image-wrapper {
         border-radius: 0.425rem 0 0 0;
       }
-      figcaption {
-        line-height: normal;
-        width: 99%;
-      }
-      p.bold.pb0 {
-        width: 95%;
-      }
-      ul[data-bullet-list] {
-        p {
-          margin-block: 0;
-          padding-block-end: 0;
-        }
-      }
     }
-    @media (max-width: 800px) {
+
+    @media (max-width: 750px) {
       & .col {
-        width: 100%;
+        &.media,
+        &.details {
+          width: 100%;
+          > p.heading {
+            padding-block-start: 1rem;
+          }
+        }
         .gatsby-image-wrapper {
           border-radius: 0.425rem 0.425rem 0 0;
         }

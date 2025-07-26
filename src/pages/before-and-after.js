@@ -7,7 +7,7 @@ export default function BeforeAndAfterPage({ data }) {
   return (
     <GlobalLayout>
       <h1>Before & After</h1>
-      <p style={{ paddingBottom: 0 }}>
+      <p style={{ paddingBottom: "5px" }}>
         These photos are provided by my dear clients utilizing only Michele
         Corley Clinical Skin Care Products (unless noted). The results were
         achieved by using proper home care product daily and most clients also
@@ -41,13 +41,13 @@ export const query = graphql`
             localFiles {
               childImageSharp {
                 gatsbyImageData(
-                  width: 1000
+                  width: 750 
                 )
               }
             }
           }
+          skintype
           product_list
-          product_heading
         }
       }
     }

@@ -232,7 +232,7 @@ button {
 /* =============== Utility classes =============== */
 
 .bold {
-  font-weight: 600;
+  font-weight: 550;
 }
 .italic {
   font-style: italic;
@@ -278,7 +278,9 @@ button {
 .br {
   border-radius: 1rem;
 }
-
+.txt-narrow {
+  letter-spacing: -0.029em;
+}
 /* =============== END utility classes =============== */
 
 @media screen and (max-width: 320px) {
