@@ -8,6 +8,7 @@ const BeforeAndAfter = ({
     notes,
     media: { localFiles },
     skintype,
+    product_heading,
     product_list,
   },
 }) => {
@@ -25,7 +26,7 @@ const BeforeAndAfter = ({
       </div>
       <div className="col details">
         <p className="heading bold pb0 txt-center txt-narrow">
-          Home care for {skintype}.
+          {product_heading}
         </p>
         <ul data-bullet-list>
           {[...product_list.split('-').slice(1)].map(product => {

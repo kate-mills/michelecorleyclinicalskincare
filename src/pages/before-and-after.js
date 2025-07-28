@@ -46,6 +46,7 @@ export const query = graphql`
               }
             }
           }
+          product_heading
           skintype
           product_list
         }
