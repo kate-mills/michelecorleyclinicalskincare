@@ -18,6 +18,7 @@ const ProductImageTemplate = props => {
   const backFn = state?.id ? goBack : goHome
   const retailOrProText = `${product.proOnly ? 'Pro' : 'Retail'}-size`
 
+
   return (
     <div className={`${className}`}>
       <div className={`top-bar ${!product?.imgTravel && 'short'}`}>
@@ -53,7 +54,7 @@ const ProductImageTemplate = props => {
         {product?.imgTravel && (
           <div className="img-box travel-box">
             <a
-              href={product?.imgTravel?.localFile?.publicURL}
+              href={product?.imgTravel?.publicUrl}
               className="btn"
               download={`Travel-size ${product.name}`}
             >
@@ -68,7 +69,7 @@ const ProductImageTemplate = props => {
         )}
         <div className="img-box">
           <a
-            href={product?.imgRetail?.localFile?.publicURL}
+            href={product?.imgRetail?.publicUrl}
             className="btn"
             download={`${retailOrProText} ${product?.name}`}
           >
