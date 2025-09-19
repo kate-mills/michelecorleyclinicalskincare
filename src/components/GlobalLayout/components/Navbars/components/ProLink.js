@@ -3,27 +3,27 @@ import { Link } from 'gatsby'
 import { navigate } from '@reach/router'
 import { isLoggedIn, logout } from '../../../../../utils/auth'
 
-const ProLink = () => {
+const ProLink = ({ ariaCurrent = '' }) => {
   return (
-    <li className={'top-li'}>
+    <li className={'top-li'} id="pro-link">
       {isLoggedIn() ? (
-        <span>
-          <Link className="pros" to="/pros/manuals/">
-            PROFESSIONALS
+        <span className="logged-in">
+          <Link to="/pros/manuals/" aria-current={ariaCurrent}>
+            PROS
           </Link>
-          <Link id="pros-logout" className={'pros'} to="/pros/login/"
-            onClick=
-            {event => {
+          <Link
+            to="/pros/login/"
+            onClick={event => {
               event.preventDefault()
               logout(() => navigate(`/pros/login/`))
-            }}>LOGOUT
+            }}
+          >
+            LOGOUT
           </Link>
         </span>
       ) : (
-        <span className={'span'}>
-          <Link className="pros" to="/pros/login/">
-            PROFESSIONALS
-          </Link>
+        <span>
+          <Link to="/pros/login/">PROFESSIONALS</Link>
         </span>
       )}
     </li>

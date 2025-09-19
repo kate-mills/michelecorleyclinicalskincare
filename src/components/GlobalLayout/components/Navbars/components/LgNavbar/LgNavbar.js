@@ -6,7 +6,6 @@ import ProLink from '../ProLink'
 
 import { links } from '../links'
 
-
 const LiMenu = ({ name, subMenu }) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
 
@@ -30,7 +29,7 @@ const LiMenu = ({ name, subMenu }) => {
   )
 }
 
-const LgNavbar = ({ className }) => {
+const LgNavbar = ({ className, isPro }) => {
   return (
     <div className={`${className}`}>
       <nav id="desktop-navigation">
@@ -44,7 +43,7 @@ const LgNavbar = ({ className }) => {
               </li>
             )
           })}
-          <ProLink/>
+          <ProLink ariaCurrent={!!isPro ? 'page' : ''} />
         </ul>
       </nav>
     </div>
@@ -61,6 +60,24 @@ export default styled(LgNavbar)`
       justify-content: space-evenly;
       & li.top-li {
         position: relative;
+        &#pro-link {
+          span {
+            &.logged-in {
+              position: relative;
+              right: 5px;
+              > a {
+                display: inline-block;
+                &:last-child {
+                  &::before {
+                    content: '/';
+                    position: absolute;
+                    left: -5px;
+                  }
+                }
+              }
+            }
+          }
+        }
         & a,
         & button {
           border: 3px solid transparent;
@@ -80,20 +97,6 @@ export default styled(LgNavbar)`
           &:focus-within,
           &:focus {
             outline-offset: -2px;
-          }
-          &.pros {
-            display: inline;
-            &#pros-logout {
-              position: relative;
-              &:hover {
-                color: var(--poppy);
-              }
-              &::before{
-                position: absolute;
-                left: -6px;
-                content: '/';
-              }
-            }
           }
         }
         > ul {
