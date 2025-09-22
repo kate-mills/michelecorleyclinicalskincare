@@ -5,20 +5,21 @@ import { isLoggedIn, logout } from '../../../../../utils/auth'
 
 const ProLink = ({ ariaCurrent = '' }) => {
   return (
-    <li className={'top-li'} id="pro-link">
+    <li className={'top-li'} id="pro-li">
       {isLoggedIn() ? (
-        <span className="logged-in">
+        <span>
           <Link to="/pros/manuals/" aria-current={ariaCurrent}>
-            PROS
+            PROFESSIONALS
           </Link>
           <Link
+            id="logout"
             to="/pros/login/"
             onClick={event => {
               event.preventDefault()
               logout(() => navigate(`/pros/login/`))
             }}
           >
-            LOGOUT
+            PRO LOGOUT
           </Link>
         </span>
       ) : (

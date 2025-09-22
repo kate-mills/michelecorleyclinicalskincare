@@ -60,21 +60,19 @@ export default styled(LgNavbar)`
       justify-content: space-evenly;
       & li.top-li {
         position: relative;
-        &#pro-link {
-          span {
-            &.logged-in {
-              position: relative;
-              right: 5px;
-              > a {
-                display: inline-block;
-                &:last-child {
-                  &::before {
-                    content: '/';
-                    position: absolute;
-                    left: -5px;
-                  }
-                }
-              }
+        &#pro-li {
+          #logout {
+            background: rgb(242 242 242);
+            display: none;
+            position: absolute;
+            width: 100%;
+          }
+          &:hover,
+          &:focus-visible,
+          &:focus-within,
+          &:focus {
+            #logout {
+              display: block;
             }
           }
         }
@@ -113,7 +111,7 @@ export default styled(LgNavbar)`
           }
         }
         &:hover {
-          > ul {
+          ul {
             display: block;
           }
         }
