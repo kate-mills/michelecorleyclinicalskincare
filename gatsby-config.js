@@ -72,11 +72,6 @@ module.exports = {
             mapping: { media: `fileNode` },
           },
           {
-            baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,
-            tableName: `Classes`,
-            mapping: { image: `fileNode` },
-          },
-          {
             baseId: process.env.GATSBY_AIRTABLE_MARKETING_BASE_ID,
             tableName: `RaveReviews`,
           },
