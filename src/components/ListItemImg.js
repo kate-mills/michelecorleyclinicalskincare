@@ -32,7 +32,7 @@ const ListItemImg = ({
             className={'letter-0 txt-sm btn'}
             title={title}
           >
-            {linkTxt}
+            {`Read More Here`}
           </Link>
         )}
       </div>

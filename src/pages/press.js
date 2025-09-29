@@ -29,7 +29,7 @@ export const query = graphql`
   {
     allAirtable(
       filter: { table: { eq: "Press" } }
-      sort: { data: { sortOrder: DESC } }
+      sort: { data: { mcc_id: DESC } }
     ) {
       nodes {
         id
