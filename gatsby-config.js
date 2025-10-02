@@ -62,11 +62,10 @@ module.exports = {
         concurrency: 5,
         tables: [
           {
-            baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,
-            tableName: `MccArticles`,
+            baseId: process.env.GATSBY_AIRTABLE_PAGES_BASE_ID,
+            tableName: `Articles`,
             mapping: { image: `fileNode` },
           },
-          /*{ baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID, tableName: `BeforeAfter`, mapping: { media: `fileNode` }, },*/
           {
             baseId: process.env.GATSBY_AIRTABLE_PAGES_BASE_ID,
             tableName: `RaveReviews`,

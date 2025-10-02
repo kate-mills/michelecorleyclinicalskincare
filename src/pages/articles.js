@@ -27,7 +27,7 @@ export default function ArticlesPage({
 export const query = graphql`
   {
     allAirtable(
-      filter: { table: { eq: "MccArticles" } }
+      filter: { table: { eq: "Articles" } }
       sort: { data: { mcc_id: DESC } }
     ) {
       nodes {
