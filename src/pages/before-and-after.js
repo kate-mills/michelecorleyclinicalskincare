@@ -28,13 +28,12 @@ export const query = graphql`
   {
     allAirtable(
       filter: { table: { eq: "BeforeAfter" } }
-      sort: { data: { name: ASC } }
+      sort: { data: { mcc_id: DESC } }
     ) {
       nodes {
         id
         data {
-          name
-          notes
+          summary 
           media {
             localFiles {
               childImageSharp {
@@ -42,9 +41,9 @@ export const query = graphql`
               }
             }
           }
-          product_heading
+          title
           skintype
-          product_list
+          productList
         }
       }
     }

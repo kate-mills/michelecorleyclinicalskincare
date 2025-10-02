@@ -4,12 +4,11 @@ import styled from 'styled-components'
 
 const BeforeAndAfter = ({
   data: {
-    name,
-    notes,
+    summary,
     media: { localFiles },
     skintype,
-    product_heading,
-    product_list,
+    title,
+    productList,
   },
 }) => {
   let img = localFiles[0]?.childImageSharp?.gatsbyImageData
@@ -21,15 +20,15 @@ const BeforeAndAfter = ({
             image={img}
             alt={`Before and after of Michele Corley client using home care products for ${skintype}.`}
           />
-          <figcaption className="txt-sm txt-center">{notes}</figcaption>
+          <figcaption className="txt-sm txt-center">{summary}</figcaption>
         </figure>
       </div>
       <div className="col details">
         <p className="heading bold pb0 txt-center txt-narrow">
-          {product_heading}
+          {title}
         </p>
         <ul data-bullet-list>
-          {[...product_list.split('-').slice(1)].map(product => {
+          {[...productList.split('-').slice(1)].map(product => {
             return (
               <li key={product.trim()} className="txt-sm txt-narrow">
                 <p className="txt-sm">{product.trim()}</p>

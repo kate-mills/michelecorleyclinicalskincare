@@ -66,11 +66,7 @@ module.exports = {
             tableName: `MccArticles`,
             mapping: { image: `fileNode` },
           },
-          {
-            baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID,
-            tableName: `BeforeAfter`,
-            mapping: { media: `fileNode` },
-          },
+          /*{ baseId: process.env.GATSBY_AIRTABLE_EDUCATION_BASE_ID, tableName: `BeforeAfter`, mapping: { media: `fileNode` }, },*/
           {
             baseId: process.env.GATSBY_AIRTABLE_PAGES_BASE_ID,
             tableName: `RaveReviews`,
@@ -79,6 +75,11 @@ module.exports = {
             baseId: process.env.GATSBY_AIRTABLE_PAGES_BASE_ID,
             tableName: `Press`,
             mapping: { image: `fileNode` },
+          },
+          {
+            baseId: process.env.GATSBY_AIRTABLE_PAGES_BASE_ID,
+            tableName: `BeforeAfter`,
+            mapping: { media: `fileNode` },
           },
           {
             baseId: process.env.GATSBY_AIRTABLE_PROFESSIONALS_BASE_ID,
