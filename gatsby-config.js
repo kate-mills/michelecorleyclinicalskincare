@@ -72,11 +72,11 @@ module.exports = {
             mapping: { media: `fileNode` },
           },
           {
-            baseId: process.env.GATSBY_AIRTABLE_MARKETING_BASE_ID,
+            baseId: process.env.GATSBY_AIRTABLE_PAGES_BASE_ID,
             tableName: `RaveReviews`,
           },
           {
-            baseId: process.env.GATSBY_AIRTABLE_MARKETING_BASE_ID,
+            baseId: process.env.GATSBY_AIRTABLE_PAGES_BASE_ID,
             tableName: `Press`,
             mapping: { image: `fileNode` },
           },
