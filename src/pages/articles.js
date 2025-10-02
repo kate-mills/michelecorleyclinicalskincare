@@ -28,7 +28,7 @@ export const query = graphql`
   {
     allAirtable(
       filter: { table: { eq: "MccArticles" } }
-      sort: { data: { date: DESC } }
+      sort: { data: { mcc_id: DESC } }
     ) {
       nodes {
         id
