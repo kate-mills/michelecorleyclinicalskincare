@@ -16,7 +16,6 @@ export const useSpaData = () => {
             airtable_id: id
             data {
               spaid
-              contact
               email
               url
               name
