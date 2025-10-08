@@ -98,7 +98,7 @@ const PageWrapper = styled.section`
       width: 100%;
     }
     & .contact-img-container aside {
-      display: none !important;
+      flex-wrap: wrap-reverse;
     }
     & .flex-col .flex-item-1 .contact-img-container {
       margin: 0 auto;
