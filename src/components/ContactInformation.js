@@ -39,34 +39,40 @@ const ContactInfo = () => {
     <Wrapper>
       <div className="txt-center">
         <h3>Get in touch</h3>
-        <div>
-          <span>Monday</span>
-          <span>{`-`}</span>
-          <span>Friday</span>
-          <span>{`: `}</span>
-          <time dateTime="09:00">9AM</time>
-          <span>{`-`}</span>
-          <time dateTime="16:00">4PM</time> EST
+          <div className="txt-sm italic">Eastern Standard Time</div>
+        <div className="grid-container">
+          <div className="grid-item key">Monday-Thursday:</div>
+          <div className="grid-item">
+            <span dateTime="09:00">{`9AM`}</span>
+            <span>{` - `}</span>
+            <span dateTime="16:00">{` 4PM`}</span>
+          </div>
+          <div className="grid-item key">Friday:</div>
+          <div className="grid-item">
+            <span dateTime="09:00">{`9AM`}</span>
+            <span>{` - `}</span>
+            <span dateTime="12:00">{`12PM`}</span>
+          </div>
         </div>
       </div>
       <div className="grid-container">
-        <div className="grid-item bold space-r key">Phone:</div>
+        <div className="grid-item bold key">Phone:</div>
         <div className="grid-item">
           <Phone />
         </div>
-        <div className="grid-item space-r bold key">Email:</div>
+        <div className="grid-item bold key">Email:</div>
         <div className="grid-item">
           <UnformattedEmail />
         </div>
-        <div className="grid-item space-r bold key">Address:</div>
+        <div className="grid-item bold key">{`Address: `}</div>
         <div className="grid-item">
           <address>
             <span>{`${street} `}</span>
-            <span className="space-l">{`${suite}`}</span>
+            <span>{`${suite}`}</span>
             <br />
-            <span>{city}</span>
-            <span className="space-l">{state}</span>
-            <span className="space-l">{zip}</span>
+            <span>{city}, </span>
+            <span>{state} </span>
+            <span>{zip}</span>
           </address>
         </div>
       </div>
@@ -82,11 +88,11 @@ const Wrapper = styled.aside`
     padding: 5px 0;
 
     & .txt-center {
-      margin-bottom: 5px;
+      margin-bottom: 1rem;
       padding: 1em 0 0.1em;
       text-align: center;
-      & span {
-        padding-inline: 3px;
+      & .grid-container {
+        justify-items: end;
       }
     }
     & .grid-container {
@@ -100,6 +106,7 @@ const Wrapper = styled.aside`
     }
     & .grid-item {
       &.key {
+        padding-inline-end: 5px;
         text-align: right;
       }
     }
