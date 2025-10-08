@@ -243,7 +243,7 @@ button {
 .poppy {
   color: var(--poppy);
 }
-.poppy9{
+.poppy9 {
   color: var(--poppy9);
 }
 .txt-center {
@@ -252,7 +252,7 @@ button {
 .txt-sm {
   font-size: 0.8125rem;
 }
-.letter-0{
+.letter-0 {
   letter-spacing: 0;
 }
 .pb0 {
@@ -265,12 +265,6 @@ button {
   height: 1px;
   top: auto;
   overflow: hidden;
-}
-.space-l {
-  padding-inline-start: 5px;
-}
-.space-r {
-  padding-inline-end: 5px;
 }
 .serif {
   font-family: Times, serif !important;
