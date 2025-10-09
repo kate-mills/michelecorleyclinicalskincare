@@ -53,6 +53,7 @@ const StyledLi = styled.li`
     }
     & .gatsby-image-wrapper {
       border-radius: 10px 0px 0px 10px;
+      border-right: 1px solid var(--mainMcc);
     }
     & .col {
       width: 50%;
@@ -75,6 +76,7 @@ const StyledLi = styled.li`
       flex-direction: column;
       & .gatsby-image-wrapper {
         border-radius: 10px 10px 0px 0px;
+        border-right: none;
       }
       & .col {
         width: 100%;
