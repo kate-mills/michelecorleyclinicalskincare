@@ -63,10 +63,10 @@ const Search = () => {
       </form>
       <table className={'search__table'}>
         {queryResults.length ? (
-          <thead className={'search__thead'}>
+          <thead>
             <tr>
               <th className={'search__th'}>
-                Products found: {queryResults.length}
+                Found: {queryResults.length}
               </th>
               <th className={'search__th'}>Category</th>
             </tr>
@@ -101,6 +101,7 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
+    padding-block-end: 2rem;
     form input {
       font-family: var(--mainFont);
       letter-spacing: normal;
@@ -119,72 +120,45 @@ const StyledProductSearch = styled.div`
       padding: 12px 20px 12px 40px;
       transition: width 0.4s ease-in-out;
       -webkit-transition: width 0.4s ease-in-out;
-      min-width: 25%;
-      width: 130px;
+      width: 205px;
+      max-width: 100%;
+
+      &:active,
+      &:focus {
+        width: 500px;
+        max-width: 100%;
+        border: 2px solid var(--poppy);
+      }
     }
 
-    .search__form__input:active,
-    .search__form__input:focus {
-      width: 85%;
-      border: 2px solid var(--poppy);
-    }
     .search__table {
-      border: 1px solid var(--mainWhite);
+      border: none;
       border-collapse: collapse;
-      border-radius: 4px;
       margin: 0 auto;
-      width: 85%;
-    }
-    .search__thead {
-      border: 1px solid var(--mainWhite);
+      width: 550px;
+      max-width: 100%;
     }
     .search__th {
       text-align: left;
-      padding: 10px;
+      padding: 0.5rem;
       border-bottom: 2px solid var(--mainBlack);
     }
-    .search__th:nth-child(2) {
-      text-align: right;
-      padding-right: 20px;
-    }
-    .search__td:nth-child(2) {
-      text-align: right;
-    }
     .search__td {
-      padding: 5px;
-      border: 1px solid var(--mainWhite);
-    }
-    .search__td > a {
-      text-decoration: none;
-    }
-    .search__td > a:focus {
-      background-color: var(--offWhite);
-      color: var(--poppyLow);
-    }
-
-    .search__flex {
-      margin: 0 auto;
-      display: flex;
-    }
-    @media screen and (max-width: 767px) {
-      .search__table,
-      .search__form__input:active,
-      .search__form__input:focus {
-        width: 85%;
+      padding-block: 0.5rem;
+      line-height: 1.2;
+      & {
+        padding-inline-start: 0.5rem; 
+        padding-inline-end: 0;
       }
-      .search__th:nth-child(2) {
-        padding-right: 10px;
+      > a {
+        text-decoration: underline;
       }
     }
     @media screen and (max-width: 500px) {
       .search__table,
       .search__form__input:active,
       .search__form__input:focus {
-        width: 100%;
-        margin: 0 auto;
-      }
-      .search__th:nth-child(2) {
-        padding-right: 5px;
+        /*width: 100%;*/
       }
     }
   }
