@@ -37,35 +37,28 @@ const ContactInfo = () => {
 
   return (
     <Wrapper>
-      <div className="txt-center">
-        <h3>Get in touch</h3>
-          <div className="txt-sm italic">Eastern Standard Time</div>
+      <h3 className="txt-center">Get in touch</h3>
+      <div className="txt-center hours">
+        <Phone />
         <div className="grid-container">
-          <div className="grid-item key">Monday-Thursday:</div>
+          <div className="grid-item bold">M-Th:</div>
           <div className="grid-item">
             <span dateTime="09:00">{`9AM`}</span>
             <span>{` - `}</span>
-            <span dateTime="16:00">{` 4PM`}</span>
+            <span dateTime="16:00">{` 4PM EST`}</span>
           </div>
-          <div className="grid-item key">Friday:</div>
+          <div className="grid-item bold">Fri:</div>
           <div className="grid-item">
             <span dateTime="09:00">{`9AM`}</span>
             <span>{` - `}</span>
-            <span dateTime="12:00">{`12PM`}</span>
+            <span dateTime="12:00">{`12PM EST`}</span>
           </div>
         </div>
       </div>
-      <div className="grid-container">
-        <div className="grid-item bold key">Phone:</div>
-        <div className="grid-item">
-          <Phone />
-        </div>
-        <div className="grid-item bold key">Email:</div>
-        <div className="grid-item">
-          <UnformattedEmail />
-        </div>
-        <div className="grid-item bold key">{`Address: `}</div>
-        <div className="grid-item">
+
+      <div className="flex col">
+        <UnformattedEmail />
+        <div>
           <address>
             <span>{`${street} `}</span>
             <span>{`${suite}`}</span>
@@ -85,30 +78,35 @@ const Wrapper = styled.aside`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    padding: 5px 0;
-
-    & .txt-center {
+    padding: 0 0 0.75rem;
+    & .hours {
       margin-bottom: 1rem;
-      padding: 1em 0 0.1em;
-      text-align: center;
-      & .grid-container {
-        justify-items: end;
-      }
     }
     & .grid-container {
       display: grid;
       grid-template-columns: auto auto;
       grid-template-rows: auto;
       justify-content: center;
-      justify-items: start;
+      justify-items: center;
       margin: 0 auto;
       width: 100%;
-    }
-    & .grid-item {
-      &.key {
+
+      & .grid-item.bold {
         padding-inline-end: 5px;
-        text-align: right;
       }
+    }
+    & .flex.col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    & a.email {
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 80vw;
     }
   }
 `
