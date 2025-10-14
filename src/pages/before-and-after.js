@@ -16,8 +16,8 @@ export default function BeforeAndAfterPage({ data }) {
         with cellular phones.
       </p>
       <ul className="before-and-afters">
-        {data.allAirtable.nodes.map(({ id, data }) => {
-          return <BeforeAndAfter key={id} data={data} />
+        {data.allAirtable.nodes.map(({ id, data }, idx) => {
+          return <BeforeAndAfter key={id} data={data} idx={idx}/>
         })}
       </ul>
     </GlobalLayout>

@@ -17,8 +17,8 @@ export default function PressPage({
         through licensed skincare professionals.
       </p>
       <ul>
-        {nodes.map(({ id, data }) => {
-          return <ListItemImg key={id} data={data}/>
+        {nodes.map(({ id, data }, idx) => {
+          return <ListItemImg key={id} data={data} idx={idx} />
         })}
       </ul>
     </GlobalLayout>

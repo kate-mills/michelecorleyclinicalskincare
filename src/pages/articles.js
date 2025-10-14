@@ -16,8 +16,8 @@ export default function ArticlesPage({
         featured in Dermascope magazine.
       </p>
       <ul className="articles">
-        {nodes.map(({ id, data }) => {
-          return <ListItemImg key={id} data={data} />
+        {nodes.map(({ id, data }, idx) => {
+          return <ListItemImg key={id} data={data} idx={idx}/>
         })}
       </ul>
     </GlobalLayout>
