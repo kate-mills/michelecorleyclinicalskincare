@@ -162,10 +162,8 @@ const StyledProductSearch = styled.div`
       color: var(--poppyLow);
     }
 
-    .search__flex {
-      margin: 0 auto;
-      display: flex;
-    }
+    /*.search__flex { margin: 0 auto; display: flex; }*/
+
     @media screen and (max-width: 767px) {
       .search__table,
       .search__form__input:active,
@@ -181,7 +179,6 @@ const StyledProductSearch = styled.div`
       .search__form__input:active,
       .search__form__input:focus {
         width: 100%;
-        margin: 0 auto;
       }
       .search__th:nth-child(2) {
         padding-right: 5px;
