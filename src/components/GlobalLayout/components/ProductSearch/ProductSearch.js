@@ -161,9 +161,6 @@ const StyledProductSearch = styled.div`
       background-color: var(--offWhite);
       color: var(--poppyLow);
     }
-
-    /*.search__flex { margin: 0 auto; display: flex; }*/
-
     @media screen and (max-width: 767px) {
       .search__table,
       .search__form__input:active,
