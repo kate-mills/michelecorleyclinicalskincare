@@ -49,7 +49,7 @@ const Search = () => {
   const queryResults = searchQuery === '' ? [] : searchResults
   return (
     <StyledProductSearch>
-      <form onSubmit={handleSubmit} className={'search__form'}>
+      <form onSubmit={handleSubmit}>
         <input
           aria-label="Search"
           autoComplete="off"
@@ -57,18 +57,17 @@ const Search = () => {
           onChange={searchData}
           placeholder="Search Products..."
           type="text"
-          className={'search__form__input'}
           value={searchQuery}
         />
       </form>
-      <table className={'search__table'}>
+      <table>
         {queryResults.length ? (
-          <thead className={'search__thead'}>
+          <thead>
             <tr>
-              <th className={'search__th'}>
+              <th>
                 Products found: {queryResults.length}
               </th>
-              <th className={'search__th'}>Category</th>
+              <th>Category</th>
             </tr>
           </thead>
         ) : (
@@ -78,10 +77,10 @@ const Search = () => {
           {queryResults.map(item => {
             return (
               <tr key={`row_${item.contentful_id}`}>
-                <td className={'search__td'}>
+                <td>
                   <Link to={`/products/${item.slug}`}>{item.name}</Link>
                 </td>
-                <td className={'search__td'}>
+                <td>
                   {item.category.indexOf(' ') === -1 ? (
                     <Link to={`/${item.category}`}>{item.category}</Link>
                   ) : (
@@ -162,7 +161,7 @@ const StyledProductSearch = styled.div`
       table,
       form input:active,
       form input:focus {
-        width: 100%;
+        /*width: 100%;*/
       }
     }
   }
