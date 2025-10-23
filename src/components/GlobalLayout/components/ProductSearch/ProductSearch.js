@@ -64,9 +64,7 @@ const Search = () => {
         {queryResults.length ? (
           <thead>
             <tr>
-              <th>
-                Products found: {queryResults.length}
-              </th>
+              <th>Products found: {queryResults.length}</th>
               <th>Category</th>
             </tr>
           </thead>
@@ -100,7 +98,6 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
-
     form {
       input {
         font-family: var(--mainFont);
@@ -156,12 +153,20 @@ const StyledProductSearch = styled.div`
       }
     }
 
-    @media screen and (max-width: 767px) {}
+    @media screen and (max-width: 767px) {
+    }
     @media screen and (max-width: 500px) {
-      table,
-      form input:active,
-      form input:focus {
-        /*width: 100%;*/
+      table {
+        width: 100%;
+      }
+
+      form {
+        input {
+          &:active,
+          &:focus {
+            width: 100%;
+          }
+        }
       }
     }
   }
