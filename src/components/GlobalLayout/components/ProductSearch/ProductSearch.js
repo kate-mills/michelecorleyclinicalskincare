@@ -99,7 +99,7 @@ const Search = () => {
 const StyledProductSearch = styled.div`
   & {
     form {
-      input {
+      & input {
         font-family: var(--mainFont);
         letter-spacing: normal;
 
@@ -118,6 +118,7 @@ const StyledProductSearch = styled.div`
         -webkit-transition: width 0.4s ease-in-out;
         min-width: 25%;
         width: 130px;
+
         &:active,
         &:focus {
           width: 85%;
