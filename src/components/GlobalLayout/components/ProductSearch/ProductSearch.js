@@ -156,18 +156,9 @@ const StyledProductSearch = styled.div`
     @media screen and (max-width: 767px) {
     }
     @media screen and (max-width: 500px) {
-      table {
-        width: 100%;
-      }
+      /*table { width: 85%; }*/
 
-      form {
-        input {
-          &:active,
-          &:focus {
-            width: 100%;
-          }
-        }
-      }
+      /*form { input { &:active, &:focus { width: 100%; } } }*/
     }
   }
 `
