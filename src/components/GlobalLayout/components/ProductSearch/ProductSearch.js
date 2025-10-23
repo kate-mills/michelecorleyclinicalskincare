@@ -114,14 +114,13 @@ const StyledProductSearch = styled.div`
         font-size: 0.8rem;
         margin: 20px auto;
         padding: 12px 20px 12px 40px;
-        transition: width 0.4s ease-in-out;
-        -webkit-transition: width 0.4s ease-in-out;
-        min-width: 25%;
-        width: 130px;
+        transition: border 0.4s ease-in-out;
+        -webkit-transition: border 0.4s ease-in-out;
+        min-width: 300px;
+        width: 300px;
 
         &:active,
         &:focus {
-          width: 85%;
           border: 2px solid var(--poppy);
         }
       }
