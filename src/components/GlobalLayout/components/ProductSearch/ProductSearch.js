@@ -101,84 +101,68 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
-    form input {
-      font-family: var(--mainFont);
-      letter-spacing: normal;
-    }
-    .search__form__input {
-      outline: none;
-      background-image: url(/searchicon.png);
-      background-color: white;
-      background-position: 10px 10px;
-      background-repeat: no-repeat;
-      border: 2px solid #ccc;
-      border-radius: 4px;
-      display: block;
-      font-size: 1rem;
-      margin: 20px auto;
-      padding: 12px 20px 12px 40px;
-      transition: width 0.4s ease-in-out;
-      -webkit-transition: width 0.4s ease-in-out;
-      min-width: 25%;
-      width: 130px;
+
+    form {
+      input {
+        font-family: var(--mainFont);
+        letter-spacing: normal;
+
+        outline: none;
+        background-image: url(/searchicon.png);
+        background-color: white;
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        display: block;
+        font-size: 0.8rem;
+        margin: 20px auto;
+        padding: 12px 20px 12px 40px;
+        transition: width 0.4s ease-in-out;
+        -webkit-transition: width 0.4s ease-in-out;
+        min-width: 25%;
+        width: 130px;
+        &:active,
+        &:focus {
+          width: 85%;
+          border: 2px solid var(--poppy);
+        }
+      }
     }
 
-    .search__form__input:active,
-    .search__form__input:focus {
-      width: 85%;
-      border: 2px solid var(--poppy);
-    }
-    .search__table {
+    table {
+      background: var(--poppy0);
       border: 1px solid var(--mainWhite);
       border-collapse: collapse;
       border-radius: 4px;
       margin: 0 auto;
       width: 85%;
-    }
-    .search__thead {
-      border: 1px solid var(--mainWhite);
-    }
-    .search__th {
-      text-align: left;
-      padding: 10px;
-      border-bottom: 2px solid var(--mainBlack);
-    }
-    .search__th:nth-child(2) {
-      text-align: right;
-      padding-right: 20px;
-    }
-    .search__td:nth-child(2) {
-      text-align: right;
-    }
-    .search__td {
-      padding: 5px;
-      border: 1px solid var(--mainWhite);
-    }
-    .search__td > a {
-      text-decoration: none;
-    }
-    .search__td > a:focus {
-      background-color: var(--offWhite);
-      color: var(--poppyLow);
-    }
-    @media screen and (max-width: 767px) {
-      .search__table,
-      .search__form__input:active,
-      .search__form__input:focus {
-        width: 85%;
+      & a {
+        font-size: 0.8rem;
+        &:focus {
+          background-color: var(--offWhite);
+          color: var(--poppyLow);
+        }
       }
-      .search__th:nth-child(2) {
-        padding-right: 10px;
+      & th {
+        border: 1px solid var(--mainWhite);
+        border-bottom: 2px solid var(--mainBlack);
+        padding: 10px 10px 0px 10px;
+        text-align: left;
+      }
+      & td {
+        border: 1px solid var(--mainWhite);
+        padding: 5px 10px 5px 10px;
+        line-height: normal;
       }
     }
+
+    @media screen and (max-width: 767px) {}
     @media screen and (max-width: 500px) {
-      .search__table,
-      .search__form__input:active,
-      .search__form__input:focus {
+      table,
+      form input:active,
+      form input:focus {
         width: 100%;
-      }
-      .search__th:nth-child(2) {
-        padding-right: 5px;
       }
     }
   }
