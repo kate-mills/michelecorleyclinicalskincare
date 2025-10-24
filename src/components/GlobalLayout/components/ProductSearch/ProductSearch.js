@@ -54,6 +54,7 @@ const Search = () => {
           aria-label="Search"
           autoComplete="off"
           id="Search"
+          className="search__input"
           onChange={searchData}
           placeholder="Search Products..."
           type="text"
@@ -98,11 +99,13 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
+    max-width: 100%;
     form {
-      & input {
+      max-width: 100%;
+      & .search__input {
+
         font-family: var(--mainFont);
         letter-spacing: normal;
-
         outline: none;
         background-image: url(/searchicon.png);
         background-color: white;
@@ -114,14 +117,15 @@ const StyledProductSearch = styled.div`
         font-size: 0.8rem;
         margin: 20px auto;
         padding: 12px 20px 12px 40px;
-        transition: border 0.4s ease-in-out;
-        -webkit-transition: border 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        -webkit-transition: width 0.4s ease-in-out;
         min-width: 300px;
         width: 300px;
 
         &:active,
         &:focus {
           border: 2px solid var(--poppy);
+          width: 85%;
         }
       }
     }
@@ -153,13 +157,8 @@ const StyledProductSearch = styled.div`
       }
     }
 
-    @media screen and (max-width: 767px) {
-    }
-    @media screen and (max-width: 500px) {
-      /*table { width: 85%; }*/
-
-      /*form { input { &:active, &:focus { width: 100%; } } }*/
-    }
+    @media screen and (max-width: 767px) {}
+    @media screen and (max-width: 500px) {}
   }
 `
 
