@@ -19,22 +19,36 @@ const Logo = ({ className }) => {
   return (
     <StyledLogo className={className}>
       <Link to="/">
-      <GatsbyImage
-        loading="eager"
-        layout="constrained"
-        image={data.file.childImageSharp.gatsbyImageData}
-        alt="Michele Corley Clinical Skin Care Logo"
-      />
+        <GatsbyImage
+          loading="eager"
+          layout="constrained"
+          image={data.file.childImageSharp.gatsbyImageData}
+          alt="Michele Corley Clinical Skin Care Logo"
+        />
       </Link>
     </StyledLogo>
   )
 }
 
 const StyledLogo = styled.div`
-  max-width: 250px;
-  margin: 1rem auto 0;
-  @media (max-width: 767px) {
-    max-width: 100px;
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5em;
+
+    .gatsby-image-wrapper {
+      max-width: 175px;
+    }
+    a {
+      display: block;
+    }
+
+    @media (max-width: 767px) {
+      .gatsby-image-wrapper {
+        max-width: 125px;
+      }
+    }
   }
 `
 
