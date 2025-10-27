@@ -67,7 +67,9 @@ const Search = () => {
           value={searchQuery}
         />
 
-        {/*<div className="clear__btn"> {!!searchQuery.length && <button onClick={clearSearch}>X</button>} </div>*/}
+        <div className="clear__btn">
+          {!!searchQuery.length && <button onClick={clearSearch}>X</button>}
+        </div>
       </form>
       <table>
         {queryResults.length ? (
@@ -111,9 +113,7 @@ const StyledProductSearch = styled.div`
     font-size: 1rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     justify-content: center;
-    width: 100%;
 
     & form,
     & table {
@@ -122,19 +122,6 @@ const StyledProductSearch = styled.div`
       border-radius: 4px;
       margin: 0 auto;
 
-      /*
-       & div.clear__btn {
-        display: inline-block;
-        width: 36px;
-        button {
-          border: 2px solid #ccc;
-          border-radius: 4px;
-          height: 43px;
-          margin-inline-start: 2px;
-          padding: 5px 10px;
-        }
-      }
-      */
       & .search__input {
         background: #ffffff url(/searchicon.png) no-repeat 10px 10px;
         border: 2px solid #ccc;
@@ -151,6 +138,23 @@ const StyledProductSearch = styled.div`
           border-color: var(--poppy);
         }
       }
+
+      & div.clear__btn {
+        display: inline-block;
+        min-width: 36px;
+
+        > button {
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          height: 43px;
+          margin-inline-start: 2px;
+          outline: none;
+          padding: 5px 10px;
+          &:focus {
+            border-color: var(--poppy);
+          }
+        }
+      }
     }
 
     & table {
@@ -163,6 +167,7 @@ const StyledProductSearch = styled.div`
         text-align: left;
         line-height: 1.2;
       }
+
       & a {
         border-color: transparent;
         display: table-cell;
