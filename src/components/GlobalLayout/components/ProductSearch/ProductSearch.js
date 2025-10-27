@@ -106,17 +106,14 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
-    margin: 0.5em auto 0;
+    margin: 0.5em auto 0px;
 
     form {
       display: flex;
       justify-content: center;
 
       & .search__input {
-        background-image: url(/searchicon.png);
-        background-color: white;
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
+        background: #ffffff url(/searchicon.png) no-repeat 10px 10px; 
         border: 2px solid #ccc;
         border-radius: 4px;
         display: inline-block;
@@ -125,11 +122,9 @@ const StyledProductSearch = styled.div`
         letter-spacing: normal;
         outline: none;
         padding: 12px 20px 12px 40px;
-
         transition: width 0.4s ease-in-out;
         -webkit-transition: width 0.4s ease-in-out;
         width: 195px;
-
         &:active,
         &:focus {
           border-color: var(--poppy);
@@ -144,35 +139,35 @@ const StyledProductSearch = styled.div`
       border-collapse: collapse;
       border-radius: 4px;
       margin: 0 auto;
-      max-width: 75%;
+      width: 687px;
     }
 
     table {
-      background: var(--poppy0);
-      margin-top: 0.5em;
-      width: 100%;
+      background-color: var(--poppy0);
 
       & a,
       & th,
       & td {
-        font-size: 0.8rem;
         border: 1px solid var(--mainWhite);
+        font-size: 0.8rem;
         text-align: left;
         line-height: 1.2;
       }
       & a {
-        display: block;
+        border-color: transparent;
+        display: table-cell;
         padding: 5px 10px;
       }
-
       & th {
         border-bottom: 2px solid var(--mainBlack);
-        padding-inline: 10px;
+        padding: 10px 10px 5px;
       }
     }
     @media screen and (max-width: 767px) {
-    }
-    @media screen and (max-width: 500px) {
+      form,
+      table {
+        width: 100%;
+      }
     }
   }
 `
