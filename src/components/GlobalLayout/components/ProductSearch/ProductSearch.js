@@ -177,6 +177,8 @@ const StyledProductSearch = styled.div`
     @media screen and (max-width: 767px) {
       & form,
       & table {
+        zoom: 0.8 !important;
+
         & .search__input {
         }
       }
