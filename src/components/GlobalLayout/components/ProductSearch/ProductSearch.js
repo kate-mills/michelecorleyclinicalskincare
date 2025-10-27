@@ -37,16 +37,23 @@ const Search = () => {
 
   /** handles the input change and perform a search with js-search in which the results will be added to the state */
 
+  const errClassName = () =>
+    !!searchQuery && queryResults.length < 1
+      ? 'search__input err'
+      : 'search__input'
+
   const searchData = e => {
     const queryResult = search.search(e.target.value)
     setSearchQuery(e.target.value)
     setSearchResults(queryResult)
   }
+
   const handleSubmit = e => {
     e.preventDefault()
   }
 
   const queryResults = searchQuery === '' ? [] : searchResults
+
   return (
     <StyledProductSearch>
       <form onSubmit={handleSubmit}>
@@ -54,7 +61,7 @@ const Search = () => {
           aria-label="Search"
           autoComplete="off"
           id="Search"
-          className="search__input"
+          className={`search__input`}
           onChange={searchData}
           placeholder="Search Products..."
           type="text"
@@ -99,66 +106,74 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
-    max-width: 100%;
-    form {
-      max-width: 100%;
-      & .search__input {
+    margin: 0.5em auto 0;
 
-        font-family: var(--mainFont);
-        letter-spacing: normal;
-        outline: none;
+    form {
+      display: flex;
+      justify-content: center;
+
+      & .search__input {
         background-image: url(/searchicon.png);
         background-color: white;
         background-position: 10px 10px;
         background-repeat: no-repeat;
         border: 2px solid #ccc;
         border-radius: 4px;
-        display: block;
+        display: inline-block;
+        font-family: var(--mainFont);
         font-size: 0.8rem;
-        margin: 20px auto;
+        letter-spacing: normal;
+        outline: none;
         padding: 12px 20px 12px 40px;
+
         transition: width 0.4s ease-in-out;
         -webkit-transition: width 0.4s ease-in-out;
-        min-width: 300px;
-        width: 300px;
+        width: 195px;
 
         &:active,
         &:focus {
-          border: 2px solid var(--poppy);
-          width: 85%;
+          border-color: var(--poppy);
+          width: 100%;
         }
       }
     }
 
+    form,
     table {
-      background: var(--poppy0);
       border: 1px solid var(--mainWhite);
       border-collapse: collapse;
       border-radius: 4px;
       margin: 0 auto;
-      width: 85%;
-      & a {
-        font-size: 0.8rem;
-        &:focus {
-          background-color: var(--offWhite);
-          color: var(--poppyLow);
-        }
-      }
-      & th {
-        border: 1px solid var(--mainWhite);
-        border-bottom: 2px solid var(--mainBlack);
-        padding: 10px 10px 0px 10px;
-        text-align: left;
-      }
-      & td {
-        border: 1px solid var(--mainWhite);
-        padding: 5px 10px 5px 10px;
-        line-height: normal;
-      }
+      max-width: 75%;
     }
 
-    @media screen and (max-width: 767px) {}
-    @media screen and (max-width: 500px) {}
+    table {
+      background: var(--poppy0);
+      margin-top: 0.5em;
+      width: 100%;
+
+      & a,
+      & th,
+      & td {
+        font-size: 0.8rem;
+        border: 1px solid var(--mainWhite);
+        text-align: left;
+        line-height: 1.2;
+      }
+      & a {
+        display: block;
+        padding: 5px 10px;
+      }
+
+      & th {
+        border-bottom: 2px solid var(--mainBlack);
+        padding-inline: 10px;
+      }
+    }
+    @media screen and (max-width: 767px) {
+    }
+    @media screen and (max-width: 500px) {
+    }
   }
 `
 
