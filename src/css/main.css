@@ -281,7 +281,6 @@ button {
   div#content {
     border-radius: 10px;
     padding: 0.1rem 0.7rem;
-    max-width: fit-content;
   }
   h1 {
     margin: unset !important;
