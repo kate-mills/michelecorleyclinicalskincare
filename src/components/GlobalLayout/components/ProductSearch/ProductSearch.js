@@ -108,6 +108,10 @@ const StyledProductSearch = styled.div`
   & {
     margin: 0.5em auto 0;
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
 
     & form,
     & table {
@@ -116,34 +120,27 @@ const StyledProductSearch = styled.div`
       border-radius: 4px;
       margin: 0 auto;
 
-      max-width: 85%;
-      width: 687px;
 
       & .search__input {
         background: #ffffff url(/searchicon.png) no-repeat 10px 10px;
         border: 2px solid #ccc;
         border-radius: 4px;
-        display: block;
         font-family: var(--mainFont);
         font-size: 0.8rem;
         letter-spacing: normal;
-        margin: 0 auto;
         outline: none;
         padding: 12px 20px 12px 40px;
         transition: width 0.4s ease-in-out;
         -webkit-transition: width 0.4s ease-in-out;
-        width: 195px;
-
         &:active,
         &:focus {
           border-color: var(--poppy);
-          width: 100%;
         }
       }
     }
 
     & table {
-      background-color: var(--poppy0);
+      background-color: var(--offWhite);
       & a,
       & th,
       & td {
@@ -162,12 +159,12 @@ const StyledProductSearch = styled.div`
         padding: 10px 10px 5px;
       }
     }
+
     @media screen and (max-width: 767px) {
       & form, & table {
-        width: 85% !important;
-        & .search__input{
-          width: 85%;
-        }
+
+        & .search__input{}
+
       }
     }
   }
