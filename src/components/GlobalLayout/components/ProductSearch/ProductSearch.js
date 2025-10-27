@@ -37,15 +37,14 @@ const Search = () => {
 
   /** handles the input change and perform a search with js-search in which the results will be added to the state */
 
-  const errClassName = () =>
-    !!searchQuery && queryResults.length < 1
-      ? 'search__input err'
-      : 'search__input'
-
   const searchData = e => {
     const queryResult = search.search(e.target.value)
     setSearchQuery(e.target.value)
     setSearchResults(queryResult)
+  }
+
+  const clearSearch = e => {
+    setSearchQuery('')
   }
 
   const handleSubmit = e => {
@@ -67,6 +66,8 @@ const Search = () => {
           type="text"
           value={searchQuery}
         />
+
+        {/*<div className="clear__btn"> {!!searchQuery.length && <button onClick={clearSearch}>X</button>} </div>*/}
       </form>
       <table>
         {queryResults.length ? (
@@ -112,6 +113,7 @@ const StyledProductSearch = styled.div`
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
+    width: 100%;
 
     & form,
     & table {
@@ -120,7 +122,19 @@ const StyledProductSearch = styled.div`
       border-radius: 4px;
       margin: 0 auto;
 
-
+      /*
+       & div.clear__btn {
+        display: inline-block;
+        width: 36px;
+        button {
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          height: 43px;
+          margin-inline-start: 2px;
+          padding: 5px 10px;
+        }
+      }
+      */
       & .search__input {
         background: #ffffff url(/searchicon.png) no-repeat 10px 10px;
         border: 2px solid #ccc;
@@ -161,10 +175,10 @@ const StyledProductSearch = styled.div`
     }
 
     @media screen and (max-width: 767px) {
-      & form, & table {
-
-        & .search__input{}
-
+      & form,
+      & table {
+        & .search__input {
+        }
       }
     }
   }
