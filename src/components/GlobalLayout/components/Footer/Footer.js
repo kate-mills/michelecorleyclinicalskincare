@@ -10,6 +10,7 @@ import {
 const Footer = ({ className }) => {
   return (
     <footer className={className}>
+      <p>Our Products Are Proudly Made In The USA.</p>
       <svg
         id="infinity"
         width="1036"
@@ -82,21 +83,21 @@ const FooterWrapper = styled(Footer)`
       align-items: center;
       display: flex;
       flex-flow: row wrap;
-      font-family: serif;
+      font-family: Times, serif;
       justify-content: center;
+      line-height: normal;
       margin-block: 0;
-      padding-block: 3px;
+      padding-block-end: 0.5rem;
       &.follow-us-on {
         font-family: var(--mainFont);
-        padding-block: 0.5rem 0;
         font-size: 1.5rem;
       }
       & a,
       & span {
-        line-height: 1.2;
+        line-height: normal;
         margin-inline: 2px;
         overflow: hidden;
-        overflow-wrap: normal;
+        overflow-wrap: anywhere;
         white-space: break-spaces;
       }
     }
