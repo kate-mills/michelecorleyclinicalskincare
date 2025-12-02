@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 export const productDetailFragment = graphql`
   fragment ProductDetails on ContentfulMccProduct {
     isAcneSafe
+    isAwardWinner
     isBst:isBestSeller
     name
     isProOnly
@@ -27,7 +28,6 @@ export const productDetailFragment = graphql`
       localFile{ publicURL }
       gatsbyImageData(width: 225, height: 225, quality: 100)
     }
-    award
     awardImage {
       gatsbyImageData(width: 80, height: 80, quality: 100)
     }

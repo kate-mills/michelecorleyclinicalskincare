@@ -85,7 +85,7 @@ const ProductBadges = ({ product }) => {
     isProOnly,
     isBst,
     pdf: [pdfZero],
-    award,
+    isAwardWinner,
     awardImage,
   } = product
 
@@ -110,11 +110,11 @@ const ProductBadges = ({ product }) => {
           GET PRODUCT DETS
         </a>
       )}
-      {!!award && (
+      {!!isAwardWinner && (
         <GatsbyImage
           className="award-winner"
           image={awardImage?.gatsbyImageData}
-          alt={`Best Product ${award} Award Emblem`}
+          alt={`Best Product Award Emblem`}
         />
       )}
     </div>
