@@ -81,7 +81,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
 const ProductBadges = ({ product }) => {
   let {
     name,
-    acneSafe,
+    isAcneSafe,
     proOnly,
     isBst,
     pdf: [pdfZero],
@@ -92,7 +92,7 @@ const ProductBadges = ({ product }) => {
   return (
     <div className="product-badges">
       <span className="product-name">{name}</span>
-      {acneSafe && <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>}
+      {isAcneSafe && <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>}
       {isBst && <span className={`badge txt-sm  txt-center best-seller`}>BEST-SELLER</span>}
       {proOnly && <span className={`badge txt-sm txt-center pro-only`}>PRO USE ONLY</span>}
       {!!pdfZero && (

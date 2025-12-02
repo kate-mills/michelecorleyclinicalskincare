@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 
 export const productDetailFragment = graphql`
   fragment ProductDetails on ContentfulMccProduct {
-    acneSafe
+    isAcneSafe
     isBst:isBestSeller
     name
     proOnly:professionalOnly

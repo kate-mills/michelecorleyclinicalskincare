@@ -5,7 +5,7 @@ export const useProductData = () => {
     query {
       allContentfulMccProduct(sort: [{category: ASC}, {name: ASC}]) {
         products: nodes {
-          acneSafe
+          isAcneSafe 
           name
           slug
           category
