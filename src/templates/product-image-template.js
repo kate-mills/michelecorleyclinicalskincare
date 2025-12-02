@@ -16,7 +16,7 @@ const ProductImageTemplate = props => {
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/')
   const backFn = state?.id ? goBack : goHome
-  const retailOrProText = `${product.proOnly ? 'Pro' : 'Retail'}-size`
+  const retailOrProText = `${product.isProOnly ? 'Pro' : 'Retail'}-size`
 
 
   return (
@@ -90,7 +90,7 @@ export const query = graphql`
   query GetMccImage($slug: String) {
     product: contentfulMccProduct(slug: { eq: $slug }) {
       name
-      proOnly: professionalOnly
+      isProOnly
       description {
         description
       }

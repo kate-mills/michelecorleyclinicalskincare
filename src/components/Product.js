@@ -82,7 +82,7 @@ const ProductBadges = ({ product }) => {
   let {
     name,
     isAcneSafe,
-    proOnly,
+    isProOnly,
     isBst,
     pdf: [pdfZero],
     award,
@@ -94,7 +94,7 @@ const ProductBadges = ({ product }) => {
       <span className="product-name">{name}</span>
       {isAcneSafe && <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>}
       {isBst && <span className={`badge txt-sm  txt-center best-seller`}>BEST-SELLER</span>}
-      {proOnly && <span className={`badge txt-sm txt-center pro-only`}>PRO USE ONLY</span>}
+      {isProOnly && <span className={`badge txt-sm txt-center pro-only`}>PRO USE ONLY</span>}
       {!!pdfZero && (
         <a
           className="pdf badge txt-sm txt-center"

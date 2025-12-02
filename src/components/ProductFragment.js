@@ -5,7 +5,7 @@ export const productDetailFragment = graphql`
     isAcneSafe
     isBst:isBestSeller
     name
-    proOnly:professionalOnly
+    isProOnly
     slug
     contentful_id
     category
