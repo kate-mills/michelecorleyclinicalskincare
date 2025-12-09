@@ -118,7 +118,7 @@ const ProductImagesLogosPage = ({ data }) => {
 export const query = graphql`
   {
     cleansers: allContentfulMccProduct(
-      filter: { category: { eq: "cleansers" } }
+      filter: { categories: { eq: "cleansers" } }
       sort: { name: ASC }
     ) {
       edges {
@@ -145,7 +145,7 @@ export const query = graphql`
     }
 
     toners: allContentfulMccProduct(
-      filter: { category: { eq: "toners" } }
+      filter: { categories: { eq: "toners" } }
       sort: { name: ASC }
     ) {
       edges {
@@ -171,7 +171,7 @@ export const query = graphql`
     }
 
     exfoliants: allContentfulMccProduct(
-      filter: { category: { eq: "exfoliants" } }
+      filter: { categories: { eq: "exfoliants" } }
       sort: { name: ASC }
     ) {
       edges {
@@ -197,7 +197,7 @@ export const query = graphql`
     }
 
     serums: allContentfulMccProduct(
-      filter: { category: { eq: "serums & specialty" } }
+      filter: { categories: { eq: "serums & specialty" } }
       sort: { name: ASC }
     ) {
       edges {
@@ -223,7 +223,7 @@ export const query = graphql`
     }
 
     moisturizers: allContentfulMccProduct(
-      filter: { category: { eq: "moisturizers & spf" } }
+      filter: { categories: { eq: "moisturizers & spf" } }
       sort: { name: ASC }
     ) {
       edges {
@@ -249,7 +249,7 @@ export const query = graphql`
     }
 
     masks: allContentfulMccProduct(
-      filter: { category: { eq: "masks" } }
+      filter: { categories: { eq: "masks" } }
       sort: { name: ASC }
     ) {
       edges {
@@ -275,7 +275,7 @@ export const query = graphql`
     }
 
     eyesLips: allContentfulMccProduct(
-      filter: { category: { eq: "eyes & lips" } }
+      filter: { categories: { eq: "eyes & lips" } }
       sort: { name: ASC }
     ) {
       edges {
