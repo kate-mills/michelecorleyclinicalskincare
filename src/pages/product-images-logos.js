@@ -26,8 +26,8 @@ const ProductImagesLogosPage = ({ data }) => {
         <p className="instructions">
           Click image thumbnails to see download options.
         </p>
-        <article id="retail" className="mb2">
-          <section id="cleansers-retail" className="mb1">
+        <article className="mb2">
+          <section id="cleansers" className="mb1">
             <h2>
               <span className="category">
                 {`${getSectionSize()} `} Cleansers
@@ -39,7 +39,7 @@ const ProductImagesLogosPage = ({ data }) => {
             <Thumbnails data={data.cleansers} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="toners-retail" className="mb2">
+          <section id="toners" className="mb2">
             <h2 className="poppy txt-center">
               <span className="category">{`${getSectionSize()} `} Toners</span>
               <button className="btn" onClick={toggleImgList}>
@@ -49,7 +49,7 @@ const ProductImagesLogosPage = ({ data }) => {
             <Thumbnails data={data.toners} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="exfoliants-retail" className="mb2">
+          <section id="exfoliants" className="mb2">
             <h2>
               <span className="category">
                 {`${getSectionSize()} `} Exfoliants
@@ -61,7 +61,7 @@ const ProductImagesLogosPage = ({ data }) => {
             <Thumbnails data={data.exfoliants} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="serums-retail" className="mb2">
+          <section id="serums" className="mb2">
             <h2>
               <span className="category">{`${getSectionSize()} `} Serums</span>
               <button className="btn" onClick={toggleImgList}>
@@ -71,7 +71,7 @@ const ProductImagesLogosPage = ({ data }) => {
             <Thumbnails data={data.serums} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="moisturizers-spf-retail" className="mb2">
+          <section id="moisturizers-spf" className="mb2">
             <h2>
               <span className="category">
                 {`${getSectionSize()} `} Moisturizers & Spf
@@ -83,7 +83,7 @@ const ProductImagesLogosPage = ({ data }) => {
             <Thumbnails data={data.moisturizers} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="masks-retail" className="mb2">
+          <section id="masks" className="mb2">
             <h2>
               <span className="category">{`${getSectionSize()} `} Masks</span>
               <button className="btn" onClick={toggleImgList}>
@@ -93,7 +93,7 @@ const ProductImagesLogosPage = ({ data }) => {
             <Thumbnails data={data.masks} travelMedia={listIdx > 0} />
           </section>
 
-          <section id="eyes-lips-retail" className="mb2">
+          <section id="eyes-lips" className="mb2">
             <h2>
               <span className="category">
                 {`${getSectionSize()} `} Eyes & Lips{' '}
@@ -123,23 +123,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          name
-          category
-          slug
-          imgRetail {
-            localFile { publicURL }
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
-          imgTravel {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
+          ...ProductImageDetails
         }
       }
     }
@@ -150,22 +134,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          name
-          category
-          slug
-          imgRetail {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
-          imgTravel {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
+          ...ProductImageDetails
         }
       }
     }
@@ -176,22 +145,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          name
-          category
-          slug
-          imgRetail {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
-          imgTravel {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
+          ...ProductImageDetails
         }
       }
     }
@@ -202,22 +156,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          name
-          category
-          slug
-          imgRetail {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
-          imgTravel {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
+          ...ProductImageDetails
         }
       }
     }
@@ -228,22 +167,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          name
-          category
-          slug
-          imgRetail {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
-          imgTravel {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
+          ...ProductImageDetails
         }
       }
     }
@@ -254,22 +178,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          name
-          category
-          slug
-          imgRetail {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
-          imgTravel {
-            id
-            title
-            description
-            gatsbyImageData(height: 500, quality: 100)
-          }
+          ...ProductImageDetails
         }
       }
     }
@@ -280,22 +189,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          contentful_id
-          name
-          category
-          slug
-          imgRetail {
-            id
-            title
-            description
-            gatsbyImageData(height: 1000, quality: 100)
-          }
-          imgTravel {
-            id
-            title
-            description
-            gatsbyImageData(height: 1000, quality: 100)
-          }
+          ...ProductImageDetails
         }
       }
     }
