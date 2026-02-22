@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { Link } from 'gatsby'
 
-import VideoPlayer from './VideoPlayer'
+//import VideoPlayer from './VideoPlayer'
 
 const Product = ({ singleProductPage = false, data, className }) => {
   const {
@@ -46,6 +46,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
             />
           </Link>
         </div>
+        {/*
         {video && (
           <VideoPlayer
             title={`${name} from Michele Corley on Vimeo`}
@@ -54,6 +55,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
             maxWidth={'400px'}
           />
         )}
+        */}
       </div>
       <div className="product-ingredients">
         <p className="bold">A FEW KEY Ingredients & Benefits:</p>

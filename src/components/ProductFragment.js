@@ -26,7 +26,7 @@ export const productDetailFragment = graphql`
       publicUrl
       placeholderUrl
       localFile{ publicURL }
-      gatsbyImageData(width: 500, height: 500, quality: 100)
+      gatsbyImageData(width: 300, height: 300, quality: 100)
     }
     awardImage {
       gatsbyImageData(width: 80, height: 80, quality: 100)
