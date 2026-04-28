@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { graphql } from 'gatsby'
 import { GlobalLayout, Thumbnails, Seo } from '../components'
@@ -6,14 +6,6 @@ import { GlobalLayout, Thumbnails, Seo } from '../components'
 import styled from 'styled-components'
 
 const ProductImagesLogosPage = ({ data }) => {
-  const imgList = ['travel', 'retail']
-  const [listIdx, setListIdx] = useState(0)
-
-  const getSectionSize = () => imgList[Number(!Boolean(listIdx))]
-  const toggleImgList = () => {
-    setListIdx(prev => Number(!Boolean(prev)))
-  }
-
   return (
     <GlobalLayout>
       <h1>Product Images & Logos</h1>
@@ -26,89 +18,15 @@ const ProductImagesLogosPage = ({ data }) => {
         <p className="instructions">
           Click image thumbnails to see download options.
         </p>
-        <article className="mb2">
-          <section id="cleansers" className="mb1">
-            <h2>
-              <span className="category">
-                {`${getSectionSize()} `} Cleansers
-              </span>
-              <button className="btn" onClick={toggleImgList}>
-                Show {imgList[listIdx]}-Size{' '}
-              </button>
-            </h2>
-            <Thumbnails data={data.cleansers} travelMedia={listIdx > 0} />
-          </section>
-
-          <section id="toners" className="mb2">
-            <h2 className="poppy txt-center">
-              <span className="category">{`${getSectionSize()} `} Toners</span>
-              <button className="btn" onClick={toggleImgList}>
-                Show {imgList[listIdx]}-Size
-              </button>
-            </h2>
-            <Thumbnails data={data.toners} travelMedia={listIdx > 0} />
-          </section>
-
-          <section id="exfoliants" className="mb2">
-            <h2>
-              <span className="category">
-                {`${getSectionSize()} `} Exfoliants
-              </span>
-              <button className="btn" onClick={toggleImgList}>
-                Show {imgList[listIdx]}-Size
-              </button>
-            </h2>
-            <Thumbnails data={data.exfoliants} travelMedia={listIdx > 0} />
-          </section>
-
-          <section id="serums" className="mb2">
-            <h2>
-              <span className="category">{`${getSectionSize()} `} Serums</span>
-              <button className="btn" onClick={toggleImgList}>
-                Show {imgList[listIdx]}-Size
-              </button>
-            </h2>
-            <Thumbnails data={data.serums} travelMedia={listIdx > 0} />
-          </section>
-
-          <section id="moisturizers-spf" className="mb2">
-            <h2>
-              <span className="category">
-                {`${getSectionSize()} `} Moisturizers & Spf
-              </span>
-              <button className="btn" onClick={toggleImgList}>
-                Show {imgList[listIdx]}-Size
-              </button>
-            </h2>
-            <Thumbnails data={data.moisturizers} travelMedia={listIdx > 0} />
-          </section>
-
-          <section id="masks" className="mb2">
-            <h2>
-              <span className="category">{`${getSectionSize()} `} Masks</span>
-              <button className="btn" onClick={toggleImgList}>
-                Show {imgList[listIdx]}-Size
-              </button>
-            </h2>
-            <Thumbnails data={data.masks} travelMedia={listIdx > 0} />
-          </section>
-
-          <section id="eyes-lips" className="mb2">
-            <h2>
-              <span className="category">
-                {`${getSectionSize()} `} Eyes & Lips{' '}
-              </span>
-              <button className="btn" onClick={toggleImgList}>
-                Show {imgList[listIdx]}-Size
-              </button>
-            </h2>
-            <Thumbnails data={data.eyesLips} travelMedia={listIdx > 0} />
-          </section>
-
-          <section id="logos" className="mb2">
-            <h2 className="poppy txt-center">Logos</h2>{' '}
-            <Thumbnails data={data.logos} logoMedia />{' '}
-          </section>
+        <article>
+          <Thumbnails data={data.cleansers} category={'cleansers'} />
+          <Thumbnails data={data.toners} category={'toners'} />
+          <Thumbnails data={data.exfoliants} category={'exfoliants'} />
+          <Thumbnails data={data.serums} category={'serums & specialty'} />
+          <Thumbnails data={data.moisturizers} category="moisturizers" />
+          <Thumbnails data={data.masks} category="masks" />
+          <Thumbnails data={data.eyesLips} category="eyes & Lips" />
+          <Thumbnails data={data.logos} logoMedia category="logos" />
         </article>
       </StyledSection>
     </GlobalLayout>
@@ -162,7 +80,7 @@ export const query = graphql`
     }
 
     moisturizers: allContentfulMccProduct(
-      filter: { categories: { eq: "moisturizers & spf" } }
+      filter: { categories: { eq: "moisturizers" } }
       sort: { name: ASC }
     ) {
       edges {
@@ -215,20 +133,22 @@ const StyledSection = styled.section`
       color: var(--poppy);
       padding-block-end: 0;
     }
-    h2 {
-      margin: 0 auto;
-      text-align: center;
-      .category {
-        display: block;
-      }
-      button {
-        background: var(--poppy);
-        border-color: var(--clear);
-        color: var(--mainWhite);
-        display: inline-block;
-        font-size: 0.7rem;
-        margin-block-end: 1rem;
-        padding: 0.4rem 0.6rem;
+    section {
+      h2 {
+        margin-top: 2rem;
+        span,
+        button {
+          text-align: center;
+          display: block;
+        }
+        button {
+          background: var(--poppy);
+          border-color: var(--clear);
+          color: var(--mainWhite);
+          font-size: 0.7rem;
+          margin: 0.5rem auto 1rem;
+          padding: 0.4rem 0.8rem;
+        }
       }
     }
   }

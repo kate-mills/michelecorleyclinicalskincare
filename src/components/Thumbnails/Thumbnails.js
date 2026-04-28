@@ -1,29 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import styled from 'styled-components'
 import Thumbnail from './Thumbnail'
 
-const Thumbnails = ({ className, data, logoMedia = false, travelMedia = false }) => {
+const Thumbnails = ({
+  className,
+  data,
+  category,
+  logoMedia = false,
+  travelMedia = false,
+}) => {
+  const sizes = ['Retail', 'Travel']
+  const [idx, setIdx] = useState(0)
+  const sectionTitle = sizes[idx] + ' ' + category
+  const btnTitle = 'SHOW ' + sizes[Number(!Boolean(idx))] + '-SIZE'
+
+  const toggleSizes = () => {
+    setIdx(prev => Number(!Boolean(prev)))
+  }
+
   return (
-    <ul className={`${className}`}>
-      {data.edges.map(({ node }) => {
-        return (
-          <Thumbnail
-            key={node.contentful_id}
-            image={
-              logoMedia ? node.thumb
-              : travelMedia ? node.imgTravel: node.imgRetail
-            }
-            showTitle={!logoMedia}
-            slug={node.slug}
-            name={node.name}
-          />
-        )
-      })}
-    </ul>
+    <section>
+      {!logoMedia ? (
+        <h2>
+          <span>{sectionTitle}</span>
+          <button className="btn" onClick={toggleSizes}>
+            {btnTitle}
+          </button>
+        </h2>
+      ) : (
+        <h2>
+          <span>{category}</span>
+        </h2>
+      )}
+      <ul className={`${className}`}>
+        {data.edges.map(({ node }) => {
+          return (
+            <Thumbnail
+              key={node.contentful_id}
+              image={
+                logoMedia
+                  ? node.thumb
+                  : idx > 0
+                  ? node.imgTravel
+                  : node.imgRetail
+              }
+              showTitle={!logoMedia}
+              slug={node.slug}
+              name={node.name}
+            />
+          )
+        })}
+      </ul>
+    </section>
   )
 }
-
 
 export default styled(Thumbnails)`
   & {
