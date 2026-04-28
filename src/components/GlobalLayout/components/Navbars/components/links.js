@@ -20,7 +20,7 @@ export const links = [
       getProps('TONERS'),
       getProps('EXFOLIANTS'),
       getProps('SERUMS & SPECIALTY'),
-      getProps('MOISTURIZERS & SPF'),
+      getProps('MOISTURIZERS'),
       getProps('MASKS'),
       getProps('EYES & LIPS'),
     ],
