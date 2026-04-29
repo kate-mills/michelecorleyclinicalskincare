@@ -11,9 +11,11 @@ export const StyledSearchResults = styled.section`
       margin-left: 0;
       h5 {
         font-size: small;
-        line-height: 2;
         margin-inline-start: 0;
         margin-inline-end: 2px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   }
@@ -70,15 +72,7 @@ export const StyledSpaList = styled.ul`
       margin-left: -10px;
     }
 
-    *,
-    > * {
-      font-size: small;
-      line-height: normal;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .spa {
+    li {
       background: var(--mainWhite);
       display: flex;
       flex-direction: column;
@@ -87,57 +81,68 @@ export const StyledSpaList = styled.ul`
       padding-inline-end: 1rem;
       border: 0.5566666px solid #e9e9e9;
 
-      .spa-name,
-      address {
-        padding-inline-start: ${JUSTIFY_LEFT_PX};
-        font-style: normal; /* address default italic */
-        p.bold {
-          font-size: 1rem;
-          padding-block-end: 0.75rem;
-        }
-        &.spa-location {
-          padding-block-end: 0.3rem;
+      *,
+      address * {
+        line-height: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
 
-          div.spa-addr-locality div {
-            display: inline-block;
-            vertical-align: top;
+      & p {
+        padding-block-end: 0.75rem;
+        padding-inline-start: ${JUSTIFY_LEFT_PX};
+      }
+
+      & address {
+        font-size: small;
+        font-style: normal;
+        padding-block-end: 0.3rem;
+        padding-inline-start: ${JUSTIFY_LEFT_PX};
+      }
+
+      & address {
+        * {
+          font-size: small;
+          vertical-align: text-bottom;
+        }
+
+        &.spa-addr {
+          div.spa-addr-locality {
             margin: 5px 0;
 
-            span.city-name {
+            & div {
               display: inline-block;
-              vertical-align: top;
-              :not(:first-of-type) {
-                padding-inline-start: 3px;
+
+              & .highlight {
+                background-color: var(--offWhite);
+              }
+
+              &.space {
+                margin-inline-end: 3px;
+                min-width: 4px;
               }
             }
-            span.highlight {
-              background-color: var(--offWhite);
-            }
-          }
-
-          div.zip.block-zip {
-            display: contents;
-            > span.zipcode {
-              display: block;
-              width: fit-content;
-            }
-          }
-          .space {
-            display: inline-block;
-            margin: 0;
-            min-width: 3px;
-            padding-inline-end: 3px;
           }
         }
+
         &.spa-urls {
           position: relative;
+
           div {
-            margin-block-start: 0.5rem;
-            &.web span svg {
-              position: absolute;
-              left: 4px;
-              fill: var(--poppy);
+            margin-block: 0.5rem;
+
+            &.web {
+              margin-block-end: 0;
+              span {
+                position: absolute;
+                left: 7px;
+                svg {
+                  fill: var(--poppy);
+                }
+              }
             }
+
             & a {
               text-decoration-line: underline;
               text-decoration-style: solid;

@@ -3,15 +3,11 @@ import * as JsSearch from 'js-search'
 import { useSpaData } from './use-spa-data'
 import { FaShoppingCart } from 'react-icons/fa'
 
-
-
 import {
   StyledSpaList,
   StyledSpaLocatorForm,
   StyledSearchResults,
 } from './Wrappers'
-
-
 
 const SpaFndr = props => {
   const { airtableSpas, airtableDefaultSpas } = useSpaData()
@@ -104,7 +100,7 @@ const SpaFndr = props => {
             <h5>
               <span className="number-of-results">
                 {searchResults.length > 0 &&
-                  `${searchResults.length} Location${
+                  `${searchResults.length} Spa${
                     searchResults.length > 1 ? 's' : ''
                   } Found`}
               </span>
@@ -134,34 +130,20 @@ const SpaFndr = props => {
                   url,
                 } = spa
 
-                let isLongCity =
-                  city && city.split(' ').length > 1 && city.length > 15
                 return (
                   <li key={spaid} className="spa">
-                    <div className="spa-name">
-                      <p className={'bold'}>{name}</p>
-                    </div>
-                    <address className="spa-location">
+                    <p className={'spa-name'}>{name}</p>
+                    <address className="spa-addr">
                       <div className="spa-addr-street">{address}</div>
                       <div className="spa-addr-locality">
-                        <div
-                          className={`spa-city`}
-                        >
-                          {city &&
-                            city.split(' ').map((name, i) => {
-                              return (
-                                <span
-                                  key={name}
-                                  className={`${
-                                    isRegexMatch(searchQuery, name)
-                                      ? 'highlight city-name idx' + i
-                                      : 'city-name idx' + i
-                                  }`}
-                                >
-                                  {name}
-                                </span>
-                              )
-                            })}
+                        <div className={'city'}>
+                          <span
+                            className={`${
+                              isRegexMatch(searchQuery, city) ? ' highlight' : ''
+                            }`}
+                          >
+                            {city}
+                          </span>
                         </div>
                         <div className="space">{city && ', '}</div>
                         <div className="state">
@@ -176,8 +158,8 @@ const SpaFndr = props => {
                             {statecode}
                           </span>
                         </div>
-                        <div className="space"> </div>
-                        <div className={`zip ${isLongCity ? 'block-zip' : ''}`}>
+                        <div className="space">{' '}</div>
+                        <div className={`zip`}>
                           <span className="zipcode">
                             <span
                               className={`${
@@ -193,8 +175,8 @@ const SpaFndr = props => {
                       </div>
                     </address>
                     <address className="spa-urls">
-                      <div>{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
-                      <div>
+                      <div className="ph">{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
+                      <div className="email">
                         {email && <a href={`mailto:${email}`}>{email}</a>}
                       </div>
                       <div className="web">
