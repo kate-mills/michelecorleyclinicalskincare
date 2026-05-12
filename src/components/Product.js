@@ -94,9 +94,17 @@ const ProductBadges = ({ product }) => {
   return (
     <div className="product-badges">
       <span className="product-name">{name}</span>
-      {isAcneSafe && <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>}
-      {isBst && <span className={`badge txt-sm  txt-center best-seller`}>BEST-SELLER</span>}
-      {isProOnly && <span className={`badge txt-sm txt-center pro-only`}>PRO USE ONLY</span>}
+      {isAcneSafe && (
+        <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>
+      )}
+      {isBst && (
+        <span className={`badge txt-sm  txt-center best-seller`}>
+          BEST-SELLER
+        </span>
+      )}
+      {isProOnly && (
+        <span className={`badge txt-sm txt-center pro-only`}>PRO USE ONLY</span>
+      )}
       {!!pdfZero && (
         <a
           className="pdf badge txt-sm txt-center"
@@ -125,7 +133,7 @@ const ProductBadges = ({ product }) => {
 
 export default styled(Product)`
   & {
-      margin-block: 0.5rem 1rem;
+    margin-block: 0.5rem 1rem;
     h1,
     h2 {
       align-items: center;
@@ -190,12 +198,12 @@ export default styled(Product)`
       flex-wrap: nowrap;
       justify-content: space-evenly;
       min-height: 225px;
-      &.video {
+      /* &.video {
         flex-wrap: wrap;
         @media (max-width: 736px) {
           min-height: 466px;
         }
-      }
+      } */
     }
     & .product-skintypes {
       align-items: center;
