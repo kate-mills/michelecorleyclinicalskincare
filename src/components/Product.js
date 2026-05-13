@@ -4,8 +4,6 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { Link } from 'gatsby'
 
-//import VideoPlayer from './VideoPlayer'
-
 const Product = ({ singleProductPage = false, data, className }) => {
   const {
     imgRetail,
@@ -14,7 +12,6 @@ const Product = ({ singleProductPage = false, data, className }) => {
     skinType,
     description: { description },
     keyIngredients,
-    video,
   } = data
 
   return (
@@ -37,7 +34,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
         ))}
       </h3>
       <p className="product-description pb0">{description}</p>
-      <div className={`product-media ${!!video ? 'video' : ''}`}>
+      <div className={`product-media`}>
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`} state={{ id: slug }}>
             <GatsbyImage
@@ -46,16 +43,6 @@ const Product = ({ singleProductPage = false, data, className }) => {
             />
           </Link>
         </div>
-        {/*
-        {video && (
-          <VideoPlayer
-            title={`${name} from Michele Corley on Vimeo`}
-            src={`https://player.vimeo.com/video/${video}`}
-            className="video"
-            maxWidth={'400px'}
-          />
-        )}
-        */}
       </div>
       <div className="product-ingredients">
         <p className="bold">A FEW KEY Ingredients & Benefits:</p>
@@ -193,17 +180,7 @@ export default styled(Product)`
       margin-inline: 1rem;
     }
     & .product-media {
-      align-items: center;
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      min-height: 225px;
-      /* &.video {
-        flex-wrap: wrap;
-        @media (max-width: 736px) {
-          min-height: 466px;
-        }
-      } */
+      min-height: 300px;
     }
     & .product-skintypes {
       align-items: center;
