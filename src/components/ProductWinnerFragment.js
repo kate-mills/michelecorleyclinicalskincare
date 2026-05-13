@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 
 export const productDetailFragment = graphql`
   fragment ProductWinnerDetails on ContentfulMccProduct {
+    id
     isAcneSafe
     isAwardWinner
     isBst:isBestSeller

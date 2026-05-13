@@ -13,30 +13,25 @@ const AwardWinningProductsPage = ({ data }) => {
       <StyledSection>
         <article>
           {data.cleansers.edges.map(data => {
-            return <ProductWinner data={data.node} />
+            return <ProductWinner data={data.node} key={data.node.id}/>
           })}
           {data.toners.edges.map(data => {
-            return <ProductWinner data={data.node} />
+            return <ProductWinner data={data.node} key={data.node.id}/>
           })}
-
           {data.exfoliants.edges.map(data => {
-            return <ProductWinner data={data.node} />
+            return <ProductWinner data={data.node} key={data.node.id}/>
           })}
-
           {data.serums.edges.map(data => {
-            return <ProductWinner data={data.node} />
+            return <ProductWinner data={data.node} key={data.node.id}/>
           })}
-
           {data.moisturizers.edges.map(data => {
-            return <ProductWinner data={data.node} />
+            return <ProductWinner data={data.node} key={data.node.id}/>
           })}
-
           {data.masks.edges.map(data => {
-            return <ProductWinner data={data.node} />
+            return <ProductWinner data={data.node} key={data.node.id}/>
           })}
-
           {data.eyesLips.edges.map(data => {
-            return <ProductWinner data={data.node} />
+            return <ProductWinner data={data.node} key={data.node.id}/>
           })}
         </article>
       </StyledSection>
