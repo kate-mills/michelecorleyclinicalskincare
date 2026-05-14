@@ -12,7 +12,6 @@ const getProps = name => {
 
 export const links = [
   { ...getProps('HOME'), path: '/' },
-  { ...getProps('AWARDS'), path: '/award-winning-products' },
   {
     ...getProps('PRODUCTS'),
     path: '',
