@@ -78,8 +78,8 @@ export default styled(Thumbnails)`
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
-        width: 100%;
         position: relative;
+        width: 100%;
 
         & > figcaption {
           color: var(--mainBlack);
@@ -97,9 +97,9 @@ export default styled(Thumbnails)`
           width: 100%;
         }
         & > .winner-img{
+          bottom: 40px;
+          left: 20px;
           position: absolute;
-          right: 20px;
-          bottom: 70px;
         }
       }
     }
