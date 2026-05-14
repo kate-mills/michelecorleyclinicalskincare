@@ -47,6 +47,8 @@ const Thumbnails = ({
               }
               showTitle={!logoMedia}
               slug={node.slug}
+              isAwardWinner={node.isAwardWinner}
+              awardImage={!!node.isAwardWinner ? node.awardImage : null}
               name={node.name}
             />
           )
@@ -77,6 +79,7 @@ export default styled(Thumbnails)`
         flex-wrap: wrap;
         justify-content: center;
         width: 100%;
+        position: relative;
 
         & > figcaption {
           color: var(--mainBlack);
@@ -92,6 +95,11 @@ export default styled(Thumbnails)`
           text-overflow: ellipsis;
           white-space: nowrap;
           width: 100%;
+        }
+        & > .winner-img{
+          position: absolute;
+          right: 20px;
+          bottom: 70px;
         }
       }
     }
