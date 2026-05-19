@@ -139,15 +139,16 @@ export default styled(Product)`
     margin: 0 auto 1.5rem;
     h1,
     h2 {
-      position: relative;
+      text-align: left;
+      white-space: unset;
       & .product-title {
-        display: flex;
         align-items: baseline;
+        display: flex;
         &:has(:nth-child(2)) {
           & .name {
-            max-width: calc(100% - 100px);
+            max-width: calc(100% - 80px);
           }
-          & .emblem{
+          & .emblem {
             top: 40px;
           }
         }

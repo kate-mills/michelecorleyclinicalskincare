@@ -15,7 +15,7 @@ const CategoryTemplate = props => {
   return (
     <GlobalLayout title={name} description={description}>
       <h1>{name}</h1>
-      <p>{description}</p>
+      <p className={'pb0'}>{description}</p>
       {lst.map(({ data }) => (
         <Product key={data?.contentful_id} data={data} />
       ))}
