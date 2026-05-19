@@ -129,8 +129,10 @@ export default styled(Product)`
       justify-content: flex-start;
       margin: 0 0;
       padding: 0 0;
+      position: relative;
       text-align: left;
       line-height: normal;
+      width: calc(100% - 100px);
       & .product-badges {
         display: contents;
         & .product-name {
@@ -138,9 +140,6 @@ export default styled(Product)`
           margin-inline-end: 5px;
           overflow: hidden;
           text-overflow: ellipsis;
-        }
-        & :last-child {
-          margin-inline-end: 0 !important;
         }
         .badge {
           background: var(--poppy0);
@@ -173,6 +172,14 @@ export default styled(Product)`
               background: var(--darkGrey);
             }
           }
+        }
+        & .award-winner {
+          position: absolute;
+          right: -100px;
+          top: -5px;
+        }
+        & :last-child {
+          margin-inline-end: 0;
         }
       }
     }
