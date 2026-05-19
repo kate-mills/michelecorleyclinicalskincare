@@ -80,7 +80,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
 
 const ProductTitle = ({ name, isAwardWinner, awardImage }) => {
   return (
-    <div className="product-title">
+    <div className={`product-title ${!!isAwardWinner ? 'award' : ''}`}>
       <span className="name">{name}</span>
       {!!isAwardWinner && (
         <GatsbyImage
@@ -88,7 +88,7 @@ const ProductTitle = ({ name, isAwardWinner, awardImage }) => {
           image={awardImage?.gatsbyImageData}
           alt={`Best Product Award Emblem`}
         />
-      )}{' '}
+      )}
     </div>
   )
 }
@@ -141,18 +141,21 @@ export default styled(Product)`
     h2 {
       text-align: left;
       white-space: unset;
+
       & .product-title {
-        display: flex;
-        position: relative;
-        &:has(:nth-child(2)) {
+        &.award {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-block-start: 1rem;
           & .name {
-            max-width: calc(100% - 80px);
+            position: relative;
+            top: 0.75rem;
           }
-          & .emblem {
-            position: absolute;
-            right: 0;
-            top: 0;
-          }
+        }
+        & .emblem {
+          min-width: 80px;
         }
         & .name {
           font-size: 2rem; /* keep here */
