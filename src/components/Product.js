@@ -142,14 +142,16 @@ export default styled(Product)`
       text-align: left;
       white-space: unset;
       & .product-title {
-        align-items: baseline;
         display: flex;
+        position: relative;
         &:has(:nth-child(2)) {
           & .name {
             max-width: calc(100% - 80px);
           }
           & .emblem {
-            top: 40px;
+            position: absolute;
+            right: 0;
+            top: 0;
           }
         }
         & .name {
