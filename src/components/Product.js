@@ -18,10 +18,12 @@ const Product = ({ singleProductPage = false, data, className }) => {
     <article className={`${className}`} id={slug}>
       {!singleProductPage ? (
         <h2>
+          <span className="product-name">{name}</span>
           <ProductBadges product={data} />
         </h2>
       ) : (
         <h1>
+          <span className="product-name">{name}</span>
           <ProductBadges product={data} />
         </h1>
       )}
@@ -80,7 +82,6 @@ const ProductBadges = ({ product }) => {
 
   return (
     <div className="product-badges">
-      <span className="product-name">{name}</span>
       {isAcneSafe && (
         <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>
       )}
@@ -123,23 +124,28 @@ export default styled(Product)`
     margin-block: 0.5rem 1rem;
     h1,
     h2 {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
       margin: 0 0;
       padding: 0 0;
-      position: relative;
       text-align: left;
-      line-height: normal;
-      width: calc(100% - 100px);
+      position: relative;
+      max-width: 100%;
+      & .product-name {
+        display: inline-block;
+        font-size: 2rem; /* keep here */
+        margin-inline-end: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       & .product-badges {
-        display: contents;
-        & .product-name {
-          font-size: 2rem; /* keep here */
-          margin-inline-end: 5px;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100vw;
+        & .award-winner {
+          position: absolute;
+          right: 0;
+          top: 0;
         }
         .badge {
           background: var(--poppy0);
@@ -172,14 +178,6 @@ export default styled(Product)`
               background: var(--darkGrey);
             }
           }
-        }
-        & .award-winner {
-          position: absolute;
-          right: -100px;
-          top: -5px;
-        }
-        & :last-child {
-          margin-inline-end: 0;
         }
       }
     }
