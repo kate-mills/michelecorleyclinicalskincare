@@ -18,16 +18,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
 
   return (
     <article className={`${className}`} id={slug}>
-      {!singleProductPage ? (
-        <h2>
-          <ProductTitle
-            name={name}
-            isAwardWinner={isAwardWinner}
-            awardImage={awardImage}
-          />
-          <ProductBadges product={data} />
-        </h2>
-      ) : (
+      {!!singleProductPage ? (
         <h1>
           <ProductTitle
             name={name}
@@ -36,6 +27,15 @@ const Product = ({ singleProductPage = false, data, className }) => {
           />
           <ProductBadges product={data} />
         </h1>
+      ) : (
+        <h2>
+          <ProductTitle
+            name={name}
+            isAwardWinner={isAwardWinner}
+            awardImage={awardImage}
+          />
+          <ProductBadges product={data} />
+        </h2>
       )}
       <h3 className={`product-skintypes italic`}>
         {skinType.map((item, index) => (
@@ -56,7 +56,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
         </div>
       </div>
       <div className="product-ingredients">
-        <p className="bold">A FEW KEY Ingredients & Benefits:</p>
+        <p className="bold">A FEW KEY Ingredients:</p>
         <ul data-bullet-list id="ingredient-list">
           {keyIngredients.map(ing => {
             let {
@@ -136,19 +136,20 @@ const ProductBadges = ({ product }) => {
 
 export default styled(Product)`
   & {
-    margin-block: 0 1.5rem;
+    margin: 0 auto 1.5rem;
     h1,
     h2 {
-      margin: 0 0;
-      padding: 0 0;
-      text-align: left;
       position: relative;
       & .product-title {
         display: flex;
-        align-items: center;
-        & .emblem {
-          min-width: 80px;
-          min-height: 80px;
+        align-items: baseline;
+        &:has(:nth-child(2)) {
+          & .name {
+            max-width: calc(100% - 100px);
+          }
+          & .emblem{
+            top: 40px;
+          }
         }
         & .name {
           font-size: 2rem; /* keep here */
@@ -156,15 +157,11 @@ export default styled(Product)`
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        &:has(:nth-child(2)) {
-          min-width: calc(100% - 80px);
-        }
       }
       & .product-badges {
         align-items: center;
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
         .badge {
           background: var(--poppy0);
           border: 2px solid var(--poppy);
@@ -201,9 +198,6 @@ export default styled(Product)`
     }
     & .product-description {
       margin-inline: 1rem;
-    }
-    & .product-media {
-      min-height: 300px;
     }
     & .product-skintypes {
       align-items: center;
@@ -243,7 +237,7 @@ export default styled(Product)`
       }
     }
     @media (max-width: 676px) {
-      margin-inline: 0.2rem;
+      /*margin-inline: 0.2rem;*/
       & .product-ingredients {
         & .key-ingredient {
           margin-inline-start: 0;
