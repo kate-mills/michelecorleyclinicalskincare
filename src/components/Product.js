@@ -61,12 +61,13 @@ const Product = ({ singleProductPage = false, data, className }) => {
           {keyIngredients.map(ing => {
             let {
               name: { formatted: fmtNm },
+              title,
               benefit,
             } = ing
             return (
               <li className="key-ingredient" key={ing.id}>
                 <p className="pb0">
-                  <span className="bold">{`${fmtNm}: `}</span>
+                  <span className="bold">{`${title || fmtNm}: `}</span>
                   <span>{` ${benefit}`}</span>
                 </p>
               </li>
@@ -100,10 +101,11 @@ const ProductBadges = ({ product }) => {
     isProOnly,
     isBst,
     pdf: [pdfZero],
+    isAwardWinner,
   } = product
 
   return (
-    <div className="product-badges">
+    <div className={`product-badges ${isAwardWinner ? "is-winner": ""}`}>
       {isAcneSafe && (
         <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>
       )}
@@ -141,14 +143,12 @@ export default styled(Product)`
     h2 {
       text-align: left;
       white-space: unset;
-
       & .product-title {
+        line-height: var(--headingLineHeight);
         &.award {
           align-items: center;
           display: flex;
-          flex-wrap: wrap;
           gap: 10px;
-          margin-block-start: 1rem;
           & .name {
             position: relative;
             top: 0.75rem;
@@ -168,6 +168,9 @@ export default styled(Product)`
         align-items: center;
         display: flex;
         flex-wrap: wrap;
+        &.is-winner{
+          margin-block-start: 0.5rem;
+        }
         .badge {
           background: var(--poppy0);
           border: 2px solid var(--poppy);

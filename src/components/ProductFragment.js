@@ -20,6 +20,7 @@ export const productDetailFragment = graphql`
       name {
         formatted
       }
+      title
       benefit
     }
     imgRetail {
