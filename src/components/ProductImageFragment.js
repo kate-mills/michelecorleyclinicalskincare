@@ -27,7 +27,7 @@ export const productImageDetailFragment = graphql`
       gatsbyImageData(height: 500, quality: 100)
     }
     awardImage {
-      gatsbyImageData(width: 80, height: 80, quality: 100)
+      gatsbyImageData(width: 100, height: 100, quality: 100)
     }
   }
 `
