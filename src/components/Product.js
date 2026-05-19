@@ -12,22 +12,31 @@ const Product = ({ singleProductPage = false, data, className }) => {
     skinType,
     description: { description },
     keyIngredients,
+    isAwardWinner,
+    awardImage,
   } = data
 
   return (
     <article className={`${className}`} id={slug}>
       {!singleProductPage ? (
         <h2>
-          <span className="product-name">{name}</span>
+          <ProductTitle
+            name={name}
+            isAwardWinner={isAwardWinner}
+            awardImage={awardImage}
+          />
           <ProductBadges product={data} />
         </h2>
       ) : (
         <h1>
-          <span className="product-name">{name}</span>
+          <ProductTitle
+            name={name}
+            isAwardWinner={isAwardWinner}
+            awardImage={awardImage}
+          />
           <ProductBadges product={data} />
         </h1>
       )}
-
       <h3 className={`product-skintypes italic`}>
         {skinType.map((item, index) => (
           <span className={'skintype bold'} key={index}>
@@ -69,6 +78,21 @@ const Product = ({ singleProductPage = false, data, className }) => {
   )
 }
 
+const ProductTitle = ({ name, isAwardWinner, awardImage }) => {
+  return (
+    <div className="product-title">
+      <span className="name">{name}</span>
+      {!!isAwardWinner && (
+        <GatsbyImage
+          className="emblem"
+          image={awardImage?.gatsbyImageData}
+          alt={`Best Product Award Emblem`}
+        />
+      )}{' '}
+    </div>
+  )
+}
+
 const ProductBadges = ({ product }) => {
   let {
     name,
@@ -76,8 +100,6 @@ const ProductBadges = ({ product }) => {
     isProOnly,
     isBst,
     pdf: [pdfZero],
-    isAwardWinner,
-    awardImage,
   } = product
 
   return (
@@ -108,45 +130,41 @@ const ProductBadges = ({ product }) => {
           GET PRODUCT DETS
         </a>
       )}
-      {!!isAwardWinner && (
-        <GatsbyImage
-          className="award-winner"
-          image={awardImage?.gatsbyImageData}
-          alt={`Best Product Award Emblem`}
-        />
-      )}
     </div>
   )
 }
 
 export default styled(Product)`
   & {
-    margin-block: 0.5rem 1rem;
+    margin-block: 0 1.5rem;
     h1,
     h2 {
       margin: 0 0;
       padding: 0 0;
       text-align: left;
       position: relative;
-      max-width: 100%;
-      & .product-name {
-        display: inline-block;
-        font-size: 2rem; /* keep here */
-        margin-inline-end: 80px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      & .product-title {
+        display: flex;
+        align-items: center;
+        & .emblem {
+          min-width: 80px;
+          min-height: 80px;
+        }
+        & .name {
+          font-size: 2rem; /* keep here */
+          line-height: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        &:has(:nth-child(2)) {
+          min-width: calc(100% - 80px);
+        }
       }
       & .product-badges {
         align-items: center;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        width: 100vw;
-        & .award-winner {
-          position: absolute;
-          right: 0;
-          top: 0;
-        }
         .badge {
           background: var(--poppy0);
           border: 2px solid var(--poppy);
