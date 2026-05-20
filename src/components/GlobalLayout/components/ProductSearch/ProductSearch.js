@@ -106,7 +106,7 @@ const Search = () => {
 
 const StyledProductSearch = styled.div`
   & {
-    margin: 0.5em auto 0;
+    margin: 0.5em auto 2rem;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
@@ -159,7 +159,7 @@ const StyledProductSearch = styled.div`
         border: 1px solid var(--mainWhite);
         font-size: 0.8rem;
         text-align: left;
-        line-height: 1.2;
+        line-height: normal;
       }
 
       & a {

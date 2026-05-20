@@ -12,28 +12,18 @@ const Product = ({ singleProductPage = false, data, className }) => {
     skinType,
     description: { description },
     keyIngredients,
-    isAwardWinner,
-    awardImage,
   } = data
 
   return (
     <article className={`${className}`} id={slug}>
       {!!singleProductPage ? (
         <h1>
-          <ProductTitle
-            name={name}
-            isAwardWinner={isAwardWinner}
-            awardImage={awardImage}
-          />
+          <ProductTitle product={data} />
           <ProductBadges product={data} />
         </h1>
       ) : (
         <h2>
-          <ProductTitle
-            name={name}
-            isAwardWinner={isAwardWinner}
-            awardImage={awardImage}
-          />
+          <ProductTitle product={data} />
           <ProductBadges product={data} />
         </h2>
       )}
@@ -79,10 +69,10 @@ const Product = ({ singleProductPage = false, data, className }) => {
   )
 }
 
-const ProductTitle = ({ name, isAwardWinner, awardImage }) => {
+const ProductTitle = ({ product: { name, isAwardWinner, awardImage } }) => {
   return (
-    <div className={`product-title ${!!isAwardWinner ? 'award' : ''}`}>
-      <span className="name">{name}</span>
+    <div className={`product-title`}>
+      <span className={`name`}>{name}</span>
       {!!isAwardWinner && (
         <GatsbyImage
           className="emblem"
@@ -94,18 +84,13 @@ const ProductTitle = ({ name, isAwardWinner, awardImage }) => {
   )
 }
 
-const ProductBadges = ({ product }) => {
-  let {
-    name,
-    isAcneSafe,
-    isProOnly,
-    isBst,
-    pdf: [pdfZero],
-    isAwardWinner,
-  } = product
+const ProductBadges = ({
+  product: { name, isAcneSafe, isProOnly, isBst, pdf },
+}) => {
+  let [pdfZero] = pdf
 
   return (
-    <div className={`product-badges}`}>
+    <div className={`product-badges`}>
       {isAcneSafe && (
         <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>
       )}
@@ -144,20 +129,30 @@ export default styled(Product)`
       text-align: left;
       white-space: unset;
       & .product-title {
+        align-items: flex-end;
+        display: flex;
+        gap: 0.625rem;
+        justify-content: flex-start;
         line-height: var(--headingLineHeight);
-        &.award {
-          align-items: flex-end;
-          display: flex;
-          gap: 0.625rem;
+        & .name {
+          display: inline-block;
+          font-size: 2rem; /* keep here */
+          line-height: normal;
+          min-width: 325px; /* stop emblem from hiding badges (aprox badges min-width)*/
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         & .emblem {
           min-width: 80px;
+          top: 1rem;
         }
-        & .name {
-          font-size: 2rem; /* keep here */
-          line-height: normal;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        @media (max-width: 576px) {
+          & .name {
+            min-width: unset;
+          }
+          & .emblem {
+            top: unset;
+          }
         }
       }
       & .product-badges {
