@@ -17,9 +17,6 @@ export const productDetailFragment = graphql`
     video
     keyIngredients {
       id
-      name {
-        formatted
-      }
       title
       benefit
     }

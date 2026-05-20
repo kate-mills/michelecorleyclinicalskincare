@@ -27,9 +27,9 @@ const Product = ({ singleProductPage = false, data, className }) => {
           <ProductBadges product={data} />
         </h2>
       )}
-      <h3 className={`product-skintypes italic`}>
+      <h3 className={`product-skintypes`}>
         {skinType.map((item, index) => (
-          <span className={'skintype bold'} key={index}>
+          <span className={'skintype bold italic'} key={index}>
             {item}
           </span>
         ))}
@@ -48,16 +48,11 @@ const Product = ({ singleProductPage = false, data, className }) => {
       <div className="product-ingredients">
         <p className="bold">A FEW KEY Ingredients:</p>
         <ul data-bullet-list id="ingredient-list">
-          {keyIngredients.map(ing => {
-            let {
-              name: { formatted: fmtNm },
-              title,
-              benefit,
-            } = ing
+          {keyIngredients.map(({ id, title, benefit }) => {
             return (
-              <li className="key-ingredient" key={ing.id}>
+              <li className="key-ingredient" key={id}>
                 <p className="pb0">
-                  <span className="bold">{`${title || fmtNm}: `}</span>
+                  <span className="bold">{`${title}: `}</span>
                   <span>{` ${benefit}`}</span>
                 </p>
               </li>
