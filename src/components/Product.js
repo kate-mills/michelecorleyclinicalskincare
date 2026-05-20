@@ -105,7 +105,7 @@ const ProductBadges = ({ product }) => {
   } = product
 
   return (
-    <div className={`product-badges ${isAwardWinner ? "is-winner": ""}`}>
+    <div className={`product-badges}`}>
       {isAcneSafe && (
         <span className={`badge txt-sm txt-center acne-safe`}>ACNE SAFE</span>
       )}
@@ -146,13 +146,9 @@ export default styled(Product)`
       & .product-title {
         line-height: var(--headingLineHeight);
         &.award {
-          align-items: center;
+          align-items: flex-end;
           display: flex;
-          gap: 10px;
-          & .name {
-            position: relative;
-            top: 0.75rem;
-          }
+          gap: 0.625rem;
         }
         & .emblem {
           min-width: 80px;
@@ -165,12 +161,8 @@ export default styled(Product)`
         }
       }
       & .product-badges {
-        align-items: center;
         display: flex;
         flex-wrap: wrap;
-        &.is-winner{
-          margin-block-start: 0.5rem;
-        }
         .badge {
           background: var(--poppy0);
           border: 2px solid var(--poppy);
