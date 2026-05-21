@@ -81,6 +81,23 @@ const ProductImageTemplate = props => {
             alt={`${retailOrProText} ${product.name}`}
           />
         </div>
+
+        {product?.awardImage && (
+          <div className="img-box">
+            <a
+              href={product?.awardImage?.publicUrl}
+              className="btn"
+              download={`Award Emblem for ${product.name}`}
+            >
+              {`Download Award Emblem`}
+            </a>
+            <GatsbyImage
+              className="img award-img"
+              image={product.awardImage?.gatsbyImageData}
+              alt={`Award Emblem for ${product.name}`}
+            />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -104,6 +121,14 @@ export const query = graphql`
       }
       imgTravel {
         gatsbyImageData
+        publicUrl
+        placeholderUrl
+        localFile {
+          publicURL
+        }
+      }
+      awardImage {
+        gatsbyImageData(width: 250, height: 250, quality: 100)
         publicUrl
         placeholderUrl
         localFile {
