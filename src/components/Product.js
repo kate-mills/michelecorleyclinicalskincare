@@ -4,6 +4,9 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { Link } from 'gatsby'
 
+
+import VideoPlayer from './VideoPlayer'
+
 const Product = ({ singleProductPage = false, data, className }) => {
   const {
     imgRetail,
@@ -12,6 +15,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
     skinType,
     description: { description },
     keyIngredients,
+    video
   } = data
 
   return (
@@ -44,6 +48,9 @@ const Product = ({ singleProductPage = false, data, className }) => {
             />
           </Link>
         </div>
+        {!!video && (
+          <VideoPlayer src={`https://player.vimeo.com/video/${video}`}/>
+        )}
       </div>
       <div className="product-ingredients">
         <p className="bold">A FEW KEY Ingredients:</p>
@@ -204,6 +211,17 @@ export default styled(Product)`
             margin-inline-end: 0.3rem;
           }
         }
+      }
+    }
+    & .product-media{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      div.product-image{
+        min-width: 300px;
+      }
+      div.video{
+        max-width: 500px;
       }
     }
     & .product-ingredients {
