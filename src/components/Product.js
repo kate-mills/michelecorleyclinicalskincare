@@ -39,7 +39,7 @@ const Product = ({ singleProductPage = false, data, className }) => {
         ))}
       </h3>
       <p className="product-description pb0">{description}</p>
-      <div className={`product-media`}>
+      <div className={`${!video ? 'product-media': 'product-media flexed' }`}>
         <div className="product-image">
           <Link to={`/product-images-and-logos/${slug}`} state={{ id: slug }}>
             <GatsbyImage
@@ -48,9 +48,8 @@ const Product = ({ singleProductPage = false, data, className }) => {
             />
           </Link>
         </div>
-        {!!video && (
-          <VideoPlayer src={`https://player.vimeo.com/video/${video}`}/>
-        )}
+
+        {!!video && ( <VideoPlayer src={`https://player.vimeo.com/video/${video}`} />)}
       </div>
       <div className="product-ingredients">
         <p className="bold">A FEW KEY Ingredients:</p>
@@ -214,14 +213,10 @@ export default styled(Product)`
       }
     }
     & .product-media{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      div.product-image{
-        min-width: 300px;
-      }
-      div.video{
-        max-width: 500px;
+      &.flexed{
+        display: flex;
+        flex-wrap: wrap;
+        margin-block-end: 2rem;
       }
     }
     & .product-ingredients {
