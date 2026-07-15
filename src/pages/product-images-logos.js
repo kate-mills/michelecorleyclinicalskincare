@@ -117,7 +117,7 @@ export const query = graphql`
           contentful_id
           name
           slug
-          thumb {
+          thumb:image {
             gatsbyImageData(height: 500, quality: 100)
           }
         }
