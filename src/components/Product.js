@@ -216,7 +216,8 @@ export default styled(Product)`
       &.flexed{
         display: flex;
         flex-wrap: wrap;
-        margin-block-end: 2rem;
+        align-items: center;
+        margin-block: 0.5rem 2rem;
       }
     }
     & .product-ingredients {
