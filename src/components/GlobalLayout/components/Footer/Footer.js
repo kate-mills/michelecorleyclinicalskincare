@@ -10,7 +10,6 @@ import {
 const Footer = ({ className }) => {
   return (
     <footer className={className}>
-      <p>Our Products Are Proudly Made In The USA.</p>
       <svg
         id="infinity"
         width="1036"
