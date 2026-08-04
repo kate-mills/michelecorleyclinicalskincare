@@ -23,10 +23,10 @@ const Manuals = () => {
               esty[0].data.image.localFiles[0].childImageSharp.gatsbyImageData
             }
           />
-          <DownloadList data={manuals.nodes.slice(0, 4)} />
+          <DownloadList data={manuals.nodes.slice(0, 3)} />
         </div>
         <div className={'sectionFlexSingle'}>
-          <DownloadList data={manuals.nodes.slice(4)} />
+          <DownloadList data={manuals.nodes.slice(3)} />
         </div>
       </section>
     </StyledArticle>
