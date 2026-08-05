@@ -33,7 +33,7 @@ export default styled(SpaFndrFixedLink)`
     z-index: 9998;
     > .link-content {
       &:focus{
-        outline: 2px solid var(--poppy5);
+        outline: 2px solid var(--yellow);
         outline-offset: -4px;
       }
       background: var(--poppy) !important;
