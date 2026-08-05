@@ -26,7 +26,7 @@ const Manuals = () => {
           <DownloadList data={manuals.nodes.slice(0, 3)} />
         </div>
         <div className={'sectionFlexSingle'}>
-          <DownloadList data={manuals.nodes.slice(3)} />
+          <DownloadList data={manuals.nodes.slice(3, manuals.nodes.length)} />
         </div>
       </section>
     </StyledArticle>
@@ -36,39 +36,22 @@ const Manuals = () => {
 const StyledArticle = styled.article`
   & {
     .manuals {
-      width: 100%;
-      margin: 0 auto 1rem;
-      text-align: center;
-
       .sectionFlexItems {
         align-items: flex-start;
         align-content: flex-start;
         display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-
-        > div {
-          width: 50%;
-        }
         .estheticianImg {
           margin-inline: auto;
         }
       }
+      /* lower list on page */
       .sectionFlexSingle {
         display: flex;
-        > div > div {
-          width: 50%;
-        }
+        margin-block: 1rem 0;
       }
       @media screen and (max-width: 719px) {
         .estheticianImg {
           display: none;
-        }
-        .sectionFlexItems {
-          /* download list */
-          > div {
-            width: 100%;
-          }
         }
         .sectionFlexSingle {
           /* individual download */

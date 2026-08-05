@@ -73,7 +73,7 @@ const StyledDiv = styled.div`
   & {
     margin: 0 auto;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: center;
     & .download {
       font-size: x-small;
