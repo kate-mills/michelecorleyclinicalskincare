@@ -19,7 +19,7 @@ const ProOrderFixedLink = ({ className}) => {
 export default styled(ProOrderFixedLink)`
   & {
     font-family: var(--mainFont);
-    background: var(--poppy5);
+    background: var(--yellow);
     position: fixed;
     right: 20px;
     bottom: 15px;
