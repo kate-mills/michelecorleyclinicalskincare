@@ -18,6 +18,8 @@ const Product = ({ singleProductPage = false, data, className }) => {
     video
   } = data
 
+  let sortedSkinTypes = skinType.sort((a, b) => a.localeCompare(b))
+
   return (
     <article className={`${className}`} id={slug}>
       {!!singleProductPage ? (
@@ -32,9 +34,9 @@ const Product = ({ singleProductPage = false, data, className }) => {
         </h2>
       )}
       <h3 className={`product-skintypes`}>
-        {skinType.map((item, index) => (
+        {sortedSkinTypes.map((item, index) => (
           <span className={'skintype bold italic'} key={index}>
-            {item}
+            {item.replace('*', '')}
           </span>
         ))}
       </h3>
