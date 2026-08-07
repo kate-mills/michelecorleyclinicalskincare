@@ -9,6 +9,7 @@ import {
   Manuals,
   Kits,
   Facials,
+  Classes,
 } from '../components/Pros'
 import { GlobalLayout, Seo } from '../components'
 
@@ -32,12 +33,16 @@ const Pros = props => {
           component={Facials}
           location={location}
         />
-
-        {/*
-        <PrivateRoute path={`/pros/classes/`} location={location} component={Classes} />
-        <PrivateRoute path={`/pros/classes/:tag/`} location={location} component={Classes} />
-        */}
-
+        <PrivateRoute
+          path={`/pros/classes/`}
+          location={location}
+          component={Classes}
+        />
+        <PrivateRoute
+          path={`/pros/classes/:tag/`}
+          location={location}
+          component={Classes}
+        />
         <PrivateRoute
           path={`/pros/orders/`}
           location={location}
@@ -61,14 +66,7 @@ export const query = graphql`
     }
   }
 `
-export const Head = ({
-  location: { pathname },
-  params,
-  data: {
-    media: { localFiles },
-  },
-  pageContext,
-}) => {
+export const Head = ({location: {pathname}, params, data:{media:{localFiles}}, pageContext}) => {
   let [f] = localFiles
   return (
     <Seo

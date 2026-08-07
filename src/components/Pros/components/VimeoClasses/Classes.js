@@ -1,5 +1,5 @@
 import React from 'react'
-import ProVideo from './ProVideo'
+//import ProVideo from './ProVideo'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
@@ -54,14 +54,8 @@ const Classes = props => {
       <section>
         {filteredClasses.map(({ title, dt, tags, videoId }) => {
           return (
-            <ProVideo
-              key={videoId}
-              title={title}
-              dt={dt}
-              tags={tags}
-              videoId={videoId}
-              paramTag={tag}
-            />
+            </>
+            {/*<ProVideo key={videoId} title={title} dt={dt} tags={tags} videoId={videoId} paramTag={tag} /> */}
           )
         })}
       </section>
