@@ -7,14 +7,19 @@ import styled from 'styled-components'
 const Profile = () => {
   const data = useStaticQuery(query)
   const { kits } = data
-  const kitsSlice1 = kits.nodes.slice(0, kits.nodes.length / 2)
-  const kitsSlice2 = kits.nodes.slice(kits.nodes.length / 2)
+  let len = kits.nodes.length
+  const kitsSlice1 = kits.nodes.slice(0, len / 2)
+  const kitsSlice2 = kits.nodes.slice(len / 2)
   return (
     <StyledArticle>
       <section className={'kits'}>
         <div className={'sectionFlexItems'}>
-          <DownloadList data={kitsSlice1} />
+          {/*
+           * 2nd group of kits placed 1st,
+           * odd kit will be on left side
+           */}
           <DownloadList data={kitsSlice2} />
+          <DownloadList data={kitsSlice1} />
         </div>
       </section>
     </StyledArticle>
@@ -26,14 +31,13 @@ export default Profile
 const query = graphql`
   {
     kits: allAirtable(
-      filter: {table: {eq: "Manuals"}, data: {isKit: {eq: true}}}
-      sort: {data: {orderId: ASC}}
+      filter: { table: { eq: "Manuals" }, data: { isKit: { eq: true } } }
+      sort: { data: { orderId: ASC } }
     ) {
       nodes {
         id
         data {
           name
-          isNew
           dateUpdated(formatString: "MM/DD/YY")
           notes
           pdf {

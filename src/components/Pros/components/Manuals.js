@@ -73,7 +73,6 @@ const query = graphql`
       nodes {
         id
         data {
-          isNew
           dateUpdated(formatString: "MM/DD/YY")
           name
           notes
