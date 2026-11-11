@@ -5,13 +5,12 @@ import { GlobalLayout, SpaFndr, Seo } from '../components'
 
 const SpaFndrPage = ({ data }) => {
   return (
-    <GlobalLayout showSpaFndrLnk={false}>
+    <GlobalLayout showSpaFndrLnk={false} showSearch={false}>
       <SpaFndrPageWrapper>
         <div className="txt-center">
-          <h1>Get Your Hands On Our Products</h1>
+          <h1>Find Us In Spas Near You</h1>
           <h2>
-            Please enter your city, state, or zip code in the search bar below
-            to find the nearest spas and estheticians carrying our products.
+            Enter your city, state, or zip code in the search bar below to find the nearest spas and skin care specialists that carry our products.
           </h2>
         </div>
         <SpaFndr />
@@ -27,6 +26,15 @@ const SpaFndrPageWrapper = styled.section`
       }
       h2 {
         font-size: 0.8125rem;
+        margin: 0 auto;
+        text-transform: none;
+        width: 60%;
+        @media (max-width: 768px){
+          width: 85%;
+        }
+        @media (max-width: 480px){
+          width: 90%;
+        }
       }
     }
   }

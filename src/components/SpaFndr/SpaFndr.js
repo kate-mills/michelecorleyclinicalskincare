@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as JsSearch from 'js-search'
 import { useSpaData } from './use-spa-data'
 import { FaShoppingCart } from 'react-icons/fa'
@@ -14,10 +14,9 @@ const SpaFndr = props => {
   const [search, setSearch] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
-  const formInputRef = React.useRef(null)
+  const refContainer = useRef(null)
 
   useEffect(() => {
-    formInputRef.current.focus()
     const dataToSearch = new JsSearch.Search('spaid')
 
     dataToSearch.indexStrategy = new JsSearch.PrefixIndexStrategy()
@@ -37,6 +36,10 @@ const SpaFndr = props => {
     dataToSearch.addDocuments(allSpas)
     setSearch(dataToSearch)
   }, [airtableSpas])
+
+  useEffect(() => {
+    refContainer.current.focus()
+  })
 
   const trimSpaces = q => {
     q = q.replace(/^\s/, '')
@@ -61,6 +64,7 @@ const SpaFndr = props => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    refContainer.current.focus()
   }
 
   const queryResults =
@@ -74,13 +78,13 @@ const SpaFndr = props => {
     <div style={{ height: 'fit-content' }}>
       <StyledSpaLocatorForm onSubmit={handleSubmit}>
         <input
-          ref={formInputRef}
+          ref={refContainer}
           tabIndex={0}
           aria-label="Search"
           autoComplete="off"
           id="StoreLocator"
           onChange={searchData}
-          placeholder={'Type a city, state, or postcode...'}
+          placeholder={'Enter a city, state, or zip code...'}
           type="text"
           value={searchQuery}
           className={`${
@@ -139,7 +143,9 @@ const SpaFndr = props => {
                         <div className={'city'}>
                           <span
                             className={`${
-                              isRegexMatch(searchQuery, city) ? ' highlight' : ''
+                              isRegexMatch(searchQuery, city)
+                                ? ' highlight'
+                                : ''
                             }`}
                           >
                             {city}
@@ -158,7 +164,7 @@ const SpaFndr = props => {
                             {statecode}
                           </span>
                         </div>
-                        <div className="space">{' '}</div>
+                        <div className="space"> </div>
                         <div className={`zip`}>
                           <span className="zipcode">
                             <span
@@ -175,7 +181,9 @@ const SpaFndr = props => {
                       </div>
                     </address>
                     <address className="spa-urls">
-                      <div className="ph">{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
+                      <div className="ph">
+                        {phone && <a href={`tel:${phone}`}>{phone}</a>}
+                      </div>
                       <div className="email">
                         {email && <a href={`mailto:${email}`}>{email}</a>}
                       </div>

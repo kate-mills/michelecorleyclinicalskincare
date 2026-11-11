@@ -27,7 +27,6 @@ export const StyledSpaLocatorForm = styled.form`
     width: 100%;
     background-color: var(--mainWhite);
     input#StoreLocator {
-      outline: none;
       background-color: white;
       background-position: 10px 10px;
       background-repeat: no-repeat;
@@ -36,17 +35,40 @@ export const StyledSpaLocatorForm = styled.form`
       border-radius: 4px;
       display: block;
       margin: 20px auto 0;
+      outline: none;
       padding: 12px 20px 12px 40px;
       transition: width 0.4s ease-in-out;
       -webkit-transition: width 0.4s ease-in-out;
-      width: calc(100% - 100px);
+
+      {/* START CALC WIDTH */}
+      width: calc(70% - 200px);
+      @media(max-width:  720px){
+        width: calc(80% - 100px);
+      }
+      @media(max-width: 480px){
+        width: calc(100% - 100px);
+      }
+      @media(max-width: 200px){
+        width: calc(100% - 10px);
+      }
+      {/* END CALC WIDTH */}
     }
     input#StoreLocator:active,
     input#StoreLocator:focus {
-      width: 100%;
-      border-color: var(--poppyDark);
-      padding-left: ${JUSTIFY_LEFT_PX};
       background-image: none;
+      border-color: var(--poppy);
+      outline: 1px solid #ccc;
+      padding-left: calc(${JUSTIFY_LEFT_PX} - 15px);
+
+      {/* START WIDTH */}
+      width: 70%;
+      @media(max-width:  720px){
+        width: 80%;
+      }
+      @media(max-width: 480px){
+        width: 100%;
+      }
+      {/* END WIDTH */}
     }
     input#StoreLocator.input-err,
     input#StoreLocator.input-err:active,
@@ -68,7 +90,7 @@ export const StyledSpaList = styled.ul`
       display: grid;
       gap: 2px 2.5633333px;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      width: calc(100% + 15px);
+      width: calc(100% + 10px);
       margin-left: -10px;
     }
 

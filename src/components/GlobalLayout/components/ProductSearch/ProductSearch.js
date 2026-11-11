@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import * as JsSearch from 'js-search'
@@ -10,6 +10,7 @@ const Search = () => {
   const [search, setSearch] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+  const refContainer = useRef(null);
 
   /** rebuilds the overall index based on the options */
   useEffect(() => {
@@ -45,10 +46,12 @@ const Search = () => {
 
   const clearSearch = e => {
     setSearchQuery('')
+    refContainer.current.focus();
   }
 
   const handleSubmit = e => {
     e.preventDefault()
+    refContainer.current.focus();
   }
 
   const queryResults = searchQuery === '' ? [] : searchResults
@@ -65,6 +68,7 @@ const Search = () => {
           placeholder="Search Products..."
           type="text"
           value={searchQuery}
+          ref={refContainer}
         />
         {!!searchQuery.length && <button onClick={clearSearch}>X</button>}
       </form>
@@ -132,6 +136,7 @@ const StyledProductSearch = styled.div`
         -webkit-transition: width 0.4s ease-in-out;
         &:active,
         &:focus {
+          border: 2px solid var(--yellow);
           border-color: var(--poppy);
         }
       }
@@ -173,7 +178,7 @@ const StyledProductSearch = styled.div`
       }
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       & form,
       & table {
         & .search__input {

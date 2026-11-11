@@ -25,7 +25,7 @@ const GlobalLayout = ({
         <main>
           <SmNavbar />
           <Logo />
-          {!!showSearch && <ProductSearch />}
+          {!!showSearch && <ProductSearch showSearch={showSearch}/>}
           <LgNavbar isPro={isPro}/>
           {children}
           <Footer />
